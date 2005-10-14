@@ -150,7 +150,7 @@ class SimpleCaptcha {
 		
 		$out->addWikiText( wfMsg( "captcha-short" ) );	
 		$out->addHTML( <<<END
-			<p><span id="$source">$test</span> = <input name="$dest" id="$dest" /></p>
+			<p><span id="$source"><label for="$dest">$test</label></span> = <input name="$dest" id="$dest" /></p>
 END
 			);
 	}

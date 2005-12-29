@@ -12,10 +12,11 @@ global $wgExtensionFunctions, $wgGroupPermissions;
 
 $wgExtensionFunctions[] = 'ceSetup';
 
-$wgGroupPermissions['*'        ]['skipcaptcha'] = false;
-$wgGroupPermissions['user'     ]['skipcaptcha'] = false;
-$wgGroupPermissions['bot'      ]['skipcaptcha'] = true; // registered bots
-$wgGroupPermissions['sysop'    ]['skipcaptcha'] = true;
+$wgGroupPermissions['*'            ]['skipcaptcha'] = false;
+$wgGroupPermissions['user'         ]['skipcaptcha'] = false;
+$wgGroupPermissions['autoconfirmed']['skipcaptcha'] = false;
+$wgGroupPermissions['bot'          ]['skipcaptcha'] = true; // registered bots
+$wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
 
 global $wgCaptcha, $wgCaptchaClass, $wgCaptchaTriggers;
 $wgCaptcha = null;

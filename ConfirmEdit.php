@@ -74,6 +74,13 @@ global $ceAllowConfirmedEmail;
 $ceAllowConfirmedEmail = false;
 
 /**
+ * Regex to whitelist URLs to known-good sites...
+ * For instance:
+ * $wgCaptchaWhitelist = '#^https?://([a-z0-9-]+\\.)?(wikimedia|wikipedia)\.org/#i';
+ */
+$wgCaptchaWhitelist = false;
+
+/**
  * Set up message strings for captcha utilities.
  */
 function ceSetup() {
@@ -209,8 +216,9 @@ class SimpleCaptcha {
 			
 			$oldLinks = $this->findLinks( $oldtext );
 			$newLinks = $this->findLinks( $newtext );
+			$unknownLinks = array_filter( $newLinks, array( &$this, 'filterLink' ) );
 			
-			$addedLinks = array_diff( $newLinks, $oldLinks );
+			$addedLinks = array_diff( $unknownLinks, $oldLinks );
 			$numLinks = count( $addedLinks );
 			
 			if( $numLinks > 0 ) {
@@ -225,6 +233,16 @@ class SimpleCaptcha {
 		}
 		
 		return false;
+	}
+	
+	/**
+	 * Filter callback function for URL whitelisting
+	 * @return bool true if unknown, false if whitelisted
+	 * @access private
+	 */
+	function filterLink( $url ) {
+		global $wgCaptchaWhitelist;
+		return !( $wgCaptchaWhitelist && preg_match( $wgCaptchaWhitelist, $url ) );
 	}
 	
 	/**

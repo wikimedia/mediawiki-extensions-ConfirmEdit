@@ -18,9 +18,9 @@ class FancyCaptcha extends SimpleCaptcha {
 			return false;
 		}
 		
-		$var  = $_SESSION['ceAnswerVar'];
-		$salt = $_SESSION['captchaSalt'];
-		$hash = $_SESSION['captchaHash'];
+		$var  = @$_SESSION['ceAnswerVar'];
+		$salt = @$_SESSION['captchaSalt'];
+		$hash = @$_SESSION['captchaHash'];
 		
 		$answer = $wgRequest->getVal( $var );
 		$digest = $wgCaptchaSecret . $salt . $answer . $wgCaptchaSecret . $salt;
@@ -35,12 +35,15 @@ class FancyCaptcha extends SimpleCaptcha {
 		}
 	}
 	
+	/**
+	 * Insert the captcha prompt into the edit form.
+	 */
 	function formCallback( &$out ) {
 		$dest = 'wpCaptchaWord' . mt_rand();
 		
 		$img = $this->pickImage();
 		if( !$img ) {
-			die( 'aaargh' );
+			die( "out of captcha images; this shouldn't happen" );
 		}
 		
 		$_SESSION['ceAnswerVar'] = $dest;
@@ -50,37 +53,66 @@ class FancyCaptcha extends SimpleCaptcha {
 		wfDebug( "Picked captcha with hash ${img['hash']}, salt ${img['salt']}.\n" );
 		
 		$title = Title::makeTitle( NS_SPECIAL, 'Captcha/image' );
-		$url = $title->getLocalUrl();
-		
 		
 		$out->addWikiText( wfMsg( "captcha-short" ) );	
-		$out->addHTML( <<<END
-			<p><img src="$url" alt="Oh noes" /></p>
-			<p><input name="$dest" id="$dest" /></p>
-END
-			);
+		$out->addHTML( "<p>" . 
+			wfElement( 'img', array(
+				'src'    => $title->getLocalUrl(),
+				'width'  => $img['width'],
+				'height' => $img['height'],
+				'alt'    => '' ) ) .
+			"</p>\n" .
+			"<p><input name=\"$dest\" id=\"$dest\" tabindex=\"1\" /></p>" );
 	}
 	
+	/**
+	 * Select a previously generated captcha image from the queue.
+	 * @fixme subject to race conditions if lots of files vanish
+	 * @return mixed tuple of (salt key, text hash) or false if no image to find
+	 */
 	function pickImage() {
 		global $wgCaptchaDirectory;
+		$pick = mt_rand( 0, $this->countFiles( $wgCaptchaDirectory ) );
 		$dir = opendir( $wgCaptchaDirectory );
 		
 		$n = mt_rand( 0, 16 );
 		$count = 0;
 		
 		$entry = readdir( $dir );
+		$pick = false;
 		while( false !== $entry ) {
 			$entry = readdir( $dir );
 			if( preg_match( '/^image_([0-9a-f]+)_([0-9a-f]+)\\.png$/', $entry, $matches ) ) {
-				if( $count++ % 16 == $n ) {
-					return array(
-						'salt' => $matches[1],
-						'hash' => $matches[2],
-					);
+				$size = getimagesize( "$wgCaptchaDirectory/$entry" );
+				$pick = array(
+					'salt' => $matches[1],
+					'hash' => $matches[2],
+					'width' => $size[0],
+					'height' => $size[1]
+				);
+				if( $count++ == $n ) {
+					break;
 				}
 			}
 		}
-		return false;
+		closedir( $dir );
+		return $pick;
+	}
+	
+	/**
+	 * Count the number of files in a directory.
+	 * @return int
+	 */
+	function countFiles( $dirname ) {
+		$dir = opendir( $dirname );
+		$count = 0;
+		while( false !== ($entry = readdir( $dir ) ) ) {
+			if( $dir != '.' && $dir != '..' ) {
+				$count++;
+			}
+		}
+		closedir( $dir );
+		return $count;
 	}
 	
 	function showImage() {

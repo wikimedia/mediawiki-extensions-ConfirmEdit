@@ -38,9 +38,32 @@ $ceAllowConfirmedEmail = false;
  */
 function ceSetup() {
 	global $wgMessageCache, $wgHooks, $wgCaptcha, $wgCaptchaClass;
-	$wgMessageCache->addMessage('captcha-short', "Your edit includes new URL links; as a protection
-		against automated spam, you'll need to enter the answer to this
-		simple arithmetic test:" );
+	$wgMessageCache->addMessages( array(
+		'captcha-short' =>
+			"Your edit includes new URL links; as a protection against automated " .
+			"spam, you'll need to type in the words that appear in this image:\n" .
+			"<br />([[Special:Captcha/help|What is this?]])",
+		'captchahelp-title' =>
+			'Captcha help',
+		'captchahelp-text' =>
+			"Web sites that accept postings from the public, like this wiki, " .
+			"are often abused by spammers who use automated tools to post their " .
+			"links to many sites. While these spam links can be removed, they " .
+			"are a significant nuisance." .
+			"\n\n" .
+			"Sometimes, especially when adding new web links to a page, " .
+			"the wiki may show you an image of colored or distorted text and " .
+			"ask you to type the words shown. Since this is a task that's hard " .
+			"to automate, it will allow most real humans to make their posts " . 
+			"while stopping most spammers and other robotic attackers." .
+			"\n\n" .
+			"Unfortunately this may inconvenience users with limited vision or " .
+			"using text-based or speech-based browsers. At the moment we do not " .
+			"have an audio alternative available. Please contact the site " .
+			"administrators for assistance if this is unexpectedly preventing " .
+			"you from making legitimate posts." . 
+			"\n\n" .
+			"Hit the 'back' button in your browser to return to the page editor." ) );
 	
 	SpecialPage::addPage( new SpecialPage( 'Captcha', false,
 		/*listed*/ false, /*function*/ false, /*file*/ false ) );
@@ -102,7 +125,12 @@ class SimpleCaptcha {
 			$numLinks = count( $addedLinks );
 			
 			if( $numLinks > 0 ) {
-				wfDebug( "SimpleCaptcha: found $numLinks new links; triggered...\n" );
+				global $wgUser, $wgTitle;
+				wfDebugLog( "captcha", sprintf( "ConfirmEdit: %dx url trigger by %s at [[%s]]: %s",
+					$numLinks,
+					$wgUser->getName(),
+					$wgTitle->getPrefixedText(),
+					implode( ", ", $addedLinks ) ) );
 				return true;
 			}
 		}
@@ -182,13 +210,8 @@ END
 	
 	function showHelp() {
 		global $wgOut, $ceAllowConfirmedEmail;
-		$wgOut->setPageTitle( 'Captcha help' );
-		$wgOut->addWikiText( <<<END
-	So what's this wacky captcha thing about?
-	
-	It's your enemy. It's here to kill you. RUN WHILE YOU STILL CAN
-END
-			);
+		$wgOut->setPageTitle( wfMsg( 'captchahelp-title' ) );
+		$wgOut->addWikiText( wfMsg( 'captchahelp-text' ) );
 	}
 	
 }

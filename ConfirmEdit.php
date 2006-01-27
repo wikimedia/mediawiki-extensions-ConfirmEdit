@@ -1,10 +1,31 @@
 <?php
-
-# Prelim in-progress code. Proof of concept for framework, not
-# intended as a real production captcha system!
-
-# Loader for simple captcha feature
-# Include this from LocalSettings.php
+/**
+ * Experimental captcha plugin framework.
+ * Not intended as a real production captcha system; derived classes
+ * can extend the base to produce their fancy images in place of the
+ * text-based test output here.
+ *
+ * Copyright (C) 2005, 2006 Brion Vibber <brion@pobox.com>
+ * http://www.mediawiki.org/
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @package MediaWiki
+ * @subpackage Extensions
+ */
 
 if ( defined( 'MEDIAWIKI' ) ) {
 
@@ -12,6 +33,14 @@ global $wgExtensionFunctions, $wgGroupPermissions;
 
 $wgExtensionFunctions[] = 'ceSetup';
 
+/**
+ * The 'skipcaptcha' permission key can be given out to
+ * let known-good users perform triggering actions without
+ * having to go through the captcha.
+ *
+ * By default, sysops and registered bot accounts will be
+ * able to skip, while others have to go through it.
+ */
 $wgGroupPermissions['*'            ]['skipcaptcha'] = false;
 $wgGroupPermissions['user'         ]['skipcaptcha'] = false;
 $wgGroupPermissions['autoconfirmed']['skipcaptcha'] = false;
@@ -22,6 +51,17 @@ global $wgCaptcha, $wgCaptchaClass, $wgCaptchaTriggers;
 $wgCaptcha = null;
 $wgCaptchaClass = 'SimpleCaptcha';
 
+/**
+ * Currently the captcha works only for page edits.
+ *
+ * If the 'edit' trigger is on, *every* edit will trigger the captcha.
+ * This may be useful for protecting against vandalbot attacks.
+ *
+ * If using the default 'addurl' trigger, the captcha will trigger on
+ * edits that include URLs that aren't in the current version of the page.
+ * This should catch automated linkspammers without annoying people when
+ * they make more typical edits.
+ */
 $wgCaptchaTriggers = array();
 $wgCaptchaTriggers['edit']   = false; // Would check on every edit
 $wgCaptchaTriggers['addurl'] = true;  // Check on edits that add URLs
@@ -88,6 +128,55 @@ function wfSpecialCaptcha( $par = null ) {
 
 class SimpleCaptcha {
 	/**
+	 * Insert a captcha prompt into the edit form.
+	 * This sample implementation generates a simple arithmetic operation;
+	 * it would be easy to defeat by machine.
+	 *
+	 * Override this!
+	 *
+	 * @param OutputPage $out
+	 */
+	function formCallback( &$out ) {
+		$a = mt_rand(0, 100);
+		$b = mt_rand(0, 10);
+		$op = mt_rand(0, 1) ? '+' : '-';
+		
+		$test = "$a $op $b";
+		$answer = ($op == '+') ? ($a + $b) : ($a - $b);
+		
+		$index = $this->storeCaptcha( array( 'answer' => $answer ) );
+		
+		$out->addWikiText( wfMsg( "captcha-short" ) );	
+		$out->addHTML( "<p><label for=\"wpCaptchaWord\">$test</label> = " .
+			wfElement( 'input', array(
+				'name' => 'wpCaptchaWord',
+				'id'   => 'wpCaptchaWord',
+				'tabindex' => 1 ) ) . // tab in before the edit textarea
+			"</p>\n" .
+			wfElement( 'input', array(
+				'type'  => 'hidden',
+				'name'  => 'wpCaptchaId',
+				'id'    => 'wpCaptchaId',
+				'value' => $index ) ) );
+	}
+	
+	/**
+	 * Check if the submitted form matches the captcha session data provided
+	 * by the plugin when the form was generated.
+	 *
+	 * Override this!
+	 *
+	 * @param WebRequest $request
+	 * @param array $info
+	 * @return bool
+	 */
+	function keyMatch( $request, $info ) {
+		return $request->getVal( 'wpCaptchaWord' ) == $info['answer'];
+	}
+	
+	// ----------------------------------
+	
+	/**
 	 * @param EditPage $editPage
 	 * @param string $newtext
 	 * @param string $section
@@ -96,21 +185,21 @@ class SimpleCaptcha {
 	function shouldCheck( &$editPage, $newtext, $section ) {
 		global $wgUser;
 		if( $wgUser->isAllowed( 'skipcaptcha' ) ) {
-			wfDebug( "SimpleCaptcha: user group allows skipping captcha\n" );
+			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
 			return false;
 		}
 	
 		global $wgEmailAuthentication, $ceAllowConfirmedEmail;
 		if( $wgEmailAuthentication && $ceAllowConfirmedEmail &&
 			$wgUser->isEmailConfirmed() ) {
-			wfDebug( "SimpleCaptcha: user has confirmed mail, skipping captcha\n" );
+			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );
 			return false;
 		}
 		
 		global $wgCaptchaTriggers;
 		if( !empty( $wgCaptchaTriggers['edit'] ) ) {
 			// Check on all edits
-			wfDebug( "SimpleCaptcha: checking all edits...\n" );
+			wfDebug( "ConfirmEdit: checking all edits...\n" );
 			return true;
 		}
 		
@@ -138,52 +227,77 @@ class SimpleCaptcha {
 		return false;
 	}
 	
+	/**
+	 * The main callback run on edit attempts.
+	 * @param EditPage $editPage
+	 * @param string $newtext
+	 * @param string $section
+	 * @param bool true to continue saving, false to abort and show a captcha form
+	 */
 	function confirmEdit( &$editPage, $newtext, $section ) {
 		if( $this->shouldCheck( $editPage, $newtext, $section ) ) {
-			if( $this->keyMatch() ) {
-				wfDebug( "ConfirmEdit given proper key from form, passing.\n" );
-				return true;
+			$info = $this->retrieveCaptcha();
+			if( $info ) {
+				global $wgRequest;
+				if( $this->keyMatch( $wgRequest, $info ) ) {
+					wfDebug( "ConfirmEdit given proper key from form, passing.\n" );
+					return true;
+				} else {
+					wfDebug( "ConfirmEdit missing form key, prompting.\n" );
+				}
 			} else {
-				wfDebug( "ConfirmEdit missing form key, prompting.\n" );
-				$editPage->showEditForm( array( &$this, 'formCallback' ) );
-				return false;
+				wfDebug( "ConfirmEdit: no session captcha key set, this is new visitor.\n" );
 			}
+			$editPage->showEditForm( array( &$this, 'formCallback' ) );
+			return false;
 		} else {
 			wfDebug( "ConfirmEdit: no new links.\n" );
 			return true;
 		}
 	}
 	
-	function keyMatch() {
-		if( !isset( $_SESSION['ceAnswerVar'] ) ) {
-			wfDebug( "ConfirmEdit no session captcha key set, this is new visitor.\n" );
+	/**
+	 * Generate a captcha session ID and save the info in PHP's session storage.
+	 * (Requires the user to have cookies enabled to get through the captcha.)
+	 *
+	 * A random ID is used so legit users can make edits in multiple tabs or
+	 * windows without being unnecessarily hobbled by a serial order requirement.
+	 * Pass the returned id value into the edit form as wpCaptchaId.
+	 *
+	 * @param array $info data to store
+	 * @param string $index optional, to overwrite used session
+	 * @return string captcha ID key
+	 */
+	function storeCaptcha( $info, $index=null ) {
+		if( is_null( $index ) ) {
+			$index = strval( mt_rand() );
+			$info['index'] = $index;
+		}
+		$_SESSION['captcha' . $index] = $info;
+		return $index;
+	}
+	
+	/**
+	 * Fetch this session's captcha info.
+	 * @return mixed array of info, or false if missing
+	 */
+	function retrieveCaptcha() {
+		global $wgRequest;
+		$index = $wgRequest->getVal( 'wpCaptchaId' );
+		if( isset( $_SESSION['captcha' . $index] ) ) {
+			return $_SESSION['captcha' . $index];
+		} else {
 			return false;
 		}
-		global $wgRequest;
-		return $wgRequest->getVal( $_SESSION['ceAnswerVar'] ) == $_SESSION['ceAnswer'];
 	}
 	
-	function formCallback( &$out ) {
-		$source = 'ceSource' . mt_rand();
-		$dest = 'ceConfirm' . mt_rand();
-		
-		$a = mt_rand(0, 100);
-		$b = mt_rand(0, 10);
-		$op = mt_rand(0, 1) ? '+' : '-';
-		
-		$test = "$a $op $b";
-		$answer = ($op == '+') ? ($a + $b) : ($a - $b);
-		$_SESSION['ceAnswer'] = $answer;
-		$_SESSION['ceAnswerVar'] = $dest;
-		
-		
-		$out->addWikiText( wfMsg( "captcha-short" ) );	
-		$out->addHTML( <<<END
-			<p><span id="$source"><label for="$dest">$test</label></span> = <input name="$dest" id="$dest" /></p>
-END
-			);
-	}
-	
+	/**
+	 * Retrieve the current version of the page or section being edited...
+	 * @param EditPage $editPage
+	 * @param string $section
+	 * @return string
+	 * @access private
+	 */
 	function loadText( $editPage, $section ) {
 		$rev = Revision::newFromTitle( $editPage->mTitle );
 		if( is_null( $rev ) ) {
@@ -198,6 +312,11 @@ END
 		}
 	}
 	
+	/**
+	 * Extract a list of all recognized HTTP links in the text.
+	 * @param string $text
+	 * @return array of strings
+	 */
 	function findLinks( $text ) {
 		$regex = '/((?:' . HTTP_PROTOCOLS . ')' . EXT_LINK_URL_CLASS . '+)/';
 		
@@ -208,6 +327,9 @@ END
 		}
 	}
 	
+	/**
+	 * Show a page explaining what this wacky thing is.
+	 */
 	function showHelp() {
 		global $wgOut, $ceAllowConfirmedEmail;
 		$wgOut->setPageTitle( wfMsg( 'captchahelp-title' ) );

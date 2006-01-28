@@ -190,6 +190,8 @@ class SimpleCaptcha {
 	 * @return bool true if the captcha should run
 	 */
 	function shouldCheck( &$editPage, $newtext, $section ) {
+		$this->trigger = '';
+		
 		global $wgUser;
 		if( $wgUser->isAllowed( 'skipcaptcha' ) ) {
 			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
@@ -223,11 +225,11 @@ class SimpleCaptcha {
 			
 			if( $numLinks > 0 ) {
 				global $wgUser, $wgTitle;
-				wfDebugLog( "captcha", sprintf( "ConfirmEdit: %dx url trigger by %s at [[%s]]: %s",
+				$this->trigger = sprintf( "%dx url trigger by '%s' at [[%s]]: %s",
 					$numLinks,
 					$wgUser->getName(),
 					$wgTitle->getPrefixedText(),
-					implode( ", ", $addedLinks ) ) );
+					implode( ", ", $addedLinks ) );
 				return true;
 			}
 		}
@@ -258,13 +260,13 @@ class SimpleCaptcha {
 			if( $info ) {
 				global $wgRequest;
 				if( $this->keyMatch( $wgRequest, $info ) ) {
-					wfDebug( "ConfirmEdit given proper key from form, passing.\n" );
+					$this->log( "passed" );
 					return true;
 				} else {
-					wfDebug( "ConfirmEdit missing form key, prompting.\n" );
+					$this->log( "bad form input" );
 				}
 			} else {
-				wfDebug( "ConfirmEdit: no session captcha key set, this is new visitor.\n" );
+				$this->log( "new captcha session" );
 			}
 			$editPage->showEditForm( array( &$this, 'formCallback' ) );
 			return false;
@@ -272,6 +274,10 @@ class SimpleCaptcha {
 			wfDebug( "ConfirmEdit: no new links.\n" );
 			return true;
 		}
+	}
+	
+	function log( $message ) {
+		wfDebugLog( 'captcha', 'ConfirmEdit: ' . $message . '; ' .  $this->trigger );
 	}
 	
 	/**

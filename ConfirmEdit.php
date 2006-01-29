@@ -63,8 +63,10 @@ $wgCaptchaClass = 'SimpleCaptcha';
  * they make more typical edits.
  */
 $wgCaptchaTriggers = array();
-$wgCaptchaTriggers['edit']   = false; // Would check on every edit
-$wgCaptchaTriggers['addurl'] = true;  // Check on edits that add URLs
+$wgCaptchaTriggers['edit']          = false; // Would check on every edit
+$wgCaptchaTriggers['addurl']        = true;  // Check on edits that add URLs
+$wgCaptchaTriggers['createaccount'] = true;  // Special:Userlogin&type=signup
+
 
 /**
  * Allow users who have confirmed their e-mail addresses to post
@@ -110,13 +112,22 @@ function ceSetup() {
 			"administrators for assistance if this is unexpectedly preventing " .
 			"you from making legitimate posts." . 
 			"\n\n" .
-			"Hit the 'back' button in your browser to return to the page editor." ) );
+			"Hit the 'back' button in your browser to return to the page editor.",
+		'captcha-createaccount' =>
+			"As a protection against automated spam, you'll need to type in the " .
+			"words that appear in this image to register an account:\n" .
+			"<br />([[Special:Captcha/help|What is this?]])",
+		'captcha-createaccount-fail' =>
+			"Incorrect or missing confirmation code." ) );
 	
 	SpecialPage::addPage( new SpecialPage( 'Captcha', false,
 		/*listed*/ false, /*function*/ false, /*file*/ false ) );
 	
 	$wgCaptcha = new $wgCaptchaClass();
 	$wgHooks['EditFilter'][] = array( &$wgCaptcha, 'confirmEdit' );
+	
+	$wgHooks['UserCreateForm'][] = array( &$wgCaptcha, 'injectUserCreate' );
+	$wgHooks['AbortNewAccount'][] = array( &$wgCaptcha, 'confirmUserCreate' );
 }
 
 /**
@@ -141,9 +152,9 @@ class SimpleCaptcha {
 	 *
 	 * Override this!
 	 *
-	 * @param OutputPage $out
+	 * @return string HTML
 	 */
-	function formCallback( &$out ) {
+	function getForm() {
 		$a = mt_rand(0, 100);
 		$b = mt_rand(0, 10);
 		$op = mt_rand(0, 1) ? '+' : '-';
@@ -153,8 +164,7 @@ class SimpleCaptcha {
 		
 		$index = $this->storeCaptcha( array( 'answer' => $answer ) );
 		
-		$out->addWikiText( wfMsg( "captcha-short" ) );	
-		$out->addHTML( "<p><label for=\"wpCaptchaWord\">$test</label> = " .
+		return "<p><label for=\"wpCaptchaWord\">$test</label> = " .
 			wfElement( 'input', array(
 				'name' => 'wpCaptchaWord',
 				'id'   => 'wpCaptchaWord',
@@ -164,7 +174,34 @@ class SimpleCaptcha {
 				'type'  => 'hidden',
 				'name'  => 'wpCaptchaId',
 				'id'    => 'wpCaptchaId',
-				'value' => $index ) ) );
+				'value' => $index ) );
+	}
+	
+	/**
+	 * Insert the captcha prompt into an edit form.
+	 * @param OutputPage $out
+	 */
+	function editCallback( &$out ) {
+		$out->addWikiText( wfMsg( "captcha-short" ) );	
+		$out->addHTML( $this->getForm() );
+	}
+	
+	/**
+	 * Inject whazawhoo
+	 * @fixme if multiple thingies insert a header, could break
+	 * @param SimpleTemplate $template
+	 * @return bool true to keep running callbacks
+	 */
+	function injectUserCreate( &$template ) {
+		global $wgCaptchaTriggers, $wgOut;
+		if( $wgCaptchaTriggers['createaccount'] ) {
+			$template->set( 'header',
+				"<div class='captcha'>" .
+				$wgOut->parse( wfMsg( 'captcha-createaccount' ) ) .
+				$this->getForm() .
+				"</div>\n" );
+		}
+		return true;
 	}
 	
 	/**
@@ -256,28 +293,64 @@ class SimpleCaptcha {
 	 */
 	function confirmEdit( &$editPage, $newtext, $section ) {
 		if( $this->shouldCheck( $editPage, $newtext, $section ) ) {
-			$info = $this->retrieveCaptcha();
-			if( $info ) {
-				global $wgRequest;
-				if( $this->keyMatch( $wgRequest, $info ) ) {
-					$this->log( "passed" );
-					$this->clearCaptcha( $info );
-					return true;
-				} else {
-					$this->clearCaptcha( $info );
-					$this->log( "bad form input" );
-				}
+			if( $this->passCaptcha() ) {
+				return true;
 			} else {
-				$this->log( "new captcha session" );
+				$editPage->showEditForm( array( &$this, 'editCallback' ) );
+				return false;
 			}
-			$editPage->showEditForm( array( &$this, 'formCallback' ) );
-			return false;
 		} else {
 			wfDebug( "ConfirmEdit: no new links.\n" );
 			return true;
 		}
 	}
 	
+	/**
+	 * Hook for user creation form submissions.
+	 * @param User $u
+	 * @param string $message
+	 * @return bool true to continue, false to abort user creation
+	 */
+	function confirmUserCreate( $u, &$message ) {
+		global $wgCaptchaTriggers;
+		if( $wgCaptchaTriggers['createaccount'] ) {
+			$this->trigger = "new account '" . $u->getName() . "'";
+			if( !$this->passCaptcha() ) {
+				$message = wfMsg( 'captcha-createaccount-fail' );
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Given a required captcha run, test form input for correct
+	 * input on the open session.
+	 * @return bool if passed, false if failed or new session
+	 */
+	function passCaptcha() {
+		$info = $this->retrieveCaptcha();
+		if( $info ) {
+			global $wgRequest;
+			if( $this->keyMatch( $wgRequest, $info ) ) {
+				$this->log( "passed" );
+				$this->clearCaptcha( $info );
+				return true;
+			} else {
+				$this->clearCaptcha( $info );
+				$this->log( "bad form input" );
+				return false;
+			}
+		} else {
+			$this->log( "new captcha session" );
+			return false;
+		}
+	}
+	
+	/**
+	 * Log the status and any triggering info for debugging or statistics
+	 * @param string $message
+	 */
 	function log( $message ) {
 		wfDebugLog( 'captcha', 'ConfirmEdit: ' . $message . '; ' .  $this->trigger );
 	}

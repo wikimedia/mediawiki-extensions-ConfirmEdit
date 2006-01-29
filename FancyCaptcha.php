@@ -51,7 +51,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		$answerHash = substr( md5( $digest ), 0, 16 );
 		
 		if( $answerHash == $info['hash'] ) {
-			wfDebug( "FancyCaptcha: answer hash matches expected $hash\n" );
+			wfDebug( "FancyCaptcha: answer hash matches expected {$info['hash']}\n" );
 			return true;
 		} else {
 			wfDebug( "FancyCaptcha: answer hashes to $answerHash, expected {$info['hash']}\n" );
@@ -62,7 +62,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	/**
 	 * Insert the captcha prompt into the edit form.
 	 */
-	function formCallback( &$out ) {
+	function getForm() {
 		$info = $this->pickImage();
 		if( !$info ) {
 			die( "out of captcha images; this shouldn't happen" );
@@ -77,9 +77,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		
 		$title = Title::makeTitle( NS_SPECIAL, 'Captcha/image' );
 		
-		$out->addWikiText( wfMsg( "captcha-short" ) );
-		
-		$out->addHTML( "<p>" . 
+		return "<p>" . 
 			wfElement( 'img', array(
 				'src'    => $title->getLocalUrl( 'wpCaptchaId=' . urlencode( $index ) ),
 				'width'  => $info['width'],
@@ -96,7 +94,7 @@ class FancyCaptcha extends SimpleCaptcha {
 				'name' => 'wpCaptchaWord',
 				'id'   => 'wpCaptchaWord',
 				'tabindex' => 1 ) ) . // tab in before the edit textarea
-			"</p>\n" );
+			"</p>\n";
 	}
 	
 	/**

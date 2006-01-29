@@ -106,10 +106,9 @@ class FancyCaptcha extends SimpleCaptcha {
 	 */
 	function pickImage() {
 		global $wgCaptchaDirectory;
-		$pick = mt_rand( 0, $this->countFiles( $wgCaptchaDirectory ) );
+		$n = mt_rand( 0, $this->countFiles( $wgCaptchaDirectory ) );
 		$dir = opendir( $wgCaptchaDirectory );
 		
-		$n = mt_rand( 0, 16 );
 		$count = 0;
 		
 		$entry = readdir( $dir );

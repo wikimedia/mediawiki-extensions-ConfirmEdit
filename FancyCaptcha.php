@@ -163,7 +163,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			}
 			
 			$info['viewed'] = wfTimestamp();
-			$this->storeCaptcha( $info, $info['index'] );
+			$this->storeCaptcha( $info );
 			
 			$salt = $info['salt'];
 			$hash = $info['hash'];

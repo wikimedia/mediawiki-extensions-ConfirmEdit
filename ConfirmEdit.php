@@ -261,8 +261,10 @@ class SimpleCaptcha {
 				global $wgRequest;
 				if( $this->keyMatch( $wgRequest, $info ) ) {
 					$this->log( "passed" );
+					$this->clearCaptcha( $info );
 					return true;
 				} else {
+					$this->clearCaptcha( $info );
 					$this->log( "bad form input" );
 				}
 			} else {
@@ -289,16 +291,15 @@ class SimpleCaptcha {
 	 * Pass the returned id value into the edit form as wpCaptchaId.
 	 *
 	 * @param array $info data to store
-	 * @param string $index optional, to overwrite used session
 	 * @return string captcha ID key
 	 */
-	function storeCaptcha( $info, $index=null ) {
-		if( is_null( $index ) ) {
-			$index = strval( mt_rand() );
-			$info['index'] = $index;
+	function storeCaptcha( $info ) {
+		if( !isset( $info['index'] ) ) {
+			// Assign random index if we're not udpating
+			$info['index'] = strval( mt_rand() );
 		}
-		$_SESSION['captcha' . $index] = $info;
-		return $index;
+		$_SESSION['captcha' . $info['index']] = $info;
+		return $info['index'];
 	}
 	
 	/**
@@ -313,6 +314,14 @@ class SimpleCaptcha {
 		} else {
 			return false;
 		}
+	}
+	
+	/**
+	 * Clear out existing captcha info from the session, to ensure
+	 * it can't be reused.
+	 */
+	function clearCaptcha( $info ) {
+		unset( $_SESSION['captcha' . $info['index']] );
 	}
 	
 	/**

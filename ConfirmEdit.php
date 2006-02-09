@@ -245,6 +245,10 @@ class SimpleCaptcha {
 		global $wgCaptchaTriggers;
 		if( !empty( $wgCaptchaTriggers['edit'] ) ) {
 			// Check on all edits
+			global $wgUser, $wgTitle;
+			$this->trigger = sprintf( "edit trigger by '%s' at [[%s]]",
+				$wgUser->getName(),
+				$wgTitle->getPrefixedText() );
 			wfDebug( "ConfirmEdit: checking all edits...\n" );
 			return true;
 		}

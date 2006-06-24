@@ -79,8 +79,20 @@ $ceAllowConfirmedEmail = false;
  * Regex to whitelist URLs to known-good sites...
  * For instance:
  * $wgCaptchaWhitelist = '#^https?://([a-z0-9-]+\\.)?(wikimedia|wikipedia)\.org/#i';
+ * @fixme Use the 'spam-whitelist' thingy instead?
  */
 $wgCaptchaWhitelist = false;
+
+/**
+ * Additional regexes to check for. Use full regexes; can match things
+ * other than URLs such as junk edits.
+ *
+ * If the new version matches one and the old version doesn't,
+ * toss up the captcha screen.
+ *
+ * @fixme Add a message for local admins to add items as well.
+ */
+$wgCaptchaRegexes = array();
 
 /**
  * Set up message strings for captcha utilities.
@@ -272,6 +284,34 @@ class SimpleCaptcha {
 					$wgTitle->getPrefixedText(),
 					implode( ", ", $addedLinks ) );
 				return true;
+			}
+		}
+		
+		global $wgCaptchaRegexes;
+		if( !empty( $wgCaptchaRegexes ) ) {
+			// Custom regex checks
+			$oldtext = $this->loadText( $editPage, $section );
+			
+			foreach( $wgCaptchaRegexes as $regex ) {
+				$newMatches = array();
+				if( preg_match_all( $regex, $newtext, $newMatches ) ) {
+					$oldMatches = array();
+					preg_match_all( $regex, $oldtext, $oldMatches );
+					
+					$addedMatches = array_diff( $newMatches[0], $oldMatches[0] );
+					
+					$numHits = count( $addedMatches );
+					if( $numHits > 0 ) {
+						global $wgUser, $wgTitle;
+						$this->trigger = sprintf( "%dx %s at [[%s]]: %s",
+							$numHits,
+							$regex,
+							$wgUser->getName(),
+							$wgTitle->getPrefixedText(),
+							implode( ", ", $addedMatches ) );
+						return true;
+					}
+				}
 			}
 		}
 		

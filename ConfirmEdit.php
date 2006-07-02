@@ -98,7 +98,7 @@ $wgCaptchaRegexes = array();
  * Set up message strings for captcha utilities.
  */
 function ceSetup() {
-	global $wgMessageCache, $wgHooks, $wgCaptcha, $wgCaptchaClass;
+	global $wgMessageCache, $wgHooks, $wgCaptcha, $wgCaptchaClass, $wgSpecialPages;
 	$wgMessageCache->addMessages( array(
 		'captcha-short' =>
 			"Your edit includes new URL links; as a protection against automated " .
@@ -132,8 +132,8 @@ function ceSetup() {
 		'captcha-createaccount-fail' =>
 			"Incorrect or missing confirmation code." ) );
 	
-	SpecialPage::addPage( new SpecialPage( 'Captcha', false,
-		/*listed*/ false, /*function*/ false, /*file*/ false ) );
+	$wgSpecialPages['Captcha'] = array( /*class*/ 'SpecialPage', /*name*/'Captcha', false,
+		/*listed*/ false, /*function*/ false, /*file*/ false );
 	
 	$wgCaptcha = new $wgCaptchaClass();
 	$wgHooks['EditFilter'][] = array( &$wgCaptcha, 'confirmEdit' );

@@ -94,6 +94,11 @@ $wgCaptchaWhitelist = false;
  */
 $wgCaptchaRegexes = array();
 
+/** Register special page */
+global $wgSpecialPages;
+$wgSpecialPages['Captcha'] = array( /*class*/ 'SpecialPage', /*name*/'Captcha', false,
+	/*listed*/ false, /*function*/ false, /*file*/ false );
+
 /**
  * Set up message strings for captcha utilities.
  */
@@ -131,9 +136,6 @@ function ceSetup() {
 			"<br />([[Special:Captcha/help|What is this?]])",
 		'captcha-createaccount-fail' =>
 			"Incorrect or missing confirmation code." ) );
-	
-	$wgSpecialPages['Captcha'] = array( /*class*/ 'SpecialPage', /*name*/'Captcha', false,
-		/*listed*/ false, /*function*/ false, /*file*/ false );
 	
 	$wgCaptcha = new $wgCaptchaClass();
 	$wgHooks['EditFilter'][] = array( &$wgCaptcha, 'confirmEdit' );

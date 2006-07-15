@@ -38,4 +38,19 @@ $wgConfirmEditMessages['he'] = array(
 ([[{{ns:special}}:Captcha/help|מה זה?]])",
 	'captcha-createaccount-fail' => "לא הקלדתם קוד אישור, או שהוא שגוי.",
 );
+$wgConfirmEditMessages['id'] = array(
+	'captcha-short'              => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
+([[Special:Captcha/help|Apa ini?]])",
+	'captchahelp-title'          => 'Mengenai Captcha',
+	'captchahelp-text'           => "Situs-situs web yang menerima masukan data dari publik, seperti {{ns:project}} ini, kerapkali disalahgunakan oleh pengguna-pengguna yang tidak bertanggungjawab untuk mengirimkan spam dengan menggunakan program-program otomatis. Walaupun spam-spam tersebut dapat dibuang, tetapi tetap saja menimbulkan gangguan berarti.
+
+Ketika menambahkan pranala web baru ke suatu halaman, {{ns:project}} akan menampilkan sebuah gambar tulisan yang terdistorsi atau suatu perhitungan sederhana dan meminta Anda untuk mengetikkan kata atau hasil dimaksud. Karena ini merupakan suatu pekerjaan yang sulit diotomatisasi, pembatasan ini akan mengizinkan hampir semua manusia untuk melakukannya, tapi di sisi lain akan menghentikan kebanyakan aksi spam dan penyerangan yang dilakukan oleh bot otomatis.
+
+Sayangnya, hal ini dapat menimbulkan kesulitan bagi pengguna dengan keterbatasan penglihatan atau pengguna yang menggunakan penjelajah basis teks atau suara. Saat ini, kami tidak memiliki suatu alternatif suara untuk hal ini. Silakan minta bantuan dari pengurus situs jika hal ini menghambat Anda untuk mengirimkan suntingan yang layak.
+
+Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan.",
+	'captcha-createaccount'      => "Sebagai perlindungan melawan spam, Anda diharuskan untuk mengetikkan kata atau hasil perhitungan di bawah ini di kotak yang tersedia untuk dapat mendaftarkan pengguna baru:<br />
+([[Special:Captcha/help|Apa ini?]])",
+	'captcha-createaccount-fail' => "Kode konfirmasi salah atau belum diisi.",
+);
 ?>

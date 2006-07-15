@@ -33,6 +33,9 @@ global $wgExtensionFunctions, $wgGroupPermissions;
 
 $wgExtensionFunctions[] = 'ceSetup';
 
+# Internationlisation file
+require_once( 'ConfirmEdit.i18n.php' );
+
 /**
  * The 'skipcaptcha' permission key can be given out to
  * let known-good users perform triggering actions without
@@ -103,40 +106,13 @@ $wgSpecialPages['Captcha'] = array( /*class*/ 'SpecialPage', /*name*/'Captcha', 
  * Set up message strings for captcha utilities.
  */
 function ceSetup() {
-	global $wgMessageCache, $wgHooks, $wgCaptcha, $wgCaptchaClass, $wgSpecialPages;
-	$wgMessageCache->addMessages( array(
-		'captcha-short' =>
-			"Your edit includes new URL links; as a protection against automated " .
-			"spam, you'll need to type in the words that appear in this image:\n" .
-			"<br />([[Special:Captcha/help|What is this?]])",
-		'captchahelp-title' =>
-			'Captcha help',
-		'captchahelp-text' =>
-			"Web sites that accept postings from the public, like this wiki, " .
-			"are often abused by spammers who use automated tools to post their " .
-			"links to many sites. While these spam links can be removed, they " .
-			"are a significant nuisance." .
-			"\n\n" .
-			"Sometimes, especially when adding new web links to a page, " .
-			"the wiki may show you an image of colored or distorted text and " .
-			"ask you to type the words shown. Since this is a task that's hard " .
-			"to automate, it will allow most real humans to make their posts " . 
-			"while stopping most spammers and other robotic attackers." .
-			"\n\n" .
-			"Unfortunately this may inconvenience users with limited vision or " .
-			"using text-based or speech-based browsers. At the moment we do not " .
-			"have an audio alternative available. Please contact the site " .
-			"administrators for assistance if this is unexpectedly preventing " .
-			"you from making legitimate posts." . 
-			"\n\n" .
-			"Hit the 'back' button in your browser to return to the page editor.",
-		'captcha-createaccount' =>
-			"As a protection against automated spam, you'll need to type in the " .
-			"words that appear in this image to register an account:\n" .
-			"<br />([[Special:Captcha/help|What is this?]])",
-		'captcha-createaccount-fail' =>
-			"Incorrect or missing confirmation code." ) );
+	# Add messages
+	global $wgMessageCache, $wgConfirmEditMessages;
+	foreach( $wgConfirmEditMessages as $key => $value ) {
+		$wgMessageCache->addMessages( $wgConfirmEditMessages[$key], $key );
+	}
 	
+	global $wgHooks, $wgCaptcha, $wgCaptchaClass, $wgSpecialPages;
 	$wgCaptcha = new $wgCaptchaClass();
 	$wgHooks['EditFilter'][] = array( &$wgCaptcha, 'confirmEdit' );
 	

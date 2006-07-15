@@ -33,7 +33,7 @@ global $wgExtensionFunctions, $wgGroupPermissions;
 
 $wgExtensionFunctions[] = 'ceSetup';
 
-# Internationlisation file
+# Internationalisation file
 require_once( 'ConfirmEdit.i18n.php' );
 
 /**

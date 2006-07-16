@@ -34,9 +34,6 @@ global $wgExtensionFunctions, $wgGroupPermissions;
 $wgExtensionFunctions[] = 'ceSetup';
 
 # Internationalisation file
-if ( !function_exists( 'extAddMessages' ) ) {
-	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
-}
 require_once( 'ConfirmEdit.i18n.php' );
 
 /**
@@ -110,8 +107,10 @@ $wgSpecialPages['Captcha'] = array( /*class*/ 'SpecialPage', /*name*/'Captcha', 
  */
 function ceSetup() {
 	# Add messages
-	global $wgConfirmEditMessages;
-	extAddMessages( $wgConfirmEditMessages );
+	global $wgMessageCache, $wgConfirmEditMessages;
+	foreach( $wgConfirmEditMessages as $key => $value ) {
+		$wgMessageCache->addMessages( $wgConfirmEditMessages[$key], $key );
+	}
 	
 	global $wgHooks, $wgCaptcha, $wgCaptchaClass, $wgSpecialPages;
 	$wgCaptcha = new $wgCaptchaClass();

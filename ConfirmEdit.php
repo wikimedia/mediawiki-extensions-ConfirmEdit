@@ -102,7 +102,7 @@ $wgCaptchaRegexes = array();
 
 /** Register special page */
 global $wgSpecialPages;
-$wgSpecialPages['Captcha'] = array( /*class*/ 'SpecialPage', /*name*/'Captcha', false,
+$wgSpecialPages['Captcha'] = array( /*class*/ 'SpecialPage', /*name*/'Captcha', /*restriction*/ '',
 	/*listed*/ false, /*function*/ false, /*file*/ false );
 
 /**

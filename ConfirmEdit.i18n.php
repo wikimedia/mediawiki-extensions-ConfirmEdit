@@ -23,6 +23,20 @@ Hit the 'back' button in your browser to return to the page editor.",
 ([[Special:Captcha/help|What is this?]])",
 	'captcha-createaccount-fail' => "Incorrect or missing confirmation code.",
 );
+$wgConfirmEditMessages['bs'] = array(
+	'captcha-short' => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
+<br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
+	'captchahelp-text' => 'Vebsajtovi koji podržavaju slanje sadržaja iz javnosti, kao što je ovaj viki, često zloupotrebljavaju vandali koji koriste automatizovane alate da šalju svoje poveznice ka mnogim sajtovima.  Iako se ove neželjene poveznice mogu ukloniti, one ipak zadaju veliku muku.
+
+Ponekad, pogotovo kad se dodaju nove internet poveznice na stranicu, viki softver Vam može pokazati sliku obojenog i izvrnutog teksta i tražiti da ukucate traženu riječ.  Pošto je teško automatizovati ovakav zadatak, on omogućuje svim pravim ljudima da vrše svoje izmjene, ali će zato spriječiti vandale i ostale robotske napadače.
+
+Nažalost, ovo može da bude nepovoljno za korisnike sa ograničenim vidom i za one koji koriste brauzere bazirane na tekstu ili govoru.  U ovom trenutku, audio alternativa nije dostupna.  Molimo Vas da kontaktirate administratore sajta radi pomoći ako Vas ovo neočekivano ometa u pravljenju dobrih izmjena.
+
+Kliknite \'nazad\' (\'back\') dugme vašeg brauzera da se vratite na polje za unos teksta.',
+	'captcha-createaccount' => 'Kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje se nalaze na slici da biste registrovali nalog:
+<br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
+	'captcha-createaccount-fail' => 'Netačan unos ili nedostatak šifre za potvrđivanje.',
+);
 $wgConfirmEditMessages['he'] = array(
 	'captcha-short'              => "עריכתכם כוללת קישורים חיצוניים חדשים; כהגנה מפני ספאם אוטומטי, עליכם להקליד את המילים המופיעות בתמונה:<br />
 ([[{{ns:special}}:Captcha/help|מה זה?]])",

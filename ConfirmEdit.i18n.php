@@ -96,4 +96,51 @@ Clitchîz sol boton «En erî» di vosse betchteu waibe po rivni al pådje di dv
 	'captcha-createaccount' => 'Po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin po-z ahiver vosse conte, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
 	'captcha-createaccount-fail' => 'Li côde d\' acertinaedje est incorek ou mancant.',
 );
+$wgConfirmEditMessages['zh-cn'] = array(
+	'captcha-short'              => "你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
+([[Special:Captcha/help|这是什么？]])",
+	'captchahelp-title'          => 'Captcha 帮助',
+	'captchahelp-text'           => "象本站一样，对公众开放编辑的站点经常被垃圾链接骚扰。那些人使用自动化垃圾程序将他们的链接张贴到很多站点。虽然这些链接可以被清除，但是这些东西确实令人十分讨厌。
+
+有时，特别是当给一个页面添加新的网页链接时，本站会让你看一幅有颜色的或者有变形文字的图像，并且要你输入所显示的文字。因为这是难以自动完成的一项任务，它将允许人保存他们的编辑，同时阻止大多数发送垃圾邮件者和其他机器人的攻击。
+
+令人遗憾是，这会使得视力不好的人，或者使用基于文本或者基于声音的浏览器的用户感到不便。而目前我们还没有提供的音频的选择。如果这正好阻止你进行正常的编辑，请和管理员联系获得帮助。
+
+单击你浏览器中的“后退”按钮返回你所编辑的页面。",
+	'captcha-createaccount'      => "为了防止程序自动注册，你需要输入以下图片中显示的文字才能注册帐户：<br />
+([[Special:Captcha/help|这是什么？]])",
+	'captcha-createaccount-fail' => "验证码错误或丢失。",
+);
+$wgConfirmEditMessages['zh-tw'] = array(
+	'captcha-short'              => "你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
+([[Special:Captcha/help|這是什麼？]])",
+	'captchahelp-title'          => 'Captcha 說明',
+	'captchahelp-text'           => "像本站一樣，對公眾開放編輯的網站經常被垃圾連結騷擾。那些人使用自動化垃圾程序將他們的連結張貼到很多網站。雖然這些連結可以被清除，但是這些東西確實令人十分討厭。
+
+有時，特別是當給一個頁面添加新的網頁連結時，本站會讓你看一幅有顏色的或者有變形文字的圖像，並且要你輸入所顯示的文字。因為這是難以自動完成的一項任務，它將允許人保存他們的編輯，同時阻止大多數發送垃圾郵件者和其他機器人的攻擊。
+
+令人遺憾是，這會使得視力不好的人，或者使用基於文本或者基於聲音的瀏覽器的用戶感到不便。而目前我們還沒有提供的音頻的選擇。如果這正好阻止你進行正常的編輯，請和管理員聯繫獲得幫助。
+
+點擊瀏覽器中的「後退」按鈕返回你所編輯的頁面。",
+	'captcha-createaccount'      => "為了防止程式自動註冊，你需要輸入以下圖片中顯示的文字才能註冊帳戶：<br />
+([[Special:Captcha/help|這是什麼？]])",
+	'captcha-createaccount-fail' => "驗證碼錯誤或丟失。",
+);
+$wgConfirmEditMessages['zh-yue'] = array(
+	'captcha-short'              => "你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
+([[Special:Captcha/help|呢個係乜嘢嚟？]])",
+	'captchahelp-title'          => 'Captcha 幫助',
+	'captchahelp-text'           => "就好似呢個wiki咁，對公眾開放編輯嘅網站係會經常受到垃圾連結騷擾。嗰啲人利用自動化垃圾程序將佢哋嘅連結張貼到好多網站。雖然呢啲連結可以被清除，但係呢啲嘢確實令人十分之討厭。
+
+有時，特別係當響一頁添加新嘅網頁連結嗰陣，呢個網站會畀你睇一幅有顏色的或者有變形文字嘅圖像，跟住要你輸入所顯示嘅文字。因為咁係難以自動完成嘅一項任務，它將允許人保存佢哋嘅編輯，同時亦阻止大多數發送垃圾郵件者同其它機械人嘅攻擊。
+
+令人遺憾嘅係，咁會令到視力唔好嘅人，或者利用基於文本或者基於聲音嘅瀏覽器用戶感到不便。而目前我哋仲未能夠提供音頻嘅選擇。如果咁樣咁啱阻止到你進行正常嘅編輯，請同管理員聯繫以獲得幫助。
+
+撳一下響瀏覽器度嘅「後退」掣返去你之前所編輯緊嘅頁面。",
+	'captcha-createaccount'      => "為咗防止程式自動註冊，你需要輸入以下圖片中顯示的文字先至能夠註冊得到個戶口：<br />
+([[Special:Captcha/help|呢個係乜嘢嚟？]])",
+	'captcha-createaccount-fail' => "驗證碼錯誤或者唔見咗。",
+);
+$wgConfirmEditMessages['zh-hk'] = $wgConfirmEditMessages['zh-tw'];
+$wgConfirmEditMessages['zh-sg'] = $wgConfirmEditMessages['zh-cn'];
 ?>

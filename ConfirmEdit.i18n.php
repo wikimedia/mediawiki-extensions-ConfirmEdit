@@ -82,6 +82,21 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
 ([[Special:Captcha/help|Wat is dit?]])",
 	'captcha-createaccount-fail' => "Onjuiste bevestigingscode of niet ingevuld.",
 );
+$wgConfirmEditMessages['ru'] = array(
+	'captcha-short'              => "Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
+([[{{ns:special}}:Captcha/help|Что это такое?]])",
+	'captchahelp-title'          => 'Справка о CAPTCHA',
+	'captchahelp-text'           => "Вебсайты позволяющие добавлять и изменять своё содержимое, в том числе вики, часто становятся целью спамеров, использующих программы для автоматического добавления ссылок. Хотя такие ссылки могут быть удалены, они являются существенной помехой.
+
+Иногда, например при добавлении на страницу новой веб-ссылки, вики может показать вам картинку с цветным или искажённым текстом и предложить ввести текст, который вы видите. Так как подобная задача трудноавтоматизируема, это даёт возможность большинству людей разместить свои изменения, в то время как большинство спамерских и вандальных программ не могут это сделать.
+
+К сожалению, подобная защита может причинить неудобства людям с ограничениями по зрению или тем, кто использует читающие браузеры. В настоящее время у нас нет звуковой альтернативы данной проверке. Пожалуйста, обратитесь за помощью к администраторам, если подобная проверка мешает вам добросовестно работать с сайтом.  
+
+Нажмите кнопку «Назад» в ваше браузере, чтобы вернуться к редактированию.",
+	'captcha-createaccount'      => "В качестве меры против автоматического спама, вы должны ввести буквы, изображённые на картинке, чтобы зарегистрироваться в системе:<br />
+([[{{ns:special}}:Captcha/help|Что это такое?]])",
+	'captcha-createaccount-fail' => "Код подтверждения отсутствует или неверен.",
+);
 $wgConfirmEditMessages['wa'] = array(
 	'captcha-short' => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
 	'captchahelp-title' => 'Aidance passete d\' acertinaedje',

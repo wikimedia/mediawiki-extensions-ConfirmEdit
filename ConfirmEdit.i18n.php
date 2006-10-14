@@ -97,6 +97,19 @@ $wgConfirmEditMessages['ru'] = array(
 ([[{{ns:special}}:Captcha/help|Что это такое?]])",
 	'captcha-createaccount-fail' => "Код подтверждения отсутствует или неверен.",
 );
+$wgConfirmEditMessages['sk'] = array(
+	'captcha-short'              => "Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])",
+	'captchahelp-title'          => 'Pomocník ku captcha',
+	'captchahelp-text'           => "Webstránky prijímajúce príspevky od verejnosti ako táto wiki sú často cieľom zneužitia spammemi, ktorí používajú automatizované nástroje na to, aby svoje odkazy umiestnili na množstvo stránok. Hoci je možné tieto odkazy odstrániť, zbytočne to zaťažuje redaktorov.
+
+Niekedy, obzvlášť keď pridávate webové odkazy k článkom, wiki Vám môže zobraziť obrázok so zafarbeným alebo pokriveným textom a požiadať Vás o prepísanie zobrazených slov. Keďže takúto úlohu je ťažké zautomatizovať a umožní skutočným ľuďom poslať svoje príspevky, zastaví to väčšinu spammerov a iných robotických útočníkov.
+
+Naneštastie, môže to byť prekážkou pre používateľov so zrakovým postihnutím alebo tých, ktorí používajú textové alebo hovoriace prehliadače. Momentálne nemáme dostupnú audio zvukovú alternatívu. Kontaktujte prosím administratorov stránok, ak Vám to neočakávane komplikuje umiestňovanie oprávnených príspevkov.
+
+Stlačením tlačidla \"späť\" vo Vašom prehliadači sa vrátite do editora stránky.",
+	'captcha-createaccount'      => "Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet: <br />([[Special:Captcha/help|Čo je toto?]])",
+	'captcha-createaccount-fail' => "Nesprávny alebo chýbajúci potvrdzovací kód.",
+);
 $wgConfirmEditMessages['wa'] = array(
 	'captcha-short' => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
 	'captchahelp-title' => 'Aidance passete d\' acertinaedje',

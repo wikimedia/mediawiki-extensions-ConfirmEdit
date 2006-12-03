@@ -157,17 +157,18 @@ Notaðu „back“-hnapp vafrans til að halda áfram.",
 	'captcha-createaccount-fail' => "Staðfestingarkóðinn var rangur eða ekki til staðar.",
 );
 $wgConfirmEditMessages['it'] = array(
-	'captcha-short'              => "La modifica richiesta comprende l'inserimento di nuovi indirizzi URL; come misura di sicurezza nei confronti dei messaggi di spam automatici, è necessario inserire le parole che appaiono nell'immagine: <br />([[Speciale:Captcha/help|Cosa vuol dire?]])
-",
+	'captcha-short'              => "La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell'immagine:<br />
+([[Special:Captcha/help|Cosa vuol dire?]])",
 	'captchahelp-title'          => "Cos'è il captcha?",
-	'captchahelp-text'           => "Capita spesso che i siti Web che accettano messaggi pubblici, come questa wiki, siano presi di mira da spammer che usano strumenti automatici per inserire collegamenti pubblicitari verso un gran numero di siti. Per quanto i collegamenti indesiderati si possano rimuovere, si tratta comunque di una seccatura non indifferente.
+	'captchahelp-text'           => "Capita spesso che i siti Web che accettano messaggi pubblici, come questo wiki, siano presi di mira da spammer che usano strumenti automatici per inserire collegamenti pubblicitari verso un gran numero di siti. Per quanto i collegamenti indesiderati si possano rimuovere, si tratta comunque di una seccatura non indifferente.
+	
+In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web in una pagina, il software wiki può mostrare una immagine con un breve testo colorato e/o distorto chiedendo di riscriverlo in un'apposita finestrella. Poiché si tratta di un'azione difficile da replicare da parte di un computer, questo meccanismo consente a (quasi tutti) gli utenti reali di completare l'inserimento desiderato, impedendo l'accesso alla maggior parte degli spammer e degli altri attacchi automatizzati.	
+	
+Sfortunatamente, queste misure di sicurezza possono mettere in difficoltà gli utenti con problemi visivi o coloro che utilizzano browser testuali o basati sulla sintesi vocale. Purtroppo al momento non è disponibile un meccanismo alternativo basato su messaggi audio; se queste procedure impediscono l'inserimento informazioni che si ritengono legittime, si prega di contattare gli amministratori del sito e chiedere loro assistenza.
 
-In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web in una pagina, il software può mostrare una immagine con un breve testo colorato e/o distorto chiedendo di riscriverlo in un'apposita finestrella. Poiché si tratta di un'azione difficile da replicare da parte di un computer, questo meccanismo consente a (quasi tutti) gli utenti reali di completare l'inserimento desiderato, impedendo l'accesso alla maggior parte degli spammer e degli altri attacchi automatizzati.
-
-Sfortunatamente, queste misure di sicurezza possono mettere in difficoltà gli utenti con problemi alla vista o coloro che utilizzano browser testuali o basati sulla sintesi vocale. Purtroppo al momento non è disponibile un meccanismo alternativo basato sull'audio; se queste procedure ti impediscono di inserire informazioni che ritieni legittime, contatta gli amministratori del sito e chiedi loro assistenza.
-
-Fai clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
-	'captcha-createaccount'      => "Come misura di sicurezza nei confronti dei messaggi di spam automatici, per registrarsi è necessario inserire le parole che appaiono nell'immagine: <br />([[Speciale:Captcha/help|Cosa vuol dire?]])",
+Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
+	'captcha-createaccount'      => "Come misura di sicurezza nei confronti dei messaggi di spam automatici, per registrarsi è necessario inserire le parole che appaiono nell'immagine:<br />
+([[Speciale:Captcha/help|Cosa vuol dire?]])",
 	'captcha-createaccount-fail' => "Codice di verifica errato o mancante.",
 );
 $wgConfirmEditMessages['kk-kz'] = array(

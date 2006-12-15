@@ -446,13 +446,13 @@ class SimpleCaptcha {
 	 * @return array of strings
 	 */
 	function findLinks( $text ) {
-		$regex = '/((?:' . HTTP_PROTOCOLS . ')' . EXT_LINK_URL_CLASS . '+)/';
+		global $wgParser, $wgTitle, $wgUser;
 		
-		if( preg_match_all( $regex, $text, $matches, PREG_PATTERN_ORDER ) ) {
-			return $matches[1];
-		} else {
-			return array();
-		}
+		$options = new ParserOptions();
+		$text = $wgParser->preSaveTransform( $text, $wgTitle, $wgUser, $options );
+		$out = $wgParser->parse( $text, $wgTitle, $options );
+		
+		return array_keys( $out->getExternalLinks() );
 	}
 	
 	/**

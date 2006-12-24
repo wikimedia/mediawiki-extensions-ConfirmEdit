@@ -298,6 +298,22 @@ $wgConfirmEditMessages['oc'] = array(
 ([[Special:Captcha/help|What is this?]])",
 	'captcha-createaccount-fail' => "Còdi de confirmacion mancant o invalid.",
 );
+$wgConfirmEditMessages['pt'] = array(
+	'captcha-short'              => "Sua edição inclui novos links externos; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem:<br />
+([[Special:Captcha/help|What is this?]])",
+	'captchahelp-title'          => 'Ajuda com o Captcha',
+	'captchahelp-text'           => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a spammers que utilizem ferramentas automatizadas para inserir seus links em diversos locais. Remover tais links posteriormente poderá significar um significativo incômodo.
+
+Algumas vezes, especialmente ao adicionar novos links externos em uma página, o sistema exibirá uma imagem com um texto colorido ou distorcido e pedirá que você digite as palavras exibidas. Uma vez que essa é uma tarefa um tanto difícil de ser automatizada, ela possibilita que vários humanos façam as suas inserções ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
+
+Infelizmente, isso pode ser dificultoso a utilizadores com limitações visuais ou que naveguem através de  mecanismos baseados em texto ou baseados em voz. No momento não há uma alternativa em áudio. Por gentileza, contacte os administradores do sítio em casos que seja necessária a assistência de alguém para que você possa fazer as suas inserções legítimas.
+
+Pressione o botão 'voltar' de seu navegador para retornar à página de edição.",
+	'captcha-createaccount'      => "Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem para que possa se cadastrar:<br />
+([[Special:Captcha/help|O que é isto?]])",
+	'captcha-createaccount-fail' => "Código incorreto ou não preenchido.",
+);
+$wgConfirmEditMessages['pt-br'] = $wgConfirmEditMessages['pt'];
 $wgConfirmEditMessages['ru'] = array(
 	'captcha-short'              => "Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
 ([[{{ns:special}}:Captcha/help|Что это такое?]])",

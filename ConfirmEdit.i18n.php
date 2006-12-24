@@ -171,6 +171,21 @@ Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
 ([[Speciale:Captcha/help|Cosa vuol dire?]])",
 	'captcha-createaccount-fail' => "Codice di verifica errato o mancante.",
 );
+$wgConfirmEditMessages['ja'] = array(
+	'captcha-short'              => "あなたの編集は新しいURLへのリンクを含みます。スパム防止のため、下記に現れる単語を入力してください。<br />
+([[Special:Captcha/help|これはなに？]])",
+	'captchahelp-title'          => 'Captcha ヘルプ',
+	'captchahelp-text'           => "当Wikiのような、投稿が公開されているウェブサイトは、多くのサイトに自分たちへのリンクを自動投稿するツールで、スパム屋により荒らされます。これらのスパムは除去できるものの、それらは非常にうっとうしいです。
+
+時々、特に新しいリンクをページに追加したとき、Wikiが色の付いた、もしくは、ゆがめられた文字を提示し、入力をお願いすることがあります。この作業は自動化が難しいため、本当の人間の投稿を可能にしつつ、多くのスパム屋やロボットの攻撃を防ぐことが出来ます。
+
+しかし、残念なことに、テキストベースやスピーチベースのブラウザを使っている、視覚障害者に不便をおかけする場合があります。現時点では、音声版の代替物がありません。正当な投稿をするにあたって、これが障害となっている場合、サイト管理者に連絡し、協力を求めてください。
+
+編集ページに戻るには、ブラウザの戻るボタンを押してください。",
+	'captcha-createaccount'      => "スパム防止のため、アカウントを登録するにあたって、下記に現れる単語を入力してください。<br />
+([[Special:Captcha/help|これはなに？]])",
+	'captcha-createaccount-fail' => "確認コードの入力がないか、間違っています。",
+);
 $wgConfirmEditMessages['kk-kz'] = array(
 	'captcha-short'              => "Өңдеген мағлұматыңызда жаңа сілтеме URL жайлар бар екен; аутоматты «спам»-нан қорғану жолында, осы суреттегі көрсетілген сөздерді енгізіңіз:<br />
 ([[{{ns:special}}:Captcha/help|Бұл не?]])",

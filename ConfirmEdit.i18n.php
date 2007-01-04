@@ -21,6 +21,8 @@ Sometimes, especially when adding new web links to a page, the wiki may show you
 
 Unfortunately this may inconvenience users with limited vision or using text-based or speech-based browsers. At the moment we do not have an audio alternative available. Please contact the site administrators for assistance if this is unexpectedly preventing you from making legitimate posts.
 
+You will need to have cookies enabled in your browser for this to work.
+
 Hit the 'back' button in your browser to return to the page editor.",
 );
 

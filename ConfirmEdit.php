@@ -108,9 +108,8 @@ $wgSpecialPages['Captcha'] = array( /*class*/ 'SpecialPage', /*name*/'Captcha', 
 function ceSetup() {
 	# Add messages
 	global $wgMessageCache, $wgConfirmEditMessages;
-	foreach( $wgConfirmEditMessages as $key => $value ) {
-		$wgMessageCache->addMessages( $wgConfirmEditMessages[$key], $key );
-	}
+	foreach( $wgConfirmEditMessages as $lang => $messages )
+		$wgMessageCache->addMessages( $messages, $lang );
 	
 	global $wgHooks, $wgCaptcha, $wgCaptchaClass, $wgSpecialPages;
 	$wgCaptcha = new $wgCaptchaClass();
@@ -172,8 +171,23 @@ class SimpleCaptcha {
 	 * @param OutputPage $out
 	 */
 	function editCallback( &$out ) {
-		$out->addWikiText( wfMsg( "captcha-short" ) );	
+		$out->addWikiText( $this->getMessage( 'edit' ) );
 		$out->addHTML( $this->getForm() );
+	}
+	
+	/**
+	 * Show a message asking the user to enter a captcha on edit
+	 * The result will be treated as wiki text
+	 *
+	 * @param $action Action being performed
+	 * @return string
+	 */
+	function getMessage( $action ) {
+		$name = 'captcha-' . $action;
+		$text = wfMsg( $name );
+		# Obtain a more tailored message, if possible, otherwise, fall back to
+		# the default for edits
+		return wfEmptyMsg( $name, $text ) ? wfMsg( 'captcha-edit' ) : $text;
 	}
 	
 	/**
@@ -187,7 +201,7 @@ class SimpleCaptcha {
 		if( $wgCaptchaTriggers['createaccount'] ) {
 			$template->set( 'header',
 				"<div class='captcha'>" .
-				$wgOut->parse( wfMsg( 'captcha-createaccount' ) ) .
+				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
 				$this->getForm() .
 				"</div>\n" );
 		}

@@ -33,6 +33,14 @@ $wgCaptchaDirectory = "$wgUploadDirectory/captcha"; // bad default :D
 global $wgCaptchaSecret;
 $wgCaptchaSecret = "CHANGE_THIS_SECRET!";
 
+$wgExtensionFunctions[] = 'efFancyCaptcha';
+
+function efFancyCaptcha() {
+	global $wgMessageCache;
+	require_once( dirname( __FILE__ ) . '/FancyCaptcha.i18n.php' );
+	foreach( efFancyCaptchaMessages() as $lang => $messages )
+		$wgMessageCache->addMessages( $messages, $lang );
+}
 
 class FancyCaptcha extends SimpleCaptcha {
 	/**
@@ -176,6 +184,22 @@ class FancyCaptcha extends SimpleCaptcha {
 		wfHttpError( 500, 'Internal Error', 'Requested bogus captcha image' );
 		return false;
 	}
+	
+	/**
+	 * Show a message asking the user to enter a captcha on edit
+	 * The result will be treated as wiki text
+	 *
+	 * @param $action Action being performed
+	 * @return string
+	 */
+	function getMessage( $action ) {
+		$name = 'fancycaptcha-' . $action;
+		$text = wfMsg( $name );
+		# Obtain a more tailored message, if possible, otherwise, fall back to
+		# the default for edits
+		return wfEmptyMsg( $name, $text ) ? wfMsg( 'fancycaptcha-edit' ) : $text;
+	}
+	
 }
 
 } # End invocation guard

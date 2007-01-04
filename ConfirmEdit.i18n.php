@@ -9,8 +9,11 @@
 $wgConfirmEditMessages = array();
 
 $wgConfirmEditMessages['en'] = array(
-	'captcha-short'              => "Your edit includes new URL links; as a protection against automated spam, you'll need to type in the words that appear in this image:<br />
-([[Special:Captcha/help|What is this?]])",
+	'captcha-edit' => 'Your edit includes new external links. To help protect against automated
+	spam, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
+	'captcha-createaccount' => 'To help protect against automated account creation, please solve the simple sum
+	below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
+	'captcha-createaccount-fail' => "Incorrect or missing confirmation code.",
 	'captchahelp-title'          => 'Captcha help',
 	'captchahelp-text'           => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites. While these spam links can be removed, they are a significant nuisance.
 
@@ -19,10 +22,8 @@ Sometimes, especially when adding new web links to a page, the wiki may show you
 Unfortunately this may inconvenience users with limited vision or using text-based or speech-based browsers. At the moment we do not have an audio alternative available. Please contact the site administrators for assistance if this is unexpectedly preventing you from making legitimate posts.
 
 Hit the 'back' button in your browser to return to the page editor.",
-	'captcha-createaccount'      => "As a protection against automated spam, you'll need to type in the words that appear in this image to register an account:<br />
-([[Special:Captcha/help|What is this?]])",
-	'captcha-createaccount-fail' => "Incorrect or missing confirmation code.",
 );
+
 $wgConfirmEditMessages['af'] = array(
 	'captcha-short'              => "U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])",
 	'captchahelp-title'          => 'Captcha-hulp',

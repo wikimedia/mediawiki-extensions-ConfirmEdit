@@ -32,6 +32,7 @@ if ( defined( 'MEDIAWIKI' ) ) {
 global $wgExtensionFunctions, $wgGroupPermissions;
 
 $wgExtensionFunctions[] = 'ceSetup';
+$wgExtensionCredits['other'][] = array( 'name' => 'ConfirmEdit', 'author' => 'Brion Vibber' );
 
 # Internationalisation file
 require_once( 'ConfirmEdit.i18n.php' );

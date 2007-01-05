@@ -124,8 +124,9 @@ $wgConfirmEditMessages['gl'] = array(
 	'captcha-createaccount-fail' => "Falta o código de confirmación ou é incorrecto.",
 );
 $wgConfirmEditMessages['he'] = array(
-	'captcha-short'              => "עריכתכם כוללת קישורים חיצוניים חדשים; כהגנה מפני ספאם אוטומטי, עליכם להקליד את המילים המופיעות בתמונה:<br />
-([[{{ns:special}}:Captcha/help|מה זה?]])",
+	'captcha-edit'               => 'עריכתכם כוללת קישורים חיצוניים חדשים. כהגנה מפני ספאם אוטומטי, אנא פיתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
+	'captcha-createaccount'      => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא פיתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
+	'captcha-createaccount-fail' => 'לא הקלדתם קוד אישור, או שהוא שגוי.',
 	'captchahelp-title'          => 'עזרה במערכת הגנת הספאם',
 	'captchahelp-text'           => "פעמים רבות מנצלים ספאמרים אתרים שמקבלים תוכן מהציבור, כמו הוויקי הזה, כדי לפרסם את הקישורים שלהם לאתרים רבים באינטרנט, באמצעות כלים אוטומטיים. אמנם ניתן להסיר את קישורי הספאם הללו, אך זהו מטרד משמעותי.
 
@@ -133,10 +134,9 @@ $wgConfirmEditMessages['he'] = array(
 
 לרוע המזל, הדבר עשוי לגרום לאי נוחות למשתמשים עם דפדפן בגרסה מוגבלת, או שמשתמשים בדפדפנים מבוססי טקסט או דיבור. כרגע, אין לנו חלופה קולית זמינה. אנא צרו קשר עם מנהלי האתר לעזרה אם המערכת מונעת מכם באופן בלתי צפוי לבצע עריכות לגיטימיות.
 
+עליכם להפעיל את תכונת העוגיות (Cookies) בדפדפן שלכם כדי שזה יעבוד.
+
 אנא לחצו על הכפתור 'Back' בדפדפן שלכם כדי לחזור לדף העריכה.",
-	'captcha-createaccount'      => "כהגנה מפני ספאם אוטומטי, עליכם להקליד את המילים המופיעות בתמונה כדי להירשם לחשבון:<br />
-([[{{ns:special}}:Captcha/help|מה זה?]])",
-	'captcha-createaccount-fail' => "לא הקלדתם קוד אישור, או שהוא שגוי.",
 );
 $wgConfirmEditMessages['hr'] = array(
 	'captcha-short'              => "Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])",

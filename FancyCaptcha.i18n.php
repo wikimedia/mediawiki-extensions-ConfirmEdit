@@ -29,6 +29,12 @@ ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld 
 [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]',
 ),
 
+/* Hebrew */
+'he' => array(
+'fancycaptcha-edit'          => 'עריכתכם כוללת קישורים חיצוניים חדשים. כהגנה מפני ספאם אוטומטי, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
+'fancycaptcha-createaccount' => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
+),
+
 	);
 }
 

@@ -29,6 +29,12 @@ ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld 
 [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]',
 ),
 
+/* Finnish (Niklas Laxström) */
+'fi' => array(
+'fancycaptcha-edit' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikentään ([[Special:Captcha/help|lisätietoja]]):',
+'fancycaptcha-createaccount' => 'Kirjoita kuvan sisältämät sanat alla olevaan tekstikentään ([[Special:Captcha/help|lisätietoja]]):',
+),
+
 /* Hebrew */
 'he' => array(
 'fancycaptcha-edit'          => 'עריכתכם כוללת קישורים חיצוניים חדשים. כהגנה מפני ספאם אוטומטי, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',

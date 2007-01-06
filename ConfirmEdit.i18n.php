@@ -88,20 +88,21 @@ $wgConfirmEditMessages['eu'] = array(
 	'captcha-createaccount'      => "Spam-a saihesteko, mesedez, irudian agertzen den hizki edo zenbaki kodea, beheko laukian idatzi zure kontua sortzeko:<br /> ([[Special:Captcha/help|Zer da hau?]])",
 	'captcha-createaccount-fail' => "Baieztatze kode ezegokia.",
 );
+
 $wgConfirmEditMessages['fi'] = array(
-	'captcha-short'              => "Muokkauksesi sisältää uusia linkkejä muille sivuille. Automaattisen linkkien lisäämisen estämisen vuoksi sinun pitää kirjoittaa alla olevan kuvan sisältämät sanat:<br />
-([[Special:Captcha/help|Mikä tämä on?]])",
+	'captcha-edit'               => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-createaccount'      => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-createaccount-fail' => 'Väärä tai puuttuva varmistuskoodi.',
 	'captchahelp-title'          => 'Captcha-ohje',
 	'captchahelp-text'           => "Verkkosivut, jotka sallivat ulkopuolisten lisätä sisältöä, joutuvat usein spam-hyökkäysten kohteeksi. Spam-hyökkäyksessä spammerit käyttävät työkaluja, jotka automaattisesti lisäävät linkkejä monille sivuille. Vaikka nämä linkit voidaan poistaa, aiheutuu niistä silti merkittävä haitta.
 
-Joskus, erityisesti kun lisäät uusia linkkejä, saatat nähdä kuvan, jossa on värillistä ja vääristynyttä tekstiä, ja sinua pyydetään kirjoittamaan sen sisältämät sanat. Koska tätä tehtävää on vaikea automatisoida, se sallii melkein kaikkien oikeiden ihmisten tehdä muutoksensa, mutta estää automaattiset lisäykset..
+Joskus, erityisesti kun lisäät uusia linkkejä, saatat nähdä kuvan, jossa on värillistä ja vääristynyttä tekstiä, ja sinua pyydetään kirjoittamaan sen sisältämät sanat. Koska tätä tehtävää on vaikea automatisoida, se sallii melkein kaikkien oikeiden ihmisten tehdä muutoksensa, mutta estää automaattiset lisäykset.
 
 Valitettavasti tämä saattaa estää käyttäjiä, joilla on rajoittunut näkökyky tai käyttäjiä, jotka käyttävät teksti- tai puhepohjaisia selaimia. Ota yhteyttä sivuston ylläpitäjään, jos et pysty tekemään kunnollisia muutoksia.
 
+Varmistus ei toimi, jos evästeet eivät ole käytössä.
+
 Voit palata muokkaustilaan selaimen paluutoiminnolla.",
-	'captcha-createaccount'      => "Automaattisten spam-hyökkäysten estämiseksi, sinun täytyy kirjoittaa alla olevan kuvan sisältämät sanat, jotta voisit luoda tunnuksen:<br />
-([[Special:Captcha/help|Mikä tämä on?]])",
-	'captcha-createaccount-fail' => "Väärä tai puuttuva varmistuskoodi.",
 );
 $wgConfirmEditMessages['ga'] = array(
 	'captcha-short'              => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",

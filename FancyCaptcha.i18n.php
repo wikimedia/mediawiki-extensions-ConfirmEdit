@@ -28,6 +28,12 @@ in das darunter erscheinende Feld eintragen. Klicken Sie dann erneut auf „Seit
 ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld eintragen.
 [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]',
 ),
+	
+/* Indonesian */
+'id' => array(
+'fancycaptcha-edit' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',
+'fancycaptcha-createaccount' => 'Untuk perlindungan terhadap pembuatan akun otomatis, tolong masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',
+),
 
 /* Finnish (Niklas Laxström) */
 'fi' => array(

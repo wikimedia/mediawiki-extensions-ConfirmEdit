@@ -32,7 +32,12 @@ if ( defined( 'MEDIAWIKI' ) ) {
 global $wgExtensionFunctions, $wgGroupPermissions;
 
 $wgExtensionFunctions[] = 'ceSetup';
-$wgExtensionCredits['other'][] = array( 'name' => 'ConfirmEdit', 'author' => 'Brion Vibber' );
+$wgExtensionCredits['other'][] = array(
+	'name' => 'ConfirmEdit',
+	'author' => 'Brion Vibber',
+	'url' => 'http://meta.wikimedia.org/wiki/ConfirmEdit_extension',
+	'description' => 'Simple captcha implementation',
+);
 
 # Internationalisation file
 require_once( 'ConfirmEdit.i18n.php' );
@@ -111,11 +116,11 @@ function ceSetup() {
 	global $wgMessageCache, $wgConfirmEditMessages;
 	foreach( $wgConfirmEditMessages as $lang => $messages )
 		$wgMessageCache->addMessages( $messages, $lang );
-	
+
 	global $wgHooks, $wgCaptcha, $wgCaptchaClass, $wgSpecialPages;
 	$wgCaptcha = new $wgCaptchaClass();
 	$wgHooks['EditFilter'][] = array( &$wgCaptcha, 'confirmEdit' );
-	
+
 	$wgHooks['UserCreateForm'][] = array( &$wgCaptcha, 'injectUserCreate' );
 	$wgHooks['AbortNewAccount'][] = array( &$wgCaptcha, 'confirmUserCreate' );
 }
@@ -148,12 +153,12 @@ class SimpleCaptcha {
 		$a = mt_rand(0, 100);
 		$b = mt_rand(0, 10);
 		$op = mt_rand(0, 1) ? '+' : '-';
-		
+
 		$test = "$a $op $b";
 		$answer = ($op == '+') ? ($a + $b) : ($a - $b);
-		
+
 		$index = $this->storeCaptcha( array( 'answer' => $answer ) );
-		
+
 		return "<p><label for=\"wpCaptchaWord\">$test</label> = " .
 			wfElement( 'input', array(
 				'name' => 'wpCaptchaWord',
@@ -166,7 +171,7 @@ class SimpleCaptcha {
 				'id'    => 'wpCaptchaId',
 				'value' => $index ) );
 	}
-	
+
 	/**
 	 * Insert the captcha prompt into an edit form.
 	 * @param OutputPage $out
@@ -175,7 +180,7 @@ class SimpleCaptcha {
 		$out->addWikiText( $this->getMessage( 'edit' ) );
 		$out->addHTML( $this->getForm() );
 	}
-	
+
 	/**
 	 * Show a message asking the user to enter a captcha on edit
 	 * The result will be treated as wiki text
@@ -190,7 +195,7 @@ class SimpleCaptcha {
 		# the default for edits
 		return wfEmptyMsg( $name, $text ) ? wfMsg( 'captcha-edit' ) : $text;
 	}
-	
+
 	/**
 	 * Inject whazawhoo
 	 * @fixme if multiple thingies insert a header, could break
@@ -208,7 +213,7 @@ class SimpleCaptcha {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Check if the submitted form matches the captcha session data provided
 	 * by the plugin when the form was generated.
@@ -222,9 +227,9 @@ class SimpleCaptcha {
 	function keyMatch( $request, $info ) {
 		return $request->getVal( 'wpCaptchaWord' ) == $info['answer'];
 	}
-	
+
 	// ----------------------------------
-	
+
 	/**
 	 * @param EditPage $editPage
 	 * @param string $newtext
@@ -233,20 +238,20 @@ class SimpleCaptcha {
 	 */
 	function shouldCheck( &$editPage, $newtext, $section ) {
 		$this->trigger = '';
-		
+
 		global $wgUser;
 		if( $wgUser->isAllowed( 'skipcaptcha' ) ) {
 			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
 			return false;
 		}
-	
+
 		global $wgEmailAuthentication, $ceAllowConfirmedEmail;
 		if( $wgEmailAuthentication && $ceAllowConfirmedEmail &&
 			$wgUser->isEmailConfirmed() ) {
 			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );
 			return false;
 		}
-		
+
 		global $wgCaptchaTriggers;
 		if( !empty( $wgCaptchaTriggers['edit'] ) ) {
 			// Check on all edits
@@ -257,18 +262,18 @@ class SimpleCaptcha {
 			wfDebug( "ConfirmEdit: checking all edits...\n" );
 			return true;
 		}
-		
+
 		if( !empty( $wgCaptchaTriggers['addurl'] ) ) {
 			// Only check edits that add URLs
 			$oldtext = $this->loadText( $editPage, $section );
-			
+
 			$oldLinks = $this->findLinks( $oldtext );
 			$newLinks = $this->findLinks( $newtext );
 			$unknownLinks = array_filter( $newLinks, array( &$this, 'filterLink' ) );
-			
+
 			$addedLinks = array_diff( $unknownLinks, $oldLinks );
 			$numLinks = count( $addedLinks );
-			
+
 			if( $numLinks > 0 ) {
 				global $wgUser, $wgTitle;
 				$this->trigger = sprintf( "%dx url trigger by '%s' at [[%s]]: %s",
@@ -279,20 +284,20 @@ class SimpleCaptcha {
 				return true;
 			}
 		}
-		
+
 		global $wgCaptchaRegexes;
 		if( !empty( $wgCaptchaRegexes ) ) {
 			// Custom regex checks
 			$oldtext = $this->loadText( $editPage, $section );
-			
+
 			foreach( $wgCaptchaRegexes as $regex ) {
 				$newMatches = array();
 				if( preg_match_all( $regex, $newtext, $newMatches ) ) {
 					$oldMatches = array();
 					preg_match_all( $regex, $oldtext, $oldMatches );
-					
+
 					$addedMatches = array_diff( $newMatches[0], $oldMatches[0] );
-					
+
 					$numHits = count( $addedMatches );
 					if( $numHits > 0 ) {
 						global $wgUser, $wgTitle;
@@ -307,10 +312,10 @@ class SimpleCaptcha {
 				}
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	/**
 	 * Filter callback function for URL whitelisting
 	 * @return bool true if unknown, false if whitelisted
@@ -320,7 +325,7 @@ class SimpleCaptcha {
 		global $wgCaptchaWhitelist;
 		return !( $wgCaptchaWhitelist && preg_match( $wgCaptchaWhitelist, $url ) );
 	}
-	
+
 	/**
 	 * The main callback run on edit attempts.
 	 * @param EditPage $editPage
@@ -341,7 +346,7 @@ class SimpleCaptcha {
 			return true;
 		}
 	}
-	
+
 	/**
 	 * Hook for user creation form submissions.
 	 * @param User $u
@@ -359,7 +364,7 @@ class SimpleCaptcha {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Given a required captcha run, test form input for correct
 	 * input on the open session.
@@ -383,7 +388,7 @@ class SimpleCaptcha {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Log the status and any triggering info for debugging or statistics
 	 * @param string $message
@@ -391,7 +396,7 @@ class SimpleCaptcha {
 	function log( $message ) {
 		wfDebugLog( 'captcha', 'ConfirmEdit: ' . $message . '; ' .  $this->trigger );
 	}
-	
+
 	/**
 	 * Generate a captcha session ID and save the info in PHP's session storage.
 	 * (Requires the user to have cookies enabled to get through the captcha.)
@@ -411,7 +416,7 @@ class SimpleCaptcha {
 		$_SESSION['captcha' . $info['index']] = $info;
 		return $info['index'];
 	}
-	
+
 	/**
 	 * Fetch this session's captcha info.
 	 * @return mixed array of info, or false if missing
@@ -425,7 +430,7 @@ class SimpleCaptcha {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Clear out existing captcha info from the session, to ensure
 	 * it can't be reused.
@@ -433,7 +438,7 @@ class SimpleCaptcha {
 	function clearCaptcha( $info ) {
 		unset( $_SESSION['captcha' . $info['index']] );
 	}
-	
+
 	/**
 	 * Retrieve the current version of the page or section being edited...
 	 * @param EditPage $editPage
@@ -454,7 +459,7 @@ class SimpleCaptcha {
 			}
 		}
 	}
-	
+
 	/**
 	 * Extract a list of all recognized HTTP links in the text.
 	 * @param string $text
@@ -462,14 +467,14 @@ class SimpleCaptcha {
 	 */
 	function findLinks( $text ) {
 		global $wgParser, $wgTitle, $wgUser;
-		
+
 		$options = new ParserOptions();
 		$text = $wgParser->preSaveTransform( $text, $wgTitle, $wgUser, $options );
 		$out = $wgParser->parse( $text, $wgTitle, $options );
-		
+
 		return array_keys( $out->getExternalLinks() );
 	}
-	
+
 	/**
 	 * Show a page explaining what this wacky thing is.
 	 */
@@ -478,7 +483,7 @@ class SimpleCaptcha {
 		$wgOut->setPageTitle( wfMsg( 'captchahelp-title' ) );
 		$wgOut->addWikiText( wfMsg( 'captchahelp-text' ) );
 	}
-	
+
 }
 
 } # End invocation guard

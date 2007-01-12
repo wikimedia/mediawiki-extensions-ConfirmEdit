@@ -318,8 +318,8 @@ $wgConfirmEditMessages['oc'] = array(
 	'captcha-createaccount-fail' => "Còdi de confirmacion mancant o invalid.",
 );
 $wgConfirmEditMessages['pt'] = array(
-	'captcha-short'              => "Sua edição inclui novos links externos; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem:<br />
-([[Special:Captcha/help|What is this?]])",
+	'captcha-short'              => "Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem:<br />
+([[Special:Captcha/help|O que é isto?]])",
 	'captchahelp-title'          => 'Ajuda com o Captcha',
 	'captchahelp-text'           => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a spammers que utilizem ferramentas automatizadas para inserir seus links em diversos locais. Remover tais links posteriormente poderá significar um significativo incômodo.
 

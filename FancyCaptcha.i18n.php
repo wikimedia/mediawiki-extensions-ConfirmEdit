@@ -47,6 +47,12 @@ ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld 
 'fancycaptcha-createaccount' => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 ),
 
+/* Portuguese */
+'pt' => array(
+'fancycaptcha-edit' => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box ([[Special:Captcha/help|mais informações]]):',
+'fancycaptcha-createaccount' => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box para que possa se cadastrar ([[Special:Captcha/help|mais informações]]):',
+),
+
 	);
 }
 

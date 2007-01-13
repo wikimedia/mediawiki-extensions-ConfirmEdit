@@ -28,6 +28,14 @@ in das darunter erscheinende Feld eintragen. Klicken Sie dann erneut auf „Seit
 ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld eintragen.
 [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]',
 ),
+
+/* French */
+'fr' => array(
+'fancycaptcha-edit' => 'Votre modification inclut de nouveaux liens externes. Pour vérifier qu’il ne s’agit pas de spam automatique,
+veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+'fancycaptcha-createaccount' => 'Comme protection contre les créations de compte abusives, veuillez entrer les mots
+ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+),
 	
 /* Indonesian */
 'id' => array(

@@ -104,6 +104,23 @@ Varmistus ei toimi, jos evästeet eivät ole käytössä.
 
 Voit palata muokkaustilaan selaimen paluutoiminnolla.",
 );
+$wgConfirmEditMessages['fr'] = array(
+	'captcha-edit' => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le spam automatique,
+	veuillez entrer le résultat de l’addition ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-createaccount' => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de 
+	l’addition dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-createaccount-fail' => "Code de confirmation erroné ou manquant.",
+	'captchahelp-title'          => 'Aide sur les captcha',
+	'captchahelp-text'           => "Les site Web acceptant des contributions du public, comme ce wiki, sont souvent utilisés par des spammeurs qui utilisent des outils automatiques pour placer de nombreux liens vers leurs sites. Même si ces liens de « spam » peuvent être enlevés, ils représentent une nuisance.
+
+Parfois, en particulier lors de l’ajout de nouveaux liens externes à une page, le wiki peut vous montrer une image représentant un texte coloré ou tordu et vous demander de taper les mots montrés. Cette tâche est difficile à automatiser, et permet aux humains de faire leurs contributions tout en stoppant la plupart des spammeurs.
+
+Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l'instant. Veuillez contacter un administrateur du site si vous n’arrivez pas à faire vos contributions.
+
+Vous devez avoir les cookies activés dans votre navigateur pour que cela fonctionne.
+
+Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page d’édition.",
+);
 $wgConfirmEditMessages['ga'] = array(
 	'captcha-short'              => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
 	'captchahelp-title'          => 'Captcha help',

@@ -53,11 +53,11 @@ class FancyCaptcha extends SimpleCaptcha {
 	 */
 	function keyMatch( $request, $info ) {
 		global $wgCaptchaSecret;
-		
+
 		$answer = $request->getVal( 'wpCaptchaWord' );
 		$digest = $wgCaptchaSecret . $info['salt'] . $answer . $wgCaptchaSecret . $info['salt'];
 		$answerHash = substr( md5( $digest ), 0, 16 );
-		
+
 		if( $answerHash == $info['hash'] ) {
 			wfDebug( "FancyCaptcha: answer hash matches expected {$info['hash']}\n" );
 			return true;
@@ -66,7 +66,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Insert the captcha prompt into the edit form.
 	 */
@@ -75,17 +75,17 @@ class FancyCaptcha extends SimpleCaptcha {
 		if( !$info ) {
 			die( "out of captcha images; this shouldn't happen" );
 		}
-		
+
 		// Generate a random key for use of this captcha image in this session.
 		// This is needed so multiple edits in separate tabs or windows can
 		// go through without extra pain.
 		$index = $this->storeCaptcha( $info );
-		
+
 		wfDebug( "Captcha id $index using hash ${info['hash']}, salt ${info['salt']}.\n" );
-		
+
 		$title = Title::makeTitle( NS_SPECIAL, 'Captcha/image' );
-		
-		return "<p>" . 
+
+		return "<p>" .
 			wfElement( 'img', array(
 				'src'    => $title->getLocalUrl( 'wpCaptchaId=' . urlencode( $index ) ),
 				'width'  => $info['width'],
@@ -104,7 +104,7 @@ class FancyCaptcha extends SimpleCaptcha {
 				'tabindex' => 1 ) ) . // tab in before the edit textarea
 			"</p>\n";
 	}
-	
+
 	/**
 	 * Select a previously generated captcha image from the queue.
 	 * @fixme subject to race conditions if lots of files vanish
@@ -114,9 +114,9 @@ class FancyCaptcha extends SimpleCaptcha {
 		global $wgCaptchaDirectory;
 		$n = mt_rand( 0, $this->countFiles( $wgCaptchaDirectory ) );
 		$dir = opendir( $wgCaptchaDirectory );
-		
+
 		$count = 0;
-		
+
 		$entry = readdir( $dir );
 		$pick = false;
 		while( false !== $entry ) {
@@ -138,7 +138,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		closedir( $dir );
 		return $pick;
 	}
-	
+
 	/**
 	 * Count the number of files in a directory.
 	 * @return int
@@ -154,27 +154,27 @@ class FancyCaptcha extends SimpleCaptcha {
 		closedir( $dir );
 		return $count;
 	}
-	
+
 	function showImage() {
 		global $wgOut, $wgRequest;
 		global $wgCaptchaDirectory;
-		
+
 		$wgOut->disable();
-		
+
 		$info = $this->retrieveCaptcha();
 		if( $info ) {
 			if( $info['viewed'] ) {
 				wfHttpError( 403, 'Access Forbidden', "Can't view captcha image a second time." );
 				return false;
 			}
-			
+
 			$info['viewed'] = wfTimestamp();
 			$this->storeCaptcha( $info );
-			
+
 			$salt = $info['salt'];
 			$hash = $info['hash'];
 			$file = $wgCaptchaDirectory . DIRECTORY_SEPARATOR . "image_{$salt}_{$hash}.png";
-			
+
 			if( file_exists( $file ) ) {
 				header( 'Content-type: image/png' );
 				readfile( $file );
@@ -184,7 +184,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		wfHttpError( 500, 'Internal Error', 'Requested bogus captcha image' );
 		return false;
 	}
-	
+
 	/**
 	 * Show a message asking the user to enter a captcha on edit
 	 * The result will be treated as wiki text
@@ -199,7 +199,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		# the default for edits
 		return wfEmptyMsg( $name, $text ) ? wfMsg( 'fancycaptcha-edit' ) : $text;
 	}
-	
+
 }
 
 } # End invocation guard

@@ -9,7 +9,7 @@
 
 function efFancyCaptchaMessages() {
 	return array(
-	
+
 /* English */
 'en' => array(
 'fancycaptcha-edit' => 'Your edit includes new external links. To help protect against automated
@@ -36,7 +36,7 @@ veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:C
 'fancycaptcha-createaccount' => 'Comme protection contre les créations de compte abusives, veuillez entrer les mots
 ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 ),
-	
+
 /* Indonesian */
 'id' => array(
 'fancycaptcha-edit' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',

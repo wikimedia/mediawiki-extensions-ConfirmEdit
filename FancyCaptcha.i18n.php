@@ -3,8 +3,7 @@
 /**
  * Internationalisation file for the FancyCaptcha plug-in
  *
- * @package MediaWiki
- * @subpackage Extensions
+ * @addtogroup Extensions
 */
 
 function efFancyCaptchaMessages() {

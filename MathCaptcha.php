@@ -4,8 +4,7 @@
  * Captcha class using simple sums and the math renderer
  * Not brilliant, but enough to dissuade casual spam bots
  *
- * @package MediaWiki
- * @subpackage Extensions
+ * @addtogroup Extensions
  * @author Rob Church <robchur@gmail.com>
  * @copyright © 2006 Rob Church
  * @licence GNU General Public Licence 2.0

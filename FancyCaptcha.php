@@ -21,8 +21,7 @@
  * 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @package MediaWiki
- * @subpackage Extensions
+ * @addtogroup Extensions
  */
 
 if ( defined( 'MEDIAWIKI' ) ) {

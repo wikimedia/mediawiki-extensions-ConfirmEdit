@@ -2,8 +2,7 @@
 /**
  * Internationalisation file for ConfirmEdit extension.
  *
- * @package MediaWiki
- * @subpackage Extensions
+ * @addtogroup Extensions
 */
 
 $wgConfirmEditMessages = array();

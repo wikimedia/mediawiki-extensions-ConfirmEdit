@@ -60,6 +60,12 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 'fancycaptcha-createaccount' => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box para que possa se cadastrar ([[Special:Captcha/help|mais informações]]):',
 ),
 
+/* Slovak (helix84) */
+'sk' => array(
+'fancycaptcha-edit' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
+'fancycaptcha-createaccount' => 'Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet: <br />([[Special:Captcha/help|Čo je toto?]])',
+),
+
 	);
 }
 

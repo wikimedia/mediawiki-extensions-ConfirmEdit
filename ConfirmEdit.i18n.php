@@ -32,6 +32,13 @@ $wgConfirmEditMessages['af'] = array(
 	'captcha-createaccount'      => "As 'n beskerming teen geoutomatiseerde gemors, tik asseblief die woorde wat in die beeld verskyn in om 'n rekening te skep: <br />([[Special:Captcha/help|Wat is hierdie?]])",
 	'captcha-createaccount-fail' => "Verkeerde of geen bevestigingkode.",
 );
+$wgConfirmEditMessages['br'] = array(
+	'captcha-edit'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',
+	'captcha-createaccount'       => 'A-benn hor skoazellañ d\'en em wareziñ diouzh ar c\'hrouiñ kontoù emgefre, skrivit ar gerioù a zeu war wel er stern-mañ evit enrollañ ho kont : <br />([[Special:Captcha/help|Petra eo se?]])',
+	'captcha-createaccount-fail'  => 'Mankout a ra ar c\'hod kadarnaat pe fall eo.',
+	'captchahelp-title'           => 'Skoazell Capcha',
+	'captchahelp-text'            => 'Alies e vez taget al lec\'hiennoù a zegemer kemennadennoù a-berzh an holl, evel ar wiki-mañ, gant ar spamerien a implij ostilhoù emgefre evit postañ o liammoù war lec\'hiennoù a bep seurt. Diverket e c\'hallont bezañ, gwir eo, kazus-mat ez int memes tra. A-wechoù, dreist-holl pa vez ouzhpennet liammoù Web nevez war ur bajenn, e c\'hallo ar wiki-mañ diskouez deoc\'h ur skeudenn warni un tamm testenn liv pe a-dreuz. Goulennet e vo diganeoc\'h skrivañ ar gerioù deuet war wel. Un trevell start da emgefrekaat eo hemañ. Gant se e c\'hallo an implijerien wirion postañ ar pezh a fel ldezho tra ma vo lakaet un harz d\'an darn vrasañ eus ar spamerien pe d\'an dagerien robotek all. Koulskoude e c\'hallo an implijerien berr o gweled pe ar re a implij merdeerioù diazezet war ar skrid pe war ar vouezh bezañ strafuilhet gant se. N\'omp ket evit kinnig un diskoulm dre glevet evit c\'hoazh. Kit e darempred gant merourien al lec\'hienn m\'hoc\'h eus diaesterioù evit kemer perzh abalamour d\'an teknik-se. Pouezit war bouton \'kent\' ho merdeer evit distreiñ d\'ar bajenn gemmañ.',
+);
 $wgConfirmEditMessages['bs'] = array(
 	'captcha-short' => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
 <br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',

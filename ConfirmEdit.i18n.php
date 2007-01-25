@@ -26,7 +26,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 );
 
 $wgConfirmEditMessages['af'] = array(
-	'captcha-short'              => "U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])",
+	'captcha-edit'               => "U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])",
 	'captchahelp-title'          => 'Captcha-hulp',
 	'captchahelp-text'           => "Webwerwe wat bydraes van die publiek aanvaar (soos hierdie wiki) word soms lastig geval deur kwaaddoeners met programme wat outomaties klomp skakels plak in die werf. Alhoewel hierdie gemors verwyder kan word, is dit lastig. In party gevalle, veral as u webskakels by 'n blad voeg, sal die wiki dalk 'n beeld met verwronge teks vertoon en vra dat u die woorde daarin intik. Omdat hierdie taak moeilik geoutomatiseer word, laat dit meeste regte mense toe om bydraes te maak terwyl dit meeste kwaaddoeners stop. Hierdie kan ongelukkig lastig wees vir mense met beperkte sig, of diegene wat teks- of spraakgebaseerde blaaiers gebruik. Tans is daar nog nie 'n klankalternatief beskikbaar nie. Kontak asseblief die werfadministrateurs vir hulp as hierdie u onverwags belemmer om legitieme bydraes te maak. Gebruik die \"terug\"-knoppie van u blaaier om na die vorige blad terug te keer.",
 	'captcha-createaccount'      => "As 'n beskerming teen geoutomatiseerde gemors, tik asseblief die woorde wat in die beeld verskyn in om 'n rekening te skep: <br />([[Special:Captcha/help|Wat is hierdie?]])",
@@ -40,7 +40,7 @@ $wgConfirmEditMessages['br'] = array(
 	'captchahelp-text'            => 'Alies e vez taget al lec\'hiennoù a zegemer kemennadennoù a-berzh an holl, evel ar wiki-mañ, gant ar spamerien a implij ostilhoù emgefre evit postañ o liammoù war lec\'hiennoù a bep seurt. Diverket e c\'hallont bezañ, gwir eo, kazus-mat ez int memes tra. A-wechoù, dreist-holl pa vez ouzhpennet liammoù Web nevez war ur bajenn, e c\'hallo ar wiki-mañ diskouez deoc\'h ur skeudenn warni un tamm testenn liv pe a-dreuz. Goulennet e vo diganeoc\'h skrivañ ar gerioù deuet war wel. Un trevell start da emgefrekaat eo hemañ. Gant se e c\'hallo an implijerien wirion postañ ar pezh a fel ldezho tra ma vo lakaet un harz d\'an darn vrasañ eus ar spamerien pe d\'an dagerien robotek all. Koulskoude e c\'hallo an implijerien berr o gweled pe ar re a implij merdeerioù diazezet war ar skrid pe war ar vouezh bezañ strafuilhet gant se. N\'omp ket evit kinnig un diskoulm dre glevet evit c\'hoazh. Kit e darempred gant merourien al lec\'hienn m\'hoc\'h eus diaesterioù evit kemer perzh abalamour d\'an teknik-se. Pouezit war bouton \'kent\' ho merdeer evit distreiñ d\'ar bajenn gemmañ.',
 );
 $wgConfirmEditMessages['bs'] = array(
-	'captcha-short' => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
+	'captcha-edit'  => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
 <br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
 	'captchahelp-text' => 'Vebsajtovi koji podržavaju slanje sadržaja iz javnosti, kao što je ovaj viki, često zloupotrebljavaju vandali koji koriste automatizovane alate da šalju svoje poveznice ka mnogim sajtovima.  Iako se ove neželjene poveznice mogu ukloniti, one ipak zadaju veliku muku.
 
@@ -54,7 +54,7 @@ Kliknite \'nazad\' (\'back\') dugme vašeg brauzera da se vratite na polje za un
 	'captcha-createaccount-fail' => 'Netačan unos ili nedostatak šifre za potvrđivanje.',
 );
 $wgConfirmEditMessages['cs'] = array(
-	'captcha-short'              => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte opsat text z následujícího obrázku:<br />([[Special:Captcha/help|Co tohle znamená?]])',
+	'captcha-edit'               => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte opsat text z následujícího obrázku:<br />([[Special:Captcha/help|Co tohle znamená?]])',
 	'captchahelp-title'          => 'Nápověda ke captcha',
 	'captchahelp-text'           => "Webové stránky, do kterých mohou přispívat jejich návštěvníci (jako například tato wiki), jsou často terčem spammerů, kteří pomocí automatických nástrojů vkládají své odkazy na velké množství stránek. Přestože lze tento spam odstranit, představuje nepříjemné obtěžování.
 
@@ -67,7 +67,7 @@ Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko
 	'captcha-createaccount-fail' => 'Chybějící či neplatný potvrzovací kód.',
 );
 $wgConfirmEditMessages['cy'] = array(
-	'captcha-short'              => "Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
+	'captcha-edit'               => "Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
 	'captchahelp-title'          => 'Cymorth "captcha"',
 	'captchahelp-text'           => "Yn anffodus, mae safleoedd gwe fel Wicipedia, sy'n caniatau i'r cyhoedd ysgrifennu iddi, yn darged beunyddiol i sbamwyr sy'n defnyddio rhaglenni arbennig i bostio eu cysylltiadau. Gellir dileu'r dolenni o'r dudalen, ond mae hyn yn drafferth mawr. O dro i dro, fe fydd y safle hon yn dangos delwedd o destun, ac fe fydd yn rhaid i chi deipio'r geiriau a ddangosir. Mae hyn yn dasg anodd iawn i ragenni cyfrifiadurol, felly dylai golygwyr go iawn gyflawni'r dasg yn di-drafferth, yn wahanol i'r rhaglenni sbam. Mae hyn yn amlwg yn creu trafferthion i'r sawl sydd yn defnyddio porwyr testun neu sydd yn colli eu golwg. Ar hyn o bryd nid oes fersiwn sain ar gael. Cysylltwch â gweinyddwyr y safle os ydi'r nodwedd hon yn eich rhwystro rhag ychwanegu golygiadau dilys. Gwasgwch botwm 'nôl' eich porwr er mwyn dychwelyd.",
 	'captcha-createaccount'      => "Teipiwch y geiriau sy'n ymddangos yn y ddelwedd isod os gwelwch yn dda. Mae'r nodwedd hon yn rhwystro rhaglenni sbam rhag creu cyfrifon i'w hunain. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
@@ -81,14 +81,14 @@ $wgConfirmEditMessages['de'] = array(
 	'captcha-createaccount-fail' => "Falscher oder fehlender Bestätigungscode.",
 );
 $wgConfirmEditMessages['et'] = array(
-	'captcha-short'              => "Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])",
+	'captcha-edit'               => "Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])",
 	'captchahelp-title'          => 'Mis on Captcha?',
 	'captchahelp-text'           => "Internetisaite, mis lubavad külastajatel sisu muuta (nagu ka see Viki), kasutavad sageli spämmerid ära, postitades reklaamlinke - spämmi. Kuigi neid linke saab alati ära võtta, on nad ikkagi üpris tülikad. Omale kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse teile moonutatud tekstiga pilti ning palutakse teil sisestada seal näidatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks spämmirobotite vastu, samas lubades tavainimestel oma muudatusi rahus teha. Kahjuks võib see tekitada ebamugavusi nägemisraskustega inimestele või neile, kes kasutavad kõnesüntesaatorit või tekstipõhist brauserit. Hetkel pole meil helipõhist alternatiivi. Kui teil tekib ootamatult raskusi oma muudatuste tegemisel, siis kirjutage sellest [[Vikipeedia:Üldine arutelu|üldise arutelu]] lehele. Konto registreerimise lehele või lehe redigeerimisele tagasi jõudmiseks vajutage oma brauseri tagasi-nuppu.",
 	'captcha-createaccount'      => "Kaitsena spämmi vastu peate konto registreerimiseks lahtrisse kirjutama järgneva tehte tulemuse.<br /> ([[Special:Captcha/help|Mis see on?]])",
 	'captcha-createaccount-fail' => "Puuduv või valesti sisestatud kinnituskood.",
 );
 $wgConfirmEditMessages['eu'] = array(
-	'captcha-short'              => "Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])",
+	'captcha-edit'               => "Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])",
 	'captchahelp-title'          => 'Captcha laguntza',
 	'captchahelp-text'           => "Publikoki aldaketak egiteko aukerak dituzten webguneetan, wiki honetan bezalaxe, spam testuak gehitzen dira sarritan tresna automatikoak erabiliz. Lotura horiek ezabatu egin daitezkeen arren, traba dira. Batzutan, eta bereziki webgune berri bateko loturak gehitzen dituzunean, hitz batzuk dituen irudi bat agertuko zaizu, eta bertan ageri den testua idazteko eskatuko zaizu. Lan hori automatizatzeko zaila da, eta pertsonei ezer kostatzen ez zaigunez, spam testuak saihesteko lagungarria da. Zoritxarrez, ikusmen mugatua edo testu bidezko nabigatzaileak erabiltzen dituzten erabiltzeek arazoak izan ditzakete. Horrelako zerbait gertatzen bazaizu, mesedez, jarri administratzaileekin harremanetan. Zure nabigatzaileko 'atzera' lotura erabili aldaketen orrialdera itzultzeko.",
 	'captcha-createaccount'      => "Spam-a saihesteko, mesedez, irudian agertzen den hizki edo zenbaki kodea, beheko laukian idatzi zure kontua sortzeko:<br /> ([[Special:Captcha/help|Zer da hau?]])",
@@ -113,7 +113,7 @@ Voit palata muokkaustilaan selaimen paluutoiminnolla.",
 $wgConfirmEditMessages['fr'] = array(
 	'captcha-edit' => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le spam automatique,
 	veuillez entrer le résultat de l’addition ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-createaccount' => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de 
+	'captcha-createaccount' => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de
 	l’addition dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-createaccount-fail' => "Code de confirmation erroné ou manquant.",
 	'captchahelp-title'          => 'Aide sur les captcha',
@@ -128,7 +128,7 @@ Vous devez avoir les cookies activés dans votre navigateur pour que cela foncti
 Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page d’édition.",
 );
 $wgConfirmEditMessages['ga'] = array(
-	'captcha-short'              => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
+	'captcha-edit'               => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
 	'captchahelp-title'          => 'Captcha help',
 	'captchahelp-text'           => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites. While these spam links can be removed, they are a significant nuisance.
 
@@ -141,7 +141,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 	'captcha-createaccount-fail' => "Ní raibh an cód deimhnithe ceart sa bhosca, nó ní raibh aon chód ann ar chor ar bith.",
 );
 $wgConfirmEditMessages['gl'] = array(
-	'captcha-short'              => "A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de enlaces publicitarios necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])",
+	'captcha-edit'               => "A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de enlaces publicitarios necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])",
 	'captchahelp-title'          => 'Captcha axuda',
 	'captchahelp-text'           => "'''CAPTCHA''' (acrónimo de \"'''C'''ompletely '''A'''utomated '''P'''ublic '''T'''uring test to tell '''C'''omputers and '''H'''umans '''A'''part\") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas. Os sitios web que aceptan publicar as contribucións dos usuarios coma este wiki sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de enlaces publicitarios nunha chea páxinas en pouco tempo. Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo. En ocasións, en particular cando engada algún novo vínculo externo, o wiki pode mostrar unha imaxe dun texto coloreado e distorsionado e pedíralle que teclee as palabras mostradas. Como esta tarefa é difícil de automatizar permite distinguir entre persoas e robots, e dificulta os ataques automatizados dos ''spammers''. Por desgraza pode causar problemas a aqueles usuarios con dificultades de visión, ou os que utilicen navegadores de texto ou navegadores baseados en sistemas de voz. Polo de agora non dispoñemos dunha alternativa de audio. Por favor contacte cun [[Special:Listusers/sysop|administrador]] do wiki para solicitar axuda se o sistema lle impide rexistrase para facer contribucións lexítimas. Prema no botón 'atrás' ou equivalente do seu navegador para volver á páxina na que estaba.",
 	'captcha-createaccount'      => "Como protección fronte a sistemas de creación automática de contas de usuario usados polos ''spamers'', ten que teclear as palabras que aparecen na imaxe para rexistrar unha conta:<br /> ([[Special:Captcha/help|Qué é isto?]])",
@@ -163,7 +163,7 @@ $wgConfirmEditMessages['he'] = array(
 אנא לחצו על הכפתור 'Back' בדפדפן שלכם כדי לחזור לדף העריכה.",
 );
 $wgConfirmEditMessages['hr'] = array(
-	'captcha-short'              => "Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])",
+	'captcha-edit'               => "Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])",
 	'captchahelp-title'          => 'Antispam pomoć',
 	'captchahelp-text'           => "Web poslužitelje koji rade na temelju javnih doprinosa, poput wiki, često zloupotrebljavaju spameri. Oni koriste automatske alate pomoću kojih generiraju poveznice od vlastitog interesa. Iako se te poveznice najčešće uklanjaju, mogu predstavljati neugodnost pri radu. Ponekad se dogodi da wiki prikaže sliku čudnog tekstualnog sadržaja uz koju morate unijeti prikazana slova. Budući da je takvu radnju teško automatizirati, većina se napadača obeshrabri, a pravi suradnici bez većih smetnji nastavljaju pridonositi. Ukoliko ste suradnik koji koristi tekstualni klijent te vas česte ovakve provjere ometaju pri dodavanju važećih sadržaja, molimo da se obratite [[Special:Listusers/sysop|administratorima]].",
 	'captcha-createaccount'      => "Kao zaštitu od automatskog spama, pri otvaranju računa trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć]])",
@@ -171,7 +171,7 @@ $wgConfirmEditMessages['hr'] = array(
 );
 
 $wgConfirmEditMessages['id'] = array(
-	'captcha-short'              => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
+	'captcha-edit'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
 ([[Special:Captcha/help|Apa ini?]])",
 	'captchahelp-title'          => 'Mengenai Captcha',
 	'captchahelp-text'           => "Situs-situs web yang menerima masukan data dari publik, seperti {{ns:project}} ini, kerapkali disalahgunakan oleh pengguna-pengguna yang tidak bertanggungjawab untuk mengirimkan spam dengan menggunakan program-program otomatis. Walaupun spam-spam tersebut dapat dibuang, tetapi tetap saja menimbulkan gangguan berarti.
@@ -186,7 +186,7 @@ Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan
 	'captcha-createaccount-fail' => "Kode konfirmasi salah atau belum diisi.",
 );
 $wgConfirmEditMessages['is'] = array(
-	'captcha-short'              => "Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])",
+	'captcha-edit'               => "Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])",
 	'captchahelp-title'          => 'Captcha-hjálp',
 	'captchahelp-text'           => "Vefsíður sem að leyfa framlög frá frá almenningi, líkt og þessi wiki-vefur, eru oft misnotaðar af svokölluðum „spömmurum“ sem nota sjálfvirk tól til þess að setja inn tengla á aðrar vefsíður. Aðrir notendur geta fjarlægt þessa tengla en töluverð truflun er af þeim.
 
@@ -199,13 +199,13 @@ Notaðu „back“-hnapp vafrans til að halda áfram.",
 	'captcha-createaccount-fail' => "Staðfestingarkóðinn var rangur eða ekki til staðar.",
 );
 $wgConfirmEditMessages['it'] = array(
-	'captcha-short'              => "La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell'immagine:<br />
+	'captcha-edit'               => "La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell'immagine:<br />
 ([[Special:Captcha/help|Cosa vuol dire?]])",
 	'captchahelp-title'          => "Cos'è il captcha?",
 	'captchahelp-text'           => "Capita spesso che i siti Web che accettano messaggi pubblici, come questo wiki, siano presi di mira da spammer che usano strumenti automatici per inserire collegamenti pubblicitari verso un gran numero di siti. Per quanto i collegamenti indesiderati si possano rimuovere, si tratta comunque di una seccatura non indifferente.
-	
-In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web in una pagina, il software wiki può mostrare una immagine con un breve testo colorato e/o distorto chiedendo di riscriverlo in un'apposita finestrella. Poiché si tratta di un'azione difficile da replicare da parte di un computer, questo meccanismo consente a (quasi tutti) gli utenti reali di completare l'inserimento desiderato, impedendo l'accesso alla maggior parte degli spammer e degli altri attacchi automatizzati.	
-	
+
+In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web in una pagina, il software wiki può mostrare una immagine con un breve testo colorato e/o distorto chiedendo di riscriverlo in un'apposita finestrella. Poiché si tratta di un'azione difficile da replicare da parte di un computer, questo meccanismo consente a (quasi tutti) gli utenti reali di completare l'inserimento desiderato, impedendo l'accesso alla maggior parte degli spammer e degli altri attacchi automatizzati.
+
 Sfortunatamente, queste misure di sicurezza possono mettere in difficoltà gli utenti con problemi visivi o coloro che utilizzano browser testuali o basati sulla sintesi vocale. Purtroppo al momento non è disponibile un meccanismo alternativo basato su messaggi audio; se queste procedure impediscono l'inserimento informazioni che si ritengono legittime, si prega di contattare gli amministratori del sito e chiedere loro assistenza.
 
 Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
@@ -214,7 +214,7 @@ Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
 	'captcha-createaccount-fail' => "Codice di verifica errato o mancante.",
 );
 $wgConfirmEditMessages['ja'] = array(
-	'captcha-short'              => "あなたの編集は新しいURLへのリンクを含みます。スパム防止のため、下記に現れる単語を入力してください。<br />
+	'captcha-edit'               => "あなたの編集は新しいURLへのリンクを含みます。スパム防止のため、下記に現れる単語を入力してください。<br />
 ([[Special:Captcha/help|これはなに？]])",
 	'captchahelp-title'          => 'Captcha ヘルプ',
 	'captchahelp-text'           => "当Wikiのような、投稿が公開されているウェブサイトは、多くのサイトに自分たちへのリンクを自動投稿するツールで、スパム屋により荒らされます。これらのスパムは除去できるものの、それらは非常にうっとうしいです。
@@ -229,7 +229,7 @@ $wgConfirmEditMessages['ja'] = array(
 	'captcha-createaccount-fail' => "確認コードの入力がないか、間違っています。",
 );
 $wgConfirmEditMessages['kk-kz'] = array(
-	'captcha-short'              => "Өңдеген мағлұматыңызда жаңа сілтеме URL жайлар бар екен; аутоматты «спам»-нан қорғану жолында, осы суреттегі көрсетілген сөздерді енгізіңіз:<br />
+	'captcha-edit'               => "Өңдеген мағлұматыңызда жаңа сілтеме URL жайлар бар екен; аутоматты «спам»-нан қорғану жолында, осы суреттегі көрсетілген сөздерді енгізіңіз:<br />
 ([[{{ns:special}}:Captcha/help|Бұл не?]])",
 	'captchahelp-title'          => 'CAPTCHA қызметінің анықтамасы',
 	'captchahelp-text'           => "Осы уики сияқты, баршадан жіберілген хабарды қабылдайтын веб-торапты, аутоматты құралдары бар «спаммерлер» көп торап сілтемелерін жиі жаудырады. Осындай «спам» сілтемелерін аластау болғанда да, бұл мәнді ыза келтіреді.
@@ -244,7 +244,7 @@ $wgConfirmEditMessages['kk-kz'] = array(
 	'captcha-createaccount-fail' => "Куәландыру коды дұрыс емес немесе жоқ.",
 );
 $wgConfirmEditMessages['kk-tr'] = array(
-	'captcha-short'              => "Öñdegen mağlumatıñızda jaña silteme URL jaýlar bar eken; awtomattı «spam»-nan qorğanw jolında, osı swrettegi körsetilgen sözderdi engiziñiz:<br />
+	'captcha-edit'               => "Öñdegen mağlumatıñızda jaña silteme URL jaýlar bar eken; awtomattı «spam»-nan qorğanw jolında, osı swrettegi körsetilgen sözderdi engiziñiz:<br />
 ([[{{ns:special}}:Captcha/help|Bul ne?]])",
 	'captchahelp-title'          => 'CAPTCHA qızmetiniñ anıqtaması',
 	'captchahelp-text'           => "Osı wïkï sïyaqtı, barşadan jiberilgen xabardı qabıldaýtın veb-toraptı, awtomattı quraldarı bar «spammerler» köp torap siltemelerin jïi jawdıradı. Osındaý «spam» siltemelerin alastaw bolğanda da, bul mändi ıza keltiredi.
@@ -259,7 +259,7 @@ Bet ödñdewişke keri qaýtw üşin «Artqa» tüýmesin basıñız.",
 	'captcha-createaccount-fail' => "Kwälandırw kodı durıs emes nemese joq.",
 );
 $wgConfirmEditMessages['kk-cn'] = array(
-	'captcha-short'              => "ٴوڭدەگەن ماعلۇماتىڭىزدا جاڭا سٴىلتەمە URL جايلار بار ەكەن; اۋتوماتتى «سپام»-نان قورعانۋ جولىندا, وسى سۋرەتتەگٴى كٴورسەتٴىلگەن سٴوزدەردٴى ەنگٴىزٴىڭٴىز:<br />
+	'captcha-edit'               => "ٴوڭدەگەن ماعلۇماتىڭىزدا جاڭا سٴىلتەمە URL جايلار بار ەكەن; اۋتوماتتى «سپام»-نان قورعانۋ جولىندا, وسى سۋرەتتەگٴى كٴورسەتٴىلگەن سٴوزدەردٴى ەنگٴىزٴىڭٴىز:<br />
 ([[{{ns:special}}:Captcha/help|بۇل نە?]])",
 	'captchahelp-title'          => 'CAPTCHA قىزمەتٴىنٴىڭ انىقتاماسى',
 	'captchahelp-text'           => "وسى ۋيكي سيياقتى, بارشادان جٴىبەرٴىلگەن حاباردى قابىلدايتىن ۆەب-توراپتى, اۋتوماتتى قۇرالدارى بار «سپاممەرلەر» كٴوپ توراپ سٴىلتەمەلەرٴىن جيٴى جاۋدىرادى. وسىنداي «سپام» سٴىلتەمەلەرٴىن الاستاۋ بولعاندا دا, بۇل مٴاندٴى ىزا كەلتٴىرەدٴى.
@@ -275,7 +275,7 @@ $wgConfirmEditMessages['kk-cn'] = array(
 );
 $wgConfirmEditMessages['kk'] = $wgConfirmEditMessages['kk-kz'];
 $wgConfirmEditMessages['la'] = array(
-	'captcha-short'              => "Emendatione tua insunt nexus URL; ut spam automaticum vitemus, necesse est tibi inscribere verba, quae in hac imagine videntur. <br /> ([[Specialis:Captcha/Auxilium|Quidst illud?]])",
+	'captcha-edit'               => "Emendatione tua insunt nexus URL; ut spam automaticum vitemus, necesse est tibi inscribere verba, quae in hac imagine videntur. <br /> ([[Specialis:Captcha/Auxilium|Quidst illud?]])",
 	'captchahelp-title'          => 'Captcha auxilium',
 	'captchahelp-text'           => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites. While these spam links can be removed, they are a significant nuisance.
 
@@ -288,14 +288,14 @@ Hit the 'back' button in your browser to return to the page editor.",
 	'captcha-createaccount-fail' => "Codex affirmationis aut non scriptus est aut male.",
 );
 $wgConfirmEditMessages['lv'] = array(
-	'captcha-short'              => "Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
+	'captcha-edit'               => "Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
 	'captchahelp-title'          => 'Captcha help',
 	'captchahelp-text'           => "Interneta lapas, kurās iespējams pievienot tekstu, kā šajā wiki, bieži cieš no mēstuļotājiem, kuri izmanto automatizētus līdzekļus, lai pievienotu savus saites daudzās jo daudzās interneta lapās. Kaut arī šīs saites var viegli dzēst, tomēr tās ir nozīmīgs traucēklis. Reizēm, jo īpaši pievienojot jaunas interneta saites, wiki programmatūra var parādīt Tev attēlu, kurā ir krāsains vai sagrozīts teksts. Šis teksts ir jāpārraksta un to ir ļoti grūti izdarīt automātiski, tā apgrūtinot lielāko daļu mēstuļotāju, savukārt gandrīz visi parastie lietotāji to var izdarīt bez grūtībām. Diemžēl tas var apgrūtināt lietotājus, kuriem ir redzes traucējumi vai kuri izmanto teksta pārlūkus vai dzirdes pārlūkus. Šobrīd nav pieejama audio alternatīva, bet sazinies ar wiki administratoriem, ja tas liedz Tev veikt labi domātus papildinājumus. Spied pārlūka pogu \"Atpakaļ\" (''Back''), lai atgrieztos iepriekšējā lapā.",
 	'captcha-createaccount'      => "Lai pasargātos no automātiskas mēstuļošanas, Tev reģistrējoties ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
 	'captcha-createaccount-fail' => "Nepareizs apstiprinājuma kods vai arī tas nav ievadīts.",
 );
 $wgConfirmEditMessages['nl'] = array(
-	'captcha-short'              => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
+	'captcha-edit'               => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
 ([[Special:Captcha/help|Wat is dit?]])",
 	'captchahelp-title'          => 'Captcha help',
 	'captchahelp-text'           => "Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma's automatisch links op zetten naar vele websites. Hoewel deze externe links weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
@@ -310,7 +310,7 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
 	'captcha-createaccount-fail' => "Onjuiste bevestigingscode of niet ingevuld.",
 );
 $wgConfirmEditMessages['no'] = array(
-	'captcha-short'              => "Din redigering inkluderer nye lenker; som en beskyttelse mot automatisert spam er du nødt til skrive inn ordene i dette bildet:
+	'captcha-edit'               => "Din redigering inkluderer nye lenker; som en beskyttelse mot automatisert spam er du nødt til skrive inn ordene i dette bildet:
 <br />([[Special:Captcha/help|Hva er dette?]])",
 	'captchahelp-title'          => 'Captcha help',
 	'captchahelp-text'           => "Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til betydelig irritasjon.
@@ -326,14 +326,14 @@ Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.",
 	'captcha-createaccount-fail' => "Feil eller manglende bekreftelseskode.",
 );
 $wgConfirmEditMessages['nn'] = array(
-	'captcha-short'              => "Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])",
+	'captcha-edit'               => "Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])",
 	'captchahelp-title'          => 'Captcha help',
 	'captchahelp-text'           => "Internettsider som kan bli endra av alle, som denne wikien, blir ofte misbruka av reklameinnleggjarar (spammarar) som nyttar robotar til å poste store tal lenkjer. Sjølv om slike reklamelenkjer kan bli fjerna er dei til betydelig irritasjon. Nokon gonger, særleg viss du vil leggje til nye internettlenker til ei side, kan wikien vise deg eit bilete av ein farga eller ujamn tekst og be deg skrive inn orda som blir visa. Sidan det er vanskeleg å automatisere denne oppgåva, vil funksjonen slippe dei fleste verkelege menneska gjennom, men stoppe reklamerobotar. Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedsett syn som brukar tekst- eller talebaserte nettlesarar. Ver venleg å kontakte administratorane viss denne funksjonen hindrar deg i å foreta legitime endringar. Trykk på «tilbake»-knappen for å komma tilbake til redigeringssida.",
 	'captcha-createaccount'      => "For å verne Wikipedia mot reklame (spam) må du skrive inn orda i biletet for å registrere ein konto. <br />([[Special:Captcha/help|Kva er dette?]])",
 	'captcha-createaccount-fail' => "Feil eller manglande godkjenningskode.",
 );
 $wgConfirmEditMessages['oc'] = array(
-	'captcha-short'              => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu'es aquò?]])",
+	'captcha-edit'               => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu'es aquò?]])",
 	'captchahelp-title'          => 'Ajuda pel Captcha',
 	'captchahelp-text'           => "Los sites webs que permeton al mai grand nombre de participar, coma aqueste wiki, son sovent atacats per de spammers qu'utilizan d'espleches automatizas per mandar lor ligams sus de fòrça sites sulcòp. Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de far. De còps quand ajustatz de ligams novèls vèrs lo web, lo wiki pòt vos mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d'automatizar, çò que permet de diferenciar un uman real d'un logicial automatic malvolent. Malaürosament, aqueste sistèma es pas adaptat a d'utilizaires mal-vesents o utilizant de navigaires textuals o audiò. Actualament, prepausem pas d'alternativas adaptadas. Se avètz besonh d'ajuda esitetz pas a contactar los administrators del sit. Clicatz sul boton 'recular' de vòstre navigaire per tornar a l'editor.",
 	'captcha-createaccount'      => "As a protection against automated spam, you'll need to type in the words that appear in this image to register an account:<br />
@@ -341,7 +341,7 @@ $wgConfirmEditMessages['oc'] = array(
 	'captcha-createaccount-fail' => "Còdi de confirmacion mancant o invalid.",
 );
 $wgConfirmEditMessages['pt'] = array(
-	'captcha-short'              => "Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem:<br />
+	'captcha-edit'               => "Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem:<br />
 ([[Special:Captcha/help|O que é isto?]])",
 	'captchahelp-title'          => 'Ajuda com o Captcha',
 	'captchahelp-text'           => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a spammers que utilizem ferramentas automatizadas para inserir seus links em diversos locais. Remover tais links posteriormente poderá significar um significativo incômodo.
@@ -357,14 +357,14 @@ Pressione o botão 'voltar' de seu navegador para retornar à página de ediçã
 );
 $wgConfirmEditMessages['pt-br'] = $wgConfirmEditMessages['pt'];
 $wgConfirmEditMessages['ru'] = array(
-	'captcha-short'              => "Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
+	'captcha-edit'               => "Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
 ([[{{ns:special}}:Captcha/help|Что это такое?]])",
 	'captchahelp-title'          => 'Справка о CAPTCHA',
 	'captchahelp-text'           => "Вебсайты позволяющие добавлять и изменять своё содержимое, в том числе вики, часто становятся целью спамеров, использующих программы для автоматического добавления ссылок. Хотя такие ссылки могут быть удалены, они являются существенной помехой.
 
 Иногда, например при добавлении на страницу новой веб-ссылки, вики может показать вам картинку с цветным или искажённым текстом и предложить ввести текст, который вы видите. Так как подобная задача трудноавтоматизируема, это даёт возможность большинству людей разместить свои изменения, в то время как большинство спамерских и вандальных программ не могут это сделать.
 
-К сожалению, подобная защита может причинить неудобства людям с ограничениями по зрению или тем, кто использует читающие браузеры. В настоящее время у нас нет звуковой альтернативы данной проверке. Пожалуйста, обратитесь за помощью к администраторам, если подобная проверка мешает вам добросовестно работать с сайтом.  
+К сожалению, подобная защита может причинить неудобства людям с ограничениями по зрению или тем, кто использует читающие браузеры. В настоящее время у нас нет звуковой альтернативы данной проверке. Пожалуйста, обратитесь за помощью к администраторам, если подобная проверка мешает вам добросовестно работать с сайтом.
 
 Нажмите кнопку «Назад» в ваше браузере, чтобы вернуться к редактированию.",
 	'captcha-createaccount'      => "В качестве меры против автоматического спама, вы должны ввести буквы, изображённые на картинке, чтобы зарегистрироваться в системе:<br />
@@ -375,7 +375,7 @@ $wgConfirmEditMessages['sk'] = array(
 	'captcha-edit' => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
 	'captcha-createaccount' => 'Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet: <br />([[Special:Captcha/help|Čo je toto?]])',
 	'captcha-createaccount-fail' => "Incorrect or missing confirmation code.",
-	
+
 	'captchahelp-title'          => 'Pomocník ku captcha',
 	'captchahelp-text'           => "Webstránky prijímajúce príspevky od verejnosti ako táto wiki sú často cieľom zneužitia spammemi, ktorí používajú automatizované nástroje na to, aby svoje odkazy umiestnili na množstvo stránok. Hoci je možné tieto odkazy odstrániť, zbytočne to zaťažuje redaktorov.
 
@@ -388,7 +388,7 @@ Aby to fungovalo, musíte mať v nastaveniach prehliadača zapnuté cookies.
 Stlačením tlačidla \"späť\" vo Vašom prehliadači sa vrátite do editora stránky.",
 );
 $wgConfirmEditMessages['sl'] = array(
-	'captcha-short'              => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",
+	'captcha-edit'               => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",
 	'captchahelp-title'          => 'Pomoč za captcha',
 	'captchahelp-text'           => "Spletne strani, ki omogočajo objavljanje širši javnosti, kot na primer ta wiki, pogosto zlorabljajo spamerji, ki za objavo svojih povezav na mnogih straneh uporabljajo avtomatizirana orodja. Čeprav se te neželene povezave da odstraniti, so precejšnja nadloga.
 
@@ -401,7 +401,7 @@ Za vrnitev v urejevalnik izberite gumb 'nazaj' vašega brskalnika.",
 	'captcha-createaccount-fail' => "Nepravilna ali manjkajoča potrditvena koda.",
 );
 $wgConfirmEditMessages['sq'] = array(
-	'captcha-short'              => "Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])",
+	'captcha-edit'               => "Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])",
 	'captchahelp-title'          => 'Captcha help',
 	'captchahelp-text'           => "Faqet e rrjetit që pranojnë shkrime nga publiku, siç është edhe kjo wiki, shpesh abuzohen nga njerëz që duan të përfitojnë duke reklamuar ose promovuar lidhjet e tyre. Këto lloj abuzimesh mund të hiqen kollaj por janë një bezdi dhe shpenzim kohe i papranueshëm.
 
@@ -415,7 +415,7 @@ Shtypni butonin \"prapa\" (\"back\") të shfletuesit tuaj për tu kthyer tek faq
 );
 
 $wgConfirmEditMessages['wa'] = array(
-	'captcha-short' => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
+	'captcha-edit'  => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
 	'captchahelp-title' => 'Aidance passete d\' acertinaedje',
 	'captchahelp-text' => 'Les waibes k\' acceptèt des messaedjes do publik, come ci wiki chal, sont sovint eployîs pa des må-fjhants spameus, po pleur mete, avou des usteyes otomatikes, des loyéns di rclame viè les sites da zels.
 Bén seur, on pout todi les disfacer al mwin, mins c\' est on soyant ovraedje.
@@ -429,7 +429,7 @@ Clitchîz sol boton «En erî» di vosse betchteu waibe po rivni al pådje di dv
 	'captcha-createaccount-fail' => 'Li côde d\' acertinaedje est incorek ou mancant.',
 );
 $wgConfirmEditMessages['zh-cn'] = array(
-	'captcha-short'              => "你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
+	'captcha-edit'               => "你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
 ([[Special:Captcha/help|这是什么？]])",
 	'captchahelp-title'          => 'Captcha 帮助',
 	'captchahelp-text'           => "象本站一样，对公众开放编辑的站点经常被垃圾链接骚扰。那些人使用自动化垃圾程序将他们的链接张贴到很多站点。虽然这些链接可以被清除，但是这些东西确实令人十分讨厌。
@@ -444,7 +444,7 @@ $wgConfirmEditMessages['zh-cn'] = array(
 	'captcha-createaccount-fail' => "验证码错误或丢失。",
 );
 $wgConfirmEditMessages['zh-tw'] = array(
-	'captcha-short'              => "你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
+	'captcha-edit'               => "你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
 ([[Special:Captcha/help|這是什麼？]])",
 	'captchahelp-title'          => 'Captcha 說明',
 	'captchahelp-text'           => "像本站一樣，對公眾開放編輯的網站經常被垃圾連結騷擾。那些人使用自動化垃圾程序將他們的連結張貼到很多網站。雖然這些連結可以被清除，但是這些東西確實令人十分討厭。
@@ -459,7 +459,7 @@ $wgConfirmEditMessages['zh-tw'] = array(
 	'captcha-createaccount-fail' => "驗證碼錯誤或丟失。",
 );
 $wgConfirmEditMessages['zh-yue'] = array(
-	'captcha-short'              => "你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
+	'captcha-edit'               => "你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
 ([[Special:Captcha/help|呢個係乜嘢嚟？]])",
 	'captchahelp-title'          => 'Captcha 幫助',
 	'captchahelp-text'           => "就好似呢個wiki咁，對公眾開放編輯嘅網站係會經常受到垃圾連結騷擾。嗰啲人利用自動化垃圾程序將佢哋嘅連結張貼到好多網站。雖然呢啲連結可以被清除，但係呢啲嘢確實令人十分之討厭。

@@ -54,6 +54,14 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 'fancycaptcha-createaccount' => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 ),
 
+/* nld / Dutch / Nederlands */
+'nl' => array(
+'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die 
+hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|more info]]):',
+'fancycaptcha-createaccount' => 'Voer altublieft de woordenen die hieronder verschijnen in het invoerveld in 
+ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha/help|meer info]]):',
+),
+
 /* Portuguese */
 'pt' => array(
 'fancycaptcha-edit' => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box ([[Special:Captcha/help|mais informações]]):',

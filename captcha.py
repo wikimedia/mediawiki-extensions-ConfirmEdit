@@ -21,6 +21,7 @@
 #
 # Further tweaks by Brion Vibber <brion@pobox.com>:
 # 2006-01-26: Add command-line options for the various parameters
+# 2007-02-19: Add --dirs param for hash subdirectory splits
 
 import random
 import Image
@@ -98,6 +99,22 @@ def gen_captcha(text, fontname, fontsize, file_name):
 	# save the image, in format determined from filename
 	im.save(file_name)
 
+def gen_subdir(basedir, hash, levels):
+	"""Generate a subdirectory path out of the first _levels_
+	characters of _hash_, and ensure the directories exist
+	under _basedir_."""
+	subdir = None
+	for i in range(0, levels):
+		char = hash[i]
+		if subdir:
+			subdir = os.path.join(subdir, char)
+		else:
+			subdir = char
+		fulldir = os.path.join(basedir, subdir)
+		if not os.path.exists(fulldir):
+			os.mkdir(fulldir)
+	return subdir
+	
 if __name__ == '__main__':
 	"""This grabs random words from the dictionary 'words' (one
 	word per line) and generates a captcha image for each one,
@@ -112,9 +129,10 @@ if __name__ == '__main__':
 	output = "."
 	count = 20
 	fill = 0
+	dirs = 0
 	verbose = False
 	
-	opts, args = getopt.getopt(sys.argv[1:], "", ["font=", "wordlist=", "key=", "output=", "count=", "fill=", "verbose"])
+	opts, args = getopt.getopt(sys.argv[1:], "", ["font=", "wordlist=", "key=", "output=", "count=", "fill=", "dirs=", "verbose"])
 	for o, a in opts:
 		if o == "--font":
 			font = a
@@ -128,6 +146,8 @@ if __name__ == '__main__':
 			count = int(a)
 		if o == "--fill":
 			fill = int(a)
+		if o == "--dirs":
+			dirs = int(a)
 		if o == "--verbose":
 			verbose = True
 	
@@ -149,6 +169,9 @@ if __name__ == '__main__':
 		# 64 bits of hash is plenty for this purpose
 		hash = md5.new(key+salt+word+key+salt).hexdigest()[:16]
 		filename = "image_%s_%s.png" % (salt, hash)
+		if dirs:
+			subdir = gen_subdir(output, hash, dirs)
+			filename = os.path.join(subdir, filename)
 		if verbose:
 			print filename
 		gen_captcha(word, font, 40, os.path.join(output, filename))

@@ -29,6 +29,9 @@ if ( defined( 'MEDIAWIKI' ) ) {
 global $wgCaptchaDirectory;
 $wgCaptchaDirectory = "$wgUploadDirectory/captcha"; // bad default :D
 
+global $wgCaptchaDirectoryLevels;
+$wgCaptchaDirectoryLevels = 0; // To break into subdirectories
+
 global $wgCaptchaSecret;
 $wgCaptchaSecret = "CHANGE_THIS_SECRET!";
 
@@ -110,9 +113,48 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * @return mixed tuple of (salt key, text hash) or false if no image to find
 	 */
 	function pickImage() {
-		global $wgCaptchaDirectory;
-		$n = mt_rand( 0, $this->countFiles( $wgCaptchaDirectory ) );
-		$dir = opendir( $wgCaptchaDirectory );
+		global $wgCaptchaDirectory, $wgCaptchaDirectoryLevels;
+		return $this->pickImageDir(
+			$wgCaptchaDirectory,
+			$wgCaptchaDirectoryLevels );
+	}
+	
+	function pickImageDir( $directory, $levels ) {
+		if( $levels ) {
+			$dirs = array();
+			
+			// Check which subdirs are actually present...
+			$dir = opendir( $directory );
+			while( false !== ($entry = readdir( $dir ) ) ) {
+				if( ctype_xdigit( $entry ) && strlen( $entry ) == 1 ) {
+					$dirs[] = $entry;
+				}
+			}
+			closedir( $dir );
+			
+			$place = mt_rand( 0, count( $dirs ) - 1 );
+			// In case all dirs are not filled,
+			// cycle through next digits...
+			for( $j = 0; $j < count( $dirs ); $j++ ) {
+				$char = $dirs[($place + $j) % count( $dirs )];
+				$return = $this->pickImageDir( "$directory/$char", $levels - 1 );
+				if( $return ) {
+					return $return;
+				}
+			}
+			// Didn't find any images in this directory... empty?
+			return false;
+		} else {
+			return $this->pickImageFromDir( $directory );
+		}
+	}
+	
+	function pickImageFromDir( $directory ) {
+		if( !is_dir( $directory ) ) {
+			return false;
+		}
+		$n = mt_rand( 0, $this->countFiles( $directory ) );
+		$dir = opendir( $directory );
 
 		$count = 0;
 
@@ -121,7 +163,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		while( false !== $entry ) {
 			$entry = readdir( $dir );
 			if( preg_match( '/^image_([0-9a-f]+)_([0-9a-f]+)\\.png$/', $entry, $matches ) ) {
-				$size = getimagesize( "$wgCaptchaDirectory/$entry" );
+				$size = getimagesize( "$directory/$entry" );
 				$pick = array(
 					'salt' => $matches[1],
 					'hash' => $matches[2],
@@ -156,7 +198,6 @@ class FancyCaptcha extends SimpleCaptcha {
 
 	function showImage() {
 		global $wgOut, $wgRequest;
-		global $wgCaptchaDirectory;
 
 		$wgOut->disable();
 
@@ -172,7 +213,7 @@ class FancyCaptcha extends SimpleCaptcha {
 
 			$salt = $info['salt'];
 			$hash = $info['hash'];
-			$file = $wgCaptchaDirectory . DIRECTORY_SEPARATOR . "image_{$salt}_{$hash}.png";
+			$file = $this->imagePath( $salt, $hash );
 
 			if( file_exists( $file ) ) {
 				header( 'Content-type: image/png' );
@@ -182,6 +223,18 @@ class FancyCaptcha extends SimpleCaptcha {
 		}
 		wfHttpError( 500, 'Internal Error', 'Requested bogus captcha image' );
 		return false;
+	}
+	
+	function imagePath( $salt, $hash ) {
+		global $wgCaptchaDirectory, $wgCaptchaDirectoryLevels;
+		$file = $wgCaptchaDirectory;
+		$file .= DIRECTORY_SEPARATOR;
+		for( $i = 0; $i < $wgCaptchaDirectoryLevels; $i++ ) {
+			$file .= $hash{$i};
+			$file .= DIRECTORY_SEPARATOR;
+		}
+		$file .= "image_{$salt}_{$hash}.png";
+		return $file;
 	}
 
 	/**

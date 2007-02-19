@@ -160,7 +160,7 @@ function wfSpecialCaptcha( $par = null ) {
 }
 
 class SimpleCaptcha {
-	function __construct() {
+	function SimpleCaptcha() {
 		global $wgCaptchaStorageClass;
 		$this->storage = new $wgCaptchaStorageClass;
 	}

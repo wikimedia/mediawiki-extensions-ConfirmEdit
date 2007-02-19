@@ -75,6 +75,27 @@ $wgCaptchaTriggers['edit']          = false; // Would check on every edit
 $wgCaptchaTriggers['addurl']        = true;  // Check on edits that add URLs
 $wgCaptchaTriggers['createaccount'] = true;  // Special:Userlogin&type=signup
 
+/**
+ * Indicate how to store per-session data required to match up the
+ * internal captcha data with the editor.
+ *
+ * 'CaptchaSessionStore' uses PHP's session storage, which is cookie-based
+ * and may fail for anons with cookies disabled.
+ *
+ * 'CaptchaCacheStore' uses $wgMemc, which avoids the cookie dependency
+ * but may be fragile depending on cache configuration.
+ */
+global $wgCaptchaStorageClass;
+$wgCaptchaStorageClass = 'CaptchaSessionStore';
+
+/**
+ * Number of sections a captcha session should last in the data cache
+ * before expiring when managing through CaptchaCacheStore class.
+ *
+ * Default is a half hour.
+ */
+global $wgCaptchaSessionExpiration;
+$wgCaptchaSessionExpiration = 30 * 60;
 
 /**
  * Allow users who have confirmed their e-mail addresses to post
@@ -139,6 +160,11 @@ function wfSpecialCaptcha( $par = null ) {
 }
 
 class SimpleCaptcha {
+	function __construct() {
+		global $wgCaptchaStorageClass;
+		$this->storage = new $wgCaptchaStorageClass;
+	}
+	
 	/**
 	 * Insert a captcha prompt into the edit form.
 	 * This sample implementation generates a simple arithmetic operation;
@@ -412,7 +438,7 @@ class SimpleCaptcha {
 			// Assign random index if we're not udpating
 			$info['index'] = strval( mt_rand() );
 		}
-		$_SESSION['captcha' . $info['index']] = $info;
+		$this->storage->store( $info['index'], $info );
 		return $info['index'];
 	}
 
@@ -423,11 +449,7 @@ class SimpleCaptcha {
 	function retrieveCaptcha() {
 		global $wgRequest;
 		$index = $wgRequest->getVal( 'wpCaptchaId' );
-		if( isset( $_SESSION['captcha' . $index] ) ) {
-			return $_SESSION['captcha' . $index];
-		} else {
-			return false;
-		}
+		return $this->storage->retrieve( $index );
 	}
 
 	/**
@@ -435,7 +457,7 @@ class SimpleCaptcha {
 	 * it can't be reused.
 	 */
 	function clearCaptcha( $info ) {
-		unset( $_SESSION['captcha' . $info['index']] );
+		$this->storage->clear( $info['index'] );
 	}
 
 	/**
@@ -483,6 +505,47 @@ class SimpleCaptcha {
 		$wgOut->addWikiText( wfMsg( 'captchahelp-text' ) );
 	}
 
+}
+
+class CaptchaSessionStore {
+	function store( $index, $info ) {
+		$_SESSION['captcha' . $info['index']] = $info;
+	}
+	
+	function retrieve( $index ) {
+		if( isset( $_SESSION['captcha' . $index] ) ) {
+			return $_SESSION['captcha' . $index];
+		} else {
+			return false;
+		}
+	}
+	
+	function clear( $index ) {
+		unset( $_SESSION['captcha' . $index] );
+	}
+}
+
+class CaptchaCacheStore {
+	function store( $index, $info ) {
+		global $wgMemc, $wgCaptchaSessionExpiration;
+		$wgMemc->set( wfMemcKey( 'captcha', $index ), $info,
+			$wgCaptchaSessionExpiration );
+	}
+
+	function retrieve( $index ) {
+		global $wgMemc;
+		$info = $wgMemc->get( wfMemcKey( 'captcha', $index ) );
+		if( $info ) {
+			return $info;
+		} else {
+			return false;
+		}
+	}
+	
+	function clear( $index ) {
+		global $wgMemc;
+		$wgMemc->delete( wfMemcKey( 'captcha', $index ) );
+	}
 }
 
 } # End invocation guard

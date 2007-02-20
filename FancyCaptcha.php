@@ -216,8 +216,9 @@ class FancyCaptcha extends SimpleCaptcha {
 			$file = $this->imagePath( $salt, $hash );
 
 			if( file_exists( $file ) ) {
-				header( 'Content-type: image/png' );
-				readfile( $file );
+				global $IP;
+				require_once "$IP/includes/StreamFile.php";
+				wfStreamFile( $file );
 				return true;
 			}
 		}

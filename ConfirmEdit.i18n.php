@@ -53,6 +53,21 @@ Kliknite \'nazad\' (\'back\') dugme vašeg brauzera da se vratite na polje za un
 <br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
 	'captcha-createaccount-fail' => 'Netačan unos ili nedostatak šifre za potvrđivanje.',
 );
+$wgConfirmEditMessages['ca'] = array(
+	'captcha-edit'                => 'La vostra edició conté enllaços externs nous. Com a protecció contra la brossa de propaganda automàtica, cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
+	'captcha-createaccount'       => 'Com a protecció contra la creació automàtica de comptes d\'usuari necessitem que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
+	'captcha-createaccount-fail'  => 'Manca el codi de confirmació, o bé és incorrecte.',
+	'captchahelp-title'           => 'Ajuda amb el sistema captcha',
+	'captchahelp-text'            => 'Els webs que accepten la publicació de missatges per part del seu públic, com aquesta wiki, són sovint víctimes de spam per part de robots automàtics que hi posen enllaços cap als seus webs. Aquests enllaços poden anar essent esborrats, però són un important destorb.
+
+Quan creeu nous comptes d\'usuari o voleu afegir enllaços a una pàgina se us pot demanar que respongueu una pregunta fàcil, una suma o que digueu quina paraula apareix en una imatge distorsionada. Aquestes tasques són molt difícils de fer per a un programa automàtic i per tant permet que la majoria d\'usuaris humans puguin introduir la informació que creguin i alhora atura la majoria d\'atacants robots.
+
+Malauradament, aquest sistema pot suposar un inconvenient per a usuaris amb problemes de visió o que utilitzin navegadors de text simple o de veu. Actualment no disposem de cap alternativa auditiva disponible. Contacteu els administradors del web si aquests sistema us impedeix de fer edicions legítimes.
+
+Necessitareu tenir les galetes activades en el vostre navegador per a que funcioni.
+
+Cliqueu el botó de retrocedir del vostre navegador per a tornar al formulari.',
+);
 $wgConfirmEditMessages['cs'] = array(
 	'captcha-edit'               => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte opsat text z následujícího obrázku:<br />([[Special:Captcha/help|Co tohle znamená?]])',
 	'captchahelp-title'          => 'Nápověda ke captcha',

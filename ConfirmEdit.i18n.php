@@ -413,7 +413,16 @@ Shtypni butonin \"prapa\" (\"back\") të shfletuesit tuaj për tu kthyer tek faq
 	'captcha-createaccount'      => "Për mbrojtje kundër regjistrimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme para se të hapni llogarinë:<br /> ([[Special:Captcha|Çfarë është kjo?]])",
 	'captcha-createaccount-fail' => "Mesazhi që duhej shtypur mungon ose nuk është shtypur siç duhet.",
 );
+$wgConfirmEditMessages['uk'] = array(
+	'captchahelp-text'           => "Вікіпедія застосовує техніку розрізнення людей від комп'ютерів, яка використовує розпізнавання образів, для захисту від  комп'ютерних  шкідливих програм, які автоматично реєструються  (найчастіше спамлять у статтях).
 
+Для реєстрації у Вікіпедії та іноді й при редагуванні статей користувачеві потрібно ввести вказану контрольну послідовність символів, і яку вони, будучи людьми, а не комп'ютерними програмами, можуть легко розпізнати.
+
+You will need to have cookies enabled in your browser for this to work.
+
+Hit the 'back' button in your browser to return to the page editor.",
+	'captcha-createaccount-fail' => 'Невірний або відсутній код підтвердження.',
+);
 $wgConfirmEditMessages['wa'] = array(
 	'captcha-edit'  => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
 	'captchahelp-title' => 'Aidance passete d\' acertinaedje',

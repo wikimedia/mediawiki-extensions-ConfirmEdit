@@ -50,8 +50,8 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 
 /* Finnish (Niklas Laxström) */
 'fi' => array(
-'fancycaptcha-edit' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikentään ([[Special:Captcha/help|lisätietoja]]):',
-'fancycaptcha-createaccount' => 'Kirjoita kuvan sisältämät sanat alla olevaan tekstikentään ([[Special:Captcha/help|lisätietoja]]):',
+'fancycaptcha-edit' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
+'fancycaptcha-createaccount' => 'Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
 ),
 
 /* Hebrew */

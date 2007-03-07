@@ -60,6 +60,38 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 'fancycaptcha-createaccount' => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 ),
 
+/* Kazakh default */
+'kk' => array(
+'fancycaptcha-edit' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
+төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
+'fancycaptcha-createaccount' => 'Жаңа тіркелгі өздік түрде жасалуынан қорғану үшін, төмендегі 
+көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
+),
+
+/* Kazakh Cyrillic */
+'kk-kz' => array(
+'fancycaptcha-edit' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
+төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
+'fancycaptcha-createaccount' => 'Жаңа тіркелгі өздік түрде жасалуынан қорғану үшін, төмендегі 
+көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
+),
+
+/* Kazakh Latin */
+'kk-tr' => array(
+'fancycaptcha-edit' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
+tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
+'fancycaptcha-createaccount' => 'Jaña tirkelgi özdik türde jasalwınan qorğanw üşin, tömendegi 
+körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
+),
+
+/* Kazakh Arabic */
+'kk-cn' => array(
+'fancycaptcha-edit' => 'تٴۇزەتۋٴىڭٴىزدە جاڭا سىرتقى سٴىلتەمەلەر بار ەكەن. ٴوزدٴىك تٴۇردە «سپام» جاسالۋىنان قورعانۋ ٴۇشٴىن,
+تٴومەندەگٴى كٴورسەتٴىلگەن سٴوزدەردٴى اۋماققا ەنگٴىزٴىڭٴىز ([[{{ns:special}}:Captcha/help|كٴوبٴىرەك اقپارات]]):',
+'fancycaptcha-createaccount' => 'جاڭا تٴىركەلگٴى ٴوزدٴىك تٴۇردە جاسالۋىنان قورعانۋ ٴۇشٴىن, تٴومەندەگٴى 
+كٴورسەتٴىلگەن سٴوزدەردٴى اۋماققا ەنگٴىزٴىڭٴىز ([[{{ns:special}}:Captcha/help|كٴوبٴىرەك اقپارات]]):',
+),
+
 /* nld / Dutch / Nederlands */
 'nl' => array(
 'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die 

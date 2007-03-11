@@ -42,12 +42,6 @@ veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:C
 ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 ),
 
-/* Indonesian */
-'id' => array(
-'fancycaptcha-edit' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',
-'fancycaptcha-createaccount' => 'Untuk perlindungan terhadap pembuatan akun otomatis, tolong masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',
-),
-
 /* Finnish (Niklas Laxström) */
 'fi' => array(
 'fancycaptcha-edit' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
@@ -58,6 +52,18 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 'he' => array(
 'fancycaptcha-edit'          => 'עריכתכם כוללת קישורים חיצוניים חדשים. כהגנה מפני ספאם אוטומטי, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 'fancycaptcha-createaccount' => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
+),
+
+/* Indonesian */
+'id' => array(
+'fancycaptcha-edit' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',
+'fancycaptcha-createaccount' => 'Untuk perlindungan terhadap pembuatan akun otomatis, tolong masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',
+),
+
+/* Italian (BrokenArrow) */
+'it' => array(
+'fancycaptcha-edit' => 'La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l\'inserimento automatico di spam, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):',
+'fancycaptcha-createaccount' => 'Come misura di sicurezza nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):',
 ),
 
 /* Kazakh default */

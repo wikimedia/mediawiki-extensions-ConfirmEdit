@@ -112,6 +112,11 @@ hieronder verschijnen in het invoerveld in als bescherming tegen automatische sp
 ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha/help|meer info]]):',
 ),
 
+'oc' => array(
+'fancycaptcha-edit' => 'Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu\'apareisson dins la boita çai jos ([[Special:Captcha/help|mai d’informacions]]) :',
+'fancycaptcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, entratz los mots çai jos dins la boita ([[Special:Captcha/help|mai d’informacions]]) :',
+),
+
 /* Portuguese */
 'pt' => array(
 'fancycaptcha-edit' => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box ([[Special:Captcha/help|mais informações]]):',

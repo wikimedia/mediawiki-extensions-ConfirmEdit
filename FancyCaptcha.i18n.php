@@ -17,6 +17,12 @@ spam, please enter the words that appear below in the box ([[Special:Captcha/hel
 that appear below in the box ([[Special:Captcha/help|more info]]):',
 ),
 
+'br' => array(
+'fancycaptcha-edit' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
+'fancycaptcha-createaccount' => 'Evit stourm a-enep d\'ar c\'hontoù  krouet ent emgefre, skrivit ar gerioù
+a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
+),
+
 /* Czech */
 'cs' => array(
 'fancycaptcha-edit' => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',

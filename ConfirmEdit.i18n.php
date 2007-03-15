@@ -360,12 +360,12 @@ $wgConfirmEditMessages['nn'] = array(
 	'captcha-createaccount-fail' => "Feil eller manglande godkjenningskode.",
 );
 $wgConfirmEditMessages['oc'] = array(
-	'captcha-edit'               => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu'es aquò?]])",
-	'captchahelp-title'          => 'Ajuda pel Captcha',
-	'captchahelp-text'           => "Los sites webs que permeton al mai grand nombre de participar, coma aqueste wiki, son sovent atacats per de spammers qu'utilizan d'espleches automatizas per mandar lor ligams sus de fòrça sites sulcòp. Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de far. De còps quand ajustatz de ligams novèls vèrs lo web, lo wiki pòt vos mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d'automatizar, çò que permet de diferenciar un uman real d'un logicial automatic malvolent. Malaürosament, aqueste sistèma es pas adaptat a d'utilizaires mal-vesents o utilizant de navigaires textuals o audiò. Actualament, prepausem pas d'alternativas adaptadas. Se avètz besonh d'ajuda esitetz pas a contactar los administrators del sit. Clicatz sul boton 'recular' de vòstre navigaire per tornar a l'editor.",
-	'captcha-createaccount'      => "As a protection against automated spam, you'll need to type in the words that appear in this image to register an account:<br />
-([[Special:Captcha/help|What is this?]])",
-	'captcha-createaccount-fail' => "Còdi de confirmacion mancant o invalid.",
+	'captcha-edit'                => 'Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu\'es aquò?]])',
+	'captcha-createaccount'       => 'Coma proteccion contra las creacions de compte abusivas, entratz lo resultat de l’addicion dins la boita çai jos:<br />
+([[Special:Captcha/help|mai d’informacions]])',
+	'captcha-createaccount-fail'  => 'Còde de confirmacion mancant o erronèu.',
+	'captchahelp-title'           => 'Ajuda suls Captcha',
+	'captchahelp-text'            => 'Los sites webs que permeton al mai grand nombre de participar, coma aqueste wiki, son sovent atacats per de spammers qu\'utilizan d\'espleches automatizas per mandar lor ligams sus de fòrça sites sulcòp. Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de far. De còps quand ajustatz de ligams novèls vèrs lo web, lo wiki pòt vos mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d\'automatizar, çò que permet de diferenciar un uman real d\'un logicial automatic malvolent. Malaürosament, aqueste sistèma es pas adaptat a d\'utilizaires mal-vesents o utilizant de navigaires textuals o audiò. Actualament, prepausem pas d\'alternativas adaptadas. Se avètz besonh d\'ajuda esitetz pas a contactar los administrators del sit. Clicatz sul boton \'precedent\' de vòstre navegaire per tornar a l\'editor.',
 );
 $wgConfirmEditMessages['pt'] = array(
 	'captcha-edit'               => "Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem:<br />

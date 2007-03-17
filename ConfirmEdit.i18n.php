@@ -383,6 +383,19 @@ Pressione o botão 'voltar' de seu navegador para retornar à página de ediçã
 	'captcha-createaccount-fail' => "Código incorreto ou não preenchido.",
 );
 $wgConfirmEditMessages['pt-br'] = $wgConfirmEditMessages['pt'];
+$wgConfirmEditMessages['ro'] = array(
+	'captcha-edit'                => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
+	'captcha-createaccount'       => 'Pentru a evita crearea automată de conturi, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
+	'captcha-createaccount-fail'  => 'Cod de confirmare incorect sau lipsă.',
+	'captchahelp-title'           => 'Despre „Captcha”',
+	'captchahelp-text'            => 'Siturile Web care acceptă postări din partea publicului, precum acest wiki, sunt de obicei abuzate de persoane care folosesc unelte automate pentru a introduce legături către multe situri. Deşi aceste legături de spam pot fi scoase, acest lucru reprezintă o muncă inconvenientă.
+
+Uneori, mai ales la adăugarea de legături web noi într-o pagină, situl wiki vă poate arăta o imagine cu un text colorat sau distorsionat şi ruga să introduceţi cuvintele arătate. Deoarece aceasta este o sarcină greu de automatizat, va permite majorităţii persoanelor reale să posteze şi va opri majoritatea atacatorilor.
+
+Din nefericire, această metodă îi poate deranja pe utilizatorii cu vedere limitată sau care folosesc browsere bazate pe text sau sunet. În acest moment nu avem o alternativă audio disponibilă. Vă rugăm, contactaţi administratorii sitului pentru asistenţă dacă metoda vă opreşte de la a face postări legitime.
+
+Va fi nevoie ca browserul folosit să suporte module cookie.',
+);
 $wgConfirmEditMessages['ru'] = array(
 	'captcha-edit'               => "Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
 ([[{{ns:special}}:Captcha/help|Что это такое?]])",

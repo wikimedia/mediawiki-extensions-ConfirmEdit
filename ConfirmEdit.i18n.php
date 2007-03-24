@@ -412,20 +412,18 @@ $wgConfirmEditMessages['ru'] = array(
 	'captcha-createaccount-fail' => "Код подтверждения отсутствует или неверен.",
 );
 $wgConfirmEditMessages['sk'] = array(
-	'captcha-edit' => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
-	'captcha-createaccount' => 'Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet: <br />([[Special:Captcha/help|Čo je toto?]])',
-	'captcha-createaccount-fail' => "Incorrect or missing confirmation code.",
-
-	'captchahelp-title'          => 'Pomocník ku captcha',
-	'captchahelp-text'           => "Webstránky prijímajúce príspevky od verejnosti ako táto wiki sú často cieľom zneužitia spammemi, ktorí používajú automatizované nástroje na to, aby svoje odkazy umiestnili na množstvo stránok. Hoci je možné tieto odkazy odstrániť, zbytočne to zaťažuje redaktorov.
+	'captcha-edit'                => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
+	'captcha-createaccount'       => 'Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet:
+<br />([[Special:Captcha/help|Čo je toto?]])',
+	'captcha-createaccount-fail'  => 'Nesprávny alebo chýbajúci potvrdzovací kód.',
+	'captchahelp-title'           => 'Pomocník ku captcha',
+	'captchahelp-text'            => 'Webstránky prijímajúce príspevky od verejnosti ako táto wiki sú často cieľom zneužitia spammemi, ktorí používajú automatizované nástroje na to, aby svoje odkazy umiestnili na množstvo stránok. Hoci je možné tieto odkazy odstrániť, zbytočne to zaťažuje používateľov.
 
 Niekedy, obzvlášť keď pridávate webové odkazy k článkom, wiki Vám môže zobraziť obrázok so zafarbeným alebo pokriveným textom a požiadať Vás o prepísanie zobrazených slov. Keďže takúto úlohu je ťažké zautomatizovať a umožní skutočným ľuďom poslať svoje príspevky, zastaví to väčšinu spammerov a iných robotických útočníkov.
 
 Naneštastie, môže to byť prekážkou pre používateľov so zrakovým postihnutím alebo tých, ktorí používajú textové alebo hovoriace prehliadače. Momentálne nemáme dostupnú audio zvukovú alternatívu. Kontaktujte prosím administratorov stránok, ak Vám to neočakávane komplikuje umiestňovanie oprávnených príspevkov.
 
-Aby to fungovalo, musíte mať v nastaveniach prehliadača zapnuté cookies.
-
-Stlačením tlačidla \"späť\" vo Vašom prehliadači sa vrátite do editora stránky.",
+Stlačením tlačidla "späť" vo Vašom prehliadači sa vrátite do editora stránky.',
 );
 $wgConfirmEditMessages['sl'] = array(
 	'captcha-edit'               => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",

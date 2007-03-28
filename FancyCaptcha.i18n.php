@@ -123,6 +123,12 @@ ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha
 'fancycaptcha-createaccount' => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box para que possa se cadastrar ([[Special:Captcha/help|mais informações]]):',
 ),
 
+/* Russian */
+'ru' => array(
+'fancycaptcha-edit' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
+'fancycaptcha-createaccount' => 'Для предотвращения автоматической регистрации учётных записей используется контрольная последовательность символов. Пожалуйста, введите изображённые символы в текстовое поле ниже ([[Special:Captcha/help|подробнее]]):',
+),
+
 /* Slovak (helix84) */
 'sk' => array(
 'fancycaptcha-edit' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',

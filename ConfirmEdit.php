@@ -69,11 +69,29 @@ $wgCaptchaClass = 'SimpleCaptcha';
  * edits that include URLs that aren't in the current version of the page.
  * This should catch automated linkspammers without annoying people when
  * they make more typical edits.
+ *
+ * The captcha code should not use $wgCaptchaTriggers, but CaptchaTriggers()
+ * which also takes into account per namespace triggering.
  */
 $wgCaptchaTriggers = array();
 $wgCaptchaTriggers['edit']          = false; // Would check on every edit
+$wgCaptchaTriggers['create']		= false; // Check on page creation.
 $wgCaptchaTriggers['addurl']        = true;  // Check on edits that add URLs
 $wgCaptchaTriggers['createaccount'] = true;  // Special:Userlogin&type=signup
+
+/**
+ * You may wish to apply special rules for captcha triggering on some namespaces.
+ * $wgCaptchaTriggersOnNamespace[<namespace id>][<trigger>] forces an always on / 
+ * always off configuration with that trigger for the given namespace.
+ * Leave unset to use the global options ($wgCaptchaTriggers).
+ *
+ * Shall not be used with 'createaccount' (it is not checked).
+ */
+$wgCaptchaTriggersOnNamespace = array();
+
+#Example:
+#$wgCaptchaTriggersOnNamespace[NS_TALK]['create'] = false; //Allow creation of talk pages without captchas.
+#$wgCaptchaTriggersOnNamespace[NS_PROJECT]['edit'] = true; //Show captcha whenever editing Project pages.
 
 /**
  * Indicate how to store per-session data required to match up the
@@ -257,6 +275,21 @@ class SimpleCaptcha {
 
 	/**
 	 * @param EditPage $editPage
+	 * @param string $action (edit/create/addurl...)
+	 * @return bool true if action triggers captcha on editPage's namespace
+	 */
+	function captchaTriggers( &$editPage, $action) {
+		global $wgCaptchaTriggers, $wgCaptchaTriggersOnNamespace;	
+		//Special config for this NS?
+		if (isset( $wgCaptchaTriggersOnNamespace[$editPage->mTitle->getNamespace()][$action] ) )
+			return $wgCaptchaTriggersOnNamespace[$editPage->mTitle->getNamespace()][$action];
+
+		return ( !empty( $wgCaptchaTriggers[$action] ) ); //Default
+	}
+
+
+	/**
+	 * @param EditPage $editPage
 	 * @param string $newtext
 	 * @param string $section
 	 * @return bool true if the captcha should run
@@ -277,8 +310,7 @@ class SimpleCaptcha {
 			return false;
 		}
 
-		global $wgCaptchaTriggers;
-		if( !empty( $wgCaptchaTriggers['edit'] ) ) {
+		if( $this->captchaTriggers( $editPage, 'edit' ) ) {
 			// Check on all edits
 			global $wgUser, $wgTitle;
 			$this->trigger = sprintf( "edit trigger by '%s' at [[%s]]",
@@ -288,7 +320,17 @@ class SimpleCaptcha {
 			return true;
 		}
 
-		if( !empty( $wgCaptchaTriggers['addurl'] ) ) {
+		if( $this->captchaTriggers( $editPage, 'create' )  && !$editPage->mTitle->exists() ) {
+			//Check if creating a page
+			global $wgUser, $wgTitle;
+			$this->trigger = sprintf( "Create trigger by '%s' at [[%s]]",
+				$wgUser->getName(),
+				$wgTitle->getPrefixedText() );
+			wfDebug( "ConfirmEdit: checking on page creation...\n" );
+			return true;
+		}
+
+		if( $this->captchaTriggers( $editPage, 'addurl' ) ) {
 			// Only check edits that add URLs
 			$oldtext = $this->loadText( $editPage, $section );
 
@@ -367,7 +409,7 @@ class SimpleCaptcha {
 				return false;
 			}
 		} else {
-			wfDebug( "ConfirmEdit: no new links.\n" );
+			wfDebug( "ConfirmEdit: no need to show captcha.\n" );
 			return true;
 		}
 	}

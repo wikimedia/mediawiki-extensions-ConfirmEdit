@@ -220,7 +220,7 @@ class SimpleCaptcha {
 	 * @param OutputPage $out
 	 */
 	function editCallback( &$out ) {
-		$out->addWikiText( $this->getMessage( 'edit' ) );
+		$out->addWikiText( $this->getMessage( $this->action ) );
 		$out->addHTML( $this->getForm() );
 	}
 
@@ -316,6 +316,7 @@ class SimpleCaptcha {
 			$this->trigger = sprintf( "edit trigger by '%s' at [[%s]]",
 				$wgUser->getName(),
 				$wgTitle->getPrefixedText() );
+			$this->action = 'edit';
 			wfDebug( "ConfirmEdit: checking all edits...\n" );
 			return true;
 		}
@@ -326,6 +327,7 @@ class SimpleCaptcha {
 			$this->trigger = sprintf( "Create trigger by '%s' at [[%s]]",
 				$wgUser->getName(),
 				$wgTitle->getPrefixedText() );
+			$this->action = 'create';
 			wfDebug( "ConfirmEdit: checking on page creation...\n" );
 			return true;
 		}
@@ -348,6 +350,7 @@ class SimpleCaptcha {
 					$wgUser->getName(),
 					$wgTitle->getPrefixedText(),
 					implode( ", ", $addedLinks ) );
+				$this->action = 'addurl';
 				return true;
 			}
 		}
@@ -374,6 +377,7 @@ class SimpleCaptcha {
 							$wgUser->getName(),
 							$wgTitle->getPrefixedText(),
 							implode( ", ", $addedMatches ) );
+						$this->action = 'edit';
 						return true;
 					}
 				}

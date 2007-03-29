@@ -39,21 +39,10 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 
 /* German */
 'de' => array(
-'fancycaptcha-edit' => 'Ihre Bearbeitung enthält neue externe Links. .
-Zum Schutz vor automatisiertem Spamming ist es nötig, dass Sie das nachfolgende Wort
-in das darunter erscheinende Feld eintragen. Klicken Sie dann erneut auf „Seite speichern“.
-<br />[[{{ns:special}}:Captcha/help|(Was soll das?)]]',
-'fancycaptcha-addurl' => 'Ihre Bearbeitung enthält neue externe Links. .
-Zum Schutz vor automatisiertem Spamming ist es nötig, dass Sie das nachfolgende Wort
-in das darunter erscheinende Feld eintragen. Klicken Sie dann erneut auf „Seite speichern“.
-<br />[[{{ns:special}}:Captcha/help|(Was soll das?)]]',
-'fancycaptcha-create' => 'Ihre Bearbeitung enthält neue externe Links. .
-Zum Schutz vor automatisiertem Spamming ist es nötig, dass Sie das nachfolgende Wort
-in das darunter erscheinende Feld eintragen. Klicken Sie dann erneut auf „Seite speichern“.
-<br />[[{{ns:special}}:Captcha/help|(Was soll das?)]]',
-'fancycaptcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten
-ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld eintragen.
-[[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]',
+'fancycaptcha-addurl'        => 'Ihre Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld eintragen. Klicken Sie dann erneut auf „Seite speichern“ [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
+'fancycaptcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld eintragen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
+'fancycaptcha-create'        => 'Zur Erstellung der Seite ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld eintragen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
+'fancycaptcha-edit'          => 'Zur Bearbeitung der Seite ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld eintragen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
 ),
 
 /* French */

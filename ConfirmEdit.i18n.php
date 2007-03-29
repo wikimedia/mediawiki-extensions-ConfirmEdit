@@ -107,13 +107,13 @@ $wgConfirmEditMessages['cy'] = array(
 	'captcha-createaccount-fail' => "Côd cadarnhau ar goll neu'n anghywir.",
 );
 $wgConfirmEditMessages['de'] = array(
-	'captcha-edit'		     => "Ihre Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming ist es nötig, dass Sie die nachfolgende Rechenaufgabe lösen und das Ergebnis eintragen. Klicken Sie dann erneut auf „Seite speichern“.<br /> [[{{ns:special}}:Captcha/help|(Was soll das?)]]",
-	'captcha-addurl'		     => "Ihre Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming ist es nötig, dass Sie die nachfolgende Rechenaufgabe lösen und das Ergebnis eintragen. Klicken Sie dann erneut auf „Seite speichern“.<br /> [[{{ns:special}}:Captcha/help|(Was soll das?)]]",
-	'captcha-create'		     => "Ihre Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming ist es nötig, dass Sie die nachfolgende Rechenaufgabe lösen und das Ergebnis eintragen. Klicken Sie dann erneut auf „Seite speichern“.<br /> [[{{ns:special}}:Captcha/help|(Was soll das?)]]",
+	'captcha-edit'		     => "Zur Bearbeitung der Seite ist es nötig, dass Sie die nachfolgende Rechenaufgabe lösen und das Ergebnis eintragen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
+	'captcha-addurl'	     => "Ihre Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming ist es nötig, dass Sie die nachfolgende Rechenaufgabe lösen und das Ergebnis eintragen. Klicken Sie dann erneut auf „Seite speichern“ [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
+	'captcha-createaccount'      => "Zum Schutz vor automatisierter Anlage von Benutzerkonten müssen Sie einmalig die nebenstehende Rechenaufgabe lösen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
+	'captcha-createaccount-fail' => "Falscher oder fehlender Bestätigungscode.",
+	'captcha-create'	     => "Zur Erstellung der Seite ist es nötig, dass Sie die nachfolgende Rechenaufgabe lösen und das Ergebnis eintragen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
 	'captchahelp-title'          => 'Captcha-Hilfe',
 	'captchahelp-text'           => "Internetangebote, die für Beiträge von praktisch jedem offen sind — so wie das {{SITENAME}}-Wiki — werden oft von Spammern missbraucht, die ihre Links automatisch auf vielen Webseiten platzieren. Diese Spam-Links können wieder entfernt werden, sie sind aber ein erhebliches Ärgernis. In manchen Fällen, insbesondere beim Hinzufügen von neuen Weblinks zu einer Seite, kann es vorkommen, dass dieses Wiki ein Bild mit einem farbigen und verzerrten Text anzeigt und dazu auffordert, die angezeigten Wörter einzutippen. Da eine solche Aufgabe nur schwer automatisch erledigt werden kann, werden dadurch die meisten Spammer, die mit automatischen Werkzeugen arbeiten, gestoppt, wogegen menschliche Benutzer ihren Beitrag absenden können. Leider kann dies zu Schwierigkeiten für Personen führen, die über eine eingeschränkte Sehfähigkeit verfügen oder text- oder sprachbasierte Browser verwenden. Eine Lösung ist die reguläre Anmeldung als Benutzer. Der „Zurück“-Knopf des Browsers führt zurück in das Bearbeitungsfenster.",
-	'captcha-createaccount'      => "Zum Schutz vor automatisierter Anlage von Benutzerkonten müssen Sie einmalig die nebenstehende Rechenaufgabe lösen. [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]",
-	'captcha-createaccount-fail' => "Falscher oder fehlender Bestätigungscode.",
 );
 $wgConfirmEditMessages['et'] = array(
 	'captcha-edit'               => "Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])",

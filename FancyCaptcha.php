@@ -153,7 +153,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		if( !is_dir( $directory ) ) {
 			return false;
 		}
-		$n = mt_rand( 0, $this->countFiles( $directory ) );
+		$n = mt_rand( 0, $this->countFiles( $directory ) - 1 );
 		$dir = opendir( $directory );
 
 		$count = 0;
@@ -188,7 +188,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		$dir = opendir( $dirname );
 		$count = 0;
 		while( false !== ($entry = readdir( $dir ) ) ) {
-			if( $dir != '.' && $dir != '..' ) {
+			if( $entry != '.' && $entry != '..' ) {
 				$count++;
 			}
 		}

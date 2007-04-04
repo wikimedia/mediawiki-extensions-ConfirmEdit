@@ -284,25 +284,27 @@ Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
 ([[Speciale:Captcha/help|Cosa vuol dire?]])",
 	'captcha-createaccount-fail' => "Codice di verifica errato o mancante.",
 );
-$wgConfirmEditMessages['ja'] = array(
-	'captcha-edit'               => "あなたの編集は新しいURLへのリンクを含みます。スパム防止のため、下記に現れる単語を入力してください。<br />
-([[Special:Captcha/help|これはなに？]])",
-	'captcha-create'               => "あなたの編集は新しいURLへのリンクを含みます。スパム防止のため、下記に現れる単語を入力してください。<br />
-([[Special:Captcha/help|これはなに？]])",
-	'captcha-addurl'               => "あなたの編集は新しいURLへのリンクを含みます。スパム防止のため、下記に現れる単語を入力してください。<br />
-([[Special:Captcha/help|これはなに？]])",
-	'captchahelp-title'          => 'Captcha ヘルプ',
-	'captchahelp-text'           => "当Wikiのような、投稿が公開されているウェブサイトは、多くのサイトに自分たちへのリンクを自動投稿するツールで、スパム屋により荒らされます。これらのスパムは除去できるものの、それらは非常にうっとうしいです。
 
-時々、特に新しいリンクをページに追加したとき、Wikiが色の付いた、もしくは、ゆがめられた文字を提示し、入力をお願いすることがあります。この作業は自動化が難しいため、本当の人間の投稿を可能にしつつ、多くのスパム屋やロボットの攻撃を防ぐことが出来ます。
+$wgConfirmEditMessages['ja'] = array(
+	'captcha-edit'                => 'このページを編集するには下記に現れる数式の答えを入力してください。<br />
+([[Special:Captcha/help|詳細]])',
+	'captcha-addurl'              => 'あなたの編集には新たに外部リンクが追加されています。スパム防止のため、下記の数式の答えを入力してください<br />
+([[Special:Captcha/help|詳細]])',
+	'captcha-createaccount'       => 'スパム防止のため、アカウントを登録するには、下記に現れる数式の答えを入力してください<br />
+([[Special:Captcha/help|詳細]])',
+	'captcha-createaccount-fail'  => '確認コードの入力がないか、間違っています。',
+	'captcha-create'              => 'あなたの編集は新たに外部リンクが追加されています。スパム防止のため、下記に現れる数式の答えを入力してください<br />
+([[Special:Captcha/help|詳細]])',
+	'captchahelp-title'           => 'Captcha ヘルプ',
+	'captchahelp-text'            => '当Wikiのような、投稿が公開されているウェブサイトは、多くのサイトに自分たちへのリンクを自動投稿するツールを用いるスパマーにより荒らされます。これらのスパムは除去できるものの、その作業大変うっとうしいものです。
+
+時々、特に新しいリンクをページに追加したとき、Wikiは色の付いた、もしくは、ゆがめられた文字を提示し、その入力をお願いすることがあります。この作業は自動化が難しいため、本当の人間の投稿を可能にしつつ、多くのスパマーやロボットの攻撃を防ぐことが出来ます。
 
 しかし、残念なことに、テキストベースやスピーチベースのブラウザを使っている、視覚障害者に不便をおかけする場合があります。現時点では、音声版の代替物がありません。正当な投稿をするにあたって、これが障害となっている場合、サイト管理者に連絡し、協力を求めてください。
 
-編集ページに戻るには、ブラウザの戻るボタンを押してください。",
-	'captcha-createaccount'      => "スパム防止のため、アカウントを登録するにあたって、下記に現れる単語を入力してください。<br />
-([[Special:Captcha/help|これはなに？]])",
-	'captcha-createaccount-fail' => "確認コードの入力がないか、間違っています。",
+編集ページに戻るには、ブラウザの戻るボタンを押してください。',
 );
+
 $wgConfirmEditMessages['kk-kz'] = array(
 	'captcha-edit'              => "Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
 төмендегі қосындылауды шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):",

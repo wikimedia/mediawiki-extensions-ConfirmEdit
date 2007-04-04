@@ -89,6 +89,14 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 'fancycaptcha-createaccount' => 'Come misura di sicurezza nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):',
 ),
 
+/* Japanese */
+'ja' => array(
+'fancycaptcha-addurl' => 'あなたの編集には新たに外部リンクが追加されています。自動で実行されるスパム行為防止のため、編集を有効にするには以下のボックスに表示される確認用の文字列を入力してください （[[Special:Captcha/help|詳細]]）:',
+'fancycaptcha-createaccount' => '自動で実行されるスパム行為防止のため、アカウントを登録するには以下のボックスに表示される確認用の文字列を入力してください。([[Special:Captcha/help|詳細]])',
+'fancycaptcha-create' => 'ページを作成するには以下のボックスに表示される確認用の文字列を入力してください。 （[[Special:Captcha/help|詳細]]）',
+'fancycaptcha-edit' => 'このページを編集するには以下のボックスに表示される確認用の文字列を入力してください。 （[[Special:Captcha/help|詳細]]）',
+),
+
 /* Kazakh default */
 'kk' => array(
 'fancycaptcha-edit' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,

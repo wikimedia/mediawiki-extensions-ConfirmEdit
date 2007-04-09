@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Experimental captcha plugin framework.
  * Not intended as a real production captcha system; derived classes
@@ -60,7 +61,7 @@ $wgCaptcha = null;
 $wgCaptchaClass = 'SimpleCaptcha';
 
 /**
- * Currently the captcha works only for page edits.
+ * Actions which can trigger a captcha
  *
  * If the 'edit' trigger is on, *every* edit will trigger the captcha.
  * This may be useful for protecting against vandalbot attacks.

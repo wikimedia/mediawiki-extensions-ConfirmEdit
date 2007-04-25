@@ -35,7 +35,7 @@ $wgExtensionFunctions[] = 'ceSetup';
 $wgExtensionCredits['other'][] = array(
 	'name' => 'ConfirmEdit',
 	'author' => 'Brion Vibber',
-	'url' => 'http://meta.wikimedia.org/wiki/ConfirmEdit_extension',
+	'url' => 'http://www.mediawiki.org/wiki/Extension:ConfirmEdit',
 	'description' => 'Simple captcha implementation',
 );
 
@@ -549,7 +549,7 @@ class SimpleCaptcha {
 	function showHelp() {
 		global $wgOut, $ceAllowConfirmedEmail;
 		$wgOut->setPageTitle( wfMsg( 'captchahelp-title' ) );
-		$wgOut->addWikiText( wfMsg( 'captchahelp-text' ) );
+		$wgOut->addWikiText( wfMsg( 'captchahelp-text', $this->storage->cookiesNeeded() ? wfMsg( 'captchahelp-cookies-needed' ) : '' ) );
 	}
 
 }
@@ -569,6 +569,10 @@ class CaptchaSessionStore {
 	
 	function clear( $index ) {
 		unset( $_SESSION['captcha' . $index] );
+	}
+
+	function cookiesNeeded() {
+		return true;
 	}
 }
 
@@ -592,6 +596,10 @@ class CaptchaCacheStore {
 	function clear( $index ) {
 		global $wgMemc;
 		$wgMemc->delete( wfMemcKey( 'captcha', $index ) );
+	}
+
+	function cookiesNeeded() {
+		return false;
 	}
 }
 

@@ -45,6 +45,12 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 'fancycaptcha-edit'          => 'Zur Bearbeitung der Seite ist es nötig, dass Sie das nachfolgende Wort in das darunter erscheinende Feld eintragen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
 ),
 
+/* Spanish */
+'es' => array(
+'fancycaptcha-edit' => 'La incluye nuevos enlaces. Como protección contra spam automatizado, es necesario que escriba las palabras que aparecen en la imagen ([[Special:Captcha/help|más info]]):',
+'fancycaptcha-createaccount' => 'Como protección contra creaciones automatizadas de cuentas, es necesario que escriba las palabras que aparecen en la imagen ([[Special:Captcha/help|más info]]):',
+),
+
 /* French */
 'fr' => array(
 'fancycaptcha-edit' => 'Votre modification inclut de nouveaux liens externes. Pour vérifier qu’il ne s’agit pas de spam automatique,

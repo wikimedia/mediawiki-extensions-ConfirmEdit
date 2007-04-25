@@ -18,12 +18,12 @@ spam, please solve the simple sum below and enter the answer in the box ([[Speci
 	'captcha-create' => 'To create the page, please solve the simple sum below and enter 
 the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captchahelp-title'          => 'Captcha help',
-	'captchahelp-cookies-needed' => "\n\nYou will need to have cookies enabled in your browser for this to work.", //$1 on captchahelp-text
+	'captchahelp-cookies-needed' => "\n\nYou will need to have cookies enabled in your browser for this to work.",
 	'captchahelp-text'           => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites. While these spam links can be removed, they are a significant nuisance.
 
 Sometimes, especially when adding new web links to a page, the wiki may show you an image of colored or distorted text and ask you to type the words shown. Since this is a task that's hard to automate, it will allow most real humans to make their posts while stopping most spammers and other robotic attackers.
 
-Unfortunately this may inconvenience users with limited vision or using text-based or speech-based browsers. At the moment we do not have an audio alternative available. Please contact the site administrators for assistance if this is unexpectedly preventing you from making legitimate posts.$1
+Unfortunately this may inconvenience users with limited vision or using text-based or speech-based browsers. At the moment we do not have an audio alternative available. Please contact the site administrators for assistance if this is unexpectedly preventing you from making legitimate posts.
 
 Hit the 'back' button in your browser to return to the page editor.",
 );
@@ -127,15 +127,15 @@ $wgConfirmEditMessages['de'] = array(
 	'captcha-createaccount-fail' => "Falscher oder fehlender Bestätigungscode.",
 	'captcha-create'	     => "Zur Erstellung der Seite ist es nötig, dass Sie die nachfolgende Rechenaufgabe lösen und das Ergebnis eintragen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
 	'captchahelp-title'          => 'Captcha-Hilfe',
-	'captchahelp-cookies-needed' => "\n\n'''Wichtiger Hinweis:''' Es müssen Cookies im Browser erlaubt sein.", //$1 on captchahelp-text
-	'captchahelp-text'           => "Internetangebote, die für Beiträge von praktisch jedem offen sind — so wie das {{SITENAME}}-Wiki — werden oft von Spammern missbraucht, die ihre Links automatisch auf vielen Webseiten platzieren. Diese Spam-Links können wieder entfernt werden, sie sind aber ein erhebliches Ärgernis. In manchen Fällen, insbesondere beim Hinzufügen von neuen Weblinks zu einer Seite, kann es vorkommen, dass dieses Wiki ein Bild mit einem farbigen und verzerrten Text anzeigt und dazu auffordert, die angezeigten Wörter einzutippen. Da eine solche Aufgabe nur schwer automatisch erledigt werden kann, werden dadurch die meisten Spammer, die mit automatischen Werkzeugen arbeiten, gestoppt, wogegen menschliche Benutzer ihren Beitrag absenden können. Leider kann dies zu Schwierigkeiten für Personen führen, die über eine eingeschränkte Sehfähigkeit verfügen oder text- oder sprachbasierte Browser verwenden. Eine Lösung ist die reguläre Anmeldung als Benutzer. Der „Zurück“-Knopf des Browsers führt zurück in das Bearbeitungsfenster.$1",
+	'captchahelp-cookies-needed' => "'''Wichtiger Hinweis:''' Es müssen Cookies im Browser erlaubt sein.",
+	'captchahelp-text'           => "Internetangebote, die für Beiträge von praktisch jedem offen sind — so wie das {{SITENAME}}-Wiki — werden oft von Spammern missbraucht, die ihre Links automatisch auf vielen Webseiten platzieren. Diese Spam-Links können wieder entfernt werden, sie sind aber ein erhebliches Ärgernis. In manchen Fällen, insbesondere beim Hinzufügen von neuen Weblinks zu einer Seite, kann es vorkommen, dass dieses Wiki ein Bild mit einem farbigen und verzerrten Text anzeigt und dazu auffordert, die angezeigten Wörter einzutippen. Da eine solche Aufgabe nur schwer automatisch erledigt werden kann, werden dadurch die meisten Spammer, die mit automatischen Werkzeugen arbeiten, gestoppt, wogegen menschliche Benutzer ihren Beitrag absenden können. Leider kann dies zu Schwierigkeiten für Personen führen, die über eine eingeschränkte Sehfähigkeit verfügen oder text- oder sprachbasierte Browser verwenden. Eine Lösung ist die reguläre Anmeldung als Benutzer. Der „Zurück“-Knopf des Browsers führt zurück in das Bearbeitungsfenster.",
 );
 
 $wgConfirmEditMessages['es'] = array(
 	'captcha-edit'		         => "La edición incluye nuevos enlaces. Como protección contra spam automatizado, es necesario que resuelva la suma e indique la solución en la casilla ([[Special:Captcha/help|más info]]):",
 	'captchahelp-title'          => 'Información sobre el captcha',
-	'captchahelp-cookies-needed' => "\n\nDebe tener las cookies activadas en el navegador para que el sistema funcione.",
-	'captchahelp-text'           => "Los webs que aceptan mensajes del público, como esta wiki, son abusados a menudo por spammers que utilizan programas para incluir automáticamente sus enlaces. Si bien estos enlaces pueden retirarse, son una gran molestia.\n\nEn ocasiones, especialmente cuando añada nuevos enlaces a una página, la wiki le mostrará una imagen de texto coloreado o distorsionado y le pedirá que escriba las palabras que muestra. Dado que esta es una tarea difícil de automatizar, permite a la mayoría de las personas enviar sus textos, a la vez que detiene spammers y otros atacantes automáticos.\n\nDesgraciadamente, esto puede ser un inconveniente para usuarios con visibilidad limitada o que usen navegadores de texto / de voz. No tenemos por el momento una alternativa sonora disponible. Por favor, solicite asistencia de los administradores si esto le impide realizar ediciones legítimas.$1\n\nPresione el botón atrás de su navegador para volver a la edición.",
+	'captchahelp-cookies-needed' => "Debe tener las cookies activadas en el navegador para que el sistema funcione.",
+	'captchahelp-text'           => "Los webs que aceptan mensajes del público, como esta wiki, son abusados a menudo por spammers que utilizan programas para incluir automáticamente sus enlaces. Si bien estos enlaces pueden retirarse, son una gran molestia.\n\nEn ocasiones, especialmente cuando añada nuevos enlaces a una página, la wiki le mostrará una imagen de texto coloreado o distorsionado y le pedirá que escriba las palabras que muestra. Dado que esta es una tarea difícil de automatizar, permite a la mayoría de las personas enviar sus textos, a la vez que detiene spammers y otros atacantes automáticos.\n\nDesgraciadamente, esto puede ser un inconveniente para usuarios con visibilidad limitada o que usen navegadores de texto / de voz. No tenemos por el momento una alternativa sonora disponible. Por favor, solicite asistencia de los administradores si esto le impide realizar ediciones legítimas. Presione el botón atrás de su navegador para volver a la edición.",
 	'captcha-createaccount'      => "Como protección contra creaciones automatizadas de cuentas, es necesario que resuelva la suma y de la solución en la casilla ([[Special:Captcha/help|más info]]):",
 	'captcha-createaccount-fail' => "C&oacute;digo de confirmación incorrecto.",
 );
@@ -187,12 +187,12 @@ $wgConfirmEditMessages['fr'] = array(
 	l’addition dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-createaccount-fail' => "Code de confirmation erroné ou manquant.",
 	'captchahelp-title'          => 'Aide sur les captcha',
-	'captchahelp-cookies-needed' => "\n\nVous devez avoir les cookies activés dans votre navigateur pour que cela fonctionne.",
+	'captchahelp-cookies-needed' => "Vous devez avoir les cookies activés dans votre navigateur pour que cela fonctionne.",
 	'captchahelp-text'           => "Les site Web acceptant des contributions du public, comme ce wiki, sont souvent utilisés par des spammeurs qui utilisent des outils automatiques pour placer de nombreux liens vers leurs sites. Même si ces liens de « spam » peuvent être enlevés, ils représentent une nuisance.
 
 Parfois, en particulier lors de l’ajout de nouveaux liens externes à une page, le wiki peut vous montrer une image représentant un texte coloré ou tordu et vous demander de taper les mots montrés. Cette tâche est difficile à automatiser, et permet aux humains de faire leurs contributions tout en stoppant la plupart des spammeurs.
 
-Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l'instant. Veuillez contacter un administrateur du site si vous n’arrivez pas à faire vos contributions.$1
+Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l'instant. Veuillez contacter un administrateur du site si vous n’arrivez pas à faire vos contributions.
 
 Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page d’édition.",
 );
@@ -226,13 +226,13 @@ $wgConfirmEditMessages['he'] = array(
 	'captcha-createaccount'      => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא פיתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 	'captcha-createaccount-fail' => 'לא הקלדתם קוד אישור, או שהוא שגוי.',
 	'captcha-create'             => 'כדי ליצור את הדף, אנא פיתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
-	'captchahelp-cookies-needed' => "\n\nעליכם להפעיל את תכונת העוגיות (Cookies) בדפדפן שלכם כדי שזה יעבוד.", //$1 on captchahelp-text
+	'captchahelp-cookies-needed' => "עליכם להפעיל את תכונת העוגיות (Cookies) בדפדפן שלכם כדי שזה יעבוד.",
 	'captchahelp-title'          => 'עזרה במערכת הגנת הספאם',
 	'captchahelp-text'           => "פעמים רבות מנצלים ספאמרים אתרים שמקבלים תוכן מהציבור, כמו הוויקי הזה, כדי לפרסם את הקישורים שלהם לאתרים רבים באינטרנט, באמצעות כלים אוטומטיים. אמנם ניתן להסיר את קישורי הספאם הללו, אך זהו מטרד משמעותי.
 
 לעיתים, בעיקר כשאתם מכניסים קישורי אינטרנט חדשים לתוך עמוד, הוויקי עשוי להראות תמונה של טקסט צבעוני או מעוקם ויבקש מכם להקליד את המילים המוצגות. כיוון שזו משימה שקשה לבצעה בצורה אוטומטית, הדבר יאפשר לבני־אדם אמיתיים לשלוח את הדפים, אך יעצור את רוב הספאמרים והמתקיפים הרובוטיים.
 
-לרוע המזל, הדבר עשוי לגרום לאי נוחות למשתמשים עם דפדפן בגרסה מוגבלת, או שמשתמשים בדפדפנים מבוססי טקסט או דיבור. כרגע, אין לנו חלופה קולית זמינה. אנא צרו קשר עם מנהלי האתר לעזרה אם המערכת מונעת מכם באופן בלתי צפוי לבצע עריכות לגיטימיות.$1
+לרוע המזל, הדבר עשוי לגרום לאי נוחות למשתמשים עם דפדפן בגרסה מוגבלת, או שמשתמשים בדפדפנים מבוססי טקסט או דיבור. כרגע, אין לנו חלופה קולית זמינה. אנא צרו קשר עם מנהלי האתר לעזרה אם המערכת מונעת מכם באופן בלתי צפוי לבצע עריכות לגיטימיות.
 
 אנא לחצו על הכפתור 'Back' בדפדפן שלכם כדי לחזור לדף העריכה.",
 );

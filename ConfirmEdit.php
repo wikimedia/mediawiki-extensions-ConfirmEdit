@@ -549,7 +549,10 @@ class SimpleCaptcha {
 	function showHelp() {
 		global $wgOut, $ceAllowConfirmedEmail;
 		$wgOut->setPageTitle( wfMsg( 'captchahelp-title' ) );
-		$wgOut->addWikiText( wfMsg( 'captchahelp-text', $this->storage->cookiesNeeded() ? wfMsg( 'captchahelp-cookies-needed' ) : '' ) );
+		$wgOut->addWikiText( wfMsg( 'captchahelp-text' ) );
+		if ( $this->storage->cookiesNeeded() ) {
+			$wgOut->addWikiText( wfMsg( 'captchahelp-cookies-needed' ) );
+		}
 	}
 
 }

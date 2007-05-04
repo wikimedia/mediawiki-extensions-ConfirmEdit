@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Internationalisation file for ConfirmEdit extension.
  *
@@ -18,7 +18,7 @@ spam, please solve the simple sum below and enter the answer in the box ([[Speci
 	'captcha-create' => 'To create the page, please solve the simple sum below and enter 
 the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captchahelp-title'          => 'Captcha help',
-	'captchahelp-cookies-needed' => "\n\nYou will need to have cookies enabled in your browser for this to work.",
+	'captchahelp-cookies-needed' => "You will need to have cookies enabled in your browser for this to work.",
 	'captchahelp-text'           => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites. While these spam links can be removed, they are a significant nuisance.
 
 Sometimes, especially when adding new web links to a page, the wiki may show you an image of colored or distorted text and ask you to type the words shown. Since this is a task that's hard to automate, it will allow most real humans to make their posts while stopping most spammers and other robotic attackers.
@@ -262,7 +262,7 @@ $wgConfirmEditMessages['id'] = array(
 	'captcha-create'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
 ([[Special:Captcha/help|Apa ini?]])",
 	'captchahelp-title'          => 'Mengenai Captcha',
-	'captchahelp-cookies-needed' => "\n\nAnda perlu mengaktifkan cookie pada penjelajah web Anda untuk menggunakan fitur ini.",
+	'captchahelp-cookies-needed' => "Anda perlu mengaktifkan cookie pada penjelajah web Anda untuk menggunakan fitur ini.",
 	'captchahelp-text'           => "Situs-situs web yang menerima masukan data dari publik, seperti {{ns:project}} ini, kerapkali disalahgunakan oleh pengguna-pengguna yang tidak bertanggungjawab untuk mengirimkan spam dengan menggunakan program-program otomatis. Walaupun spam-spam tersebut dapat dibuang, tetapi tetap saja menimbulkan gangguan berarti.
 
 Ketika menambahkan pranala web baru ke suatu halaman, {{ns:project}} akan menampilkan sebuah gambar tulisan yang terdistorsi atau suatu perhitungan sederhana dan meminta Anda untuk mengetikkan kata atau hasil dimaksud. Karena ini merupakan suatu pekerjaan yang sulit diotomatisasi, pembatasan ini akan mengizinkan hampir semua manusia untuk melakukannya, tapi di sisi lain akan menghentikan kebanyakan aksi spam dan penyerangan yang dilakukan oleh bot otomatis.
@@ -479,14 +479,12 @@ $wgConfirmEditMessages['oc'] = array(
 	'captchahelp-text'            => 'Los sites webs que permeton al mai grand nombre de participar, coma aqueste wiki, son sovent atacats per de spammers qu\'utilizan d\'espleches automatizas per mandar lor ligams sus de fòrça sites sulcòp. Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de far. De còps quand ajustatz de ligams novèls vèrs lo web, lo wiki pòt vos mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d\'automatizar, çò que permet de diferenciar un uman real d\'un logicial automatic malvolent. Malaürosament, aqueste sistèma es pas adaptat a d\'utilizaires mal-vesents o utilizant de navigaires textuals o audiò. Actualament, prepausem pas d\'alternativas adaptadas. Se avètz besonh d\'ajuda esitetz pas a contactar los administrators del sit. Clicatz sul boton \'precedent\' de vòstre navegaire per tornar a l\'editor.',
 );
 $wgConfirmEditMessages['pt'] = array(
-	'captcha-edit'               => "Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem:<br />
-([[Special:Captcha/help|O que é isto?]])",
-	'captcha-addurl'               => "Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem:<br />
-([[Special:Captcha/help|O que é isto?]])",
-	'captcha-create'               => "Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem:<br />
-([[Special:Captcha/help|O que é isto?]])",
+	'captcha-edit'               => "Para editar esta página será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])",
+	'captcha-addurl'               => "Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])",
+	'captcha-create'               => "Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])",
 	'captchahelp-title'          => 'Ajuda com o Captcha',
-	'captchahelp-text'           => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a spammers que utilizem ferramentas automatizadas para inserir seus links em diversos locais. Remover tais links posteriormente poderá significar um significativo incômodo.
+	'captchahelp-cookies-needed' => "Você precisará ter cookies habilitados em seu navegador para que possa funcionar",
+	'captchahelp-text'           => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a spammers que utilizem ferramentas automatizadas para inserir seus links em diversos locais. Remover tais links posteriormente poderá ser um significativo incômodo.
 
 Algumas vezes, especialmente ao adicionar novos links externos em uma página, o sistema exibirá uma imagem com um texto colorido ou distorcido e pedirá que você digite as palavras exibidas. Uma vez que essa é uma tarefa um tanto difícil de ser automatizada, ela possibilita que vários humanos façam as suas inserções ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
 

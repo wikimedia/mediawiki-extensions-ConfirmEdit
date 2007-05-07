@@ -125,6 +125,7 @@ $wgConfirmEditMessages['cy'] = array(
 $wgConfirmEditMessages['de'] = array(
 	'captcha-edit'		     => "Zur Bearbeitung der Seite ist es nötig, dass Sie die nachfolgende Rechenaufgabe lösen und das Ergebnis eintragen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
 	'captcha-addurl'	     => "Ihre Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming ist es nötig, dass Sie die nachfolgende Rechenaufgabe lösen und das Ergebnis eintragen. Klicken Sie dann erneut auf „Seite speichern“ [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
+	'captcha-badpass'            => 'Zum Schutz vor einer Kompromittierung Ihres Benutzerkontos Sie die Summe der nachfolgende Zahlen in das darunter erscheinende Feld ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]:',
 	'captcha-createaccount'      => "Zum Schutz vor automatisierter Anlage von Benutzerkonten müssen Sie einmalig die nebenstehende Rechenaufgabe lösen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
 	'captcha-createaccount-fail' => "Falscher oder fehlender Bestätigungscode.",
 	'captcha-create'	     => "Zur Erstellung der Seite ist es nötig, dass Sie die nachfolgende Rechenaufgabe lösen und das Ergebnis eintragen [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",

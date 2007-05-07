@@ -12,6 +12,8 @@ $wgConfirmEditMessages['en'] = array(
 the box ([[Special:Captcha/help|more info]]):',
 	'captcha-addurl' => 'Your edit includes new external links. To help protect against automated
 spam, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
+'captcha-badpass' => 'To help protect against automated password cracking, please solve the simple sum
+below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount' => 'To help protect against automated account creation, please solve the simple sum
 	below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount-fail' => "Incorrect or missing confirmation code.",

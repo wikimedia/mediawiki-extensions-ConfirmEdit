@@ -79,6 +79,7 @@ $wgCaptchaTriggers['edit']          = false; // Would check on every edit
 $wgCaptchaTriggers['create']		= false; // Check on page creation.
 $wgCaptchaTriggers['addurl']        = true;  // Check on edits that add URLs
 $wgCaptchaTriggers['createaccount'] = true;  // Special:Userlogin&type=signup
+$wgCaptchaTriggers['badlogin']      = true;  // Special:Userlogin after failure
 
 /**
  * You may wish to apply special rules for captcha triggering on some namespaces.
@@ -108,13 +109,25 @@ global $wgCaptchaStorageClass;
 $wgCaptchaStorageClass = 'CaptchaSessionStore';
 
 /**
- * Number of sections a captcha session should last in the data cache
+ * Number of seconds a captcha session should last in the data cache
  * before expiring when managing through CaptchaCacheStore class.
  *
  * Default is a half hour.
  */
 global $wgCaptchaSessionExpiration;
 $wgCaptchaSessionExpiration = 30 * 60;
+
+/**
+ * Number of seconds after a bad login that a captcha will be shown to
+ * that client on the login form to slow down password-guessing bots.
+ *
+ * Has no effect if 'badlogin' is disabled in $wgCaptchaTriggers or
+ * if there is not a caching engine enabled.
+ *
+ * Default is five minutes.
+ */
+global $wgCaptchaBadLoginExpiration;
+$wgCaptchaBadLoginExpiration = 5 * 60;
 
 /**
  * Allow users who have confirmed their e-mail addresses to post
@@ -162,6 +175,10 @@ function ceSetup() {
 
 	$wgHooks['UserCreateForm'][] = array( &$wgCaptcha, 'injectUserCreate' );
 	$wgHooks['AbortNewAccount'][] = array( &$wgCaptcha, 'confirmUserCreate' );
+	
+	$wgHooks['LoginBadPass'][] = array( &$wgCaptcha, 'triggerUserLogin' );
+	$wgHooks['UserLoginForm'][] = array( &$wgCaptcha, 'injectUserLogin' );
+	$wgHooks['AbortLogin'][] = array( &$wgCaptcha, 'confirmUserLogin' );
 }
 
 /**
@@ -258,6 +275,66 @@ class SimpleCaptcha {
 		return true;
 	}
 
+	/**
+	 * Inject a captcha into the user login form after a failed
+	 * password attempt as a speedbump for mass attacks.
+	 * @fixme if multiple thingies insert a header, could break
+	 * @param SimpleTemplate $template
+	 * @return bool true to keep running callbacks
+	 */
+	function injectUserLogin( &$template ) {
+		if( $this->isBadLoginTriggered() ) {
+			global $wgOut;
+			$template->set( 'header',
+				"<div class='captcha'>" .
+				$wgOut->parse( $this->getMessage( 'badlogin' ) ) .
+				$this->getForm() .
+				"</div>\n" );
+		}
+		return true;
+	}
+	
+	/**
+	 * When a bad login attempt is made, increment an expiring counter
+	 * in the memcache cloud. Later checks for this may trigger a
+	 * captcha display to prevent too many hits from the same place.
+	 * @param User $user
+	 * @param string $password
+	 * @return bool true to keep running callbacks
+	 */
+	function triggerUserLogin( $user, $password ) {
+		global $wgCaptchaTriggers, $wgCaptchaBadLoginExpiration, $wgMemc;
+		if( $wgCaptchaTriggers['badlogin'] ) {
+			$key = $this->badLoginKey();
+			$count = $wgMemc->get( $key );
+			if( !$count ) {
+				$wgMemc->add( $key, 0, $wgCaptchaBadLoginExpiration );
+			}
+			$count = $wgMemc->incr( $key );
+		}
+		return true;
+	}
+	
+	/**
+	 * Check if a bad login has already been registered for this
+	 * IP address. If so, require a captcha.
+	 * @return bool
+	 * @access private
+	 */
+	function isBadLoginTriggered() {
+		global $wgMemc;
+		return intval( $wgMemc->get( $this->badLoginKey() ) ) > 0;
+	}
+	
+	/**
+	 * Internal cache key for badlogin checks.
+	 * @return string
+	 * @access private
+	 */
+	function badLoginKey() {
+		return wfMemcKey( 'captcha', 'badlogin', 'ip', wfGetIP() );
+	}
+	
 	/**
 	 * Check if the submitted form matches the captcha session data provided
 	 * by the plugin when the form was generated.
@@ -431,6 +508,25 @@ class SimpleCaptcha {
 			$this->trigger = "new account '" . $u->getName() . "'";
 			if( !$this->passCaptcha() ) {
 				$message = wfMsg( 'captcha-createaccount-fail' );
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Hook for user login form submissions.
+	 * @param User $u
+	 * @param string $message
+	 * @return bool true to continue, false to abort user creation
+	 */
+	function confirmUserLogin( $u, $pass, &$retval ) {
+		if( $this->isBadLoginTriggered() ) {
+			$this->trigger = "post-badlogin login '" . $u->getName() . "'";
+			if( !$this->passCaptcha() ) {
+				$message = wfMsg( 'captcha-badlogin-fail' );
+				// Emulate a bad-password return to confuse the shit out of attackers
+				$retval = LoginForm::WRONG_PASS;
 				return false;
 			}
 		}

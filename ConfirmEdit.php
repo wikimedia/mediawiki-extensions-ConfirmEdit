@@ -176,7 +176,7 @@ function ceSetup() {
 	$wgHooks['UserCreateForm'][] = array( &$wgCaptcha, 'injectUserCreate' );
 	$wgHooks['AbortNewAccount'][] = array( &$wgCaptcha, 'confirmUserCreate' );
 	
-	$wgHooks['LoginBadPass'][] = array( &$wgCaptcha, 'triggerUserLogin' );
+	$wgHooks['LoginAuthenticateAudit'][] = array( &$wgCaptcha, 'triggerUserLogin' );
 	$wgHooks['UserLoginForm'][] = array( &$wgCaptcha, 'injectUserLogin' );
 	$wgHooks['AbortLogin'][] = array( &$wgCaptcha, 'confirmUserLogin' );
 }
@@ -300,11 +300,12 @@ class SimpleCaptcha {
 	 * captcha display to prevent too many hits from the same place.
 	 * @param User $user
 	 * @param string $password
+	 * @param int $retval authentication return value
 	 * @return bool true to keep running callbacks
 	 */
-	function triggerUserLogin( $user, $password ) {
+	function triggerUserLogin( $user, $password, $retval ) {
 		global $wgCaptchaTriggers, $wgCaptchaBadLoginExpiration, $wgMemc;
-		if( $wgCaptchaTriggers['badlogin'] ) {
+		if( $retval == LoginForm::WRONG_PASS && $wgCaptchaTriggers['badlogin'] ) {
 			$key = $this->badLoginKey();
 			$count = $wgMemc->get( $key );
 			if( !$count ) {

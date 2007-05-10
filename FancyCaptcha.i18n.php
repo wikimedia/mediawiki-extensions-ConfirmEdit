@@ -107,17 +107,6 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 'fancycaptcha-edit' => 'このページを編集するには以下のボックスに表示される確認用の文字列を入力してください。 （[[Special:Captcha/help|詳細]]）',
 ),
 
-/* Kazakh default */
-'kk' => array(
-'fancycaptcha-edit' => 'Бұл бетті өңдеу үшін,
-төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
-'fancycaptcha-addurl' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
-төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
-'fancycaptcha-create' => 'Жаңа бетті бастау үшін,
-төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
-'fancycaptcha-createaccount' => 'Жаңа тіркелгі өздік түрде жасалуынан қорғану үшін, төмендегі 
-көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
-),
 
 /* Kazakh Cyrillic */
 'kk-kz' => array(
@@ -199,6 +188,10 @@ ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha
 ),
 
 	);
+
+	/* Kazakh default, fallback to kk-kz */
+	$messages['kk'] = $messages['kk-kz'];
+
 }
 
 ?>

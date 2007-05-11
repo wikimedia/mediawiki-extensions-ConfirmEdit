@@ -17,9 +17,9 @@ spam, please enter the words that appear below in the box ([[Special:Captcha/hel
 that appear below in the box ([[Special:Captcha/help|more info]]):',
 'fancycaptcha-createaccount' => 'To help protect against automated account creation, please enter the words
 that appear below in the box ([[Special:Captcha/help|more info]]):',
-'fancycaptcha-create' => 'To create the page, please enter the words that appear below in the box 
+'fancycaptcha-create' => 'To create the page, please enter the words that appear below in the box
 ([[Special:Captcha/help|more info]]):',
-'fancycaptcha-edit' => 'To edit this page, please enter the words that appear below in the box 
+'fancycaptcha-edit' => 'To edit this page, please enter the words that appear below in the box
 ([[Special:Captcha/help|more info]]):',
 ),
 
@@ -83,12 +83,13 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 'fancycaptcha-edit'          => 'כדי לערוך את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 ),
 
-/* Indonesian */
+/* Indonesian (Ivan Lanin) */
 'id' => array(
-'fancycaptcha-edit' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',
-'fancycaptcha-addurl' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',
-'fancycaptcha-create' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',
-'fancycaptcha-createaccount' => 'Untuk perlindungan terhadap pembuatan akun otomatis, tolong masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info tambahan]]):',
+'fancycaptcha-edit' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+'fancycaptcha-badlogin' => 'Untuk membantu perlindungan terhadap perengkahan kunci sandi otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+'fancycaptcha-addurl' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+'fancycaptcha-create' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+'fancycaptcha-createaccount' => 'Untuk perlindungan terhadap pembuatan akun otomatis, tolong masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 ),
 
 /* Italian (BrokenArrow) */
@@ -116,7 +117,7 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 'fancycaptcha-create' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
-'fancycaptcha-createaccount' => 'Жаңа тіркелгі өздік түрде жасалуынан қорғану үшін, төмендегі 
+'fancycaptcha-createaccount' => 'Жаңа тіркелгі өздік түрде жасалуынан қорғану үшін, төмендегі
 көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 ),
 
@@ -128,7 +129,7 @@ tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/h
 tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 'fancycaptcha-create' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
 tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
-'fancycaptcha-createaccount' => 'Jaña tirkelgi özdik türde jasalwınan qorğanw üşin, tömendegi 
+'fancycaptcha-createaccount' => 'Jaña tirkelgi özdik türde jasalwınan qorğanw üşin, tömendegi
 körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 ),
 
@@ -140,19 +141,19 @@ körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbire
 تٴومەندەگٴى كٴورسەتٴىلگەن سٴوزدەردٴى اۋماققا ەنگٴىزٴىڭٴىز ([[{{ns:special}}:Captcha/help|كٴوبٴىرەك اقپارات]]):',
 'fancycaptcha-create' => 'تٴۇزەتۋٴىڭٴىزدە جاڭا سىرتقى سٴىلتەمەلەر بار ەكەن. ٴوزدٴىك تٴۇردە «سپام» جاسالۋىنان قورعانۋ ٴۇشٴىن,
 تٴومەندەگٴى كٴورسەتٴىلگەن سٴوزدەردٴى اۋماققا ەنگٴىزٴىڭٴىز ([[{{ns:special}}:Captcha/help|كٴوبٴىرەك اقپارات]]):',
-'fancycaptcha-createaccount' => 'جاڭا تٴىركەلگٴى ٴوزدٴىك تٴۇردە جاسالۋىنان قورعانۋ ٴۇشٴىن, تٴومەندەگٴى 
+'fancycaptcha-createaccount' => 'جاڭا تٴىركەلگٴى ٴوزدٴىك تٴۇردە جاسالۋىنان قورعانۋ ٴۇشٴىن, تٴومەندەگٴى
 كٴورسەتٴىلگەن سٴوزدەردٴى اۋماققا ەنگٴىزٴىڭٴىز ([[{{ns:special}}:Captcha/help|كٴوبٴىرەك اقپارات]]):',
 ),
 
 /* nld / Dutch / Nederlands */
 'nl' => array(
-'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die 
+'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die
 hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|more info]]):',
-'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die 
+'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die
 hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|more info]]):',
-'fancycaptcha-create' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die 
+'fancycaptcha-create' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die
 hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|more info]]):',
-'fancycaptcha-createaccount' => 'Voer altublieft de woordenen die hieronder verschijnen in het invoerveld in 
+'fancycaptcha-createaccount' => 'Voer altublieft de woordenen die hieronder verschijnen in het invoerveld in
 ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha/help|meer info]]):',
 ),
 

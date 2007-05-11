@@ -260,11 +260,12 @@ $wgConfirmEditMessages['hsb'] = array(
 );
 $wgConfirmEditMessages['id'] = array(
 	'captcha-edit'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
-([[Special:Captcha/help|Apa ini?]])",
+([[Special:Captcha/help|info lengkap]])",
 	'captcha-addurl'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
-([[Special:Captcha/help|Apa ini?]])",
+([[Special:Captcha/help|info lengkap]])",
+	'captcha-badpass'              => 'Untuk membantu perlindungan terhadap perengkahan kunci sandi otomatis, tolong masukkan kata atau hasil perhitungan sederhana berikut dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 	'captcha-create'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
-([[Special:Captcha/help|Apa ini?]])",
+([[Special:Captcha/help|info lengkap]])",
 	'captchahelp-title'          => 'Mengenai Captcha',
 	'captchahelp-cookies-needed' => "Anda perlu mengaktifkan cookie pada penjelajah web Anda untuk menggunakan fitur ini.",
 	'captchahelp-text'           => "Situs-situs web yang menerima masukan data dari publik, seperti {{ns:project}} ini, kerapkali disalahgunakan oleh pengguna-pengguna yang tidak bertanggungjawab untuk mengirimkan spam dengan menggunakan program-program otomatis. Walaupun spam-spam tersebut dapat dibuang, tetapi tetap saja menimbulkan gangguan berarti.
@@ -275,7 +276,7 @@ Sayangnya, hal ini dapat menimbulkan kesulitan bagi pengguna dengan keterbatasan
 
 Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan.",
 	'captcha-createaccount'      => "Sebagai perlindungan melawan spam, Anda diharuskan untuk mengetikkan kata atau hasil perhitungan di bawah ini di kotak yang tersedia untuk dapat mendaftarkan pengguna baru:<br />
-([[Special:Captcha/help|Apa ini?]])",
+([[Special:Captcha/help|info lengkap]])",
 	'captcha-createaccount-fail' => "Kode konfirmasi salah atau belum diisi.",
 );
 $wgConfirmEditMessages['is'] = array(

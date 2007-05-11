@@ -99,9 +99,11 @@ Necessitareu tenir les galetes activades en el vostre navegador per a que funcio
 Cliqueu el botó de retrocedir del vostre navegador per a tornar al formulari.',
 );
 $wgConfirmEditMessages['cs'] = array(
-	'captcha-edit'               => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte opsat text z následujícího obrázku:<br />([[Special:Captcha/help|Co tohle znamená?]])',
-	'captcha-addurl'               => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte opsat text z následujícího obrázku:<br />([[Special:Captcha/help|Co tohle znamená?]])',
-	'captcha-create'               => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte opsat text z následujícího obrázku:<br />([[Special:Captcha/help|Co tohle znamená?]])',
+	'captcha-badpass'            => 'V rámci ochrany před automatickým pokusům uhodnout heslo musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]]):',
+	'captchahelp-cookies-needed' => "Musíte mít zapnuty cookies ve svém prohlížeči.",
+	'captcha-edit'               => 'Abyste mohli editovat tuto stránku, musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
+	'captcha-addurl'             => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
+	'captcha-create'             => 'Abyste mohli založit stránku musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
 	'captchahelp-title'          => 'Nápověda ke captcha',
 	'captchahelp-text'           => "Webové stránky, do kterých mohou přispívat jejich návštěvníci (jako například tato wiki), jsou často terčem spammerů, kteří pomocí automatických nástrojů vkládají své odkazy na velké množství stránek. Přestože lze tento spam odstranit, představuje nepříjemné obtěžování.
 
@@ -110,7 +112,7 @@ Někdy, zvláště při přidávání nových webových odkazů, vám může wik
 Bohužel to však může představovat nepříjemný problém pro uživatele se zrakovým postižením či uživatele používající textové prohlížeče či hlasové čtečky. V současné době nemáme alternativní zvukovou verzi. Kontaktujte laskavě správce serveru, pokud vám to brání v užitečných příspěvcích a potřebujete pomoc.
 
 Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko „zpět“.",
-	'captcha-createaccount'      => 'V rámci ochrany před automatickým spamováním musíte pro provedení registrace opsat text z následujícího obrázku:<br />([[Special:Captcha/help|Co tohle znamená?]])',
+	'captcha-createaccount'      => 'V rámci ochrany před automatickým vytvářením účtů musíte pro provedení registrace vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
 	'captcha-createaccount-fail' => 'Chybějící či neplatný potvrzovací kód.',
 );
 $wgConfirmEditMessages['cy'] = array(

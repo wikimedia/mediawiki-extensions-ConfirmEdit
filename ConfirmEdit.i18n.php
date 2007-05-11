@@ -8,7 +8,7 @@
 $wgConfirmEditMessages = array();
 
 $wgConfirmEditMessages['en'] = array(
-	'captcha-edit' => 'To edit this article, please solve the simple sum below and enter the answer in 
+	'captcha-edit' => 'To edit this article, please solve the simple sum below and enter the answer in
 the box ([[Special:Captcha/help|more info]]):',
 	'captcha-addurl' => 'Your edit includes new external links. To help protect against automated
 spam, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
@@ -17,7 +17,7 @@ below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount' => 'To help protect against automated account creation, please solve the simple sum
 	below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount-fail' => "Incorrect or missing confirmation code.",
-	'captcha-create' => 'To create the page, please solve the simple sum below and enter 
+	'captcha-create' => 'To create the page, please solve the simple sum below and enter
 the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captchahelp-title'          => 'Captcha help',
 	'captchahelp-cookies-needed' => "You will need to have cookies enabled in your browser for this to work.",
@@ -334,13 +334,13 @@ $wgConfirmEditMessages['ja'] = array(
 );
 
 $wgConfirmEditMessages['kk-kz'] = array(
-	'captcha-edit'              => "Бұл бетті өңдеу үшін, 
+	'captcha-edit'              => "Бұл бетті өңдеу үшін,
 төмендегі қосындылауды шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):",
 	'captcha-addurl'              => "Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
 төмендегі қосындылауды шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):",
 	'captcha-create'              => "Жаңа бетті бастау үшін,
 төмендегі қосындылауды шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):",
-	'captcha-createaccount'      => "Жаңа тіркелгі өздік түрде жасалуынан қорғану үшін, төмендегі қосындылауды 
+	'captcha-createaccount'      => "Жаңа тіркелгі өздік түрде жасалуынан қорғану үшін, төмендегі қосындылауды
 шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):",
 	'captcha-createaccount-fail' => "Куәландыру коды дұрыс емес немесе жоқ.",
 	'captchahelp-cookies-needed' => "Бұл жұмысты істеу үшін, шолғышыңызда  «cookies»  дегенді ендіріңіз.",
@@ -356,13 +356,13 @@ $wgConfirmEditMessages['kk-kz'] = array(
 Бет өңдеуіне қайту бару үшін «Артқа» деген түймесін басыңыз.",
 );
 $wgConfirmEditMessages['kk-tr'] = array(
-	'captcha-edit'              => "Bul betti öñdew üşin, 
+	'captcha-edit'              => "Bul betti öñdew üşin,
 tömendegi qosındılawdı şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):",
 	'captcha-addurl'              => "Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
 tömendegi qosındılawdı şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):",
 	'captcha-create'              => "Jaña betti bastaw üşin,
 tömendegi qosındılawdı şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):",
-	'captcha-createaccount'      => "Jaña tirkelgi özdik türde jasalwınan qorğanw üşin, tömendegi qosındılawdı 
+	'captcha-createaccount'      => "Jaña tirkelgi özdik türde jasalwınan qorğanw üşin, tömendegi qosındılawdı
 şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):",
 	'captcha-createaccount-fail' => "Kwälandırw kodı durıs emes nemese joq.",
 	'captchahelp-cookies-needed' => "Bul jumıstı istew üşin, şolğışıñızda  «cookies»  degendi endiriñiz.",
@@ -378,13 +378,13 @@ Bul jumıstı istew üşin şolğışıñızda «cookies» degendi endirw qajet.
 Bet öñdewine qaýtw barw üşin «Artqa» degen tüýmesin basıñız.",
 );
 $wgConfirmEditMessages['kk-cn'] = array(
-	'captcha-edit'              => "بۇل بەتتٸ ٶڭدەۋ ٷشٸن, 
+	'captcha-edit'              => "بۇل بەتتٸ ٶڭدەۋ ٷشٸن,
 تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):",
 	'captcha-addurl'              => "تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸك تٷردە «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
 تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):",
 	'captcha-create'              => "جاڭا بەتتٸ باستاۋ ٷشٸن,
 تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):",
-	'captcha-createaccount'      => "جاڭا تٸركەلگٸ ٶزدٸك تٷردە جاسالۋىنان قورعانۋ ٷشٸن, تٶمەندەگٸ قوسىندىلاۋدى 
+	'captcha-createaccount'      => "جاڭا تٸركەلگٸ ٶزدٸك تٷردە جاسالۋىنان قورعانۋ ٷشٸن, تٶمەندەگٸ قوسىندىلاۋدى
 شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):",
 	'captcha-createaccount-fail' => "كۋٵلاندىرۋ كودى دۇرىس ەمەس نەمەسە جوق.",
 	'captchahelp-cookies-needed' => "بۇل جۇمىستى ٸستەۋ ٷشٸن, شولعىشىڭىزدا  «cookies»  دەگەندٸ ەندٸرٸڭٸز.",
@@ -581,6 +581,16 @@ Shtypni butonin \"prapa\" (\"back\") të shfletuesit tuaj për tu kthyer tek faq
 	'captcha-createaccount'      => "Për mbrojtje kundër regjistrimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme para se të hapni llogarinë:<br /> ([[Special:Captcha|Çfarë është kjo?]])",
 	'captcha-createaccount-fail' => "Mesazhi që duhej shtypur mungon ose nuk është shtypur siç duhet.",
 );
+
+$wgConfirmEditMessages['su'] = array(
+	'captcha-edit'                => 'Pikeun ngédit artikel ieu, mangga eusian itungan di handap ieu ([[Special:Captcha/help|émbaran lengkep]]):',
+	'captcha-addurl'              => 'Éditan anjeun ngawengku tumbu kaluar anyar. Pikeun nyegah spam, mangga eusian itungan di handap ieu [[Special:Captcha/help|émbaran lengkep]]):',
+	'captcha-createaccount'       => 'Pikeun nyegah dijieunna rekening sacara otomatis, mangga eusian itungan di handap ieu ([[Special:Captcha/help|émbaran lengkep]]):',
+	'captcha-createaccount-fail'  => 'Sandi konfirmasina salah atawa can dieusian.',
+	'captcha-create'              => 'Pikeun nyieun kacana, mangga eusian itungan di handap ieu ([[Special:Captcha/help|émbaran lengkep]]):',
+	'captchahelp-title'           => 'Pitulung Captcha',
+);
+
 $wgConfirmEditMessages['uk'] = array(
 	'captchahelp-text'           => "Вікіпедія застосовує техніку розрізнення людей від комп'ютерів, яка використовує розпізнавання образів, для захисту від  комп'ютерних  шкідливих програм, які автоматично реєструються  (найчастіше спамлять у статтях).
 

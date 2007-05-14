@@ -179,6 +179,18 @@ function ceSetup() {
 	$wgHooks['LoginAuthenticateAudit'][] = array( &$wgCaptcha, 'triggerUserLogin' );
 	$wgHooks['UserLoginForm'][] = array( &$wgCaptcha, 'injectUserLogin' );
 	$wgHooks['AbortLogin'][] = array( &$wgCaptcha, 'confirmUserLogin' );
+	
+	global $wgGroupPermissions, $wgCaptchaTriggers;
+	if( !$wgGroupPermissions['*']['read'] && $wgCaptchaTriggers['badlogin'] ) {
+		// We need to ensure that the captcha interface is accessible
+		// so that unauthenticated users can actually get in after a
+		// mistaken password typing.
+		global $wgWhitelistRead;
+		$image = Title::makeTitle( NS_SPECIAL, 'Captcha/image' );
+		$help = Title::makeTitle( NS_SPECIAL, 'Captcha/help' );
+		$wgWhitelistRead[] = $image->getPrefixedText();
+		$wgWhitelistRead[] = $help->getPrefixedText();
+	}
 }
 
 /**

@@ -188,11 +188,30 @@ ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha
 'fancycaptcha-create' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
 'fancycaptcha-createaccount' => 'Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet: <br />([[Special:Captcha/help|Čo je toto?]])',
 ),
-
+/* Chinese(PRC) */
+'zh' => array(
+'fancycaptcha-addurl' => '你的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
+'fancycaptcha-badlogin' => '为防止不当程式破解密码，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
+'fancycaptcha-createaccount' => '为防止不当程式大量建立帐户，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
+'fancycaptcha-create' => '为防止不当程式大量建立页面，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
+'fancycaptcha-edit' => '如你想要编辑這个页面，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
+),
+/* Chinese(Taiwan) */
+'zh-tw' => array(
+'fancycaptcha-addurl' => '您的編輯內容中含有本網站以外的連結。為防止不當程式大量破壞，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
+'fancycaptcha-badlogin' => '為防止不當程式破解密碼，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
+'fancycaptcha-createaccount' => '為防止不當程式大量建立帳戶，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
+'fancycaptcha-create' => '為防止不當程式大量建立頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
+'fancycaptcha-edit' => '如您想要編輯此頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
+),
 	);
 
 	/* Kazakh default, fallback to kk-kz */
 	$messages['kk'] = $messages['kk-kz'];
+	/*Chinese Default, zh-sg and zh-cn fallback to zh,zh-hk fallback to zh-tw*/
+	$messages['zh-cn'] = $messages['zh'];
+	$messages['zh-sg'] = $messages['zh'];
+	$messages['zh-hk'] = $messages['zh-tw'];
 
 }
 

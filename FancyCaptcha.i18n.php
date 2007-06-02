@@ -65,6 +65,7 @@ veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:C
 veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 'fancycaptcha-createaccount' => 'Comme protection contre les créations de compte abusives, veuillez entrer les mots
 ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+'fancycaptcha-badlogin' => 'Pour aider à vous protéger contre le piratage de compte par mots de passe automatiques, merci d’entrer les mots qui s’affichent dans cette boîte ([[Special:Captcha/help|Aide]]) :',
 ),
 
 /* Finnish (Niklas Laxström) */

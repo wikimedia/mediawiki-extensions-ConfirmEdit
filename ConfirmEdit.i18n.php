@@ -186,6 +186,7 @@ $wgConfirmEditMessages['fr'] = array(
 	veuillez entrer le résultat de l’addition ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-addurl' => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le spam automatique,
 	veuillez entrer le résultat de l’addition ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+  'captcha-badpass' => 'Pour essayer de contourner les tentatives de crackage de mots de passe automatisées par des robots, veuillez recopier le texte ci-dessous dans la boîte de texte placée au dessous de celui-ci. ([[Special:Captcha/aide|Plus d’infos]])',
 	'captcha-create' => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le spam automatique,
 	veuillez entrer le résultat de l’addition ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-createaccount' => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de

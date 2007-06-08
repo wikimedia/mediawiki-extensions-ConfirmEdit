@@ -516,11 +516,13 @@ Pressione o botão 'voltar' de seu navegador para retornar à página de ediçã
 $wgConfirmEditMessages['pt-br'] = $wgConfirmEditMessages['pt'];
 $wgConfirmEditMessages['ro'] = array(
 	'captcha-edit'                => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
-	'captcha-addurl'                => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
-	'captcha-create'                => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
+	'captcha-addurl'              => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
+	'captcha-badpass'             => 'Ca măsură de protecţie împotriva spargerii de parole, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
 	'captcha-createaccount'       => 'Pentru a evita crearea automată de conturi, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
 	'captcha-createaccount-fail'  => 'Cod de confirmare incorect sau lipsă.',
+	'captcha-create'              => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
 	'captchahelp-title'           => 'Despre „Captcha”',
+	'captchahelp-cookies-needed'  => 'Trebuie ca browserul dumneavoastră să accepte cookie-uri pentru ca aceasta să funcţioneze.',
 	'captchahelp-text'            => 'Siturile Web care acceptă postări din partea publicului, precum acest wiki, sunt de obicei abuzate de persoane care folosesc unelte automate pentru a introduce legături către multe situri. Deşi aceste legături de spam pot fi scoase, acest lucru reprezintă o muncă inconvenientă.
 
 Uneori, mai ales la adăugarea de legături web noi într-o pagină, situl wiki vă poate arăta o imagine cu un text colorat sau distorsionat şi ruga să introduceţi cuvintele arătate. Deoarece aceasta este o sarcină greu de automatizat, va permite majorităţii persoanelor reale să posteze şi va opri majoritatea atacatorilor.

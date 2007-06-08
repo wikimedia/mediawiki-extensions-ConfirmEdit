@@ -186,11 +186,13 @@ ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha
 
 /* Slovak (helix84) */
 'sk' => array(
-'fancycaptcha-edit' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
 'fancycaptcha-addurl' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
-'fancycaptcha-create' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
+'fancycaptcha-badlogin' => 'Ako ochranu proti automatizovanému lámaniu hesiel, prosím zadajte slová z nasledujúceho obrázka do poľa pre odpoveď ([[Special:Captcha/help|viac informácií]]):',
 'fancycaptcha-createaccount' => 'Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet: <br />([[Special:Captcha/help|Čo je toto?]])',
+'fancycaptcha-create' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
+'fancycaptcha-edit' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
 ),
+
 /* Chinese(PRC) */
 'zh' => array(
 'fancycaptcha-addurl' => '你的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请输入以下的文字([[Special:Captcha/help|相关信息]])：',

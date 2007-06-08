@@ -341,18 +341,20 @@ $wgConfirmEditMessages['ja'] = array(
 );
 
 $wgConfirmEditMessages['kk-kz'] = array(
-	'captcha-edit'              => "Бұл бетті өңдеу үшін,
-төмендегі қосындылауды шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):",
-	'captcha-addurl'              => "Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
-төмендегі қосындылауды шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):",
-	'captcha-create'              => "Жаңа бетті бастау үшін,
-төмендегі қосындылауды шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):",
-	'captcha-createaccount'      => "Жаңа тіркелгі өздік түрде жасалуынан қорғану үшін, төмендегі қосындылауды
-шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):",
+	'captcha-edit' => 'Бұл бетті өңдеу үшін, төмендегі қосындылауды шешіңіз де, нәтижесін 
+аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
+	'captcha-addurl' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздіктік «спам» жасалуынан қорғану үшін,
+төмендегі қарапайым қосындылауды шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
+	'captcha-badpass' => 'Құпия сөзді өздіктік қиратудан қорғану үшін,
+төмендегі қарапайым қосындылауды шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
+	'captcha-createaccount' => 'Жаңа тіркелгі өздіктік жасалуынан қорғану үшін, төмендегі қарапайым қосындылауды
+шешіңіз де, нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 	'captcha-createaccount-fail' => "Куәландыру коды дұрыс емес немесе жоқ.",
-	'captchahelp-cookies-needed' => "Бұл жұмысты істеу үшін, шолғышыңызда  «cookies»  дегенді ендіріңіз.",
+	'captcha-create' => 'Жаңа бетті бастау үшін, төмендегі қарапайым қосындылауды шешіңіз де, 
+нәтижесін аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 	'captchahelp-title'          => 'CAPTCHA анықтамасы',
-	'captchahelp-text'           => "Өздік құралдары бар «спаммерлер», баршадан жіберілген хабарды қабылдайтын, бұл уики сияқты, веб-тораптарға сілтемелерімен жиі жаудырады. Осындай «спам» сілтемелерін аластау болғанда да, бұл мәнді ыза келтіреді.
+	'captchahelp-cookies-needed' => "Бұл жұмыс істеу үшін, шолғышыңызда  «cookies»  дегенді ендіріңіз.",
+	'captchahelp-text'           => "Өздіктік құралдары бар «спаммерлер», баршадан жіберілген хабарды қабылдайтын, бұл уики сияқты, веб-тораптарға сілтемелерімен жиі жаудырады. Осындай «спам» сілтемелерін аластау болғанда да, бұл мәнді ыза келтіреді.
 
 Кейде, әсіресе бетке жаңа веб сілтемесін қосқанда, уики өңі өзгерген не қисайған мәтінді көрсетіп және сол сөздерді енгізу сұрауы мүмкін. Бұл тапсырыс өздік түрде атқару өте қиын, сондықтан бұл иманды адам көпшілігіне кедергі болмайды, бірақ «спаммерлерді» және бұзақы ботпен басқа шабуыл жасағандарды тоқтатады.
 
@@ -360,21 +362,23 @@ $wgConfirmEditMessages['kk-kz'] = array(
 
 Бұл жұмысты істеу үшін шолғышыңызда «cookies» дегенді ендіру қажет.
 
-Бет өңдеуіне қайту бару үшін «Артқа» деген түймесін басыңыз.",
+Бет өңдеуіне қайту бару үшін «Артқа» деген түймесін басыңыз."
 );
 $wgConfirmEditMessages['kk-tr'] = array(
-	'captcha-edit'              => "Bul betti öñdew üşin,
-tömendegi qosındılawdı şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):",
-	'captcha-addurl'              => "Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
-tömendegi qosındılawdı şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):",
-	'captcha-create'              => "Jaña betti bastaw üşin,
-tömendegi qosındılawdı şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):",
-	'captcha-createaccount'      => "Jaña tirkelgi özdik türde jasalwınan qorğanw üşin, tömendegi qosındılawdı
-şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):",
+	'captcha-edit' => 'Bul betti öñdew üşin, tömendegi qosındılawdı şeşiñiz de, nätïjesin 
+awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
+	'captcha-addurl' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdiktik «spam» jasalwınan qorğanw üşin,
+tömendegi qarapaýım qosındılawdı şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
+	'captcha-badpass' => 'Qupïya sözdi özdiktik qïratwdan qorğanw üşin,
+tömendegi qarapaýım qosındılawdı şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
+	'captcha-createaccount' => 'Jaña tirkelgi özdiktik jasalwınan qorğanw üşin, tömendegi qarapaýım qosındılawdı
+şeşiñiz de, nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 	'captcha-createaccount-fail' => "Kwälandırw kodı durıs emes nemese joq.",
-	'captchahelp-cookies-needed' => "Bul jumıstı istew üşin, şolğışıñızda  «cookies»  degendi endiriñiz.",
+	'captcha-create' => 'Jaña betti bastaw üşin, tömendegi qarapaýım qosındılawdı şeşiñiz de, 
+nätïjesin awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 	'captchahelp-title'          => 'CAPTCHA anıqtaması',
-	'captchahelp-text'           => "Özdik quraldarı bar «spammerler», barşadan jiberilgen xabardı qabıldaýtın, bul wïkï sïyaqtı, veb-toraptarğa siltemelerimen jïi jawdıradı. Osındaý «spam» siltemelerin alastaw bolğanda da, bul mändi ıza keltiredi.
+	'captchahelp-cookies-needed' => "Bul jumıs istew üşin, şolğışıñızda  «cookies»  degendi endiriñiz.",
+	'captchahelp-text'           => "Özdiktik quraldarı bar «spammerler», barşadan jiberilgen xabardı qabıldaýtın, bul wïkï sïyaqtı, veb-toraptarğa siltemelerimen jïi jawdıradı. Osındaý «spam» siltemelerin alastaw bolğanda da, bul mändi ıza keltiredi.
 
 Keýde, äsirese betke jaña veb siltemesin qosqanda, wïkï öñi özgergen ne qïsaýğan mätindi körsetip jäne sol sözderdi engizw surawı mümkin. Bul tapsırıs özdik türde atqarw öte qïın, sondıqtan bul ïmandı adam köpşiligine kedergi bolmaýdı, biraq «spammerlerdi» jäne buzaqı botpen basqa şabwıl jasağandardı toqtatadı.
 
@@ -382,21 +386,23 @@ Keýde, äsirese betke jaña veb siltemesin qosqanda, wïkï öñi özgergen ne 
 
 Bul jumıstı istew üşin şolğışıñızda «cookies» degendi endirw qajet.
 
-Bet öñdewine qaýtw barw üşin «Artqa» degen tüýmesin basıñız.",
+Bet öñdewine qaýtw barw üşin «Artqa» degen tüýmesin basıñız."
 );
 $wgConfirmEditMessages['kk-cn'] = array(
-	'captcha-edit'              => "بۇل بەتتٸ ٶڭدەۋ ٷشٸن,
-تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):",
-	'captcha-addurl'              => "تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸك تٷردە «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
-تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):",
-	'captcha-create'              => "جاڭا بەتتٸ باستاۋ ٷشٸن,
-تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):",
-	'captcha-createaccount'      => "جاڭا تٸركەلگٸ ٶزدٸك تٷردە جاسالۋىنان قورعانۋ ٷشٸن, تٶمەندەگٸ قوسىندىلاۋدى
-شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):",
+	'captcha-edit' => 'بۇل بەتتٸ ٶڭدەۋ ٷشٸن, تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن 
+اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+	'captcha-addurl' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸكتٸك «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
+تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+	'captcha-badpass' => 'قۇپييا سٶزدٸ ٶزدٸكتٸك قيراتۋدان قورعانۋ ٷشٸن,
+تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+	'captcha-createaccount' => 'جاڭا تٸركەلگٸ ٶزدٸكتٸك جاسالۋىنان قورعانۋ ٷشٸن, تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى
+شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
 	'captcha-createaccount-fail' => "كۋٵلاندىرۋ كودى دۇرىس ەمەس نەمەسە جوق.",
-	'captchahelp-cookies-needed' => "بۇل جۇمىستى ٸستەۋ ٷشٸن, شولعىشىڭىزدا  «cookies»  دەگەندٸ ەندٸرٸڭٸز.",
+	'captcha-create' => 'جاڭا بەتتٸ باستاۋ ٷشٸن, تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى شەشٸڭٸز دە, 
+نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
 	'captchahelp-title'          => 'CAPTCHA انىقتاماسى',
-	'captchahelp-text'           => "ٶزدٸك قۇرالدارى بار «سپاممەرلەر», بارشادان جٸبەرٸلگەن حاباردى قابىلدايتىن, بۇل ۋيكي سيياقتى, ۆەب-توراپتارعا سٸلتەمەلەرٸمەن جيٸ جاۋدىرادى. وسىنداي «سپام» سٸلتەمەلەرٸن الاستاۋ بولعاندا دا, بۇل مٵندٸ ىزا كەلتٸرەدٸ.
+	'captchahelp-cookies-needed' => "بۇل جۇمىس ٸستەۋ ٷشٸن, شولعىشىڭىزدا  «cookies»  دەگەندٸ ەندٸرٸڭٸز.",
+	'captchahelp-text'           => "ٶزدٸكتٸك قۇرالدارى بار «سپاممەرلەر», بارشادان جٸبەرٸلگەن حاباردى قابىلدايتىن, بۇل ۋيكي سيياقتى, ۆەب-توراپتارعا سٸلتەمەلەرٸمەن جيٸ جاۋدىرادى. وسىنداي «سپام» سٸلتەمەلەرٸن الاستاۋ بولعاندا دا, بۇل مٵندٸ ىزا كەلتٸرەدٸ.
 
 كەيدە, ٵسٸرەسە بەتكە جاڭا ۆەب سٸلتەمەسٸن قوسقاندا, ۋيكي ٶڭٸ ٶزگەرگەن نە قيسايعان مٵتٸندٸ كٶرسەتٸپ جٵنە سول سٶزدەردٸ ەنگٸزۋ سۇراۋى مٷمكٸن. بۇل تاپسىرىس ٶزدٸك تٷردە اتقارۋ ٶتە قيىن, سوندىقتان بۇل يماندى ادام كٶپشٸلٸگٸنە كەدەرگٸ بولمايدى, بٸراق «سپاممەرلەردٸ» جٵنە بۇزاقى بوتپەن باسقا شابۋىل جاساعانداردى توقتاتادى.
 
@@ -404,7 +410,7 @@ $wgConfirmEditMessages['kk-cn'] = array(
 
 بۇل جۇمىستى ٸستەۋ ٷشٸن شولعىشىڭىزدا «cookies» دەگەندٸ ەندٸرۋ قاجەت.
 
-بەت ٶڭدەۋٸنە قايتۋ بارۋ ٷشٸن «ارتقا» دەگەن تٷيمەسٸن باسىڭىز.",
+بەت ٶڭدەۋٸنە قايتۋ بارۋ ٷشٸن «ارتقا» دەگەن تٷيمەسٸن باسىڭىز."
 );
 $wgConfirmEditMessages['kk'] = $wgConfirmEditMessages['kk-kz'];
 $wgConfirmEditMessages['la'] = array(

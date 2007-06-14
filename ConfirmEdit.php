@@ -6,7 +6,7 @@
  * can extend the base to produce their fancy images in place of the
  * text-based test output here.
  *
- * Copyright (C) 2005, 2006 Brion Vibber <brion@pobox.com>
+ * Copyright (C) 2005-2007 Brion Vibber <brion@wikimedia.org>
  * http://www.mediawiki.org/
  *
  * This program is free software; you can redistribute it and/or modify

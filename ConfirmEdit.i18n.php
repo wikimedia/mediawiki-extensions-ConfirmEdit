@@ -457,24 +457,21 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
 	'captcha-createaccount-fail' => "Onjuiste bevestigingscode of niet ingevuld.",
 );
 $wgConfirmEditMessages['no'] = array(
-	'captcha-edit'               => "Din redigering inkluderer nye lenker; som en beskyttelse mot automatisert spam er du nødt til skrive inn ordene i dette bildet:
-<br />([[Special:Captcha/help|Hva er dette?]])",
-	'captcha-addurl'               => "Din redigering inkluderer nye lenker; som en beskyttelse mot automatisert spam er du nødt til skrive inn ordene i dette bildet:
-<br />([[Special:Captcha/help|Hva er dette?]])",
-	'captcha-create'               => "Din redigering inkluderer nye lenker; som en beskyttelse mot automatisert spam er du nødt til skrive inn ordene i dette bildet:
-<br />([[Special:Captcha/help|Hva er dette?]])",
-	'captchahelp-title'          => 'Captcha help',
-	'captchahelp-text'           => "Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til betydelig irritasjon.
+	'captcha-edit'                => 'For å redigere denne artikkelen, vennligst skriv inn summen nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-addurl'              => 'Din redigering inneholder nye eksterne lenker. For å hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn summen av dette enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-badpass'             => 'For å hjelpe oss med å beskytte oss mot automatisk passordtyveri, vennligst løs det enkle regnestykket nedenfor og skriv inn svaret i bosken ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-createaccount'       => 'For å hjelpe oss med å beskytte oss mot automatisk kontoopprettelse, vennligst skriv inn summen av det enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-createaccount-fail'  => 'Ukorrekt eller manglende bekreftelseskode.',
+	'captcha-create'              => 'For å opprette siden, vennligst skriv inn summen av det enkle regnestyket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
+	'captchahelp-title'           => 'Captcha-hjelp',
+	'captchahelp-cookies-needed'  => 'Du må slå på informasjonskapsler for at dette skal fungere.',
+	'captchahelp-text'            => 'Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til betydelig irritasjon.
 
 Noen ganger, særlig hvis du vil legge til nye internettlenker til en side, kan wikien vise deg et bilde av en farvet eller ujevn tekst og be deg skrive inn ordene som vises. Siden det er vanskelig å automatisere denne oppgaven, vil funksjonen slippe de fleste virkelige mennesker igjennom, men stoppe spammere.
 
 Dessverre finnes det i øyeblikket ikke noe audioalternativ for brukere med begrenset syn som som bruker tekst- eller talebaserte nettlesere. Vennlig kontakt administratorene hvis denne funksjonen forhindrer deg i å foreta legitime endringer.
 
-Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.",
-	'captcha-createaccount'      => "For å beskytte Wikipedia mot spam må du skrive inn ordene i bildet for å registrere en konto.
-<br />([[Special:Captcha/help|Hva er dette?]])
-",
-	'captcha-createaccount-fail' => "Feil eller manglende bekreftelseskode.",
+Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.',
 );
 $wgConfirmEditMessages['nn'] = array(
 	'captcha-edit'               => "Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])",

@@ -160,6 +160,15 @@ hieronder verschijnen in het invoerveld in als bescherming tegen automatische sp
 ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha/help|meer info]]):',
 ),
 
+/* Norwegian (Jon Harald Søby) */
+'no' => array(
+'fancycaptcha-addurl' => 'Din endring inkluderer nye eksterne lenker. For hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn ordene som kommer opp i denne boksen ([[Special:Captcha/help|mer informasjon]]):',
+'fancycaptcha-badlogin' => 'For å hjelpe oss å beskytte oss mot passordtyveri, skriv inn ordene som dukker opp nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
+'fancycaptcha-createaccount' => 'For å beskytte mot automatisk kontooprettelse, skriv inn ordene som dukker opp i boksen nedenunder ([[Special:Captcha/help|mer informasjon]]):',
+'fancycaptcha-create' => 'For å opprette siden, vennligst skriv inn ordene som dukker opp i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
+'fancycaptcha-edit' => 'Din endring inneholder nye eksterne lenker. For å beskytte mot automatisk spam, vennligst skriv inn ordene som dukker opp i boksten nedenunder ([[Special:Captcha/help|mer informasjon]]):',
+),
+
 'oc' => array(
 'fancycaptcha-edit' => 'Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu\'apareisson dins la boita çai jos ([[Special:Captcha/help|mai d’informacions]]) :',
 'fancycaptcha-addurl' => 'Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu\'apareisson dins la boita çai jos ([[Special:Captcha/help|mai d’informacions]]) :',

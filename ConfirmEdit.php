@@ -486,22 +486,16 @@ class SimpleCaptcha {
 	 */
 	function filterLink( $url ) {
 		global $wgCaptchaWhitelist;
-		$whitelist = false;
 		$source = wfMsgForContent( 'captcha-addurl-whitelist' );
 
-		if( $source && $source != '&lt;captcha-addurl-whitelist&gt;' ) {
-			$whitelist = $this->buildRegexes( explode( "\n", $source ) );
-		}
+		$whitelist = wfEmptyMsg( 'captcha-addurl-whitelist', $source ) 
+			? false
+			: $this->buildRegexes( explode( "\n", $source ) );
 
-		if ( $whitelist === false && $wgCaptchaWhitelist === false ) {
-			// $whitelist is empty, $wgCaptchaWhitelist is default
-			return true;
-		} elseif ( $whitelist === false && $wgCaptchaWhitelist !== false ) {
-			// $whitelist is empty
-			return !( preg_match( $wgCaptchaWhitelist, $url ) );
-		} else {
-			return !( preg_match( $wgCaptchaWhitelist, $url ) || preg_match( $whitelist, $url ) );
-		}
+		$cwl = $wgCaptchaWhitelist !== false ? preg_match( $wgCaptchaWhitelist, $url ) : false;
+		$wl  = $whitelist          !== false ? preg_match( $whitelist, $url )          : false;
+
+		return !( $cwl || $wl );
 	}
 
 	/**

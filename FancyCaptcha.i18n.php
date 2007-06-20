@@ -202,6 +202,14 @@ ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha
 'fancycaptcha-edit' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
 ),
 
+/* Albanian */
+'sq' => array(
+'fancycaptcha-addurl'        => 'Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])',
+'fancycaptcha-create'        => 'Për të krijuar një faqe, ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
+'fancycaptcha-createaccount' => 'Për të mbrojtur kundër hapjeve të llogarive në mënyrë automatike ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
+'fancycaptcha-edit'          => 'Për të redaktuar këtë faqe ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
+),
+
 /* Chinese(PRC) */
 'zh' => array(
 'fancycaptcha-addurl' => '你的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请输入以下的文字([[Special:Captcha/help|相关信息]])：',

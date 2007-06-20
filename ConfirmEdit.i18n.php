@@ -28,6 +28,12 @@ Sometimes, especially when adding new web links to a page, the wiki may show you
 Unfortunately this may inconvenience users with limited vision or using text-based or speech-based browsers. At the moment we do not have an audio alternative available. Please contact the site administrators for assistance if this is unexpectedly preventing you from making legitimate posts.
 
 Hit the 'back' button in your browser to return to the page editor.",
+	'captcha-addurl-whitelist' => '
+ #<!-- leave this line exactly as it is --> <pre> 
+# Syntax is as follows: 
+#   * Everything from a "#" character to the end of the line is a comment
+#   * Every non-blank line is a regex fragment which will only match hosts inside URLs
+ #</pre> <!-- leave this line exactly as it is -->',
 );
 
 $wgConfirmEditMessages['af'] = array(
@@ -134,6 +140,12 @@ $wgConfirmEditMessages['de'] = array(
 	'captchahelp-title'          => 'Captcha-Hilfe',
 	'captchahelp-cookies-needed' => "'''Wichtiger Hinweis:''' Es müssen Cookies im Browser erlaubt sein.",
 	'captchahelp-text'           => "Internetangebote, die für Beiträge von praktisch jedem offen sind — so wie das {{SITENAME}}-Wiki — werden oft von Spammern missbraucht, die ihre Links automatisch auf vielen Webseiten platzieren. Diese Spam-Links können wieder entfernt werden, sie sind aber ein erhebliches Ärgernis. In manchen Fällen, insbesondere beim Hinzufügen von neuen Weblinks zu einer Seite, kann es vorkommen, dass dieses Wiki ein Bild mit einem farbigen und verzerrten Text anzeigt und dazu auffordert, die angezeigten Wörter einzutippen. Da eine solche Aufgabe nur schwer automatisch erledigt werden kann, werden dadurch die meisten Spammer, die mit automatischen Werkzeugen arbeiten, gestoppt, wogegen menschliche Benutzer ihren Beitrag absenden können. Leider kann dies zu Schwierigkeiten für Personen führen, die über eine eingeschränkte Sehfähigkeit verfügen oder text- oder sprachbasierte Browser verwenden. Eine Lösung ist die reguläre Anmeldung als Benutzer. Der „Zurück“-Knopf des Browsers führt zurück in das Bearbeitungsfenster.",
+	'captcha-addurl-whitelist' => '
+ #<!-- leave this line exactly as it is --> <pre> 
+#  Syntax:
+#   * Alles von einem #-Zeichen bis zum Ende der Zeile ist ein Kommentar
+#   * Jeder nicht-leere Zeile ist ein Regex-Fragment, das gegenüber den Hostnamen einer URL geprüft wird
+ #</pre> <!-- leave this line exactly as it is -->',
 );
 
 $wgConfirmEditMessages['es'] = array(

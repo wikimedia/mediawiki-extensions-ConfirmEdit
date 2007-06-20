@@ -140,7 +140,7 @@ $ceAllowConfirmedEmail = false;
  * Regex to whitelist URLs to known-good sites...
  * For instance:
  * $wgCaptchaWhitelist = '#^https?://([a-z0-9-]+\\.)?(wikimedia|wikipedia)\.org/#i';
- * @fixme Use the 'spam-whitelist' thingy instead?
+ * Local admins can define a whitelist under [[MediaWiki:captcha-addurl-whitelist]]
  */
 $wgCaptchaWhitelist = false;
 
@@ -480,12 +480,76 @@ class SimpleCaptcha {
 
 	/**
 	 * Filter callback function for URL whitelisting
+	 * @param string url to check
 	 * @return bool true if unknown, false if whitelisted
 	 * @access private
 	 */
 	function filterLink( $url ) {
 		global $wgCaptchaWhitelist;
-		return !( $wgCaptchaWhitelist && preg_match( $wgCaptchaWhitelist, $url ) );
+		$whitelist = false;
+		$source = wfMsgForContent( 'captcha-addurl-whitelist' );
+
+		if( $source && $source != '&lt;captcha-addurl-whitelist&gt;' ) {
+			$whitelist = $this->buildRegexes( explode( "\n", $source ) );
+		}
+
+		if ( $whitelist === false && $wgCaptchaWhitelist === false ) {
+			// $whitelist is empty, $wgCaptchaWhitelist is default
+			return true;
+		} elseif ( $whitelist === false && $wgCaptchaWhitelist !== false ) {
+			// $whitelist is empty
+			return !( preg_match( $wgCaptchaWhitelist, $url ) );
+		} else {
+			return !( preg_match( $wgCaptchaWhitelist, $url ) || preg_match( $whitelist, $url ) );
+		}
+	}
+
+	/**
+	 * Build regex from whitelist
+	 * @param string lines from [[MediaWiki:Captcha-addurl-whitelist]]
+	 * @return string Regex or bool false if whitelist is empty
+	 * @access private
+	 */
+	function buildRegexes( $lines ) {
+		# Code duplicated from the SpamBlacklist extension (r19197)
+
+		# Strip comments and whitespace, then remove blanks
+		$lines = array_filter( array_map( 'trim', preg_replace( '/#.*$/', '', $lines ) ) );
+
+		# No lines, don't make a regex which will match everything
+		if ( count( $lines ) == 0 ) {
+			wfDebug( "No lines\n" );
+			return false;
+		} else {
+			# Make regex
+			# It's faster using the S modifier even though it will usually only be run once
+			//$regex = 'http://+[a-z0-9_\-.]*(' . implode( '|', $lines ) . ')';
+			//return '/' . str_replace( '/', '\/', preg_replace('|\\\*/|', '/', $regex) ) . '/Si';
+			$regexes = '';
+			$regexStart = '/http:\/\/+[a-z0-9_\-.]*(';
+			$regexEnd = ')/Si';
+			$regexMax = 4096;
+			$build = false;
+			foreach( $lines as $line ) {
+				// FIXME: not very robust size check, but should work. :)
+				if( $build === false ) {
+					$build = $line;
+				} elseif( strlen( $build ) + strlen( $line ) > $regexMax ) {
+					$regexes .= $regexStart .
+						str_replace( '/', '\/', preg_replace('|\\\*/|', '/', $build) ) .
+						$regexEnd;
+					$build = $line;
+				} else {
+					$build .= '|' . $line;
+				}
+			}
+			if( $build !== false ) {
+				$regexes .= $regexStart .
+					str_replace( '/', '\/', preg_replace('|\\\*/|', '/', $build) ) .
+					$regexEnd;
+			}
+			return $regexes;
+		}
 	}
 
 	/**

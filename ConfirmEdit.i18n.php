@@ -254,6 +254,12 @@ $wgConfirmEditMessages['he'] = array(
 לרוע המזל, הדבר עשוי לגרום לאי נוחות למשתמשים עם דפדפן בגרסה מוגבלת, או שמשתמשים בדפדפנים מבוססי טקסט או דיבור. כרגע, אין לנו חלופה קולית זמינה. אנא צרו קשר עם מנהלי האתר לעזרה אם המערכת מונעת מכם באופן בלתי צפוי לבצע עריכות לגיטימיות.
 
 אנא לחצו על הכפתור 'Back' בדפדפן שלכם כדי לחזור לדף העריכה.",
+	'captcha-addurl-whitelist' => '
+ #<!-- יש להשאיר שורה זו בדיוק כפי שהיא כתובה --> <pre> 
+# זהו תחביר ההודעה: 
+#   * כל דבר בשורה שנכתב לאחר סימן "#" הוא הערה
+#   * כל שורה לא ריקה היא ביטוי רגולרי שיתאים לאתרים בכתובות URL
+ #</pre> <!-- יש להשאיר שורה זו בדיוק כפי שהיא כתובה -->',
 );
 $wgConfirmEditMessages['hr'] = array(
 	'captcha-edit'               => "Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])",

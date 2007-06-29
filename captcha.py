@@ -114,7 +114,27 @@ def gen_subdir(basedir, hash, levels):
 		if not os.path.exists(fulldir):
 			os.mkdir(fulldir)
 	return subdir
-	
+
+def try_pick_word(words, blacklist, verbose):
+	word1 = words[random.randint(0,len(words)-1)]
+	word2 = words[random.randint(0,len(words)-1)]
+	word = word1+word2
+	for naughty in blacklist:
+		if naughty in word:
+			if verbose:
+				print "skipping word pair '%s' because it contains blacklisted word '%s'" % (word, naughty)
+			return None
+	return word
+
+def pick_word(words, blacklist, verbose):
+	while True:
+		word = try_pick_word(words, blacklist, verbose)
+		if word:
+			return word
+
+def read_wordlist(filename):
+	return [string.lower(x.strip()) for x in open(wordlist).readlines()]
+
 if __name__ == '__main__':
 	"""This grabs random words from the dictionary 'words' (one
 	word per line) and generates a captcha image for each one,
@@ -125,6 +145,7 @@ if __name__ == '__main__':
 	"""
 	font = "VeraBd.ttf"
 	wordlist = "awordlist.txt"
+	blacklistfile = None
 	key = "CHANGE_THIS_SECRET!"
 	output = "."
 	count = 20
@@ -132,12 +153,14 @@ if __name__ == '__main__':
 	dirs = 0
 	verbose = False
 	
-	opts, args = getopt.getopt(sys.argv[1:], "", ["font=", "wordlist=", "key=", "output=", "count=", "fill=", "dirs=", "verbose"])
+	opts, args = getopt.getopt(sys.argv[1:], "", ["font=", "wordlist=", "blacklist=", "key=", "output=", "count=", "fill=", "dirs=", "verbose"])
 	for o, a in opts:
 		if o == "--font":
 			font = a
 		if o == "--wordlist":
 			wordlist = a
+		if o == "--blacklist":
+			blacklistfile = a
 		if o == "--key":
 			key = a
 		if o == "--output":
@@ -156,15 +179,19 @@ if __name__ == '__main__':
 		# files after...
 		count = max(0, fill - len(os.listdir(output)))
 	
-	words = [string.lower(x.strip()) for x in open(wordlist).readlines()]
+	words = read_wordlist(wordlist)
 	words = [x for x in words
 		if len(x) <= 5 and len(x) >= 4 and x[0] != "f"
 		and x[0] != x[1] and x[-1] != x[-2]
 		and (not "'" in x)]
+	
+	if blacklistfile:
+		blacklist = read_wordlist(blacklistfile)
+	else:
+		blacklist = []
+	
 	for i in range(count):
-		word1 = words[random.randint(0,len(words)-1)]
-		word2 = words[random.randint(0,len(words)-1)]
-		word = word1+word2
+		word = pick_word(words, blacklist, verbose)
 		salt = "%08x" % random.randrange(2**32)
 		# 64 bits of hash is plenty for this purpose
 		hash = md5.new(key+salt+word+key+salt).hexdigest()[:16]

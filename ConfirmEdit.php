@@ -775,4 +775,4 @@ class CaptchaCacheStore {
 
 } # End invocation guard
 
-?>
+

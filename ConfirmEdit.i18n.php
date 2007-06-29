@@ -706,4 +706,4 @@ $wgConfirmEditMessages['zh-yue'] = array(
 );
 $wgConfirmEditMessages['zh-hk'] = $wgConfirmEditMessages['zh-tw'];
 $wgConfirmEditMessages['zh-sg'] = $wgConfirmEditMessages['zh-cn'];
-?>
+

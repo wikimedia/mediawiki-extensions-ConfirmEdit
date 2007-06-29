@@ -237,4 +237,4 @@ ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha
 
 }
 
-?>
+

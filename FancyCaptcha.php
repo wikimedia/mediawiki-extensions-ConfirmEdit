@@ -257,4 +257,4 @@ class FancyCaptcha extends SimpleCaptcha {
 
 } # End invocation guard
 
-?>
+

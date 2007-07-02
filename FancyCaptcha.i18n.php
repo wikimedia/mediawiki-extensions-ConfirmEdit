@@ -210,6 +210,20 @@ ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha
 'fancycaptcha-edit'          => 'Për të redaktuar këtë faqe ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
 ),
 
+/* Swedish */
+'sv' => array(
+'fancycaptcha-addurl' => 'Din ändring lägger till nya externa länkar i texten. För att skydda wikin mot
+automatisk spam måste du skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information]]):',
+'fancycaptcha-badlogin' => 'För att skydda wikin mot automatiserad lösenordknäckning måste du skriva
+orden som visas härunder i rutan ([[Special:Captcha/help|mer information]]):',
+'fancycaptcha-createaccount' => 'För att skydda wikin mot automatiskt skapade användarkonton måste du
+skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information]]):',
+'fancycaptcha-create' => 'För att skapa den här sidan måste du först skriva orden som visas härunder i rutan
+([[Special:Captcha/help|mer information]]):',
+'fancycaptcha-edit' => 'För att redigera den här sidan måste du först skriva orden som visas härunder i rutan
+([[Special:Captcha/help|mer information]]):',
+),
+
 /* Chinese(PRC) */
 'zh' => array(
 'fancycaptcha-addurl' => '你的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
@@ -236,5 +250,6 @@ ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha
 	$messages['zh-hk'] = $messages['zh-tw'];
 
 }
+
 
 

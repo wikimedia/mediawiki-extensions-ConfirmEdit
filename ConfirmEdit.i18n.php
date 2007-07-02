@@ -621,6 +621,41 @@ $wgConfirmEditMessages['su'] = array(
 	'captchahelp-title'           => 'Pitulung Captcha',
 );
 
+$wgConfirmEditMessages['sv'] = array(
+	'captcha-edit' => 'För att redigera den här sidan måste du först skriva svaret på följande
+räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
+	'captcha-addurl' => 'Din ändring lägger till nya externa länkar i texten. För att skydda wikin mot
+automatisk spam måste du skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
+	'captcha-badpass' => 'För att skydda mot wikin mot automatiserad lösenordsknäckning måste du skriva
+svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
+	'captcha-createaccount' => 'För att skydda wikin mot automatiskt skapade användarkonton måste du
+skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
+	'captcha-createaccount-fail' => "Bekräftelsekoden är felaktig eller saknas.",
+	'captcha-create' => 'För att skapa den här sidan måste du skriva svaret på följande räkneuppgift
+i rutan ([[Special:Captcha/help|mer information]]):',
+	'captchahelp-title'          => 'Captchahjälp',
+	'captchahelp-cookies-needed' => "Du måste ha cookies aktiverade i din webbläsare för att det här ska fungera.",
+	'captchahelp-text'           => "Webbplatser som tillåter inlägg från allmänheten, som den här wikin gör, kan
+missbrukas av spammare. De använder ofta automatiserade verktyg för att lägga till länkar på många webbsajter. Även om
+dessa spamlänkar kan tas bort så är de till stort besvär.
+
+Ibland, speciellt då du lägger till nya externa länkar på en sida, visar wikin en bild på en färgad eller förvriden text
+och ber dig skriva texten som visas. Den uppgiften är svår att automatisera, men oftast lätt för en människa att utföra.
+På så sätt stoppas spammare och andra robotattacker, medan riktiga mäniskor kan göra sina redigeringar.
+
+Tyvärr kan det här orsaka problem för användare med nedsatt syn eller som använder text- eller talbaserade webbläsare.
+För tillfället finns inga ljudbaserade alternativ tillgängliga. Om det här hindrar dig från att göra legitima ändringar
+kan du be någon av administratörerna om hjälp.
+
+Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeringsläget.",
+	'captcha-addurl-whitelist' => '
+ #<!-- leave this line exactly as it is --> <pre> 
+# Syntaxen är följande: 
+#   * Allting från ett "#" till slutet av en rad är en kommentar
+#   * Varje icketom rad är ett reguljärt uttryck som matchar domänen i en URL
+ #</pre> <!-- leave this line exactly as it is -->',
+);
+
 $wgConfirmEditMessages['uk'] = array(
 	'captchahelp-text'           => "Вікіпедія застосовує техніку розрізнення людей від комп'ютерів, яка використовує розпізнавання образів, для захисту від  комп'ютерних  шкідливих програм, які автоматично реєструються  (найчастіше спамлять у статтях).
 
@@ -706,4 +741,5 @@ $wgConfirmEditMessages['zh-yue'] = array(
 );
 $wgConfirmEditMessages['zh-hk'] = $wgConfirmEditMessages['zh-tw'];
 $wgConfirmEditMessages['zh-sg'] = $wgConfirmEditMessages['zh-cn'];
+
 

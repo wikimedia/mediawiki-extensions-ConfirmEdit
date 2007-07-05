@@ -56,6 +56,16 @@ $wgGroupPermissions['autoconfirmed']['skipcaptcha'] = false;
 $wgGroupPermissions['bot'          ]['skipcaptcha'] = true; // registered bots
 $wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
 
+/**
+ * List of IP ranges to allow to skip the captcha, similar to the group setting:
+ * "$wgGroupPermission[...]['skipcaptcha'] = true"
+ *
+ * Specific IP addresses or CIDR-style ranges may be used,
+ * for instance:
+ * $wgCaptchaWhitelistIP = array('192.168.1.0/24', '10.1.0.0/16');
+ */
+$wgCaptchaWhitelistIP = false;
+
 global $wgCaptcha, $wgCaptchaClass, $wgCaptchaTriggers;
 $wgCaptcha = null;
 $wgCaptchaClass = 'SimpleCaptcha';
@@ -393,6 +403,16 @@ class SimpleCaptcha {
 			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
 			return false;
 		}
+		global $wgCaptchaWhitelistIP;
+		if( !empty( $wgCaptchaWhitelistIP ) ) {
+			$ip = wfGetIp();
+			foreach ( $wgCaptchaWhitelistIP as $range ) {
+				if ( IP::isInRange( $ip, $range ) ) {
+					return false;
+				}
+			}
+		}
+
 
 		global $wgEmailAuthentication, $ceAllowConfirmedEmail;
 		if( $wgEmailAuthentication && $ceAllowConfirmedEmail &&

@@ -176,6 +176,20 @@ ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha
 'fancycaptcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, entratz los mots çai jos dins la boita ([[Special:Captcha/help|mai d’informacions]]) :',
 ),
 
+/* Piedmontese (Bèrto 'd Sèra) */
+'pms' => array(
+'fancycaptcha-addurl' => 'Soa modìfica a l\'ha andrinta dj\'anliure esterne neuve. Për dene na man a vardesse da la reclam aotomatisà, për piasì, 
+ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
+'fancycaptcha-badlogin' => 'Për dene na man a vardesse da ij programa ch\'a fan ciav fàosse, për piasì, 
+ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
+'fancycaptcha-createaccount' => 'Për dene na man a vardesse da ij programa ch\'a deurbo cont neuv n\'aotomàtich, për piasì, 
+ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
+'fancycaptcha-create' => 'Për creé sta pàgina-i d\'amblé, për piasì, 
+ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
+'fancycaptcha-edit' => 'Për fe-ie dle modìfiche ansima a sta pàgina-sì, për piasì, 
+ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
+),
+
 /* Portuguese */
 'pt' => array(
 'fancycaptcha-edit' => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box ([[Special:Captcha/help|mais informações]]):',

@@ -510,6 +510,31 @@ $wgConfirmEditMessages['oc'] = array(
 	'captchahelp-title'           => 'Ajuda suls Captcha',
 	'captchahelp-text'            => 'Los sites webs que permeton al mai grand nombre de participar, coma aqueste wiki, son sovent atacats per de spammers qu\'utilizan d\'espleches automatizas per mandar lor ligams sus de fòrça sites sulcòp. Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de far. De còps quand ajustatz de ligams novèls vèrs lo web, lo wiki pòt vos mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d\'automatizar, çò que permet de diferenciar un uman real d\'un logicial automatic malvolent. Malaürosament, aqueste sistèma es pas adaptat a d\'utilizaires mal-vesents o utilizant de navigaires textuals o audiò. Actualament, prepausem pas d\'alternativas adaptadas. Se avètz besonh d\'ajuda esitetz pas a contactar los administrators del sit. Clicatz sul boton \'precedent\' de vòstre navegaire per tornar a l\'editor.',
 );
+$wgConfirmEditMessages['pms'] = array(
+	'captcha-edit'                => 'Për fe-ie dle modìfiche ansima a st\'artìcol-sì, për piasì ch\'a fasa ël total ambelessì sota 
+e ch\'a buta l\'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
+	'captcha-addurl'              => 'Soa modìfica a la gionta dj\'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch\'a fasa ël total ambelessì sota e ch\'a buta l\'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
+	'captcha-badpass'             => 'Për giutene a vardesse da \'nt ij programa ch\'a fan ciav fàosse n\'aotomàtich, për piasì ch\'a fasa ël total ambelessì sota e ch\'a buta l\'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
+	'captcha-createaccount'       => 'Për giutene a vardesse da ij programa ch\'a deurbo dij cont n\'aotomàtich, për piasì ch\'a fasa ël total ambelessì sota 
+e ch\'a buta l\'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
+	'captcha-createaccount-fail'  => 'Ël còdes ëd verìfica ò ch\'a manca d\'autut ò ch\'a l\'é pa bon.',
+	'captcha-create'              => 'Për creé d\'amblé sta pàgina-sì, për piasì ch\'a fasa ël total ambelessì sota e ch\'a buta l\'arzultà 
+ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
+	'captchahelp-title'           => 'Còs é-lo mai ës captcha?',
+	'captchahelp-cookies-needed'  => 'Për podej dovré sossì a l\'ha da manca che sò navigator (browser) a pija ij cookies.',
+	'captchahelp-text'            => 'Soèns a-i riva che ij sit dla Ragnà che la gent a peul dovré për ëscrive chèich-còs, coma sta wiki-sì, a resto ambërlifà ëd reclam da màchine che a carìo soa ròba dadsà e dadlà n\'aotomàtich. Për tant che sta reclam un a peula peuj gavela, a resta sempe un gran fastudi.
+
+Dle vire, dzortut quand un a caria dj\'anliure esterne neuve ansime a na pàgina, la wiki a peul ësmon-je na figurin-a con dël test colora ò pura tut ëstòrt e ciameje d\'arbate lòn ch\'a-i é scrit andrinta. Da già ch\'a l\'é grama scrive un programa ch\'a lo fasa, a ven che la pì gran part dla gent a-i la fa a scrive, ma la ói part dle màchine a-i la fa pa.
+
+Për maleur sossì a peul fastudié j\'uetnt ch\'a ës-ciàiro nen tant bin, col ch\'a dòvro dij navigator mach a test ò pura dij navigator vocaj. Për adess i l\'oma nen n\'altërnativa disponibila ch\'a fasa lese ël test a vos. Për piasì, ch\'a contata j\'aministrator dël sit se sossì a dovèissa mai nen lasseje carié dël test ch\'a sia legitim (visadì, nen dla reclam).
+
+Ch\'a-i bata ansima al boton \'andré\' ant sò navigator për torné andré a l\'editor dla pàgina.',
+	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre> 
+# La sintassi a l\'é costa: 
+#   * tut lòn ch\'a-i ven dapress a un caràter "#" (fin-a a la fin dla riga) a l\'é mach ëd coment
+#   * minca riga nen veujda a l\'é un frament d\'espression regolar ch\'as dòvra për identifiché j\'adrësse dle màchine servente ant j\'anliure
+ #</pre> <!-- leave this line exactly as it is -->',
+);
 $wgConfirmEditMessages['pt'] = array(
 	'captcha-edit'               => "Para editar esta página será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])",
 	'captcha-addurl'             => "Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])",

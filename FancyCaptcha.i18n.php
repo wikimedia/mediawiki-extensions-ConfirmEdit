@@ -7,7 +7,7 @@
 */
 
 function efFancyCaptchaMessages() {
-	return array(
+	$messages = array(
 
 /* English */
 'en' => array(
@@ -238,16 +238,26 @@ skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information
 ([[Special:Captcha/help|mer information]]):',
 ),
 
-/* Chinese(PRC) */
-'zh' => array(
+/* Cantonese */
+'yue' => array(
+'fancycaptcha-addurl' => '你嘅編輯包括咗新嘅外部連結。為咗防止自動化嘅濫貼，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',
+'fancycaptcha-badlogin' => '為咗防止不當程式破解密碼，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',
+'fancycaptcha-createaccount' => '為咗防止自動化開新戶口，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',
+'fancycaptcha-create' => '要開一個新版，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',
+'fancycaptcha-edit' => '要編輯呢一版，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',
+),
+
+/* Chinese (Simplified) */
+'zh-hans' => array(
 'fancycaptcha-addurl' => '你的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
 'fancycaptcha-badlogin' => '为防止不当程式破解密码，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
 'fancycaptcha-createaccount' => '为防止不当程式大量建立帐户，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
 'fancycaptcha-create' => '为防止不当程式大量建立页面，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
 'fancycaptcha-edit' => '如你想要编辑這个页面，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
 ),
-/* Chinese(Taiwan) */
-'zh-tw' => array(
+
+/* Chinese (Traditional) */
+'zh-hant' => array(
 'fancycaptcha-addurl' => '您的編輯內容中含有本網站以外的連結。為防止不當程式大量破壞，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
 'fancycaptcha-badlogin' => '為防止不當程式破解密碼，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
 'fancycaptcha-createaccount' => '為防止不當程式大量建立帳戶，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
@@ -258,12 +268,18 @@ skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information
 
 	/* Kazakh default, fallback to kk-kz */
 	$messages['kk'] = $messages['kk-kz'];
-	/*Chinese Default, zh-sg and zh-cn fallback to zh,zh-hk fallback to zh-tw*/
-	$messages['zh-cn'] = $messages['zh'];
-	$messages['zh-sg'] = $messages['zh'];
-	$messages['zh-hk'] = $messages['zh-tw'];
+	/* Chinese defaults, fallback to zh-hans or zh-hant */
+	$messages['zh-cn'] = $messages['zh-hans'];
+	$messages['zh-hk'] = $messages['zh-hant'];
+	$messages['zh-tw'] = $messages['zh-hans'];
+	$messages['zh-sg'] = $messages['zh-hant'];
+	/* Cantonese default, fallback to yue */
+	$messages['zh-yue'] = $messages['yue'];
+
+	return $messages;
 
 }
+
 
 
 

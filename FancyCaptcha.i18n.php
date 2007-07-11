@@ -23,6 +23,18 @@ that appear below in the box ([[Special:Captcha/help|more info]]):',
 ([[Special:Captcha/help|more info]]):',
 ),
 
+/* Arabic (Meno25) */
+'ar' => array(
+'fancycaptcha-addurl' => 'تعديلك يتضمن وصلات خارجية جديدة. للحماية من السخام الأوتوماتيكي، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق ([[Special:Captcha/help|معلومات إضافية]]):',
+'fancycaptcha-badlogin' => 'للمساعدة في الحماية ضد سرقة كلمات السر، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق ([[Special:Captcha/help|معلومات إضافية]]):',
+'fancycaptcha-createaccount' => 'للمساعدة في منع إنشاء حسابات بطريقة أوتوماتيكية، قم من فضلك بإدخال الكلمات التي تظهر أدناه في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',
+'fancycaptcha-create' => 'لإنشاء الصفحة، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق 
+([[Special:Captcha/help|معلومات إضافية]]):',
+'fancycaptcha-edit' => 'لكي تعدل هذه الصفحة، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق 
+([[Special:Captcha/help|معلومات إضافية]]):',
+),
+
+
 'br' => array(
 'fancycaptcha-edit' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 'fancycaptcha-addurl' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',

@@ -160,6 +160,15 @@ körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbire
 كٴورسەتٴىلگەن سٴوزدەردٴى اۋماققا ەنگٴىزٴىڭٴىز ([[{{ns:special}}:Captcha/help|كٴوبٴىرەك اقپارات]]):',
 ),
 
+/* Lao */
+'lo' => array(
+'fancycaptcha-addurl'        => 'ການດັດແກ້ຂອງທ່ານ ມີລິ້ງຄ໌ພາຍນອກ. ເພື່ອປ້ອງກັນ ສະແປມອັດຕະໂນມັດ, ກະລຸນາ ພິມຄຳສັບຂ້າງລຸ່ມນີ້ ໃສ່ໃນກັບ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມຕື່ມ]]):',
+'fancycaptcha-badlogin'      => 'ເພື່ອຊ່ອຍປ້ອງກັນ ການສືບຄົ້ນຫາລະຫັດຜ່ານແບບອັດຕະໂນມັດ, ກະລຸນາ ພິມຄຳສັບ ຂ້າງລຸ່ມນີ້ ໃສ່ໃນກັບ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມຕື່ມ]]):',
+'fancycaptcha-createaccount' => 'ເພື່ອປ້ອງກັນ ການສ້າງບັນຊີແບບອັດຕະໂນມດ, ກະລຸນາພິມ ຄຳສັບຂ້າງລຸ່ມນີ້​ ໃສ່ໃນກັບ ([[Special:Captcha/help|ຂໍ້ມູນເພິ່ມຕືມ]]):',
+'fancycaptcha-create'        => 'ກະລຸນາ ພິມຄຳສັບຂ້າງລຸ່ມນີ້​ ໃສ່ໃນກັບ ເພື່ອສ້າງໜ້ານີ້ ([[Special:Captcha/help|more info]]):',
+'fancycaptcha-edit'          => 'ກະລຸນາ ພິມຄຳສັບຂ້າງລຸ່ມນີ້ ໃສ່ໃນກັບ ເພື່ອ ດັດແກ້ໜ້ານີ້ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມຕື່ມ]]):',
+),
+
 /* nld / Dutch / Nederlands */
 'nl' => array(
 'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die

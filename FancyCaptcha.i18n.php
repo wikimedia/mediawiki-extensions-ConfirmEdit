@@ -214,11 +214,11 @@ ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/he
 
 /* Portuguese */
 'pt' => array(
-'fancycaptcha-edit' => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box ([[Special:Captcha/help|mais informações]]):',
-'fancycaptcha-badlogin' => 'Como prevenção contra formas automatizadas de pesquisa e descoberta de senhas, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]]',
 'fancycaptcha-addurl' => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box ([[Special:Captcha/help|mais informações]]):',
-'fancycaptcha-create' => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box ([[Special:Captcha/help|mais informações]]):',
+'fancycaptcha-badlogin' => 'Como prevenção contra formas automatizadas de pesquisa e descoberta de senhas, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
 'fancycaptcha-createaccount' => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box para que possa se cadastrar ([[Special:Captcha/help|mais informações]]):',
+'fancycaptcha-create' => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box ([[Special:Captcha/help|mais informações]]):',
+'fancycaptcha-edit' => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas no seguinte box ([[Special:Captcha/help|mais informações]]):',
 ),
 
 /* Russian */
@@ -301,7 +301,3 @@ skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information
 	return $messages;
 
 }
-
-
-
-

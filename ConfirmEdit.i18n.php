@@ -813,6 +813,7 @@ $wgConfirmEditMessages['zh-hant'] = array(
 #   * 所有非空白行是一個regex部份，只是跟在裏面的URL主機相符
  #</pre> <!-- leave this line exactly as it is -->',
 );
+$wgConfirmEditMessages['zh'] = $wgConfirmEditMessages['zh-hans'];
 $wgConfirmEditMessages['zh-cn'] = $wgConfirmEditMessages['zh-hans'];
 $wgConfirmEditMessages['zh-hk'] = $wgConfirmEditMessages['zh-hant'];
 $wgConfirmEditMessages['zh-sg'] = $wgConfirmEditMessages['zh-hans'];

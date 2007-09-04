@@ -126,38 +126,44 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 
 /* Kazakh Cyrillic */
 'kk-kz' => array(
-'fancycaptcha-edit' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
-төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 'fancycaptcha-addurl' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
+'fancycaptcha-badlogin' => 'Құпия сөзді өздікті бұздырудан қорғану үшін, төмендегі
+көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
+'fancycaptcha-createaccount' => 'Жаңа тіркелгі өздікті жасалуынан қорғану үшін, төмендегі
+көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 'fancycaptcha-create' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
-'fancycaptcha-createaccount' => 'Жаңа тіркелгі өздік түрде жасалуынан қорғану үшін, төмендегі
-көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
+'fancycaptcha-edit' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
+төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 ),
 
 /* Kazakh Latin */
 'kk-tr' => array(
-'fancycaptcha-edit' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
-tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 'fancycaptcha-addurl' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
 tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
+'fancycaptcha-badlogin' => 'Qupïya sözdi özdikti buzdırwdan qorğanw üşin, tömendegi
+körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
+'fancycaptcha-createaccount' => 'Jaña tirkelgi özdikti jasalwınan qorğanw üşin, tömendegi
+körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 'fancycaptcha-create' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
 tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
-'fancycaptcha-createaccount' => 'Jaña tirkelgi özdik türde jasalwınan qorğanw üşin, tömendegi
-körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
+'fancycaptcha-edit' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
+tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 ),
 
 /* Kazakh Arabic */
 'kk-cn' => array(
-'fancycaptcha-edit' => 'تٴۇزەتۋٴىڭٴىزدە جاڭا سىرتقى سٴىلتەمەلەر بار ەكەن. ٴوزدٴىك تٴۇردە «سپام» جاسالۋىنان قورعانۋ ٴۇشٴىن,
-تٴومەندەگٴى كٴورسەتٴىلگەن سٴوزدەردٴى اۋماققا ەنگٴىزٴىڭٴىز ([[{{ns:special}}:Captcha/help|كٴوبٴىرەك اقپارات]]):',
-'fancycaptcha-addurl' => 'تٴۇزەتۋٴىڭٴىزدە جاڭا سىرتقى سٴىلتەمەلەر بار ەكەن. ٴوزدٴىك تٴۇردە «سپام» جاسالۋىنان قورعانۋ ٴۇشٴىن,
-تٴومەندەگٴى كٴورسەتٴىلگەن سٴوزدەردٴى اۋماققا ەنگٴىزٴىڭٴىز ([[{{ns:special}}:Captcha/help|كٴوبٴىرەك اقپارات]]):',
-'fancycaptcha-create' => 'تٴۇزەتۋٴىڭٴىزدە جاڭا سىرتقى سٴىلتەمەلەر بار ەكەن. ٴوزدٴىك تٴۇردە «سپام» جاسالۋىنان قورعانۋ ٴۇشٴىن,
-تٴومەندەگٴى كٴورسەتٴىلگەن سٴوزدەردٴى اۋماققا ەنگٴىزٴىڭٴىز ([[{{ns:special}}:Captcha/help|كٴوبٴىرەك اقپارات]]):',
-'fancycaptcha-createaccount' => 'جاڭا تٴىركەلگٴى ٴوزدٴىك تٴۇردە جاسالۋىنان قورعانۋ ٴۇشٴىن, تٴومەندەگٴى
-كٴورسەتٴىلگەن سٴوزدەردٴى اۋماققا ەنگٴىزٴىڭٴىز ([[{{ns:special}}:Captcha/help|كٴوبٴىرەك اقپارات]]):',
+'fancycaptcha-addurl' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸك تٷردە «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
+تٶمەندەگٸ كٶرسەتٸلگەن سٶزدەردٸ اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+'fancycaptcha-badlogin' => 'قۇپييا سٶزدٸ ٶزدٸكتٸ بۇزدىرۋدان قورعانۋ ٷشٸن, تٶمەندەگٸ
+كٶرسەتٸلگەن سٶزدەردٸ اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+'fancycaptcha-createaccount' => 'جاڭا تٸركەلگٸ ٶزدٸكتٸ جاسالۋىنان قورعانۋ ٷشٸن, تٶمەندەگٸ
+كٶرسەتٸلگەن سٶزدەردٸ اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+'fancycaptcha-create' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸك تٷردە «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
+تٶمەندەگٸ كٶرسەتٸلگەن سٶزدەردٸ اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+'fancycaptcha-edit' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸك تٷردە «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
+تٶمەندەگٸ كٶرسەتٸلگەن سٶزدەردٸ اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
 ),
 
 /* Lao */

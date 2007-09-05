@@ -62,6 +62,11 @@ $wgConfirmEditMessages['ar'] = array(
 للأسف سيكون هذا صعبا بالنسبة لمستخدمي المتصفحات المحدودة أو التي تعتمد على النصوص فقط أو قراءة النصوص. في الوقت الحالي لا يوجد لدينا بديل سمعي. من فضلك راسل مديري الموقع للمساعدة إذا كان هذا الأمر يمنعك من التعديل ووضع وصلات قانونية.
 
 إذا كنت تحرر صفحة معينة: اضغط زر \'العودة\' في متصفحك للعودة إلى التحرير.',
+	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre> 
+# الصيغة كالتالي: 
+#   * كل شيء من علامة "#" لنهاية السطر تعليق
+#   * كل سطر غير فارغ هو قطعة ريجيكس والتي توافق فقط المعيلين داخل المسارات
+ #</pre> <!-- leave this line exactly as it is -->',
 );
 $wgConfirmEditMessages['br'] = array(
 	'captcha-edit'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',

@@ -68,6 +68,9 @@ $wgConfirmEditMessages['ar'] = array(
 #   * كل سطر غير فارغ هو قطعة ريجيكس والتي توافق فقط المعيلين داخل المسارات
  #</pre> <!-- leave this line exactly as it is -->',
 );
+$wgConfirmEditMessages['bcl'] = array(
+	'captcha-create'              => 'Tangarig maggibo an pahina, paki simbagan an simpleng suma sa ibaba asin ikaag an simbag sa laog kan kahon ([[Special:Captcha/help|more info]]):',
+);
 $wgConfirmEditMessages['br'] = array(
 	'captcha-edit'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',
 	'captcha-addurl'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',

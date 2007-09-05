@@ -489,6 +489,11 @@ Soms, en in het bijzonder bij het toevoegen van externe links op pagina\'s, toon
 Helaas levert deze bevestiging voor gebruikers met een visuele handicap of een tekst- of spraakgebaseerde browser problemen op. Op het moment is er geen alternatief met geluid beschikbaar. Vraag alstublieft assistentie van de sitebeheerders als dit proces u verhindert een nuttige bijdrage te leveren.
 
 Klik op de knop \'terug\' in uw browser om terug te gaan naar het tekstbewerkingsscherm.',
+	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre>
+# De syntaxis is als volgt: 
+#   * ALle tekst vanaf het karakter "#" tot het einde van de regels wordt gezien als opmerking
+#   * Iedere niet-lege regel is een fragment van een reguliere expressie die alleen van toepassing is op hosts binnen URL\'s
+ #</pre> <!-- leave this line exactly as it is -->',
 );
 $wgConfirmEditMessages['no'] = array(
 	'captcha-edit'                => 'For å redigere denne artikkelen, vennligst skriv inn summen nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',

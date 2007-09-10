@@ -442,6 +442,9 @@ $wgConfirmEditMessages['kk-cn'] = array(
 بەت ٶڭدەۋٸنە قايتۋ بارۋ ٷشٸن «ارتقا» دەگەن تٷيمەسٸن باسىڭىز."
 );
 $wgConfirmEditMessages['kk'] = $wgConfirmEditMessages['kk-kz'];
+$wgConfirmEditMessages['ko'] = array(
+	'captcha-createaccount'       => '자동 가입을 막기 위해, 아래 문제의 답을 적어야만 가입이 가능합니다([[Special:Captcha/help|관련 도움말]]):',
+);
 $wgConfirmEditMessages['la'] = array(
 	'captcha-edit'               => "Emendatione tua insunt nexus URL; ut spam automaticum vitemus, necesse est tibi inscribere verba, quae in hac imagine videntur. <br /> ([[Specialis:Captcha/Auxilium|Quidst illud?]])",
 	'captcha-addurl'               => "Emendatione tua insunt nexus URL; ut spam automaticum vitemus, necesse est tibi inscribere verba, quae in hac imagine videntur. <br /> ([[Specialis:Captcha/Auxilium|Quidst illud?]])",

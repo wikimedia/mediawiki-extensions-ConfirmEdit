@@ -476,6 +476,23 @@ $wgConfirmEditMessages['lv'] = array(
 	'captcha-createaccount'      => "Lai pasargātos no automātiskas mēstuļošanas, Tev reģistrējoties ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
 	'captcha-createaccount-fail' => "Nepareizs apstiprinājuma kods vai arī tas nav ievadīts.",
 );
+$wgConfirmEditMessages['nds'] = array(
+	'captcha-edit'                => 'In dien Text steiht en nee Lenk na buten dat Wiki. Dat hier keen automaatsch instellten Spam rinkummt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
+	'captcha-createaccount'       => 'Dat hier nich Brukers automaatsch anleggt warrt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
+	'captcha-createaccount-fail'  => 'Kood to’n Bestätigen is verkehrt oder fehlt.',
+	'captchahelp-title'           => 'Help to Captchas',
+	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre> 
+# Op disse Siet staht de Websteden, bi de en Bruker,
+# de nich anmellt is un en ne’en Lenk in de Siet infögen deit,
+# keen Captcha utfüllen mutt.
+# 
+# Syntax is disse: 
+#   * Allens vun en „#“-Teken bet na’t Enn vun de Reeg is en Kommentar
+#   * All de annern Regen, de nich leddig sünd, warrt as regulären Utdruck bekeken,
+#     de för Delen vun de Domään steiht.
+
+ #</pre> <!-- leave this line exactly as it is -->',
+);
 $wgConfirmEditMessages['nl'] = array(
 	'captcha-edit'                => 'Uw bewerking bevat nieuwe externe links (URL\'s). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
 ([[Special:Captcha/help|Wat is dit?]])',

@@ -43,6 +43,14 @@ that appear below in the box ([[Special:Captcha/help|more info]]):',
 a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 ),
 
+'ca' => array(
+'fancycaptcha-addurl' => 'La vostra edició inclou nous enllaços externs. Com a protecció contra la propaganda automatitzada heu d\'escriure en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):',
+'fancycaptcha-badlogin' => 'Com a protecció contra l\'obtenció automatitzada de contrasenyes cal que escriviu en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):',
+'fancycaptcha-createaccount' => 'Com a protecció contra la creació automatitzada de nous comptes cal que escriviu en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):',
+'fancycaptcha-create' => 'Per a poder crear la pàgina heu d\'escriure en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):',
+'fancycaptcha-edit' => 'Per a poder editar la pàgina heu d\'escriure en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):',
+),
+
 /* Czech */
 'cs' => array(
 'fancycaptcha-addurl' => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
@@ -63,9 +71,12 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 
 /* Spanish */
 'es' => array(
-'fancycaptcha-edit' => 'La edición incluye nuevos enlaces. Como protección contra spam automatizado, es necesario que escriba las palabras que aparecen en la imagen ([[Special:Captcha/help|más info]]):',
-'fancycaptcha-createaccount' => 'Como protección contra creaciones automatizadas de cuentas, es necesario que escriba las palabras que aparecen en la imagen ([[Special:Captcha/help|más info]]):',
+'fancycaptcha-addurl' => 'Tu edición incluye nuevos enlaces externos. Para protegernos contra el spam automatizado, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
+'fancycaptcha-createaccount' => 'Para evitar la creación automatizada de cuentas, introduce por favor en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
+'fancycaptcha-create' => 'Para crear la página, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
+'fancycaptcha-edit' => 'Para editar esta página, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
 ),
+
 
 /* French */
 'fr' => array(

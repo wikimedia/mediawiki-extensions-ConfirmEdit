@@ -99,12 +99,14 @@ Kliknite \'nazad\' (\'back\') dugme vašeg brauzera da se vratite na polje za un
 	'captcha-createaccount-fail' => 'Netačan unos ili nedostatak šifre za potvrđivanje.',
 );
 $wgConfirmEditMessages['ca'] = array(
-	'captcha-edit'                => 'La vostra edició conté enllaços externs nous. Com a protecció contra la brossa de propaganda automàtica, cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
-	'captcha-addurl'                => 'La vostra edició conté enllaços externs nous. Com a protecció contra la brossa de propaganda automàtica, cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
-	'captcha-create'                => 'La vostra edició conté enllaços externs nous. Com a protecció contra la brossa de propaganda automàtica, cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
+	'captcha-edit'                => 'Per a poder editar aquest article cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre ([[Special:Captcha/help|més informació]]):',
+	'captcha-addurl'              => 'La vostra edició conté enllaços externs nous. Com a protecció contra la brossa de propaganda automàtica, cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
+	'captcha-badpass'             => 'Per a ajudar en la protecció contra l\'obtenció automatitzada de contrasenyes haureu de resoldre la suma que apareix a continuació ([[Special:Captcha/help|més informació]]):',
 	'captcha-createaccount'       => 'Com a protecció contra la creació automàtica de comptes d\'usuari necessitem que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
 	'captcha-createaccount-fail'  => 'Manca el codi de confirmació, o bé és incorrecte.',
+	'captcha-create'              => 'La vostra edició conté enllaços externs nous. Com a protecció contra la brossa de propaganda automàtica, cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
 	'captchahelp-title'           => 'Ajuda amb el sistema captcha',
+	'captchahelp-cookies-needed'  => 'Heu d\'activar les galetes al vostre navegador per a que funcioni.',
 	'captchahelp-text'            => 'Els webs que accepten la publicació de missatges per part del seu públic, com aquesta wiki, són sovint víctimes de spam per part de robots automàtics que hi posen enllaços cap als seus webs. Aquests enllaços poden anar essent esborrats, però són un important destorb.
 
 Quan creeu nous comptes d\'usuari o voleu afegir enllaços a una pàgina se us pot demanar que respongueu una pregunta fàcil, una suma o que digueu quina paraula apareix en una imatge distorsionada. Aquestes tasques són molt difícils de fer per a un programa automàtic i per tant permet que la majoria d\'usuaris humans puguin introduir la informació que creguin i alhora atura la majoria d\'atacants robots.
@@ -160,12 +162,16 @@ $wgConfirmEditMessages['de'] = array(
 );
 
 $wgConfirmEditMessages['es'] = array(
-	'captcha-edit'		         => "La edición incluye nuevos enlaces. Como protección contra spam automatizado, es necesario que resuelva la suma e indique la solución en la casilla ([[Special:Captcha/help|más info]]):",
-	'captchahelp-title'          => 'Información sobre el captcha',
-	'captchahelp-cookies-needed' => "Debe tener las cookies activadas en el navegador para que el sistema funcione.",
-	'captchahelp-text'           => "Los webs que aceptan mensajes del público, como esta wiki, son abusados a menudo por spammers que utilizan programas para incluir automáticamente sus enlaces. Si bien estos enlaces pueden retirarse, son una gran molestia.\n\nEn ocasiones, especialmente cuando añada nuevos enlaces a una página, la wiki le mostrará una imagen de texto coloreado o distorsionado y le pedirá que escriba las palabras que muestra. Dado que esta es una tarea difícil de automatizar, permite a la mayoría de las personas enviar sus textos, a la vez que detiene spammers y otros atacantes automáticos.\n\nDesgraciadamente, esto puede ser un inconveniente para usuarios con visibilidad limitada o que usen navegadores de texto / de voz. No tenemos por el momento una alternativa sonora disponible. Por favor, solicite asistencia de los administradores si esto le impide realizar ediciones legítimas. Presione el botón atrás de su navegador para volver a la edición.",
-	'captcha-createaccount'      => "Como protección contra creaciones automatizadas de cuentas, es necesario que resuelva la suma y de la solución en la casilla ([[Special:Captcha/help|más info]]):",
-	'captcha-createaccount-fail' => "C&oacute;digo de confirmación incorrecto.",
+	'captcha-edit'                => 'Para editar este artículo, por favor resuelve la sencilla suma que aparece abajo e introduce la solución en la caja ([[Special:Captcha/help|más información]]):',
+	'captcha-addurl'              => 'Tu edición incluye nuevos enlaces externos. Para ayudar a proteger contra el spam automatizado, por favor resuelve la sencilla suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
+	'captcha-createaccount'       => 'Para ayudar a protegernos de la creación automática de cuentas, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
+	'captcha-createaccount-fail'  => 'Falta el código de confirmación, o éste es incorrecto.',
+	'captcha-create'              => 'Para crear la página, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
+	'captchahelp-title'           => 'Ayuda sobre el captcha',
+	'captchahelp-cookies-needed'  => 'Debe tener las cookies activadas en el navegador para que el sistema funcione.',
+	'captchahelp-text'            => 'Los sitios web que aceptan mensajes del público, como esta wiki, son a menudo objeto de abusos  por spammers que utilizan programas para incluir automáticamente sus enlaces. Si bien estos enlaces pueden quitarse, son una gran molestia.
+
+En ocasiones, especialmente cuando añada nuevos enlaces a una página, la wiki le mostrará una imagen de texto coloreado o distorsionado y le pedirá que escriba las palabras que muestra. Dado que esta es una tarea difícil de automatizar, permite a la mayoría de las personas enviar sus textos, a la vez que detiene a la mayoría de los spammers y otros atacantes automáticos.',
 );
 
 $wgConfirmEditMessages['et'] = array(
@@ -284,11 +290,19 @@ $wgConfirmEditMessages['hr'] = array(
 $wgConfirmEditMessages['hsb'] = array(
 	'captcha-edit'                => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
 	'captcha-addurl'              => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
+	'captcha-badpass'             => 'Zo by so awtomatiskemu zadobywanju do hesłow zadźěwało, dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
 	'captcha-createaccount'       => 'Jako škitna naprawa přećiwo awtomatiskemu wutworjenju wužiwarskich kontow dyrbiš slědowacy nadawk wuličeć. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
 	'captcha-createaccount-fail'  => 'Wopačny abo pobrachowacy wuslědk.',
 	'captcha-create'              => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
 	'captchahelp-title'           => 'Pomoc z captcha',
+	'captchahelp-cookies-needed'  => 'Dyrbiš placki (cookies) w swojim wobhladowaku zmóžnić.',
 	'captchahelp-text'            => 'Sydła kaž {{SITENAME}}, kotrež móža so swobodnje wot kóždeho wobdźěłować su často z woporom spamarjow, kotřiž swoje wotkazy awtomatisce we wjele sydłach broja. Tute spam-wotkazy móža so zaso wotstronjeć, wubudźa pak njesnadne mjerzanje. W někotrych padach, wosebje při přidawanju nowych eksternych wotkazow, móže so stać, zo pokazuje tutón wiki wobraz z pisanym abo skomolenym tekstom abo kaza jednory ličenski nadawk wuličeć, kotrehož wuslědk dyrbi so potom do zapodawanskeho kašćika zapisować. Dokelž hodźi so tajki nadawk jenož ćežko z awtomatiskimi srědkami spamarjow spjelnić, móža so tajcy wotdźeržować, druzy wužiwarjo pak móža swoje změny składować. Bohužel móže to k wobćežnosćam za tutych wužiwarjow dowjesć, kotrychž kmanosć widźenja je wobmjezowana abo kotřiž dźěłaja z wobhladowakami kiž su na tekstowe abo rěčne wudawanje wusměrjene. Móžne rozrisanje tutoho problema je přizjewjenje jako wužiwar. Tłóčatko „Wróćo” swojeho wobhladowaka dowjedźe tebje zaso do wobdźěłowanskeho pola.',
+	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre>
+# Syntaks je slědowaca:
+# * Wšo wot znamješka "#" hač do kónca linky je komentar
+# * Kóžda popisana linka je fragment regex (regularneho wuraza) kotryž so z mjenom hosta wěsteje URL přirunuje
+
+ #</pre> <!-- leave this line exactly as it is -->',
 );
 $wgConfirmEditMessages['id'] = array(
 	'captcha-edit'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />

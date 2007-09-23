@@ -519,6 +519,7 @@ $wgConfirmEditMessages['nl'] = array(
 	'captcha-createaccount-fail'  => 'Incorrecte of ontbrekende bevestigingscode.',
 	'captcha-create'              => 'Uw bewerking bevat nieuwe externe links (URL\'s). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
 ([[Special:Captcha/help|Wat is dit?]])',
+	'captchahelp-title'           => 'Captcha-hulp',
 	'captchahelp-cookies-needed'  => 'U dient in uw browser cookies ingeschakeld te hebben om dit te laten werken.',
 	'captchahelp-text'            => 'Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma\'s automatisch links op zetten naar vele websites. Hoewel deze externe links weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
 

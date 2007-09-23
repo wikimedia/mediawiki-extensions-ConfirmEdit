@@ -93,10 +93,11 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 
 /* Finnish (Niklas Laxström) */
 'fi' => array(
-'fancycaptcha-edit' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
 'fancycaptcha-addurl' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
-'fancycaptcha-create' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
+'fancycaptcha-badlogin' => 'Automatisoidun salasanan murtamisen vaikeuttamiseksi kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
 'fancycaptcha-createaccount' => 'Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
+'fancycaptcha-create' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
+'fancycaptcha-edit' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
 ),
 
 /* Hebrew (Rotem Liss) */

@@ -461,19 +461,13 @@ $wgConfirmEditMessages['ko'] = array(
 	'captcha-createaccount'       => '자동 가입을 막기 위해, 아래 문제의 답을 적어야만 가입이 가능합니다([[Special:Captcha/help|관련 도움말]]):',
 );
 $wgConfirmEditMessages['la'] = array(
-	'captcha-edit'               => "Emendatione tua insunt nexus URL; ut spam automaticum vitemus, necesse est tibi inscribere verba, quae in hac imagine videntur. <br /> ([[Specialis:Captcha/Auxilium|Quidst illud?]])",
-	'captcha-addurl'               => "Emendatione tua insunt nexus URL; ut spam automaticum vitemus, necesse est tibi inscribere verba, quae in hac imagine videntur. <br /> ([[Specialis:Captcha/Auxilium|Quidst illud?]])",
-	'captcha-create'               => "Emendatione tua insunt nexus URL; ut spam automaticum vitemus, necesse est tibi inscribere verba, quae in hac imagine videntur. <br /> ([[Specialis:Captcha/Auxilium|Quidst illud?]])",
-	'captchahelp-title'          => 'Captcha auxilium',
-	'captchahelp-text'           => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites. While these spam links can be removed, they are a significant nuisance.
-
-Sometimes, especially when adding new web links to a page, the wiki may show you an image of colored or distorted text and ask you to type the words shown. Since this is a task that's hard to automate, it will allow most real humans to make their posts while stopping most spammers and other robotic attackers.
-
-Unfortunately this may inconvenience users with limited vision or using text-based or speech-based browsers. At the moment we do not have an audio alternative available. Please contact the site administrators for assistance if this is unexpectedly preventing you from making legitimate posts.
-
-Hit the 'back' button in your browser to return to the page editor.",
-	'captcha-createaccount'      => "Ut spam automaticum vitemus, necesse est tibi inscribere verba, quae in hac imagine videntur, priusquam rationem possis creare. <br /> ([[Specialis:Captcha/Auxilium|Quidst illud?]])",
-	'captcha-createaccount-fail' => "Codex affirmationis aut non scriptus est aut male.",
+	'captcha-edit'                => 'Ad hanc paginam recensendum, necesse est tibi solvere calculationem subter et responsum in capsam inscribere ([[Special:Captcha/help|Quidst illud?]]):',
+	'captcha-addurl'              => 'Emendatione tua insunt nexus externi; ut spam automaticum vitemus, necesse est tibi solvere calculationem subter et responsum in capsam inscribere ([[Special:Captcha/help|Quidst illud?]]):',
+	'captcha-badpass'             => 'Ut vitemus ne tesserae frangantur, necesse est tibi solvere calculationem subter et responsum in capsam inscribere ([[Special:Captcha/help|Quidst illud?]]):',
+	'captcha-createaccount'       => 'Ut creationem rationum automaticam vitemus, necesse est tibi solvere calculationem subter et responsum in capsam inscribere ([[Special:Captcha/help|Quidst illud?]]):',
+	'captcha-createaccount-fail'  => 'Codex affirmationis aut non scriptus est aut male.',
+	'captcha-create'              => 'Ad paginam creandum, necesse est tibi solvere calculationem subter et responsum in capsam inscribere ([[Special:Captcha/help|Quidst illud?]]):',
+	'captchahelp-title'           => 'Captcha auxilium',
 );
 $wgConfirmEditMessages['lo'] = array(
 	'captcha-edit'               => 'ການດັດແກ້ ຂອງ ທ່ານ ມີລິ້ງູຄ໌ພາຍນອກ. ເພື່ອ ເປັນການຊ່ອຍປ້ອງກັນ ສະແປມອັດຕະໂນມັດ, ກະລຸນາແກ້ເລກບວກ ງ່າຍໆຂ້າງລຸ່ມນີ້ ແລ້ວ ພິມຄຳຕອບໃສ່ໃນ ກັບ ([[Special:Captcha/help|more info]]):',

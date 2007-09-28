@@ -45,6 +45,9 @@ $wgConfirmEditMessages['af'] = array(
 	'captcha-createaccount'      => "As 'n beskerming teen geoutomatiseerde gemors, tik asseblief die woorde wat in die beeld verskyn in om 'n rekening te skep: <br />([[Special:Captcha/help|Wat is hierdie?]])",
 	'captcha-createaccount-fail' => "Verkeerde of geen bevestigingkode.",
 );
+$wgConfirmEditMessages['am'] = array(
+	'captcha-createaccount'       => 'ያልተፈለገ የመኪናነት አባልነት ለመከላከል፥ አባል ለመሆን በዚህ ምስል የታዩት እንግሊዝኛ ቃላት ወይም ቁጥር መልስ በትክክል መጻፍ ግዴታ ነው። ([[Special:Captcha/help|ይህ ምንድነው?]])',
+);
 $wgConfirmEditMessages['ar'] = array(
 	'captcha-edit'                => 'يحتوي تعديلك هذا على وصلات خارجية. للحماية من السخام الأوتوماتيكي، قم من فضلك بحل المسألة الرياضية البسيطة أدناه وأدخل الحل في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',
 	'captcha-addurl'              => 'تعديلك يحتوي على وصلات خارجية جديدة. للمساعدة في الحماية من السخام الأوتوماتيكي، من فضلك حل عملية الجمع بالأسفل و أضف الحل في الصندوق  ([[Special::Captcha/help|معلومات إضافية]]):',

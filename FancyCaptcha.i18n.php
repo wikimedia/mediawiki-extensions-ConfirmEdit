@@ -186,6 +186,14 @@ tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/h
 تٶمەندەگٸ كٶرسەتٸلگەن سٶزدەردٸ اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
 ),
 
+'la' => array(
+'fancycaptcha-addurl' => 'Emendatione tua insunt nexus externi; ut spam automaticum vitemus, necesse est tibi in capsam inscribere verba quae sub capsa monstrantur ([[Special:Captcha/help|Quidst illud?]]):',
+'fancycaptcha-badlogin' => 'Ut vitemus ne tesserae frangantur, necesse est tibi in capsam inscribere verba quae sub capsa monstrantur ([[Special:Captcha/help|Quidst illud?]]):',
+'fancycaptcha-createaccount' => 'Ut creationem rationum automaticam vitemus, necesse est tibi in capsam inscribere verba quae sub capsa monstrantur ([[Special:Captcha/help|Quidst illud?]]):',
+'fancycaptcha-create' => 'Ad paginam creandum, necesse est tibi in capsam inscribere verba quae sub capsa monstrantur ([[Special:Captcha/help|Quidst illud?]]):',
+'fancycaptcha-edit' => 'Ad hanc paginam recensendum, necesse est tibi in capsam inscribere verba quae sub capsa monstrantur ([[Special:Captcha/help|Quidst illud?]]):',
+),
+
 /* Lao */
 'lo' => array(
 'fancycaptcha-addurl'        => 'ການດັດແກ້ຂອງທ່ານ ມີລິ້ງຄ໌ພາຍນອກ. ເພື່ອປ້ອງກັນ ສະແປມອັດຕະໂນມັດ, ກະລຸນາ ພິມຄຳສັບຂ້າງລຸ່ມນີ້ ໃສ່ໃນກັບ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມຕື່ມ]]):',

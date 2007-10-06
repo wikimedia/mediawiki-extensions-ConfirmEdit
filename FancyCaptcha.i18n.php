@@ -232,6 +232,14 @@ hieronder verschijnen in het invoerveld in als bescherming tegen automatische sp
 'fancycaptcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, entratz los mots çai jos dins la boita ([[Special:Captcha/help|mai d’informacions]]) :',
 ),
 
+'pl' => array(
+'fancycaptcha-addurl' => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
+'fancycaptcha-badlogin' => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
+'fancycaptcha-createaccount' => 'Ze względu na ochronę przed automatycznym [[wikipedia:pl:spam|spamem]], aby zarejestrować się musisz wpisać słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
+'fancycaptcha-create' => 'Aby utworzyć tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
+'fancycaptcha-edit' => 'Aby edytować tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
+),
+
 /* Piedmontese (Bèrto 'd Sèra) */
 'pms' => array(
 'fancycaptcha-addurl' => 'Soa modìfica a l\'ha andrinta dj\'anliure esterne neuve. Për dene na man a vardesse da la reclam aotomatisà, për piasì, 

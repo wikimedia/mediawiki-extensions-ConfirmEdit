@@ -567,6 +567,22 @@ $wgConfirmEditMessages['oc'] = array(
 	'captchahelp-title'           => 'Ajuda suls Captcha',
 	'captchahelp-text'            => 'Los sites webs que permeton al mai grand nombre de participar, coma aqueste wiki, son sovent atacats per de spammers qu\'utilizan d\'espleches automatizas per mandar lor ligams sus de fòrça sites sulcòp. Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de far. De còps quand ajustatz de ligams novèls vèrs lo web, lo wiki pòt vos mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d\'automatizar, çò que permet de diferenciar un uman real d\'un logicial automatic malvolent. Malaürosament, aqueste sistèma es pas adaptat a d\'utilizaires mal-vesents o utilizant de navigaires textuals o audiò. Actualament, prepausem pas d\'alternativas adaptadas. Se avètz besonh d\'ajuda esitetz pas a contactar los administrators del sit. Clicatz sul boton \'precedent\' de vòstre navegaire per tornar a l\'editor.',
 );
+$wgConfirmEditMessages['pl'] = array(
+	'captcha-edit'                => 'Aby edytować tę stronę musisz rozwiązać proste działanie matematyczne poniżej i wpisać wynik do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
+	'captcha-addurl'              => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy wykonać proste działanie matematyczne i wpisać wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
+	'captcha-badpass'             => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o rozwiązanie tego prostego zadania i wpisanie odwiedzi w pole obok ([[Special:Captcha/help|więcej informacji]])',
+	'captcha-createaccount'       => 'Ze względu na ochronę przed automatycznym [[wikipedia:pl:spam|spamem]], aby zarejestrować się musisz wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|wyjaśnienie]]):',
+	'captcha-createaccount-fail'  => 'Nieprawidłowy kod lub brak kodu potwierdzajacego.',
+	'captcha-create'              => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
+	'captchahelp-title'           => 'Pomoc dla ochrony antyspamowej',
+	'captchahelp-cookies-needed'  => 'Musisz mieć włączone w przeglądarce ciasteczka (cookies), aby ta opcja działała.',
+	'captchahelp-text'            => 'Strony internetowe akceptujące edycje dokonywane przez każdego, jak to wiki, są często atakowane przez [[wikipedia:pl:spam|spammerów]], którzy używają automatycznych narzędzi, by dodawać linki do ich stron. Chociaż te linki mogą być usunięte, jest to uciążliwe. Czasami, zwłaszcza przy dodawaniu nowych linków do strony albo przy rejestracji, wiki może pokazać obrazek z kolorowym lub zniekształconym tekstem i poprosić cię o wpisanie pokazanych wyrazów. Może pojawić się też prośba o wpisanie wyniku prostego działania matematycznego. Ponieważ jest to zadanie, które ciężko jest zautomatyzować, pozwoli większości zwykłych ludzi dokonywać ich edycji, powstrzymując jednocześnie większość spammerów i inne automatyczne ataki. Niestety, może być to niewygodne dla użytkowników z wadą wzroku lub używających przeglądarek tekstowych lub głosowych. W tym momencie nie mamy dostępnej alternatywy audio. Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać prawidłowych edycji. Zwróć uwagę, że musisz mieć włączone ciasteczka (cookies). Wciśnij przycisk "wstecz" w twojej przeglądarce by powrócić do edycji strony.',
+	'captcha-addurl-whitelist'    => ' #<!-- zostaw tę linię dokładnie jak jest --> <pre> 
+# Składnia jest następująca: 
+#   * Linie zaczynające się od znaku "#" są komentarzami
+#   * Każda linia, która nie jest pusta, jest fragmentem wyrażenia regularnego, które ma pasować do adresów wewnątrz adresów URL
+ #</pre> <!-- zostaw tę linię dokładnie jak jest -->',
+);
 $wgConfirmEditMessages['pms'] = array(
 	'captcha-edit'                => 'Për fe-ie dle modìfiche ansima a st\'artìcol-sì, për piasì ch\'a fasa ël total ambelessì sota 
 e ch\'a buta l\'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',

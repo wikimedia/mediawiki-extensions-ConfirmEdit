@@ -60,6 +60,16 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 'fancycaptcha-badlogin' => 'V rámci ochrany před automatickým pokusům uhodnout heslo musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 ),
 
+/* Danish */
+'da' => array(
+'fancycaptcha-addurl' => 'Din ændring tilføjer nye eksterne henvisninger. For at beskytte mod automatiseret spam, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
+'fancycaptcha-badlogin' => 'For at beskytte mod automatiske forsøg på at gætte kodeord, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
+'fancycaptcha-createaccount' => 'For at beskytte mod automatisk oprettelse af brugernavne, der bruges til spam, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
+'fancycaptcha-create' => 'For at oprette en ny side, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
+'fancycaptcha-edit' => 'or at redigere denne side
+([[Special:Captcha/help|more info]]):',
+),
+
 /* German */
 'de' => array(
 'fancycaptcha-addurl'        => 'Deine Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming gebe das folgende Wort in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',

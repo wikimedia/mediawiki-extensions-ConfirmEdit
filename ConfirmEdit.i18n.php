@@ -73,6 +73,7 @@ $wgConfirmEditMessages['ar'] = array(
 );
 $wgConfirmEditMessages['bcl'] = array(
 	'captcha-create'              => 'Tangarig maggibo an pahina, paki simbagan an simpleng suma sa ibaba asin ikaag an simbag sa laog kan kahon ([[Special:Captcha/help|more info]]):',
+	'captchahelp-title'           => 'Tabang sa Captcha',
 );
 $wgConfirmEditMessages['br'] = array(
 	'captcha-edit'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',

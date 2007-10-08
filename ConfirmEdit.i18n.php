@@ -513,6 +513,11 @@ $wgConfirmEditMessages['lv'] = array(
 	'captcha-createaccount'      => "Lai pasargātos no automātiskas mēstuļošanas, Tev reģistrējoties ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
 	'captcha-createaccount-fail' => "Nepareizs apstiprinājuma kods vai arī tas nav ievadīts.",
 );
+$wgConfirmEditMessages['nan'] = array(
+	'captcha-createaccount'      => "Ūi beh ī-hông lâng iōng ke-si chū-tōng chù-chheh koh tah kóng-kò, chhiáⁿ lí kā chhut-hiān tī ang-á lāi-bīn ê jī phah 1 piàn (thang chèng-bêng lí m̄ sī ki-khì-lâng): <br />
+([[Special:Captcha/help|Che sī siáⁿ-hòe?]])",
+	'captcha-createaccount-fail' => "Khak-jīn-bé chhò-gō· iah-sī làu-kau.",
+);
 $wgConfirmEditMessages['nds'] = array(
 	'captcha-edit'                => 'In dien Text steiht en nee Lenk na buten dat Wiki. Dat hier keen automaatsch instellten Spam rinkummt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
 	'captcha-createaccount'       => 'Dat hier nich Brukers automaatsch anleggt warrt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
@@ -902,6 +907,7 @@ $wgConfirmEditMessages['zh-hant'] = array(
 $wgConfirmEditMessages['zh'] = $wgConfirmEditMessages['zh-hans'];
 $wgConfirmEditMessages['zh-cn'] = $wgConfirmEditMessages['zh-hans'];
 $wgConfirmEditMessages['zh-hk'] = $wgConfirmEditMessages['zh-hant'];
+$wgConfirmEditMessages['zh-min-nan'] = $wgConfirmEditMessages['nan'];
 $wgConfirmEditMessages['zh-sg'] = $wgConfirmEditMessages['zh-hans'];
 $wgConfirmEditMessages['zh-tw'] = $wgConfirmEditMessages['zh-hant'];
 $wgConfirmEditMessages['zh-yue'] = $wgConfirmEditMessages['yue'];

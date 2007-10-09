@@ -380,6 +380,7 @@ $wgConfirmEditMessages['it'] = array(
 	'captcha-create'              => 'La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l\'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell\'immagine:<br />
 ([[Special:Captcha/help|Cosa vuol dire?]])',
 	'captchahelp-title'           => 'Cos\'è il captcha?',
+	'captchahelp-cookies-needed'  => 'Devi abilitare il tuo browser ad accettare i cookie per proseguire',
 	'captchahelp-text'            => 'Capita spesso che i siti Web che accettano messaggi pubblici, come questo wiki, siano presi di mira da spammer che usano strumenti automatici per inserire collegamenti pubblicitari verso un gran numero di siti. Per quanto i collegamenti indesiderati si possano rimuovere, si tratta comunque di una seccatura non indifferente.
 
 In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web in una pagina, il software wiki può mostrare una immagine con un breve testo colorato e/o distorto chiedendo di riscriverlo in un\'apposita finestrella. Poiché si tratta di un\'azione difficile da replicare da parte di un computer, questo meccanismo consente a (quasi tutti) gli utenti reali di completare l\'inserimento desiderato, impedendo l\'accesso alla maggior parte degli spammer e degli altri attacchi automatizzati.

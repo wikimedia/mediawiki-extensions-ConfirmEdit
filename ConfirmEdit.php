@@ -179,7 +179,7 @@ function ceSetup() {
 	foreach( $wgConfirmEditMessages as $lang => $messages )
 		$wgMessageCache->addMessages( $messages, $lang );
 
-	global $wgHooks, $wgCaptcha, $wgCaptchaClass, $wgSpecialPages;
+	global $wgHooks, $wgCaptcha, $wgCaptchaClass;
 	$wgCaptcha = new $wgCaptchaClass();
 	$wgHooks['EditFilter'][] = array( &$wgCaptcha, 'confirmEdit' );
 

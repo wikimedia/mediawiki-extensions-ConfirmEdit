@@ -578,6 +578,11 @@ Noen ganger, særlig hvis du vil legge til nye internettlenker til en side, kan 
 Dessverre finnes det i øyeblikket ikke noe audioalternativ for brukere med begrenset syn som som bruker tekst- eller talebaserte nettlesere. Vennlig kontakt administratorene hvis denne funksjonen forhindrer deg i å foreta legitime endringer.
 
 Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.',
+	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre> 
+# Syntaksen er som fløger:
+#   * Alle linjer som begynner med «#» er kommentarer
+#   * Alle linjer som ikke er blanke er fragmenter av regulære uttrykk som sjekker verter i URL-er
+ #</pre> <!-- leave this line exactly as it is -->',
 );
 $wgConfirmEditMessages['nn'] = array(
 	'captcha-edit'               => "Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])",

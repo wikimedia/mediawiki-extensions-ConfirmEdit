@@ -139,7 +139,7 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 /* Italian (BrokenArrow) */
 'it' => array(
 'fancycaptcha-addurl' => 'La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l\'inserimento automatico di spam, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):',
-'fancycaptcha-badlogin' => 'Per prevenire abusive forzature automatizzate della password, per cortesia inserisci nella casella le parole che appaiono qui sotto ([[Special:Captcha/help|altre info]]):',
+'fancycaptcha-badlogin' => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):',
 'fancycaptcha-createaccount' => 'Come misura di sicurezza nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):',
 'fancycaptcha-create' => 'La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l\'inserimento automatico di spam, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):',
 'fancycaptcha-edit' => 'La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l\'inserimento automatico di spam, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):',

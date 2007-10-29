@@ -34,7 +34,6 @@ that appear below in the box ([[Special:Captcha/help|more info]]):',
 ([[Special:Captcha/help|معلومات إضافية]]):',
 ),
 
-
 'br' => array(
 'fancycaptcha-edit' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 'fancycaptcha-addurl' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
@@ -108,6 +107,19 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 'fancycaptcha-createaccount' => 'Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
 'fancycaptcha-create' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
 'fancycaptcha-edit' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
+),
+
+'gl' => array(
+'fancycaptcha-addurl' => 'A súa edición inclúe ligazóns externas novas. Para axudar na protección contra o spam
+automatizado, introduza as palabras que aparecen na páxina de embaixo ([[Special:Captcha/help|máis información]]):',
+'fancycaptcha-badlogin' => 'Para contribuír a que non se descubran os contrasinais por medios automáticos, introduza
+as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
+'fancycaptcha-createaccount' => 'Para contribuír contra a creación automatizada de contas, introduza as palabras
+que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
+'fancycaptcha-create' => 'Para crear a páxina, introduza as palabras que aparecen na caixa de embaixo
+([[Special:Captcha/help|máis información]]):',
+'fancycaptcha-edit' => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo
+([[Special:Captcha/help|máis información]]):',
 ),
 
 /* Hebrew (Rotem Liss) */

@@ -549,10 +549,10 @@ $wgConfirmEditMessages['nl'] = array(
 ([[Special:Captcha/help|Wat is dit?]])',
 	'captcha-addurl'              => 'Uw bewerking bevat nieuwe externe links (URL\'s). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
 ([[Special:Captcha/help|Wat is dit?]])',
-	'captcha-badlogin'             => 'Los alstublieft de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
+	'captcha-badlogin'            => 'Los alstublieft de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount'       => 'Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn om uw gebruiker aan te maken:<br />
 ([[Special:Captcha/help|Wat is dit?]])',
-	'captcha-createaccount-fail'  => 'Incorrecte of ontbrekende bevestigingscode.',
+	'captcha-createaccount-fail'  => 'Onjuiste of ontbrekende bevestigingscode.',
 	'captcha-create'              => 'Uw bewerking bevat nieuwe externe links (URL\'s). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
 ([[Special:Captcha/help|Wat is dit?]])',
 	'captchahelp-title'           => 'Captcha-hulp',
@@ -614,9 +614,9 @@ $wgConfirmEditMessages['oc'] = array(
 $wgConfirmEditMessages['pl'] = array(
 	'captcha-edit'                => 'Aby edytować tę stronę musisz rozwiązać proste działanie matematyczne poniżej i wpisać wynik do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
 	'captcha-addurl'              => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy wykonać proste działanie matematyczne i wpisać wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
-	'captcha-badlogin'             => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o rozwiązanie tego prostego zadania i wpisanie odwiedzi w pole obok ([[Special:Captcha/help|więcej informacji]])',
+	'captcha-badlogin'            => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o rozwiązanie tego prostego zadania i wpisanie odwiedzi w pole obok ([[Special:Captcha/help|więcej informacji]])',
 	'captcha-createaccount'       => 'Ze względu na ochronę przed automatycznym [[wikipedia:pl:spam|spamem]], aby zarejestrować się musisz wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|wyjaśnienie]]):',
-	'captcha-createaccount-fail'  => 'Nieprawidłowy kod lub brak kodu potwierdzajacego.',
+	'captcha-createaccount-fail'  => 'Niepoprawny kod lub brak kodu potwierdzajacego.',
 	'captcha-create'              => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
 	'captchahelp-title'           => 'Pomoc dla ochrony antyspamowej',
 	'captchahelp-cookies-needed'  => 'Musisz mieć włączone w przeglądarce ciasteczka (cookies), aby ta opcja działała.',

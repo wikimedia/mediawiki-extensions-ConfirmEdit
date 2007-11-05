@@ -273,8 +273,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 $wgConfirmEditMessages['gl'] = array(
 	'captcha-edit'                => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
 	'captcha-addurl'              => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
-	'captcha-badpass'             => 'Para evitar que descubran o contrasinal automaticamente, resolva a suma simple que
-aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
+	'captcha-badlogin'            => 'Como protección para que non descubran o contrasinal por medios automáticos, resolva a suma simple de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]])',
 	'captcha-createaccount'       => 'Como protección fronte a sistemas de creación automática de contas de usuario usados polos \'\'spammers\'\', ten que teclear as palabras que aparecen na imaxe para rexistrar unha conta:<br /> ([[Special:Captcha/help|Qué é isto?]])',
 	'captcha-createaccount-fail'  => 'Falta o código de confirmación ou é incorrecto.',
 	'captcha-create'              => 'Para crear a páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa  ([[Special:Captcha/help|Qué é isto?]])',

@@ -239,25 +239,21 @@ Varmistus ei toimi, jos evästeet eivät ole käytössä.
 Voit palata muokkaustilaan selaimen paluutoiminnolla.",
 );
 $wgConfirmEditMessages['fr'] = array(
-	'captcha-edit' => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le spam automatique,
-	veuillez entrer le résultat de l’addition ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-addurl' => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le spam automatique,
-	veuillez entrer le résultat de l’addition ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
-  'captcha-badlogin' => 'Pour essayer de contourner les tentatives de crackage de mots de passe automatisées par des robots, veuillez recopier le texte ci-dessous dans la boîte de texte placée au dessous de celui-ci. ([[Special:Captcha/aide|Plus d’infos]])',
-	'captcha-create' => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le spam automatique,
-	veuillez entrer le résultat de l’addition ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-createaccount' => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de
-	l’addition dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-createaccount-fail' => "Code de confirmation erroné ou manquant.",
-	'captchahelp-title'          => 'Aide sur les captcha',
-	'captchahelp-cookies-needed' => "Vous devez avoir les cookies activés dans votre navigateur pour que cela fonctionne.",
-	'captchahelp-text'           => "Les site Web acceptant des contributions du public, comme ce wiki, sont souvent utilisés par des spammeurs qui utilisent des outils automatiques pour placer de nombreux liens vers leurs sites. Même si ces liens de « spam » peuvent être enlevés, ils représentent une nuisance.
+	'captcha-edit'                => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-addurl'              => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-badlogin'            => 'Pour essayer de contourner les tentatives de crackage de mots de passe automatisées par des robots, veuillez recopier le texte ci-dessous dans la boîte de texte placée au dessous de celui-ci. ([[Special:Captcha/aide|Plus d’infos]])',
+	'captcha-createaccount'       => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de l’opération dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-createaccount-fail'  => 'Code de confirmation erroné ou manquant.',
+	'captcha-create'              => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+	'captchahelp-title'           => 'Aide sur les captcha',
+	'captchahelp-cookies-needed'  => 'Il faut activer les cookies dans votre navigateur Web pour que cela fonctionne.',
+	'captchahelp-text'            => 'Les site Web acceptant des contributions du public, comme ce wiki, sont souvent utilisés par des spammeurs qui utilisent des outils automatiques pour placer de nombreux liens vers leurs sites. Même si ces liens de « spam » peuvent être enlevés, ils représentent une nuisance.
 
 Parfois, en particulier lors de l’ajout de nouveaux liens externes à une page, le wiki peut vous montrer une image représentant un texte coloré ou tordu et vous demander de taper les mots montrés. Cette tâche est difficile à automatiser, et permet aux humains de faire leurs contributions tout en stoppant la plupart des spammeurs.
 
-Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l'instant. Veuillez contacter un administrateur du site si vous n’arrivez pas à faire vos contributions.
+Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l\'instant. Veuillez contacter un administrateur du site si vous n’arrivez pas à faire vos contributions.
 
-Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page d’édition.",
+Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page d’édition.',
 );
 $wgConfirmEditMessages['ga'] = array(
 	'captcha-edit'               => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",

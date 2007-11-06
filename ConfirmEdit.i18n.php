@@ -46,7 +46,7 @@ $wgConfirmEditMessages['af'] = array(
 	'captcha-createaccount-fail' => "Verkeerde of geen bevestigingkode.",
 );
 $wgConfirmEditMessages['am'] = array(
-	'captcha-createaccount'       => 'ያልተፈለገ የመኪናነት አባልነት ለመከላከል፥ አባል ለመሆን በዚህ ምስል የታዩት እንግሊዝኛ ቃላት ወይም ቁጥር መልስ በትክክል መጻፍ ግዴታ ነው። ([[Special:Captcha/help|ይህ ምንድነው?]])',
+	'captcha-createaccount'       => 'ያልተፈለገ የመኪናነት አባልነት ለመከላከል፥ አባል ለመሆን በዚህ ምስል የታዩት እንግሊዝኛ ቃላት ወይም ቁጥር መልስ በትክክል መጻፍ ግዴታ ነው። ([[Special:Captcha/help|ይህ ምንድነው?]]):',
 );
 $wgConfirmEditMessages['ar'] = array(
 	'captcha-edit'                => 'يحتوي تعديلك هذا على وصلات خارجية. للحماية من السخام الأوتوماتيكي، قم من فضلك بحل المسألة الرياضية البسيطة أدناه وأدخل الحل في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',

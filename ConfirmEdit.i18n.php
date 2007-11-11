@@ -599,7 +599,7 @@ $wgConfirmEditMessages['nn'] = array(
 $wgConfirmEditMessages['oc'] = array(
 	'captcha-edit'                => 'Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu\'es aquò?]])',
 	'captcha-addurl'              => 'Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu\'es aquò?]])',
-	'captcha-badlogin'            => 'Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxt çai jos dins la boîta de tèxt plaçada al dejos d\'aqueste. ([[Special:Captcha/ajuda|Mai d’entre-senhas]])',
+	'captcha-badlogin'            => 'Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxt çai jos dins la boîta de tèxt plaçada al dejos d\'aqueste. ([[Special:Captcha/help|Mai d’entre-senhas]])',
 	'captcha-createaccount'       => 'Coma proteccion contra las creacions de compte abusivas, entratz lo resultat de l’addicion dins la boita çai jos:<br />
 ([[Special:Captcha/help|mai d’informacions]])',
 	'captcha-createaccount-fail'  => 'Còde de confirmacion mancant o erronèu.',

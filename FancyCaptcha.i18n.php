@@ -5,9 +5,7 @@
  *
  * @addtogroup Extensions
 */
-
-function efFancyCaptchaMessages() {
-	$messages = array(
+$messages = array(
 
 /* English */
 'en' => array(
@@ -350,18 +348,16 @@ skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information
 	'fancycaptcha-edit' => '如您想要編輯此頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
 ),
 
-	);
+);
 
-	/* Kazakh default, fallback to kk-kz */
-	$messages['kk'] = $messages['kk-kz'];
-	/* Chinese defaults, fallback to zh-hans or zh-hant */
-	$messages['zh'] = $messages['zh-hans'];
-	$messages['zh-cn'] = $messages['zh-hans'];
-	$messages['zh-hk'] = $messages['zh-hant'];
-	$messages['zh-tw'] = $messages['zh-hans'];
-	$messages['zh-sg'] = $messages['zh-hant'];
-	/* Cantonese default, fallback to yue */
-	$messages['zh-yue'] = $messages['yue'];
+/* Kazakh default, fallback to kk-kz */
+$messages['kk'] = $messages['kk-kz'];
+/* Chinese defaults, fallback to zh-hans or zh-hant */
+$messages['zh'] = $messages['zh-hans'];
+$messages['zh-cn'] = $messages['zh-hans'];
+$messages['zh-hk'] = $messages['zh-hant'];
+$messages['zh-tw'] = $messages['zh-hans'];
+$messages['zh-sg'] = $messages['zh-hant'];
+/* Cantonese default, fallback to yue */
+$messages['zh-yue'] = $messages['yue'];
 
-	return $messages;
-}

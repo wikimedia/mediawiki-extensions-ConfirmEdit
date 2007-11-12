@@ -5,9 +5,9 @@
  * @addtogroup Extensions
 */
 
-$wgConfirmEditMessages = array();
+$messages = array();
 
-$wgConfirmEditMessages['en'] = array(
+$messages['en'] = array(
 	'captcha-edit' => 'To edit this article, please solve the simple sum below and enter the answer in
 the box ([[Special:Captcha/help|more info]]):',
 	'captcha-addurl' => 'Your edit includes new external links. To help protect against automated
@@ -36,7 +36,7 @@ Hit the 'back' button in your browser to return to the page editor.",
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
-$wgConfirmEditMessages['af'] = array(
+$messages['af'] = array(
 	'captcha-edit'               => "U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])",
 	'captcha-addurl'               => "U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])",
 	'captcha-create'               => "U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])",
@@ -45,10 +45,10 @@ $wgConfirmEditMessages['af'] = array(
 	'captcha-createaccount'      => "As 'n beskerming teen geoutomatiseerde gemors, tik asseblief die woorde wat in die beeld verskyn in om 'n rekening te skep: <br />([[Special:Captcha/help|Wat is hierdie?]])",
 	'captcha-createaccount-fail' => "Verkeerde of geen bevestigingkode.",
 );
-$wgConfirmEditMessages['am'] = array(
+$messages['am'] = array(
 	'captcha-createaccount'       => 'ያልተፈለገ የመኪናነት አባልነት ለመከላከል፥ አባል ለመሆን በዚህ ምስል የታዩት እንግሊዝኛ ቃላት ወይም ቁጥር መልስ በትክክል መጻፍ ግዴታ ነው። ([[Special:Captcha/help|ይህ ምንድነው?]]):',
 );
-$wgConfirmEditMessages['ar'] = array(
+$messages['ar'] = array(
 	'captcha-edit'                => 'يحتوي تعديلك هذا على وصلات خارجية. للحماية من السخام الأوتوماتيكي، قم من فضلك بحل المسألة الرياضية البسيطة أدناه وأدخل الحل في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',
 	'captcha-addurl'              => 'تعديلك يحتوي على وصلات خارجية جديدة. للمساعدة في الحماية من السخام الأوتوماتيكي، من فضلك حل عملية الجمع بالأسفل و أضف الحل في الصندوق  ([[Special::Captcha/help|معلومات إضافية]]):',
 	'captcha-badlogin'             => 'للمساعدة في الحماية ضد سرقة كلمات السر، من فضلك حل عملية الجمع البسيطة بالأسفل و أدخل الحل في الصندوق ([[Special:Captcha/help|معلومات إضافية]]):',
@@ -71,11 +71,11 @@ $wgConfirmEditMessages['ar'] = array(
 #   * كل سطر غير فارغ هو قطعة ريجيكس والتي توافق فقط المعيلين داخل المسارات
  #</pre> <!-- leave this line exactly as it is -->',
 );
-$wgConfirmEditMessages['bcl'] = array(
+$messages['bcl'] = array(
 	'captcha-create'              => 'Tangarig maggibo an pahina, paki simbagan an simpleng suma sa ibaba asin ikaag an simbag sa laog kan kahon ([[Special:Captcha/help|more info]]):',
 	'captchahelp-title'           => 'Tabang sa Captcha',
 );
-$wgConfirmEditMessages['br'] = array(
+$messages['br'] = array(
 	'captcha-edit'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',
 	'captcha-addurl'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',
 	'captcha-create'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',
@@ -84,7 +84,7 @@ $wgConfirmEditMessages['br'] = array(
 	'captchahelp-title'           => 'Skoazell Capcha',
 	'captchahelp-text'            => 'Alies e vez taget al lec\'hiennoù a zegemer kemennadennoù a-berzh an holl, evel ar wiki-mañ, gant ar spamerien a implij ostilhoù emgefre evit postañ o liammoù war lec\'hiennoù a bep seurt. Diverket e c\'hallont bezañ, gwir eo, kazus-mat ez int memes tra. A-wechoù, dreist-holl pa vez ouzhpennet liammoù Web nevez war ur bajenn, e c\'hallo ar wiki-mañ diskouez deoc\'h ur skeudenn warni un tamm testenn liv pe a-dreuz. Goulennet e vo diganeoc\'h skrivañ ar gerioù deuet war wel. Un trevell start da emgefrekaat eo hemañ. Gant se e c\'hallo an implijerien wirion postañ ar pezh a fel ldezho tra ma vo lakaet un harz d\'an darn vrasañ eus ar spamerien pe d\'an dagerien robotek all. Koulskoude e c\'hallo an implijerien berr o gweled pe ar re a implij merdeerioù diazezet war ar skrid pe war ar vouezh bezañ strafuilhet gant se. N\'omp ket evit kinnig un diskoulm dre glevet evit c\'hoazh. Kit e darempred gant merourien al lec\'hienn m\'hoc\'h eus diaesterioù evit kemer perzh abalamour d\'an teknik-se. Pouezit war bouton \'kent\' ho merdeer evit distreiñ d\'ar bajenn gemmañ.',
 );
-$wgConfirmEditMessages['bs'] = array(
+$messages['bs'] = array(
 	'captcha-edit'  => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
 <br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
 	'captcha-addurl'  => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
@@ -102,7 +102,7 @@ Kliknite \'nazad\' (\'back\') dugme vašeg brauzera da se vratite na polje za un
 <br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
 	'captcha-createaccount-fail' => 'Netačan unos ili nedostatak šifre za potvrđivanje.',
 );
-$wgConfirmEditMessages['ca'] = array(
+$messages['ca'] = array(
 	'captcha-edit'                => 'Per a poder editar aquest article cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre ([[Special:Captcha/help|més informació]]):',
 	'captcha-addurl'              => 'La vostra edició conté enllaços externs nous. Com a protecció contra la brossa de propaganda automàtica, cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
 	'captcha-badlogin'             => 'Per a ajudar en la protecció contra l\'obtenció automatitzada de contrasenyes haureu de resoldre la suma que apareix a continuació ([[Special:Captcha/help|més informació]]):',
@@ -121,7 +121,7 @@ Necessitareu tenir les galetes activades en el vostre navegador per a que funcio
 
 Cliqueu el botó de retrocedir del vostre navegador per a tornar al formulari.',
 );
-$wgConfirmEditMessages['cs'] = array(
+$messages['cs'] = array(
 	'captcha-badlogin'            => 'V rámci ochrany před automatickým pokusům uhodnout heslo musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]]):',
 	'captchahelp-cookies-needed' => "Musíte mít zapnuty cookies ve svém prohlížeči.",
 	'captcha-edit'               => 'Abyste mohli editovat tuto stránku, musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
@@ -138,7 +138,7 @@ Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko
 	'captcha-createaccount'      => 'V rámci ochrany před automatickým vytvářením účtů musíte pro provedení registrace vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
 	'captcha-createaccount-fail' => 'Chybějící či neplatný potvrzovací kód.',
 );
-$wgConfirmEditMessages['cy'] = array(
+$messages['cy'] = array(
 	'captcha-edit'               => "Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
 	'captcha-addurl'               => "Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
 	'captcha-create'               => "Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
@@ -147,7 +147,7 @@ $wgConfirmEditMessages['cy'] = array(
 	'captcha-createaccount'      => "Teipiwch y geiriau sy'n ymddangos yn y ddelwedd isod os gwelwch yn dda. Mae'r nodwedd hon yn rhwystro rhaglenni sbam rhag creu cyfrifon i'w hunain. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
 	'captcha-createaccount-fail' => "Côd cadarnhau ar goll neu'n anghywir.",
 );
-$wgConfirmEditMessages['da'] = array(
+$messages['da'] = array(
 	'captcha-edit' => 'For at redigere denne side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captcha-addurl' => 'Din redigering tilføjer nye eksterne henvisninger til artiklen. Som beskyttelse mod automatiseret spam, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captcha-badlogin' => 'For at beskytte mod automatiserede gæt på kodeord, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
@@ -171,7 +171,7 @@ Tryk på 'tilbage'-knappen i din browser for at returnere til redigeringssiden."
  #</pre> <!-- Undlad at rette denne linie -->',
 );
 
-$wgConfirmEditMessages['de'] = array(
+$messages['de'] = array(
 	'captcha-edit'		     => "Zur Bearbeitung der Seite löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
 	'captcha-addurl'	     => "Deine Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
 	'captcha-badlogin'            => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]:',
@@ -189,7 +189,7 @@ $wgConfirmEditMessages['de'] = array(
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
-$wgConfirmEditMessages['es'] = array(
+$messages['es'] = array(
 	'captcha-edit'                => 'Para editar este artículo, por favor resuelve la sencilla suma que aparece abajo e introduce la solución en la caja ([[Special:Captcha/help|más información]]):',
 	'captcha-addurl'              => 'Tu edición incluye nuevos enlaces externos. Para ayudar a proteger contra el spam automatizado, por favor resuelve la sencilla suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
 	'captcha-createaccount'       => 'Para ayudar a protegernos de la creación automática de cuentas, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
@@ -202,7 +202,7 @@ $wgConfirmEditMessages['es'] = array(
 En ocasiones, especialmente cuando añada nuevos enlaces a una página, la wiki le mostrará una imagen de texto coloreado o distorsionado y le pedirá que escriba las palabras que muestra. Dado que esta es una tarea difícil de automatizar, permite a la mayoría de las personas enviar sus textos, a la vez que detiene a la mayoría de los spammers y otros atacantes automáticos.',
 );
 
-$wgConfirmEditMessages['et'] = array(
+$messages['et'] = array(
 	'captcha-edit'               => "Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])",
 	'captcha-addurl'               => "Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])",
 	'captcha-create'               => "Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])",
@@ -211,7 +211,7 @@ $wgConfirmEditMessages['et'] = array(
 	'captcha-createaccount'      => "Kaitsena spämmi vastu peate konto registreerimiseks lahtrisse kirjutama järgneva tehte tulemuse.<br /> ([[Special:Captcha/help|Mis see on?]])",
 	'captcha-createaccount-fail' => "Puuduv või valesti sisestatud kinnituskood.",
 );
-$wgConfirmEditMessages['eu'] = array(
+$messages['eu'] = array(
 	'captcha-edit'               => "Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])",
 	'captcha-addurl'               => "Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])",
 	'captcha-create'               => "Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])",
@@ -221,7 +221,7 @@ $wgConfirmEditMessages['eu'] = array(
 	'captcha-createaccount-fail' => "Baieztatze kode ezegokia.",
 );
 
-$wgConfirmEditMessages['fi'] = array(
+$messages['fi'] = array(
 	'captcha-edit'               => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-addurl'               => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-create'               => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
@@ -238,7 +238,7 @@ Varmistus ei toimi, jos evästeet eivät ole käytössä.
 
 Voit palata muokkaustilaan selaimen paluutoiminnolla.",
 );
-$wgConfirmEditMessages['fr'] = array(
+$messages['fr'] = array(
 	'captcha-edit'                => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-addurl'              => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-badlogin'            => 'Pour essayer de contourner les tentatives de crackage de mots de passe automatisées par des robots, veuillez recopier le texte ci-dessous dans la boîte de texte placée au dessous de celui-ci. ([[Special:Captcha/aide|Plus d’infos]])',
@@ -255,7 +255,7 @@ Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou utili
 
 Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page d’édition.',
 );
-$wgConfirmEditMessages['ga'] = array(
+$messages['ga'] = array(
 	'captcha-edit'               => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
 	'captcha-addurl'               => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
 	'captcha-create'               => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
@@ -270,7 +270,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 	'captcha-createaccount'      => "Mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur chun cuntas a chlárú: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
 	'captcha-createaccount-fail' => "Ní raibh an cód deimhnithe ceart sa bhosca, nó ní raibh aon chód ann ar chor ar bith.",
 );
-$wgConfirmEditMessages['gl'] = array(
+$messages['gl'] = array(
 	'captcha-edit'                => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
 	'captcha-addurl'              => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
 	'captcha-badlogin'            => 'Como protección para que non descubran o contrasinal por medios automáticos, resolva a suma simple de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]])',
@@ -286,7 +286,7 @@ $wgConfirmEditMessages['gl'] = array(
 #   * Cada liña que non estea en branco é un fragmento de expresión regular que só coincidirá con hosts dentro de URLs
  #</pre> <!-- deixe esta liña exactamente como está -->',
 );
-$wgConfirmEditMessages['he'] = array(
+$messages['he'] = array(
 	'captcha-edit'               => 'כדי לערוך את הדף, אנא פיתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 	'captcha-addurl'             => 'עריכתכם כוללת קישורים חיצוניים חדשים. כהגנה מפני ספאם אוטומטי, אנא פיתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 	'captcha-badlogin'            => 'כהגנה מפני פריצת סיסמאות אוטומטית, אנא פיתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
@@ -309,7 +309,7 @@ $wgConfirmEditMessages['he'] = array(
 #   * כל שורה לא ריקה היא ביטוי רגולרי שיתאים לאתרים בכתובות URL
  #</pre> <!-- יש להשאיר שורה זו בדיוק כפי שהיא כתובה -->',
 );
-$wgConfirmEditMessages['hr'] = array(
+$messages['hr'] = array(
 	'captcha-edit'               => "Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])",
 	'captcha-addurl'               => "Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])",
 	'captcha-create'               => "Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])",
@@ -318,7 +318,7 @@ $wgConfirmEditMessages['hr'] = array(
 	'captcha-createaccount'      => "Kao zaštitu od automatskog spama, pri otvaranju računa trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć]])",
 	'captcha-createaccount-fail' => "Potvrdni kod je nepotpun ili netočan.",
 );
-$wgConfirmEditMessages['hsb'] = array(
+$messages['hsb'] = array(
 	'captcha-edit'                => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
 	'captcha-addurl'              => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
 	'captcha-badlogin'             => 'Zo by so awtomatiskemu zadobywanju do hesłow zadźěwało, dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
@@ -335,7 +335,7 @@ $wgConfirmEditMessages['hsb'] = array(
 
  #</pre> <!-- leave this line exactly as it is -->',
 );
-$wgConfirmEditMessages['id'] = array(
+$messages['id'] = array(
 	'captcha-edit'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
 ([[Special:Captcha/help|info lengkap]])",
 	'captcha-addurl'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
@@ -356,7 +356,7 @@ Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan
 ([[Special:Captcha/help|info lengkap]])",
 	'captcha-createaccount-fail' => "Kode konfirmasi salah atau belum diisi.",
 );
-$wgConfirmEditMessages['is'] = array(
+$messages['is'] = array(
 	'captcha-edit'               => "Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])",
 	'captcha-addurl'               => "Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])",
 	'captcha-create'               => "Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])",
@@ -371,7 +371,7 @@ Notaðu „back“-hnapp vafrans til að halda áfram.",
 	'captcha-createaccount'      => "Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd áður en þú skráir notandanafn: <br />([[Special:Captcha/help|Hvað er þetta?]])",
 	'captcha-createaccount-fail' => "Staðfestingarkóðinn var rangur eða ekki til staðar.",
 );
-$wgConfirmEditMessages['it'] = array(
+$messages['it'] = array(
 	'captcha-edit'                => 'La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l\'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell\'immagine:<br />
 ([[Special:Captcha/help|Cosa vuol dire?]])',
 	'captcha-addurl'              => 'La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l\'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell\'immagine:<br />
@@ -393,7 +393,7 @@ Sfortunatamente, queste misure di sicurezza possono mettere in difficoltà gli u
 Fare clic sul pulsante \'back\' del browser per tornare alla pagina di modifica.',
 );
 
-$wgConfirmEditMessages['ja'] = array(
+$messages['ja'] = array(
 	'captcha-edit'                => 'このページを編集するには下記に現れる数式の答えを入力してください。<br />
 ([[Special:Captcha/help|詳細]])',
 	'captcha-addurl'              => 'あなたの編集には新たに外部リンクが追加されています。スパム防止のため、下記の数式の答えを入力してください<br />
@@ -416,7 +416,7 @@ $wgConfirmEditMessages['ja'] = array(
 編集ページに戻るには、ブラウザの戻るボタンを押してください。',
 );
 
-$wgConfirmEditMessages['kk-kz'] = array(
+$messages['kk-kz'] = array(
 	'captcha-edit' => 'Бұл бетті өңдеу үшін, төмендегі қосындылауды шешіңіз де, нәтижесін 
 аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 	'captcha-addurl' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздіктік «спам» жасалуынан қорғану үшін,
@@ -440,7 +440,7 @@ $wgConfirmEditMessages['kk-kz'] = array(
 
 Бет өңдеуіне қайту бару үшін «Артқа» деген түймесін басыңыз."
 );
-$wgConfirmEditMessages['kk-tr'] = array(
+$messages['kk-tr'] = array(
 	'captcha-edit' => 'Bul betti öñdew üşin, tömendegi qosındılawdı şeşiñiz de, nätïjesin 
 awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 	'captcha-addurl' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdiktik «spam» jasalwınan qorğanw üşin,
@@ -464,7 +464,7 @@ Bul jumıstı istew üşin şolğışıñızda «cookies» degendi endirw qajet.
 
 Bet öñdewine qaýtw barw üşin «Artqa» degen tüýmesin basıñız."
 );
-$wgConfirmEditMessages['kk-cn'] = array(
+$messages['kk-cn'] = array(
 	'captcha-edit' => 'بۇل بەتتٸ ٶڭدەۋ ٷشٸن, تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن 
 اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
 	'captcha-addurl' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸكتٸك «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
@@ -488,11 +488,11 @@ $wgConfirmEditMessages['kk-cn'] = array(
 
 بەت ٶڭدەۋٸنە قايتۋ بارۋ ٷشٸن «ارتقا» دەگەن تٷيمەسٸن باسىڭىز."
 );
-$wgConfirmEditMessages['kk'] = $wgConfirmEditMessages['kk-kz'];
-$wgConfirmEditMessages['ko'] = array(
+$messages['kk'] = $messages['kk-kz'];
+$messages['ko'] = array(
 	'captcha-createaccount'       => '자동 가입을 막기 위해, 아래 문제의 답을 적어야만 가입이 가능합니다([[Special:Captcha/help|관련 도움말]]):',
 );
-$wgConfirmEditMessages['la'] = array(
+$messages['la'] = array(
 	'captcha-edit'                => 'Ad hanc paginam recensendum, necesse est tibi solvere calculationem subter et responsum in capsam inscribere ([[Special:Captcha/help|Quidst illud?]]):',
 	'captcha-addurl'              => 'Emendatione tua insunt nexus externi; ut spam automaticum vitemus, necesse est tibi solvere calculationem subter et responsum in capsam inscribere ([[Special:Captcha/help|Quidst illud?]]):',
 	'captcha-badlogin'             => 'Ut vitemus ne tesserae frangantur, necesse est tibi solvere calculationem subter et responsum in capsam inscribere ([[Special:Captcha/help|Quidst illud?]]):',
@@ -501,14 +501,14 @@ $wgConfirmEditMessages['la'] = array(
 	'captcha-create'              => 'Ad paginam creandum, necesse est tibi solvere calculationem subter et responsum in capsam inscribere ([[Special:Captcha/help|Quidst illud?]]):',
 	'captchahelp-title'           => 'Captcha auxilium',
 );
-$wgConfirmEditMessages['lo'] = array(
+$messages['lo'] = array(
 	'captcha-edit'               => 'ການດັດແກ້ ຂອງ ທ່ານ ມີລິ້ງູຄ໌ພາຍນອກ. ເພື່ອ ເປັນການຊ່ອຍປ້ອງກັນ ສະແປມອັດຕະໂນມັດ, ກະລຸນາແກ້ເລກບວກ ງ່າຍໆຂ້າງລຸ່ມນີ້ ແລ້ວ ພິມຄຳຕອບໃສ່ໃນ ກັບ ([[Special:Captcha/help|more info]]):',
 	'captcha-addurl'             => 'ການດັດແກ້ຂອງທ່ານ ມີ ການກາງລິ້ງຄ໌ຫາພາຍນອກ. ເພື່ອເປັນການຊ່ອຍປ້ອງກັນ ສະແປມອັດຕະໂນມັດ ກະລຸນາ ແກ້ເລກບວກງ່າຍໆຂ້າງລຸ່ມນີ້ ແລ້ວ ພິມຜົນບວກ ໃສ່ ກັບ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມເຕີມ]]):',
 	'captcha-createaccount'      => 'ເພື່ອປ້ອງກັນ ການສ້າງບັນຊີແບບອັດຕະໂນມັດ, ກະລຸນາ ແກ້ເລກບວກງ່າຍໆ ຂ້າງລຸ່ມ ແລ້ວ ພິມຄຳຕອບໃສ່ ກັບ ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount-fail' => "ບໍ່ຖືກ ຫຼື ບໍ່ມີລະຫັດຢືນຢັນ.",
 	'captcha-create'             => 'ກະລຸນາ ແກ້ເລກບວກງ່າຍໆລຸ່ມນີ້ ແລະ ພິມຜົນບວກໃສ່ໃນກັບ ເພື່ອ ສ້າງໜ້ານີ້ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມເຕີມ]]):',
 );
-$wgConfirmEditMessages['lv'] = array(
+$messages['lv'] = array(
 	'captcha-edit'               => "Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
 	'captcha-addurl'               => "Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
 	'captcha-create'               => "Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
@@ -517,12 +517,12 @@ $wgConfirmEditMessages['lv'] = array(
 	'captcha-createaccount'      => "Lai pasargātos no automātiskas mēstuļošanas, Tev reģistrējoties ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
 	'captcha-createaccount-fail' => "Nepareizs apstiprinājuma kods vai arī tas nav ievadīts.",
 );
-$wgConfirmEditMessages['nan'] = array(
+$messages['nan'] = array(
 	'captcha-createaccount'      => "Ūi beh ī-hông lâng iōng ke-si chū-tōng chù-chheh koh tah kóng-kò, chhiáⁿ lí kā chhut-hiān tī ang-á lāi-bīn ê jī phah 1 piàn (thang chèng-bêng lí m̄ sī ki-khì-lâng): <br />
 ([[Special:Captcha/help|Che sī siáⁿ-hòe?]])",
 	'captcha-createaccount-fail' => "Khak-jīn-bé chhò-gō· iah-sī làu-kau.",
 );
-$wgConfirmEditMessages['nds'] = array(
+$messages['nds'] = array(
 	'captcha-edit'                => 'In dien Text steiht en nee Lenk na buten dat Wiki. Dat hier keen automaatsch instellten Spam rinkummt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
 	'captcha-createaccount'       => 'Dat hier nich Brukers automaatsch anleggt warrt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
 	'captcha-createaccount-fail'  => 'Kood to’n Bestätigen is verkehrt oder fehlt.',
@@ -539,7 +539,7 @@ $wgConfirmEditMessages['nds'] = array(
 
  #</pre> <!-- leave this line exactly as it is -->',
 );
-$wgConfirmEditMessages['nl'] = array(
+$messages['nl'] = array(
 	'captcha-edit'                => 'Uw bewerking bevat nieuwe externe links (URL\'s). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
 ([[Special:Captcha/help|Wat is dit?]])',
 	'captcha-addurl'              => 'Uw bewerking bevat nieuwe externe links (URL\'s). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
@@ -565,7 +565,7 @@ Klik op de knop \'terug\' in uw browser om terug te gaan naar het tekstbewerking
 #   * Iedere niet-lege regel is een fragment van een reguliere expressie die alleen van toepassing is op hosts binnen URL\'s
  #</pre> <!-- leave this line exactly as it is -->',
 );
-$wgConfirmEditMessages['no'] = array(
+$messages['no'] = array(
 	'captcha-edit'                => 'For å redigere denne artikkelen, vennligst skriv inn summen nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
 	'captcha-addurl'              => 'Din redigering inneholder nye eksterne lenker. For å hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn summen av dette enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
 	'captcha-badlogin'             => 'For å hjelpe oss med å beskytte oss mot automatisk passordtyveri, vennligst løs det enkle regnestykket nedenfor og skriv inn svaret i bosken ([[Special:Captcha/help|mer informasjon]]):',
@@ -587,7 +587,7 @@ Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.',
 #   * Alle linjer som ikke er blanke er fragmenter av regulære uttrykk som sjekker verter i URL-er
  #</pre> <!-- leave this line exactly as it is -->',
 );
-$wgConfirmEditMessages['nn'] = array(
+$messages['nn'] = array(
 	'captcha-edit'               => "Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])",
 	'captcha-addurl'               => "Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])",
 	'captcha-create'               => "Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])",
@@ -596,7 +596,7 @@ $wgConfirmEditMessages['nn'] = array(
 	'captcha-createaccount'      => "For å verne Wikipedia mot reklame (spam) må du skrive inn orda i biletet for å registrere ein konto. <br />([[Special:Captcha/help|Kva er dette?]])",
 	'captcha-createaccount-fail' => "Feil eller manglande godkjenningskode.",
 );
-$wgConfirmEditMessages['oc'] = array(
+$messages['oc'] = array(
 	'captcha-edit'                => 'Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu\'es aquò?]])',
 	'captcha-addurl'              => 'Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu\'es aquò?]])',
 	'captcha-badlogin'            => 'Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxt çai jos dins la boîta de tèxt plaçada al dejos d\'aqueste. ([[Special:Captcha/help|Mai d’entre-senhas]])',
@@ -608,7 +608,7 @@ $wgConfirmEditMessages['oc'] = array(
 	'captchahelp-cookies-needed'  => 'Devètz aver los cookies activats dins vòstre navegaire per qu\'aquò foncione.',
 	'captchahelp-text'            => 'Los sites webs que permeton al mai grand nombre de participar, coma aqueste wiki, son sovent atacats per de spammers qu\'utilizan d\'espleches automatizas per mandar lor ligams sus de fòrça sites sulcòp. Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de far. De còps quand ajustatz de ligams novèls vèrs lo web, lo wiki pòt vos mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d\'automatizar, çò que permet de diferenciar un uman real d\'un logicial automatic malvolent. Malaürosament, aqueste sistèma es pas adaptat a d\'utilizaires mal-vesents o utilizant de navigaires textuals o audiò. Actualament, prepausem pas d\'alternativas adaptadas. Se avètz besonh d\'ajuda esitetz pas a contactar los administrators del sit. Clicatz sul boton \'precedent\' de vòstre navegaire per tornar a l\'editor.',
 );
-$wgConfirmEditMessages['pl'] = array(
+$messages['pl'] = array(
 	'captcha-edit'                => 'Aby edytować tę stronę musisz rozwiązać proste działanie matematyczne poniżej i wpisać wynik do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
 	'captcha-addurl'              => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy wykonać proste działanie matematyczne i wpisać wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
 	'captcha-badlogin'            => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o rozwiązanie tego prostego zadania i wpisanie odwiedzi w pole obok ([[Special:Captcha/help|więcej informacji]])',
@@ -624,7 +624,7 @@ $wgConfirmEditMessages['pl'] = array(
 #   * Każda linia, która nie jest pusta, jest fragmentem wyrażenia regularnego, które ma pasować do adresów wewnątrz adresów URL
  #</pre> <!-- zostaw tę linię dokładnie jak jest -->',
 );
-$wgConfirmEditMessages['pms'] = array(
+$messages['pms'] = array(
 	'captcha-edit'                => 'Për fe-ie dle modìfiche ansima a st\'artìcol-sì, për piasì ch\'a fasa ël total ambelessì sota 
 e ch\'a buta l\'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
 	'captcha-addurl'              => 'Soa modìfica a la gionta dj\'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch\'a fasa ël total ambelessì sota e ch\'a buta l\'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
@@ -649,7 +649,7 @@ Ch\'a-i bata ansima al boton \'andré\' ant sò navigator për torné andré a l
 #   * minca riga nen veujda a l\'é un frament d\'espression regolar ch\'as dòvra për identifiché j\'adrësse dle màchine servente ant j\'anliure
  #</pre> <!-- leave this line exactly as it is -->',
 );
-$wgConfirmEditMessages['pt'] = array(
+$messages['pt'] = array(
 	'captcha-edit'                => 'Para editar esta página será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
 	'captcha-addurl'              => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
 	'captcha-badlogin'             => 'Como prevenção contra formas automatizadas de pesquisa e descoberta de senhas, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
@@ -672,8 +672,8 @@ Pressione o botão \'voltar\' de seu navegador para retornar à página de ediç
 #   * Todas as linhas que não estiverem em branco são um fragmento de regex, as quais referem-se aos apenas através de URLs;
  #</pre> <!-- mantenha esta linha exatamente desta forma -->',
 );
-$wgConfirmEditMessages['pt-br'] = $wgConfirmEditMessages['pt'];
-$wgConfirmEditMessages['ro'] = array(
+$messages['pt-br'] = $messages['pt'];
+$messages['ro'] = array(
 	'captcha-edit'                => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
 	'captcha-addurl'              => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
 	'captcha-badlogin'             => 'Ca măsură de protecţie împotriva spargerii de parole, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
@@ -690,7 +690,7 @@ Din nefericire, această metodă îi poate deranja pe utilizatorii cu vedere lim
 
 Va fi nevoie ca browserul folosit să suporte module cookie.',
 );
-$wgConfirmEditMessages['ru'] = array(
+$messages['ru'] = array(
 	'captcha-edit'               => "Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
 ([[{{ns:special}}:Captcha/help|Что это такое?]])",
 	'captcha-addurl'               => "Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
@@ -709,7 +709,7 @@ $wgConfirmEditMessages['ru'] = array(
 ([[{{ns:special}}:Captcha/help|Что это такое?]])",
 	'captcha-createaccount-fail' => "Код подтверждения отсутствует или неверен.",
 );
-$wgConfirmEditMessages['sk'] = array(
+$messages['sk'] = array(
 	'captcha-edit'                => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
 	'captcha-addurl'              => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
 	'captcha-badlogin'             => 'Ako ochranu proti automatizovanému lámaniu hesiel, prosím vyriešte nasledujúci súčet a zadajte ho do poľa pre odpoveď ([[Special:Captcha/help|viac informácií]]):',
@@ -733,7 +733,7 @@ Stlačením tlačidla "späť" vo Vašom prehliadači sa vrátite do editora str
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
-$wgConfirmEditMessages['sl'] = array(
+$messages['sl'] = array(
 	'captcha-edit'               => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",
 	'captcha-addurl'               => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",
 	'captcha-create'               => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",
@@ -748,7 +748,7 @@ Za vrnitev v urejevalnik izberite gumb 'nazaj' vašega brskalnika.",
 	'captcha-createaccount'      => "Za registracijo je zaradi zaščite pred neželenimi reklamnimi sporočili treba vpisati prikazane besede: <br />([[{{ns:special}}:Captcha|Kaj je to?]])",
 	'captcha-createaccount-fail' => "Nepravilna ali manjkajoča potrditvena koda.",
 );
-$wgConfirmEditMessages['sq'] = array(
+$messages['sq'] = array(
 	'captcha-edit'               => 'Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])',
 	'captcha-addurl'             => 'Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])',
 	'captcha-create'             => 'Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])',
@@ -764,7 +764,7 @@ Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e
 	'captcha-createaccount-fail' => 'Mesazhi që duhej shtypur mungon ose nuk është shtypur siç duhet.',
 );
 
-$wgConfirmEditMessages['su'] = array(
+$messages['su'] = array(
 	'captcha-edit'                => 'Pikeun ngédit artikel ieu, mangga eusian itungan di handap ieu ([[Special:Captcha/help|émbaran lengkep]]):',
 	'captcha-addurl'              => 'Éditan anjeun ngawengku tumbu kaluar anyar. Pikeun nyegah spam, mangga eusian itungan di handap ieu [[Special:Captcha/help|émbaran lengkep]]):',
 	'captcha-createaccount'       => 'Pikeun nyegah dijieunna rekening sacara otomatis, mangga eusian itungan di handap ieu ([[Special:Captcha/help|émbaran lengkep]]):',
@@ -782,7 +782,7 @@ You will need to have cookies enabled in your browser for this to work.
 Hit the \'back\' button in your browser to return to the page editor.',
 );
 
-$wgConfirmEditMessages['sv'] = array(
+$messages['sv'] = array(
 	'captcha-edit' => 'För att redigera den här sidan måste du först skriva svaret på följande
 räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
 	'captcha-addurl' => 'Din ändring lägger till nya externa länkar i texten. För att skydda wikin mot
@@ -817,7 +817,7 @@ Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeri
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
-$wgConfirmEditMessages['uk'] = array(
+$messages['uk'] = array(
 	'captchahelp-text'           => "Вікіпедія застосовує техніку розрізнення людей від комп'ютерів, яка використовує розпізнавання образів, для захисту від  комп'ютерних  шкідливих програм, які автоматично реєструються  (найчастіше спамлять у статтях).
 
 Для реєстрації у Вікіпедії та іноді й при редагуванні статей користувачеві потрібно ввести вказану контрольну послідовність символів, і яку вони, будучи людьми, а не комп'ютерними програмами, можуть легко розпізнати.
@@ -827,7 +827,7 @@ You will need to have cookies enabled in your browser for this to work.
 Hit the 'back' button in your browser to return to the page editor.",
 	'captcha-createaccount-fail' => 'Невірний або відсутній код підтвердження.',
 );
-$wgConfirmEditMessages['wa'] = array(
+$messages['wa'] = array(
 	'captcha-edit'  => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
 	'captcha-addurl'  => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
 	'captcha-create'  => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
@@ -843,7 +843,7 @@ Clitchîz sol boton «En erî» di vosse betchteu waibe po rivni al pådje di dv
 	'captcha-createaccount' => 'Po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin po-z ahiver vosse conte, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
 	'captcha-createaccount-fail' => 'Li côde d\' acertinaedje est incorek ou mancant.',
 );
-$wgConfirmEditMessages['yue'] = array(
+$messages['yue'] = array(
 	'captcha-edit'               => "你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
 ([[Special:Captcha/help|呢個係乜嘢嚟？]])",
 	'captcha-addurl'             => "你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
@@ -870,7 +870,7 @@ $wgConfirmEditMessages['yue'] = array(
 #   * 所有非空白行係一個regex部份，只係會同裏面嘅URL主機相符
  #</pre> <!-- leave this line exactly as it is -->',
 );
-$wgConfirmEditMessages['zh-hans'] = array(
+$messages['zh-hans'] = array(
 	'captcha-edit'               => "你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
 ([[Special:Captcha/help|这是什么？]])",
 	'captcha-addurl'               => "你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
@@ -897,7 +897,7 @@ $wgConfirmEditMessages['zh-hans'] = array(
 #   * 所有非空白行是一个regex部份，只是跟在里面的URL主机相符
  #</pre> <!-- leave this line exactly as it is -->',
 );
-$wgConfirmEditMessages['zh-hant'] = array(
+$messages['zh-hant'] = array(
 	'captcha-edit'               => "你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
 ([[Special:Captcha/help|這是什麼？]])",
 	'captcha-addurl'               => "你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
@@ -924,10 +924,10 @@ $wgConfirmEditMessages['zh-hant'] = array(
 #   * 所有非空白行是一個regex部份，只是跟在裏面的URL主機相符
  #</pre> <!-- leave this line exactly as it is -->',
 );
-$wgConfirmEditMessages['zh'] = $wgConfirmEditMessages['zh-hans'];
-$wgConfirmEditMessages['zh-cn'] = $wgConfirmEditMessages['zh-hans'];
-$wgConfirmEditMessages['zh-hk'] = $wgConfirmEditMessages['zh-hant'];
-$wgConfirmEditMessages['zh-min-nan'] = $wgConfirmEditMessages['nan'];
-$wgConfirmEditMessages['zh-sg'] = $wgConfirmEditMessages['zh-hans'];
-$wgConfirmEditMessages['zh-tw'] = $wgConfirmEditMessages['zh-hant'];
-$wgConfirmEditMessages['zh-yue'] = $wgConfirmEditMessages['yue'];
+$messages['zh'] = $messages['zh-hans'];
+$messages['zh-cn'] = $messages['zh-hans'];
+$messages['zh-hk'] = $messages['zh-hant'];
+$messages['zh-min-nan'] = $messages['nan'];
+$messages['zh-sg'] = $messages['zh-hans'];
+$messages['zh-tw'] = $messages['zh-hant'];
+$messages['zh-yue'] = $messages['yue'];

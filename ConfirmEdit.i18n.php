@@ -222,13 +222,15 @@ $messages['eu'] = array(
 );
 
 $messages['fi'] = array(
-	'captcha-edit'               => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
-	'captcha-addurl'               => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
-	'captcha-create'               => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
-	'captcha-createaccount'      => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
-	'captcha-createaccount-fail' => 'Väärä tai puuttuva varmistuskoodi.',
-	'captchahelp-title'          => 'Captcha-ohje',
-	'captchahelp-text'           => "Verkkosivut, jotka sallivat ulkopuolisten lisätä sisältöä, joutuvat usein spam-hyökkäysten kohteeksi. Spam-hyökkäyksessä spammerit käyttävät työkaluja, jotka automaattisesti lisäävät linkkejä monille sivuille. Vaikka nämä linkit voidaan poistaa, aiheutuu niistä silti merkittävä haitta.
+	'captcha-edit'                => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-addurl'              => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-badlogin'            => 'Salasananmurtajasovellusten takia, ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-createaccount'       => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-createaccount-fail'  => 'Väärä tai puuttuva varmistuskoodi.',
+	'captcha-create'              => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captchahelp-title'           => 'Captcha-ohje',
+	'captchahelp-cookies-needed'  => 'Tämä toiminto vaatii evästeiden hyväksymistä.',
+	'captchahelp-text'            => 'Verkkosivut, jotka sallivat ulkopuolisten lisätä sisältöä, joutuvat usein spam-hyökkäysten kohteeksi. Spam-hyökkäyksessä spammerit käyttävät työkaluja, jotka automaattisesti lisäävät linkkejä monille sivuille. Vaikka nämä linkit voidaan poistaa, aiheutuu niistä silti merkittävä haitta.
 
 Joskus, erityisesti kun lisäät uusia linkkejä, saatat nähdä kuvan, jossa on värillistä ja vääristynyttä tekstiä, ja sinua pyydetään kirjoittamaan sen sisältämät sanat. Koska tätä tehtävää on vaikea automatisoida, se sallii melkein kaikkien oikeiden ihmisten tehdä muutoksensa, mutta estää automaattiset lisäykset.
 
@@ -236,7 +238,7 @@ Valitettavasti tämä saattaa estää käyttäjiä, joilla on rajoittunut näkö
 
 Varmistus ei toimi, jos evästeet eivät ole käytössä.
 
-Voit palata muokkaustilaan selaimen paluutoiminnolla.",
+Voit palata muokkaustilaan selaimen paluutoiminnolla.',
 );
 $messages['fr'] = array(
 	'captcha-edit'                => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
@@ -279,7 +281,7 @@ $messages['gl'] = array(
 	'captcha-create'              => 'Para crear a páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa  ([[Special:Captcha/help|Qué é isto?]])',
 	'captchahelp-title'           => 'Axuda acerca do Captcha',
 	'captchahelp-cookies-needed'  => 'Vostede necesita ter as cookies habilitadas no seu navegador para que funcione.',
-	'captchahelp-text'            => '\'\'\'CAPTCHA\'\'\' (acrónimo de "\'\'\'C\'\'\'ompletely \'\'\'A\'\'\'utomated \'\'\'P\'\'\'ublic \'\'\'T\'\'\'uring test to tell \'\'\'C\'\'\'omputers and \'\'\'H\'\'\'umans \'\'\'A\'\'\'part") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas. Os sitios web que aceptan publicar as contribucións dos usuarios coma este wiki sofren, con frecuencia, o abuso por parte de \'\'spammers\'\' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias nunha chea páxinas en pouco tempo. Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo. En ocasións, en particular cando engada algún novo vínculo externo, o wiki pode mostrar unha imaxe dun texto coloreado e distorsionado e pedirlle que teclee as palabras mostradas. Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e robots e dificulta os ataques automatizados dos \'\'spammers\'\'. Por desgraza, pódelles causar problemas a aqueles usuarios con dificultades de visión ou aos que utilicen navegadores de texto ou navegadores baseados en sistemas de voz. Polo de agora non dispoñemos dunha alternativa de audio. Por favor, contacte cun [[Special:Listusers/sysop|administrador]] do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas. Prema no botón "atrás" ou equivalente do seu navegador para volver á páxina na que estaba.',
+	'captchahelp-text'            => '\'\'\'CAPTCHA\'\'\' (acrónimo de "\'\'\'C\'\'\'ompletely \'\'\'A\'\'\'utomated \'\'\'P\'\'\'ublic \'\'\'T\'\'\'uring test to tell \'\'\'C\'\'\'omputers and \'\'\'H\'\'\'umans \'\'\'A\'\'\'part") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas. Os sitios web que aceptan publicar as contribucións dos usuarios coma este wiki sofren, con frecuencia, o abuso por parte de \'\'spammers\'\' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias nunha chea de páxinas en pouco tempo. Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo. En ocasións, en particular cando engada algún novo vínculo externo, o wiki pode mostrar unha imaxe dun texto coloreado e distorsionado e pedirlle que teclee as palabras mostradas. Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e robots e dificulta os ataques automatizados dos \'\'spammers\'\'. Por desgraza, pódelles causar problemas a aqueles usuarios con dificultades de visión ou aos que utilicen navegadores de texto ou navegadores baseados en sistemas de voz. Polo de agora non dispoñemos dunha alternativa de audio. Por favor, contacte cun [[Special:Listusers/sysop|administrador]] do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas. Prema no botón "atrás" ou equivalente do seu navegador para volver á páxina na que estaba.',
 	'captcha-addurl-whitelist'    => ' #<!-- deixe esta liña exactamente como está --> <pre>
 # A sintaxe é a seguinte:
 #   * Todo o que vai desde o carácter "#" até o final da liña é un comentario  

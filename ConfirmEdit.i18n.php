@@ -266,6 +266,11 @@ Parfois, en particulier lors de l’ajout de nouveaux liens externes à une page
 Cette solution peut malheureusement gêner les utilisateurs malvoyants ou utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l’instant. Veuillez contacter un administrateur du site si vous n’arrivez pas à faire vos contributions.
 
 Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page d’édition.',
+	'captcha-addurl-whitelist'    => ' #<!-- laissez cette ligne exactement telle quelle --> <pre> 
+# La syntaxe est la suivante: 
+#   * Tout caractère suivant "#" jusqu\'à la fin de la ligne sera interprêté comme un commentaire
+#   * Toute ligne non vide est un code regex qui sera utilisé uniquement à l\'intérieur des liens hypertext.
+ #</pre> <!-- laissez cette ligne exactement telle quelle -->',
 );
 $messages['ga'] = array(
 	'captcha-edit'               => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",

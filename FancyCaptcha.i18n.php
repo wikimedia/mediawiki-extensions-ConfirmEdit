@@ -84,6 +84,11 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 	'fancycaptcha-edit' => 'Para editar esta página, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
 ),
 
+'fo' => array(
+	'fancycaptcha-addurl' => 'Sum ein vernd ímóti sjálvvirknum konto gerð, er neyðugt hjá tær at skriva inn tey orð, sum koma fyri á myndini fyri at stovna eina kontu: <br />([[Special:Captcha/help|Hvat er hetta?]])',
+	'fancycaptcha-createaccount' => 'Sum ein vernd ímóti sjálvvirknum konto gerð, er neyðugt hjá tær at skriva inn tey orð, sum koma fyri á myndini fyri at stovna eina kontu: <br />([[Special:Captcha/help|Hvat er hetta?]]):',
+),
+
 /* French */
 'fr' => array(
 	'fancycaptcha-addurl' => 'Votre modification inclut de nouveaux liens externes. Pour vérifier qu’il ne s’agit pas de pourriel, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :',

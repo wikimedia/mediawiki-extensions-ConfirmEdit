@@ -48,6 +48,11 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 	'fancycaptcha-edit' => 'Per a poder editar la pàgina heu d\'escriure en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):',
 ),
 
+/* Min Dong */
+'cdo' => array(
+	'fancycaptcha-badlogin' => 'Ôi-lāu huòng-cī tiàng-sê̤ṳ cê̤ṳ-dông puái-gāi mĭk-mā, chiāng nṳ̄ sṳ̆-ĭk â-dā̤ bēng-bēng diē-lié gì sṳ̀ ([[Special:Captcha/help|gáing sâ̤ séng-sék]]):',
+),
+
 /* Czech */
 'cs' => array(
 	'fancycaptcha-addurl' => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
@@ -365,4 +370,3 @@ $messages['zh-tw'] = $messages['zh-hans'];
 $messages['zh-sg'] = $messages['zh-hant'];
 /* Cantonese default, fallback to yue */
 $messages['zh-yue'] = $messages['yue'];
-

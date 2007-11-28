@@ -354,6 +354,11 @@ molimo zbrojite donje brojeve i upišite rezultat ([[Special:Captcha/help|pomoć
 	'captchahelp-title'           => 'Antispam pomoć',
 	'captchahelp-cookies-needed'  => 'Trebate imati uključene kolačiće (\'\'cookies\'\') u vašem web pregledniku za ovu funkciju.',
 	'captchahelp-text'            => 'Web poslužitelje koji rade na temelju javnih doprinosa, poput wiki, često zloupotrebljavaju spameri. Oni koriste automatske alate pomoću kojih generiraju poveznice od vlastitog interesa. Iako se te poveznice najčešće uklanjaju, mogu predstavljati neugodnost pri radu. Ponekad se dogodi da wiki prikaže sliku čudnog tekstualnog sadržaja uz koju morate unijeti prikazana slova. Budući da je takvu radnju teško automatizirati, većina se napadača obeshrabri, a pravi suradnici bez većih smetnji nastavljaju pridonositi. Ukoliko ste suradnik koji koristi tekstualni klijent te vas česte ovakve provjere ometaju pri dodavanju važećih sadržaja, molimo da se obratite [[Special:Listusers/sysop|administratorima]].',
+	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre> 
+# Rabi se slijedeća sintaksa: 
+#   * Sve od "#" znaka do kraja linije je komentar
+#   * Svaki neprazni redak je regularni izraz (regex) koji odgovara poslužitelju unutar URL-a
+ #</pre> <!-- leave this line exactly as it is -->',
 );
 $messages['hsb'] = array(
 	'captcha-edit'                => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',

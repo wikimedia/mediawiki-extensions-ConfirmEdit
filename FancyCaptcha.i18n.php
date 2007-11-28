@@ -135,6 +135,18 @@ que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):'
 	'fancycaptcha-edit'          => 'כדי לערוך את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 ),
 
+'hr' => array(
+	'fancycaptcha-addurl' => 'Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama,
+molimo unesite slova koja vidite na slici dolje: ([[Special:Captcha/help|Pomoć]])',
+	'fancycaptcha-badlogin' => 'Da se spriječi automatiziranje pogađanja lozinki, molimo unesite
+slova koja vidite na slici dolje: <br />([[Special:Captcha/help|Pomoć]])',
+	'fancycaptcha-createaccount' => 'Kao zaštitu od automatskog otvaranja računa, pri otvaranju računa trebate
+unijeti slova koja vidite na slici: <br />([[Special:Captcha/help|Pomoć]])',
+	'fancycaptcha-create' => 'Da bi stvorili novu stranicu, molimo unesite
+slova koja vidite na slici dolje: <br />([[Special:Captcha/help|Pomoć]])',
+	'fancycaptcha-edit' => 'Da bi uređivali ovu stranicu, molimo unesite slova koja vidite na slici dolje: <br />([[Special:Captcha/help|Pomoć]])',
+),
+
 'hsb' => array(
 	'fancycaptcha-addurl' => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo awtomatiskemu spamej zapodaj prošu sćěhowace znamješka do kašćika ([[{{ns:special}}:Captcha/help|čehodla?]]).',
 	'fancycaptcha-badlogin' => 'Jako škitna naprawa přećiwo awtomatiskemu zadobywanju do wužiwarskich kontow zapodaj prošu sćěhowace znamješka do kašćika ([[Special:Captcha/help|čehodla?]]):',

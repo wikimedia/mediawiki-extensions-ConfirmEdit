@@ -75,6 +75,15 @@ $messages['bcl'] = array(
 	'captcha-create'              => 'Tangarig maggibo an pahina, paki simbagan an simpleng suma sa ibaba asin ikaag an simbag sa laog kan kahon ([[Special:Captcha/help|more info]]):',
 	'captchahelp-title'           => 'Tabang sa Captcha',
 );
+$messages['bg'] = array(
+	'captchahelp-text'            => 'Уеб сайтовете, които позволяват свободно да се редактира и добавя ново съдържание (като това уики), често са обект на атаки от страна на спамъри, които използват средства за автоматизирано редактиране за публикуване на препратки към много сайтове. Въпреки че тези препратки могат да бъдат премахнати, те са особено неприятни за потребителите. 
+
+Понякога, особено когато се добавят нови препратки към страниците, е възможно уикито да покаже картинка с текст, който трябва да бъде въведен в посоченото поле. Тъй като това е стъпка, която е трудно да бъде прескочена при автоматизирано редактиране, тя затруднява и спира повечето спамъри и роботи, но допуска истинските потребителите да правят редакции. 
+
+За съжаление тази стъпка може да затрудни незрящи потребители или потребители, които използват текстови или речеви браузъри. За момента системата не разполага с възможност за гласова алтернатива. Обърнете се за помощ към администратор на сайта, ако това изискване на системата ви затруднява да допринасяте легитимно. 
+
+Натиснете бутона \'back\' на вашия браузър, за да се върнете към редактора на страници.',
+);
 $messages['br'] = array(
 	'captcha-edit'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',
 	'captcha-addurl'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',

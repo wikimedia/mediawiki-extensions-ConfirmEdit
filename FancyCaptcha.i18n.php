@@ -264,14 +264,16 @@ hieronder verschijnen in het invoerveld in als bescherming tegen automatische sp
 	'fancycaptcha-edit' => 'Din endring inneholder nye eksterne lenker. For å beskytte mot automatisk spam, vennligst skriv inn ordene som dukker opp i boksten nedenunder ([[Special:Captcha/help|mer informasjon]]):',
 ),
 
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
 'oc' => array(
-	'fancycaptcha-addurl' => 'Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu\'apareisson dins la boita çai jos ([[Special:Captcha/help|mai d’informacions]]) :',
-	'fancycaptcha-badlogin' => 'Per ajudar a vos protegir contra lo piratatge de compte per senhals automatics, mercés d’entrar los mots que s’afichan dins aquesta boita ([[Special:Captcha/help|Ajuda]]) :',
-	'fancycaptcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, entratz los mots çai jos dins la boita ([[Special:Captcha/help|mai d’informacions]]) :',
-	'fancycaptcha-create' => 'Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu\'apareisson dins la boita çai jos ([[Special:Captcha/help|mai d’informacions]]) :',
-	'fancycaptcha-edit' => 'Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu\'apareisson dins la boita çai jos ([[Special:Captcha/help|mai d’informacions]]) :',
+	'fancycaptcha-addurl'        => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu'apareisson dins la boita çaijós ([[Special:Captcha/help|mai d’informacions]]) :",
+	'fancycaptcha-badlogin'      => 'Per ajudar a vos protegir contra lo piratatge de compte per senhals automatics, mercés d’entrar los mots que s’afichan dins aquesta boita ([[Special:Captcha/help|Ajuda]]) :',
+	'fancycaptcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, entratz los mots çaijós dins la boita ([[Special:Captcha/help|mai d’informacions]]) :',
+	'fancycaptcha-create'        => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu'apareisson dins la boita çaijós ([[Special:Captcha/help|mai d’informacions]]) :",
+	'fancycaptcha-edit'          => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu'apareisson dins la boita çaijós ([[Special:Captcha/help|mai d’informacions]]) :",
 ),
-
 
 'pl' => array(
 	'fancycaptcha-addurl' => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',

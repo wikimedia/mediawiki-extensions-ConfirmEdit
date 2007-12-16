@@ -36,7 +36,6 @@ global $wgExtensionFunctions, $wgGroupPermissions;
 $wgExtensionFunctions[] = 'confirmEditSetup';
 $wgExtensionCredits['other'][] = array(
 	'name' => 'ConfirmEdit',
-	'version' => '1.1',
 	'author' => 'Brion Vibber',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:ConfirmEdit',
 	'description' => 'Simple captcha implementation',

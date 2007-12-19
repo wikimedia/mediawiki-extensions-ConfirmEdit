@@ -331,6 +331,19 @@ ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/he
 	'fancycaptcha-edit'          => 'Për të redaktuar këtë faqe ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
 ),
 
+/** Seeltersk (Seeltersk)
+ * @author Pyt
+ */
+'stq' => array(
+	'fancycaptcha-addurl'        => 'Dien Beoarbaidenge änthaalt näie externe Ferbiendengen. Tou Schuts foar automatisierde Spamminge reek dät foulgjende Woud in dät Fäild ien. Klik dan fonnäien ap „Siede spiekerje“ [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
+	'fancycaptcha-badlogin'      => 'Toun Schuts foar ne Kompromittierenge fon dien Benutserkonto reek dät foulgjende Woud in dät Fäild hierunner ien [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]]:',
+	'fancycaptcha-createaccount' => 'Toun Schuts foar automatisierde Anloage fon Benutserkonten reek dät foulgjende Woud in dät Fäild hierunner ien  [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
+	'fancycaptcha-create'        => 'Tou dät Moakjen fon ju Siede reek dät foulgjende Woud in dät Fäild hierunner ien
+[[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
+	'fancycaptcha-edit'          => 'Tou Beoarbaidenge fon disse Siede reek dät foulgjende Woud in dät Fäild hierunner ien
+[[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
+),
+
 /* Swedish */
 'sv' => array(
 	'fancycaptcha-addurl' => 'Din ändring lägger till nya externa länkar i texten. För att skydda wikin mot

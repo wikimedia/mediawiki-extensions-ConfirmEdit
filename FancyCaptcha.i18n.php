@@ -81,6 +81,16 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 	'fancycaptcha-edit'          => 'Zur Bearbeitung der Seite gebe das folgende Wort in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
 ),
 
+/** Greek (Ελληνικά)
+ * @author Consta
+ */
+'el' => array(
+	'fancycaptcha-create' => 'Για να δημιουργήσετε αυτήν την σελίδα, παρακαλώ εισάγετε τις λέξεις που εμφανίζονται παρακάτω μέσα στο κουτί
+([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+	'fancycaptcha-edit'   => 'Για να επεξεργαστείτε αυτήν την σελίδα, παρακαλώ εισάγετε τις λέξεις που εμφανίζονται παρακάτω μέσα στο κουτί
+([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+),
+
 /* Spanish */
 'es' => array(
 	'fancycaptcha-addurl' => 'Tu edición incluye nuevos enlaces externos. Para protegernos contra el spam automatizado, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',

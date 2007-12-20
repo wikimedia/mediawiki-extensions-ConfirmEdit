@@ -184,7 +184,7 @@ slova koja vidite na slici dolje: <br />([[Special:Captcha/help|Pomoć]])',
 
 
 /* Kazakh Cyrillic */
-'kk-kz' => array(
+'kk-cyrl' => array(
 	'fancycaptcha-addurl' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 	'fancycaptcha-badlogin' => 'Құпия сөзді өздікті бұздырудан қорғану үшін, төмендегі
@@ -198,7 +198,7 @@ slova koja vidite na slici dolje: <br />([[Special:Captcha/help|Pomoć]])',
 ),
 
 /* Kazakh Latin */
-'kk-tr' => array(
+'kk-latn' => array(
 	'fancycaptcha-addurl' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
 tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 	'fancycaptcha-badlogin' => 'Qupïya sözdi özdikti buzdırwdan qorğanw üşin, tömendegi
@@ -212,7 +212,7 @@ tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/h
 ),
 
 /* Kazakh Arabic */
-'kk-cn' => array(
+'kk-arab' => array(
 	'fancycaptcha-addurl' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸك تٷردە «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
 تٶمەندەگٸ كٶرسەتٸلگەن سٶزدەردٸ اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
 	'fancycaptcha-badlogin' => 'قۇپييا سٶزدٸ ٶزدٸكتٸ بۇزدىرۋدان قورعانۋ ٷشٸن, تٶمەندەگٸ
@@ -387,8 +387,11 @@ skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information
 
 );
 
-/* Kazakh default, fallback to kk-kz */
-$messages['kk'] = $messages['kk-kz'];
+/* Kazakh fallbacks */
+$messages['kk-kz'] = $messages['kk-cyrl'];
+$messages['kk-tr'] = $messages['kk-latn'];
+$messages['kk-cn'] = $messages['kk-arab'];
+$messages['kk'] = $messages['kk-cyrl'];
 /* Chinese defaults, fallback to zh-hans or zh-hant */
 $messages['zh'] = $messages['zh-hans'];
 $messages['zh-cn'] = $messages['zh-hans'];

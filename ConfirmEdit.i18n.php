@@ -493,7 +493,7 @@ $messages['ja'] = array(
 
 編集ページに戻るには、ブラウザの戻るボタンを押してください。',
 );
-$messages['kk-kz'] = array(
+$messages['kk-cyrl'] = array(
 	'captcha-edit' => 'Бұл бетті өңдеу үшін, төмендегі қосындылауды шешіңіз де, нәтижесін 
 аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 	'captcha-addurl' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздіктік «спам» жасалуынан қорғану үшін,
@@ -517,7 +517,7 @@ $messages['kk-kz'] = array(
 
 Бет өңдеуіне қайту бару үшін «Артқа» деген түймесін басыңыз."
 );
-$messages['kk-tr'] = array(
+$messages['kk-latn'] = array(
 	'captcha-edit' => 'Bul betti öñdew üşin, tömendegi qosındılawdı şeşiñiz de, nätïjesin 
 awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 	'captcha-addurl' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdiktik «spam» jasalwınan qorğanw üşin,
@@ -541,7 +541,7 @@ Bul jumıstı istew üşin şolğışıñızda «cookies» degendi endirw qajet.
 
 Bet öñdewine qaýtw barw üşin «Artqa» degen tüýmesin basıñız."
 );
-$messages['kk-cn'] = array(
+$messages['kk-arab'] = array(
 	'captcha-edit' => 'بۇل بەتتٸ ٶڭدەۋ ٷشٸن, تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن 
 اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
 	'captcha-addurl' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸكتٸك «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
@@ -565,7 +565,6 @@ $messages['kk-cn'] = array(
 
 بەت ٶڭدەۋٸنە قايتۋ بارۋ ٷشٸن «ارتقا» دەگەن تٷيمەسٸن باسىڭىز."
 );
-$messages['kk'] = $messages['kk-kz'];
 $messages['ko'] = array(
 	'captcha-createaccount'       => '자동 가입을 막기 위해, 아래 문제의 답을 적어야만 가입이 가능합니다([[Special:Captcha/help|관련 도움말]]):',
 );
@@ -1024,6 +1023,14 @@ $messages['zh-hant'] = array(
 #   * 所有非空白行是一個regex部份，只是跟在裏面的URL主機相符
  #</pre> <!-- leave this line exactly as it is -->',
 );
+
+# Kazakh fallbacks
+$messages['kk-kz'] = $messages['kk-cyrl'];
+$messages['kk-tr'] = $messages['kk-latn'];
+$messages['kk-cn'] = $messages['kk-arab'];
+$messages['kk'] = $messages['kk-cyrl'];
+
+# Chinese fallbacks
 $messages['zh'] = $messages['zh-hans'];
 $messages['zh-cn'] = $messages['zh-hans'];
 $messages['zh-hk'] = $messages['zh-hant'];

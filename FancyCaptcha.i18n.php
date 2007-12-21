@@ -316,12 +316,14 @@ ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/he
 	'fancycaptcha-edit' => 'Para editar esta página, por favor, introduza as palavras exibidas na seguinte caixa ([[{{ns:special}}:Captcha/help|mais informações]]):',
 ),
 
-/* Russian */
+/** Russian (Русский)
+ * @author .:Ajvol:.
+ */
 'ru' => array(
-	'fancycaptcha-edit' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
-	'fancycaptcha-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
-	'fancycaptcha-create' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
+	'fancycaptcha-addurl'        => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
 	'fancycaptcha-createaccount' => 'Для предотвращения автоматической регистрации учётных записей используется контрольная последовательность символов. Пожалуйста, введите изображённые символы в текстовое поле ниже ([[Special:Captcha/help|подробнее]]):',
+	'fancycaptcha-create'        => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
+	'fancycaptcha-edit'          => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
 ),
 
 /* Slovak (helix84) */

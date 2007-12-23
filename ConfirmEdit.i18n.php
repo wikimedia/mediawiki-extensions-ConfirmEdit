@@ -45,27 +45,34 @@ $messages['af'] = array(
 	'captcha-createaccount'      => "As 'n beskerming teen geoutomatiseerde gemors, tik asseblief die woorde wat in die beeld verskyn in om 'n rekening te skep: <br />([[Special:Captcha/help|Wat is hierdie?]])",
 	'captcha-createaccount-fail' => "Verkeerde of geen bevestigingkode.",
 );
+
 $messages['am'] = array(
 	'captcha-createaccount'       => 'ያልተፈለገ የመኪናነት አባልነት ለመከላከል፥ አባል ለመሆን በዚህ ምስል የታዩት እንግሊዝኛ ቃላት ወይም ቁጥር መልስ በትክክል መጻፍ ግዴታ ነው። ([[Special:Captcha/help|ይህ ምንድነው?]]):',
 );
+
+/** Arabic (العربية)
+ * @author Mido
+ * @author Meno25
+ * @author OsamaK
+ */
 $messages['ar'] = array(
-	'captcha-edit'                => 'يحتوي تعديلك هذا على وصلات خارجية. للحماية من السخام الأوتوماتيكي، قم من فضلك بحل المسألة الرياضية البسيطة أدناه وأدخل الحل في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',
-	'captcha-addurl'              => 'تعديلك يحتوي على وصلات خارجية جديدة. للمساعدة في الحماية من السخام الأوتوماتيكي، من فضلك حل عملية الجمع بالأسفل و أضف الحل في الصندوق  ([[Special::Captcha/help|معلومات إضافية]]):',
-	'captcha-badlogin'            => 'للمساعدة في الحماية ضد سرقة كلمات السر، من فضلك حل عملية الجمع البسيطة بالأسفل وأدخل الحل في الصندوق ([[Special:Captcha/help|معلومات إضافية]]):',
-	'captcha-createaccount'       => 'كحماية ضد العمليات التخريبية، يجب أن تدخل ناتج العملية الحسابية التالية لكي تنشأ حسابا: <br />([[Special:Captcha/help|ما هذا؟]])',
-	'captcha-createaccount-fail'  => 'كود غير مطابق أو لم تقم بإدخاله.',
-	'captcha-create'              => 'من فضلك قم بحل المسألة الرياضية التالية لإنشاء هذه الصفحة وأدخل
+	'captcha-edit'               => 'يحتوي تعديلك هذا على وصلات خارجية. للحماية من السخام الأوتوماتيكي، قم من فضلك بحل المسألة الرياضية البسيطة أدناه وأدخل الحل في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',
+	'captcha-addurl'             => 'تعديلك يحتوي على وصلات خارجية جديدة. للمساعدة في الحماية من السخام الأوتوماتيكي، من فضلك حل عملية الجمع بالأسفل و أضف الحل في الصندوق  ([[Special:Captcha/help|معلومات إضافية]]):',
+	'captcha-badlogin'           => 'للمساعدة في الحماية ضد سرقة كلمات السر، من فضلك حل عملية الجمع البسيطة بالأسفل وأدخل الحل في الصندوق ([[Special:Captcha/help|معلومات إضافية]]):',
+	'captcha-createaccount'      => 'كحماية ضد العمليات التخريبية، يجب أن تدخل ناتج العملية الحسابية التالية لكي تنشأ حسابا: <br />([[Special:Captcha/help|ما هذا؟]])',
+	'captcha-createaccount-fail' => 'كود غير مطابق أو لم تقم بإدخاله.',
+	'captcha-create'             => 'من فضلك قم بحل المسألة الرياضية التالية لإنشاء هذه الصفحة وأدخل
 الجواب في الصندوق ([[Special:Captcha/help|ما هذا؟]]):',
-	'captchahelp-title'           => 'مساعدة الكابتشا',
-	'captchahelp-cookies-needed'  => 'ستحتاج إلى أن تكون الكوكيز مفعلة في متصفحك لكي يعمل هذا',
-	'captchahelp-text'            => 'عادة ما يتم في المواقع التي تقبل الردود والرسائل من العامة، كهذا الويكي، تخريب الموقع عن طريق الأشخاص الذين يستعملون آليات معينة لإرسال وصلاتهم لمواقع متعددة بصورة آلية. وعلى الرغم من أن هذا يمكن إزالته ولكنه مزعج للغاية.
+	'captchahelp-title'          => 'مساعدة الكابتشا',
+	'captchahelp-cookies-needed' => 'ستحتاج إلى أن تكون الكوكيز مفعلة في متصفحك لكي يعمل هذا',
+	'captchahelp-text'           => "عادة ما يتم في المواقع التي تقبل الردود والرسائل من العامة، كهذا الويكي، تخريب الموقع عن طريق الأشخاص الذين يستعملون آليات معينة لإرسال وصلاتهم لمواقع متعددة بصورة آلية. وعلى الرغم من أن هذا يمكن إزالته ولكنه مزعج للغاية.
 
 في بعض الأحيان، خصوصا عند إضافة وصلات لصفحة، ربما يعرض الويكي صورة ملونة أو مشوشة ويطلب منك إدخال كلمات موجودة بالصورة أو يعرض عليك مسألة رياضية عشوائية ويطلب منك حلها. ولأن هذه المهمة صعبة للغاية لأن يقوم بها برنامج، سيسمح هذا للأشخاص الآدميين بإضافة تحريراتهم بينما ستوقف البرامج التخريبية والهجمات الآلية الأخرى.
 
 للأسف سيكون هذا صعبا بالنسبة لمستخدمي المتصفحات المحدودة أو التي تعتمد على النصوص فقط أو قراءة النصوص. في الوقت الحالي لا يوجد لدينا بديل سمعي. من فضلك راسل مديري الموقع للمساعدة إذا كان هذا الأمر يمنعك من التعديل ووضع وصلات قانونية.
 
-إذا كنت تحرر صفحة معينة: اضغط زر \'العودة\' في متصفحك للعودة إلى التحرير.',
-	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre> 
+إذا كنت تحرر صفحة معينة: اضغط زر 'العودة' في متصفحك للعودة إلى التحرير.",
+	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre> 
 # الصيغة كالتالي: 
 #   * كل شيء من علامة "#" لنهاية السطر تعليق
 #   * كل سطر غير فارغ هو قطعة ريجيكس والتي توافق فقط المعيلين داخل المسارات
@@ -326,21 +333,19 @@ Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la p
 #   * Toute ligne non vide est un code regex qui sera utilisé uniquement à l\'intérieur des liens hypertext.
  #</pre> <!-- laissez cette ligne exactement telle quelle -->',
 );
+
+/** Irish (Gaeilge)
+ * @author SPQRobin
+ */
 $messages['ga'] = array(
-	'captcha-edit'               => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
-	'captcha-addurl'               => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
-	'captcha-create'               => "Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
-	'captchahelp-title'          => 'Captcha help',
-	'captchahelp-text'           => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites. While these spam links can be removed, they are a significant nuisance.
-
-Sometimes, especially when adding new web links to a page, the wiki may show you an image of colored or distorted text and ask you to type the words shown. Since this is a task that's hard to automate, it will allow most real humans to make their posts while stopping most spammers and other robotic attackers.
-
-Unfortunately this may inconvenience users with limited vision or using text-based or speech-based browsers. At the moment we do not have an audio alternative available. Please contact the site administrators for assistance if this is unexpectedly preventing you from making legitimate posts.
-
-Hit the 'back' button in your browser to return to the page editor.",
-	'captcha-createaccount'      => "Mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur chun cuntas a chlárú: <br />([[Speisialta:Captcha/help|Céard é seo?]])",
-	'captcha-createaccount-fail' => "Ní raibh an cód deimhnithe ceart sa bhosca, nó ní raibh aon chód ann ar chor ar bith.",
+	'captcha-edit'               => 'Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])',
+	'captcha-addurl'             => 'Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])',
+	'captcha-createaccount'      => 'Mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur chun cuntas a chlárú: <br />([[Speisialta:Captcha/help|Céard é seo?]])',
+	'captcha-createaccount-fail' => 'Ní raibh an cód deimhnithe ceart sa bhosca, nó ní raibh aon chód ann ar chor ar bith.',
+	'captcha-create'             => 'Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])',
+	'captchahelp-title'          => 'Cabhair maidir le Captcha',
 );
+
 $messages['gl'] = array(
 	'captcha-edit'                => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
 	'captcha-addurl'              => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',

@@ -123,6 +123,13 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 	'fancycaptcha-edit' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
 ),
 
+/** Irish (Gaeilge)
+ * @author SPQRobin
+ */
+'ga' => array(
+	'fancycaptcha-createaccount' => 'Mar chosaint in éadan cuntais a chruthaítear go huathoibríoch, ionchuir na focail a thaispeántar san íomhá seo thíos: <br />([[Special:Captcha/help|tuilleadh eolais]])',
+),
+
 'gl' => array(
 	'fancycaptcha-addurl' => 'A súa edición inclúe ligazóns externas novas. Para axudar na protección contra o spam
 automatizado, introduza as palabras que aparecen na páxina de embaixo ([[Special:Captcha/help|máis información]]):',

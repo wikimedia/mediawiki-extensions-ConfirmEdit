@@ -32,6 +32,13 @@ that appear below in the box ([[Special:Captcha/help|more info]]):',
 ([[Special:Captcha/help|معلومات إضافية]]):',
 ),
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+'bg' => array(
+	'fancycaptcha-addurl' => 'Текущата редакция включва нови външни препратки. Като защита от автоматизиран спам, системата изисква от потребителите да въведат думите, показани по-долу в текстовата кутия ([[Special:Captcha/help|повече информация]]):',
+),
+
 'br' => array(
 	'fancycaptcha-edit' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 	'fancycaptcha-addurl' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',

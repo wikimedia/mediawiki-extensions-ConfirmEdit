@@ -105,14 +105,14 @@ $messages['bcl'] = array(
 );
 
 /** Bulgarian (Български)
- * @author Spiritia
  * @author DCLXVI
+ * @author Spiritia
  */
 $messages['bg'] = array(
-	'captcha-edit'               => 'Редактирането на тази статия изисква да се пресметне лесната сума по-долу и резултатът да се впише в полето ([[Special:Captcha/help|още инфо]]):',
-	'captcha-addurl'             => 'Тази редакция съдържа нови външни препратки. Като защитна мярка срещу автоматизиран спам, е необходимо да се пресметне лесната сума по-долу и резултатът да се впише в полето ([[Special:Captcha/help|още инфо]]):',
-	'captcha-badlogin'           => 'Като защитна мярка срещу автоматизирано компрометиране на пароли, е необходимо да се пресметне лесната сума по-долу и резултатът да се впише в полето ([[Special:Captcha/help|още инфо]]):',
-	'captcha-createaccount'      => 'Като защита от автоматизирани регистрации, системата изисква при регистриране на потребителска сметка потребителите да въведат отговора на задачата по-долу и да впишат отговора в текстовата кутия ([[Special:Captcha/help|повече информация]]):',
+	'captcha-edit'               => 'Редактирането на тази статия изисква потребителите да въведат отговора на задачата по-долу в текстовата кутия ([[Special:Captcha/help|повече информация]]):',
+	'captcha-addurl'             => 'Тази редакция съдържа нови външни препратки. Като защита срещу автоматизиран спам системата изисква потребителите да въведат отговора на задачата по-долу в текстовата кутия ([[Special:Captcha/help|повече информация]]):',
+	'captcha-badlogin'           => 'Като защита срещу автоматизирано компрометиране на пароли, системата изисква потребителите да въведат отговора на задачата по-долу в текстовата кутия ([[Special:Captcha/help|повече информация]]):',
+	'captcha-createaccount'      => 'Като защита от автоматизирани регистрации, системата изисква при регистриране на потребителска сметка потребителите да въведат отговора на задачата по-долу в текстовата кутия ([[Special:Captcha/help|повече информация]]):',
 	'captcha-createaccount-fail' => 'Грешен или липсващ код за потвърждение.',
 	'captchahelp-text'           => "Уеб сайтовете, които позволяват свободно да се редактира и добавя ново съдържание (като това уики), често са обект на атаки от страна на спамъри, които използват средства за автоматизирано редактиране за публикуване на препратки към много сайтове. Въпреки че тези препратки могат да бъдат премахнати, те са особено неприятни за потребителите. 
 
@@ -953,6 +953,7 @@ Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeri
 #   * Varje icketom rad är ett reguljärt uttryck som matchar domänen i en URL
  #</pre> <!-- leave this line exactly as it is -->',
 );
+
 $messages['uk'] = array(
 	'captchahelp-text'           => "Вікіпедія застосовує техніку розрізнення людей від комп'ютерів, яка використовує розпізнавання образів, для захисту від  комп'ютерних  шкідливих програм, які автоматично реєструються  (найчастіше спамлять у статтях).
 
@@ -963,6 +964,14 @@ You will need to have cookies enabled in your browser for this to work.
 Hit the 'back' button in your browser to return to the page editor.",
 	'captcha-createaccount-fail' => 'Невірний або відсутній код підтвердження.',
 );
+
+/** Volapük (Volapük)
+ * @author Malafaya
+ */
+$messages['vo'] = array(
+	'captchahelp-title' => 'Yuf ela Captcha',
+);
+
 $messages['wa'] = array(
 	'captcha-edit'  => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
 	'captcha-addurl'  => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
@@ -979,6 +988,7 @@ Clitchîz sol boton «En erî» di vosse betchteu waibe po rivni al pådje di dv
 	'captcha-createaccount' => 'Po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin po-z ahiver vosse conte, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
 	'captcha-createaccount-fail' => 'Li côde d\' acertinaedje est incorek ou mancant.',
 );
+
 $messages['yue'] = array(
 	'captcha-edit'               => "你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
 ([[Special:Captcha/help|呢個係乜嘢嚟？]])",
@@ -1006,6 +1016,7 @@ $messages['yue'] = array(
 #   * 所有非空白行係一個regex部份，只係會同裏面嘅URL主機相符
  #</pre> <!-- leave this line exactly as it is -->',
 );
+
 $messages['zh-hans'] = array(
 	'captcha-edit'               => "你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
 ([[Special:Captcha/help|这是什么？]])",
@@ -1033,6 +1044,7 @@ $messages['zh-hans'] = array(
 #   * 所有非空白行是一个regex部份，只是跟在里面的URL主机相符
  #</pre> <!-- leave this line exactly as it is -->',
 );
+
 $messages['zh-hant'] = array(
 	'captcha-edit'               => "你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
 ([[Special:Captcha/help|這是什麼？]])",

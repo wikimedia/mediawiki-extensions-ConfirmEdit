@@ -655,32 +655,38 @@ $messages['nds'] = array(
 
  #</pre> <!-- leave this line exactly as it is -->',
 );
-$messages['nl'] = array(
-	'captcha-edit'                => 'Uw bewerking bevat nieuwe externe links (URL\'s). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
-([[Special:Captcha/help|Wat is dit?]])',
-	'captcha-addurl'              => 'Uw bewerking bevat nieuwe externe links (URL\'s). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
-([[Special:Captcha/help|Wat is dit?]])',
-	'captcha-badlogin'            => 'Los alstublieft de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
-	'captcha-createaccount'       => 'Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn om uw gebruiker aan te maken:<br />
-([[Special:Captcha/help|Wat is dit?]])',
-	'captcha-createaccount-fail'  => 'Onjuiste of ontbrekende bevestigingscode.',
-	'captcha-create'              => 'Uw bewerking bevat nieuwe externe links (URL\'s). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
-([[Special:Captcha/help|Wat is dit?]])',
-	'captchahelp-title'           => 'Captcha-hulp',
-	'captchahelp-cookies-needed'  => 'U dient in uw browser cookies ingeschakeld te hebben om dit te laten werken.',
-	'captchahelp-text'            => 'Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma\'s automatisch links op zetten naar vele websites. Hoewel deze externe links weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
 
-Soms, en in het bijzonder bij het toevoegen van externe links op pagina\'s, toont de wiki u een afbeelding met gekleurde of vervormde tekst en wordt u gevraagd de getoonde tekst in te voeren. Omdat dit proces lastig te automatiseren is, zijn vrijwel alleen mensen in staat dit proces succesvol te doorlopen en worden hiermee spammers en andere geautomatiseerde aanvallen geweerd.
+/** Dutch (Nederlands)
+ * @author SPQRobin
+ * @author Siebrand
+ */
+$messages['nl'] = array(
+	'captcha-edit'               => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
+([[Special:Captcha/help|Wat is dit?]])",
+	'captcha-addurl'             => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
+([[Special:Captcha/help|Wat is dit?]])",
+	'captcha-badlogin'           => 'Los alstublieft de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
+	'captcha-createaccount'      => 'Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn om uw gebruiker aan te maken:<br />
+([[Special:Captcha/help|Wat is dit?]])',
+	'captcha-createaccount-fail' => 'Onjuiste of ontbrekende bevestigingscode.',
+	'captcha-create'             => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
+([[Special:Captcha/help|Wat is dit?]])",
+	'captchahelp-title'          => 'Captcha-hulp',
+	'captchahelp-cookies-needed' => 'U dient in uw browser cookies ingeschakeld te hebben om dit te laten werken.',
+	'captchahelp-text'           => "Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma's automatisch links op zetten naar vele websites. Hoewel deze externe links weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
+
+Soms, en in het bijzonder bij het toevoegen van externe links op pagina's, toont de wiki u een afbeelding met gekleurde of vervormde tekst en wordt u gevraagd de getoonde tekst in te voeren. Omdat dit proces lastig te automatiseren is, zijn vrijwel alleen mensen in staat dit proces succesvol te doorlopen en worden hiermee spammers en andere geautomatiseerde aanvallen geweerd.
 
 Helaas levert deze bevestiging voor gebruikers met een visuele handicap of een tekst- of spraakgebaseerde browser problemen op. Op het moment is er geen alternatief met geluid beschikbaar. Vraag alstublieft assistentie van de sitebeheerders als dit proces u verhindert een nuttige bijdrage te leveren.
 
-Klik op de knop \'terug\' in uw browser om terug te gaan naar het tekstbewerkingsscherm.',
-	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre> 
+Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
+	'captcha-addurl-whitelist'   => ' #<!-- laat deze lijn zoals hij is --> <pre> 
 # De syntaxis is als volgt: 
 #   * Alle tekst vanaf het karakter "#" tot het einde van de regels wordt gezien als opmerking
-#   * Iedere niet-lege regel is een fragment van een reguliere expressie die alleen van toepassing is op hosts binnen URL\'s
- #</pre> <!-- leave this line exactly as it is -->',
+#   * Iedere niet-lege regel is een fragment van een reguliere uitdrukking die alleen van toepassing is op hosts binnen URL\'s
+ #</pre> <!-- laat deze lijn zoals hij is -->',
 );
+
 $messages['no'] = array(
 	'captcha-edit'                => 'For å redigere denne artikkelen, vennligst skriv inn summen nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
 	'captcha-addurl'              => 'Din redigering inneholder nye eksterne lenker. For å hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn summen av dette enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',

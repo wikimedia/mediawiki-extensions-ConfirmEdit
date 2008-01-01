@@ -315,27 +315,50 @@ $messages['fo'] = array(
 	'captcha-createaccount'       => 'Sum ein vernd ímóti sjálvvirknum spam, er neyðugt hjá tær at skriva inn tey orð, sum koma fyri á myndini fyri at stovna eina kontu: <br />([[Special:Captcha/help|Hvat er hetta?]])',
 	'captchahelp-title'           => 'Captcha hjálp',
 );
+
+/** French (Français)
+ * @author Sherbrooke
+ * @author Grondin
+ * @author ChrisPtDe
+ */
 $messages['fr'] = array(
-	'captcha-edit'                => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-addurl'              => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-badlogin'            => 'Pour essayer de contourner les tentatives de crackage de mots de passe automatisées par des robots, veuillez recopier le texte ci-dessous dans la boîte de texte placée au dessous de celui-ci. ([[Special:Captcha/aide|Plus d’infos]])',
-	'captcha-createaccount'       => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de l’opération dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-createaccount-fail'  => 'Code de confirmation erroné ou manquant.',
-	'captcha-create'              => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
-	'captchahelp-title'           => 'Aide sur les captcha',
-	'captchahelp-cookies-needed'  => 'Il faut activer les cookies dans votre navigateur Web pour que cela fonctionne.',
-	'captchahelp-text'            => 'Les sites Web acceptant des contributions du public, comme ce wiki, sont souvent utilisés par des spammeurs qui utilisent des outils automatiques pour placer de nombreux liens vers leurs sites. Même si ces liens de « spam » peuvent être enlevés, ils représentent une nuisance.
+	'captcha-edit'               => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-addurl'             => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-badlogin'           => 'Coment protèccion contre les tentatives de cracâjo de mots de pâssa ôtomatisâs per des bots, volyéd relevar lo tèxte dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-createaccount'      => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de l’opération dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-createaccount-fail' => 'Code de confirmation erroné ou manquant.',
+	'captcha-create'             => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+	'captchahelp-title'          => 'Aide sur les captcha',
+	'captchahelp-cookies-needed' => 'Il faut activer les cookies dans votre navigateur Web pour que cela fonctionne.',
+	'captchahelp-text'           => 'Les sites Web acceptant des contributions du public, comme ce wiki, sont souvent utilisés par des spammeurs qui utilisent des outils automatiques pour placer de nombreux liens vers leurs sites. Même si ces liens de « spam » peuvent être enlevés, ils représentent une nuisance.
 
 Parfois, en particulier lors de l’ajout de nouveaux liens externes à une page, le wiki peut vous montrer une image représentant un texte coloré ou tordu et vous demander de taper les mots montrés. Cette tâche est difficile à automatiser, et permet aux humains de faire leurs contributions tout en stoppant la plupart des spammeurs.
 
 Cette solution peut malheureusement gêner les utilisateurs malvoyants ou utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l’instant. Veuillez contacter un administrateur du site si vous n’arrivez pas à faire vos contributions.
 
 Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page d’édition.',
-	'captcha-addurl-whitelist'    => ' #<!-- laissez cette ligne exactement telle quelle --> <pre> 
+	'captcha-addurl-whitelist'   => ' #<!-- laissez cette ligne exactement telle quelle --> <pre> 
 # La syntaxe est la suivante: 
 #   * Tout caractère suivant "#" jusqu\'à la fin de la ligne sera interprêté comme un commentaire
 #   * Toute ligne non vide est un code regex qui sera utilisé uniquement à l\'intérieur des liens hypertext.
  #</pre> <!-- laissez cette ligne exactement telle quelle -->',
+);
+
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'captcha-edit'               => 'Voutra èdicion encllut de novéls lims de defôr. Coment protèccion contre lo spame ôtomatico, 
+volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-addurl'             => 'Voutra èdicion encllut de novéls lims de defôr. Coment protèccion contre lo spame ôtomatico, 
+volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-badlogin'           => 'Coment protèccion contre les tentatives de cracâjo de mots de pâssa ôtomatisâs per des bots, volyéd relevar lo tèxte dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-createaccount'      => 'Coment protèccion contre les crèacions de compto abusives, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-createaccount-fail' => 'Code de confirmacion fôx ou manquent.',
+	'captcha-create'             => 'Voutra èdicion encllut de novéls lims de defôr. Coment protèccion contre lo spame ôtomatico,  
+volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captchahelp-title'          => 'Éde sur los captcha',
+	'captchahelp-cookies-needed' => "Fôt activar los tèmouens (''cookies'') dens voutron navigator por que cen fonccione.",
 );
 
 /** Irish (Gaeilge)

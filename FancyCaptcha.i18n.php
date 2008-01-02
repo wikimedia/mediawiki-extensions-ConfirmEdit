@@ -269,17 +269,19 @@ tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/h
 	'fancycaptcha-edit'          => 'ກະລຸນາ ພິມຄຳສັບຂ້າງລຸ່ມນີ້ ໃສ່ໃນກັບ ເພື່ອ ດັດແກ້ໜ້ານີ້ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມຕື່ມ]]):',
 ),
 
-/* nld / Dutch / Nederlands */
-	'nl' => array(
-	'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die
-hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-badlogin' => 'Voer alstublieft de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-createaccount' => 'Voer altublieft de woordenen die hieronder verschijnen in het invoerveld in
-ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha/help|meer info]]):',
-	'fancycaptcha-create' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die
-hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe links. Voer altublieft de woordenen die
-hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|more info]]):',
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
+'nl' => array(
+	'fancycaptcha-addurl'        => 'Uw bewerking bevat nieuwe externe links. Voer alstublieft de woorden die
+hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-badlogin'      => 'Voer alstublieft de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-createaccount' => 'Voer alstublieft de woorden die hieronder verschijnen in het invoerveld in
+ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-create'        => 'Uw bewerking bevat nieuwe externe links. Voer alstublieft de woorden die
+hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-edit'          => 'Uw bewerking bevat nieuwe externe links. Voer alstublieft de woorden die
+hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 ),
 
 /* Norwegian (Jon Harald Søby) */

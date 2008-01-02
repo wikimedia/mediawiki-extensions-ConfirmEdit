@@ -50,6 +50,27 @@ $messages['am'] = array(
 	'captcha-createaccount'       => 'ያልተፈለገ የመኪናነት አባልነት ለመከላከል፥ አባል ለመሆን በዚህ ምስል የታዩት እንግሊዝኛ ቃላት ወይም ቁጥር መልስ በትክክል መጻፍ ግዴታ ነው። ([[Special:Captcha/help|ይህ ምንድነው?]]):',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'captcha-edit'               => 'Ta editar iste articlo, por fabor faiga a fázil suma qu apareixe contino y escriba a soluzión en a caixa ([[Special:Captcha/help|más informazión]]):',
+	'captcha-addurl'             => "A suya edizión encluye binclos esternos. Ta aduyar-nos en a protezión contra o spam automatizato, por fabor, faiga a suma simpla que s'amuestra contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más informazión]]):",
+	'captcha-badlogin'           => 'Ta aduyar en a protezión contra a obtenzión automatizata de palabras de paso, por fabor faiga a suma simpla que amanixe contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más informazión]]):',
+	'captcha-createaccount'      => "Ta aduyar-nos en a protezión contra a creyazión automatica de cuentas, por fabor faiga a suma simpla que s'amuestra contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más informazión]]):",
+	'captcha-createaccount-fail' => 'No ha escrito o codigo de confirmazión, u iste ye incorreuto.',
+	'captcha-create'             => "Ta creyar a pachina, por fabor faiga a suma simpla que s'amuestra contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más informazión]]):",
+	'captchahelp-title'          => 'Aduya sobre o "captcha"',
+	'captchahelp-cookies-needed' => 'Ta que o sistema funzione le cal tener as cookies autibatas en o nabegador.',
+	'captchahelp-text'           => "Os sitios web que azeptan mensaches d'o publico, como iste wiki, son á ormino obcheto d'abusos por spammers que fan serbir ferramientas automatizatas ta encluyir-ie binclos ta asabelos sitios. Anque istos binclos se pueden sacar, son un gran estorbo.
+
+Bellas begadas, espezialment cuan se mire de adibir nuebos binclos á una pachina, o wiki talment le amuestre una imachen con testo en color y distorsionato, y le pregunte cuals son as palabras amostratas. Como ista ye una faina de mal automatizar, premitirá á os usuarios umanos fer as suyas edizions de bez que aturará á muitos spammers y atacants automaticos.
+
+Manimenos, isto puede estar un barrache ta usuarios con bisión limitata u que faigan ser nabegadors basatos en testo u en a boz. Por l'inte no tenemos garra alternatiba de audio. Por fabor, contaute con os almenistradors d'o sistema ta demandar aduya si isto le ye pribando de fer as suyas edizions lechitimas.
+
+Punche o botón 'entazaga' d'o suyo nabegador ta tornar t'o editor de pachinas.",
+);
+
 /** Arabic (العربية)
  * @author Mido
  * @author Meno25
@@ -359,6 +380,18 @@ volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Specia
 volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'captchahelp-title'          => 'Éde sur los captcha',
 	'captchahelp-cookies-needed' => "Fôt activar los tèmouens (''cookies'') dens voutron navigator por que cen fonccione.",
+	'captchahelp-text'           => 'Los setos Malyâjo accèptent des contribucions du publico, coment ceti vouiqui, sont sovent utilisâs per des spamors qu’utilisont des outils ôtomaticos por placiér tot plen de lims vers lors setos. Quand ben que celos lims de « spame » porront étre enlevâs, reprèsentont una nuésence.
+
+Des côps, en particuliér pendent l’aponsa de novéls lims de defôr a una pâge, lo vouiqui pôt vos montrar una émâge reprèsentent un tèxte colorâ ou ben tordu et vos demandar de tapar los mots montrâs. Cél ovrâjo est dificilo a ôtomatisar, et pèrmèt ux homos de fâre lors contribucions tot en arrètent la plepârt des spamors.
+
+Mâlherosament ceta solucion pôt gênar los utilisators mâl-veyents ou utilisent un navigator en tèxte solèt. Nos disposens pas d’altèrnativa ôdiô por lo moment. Volyéd vos veriér vers un administrator du seto se vos arrevâd pas a fâre voutres contribucions.
+
+Clicâd sur lo boton « Prècèdent » de voutron navigator por tornar a la pâge d’èdicion.',
+	'captcha-addurl-whitelist'   => '  #<!-- lèssiéd ceta legne justo d’ense --> <pre>  
+# La sintaxa est la siuventa :  
+#  * Tot caractèro siuvent « # » tant qu’a la fin de la legne serat entèrprètâ coment un comentèro.
+#  * Tota legne pas voueda est un code RegEx que serat utilisâ ren qu’u dedens des lims hipèrtèxte.
+  #</pre> <!-- lèssiéd ceta legne justo d’ense -->',
 );
 
 /** Irish (Gaeilge)
@@ -615,7 +648,7 @@ $messages['la'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'captcha-edit'               => "Fir dësen Artikel ze veränneren, léist w.e.g. déi folgend Rechenaufgab a gitt d'Resultat an d'Këscht ënnendrënner an ([[Special:Captcha/help|méi Informatiounen]]):",
+	'captcha-edit'               => "Fir dës Säit ze änneren, léist w.e.g. déi folgend Rechenaufgab a gitt d'Resultat an d'Këscht ënnendrënner an ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captcha-addurl'             => 'An ärer Ännerung sinn nei extern Linken. Fir eis virun automatiséiertem Spamming ze schütze froe mir iech fir déi folgend einfach  Rechenaufgab ze léisen an d\'Resultat an d\'Feld ënnen anzedroën. Klickt duerno w.e.g. nach eng Kéier op "Säit ofspäicheren" [[Special:Captcha/help|méi Informatiounen]].',
 	'captcha-badlogin'           => "Fir eis géint automatescht Hacke vu Passwierder ze schützen, léist w.e.g. déi einfach Additioun hei ënnendrënner an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captcha-createaccount'      => "Fir eis géint d'autamescht Uleeë vu Benotzerkonten ze schützen, léist w.e.g. déi einfach Additioun hei ënnendrënner an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",

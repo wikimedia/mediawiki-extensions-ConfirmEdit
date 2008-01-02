@@ -82,13 +82,15 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 ([[Special:Captcha/help|more info]]):',
 ),
 
-/* German */
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
 'de' => array(
-	'fancycaptcha-addurl'        => 'Deine Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming gebe das folgende Wort in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
-	'fancycaptcha-badlogin'      => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos gebe das folgende Wort in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]:',
-	'fancycaptcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten gebe das folgende Wort in das Feld unten ein  [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
-	'fancycaptcha-create'        => 'Zur Erstellung der Seite gebe das folgende Wort in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
-	'fancycaptcha-edit'          => 'Zur Bearbeitung der Seite gebe das folgende Wort in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
+	'fancycaptcha-addurl'        => 'Deine Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
+	'fancycaptcha-badlogin'      => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos gib das folgende Wort in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]:',
+	'fancycaptcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten gib das folgende Wort in das Feld unten ein  [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
+	'fancycaptcha-create'        => 'Zur Erstellung der Seite gib das folgende Wort in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
+	'fancycaptcha-edit'          => 'Zur Bearbeitung der Seite gib das folgende Wort in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].',
 ),
 
 /** Greek (Ελληνικά)

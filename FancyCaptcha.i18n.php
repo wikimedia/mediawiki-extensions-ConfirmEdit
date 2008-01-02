@@ -21,6 +21,13 @@ that appear below in the box ([[Special:Captcha/help|more info]]):',
 ([[Special:Captcha/help|more info]]):',
 ),
 
+/** Amharic (አማርኛ)
+ * @author Codex Sinaiticus
+ */
+'am' => array(
+	'fancycaptcha-createaccount' => 'ያልተፈለገ የመኪናነት አባልነት ለመከላከል፥ አባል ለመሆን በዚህ ምስል የታዩት እንግሊዝኛ ቃላት ወይም ቁጥር መልስ በትክክል መጻፍ ግዴታ ነው። ([[Special:Captcha/help|ይህ ምንድነው?]]) (To help protect against automated spam, you must type in the words or correct number answer exactly as seen beneath here before registering your account:)<br />',
+),
+
 /* Arabic (Meno25) */
 'ar' => array(
 	'fancycaptcha-addurl' => 'تعديلك يتضمن وصلات خارجية جديدة. للحماية من السخام الأوتوماتيكي، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق ([[Special:Captcha/help|معلومات إضافية]]):',

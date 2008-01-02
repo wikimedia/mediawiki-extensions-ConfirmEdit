@@ -69,6 +69,11 @@ Bellas begadas, espezialment cuan se mire de adibir nuebos binclos á una pachin
 Manimenos, isto puede estar un barrache ta usuarios con bisión limitata u que faigan ser nabegadors basatos en testo u en a boz. Por l'inte no tenemos garra alternatiba de audio. Por fabor, contaute con os almenistradors d'o sistema ta demandar aduya si isto le ye pribando de fer as suyas edizions lechitimas.
 
 Punche o botón 'entazaga' d'o suyo nabegador ta tornar t'o editor de pachinas.",
+	'captcha-addurl-whitelist'   => "  #<!-- leave this line exactly as it is --> <pre>  
+# A sintaxis ye asinas:  
+#  * Tot o que bi ha dende un caráuter \"#\" dica a fin d'a linia ye un comentario
+#  * Cualsiquier linia con testo un troz d'expresión regular (regex) que sólo concordará con os hosts aintro d'URLs
+  #</pre> <!-- leave this line exactly as it is -->",
 );
 
 /** Arabic (العربية)
@@ -569,26 +574,34 @@ Notaðu „back“-hnapp vafrans til að halda áfram.",
 	'captcha-createaccount-fail' => "Staðfestingarkóðinn var rangur eða ekki til staðar.",
 );
 
+/** Italian (Italiano)
+ * @author BrokenArrow
+ */
 $messages['it'] = array(
-	'captcha-edit'                => 'La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l\'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell\'immagine:<br />
-([[Special:Captcha/help|Cosa vuol dire?]])',
-	'captcha-addurl'              => 'La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l\'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell\'immagine:<br />
-([[Special:Captcha/help|Cosa vuol dire?]])',
-	'captcha-badlogin'             => 'Ai fini di contrastare tentativi di forzatura automatica della password, risolvi per favore il seguente semplice calcolo ed inserisci la risposta nella casella ([[Speciale:Captcha/help|maggiori informazioni]]):',
-	'captcha-createaccount'       => 'Come misura di sicurezza nei confronti dei messaggi di spam automatici, per registrarsi è necessario inserire le parole che appaiono nell\'immagine:<br />
-([[Speciale:Captcha/help|Cosa vuol dire?]])',
-	'captcha-createaccount-fail'  => 'Codice di verifica errato o mancante.',
-	'captcha-create'              => 'La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l\'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell\'immagine:<br />
-([[Special:Captcha/help|Cosa vuol dire?]])',
-	'captchahelp-title'           => 'Cos\'è il captcha?',
-	'captchahelp-cookies-needed'  => 'Devi abilitare il tuo browser ad accettare i cookie per proseguire',
-	'captchahelp-text'            => 'Capita spesso che i siti Web che accettano messaggi pubblici, come questo wiki, siano presi di mira da spammer che usano strumenti automatici per inserire collegamenti pubblicitari verso un gran numero di siti. Per quanto i collegamenti indesiderati si possano rimuovere, si tratta comunque di una seccatura non indifferente.
+	'captcha-edit'               => "La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell'immagine:<br />
+([[Special:Captcha/help|Cosa vuol dire?]])",
+	'captcha-addurl'             => "La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell'immagine:<br />
+([[Special:Captcha/help|Cosa vuol dire?]])",
+	'captcha-badlogin'           => 'Ai fini di contrastare tentativi di forzatura automatica della password, risolvi per favore il seguente semplice calcolo ed inserisci la risposta nella casella ([[Speciale:Captcha/help|maggiori informazioni]]):',
+	'captcha-createaccount'      => "Come misura di sicurezza nei confronti dei messaggi di spam automatici, per registrarsi è necessario inserire le parole che appaiono nell'immagine:<br />
+([[Speciale:Captcha/help|Cosa vuol dire?]])",
+	'captcha-createaccount-fail' => 'Codice di verifica errato o mancante.',
+	'captcha-create'             => "La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell'immagine:<br />
+([[Special:Captcha/help|Cosa vuol dire?]])",
+	'captchahelp-title'          => "Cos'è il captcha?",
+	'captchahelp-cookies-needed' => 'È necessario abilitare i cookie sul proprio browser per proseguire',
+	'captchahelp-text'           => "Capita spesso che i siti Web che accettano messaggi pubblici, come questo wiki, siano presi di mira da spammer che usano strumenti automatici per inserire collegamenti pubblicitari verso un gran numero di siti. Per quanto i collegamenti indesiderati si possano rimuovere, si tratta comunque di una seccatura non indifferente.
 
-In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web in una pagina, il software wiki può mostrare una immagine con un breve testo colorato e/o distorto chiedendo di riscriverlo in un\'apposita finestrella. Poiché si tratta di un\'azione difficile da replicare da parte di un computer, questo meccanismo consente a (quasi tutti) gli utenti reali di completare l\'inserimento desiderato, impedendo l\'accesso alla maggior parte degli spammer e degli altri attacchi automatizzati.
+In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web in una pagina, il software wiki può mostrare una immagine con un breve testo colorato e/o distorto chiedendo di riscriverlo in un'apposita finestrella. Poiché si tratta di un'azione difficile da replicare da parte di un computer, questo meccanismo consente a (quasi tutti) gli utenti reali di completare l'inserimento desiderato, impedendo l'accesso alla maggior parte degli spammer e degli altri attacchi automatizzati.
 
-Sfortunatamente, queste misure di sicurezza possono mettere in difficoltà gli utenti con problemi visivi o coloro che utilizzano browser testuali o basati sulla sintesi vocale. Purtroppo al momento non è disponibile un meccanismo alternativo basato su messaggi audio; se queste procedure impediscono l\'inserimento informazioni che si ritengono legittime, si prega di contattare gli amministratori del sito e chiedere loro assistenza.
+Sfortunatamente, queste misure di sicurezza possono mettere in difficoltà gli utenti con problemi visivi o coloro che utilizzano browser testuali o basati sulla sintesi vocale. Purtroppo al momento non è disponibile un meccanismo alternativo basato su messaggi audio; se queste procedure impediscono l'inserimento informazioni che si ritengono legittime, si prega di contattare gli amministratori del sito e chiedere loro assistenza.
 
-Fare clic sul pulsante \'back\' del browser per tornare alla pagina di modifica.',
+Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
+	'captcha-addurl-whitelist'   => '  #<!-- non modificare in alcun modo questa riga --> <pre>  
+# La sintassi è la seguente:  
+#  * Tutto ciò che segue un carattere "#" è un commento, fino al termine della riga
+#  * Tutte le righe non vuote sono frammenti di espressioni regolari che si applicano al solo nome dell\'host nelle URL
+  #</pre> <!-- non modificare in alcun modo questa riga -->',
 );
 
 $messages['ja'] = array(
@@ -965,6 +978,13 @@ $messages['ru'] = array(
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
+/** Scots (Scots)
+ * @author OchAyeTheNoo
+ */
+$messages['sco'] = array(
+	'captcha-edit' => 'Tae edit this airticle, please dae the eisy sum ablo an put the answer in the box ([[Special:Captcha/help|mair info]])',
+);
+
 $messages['sk'] = array(
 	'captcha-edit'                => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
 	'captcha-addurl'              => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
@@ -988,6 +1008,7 @@ Stlačením tlačidla "späť" vo Vašom prehliadači sa vrátite do editora str
 #   * Každý neprázdny riadok je fragment regulárneho výrazu, ktorého zhody budú iba stroje v rámci URL
  #</pre> <!-- leave this line exactly as it is -->',
 );
+
 $messages['sl'] = array(
 	'captcha-edit'               => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",
 	'captcha-addurl'               => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",

@@ -354,16 +354,20 @@ $messages['eu'] = array(
 	'captcha-createaccount-fail' => "Baieztatze kode ezegokia.",
 );
 
+/** Finnish (Suomi)
+ * @author Nike
+ * @author Crt
+ */
 $messages['fi'] = array(
-	'captcha-edit'                => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
-	'captcha-addurl'              => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
-	'captcha-badlogin'            => 'Salasananmurtajasovellusten takia, ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
-	'captcha-createaccount'       => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
-	'captcha-createaccount-fail'  => 'Väärä tai puuttuva varmistuskoodi.',
-	'captcha-create'              => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
-	'captchahelp-title'           => 'Captcha-ohje',
-	'captchahelp-cookies-needed'  => 'Tämä toiminto vaatii evästeiden hyväksymistä.',
-	'captchahelp-text'            => 'Verkkosivut, jotka sallivat ulkopuolisten lisätä sisältöä, joutuvat usein spam-hyökkäysten kohteeksi. Spam-hyökkäyksessä spammerit käyttävät työkaluja, jotka automaattisesti lisäävät linkkejä monille sivuille. Vaikka nämä linkit voidaan poistaa, aiheutuu niistä silti merkittävä haitta.
+	'captcha-edit'               => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-addurl'             => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-badlogin'           => 'Salasananmurtajasovellusten takia, ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-createaccount'      => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-createaccount-fail' => 'Väärä tai puuttuva varmistuskoodi.',
+	'captcha-create'             => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captchahelp-title'          => 'Captcha-ohje',
+	'captchahelp-cookies-needed' => 'Tämä toiminto vaatii evästeiden hyväksymistä.',
+	'captchahelp-text'           => 'Verkkosivut, jotka sallivat ulkopuolisten lisätä sisältöä, joutuvat usein spam-hyökkäysten kohteeksi. Spam-hyökkäyksessä spammerit käyttävät työkaluja, jotka automaattisesti lisäävät linkkejä monille sivuille. Vaikka nämä linkit voidaan poistaa, aiheutuu niistä silti merkittävä haitta.
 
 Joskus, erityisesti kun lisäät uusia linkkejä, saatat nähdä kuvan, jossa on värillistä ja vääristynyttä tekstiä, ja sinua pyydetään kirjoittamaan sen sisältämät sanat. Koska tätä tehtävää on vaikea automatisoida, se sallii melkein kaikkien oikeiden ihmisten tehdä muutoksensa, mutta estää automaattiset lisäykset.
 
@@ -372,6 +376,11 @@ Valitettavasti tämä saattaa estää käyttäjiä, joilla on rajoittunut näkö
 Varmistus ei toimi, jos evästeet eivät ole käytössä.
 
 Voit palata muokkaustilaan selaimen paluutoiminnolla.',
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>  
+# Syntaksi on seuraava:  
+#  * Kaikki #-merkistä eteenpäin on kommenttia
+#  * Jokainen ei-tyhjä rivi on säännöllisen lausekkeen osa, joka suoritetaan vain linkeissä esiintyville verkkonimille.
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 $messages['fo'] = array(

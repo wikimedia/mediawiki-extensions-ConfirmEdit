@@ -265,23 +265,26 @@ $messages['cy'] = array(
 	'captcha-createaccount-fail' => "Côd cadarnhau ar goll neu'n anghywir.",
 );
 
+/** Danish (Dansk)
+ * @author Morten LJ
+ */
 $messages['da'] = array(
-	'captcha-edit' => 'For at redigere denne side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
-	'captcha-addurl' => 'Din redigering tilføjer nye eksterne henvisninger til artiklen. Som beskyttelse mod automatiseret spam, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
-	'captcha-badlogin' => 'For at beskytte mod automatiserede gæt på kodeord, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
-	'captcha-createaccount' => 'For at beskytte mod automatisk oprettelse af brugernavne, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
-	'captcha-createaccount-fail' => "Forkert eller manglende kodeord.",
-	'captcha-create' => 'For at oprette en ny side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'captcha-edit'               => 'For at redigere denne side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'captcha-addurl'             => 'Din redigering tilføjer nye eksterne henvisninger til artiklen. Som beskyttelse mod automatiseret spam, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'captcha-badlogin'           => 'For at beskytte mod automatiserede gæt på kodeord, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'captcha-createaccount'      => 'For at beskytte mod automatisk oprettelse af brugernavne, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'captcha-createaccount-fail' => 'Forkert eller manglende kodeord.',
+	'captcha-create'             => 'For at oprette en ny side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captchahelp-title'          => 'Captcha-hjælp',
-	'captchahelp-cookies-needed' => "Din browser skal understøtte cookies, før dette kan gennemføres.",
+	'captchahelp-cookies-needed' => 'Din browser skal understøtte cookies, før dette kan gennemføres.',
 	'captchahelp-text'           => "Websites der accepterer indhold fra offentligheden, bliver ofte udsat for angreb fra spammere. Disse angreb sker med automatiske værktøjer, der anbringer de samme links på et stort antal websites på kort tid. Selvom disse links kan fjernes, er de en vedligeholdelsesmæssig byrde.
 
-I visse tilfælde, specielt når der tilføjes nye links til denne wiki, vil softwaren vise dig et billede af et stykke frovredet og sløret tekst. Du skal indtaste det ord, der vises, før du kan gennemføre handlingen. Formålet er at skelne mellem mennesker og automatiserede værktøjer, da de sidste har meget svært ved at genkende ordene.
+I visse tilfælde, specielt når der tilføjes nye links til denne wiki, vil softwaren vise dig et billede af et stykke forvredet og sløret tekst. Du skal indtaste det ord, der vises, før du kan gennemføre handlingen. Formålet er at skelne mellem mennesker og automatiserede værktøjer, da de sidste har meget svært ved at genkende ordene.
 
 Desværre kan dette medføre problemer for svagtseende brugere, og brugere der bruger software der oplæser indholdet af siden. For øjeblikket findes der ikke et lydbaseret alternativ. Kontakt venligst en administrator med henblik på at få hjælp, hvis dette forhindrer tilføjelsen af godartet materiale.
 
 Tryk på 'tilbage'-knappen i din browser for at returnere til redigeringssiden.",
-	'captcha-addurl-whitelist' => '
+	'captcha-addurl-whitelist'   => '
  #<!-- Undlad at rette denne linie --> <pre> 
 # Vejledning: 
 #   * Alt fra et "#"-tegn til slutningen af en linie er en kommentar
@@ -474,6 +477,34 @@ $messages['gl'] = array(
  #</pre> <!-- deixe esta liña exactamente como está -->',
 );
 
+/** Gujarati (ગુજરાતી)
+ * @author Dsvyas
+ */
+$messages['gu'] = array(
+	'captcha-edit'               => 'આ લેખમાં ફેરફાર કરવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો ([[Special:Captcha/help|more info]]):',
+	'captcha-addurl'             => 'તમે કરેલા ફેરફારોમાં નવી બાહ્ય કડીઓ સામેલ છે. સ્વચાલિત સ્પેમ/સ્પામ(spam) થી બચવવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો
+([[Special:Captcha/help|more info]]):',
+	'captcha-badlogin'           => 'આપોઆપ થતી ગુપ્તસંજ્ઞાની ચોરી (password cracking)થી બચાવવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો ([[Special:Captcha/help|more info]]):',
+	'captcha-createaccount'      => 'આપોઆપ નવા ખાતા ખુલતા રોકવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો',
+	'captcha-createaccount-fail' => 'ખોટી અથવા ખૂટતી પુષ્ટિ સંજ્ઞા',
+	'captcha-create'             => 'નવું પાનું બનાવવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો  ([[Special:Captcha/help|more info]]):',
+	'captchahelp-title'          => 'કેપ્ટ્ચા/કેપ્ચા (Captcha) મદદ',
+	'captchahelp-cookies-needed' => 'આ વ્યવસ્થિત રીતે જોઇ શકાય તે માટે તમારા બ્રાઉઝરમાં કુકીઝ એનેબલ કરેલી હોવી જોઇશે.',
+	'captchahelp-text'           => "આપણી વિકિ જેવી વૅબ સાઇટો કે જે લોકોને યોગદાન કરવાની પરવાનગી આપે છે, તેમેનો સ્પામરો દ્વારા દુરૂપયોગ થતો આવ્યો છે. આવા સ્પામરો તેમની કડીઓ એક સાથે અનેક વૅબ સાઇટો પર મુકવા માટે સ્વચાલિત સાધનો (Tools) વાપરે છે. આવી કડીઓ ખરેખર એક દૂષણ છે અને તેને દૂર કરવાના ઉપાય કરવા જોઇએ.
+
+ક્યારેક, ખાસ કરીને જ્યારે તમે તમારા લેખમાં બાહ્ય કડી ઉમેરતા હોવ ત્યારે, વિકિ તમને એક રંગીન કે તુટેલા-ફુટેલા અક્ષરો કે શબ્દોનું ચિત્ર બતાવે અને તેમા વંચાતા શબ્દો બાજુનાં ખાનામાં લખવા માટે પુછે એવું બને. આનું કારણ એ છે કે આ એક એવી પદ્ધતિ છે જે સ્વચાલિત રીતે કરવી લગભગ અશક્ય છે, અને ફક્ત વ્યક્તિગત રીતે જ થઇ
+શકે છે, જે સ્પામરો અને અન્ય ઘુસણખોરો ના હુમલાને ખાળે છે.
+
+કમભાગ્યે આ પદ્ધતિ, એવા લોકોને તકલિફ આપે તેમ છે જેઓની દૃષ્ટિ નબળી છે અથવાતો જેઓ વાચા આધારીત કે સાદા બ્રાઉઝરનો ઉપયોગ કરે છે. હાલમા અમારી પાસે આવા ચિત્રોની વાચા આધારિત વ્યવસ્થા નથી. જો આ કારણે આપ કોઇ લેખમાં પ્રદાન ન કરી શકતા હોવ તો વધુ સહાય માટે કૃપા કરી પ્રબંધકનો સંપર્ક સાધો.
+
+લેખમા ફેરફાર કરવાના પાના ઉપર પાછા ફરવા માટી આપના બ્રાઉઝરના 'બેક' બટન ઉપર ક્લિક કરો.",
+	'captcha-addurl-whitelist'   => '#<!-- આ લીટીને જેમ છે તેમ જ રહેવા દો --> <pre>  
+# સીન્ટેક્સ (Syntax) આ પ્રમાણે છે :  
+#  * "#" સંજ્ઞાથી શરૂ કરીને લીટીના અંત સુધીનું વર્ણન એક ટીપ્પણી છે
+#  * ખાલી ન હોય તેવી દરેક લીટી રેજેક્સનો ભાગ છે, જે ફક્ત URLsમાંના હોસ્ટ સાથે જ મેળ ખાશે
+  #</pre> <!-- આ લીટીને જેમ છે તેમ જ રહેવા દો -->',
+);
+
 $messages['he'] = array(
 	'captcha-edit'               => 'כדי לערוך את הדף, אנא פיתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 	'captcha-addurl'             => 'עריכתכם כוללת קישורים חיצוניים חדשים. כהגנה מפני ספאם אוטומטי, אנא פיתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
@@ -541,9 +572,9 @@ $messages['hu'] = array(
 	'captcha-edit'               => 'A lap szerkesztéséhez meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű összeadás eredményét. ([[Special:Captcha/help|segítség]])',
 	'captcha-addurl'             => 'Szerkesztésed új külső linket tartalmaz. A reklámokat elhelyező robotok kiszűrése érdekében meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi matematikai művelet eredményét. ([[Special:Captcha/help|segítség]])',
 	'captcha-badlogin'           => 'Az automatikus jelszófeltörés kiszűrése érdekében meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű számtani művelet eredményét ([[Special:Captcha/help|segítség]]):',
-	'captcha-createaccount'      => 'A felhasználói fiókok automatizált létrehozásának kiszűrése érdekében elkerüléséremeg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű számtani művelet eredményét. ([[Special:Captcha/help|segítség]])',
+	'captcha-createaccount'      => 'A felhasználói fiókok automatizált létrehozásának kiszűrése érdekében meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű számtani művelet eredményét. ([[Special:Captcha/help|segítség]])',
 	'captcha-createaccount-fail' => 'Hibás vagy hiányzó ellenőrző kód.',
-	'captcha-create'             => 'Az oldal elkészítéséhez meg kell, hogy kérjünk, írd be a lenti dobozbaaz alábbi egyszerű számtani művelet eredményét ([[Special:Captcha/help|segítség]]):',
+	'captcha-create'             => 'Az oldal elkészítéséhez meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű számtani művelet eredményét. ([[Special:Captcha/help|segítség]])',
 	'captchahelp-title'          => 'Captcha segítség',
 	'captchahelp-cookies-needed' => 'Engedélyezned kell a böngésződben a sütiket.',
 	'captchahelp-text'           => 'Az olyan weboldalakat, amelyekre bárki írhat, gyakran támadják meg spammerek olyan eszközök felhasználásával, amelyek képesek automatikusan, emberi felügyelet nélkül elhelyezni egy linket sok különböző oldalon. Az ilyen linkek kézi eltávolítása rengeteg energiát emésztene fel, ezért néha, különösen ha egy külső linket teszel egy cikkbe, a wiki egy valamilyen módon eltorzított szöveget (captcha-t) jelenít meg, és arra kér, hogy gépeld be azt. Mivel ezt automatikusan nagyon nehéz megtenni, a valódi szerkesztők így könnyen megkülönböztethetőek a spammerek robotjaitól.
@@ -838,36 +869,50 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
  #</pre> <!-- laat deze lijn zoals hij is -->',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Eirik
+ */
+$messages['nn'] = array(
+	'captcha-edit'               => 'Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])',
+	'captcha-addurl'             => 'Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])',
+	'captcha-badlogin'           => 'For å sikra oss mot automatisk passordtjuveri, ver venleg og skriv inn svaret på det enkle reknestykket i boksen nedanfor ([[Special:Captcha/help|meir informasjon]]):',
+	'captcha-createaccount'      => 'For å verne Wikipedia mot reklame (spam) må du skrive inn orda i biletet for å registrere ein konto. <br />([[Special:Captcha/help|Kva er dette?]])',
+	'captcha-createaccount-fail' => 'Feil eller manglande godkjenningskode.',
+	'captcha-create'             => 'Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])',
+	'captchahelp-cookies-needed' => 'Du må ha informasjonskapslar aktivert i nettlesaren din for at dette skal verke.',
+	'captchahelp-text'           => 'Internettsider som kan bli endra av alle, som denne wikien, blir ofte misbruka av reklameinnleggjarar (spammarar) som nyttar robotar til å poste store tal lenkjer. Sjølv om slike reklamelenkjer kan bli fjerna er dei til betydelig irritasjon. Nokon gonger, særleg viss du vil leggje til nye internettlenker til ei side, kan wikien vise deg eit bilete av ein farga eller ujamn tekst og be deg skrive inn orda som blir visa. Sidan det er vanskeleg å automatisere denne oppgåva, vil funksjonen slippe dei fleste verkelege menneska gjennom, men stoppe reklamerobotar. Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedsett syn som brukar tekst- eller talebaserte nettlesarar. Ver venleg å kontakte administratorane viss denne funksjonen hindrar deg i å foreta legitime endringar. Trykk på «tilbake»-knappen for å komma tilbake til redigeringssida.',
+	'captcha-addurl-whitelist'   => '  #<!-- la denne lina vere akkurat som ho er --> <pre>  
+# Synyaksen er slik:  
+#  * Alt frå teiknet «#» til enden av linja er ein kommentar
+#  * Alle liner som ikkje er tomme er fragment av regulære uttrykk som sjekkar vertar i URL-ar
+  #</pre> <!-- la denne lina vere akkurat som ho er -->',
+);
+
+/** Norwegian (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ * @author Eirik
+ */
 $messages['no'] = array(
-	'captcha-edit'                => 'For å redigere denne artikkelen, vennligst skriv inn summen nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-addurl'              => 'Din redigering inneholder nye eksterne lenker. For å hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn summen av dette enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-badlogin'             => 'For å hjelpe oss med å beskytte oss mot automatisk passordtyveri, vennligst løs det enkle regnestykket nedenfor og skriv inn svaret i bosken ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-createaccount'       => 'For å hjelpe oss med å beskytte oss mot automatisk kontoopprettelse, vennligst skriv inn summen av det enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-createaccount-fail'  => 'Ukorrekt eller manglende bekreftelseskode.',
-	'captcha-create'              => 'For å opprette siden, vennligst skriv inn summen av det enkle regnestyket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
-	'captchahelp-title'           => 'Captcha-hjelp',
-	'captchahelp-cookies-needed'  => 'Du må slå på informasjonskapsler for at dette skal fungere.',
-	'captchahelp-text'            => 'Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til betydelig irritasjon.
+	'captcha-edit'               => 'For å redigere denne artikkelen, vennligst skriv inn summen nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-addurl'             => 'Din redigering inneholder nye eksterne lenker. For å hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn summen av dette enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-badlogin'           => 'For å hjelpe oss med å beskytte oss mot automatisk passordtyveri, vennligst løs det enkle regnestykket nedenfor og skriv inn svaret i bosken ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-createaccount'      => 'For å hjelpe oss med å beskytte oss mot automatisk kontoopprettelse, vennligst skriv inn summen av det enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-createaccount-fail' => 'Ukorrekt eller manglende bekreftelseskode.',
+	'captcha-create'             => 'For å opprette siden, vennligst skriv inn summen av det enkle regnestyket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
+	'captchahelp-title'          => 'Captcha-hjelp',
+	'captchahelp-cookies-needed' => 'Du må slå på informasjonskapsler for at dette skal fungere.',
+	'captchahelp-text'           => 'Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til betydelig irritasjon.
 
 Noen ganger, særlig hvis du vil legge til nye internettlenker til en side, kan wikien vise deg et bilde av en farvet eller ujevn tekst og be deg skrive inn ordene som vises. Siden det er vanskelig å automatisere denne oppgaven, vil funksjonen slippe de fleste virkelige mennesker igjennom, men stoppe spammere.
 
 Dessverre finnes det i øyeblikket ikke noe audioalternativ for brukere med begrenset syn som som bruker tekst- eller talebaserte nettlesere. Vennlig kontakt administratorene hvis denne funksjonen forhindrer deg i å foreta legitime endringer.
 
 Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.',
-	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre> 
-# Syntaksen er som fløger:
+	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre> 
+# Syntaksen er som følger:
 #   * Alle linjer som begynner med «#» er kommentarer
 #   * Alle linjer som ikke er blanke er fragmenter av regulære uttrykk som sjekker verter i URL-er
  #</pre> <!-- leave this line exactly as it is -->',
-);
-$messages['nn'] = array(
-	'captcha-edit'               => "Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])",
-	'captcha-addurl'               => "Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])",
-	'captcha-create'               => "Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])",
-	'captchahelp-title'          => 'Captcha help',
-	'captchahelp-text'           => "Internettsider som kan bli endra av alle, som denne wikien, blir ofte misbruka av reklameinnleggjarar (spammarar) som nyttar robotar til å poste store tal lenkjer. Sjølv om slike reklamelenkjer kan bli fjerna er dei til betydelig irritasjon. Nokon gonger, særleg viss du vil leggje til nye internettlenker til ei side, kan wikien vise deg eit bilete av ein farga eller ujamn tekst og be deg skrive inn orda som blir visa. Sidan det er vanskeleg å automatisere denne oppgåva, vil funksjonen slippe dei fleste verkelege menneska gjennom, men stoppe reklamerobotar. Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedsett syn som brukar tekst- eller talebaserte nettlesarar. Ver venleg å kontakte administratorane viss denne funksjonen hindrar deg i å foreta legitime endringar. Trykk på «tilbake»-knappen for å komma tilbake til redigeringssida.",
-	'captcha-createaccount'      => "For å verne Wikipedia mot reklame (spam) må du skrive inn orda i biletet for å registrere ein konto. <br />([[Special:Captcha/help|Kva er dette?]])",
-	'captcha-createaccount-fail' => "Feil eller manglande godkjenningskode.",
 );
 
 /** Occitan (Occitan)

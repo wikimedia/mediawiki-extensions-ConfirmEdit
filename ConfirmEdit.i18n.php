@@ -1154,7 +1154,8 @@ Hit the 'back' button in your browser to return to the page editor.",
  * @author Malafaya
  */
 $messages['vo'] = array(
-	'captchahelp-title' => 'Yuf ela Captcha',
+	'captcha-createaccount-fail' => 'Kot fümükama paneveräton u paseleton.',
+	'captchahelp-title'          => 'Yuf ela Captcha',
 );
 
 $messages['wa'] = array(

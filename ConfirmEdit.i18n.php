@@ -266,6 +266,7 @@ $messages['cy'] = array(
 );
 
 /** Danish (Dansk)
+ * @author Wegge
  * @author Morten LJ
  */
 $messages['da'] = array(

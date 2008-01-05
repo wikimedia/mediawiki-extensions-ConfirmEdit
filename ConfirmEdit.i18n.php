@@ -393,17 +393,16 @@ $messages['fo'] = array(
 );
 
 /** French (Français)
- * @author Sherbrooke
  * @author Grondin
- * @author ChrisPtDe
+ * @author Sherbrooke
  */
 $messages['fr'] = array(
-	'captcha-edit'               => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-edit'               => "Pour modifier cette page, vous être prié de résoudre l'opération ci-dessous et d'y inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d'infos]]) :",
 	'captcha-addurl'             => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-badlogin'           => 'Coment protèccion contre les tentatives de cracâjo de mots de pâssa ôtomatisâs per des bots, volyéd relevar lo tèxte dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-badlogin'           => "Afin de lutter contre les crackages automatisés des mots de passe par des bots, vous être prié de résoudre l'opération ci-dessous et d'y inscrire le résultat dans le champ [Special:Captcha/help|plus d'infos]]) :",
 	'captcha-createaccount'      => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de l’opération dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-createaccount-fail' => 'Code de confirmation erroné ou manquant.',
-	'captcha-create'             => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-create'             => "Pour modifier la page, vous être prié de résoudre l'opération ci-dessous et d'y inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d'infos]]) :",
 	'captchahelp-title'          => 'Aide sur les captcha',
 	'captchahelp-cookies-needed' => 'Il faut activer les cookies dans votre navigateur Web pour que cela fonctionne.',
 	'captchahelp-text'           => 'Les sites Web acceptant des contributions du public, comme ce wiki, sont souvent utilisés par des spammeurs qui utilisent des outils automatiques pour placer de nombreux liens vers leurs sites. Même si ces liens de « spam » peuvent être enlevés, ils représentent une nuisance.

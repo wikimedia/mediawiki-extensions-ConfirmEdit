@@ -36,14 +36,16 @@ Hit the 'back' button in your browser to return to the page editor.",
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
+/** Afrikaans (Afrikaans)
+ */
 $messages['af'] = array(
-	'captcha-edit'               => "U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])",
-	'captcha-addurl'               => "U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])",
-	'captcha-create'               => "U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])",
+	'captcha-edit'               => 'U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])',
+	'captcha-addurl'             => 'U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])',
+	'captcha-createaccount'      => "As 'n beskerming teen geoutomatiseerde gemors, tik asseblief die woorde wat in die beeld verskyn in om 'n rekening te skep: <br />([[Special:Captcha/help|Wat is hierdie?]])",
+	'captcha-createaccount-fail' => 'Verkeerde of geen bevestigingkode.',
+	'captcha-create'             => 'U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Spesiaal:Captcha/help|Wat is hierdie?]])',
 	'captchahelp-title'          => 'Captcha-hulp',
 	'captchahelp-text'           => "Webwerwe wat bydraes van die publiek aanvaar (soos hierdie wiki) word soms lastig geval deur kwaaddoeners met programme wat outomaties klomp skakels plak in die werf. Alhoewel hierdie gemors verwyder kan word, is dit lastig. In party gevalle, veral as u webskakels by 'n blad voeg, sal die wiki dalk 'n beeld met verwronge teks vertoon en vra dat u die woorde daarin intik. Omdat hierdie taak moeilik geoutomatiseer word, laat dit meeste regte mense toe om bydraes te maak terwyl dit meeste kwaaddoeners stop. Hierdie kan ongelukkig lastig wees vir mense met beperkte sig, of diegene wat teks- of spraakgebaseerde blaaiers gebruik. Tans is daar nog nie 'n klankalternatief beskikbaar nie. Kontak asseblief die werfadministrateurs vir hulp as hierdie u onverwags belemmer om legitieme bydraes te maak. Gebruik die \"terug\"-knoppie van u blaaier om na die vorige blad terug te keer.",
-	'captcha-createaccount'      => "As 'n beskerming teen geoutomatiseerde gemors, tik asseblief die woorde wat in die beeld verskyn in om 'n rekening te skep: <br />([[Special:Captcha/help|Wat is hierdie?]])",
-	'captcha-createaccount-fail' => "Verkeerde of geen bevestigingkode.",
 );
 
 $messages['am'] = array(
@@ -164,33 +166,38 @@ $messages['bg'] = array(
 Натиснете бутона 'back' на вашия браузър, за да се върнете към редактора на страници.",
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
 $messages['br'] = array(
-	'captcha-edit'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',
-	'captcha-addurl'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',
-	'captcha-create'                => 'Liammoù diavaez nevez zo bet ouzhpennet ganeoc\'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc\'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])',
-	'captcha-createaccount'       => 'A-benn hor skoazellañ d\'en em wareziñ diouzh ar c\'hrouiñ kontoù emgefre, skrivit ar gerioù a zeu war wel er stern-mañ evit enrollañ ho kont : <br />([[Special:Captcha/help|Petra eo se?]])',
-	'captcha-createaccount-fail'  => 'Mankout a ra ar c\'hod kadarnaat pe fall eo.',
-	'captchahelp-title'           => 'Skoazell Capcha',
-	'captchahelp-text'            => 'Alies e vez taget al lec\'hiennoù a zegemer kemennadennoù a-berzh an holl, evel ar wiki-mañ, gant ar spamerien a implij ostilhoù emgefre evit postañ o liammoù war lec\'hiennoù a bep seurt. Diverket e c\'hallont bezañ, gwir eo, kazus-mat ez int memes tra. A-wechoù, dreist-holl pa vez ouzhpennet liammoù Web nevez war ur bajenn, e c\'hallo ar wiki-mañ diskouez deoc\'h ur skeudenn warni un tamm testenn liv pe a-dreuz. Goulennet e vo diganeoc\'h skrivañ ar gerioù deuet war wel. Un trevell start da emgefrekaat eo hemañ. Gant se e c\'hallo an implijerien wirion postañ ar pezh a fel ldezho tra ma vo lakaet un harz d\'an darn vrasañ eus ar spamerien pe d\'an dagerien robotek all. Koulskoude e c\'hallo an implijerien berr o gweled pe ar re a implij merdeerioù diazezet war ar skrid pe war ar vouezh bezañ strafuilhet gant se. N\'omp ket evit kinnig un diskoulm dre glevet evit c\'hoazh. Kit e darempred gant merourien al lec\'hienn m\'hoc\'h eus diaesterioù evit kemer perzh abalamour d\'an teknik-se. Pouezit war bouton \'kent\' ho merdeer evit distreiñ d\'ar bajenn gemmañ.',
+	'captcha-edit'               => "Liammoù diavaez nevez zo bet ouzhpennet ganeoc'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])",
+	'captcha-addurl'             => "Liammoù diavaez nevez zo bet ouzhpennet ganeoc'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])",
+	'captcha-createaccount'      => "A-benn hor skoazellañ d'en em wareziñ diouzh ar c'hrouiñ kontoù emgefre, skrivit ar gerioù a zeu war wel er stern-mañ evit enrollañ ho kont : <br />([[Special:Captcha/help|Petra eo se?]])",
+	'captcha-createaccount-fail' => "Mankout a ra ar c'hod kadarnaat pe fall eo.",
+	'captcha-create'             => "Liammoù diavaez nevez zo bet ouzhpennet ganeoc'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])",
+	'captchahelp-title'          => 'Skoazell Capcha',
+	'captchahelp-text'           => "Alies e vez taget al lec'hiennoù a zegemer kemennadennoù a-berzh an holl, evel ar wiki-mañ, gant ar spamerien a implij ostilhoù emgefre evit postañ o liammoù war lec'hiennoù a bep seurt. Diverket e c'hallont bezañ, gwir eo, kazus-mat ez int memes tra. A-wechoù, dreist-holl pa vez ouzhpennet liammoù Web nevez war ur bajenn, e c'hallo ar wiki-mañ diskouez deoc'h ur skeudenn warni un tamm testenn liv pe a-dreuz. Goulennet e vo diganeoc'h skrivañ ar gerioù deuet war wel. Un trevell start da emgefrekaat eo hemañ. Gant se e c'hallo an implijerien wirion postañ ar pezh a fel ldezho tra ma vo lakaet un harz d'an darn vrasañ eus ar spamerien pe d'an dagerien robotek all. Koulskoude e c'hallo an implijerien berr o gweled pe ar re a implij merdeerioù diazezet war ar skrid pe war ar vouezh bezañ strafuilhet gant se. N'omp ket evit kinnig un diskoulm dre glevet evit c'hoazh. Kit e darempred gant merourien al lec'hienn m'hoc'h eus diaesterioù evit kemer perzh abalamour d'an teknik-se. Pouezit war bouton 'kent' ho merdeer evit distreiñ d'ar bajenn gemmañ.",
 );
 
+/** Bosnian (Bosanski)
+ */
 $messages['bs'] = array(
-	'captcha-edit'  => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
+	'captcha-edit'               => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
 <br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
-	'captcha-addurl'  => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
+	'captcha-addurl'             => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
 <br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
-	'captcha-create'  => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
+	'captcha-createaccount'      => 'Kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje se nalaze na slici da biste registrovali nalog:
 <br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
-	'captchahelp-text' => 'Vebsajtovi koji podržavaju slanje sadržaja iz javnosti, kao što je ovaj viki, često zloupotrebljavaju vandali koji koriste automatizovane alate da šalju svoje poveznice ka mnogim sajtovima.  Iako se ove neželjene poveznice mogu ukloniti, one ipak zadaju veliku muku.
+	'captcha-createaccount-fail' => 'Netačan unos ili nedostatak šifre za potvrđivanje.',
+	'captcha-create'             => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
+<br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
+	'captchahelp-text'           => "Vebsajtovi koji podržavaju slanje sadržaja iz javnosti, kao što je ovaj viki, često zloupotrebljavaju vandali koji koriste automatizovane alate da šalju svoje poveznice ka mnogim sajtovima.  Iako se ove neželjene poveznice mogu ukloniti, one ipak zadaju veliku muku.
 
 Ponekad, pogotovo kad se dodaju nove internet poveznice na stranicu, viki softver Vam može pokazati sliku obojenog i izvrnutog teksta i tražiti da ukucate traženu riječ.  Pošto je teško automatizovati ovakav zadatak, on omogućuje svim pravim ljudima da vrše svoje izmjene, ali će zato spriječiti vandale i ostale robotske napadače.
 
 Nažalost, ovo može da bude nepovoljno za korisnike sa ograničenim vidom i za one koji koriste brauzere bazirane na tekstu ili govoru.  U ovom trenutku, audio alternativa nije dostupna.  Molimo Vas da kontaktirate administratore sajta radi pomoći ako Vas ovo neočekivano ometa u pravljenju dobrih izmjena.
 
-Kliknite \'nazad\' (\'back\') dugme vašeg brauzera da se vratite na polje za unos teksta.',
-	'captcha-createaccount' => 'Kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje se nalaze na slici da biste registrovali nalog:
-<br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
-	'captcha-createaccount-fail' => 'Netačan unos ili nedostatak šifre za potvrđivanje.',
+Kliknite 'nazad' ('back') dugme vašeg brauzera da se vratite na polje za unos teksta.",
 );
 
 /** Catalan (Català)
@@ -255,14 +262,16 @@ Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko
 	'captcha-createaccount-fail' => 'Chybějící či neplatný potvrzovací kód.',
 );
 
+/** Welsh (Cymraeg)
+ */
 $messages['cy'] = array(
-	'captcha-edit'               => "Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
-	'captcha-addurl'               => "Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
-	'captcha-create'               => "Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
-	'captchahelp-title'          => 'Cymorth "captcha"',
-	'captchahelp-text'           => "Yn anffodus, mae safleoedd gwe fel Wicipedia, sy'n caniatau i'r cyhoedd ysgrifennu iddi, yn darged beunyddiol i sbamwyr sy'n defnyddio rhaglenni arbennig i bostio eu cysylltiadau. Gellir dileu'r dolenni o'r dudalen, ond mae hyn yn drafferth mawr. O dro i dro, fe fydd y safle hon yn dangos delwedd o destun, ac fe fydd yn rhaid i chi deipio'r geiriau a ddangosir. Mae hyn yn dasg anodd iawn i ragenni cyfrifiadurol, felly dylai golygwyr go iawn gyflawni'r dasg yn di-drafferth, yn wahanol i'r rhaglenni sbam. Mae hyn yn amlwg yn creu trafferthion i'r sawl sydd yn defnyddio porwyr testun neu sydd yn colli eu golwg. Ar hyn o bryd nid oes fersiwn sain ar gael. Cysylltwch â gweinyddwyr y safle os ydi'r nodwedd hon yn eich rhwystro rhag ychwanegu golygiadau dilys. Gwasgwch botwm 'nôl' eich porwr er mwyn dychwelyd.",
+	'captcha-edit'               => 'Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])',
+	'captcha-addurl'             => 'Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])',
 	'captcha-createaccount'      => "Teipiwch y geiriau sy'n ymddangos yn y ddelwedd isod os gwelwch yn dda. Mae'r nodwedd hon yn rhwystro rhaglenni sbam rhag creu cyfrifon i'w hunain. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
 	'captcha-createaccount-fail' => "Côd cadarnhau ar goll neu'n anghywir.",
+	'captcha-create'             => 'Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])',
+	'captchahelp-title'          => 'Cymorth "captcha"',
+	'captchahelp-text'           => "Yn anffodus, mae safleoedd gwe fel Wicipedia, sy'n caniatau i'r cyhoedd ysgrifennu iddi, yn darged beunyddiol i sbamwyr sy'n defnyddio rhaglenni arbennig i bostio eu cysylltiadau. Gellir dileu'r dolenni o'r dudalen, ond mae hyn yn drafferth mawr. O dro i dro, fe fydd y safle hon yn dangos delwedd o destun, ac fe fydd yn rhaid i chi deipio'r geiriau a ddangosir. Mae hyn yn dasg anodd iawn i ragenni cyfrifiadurol, felly dylai golygwyr go iawn gyflawni'r dasg yn di-drafferth, yn wahanol i'r rhaglenni sbam. Mae hyn yn amlwg yn creu trafferthion i'r sawl sydd yn defnyddio porwyr testun neu sydd yn colli eu golwg. Ar hyn o bryd nid oes fersiwn sain ar gael. Cysylltwch â gweinyddwyr y safle os ydi'r nodwedd hon yn eich rhwystro rhag ychwanegu golygiadau dilys. Gwasgwch botwm 'nôl' eich porwr er mwyn dychwelyd.",
 );
 
 /** Danish (Dansk)
@@ -338,24 +347,28 @@ $messages['es'] = array(
 En ocasiones, especialmente cuando añada nuevos enlaces a una página, la wiki le mostrará una imagen de texto coloreado o distorsionado y le pedirá que escriba las palabras que muestra. Dado que esta es una tarea difícil de automatizar, permite a la mayoría de las personas enviar sus textos, a la vez que detiene a la mayoría de los spammers y otros atacantes automáticos.',
 );
 
+/** Estonian (Eesti)
+ */
 $messages['et'] = array(
-	'captcha-edit'               => "Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])",
-	'captcha-addurl'               => "Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])",
-	'captcha-create'               => "Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])",
+	'captcha-edit'               => 'Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])',
+	'captcha-addurl'             => 'Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])',
+	'captcha-createaccount'      => 'Kaitsena spämmi vastu peate konto registreerimiseks lahtrisse kirjutama järgneva tehte tulemuse.<br /> ([[Special:Captcha/help|Mis see on?]])',
+	'captcha-createaccount-fail' => 'Puuduv või valesti sisestatud kinnituskood.',
+	'captcha-create'             => 'Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])',
 	'captchahelp-title'          => 'Mis on Captcha?',
-	'captchahelp-text'           => "Internetisaite, mis lubavad külastajatel sisu muuta (nagu ka see Viki), kasutavad sageli spämmerid ära, postitades reklaamlinke - spämmi. Kuigi neid linke saab alati ära võtta, on nad ikkagi üpris tülikad. Omale kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse teile moonutatud tekstiga pilti ning palutakse teil sisestada seal näidatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks spämmirobotite vastu, samas lubades tavainimestel oma muudatusi rahus teha. Kahjuks võib see tekitada ebamugavusi nägemisraskustega inimestele või neile, kes kasutavad kõnesüntesaatorit või tekstipõhist brauserit. Hetkel pole meil helipõhist alternatiivi. Kui teil tekib ootamatult raskusi oma muudatuste tegemisel, siis kirjutage sellest [[Vikipeedia:Üldine arutelu|üldise arutelu]] lehele. Konto registreerimise lehele või lehe redigeerimisele tagasi jõudmiseks vajutage oma brauseri tagasi-nuppu.",
-	'captcha-createaccount'      => "Kaitsena spämmi vastu peate konto registreerimiseks lahtrisse kirjutama järgneva tehte tulemuse.<br /> ([[Special:Captcha/help|Mis see on?]])",
-	'captcha-createaccount-fail' => "Puuduv või valesti sisestatud kinnituskood.",
+	'captchahelp-text'           => 'Internetisaite, mis lubavad külastajatel sisu muuta (nagu ka see Viki), kasutavad sageli spämmerid ära, postitades reklaamlinke - spämmi. Kuigi neid linke saab alati ära võtta, on nad ikkagi üpris tülikad. Omale kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse teile moonutatud tekstiga pilti ning palutakse teil sisestada seal näidatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks spämmirobotite vastu, samas lubades tavainimestel oma muudatusi rahus teha. Kahjuks võib see tekitada ebamugavusi nägemisraskustega inimestele või neile, kes kasutavad kõnesüntesaatorit või tekstipõhist brauserit. Hetkel pole meil helipõhist alternatiivi. Kui teil tekib ootamatult raskusi oma muudatuste tegemisel, siis kirjutage sellest [[Vikipeedia:Üldine arutelu|üldise arutelu]] lehele. Konto registreerimise lehele või lehe redigeerimisele tagasi jõudmiseks vajutage oma brauseri tagasi-nuppu.',
 );
 
+/** Basque (Euskara)
+ */
 $messages['eu'] = array(
-	'captcha-edit'               => "Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])",
-	'captcha-addurl'               => "Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])",
-	'captcha-create'               => "Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])",
+	'captcha-edit'               => 'Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])',
+	'captcha-addurl'             => 'Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])',
+	'captcha-createaccount'      => 'Spam-a saihesteko, mesedez, irudian agertzen den hizki edo zenbaki kodea, beheko laukian idatzi zure kontua sortzeko:<br /> ([[Special:Captcha/help|Zer da hau?]])',
+	'captcha-createaccount-fail' => 'Baieztatze kode ezegokia.',
+	'captcha-create'             => 'Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])',
 	'captchahelp-title'          => 'Captcha laguntza',
 	'captchahelp-text'           => "Publikoki aldaketak egiteko aukerak dituzten webguneetan, wiki honetan bezalaxe, spam testuak gehitzen dira sarritan tresna automatikoak erabiliz. Lotura horiek ezabatu egin daitezkeen arren, traba dira. Batzutan, eta bereziki webgune berri bateko loturak gehitzen dituzunean, hitz batzuk dituen irudi bat agertuko zaizu, eta bertan ageri den testua idazteko eskatuko zaizu. Lan hori automatizatzeko zaila da, eta pertsonei ezer kostatzen ez zaigunez, spam testuak saihesteko lagungarria da. Zoritxarrez, ikusmen mugatua edo testu bidezko nabigatzaileak erabiltzen dituzten erabiltzeek arazoak izan ditzakete. Horrelako zerbait gertatzen bazaizu, mesedez, jarri administratzaileekin harremanetan. Zure nabigatzaileko 'atzera' lotura erabili aldaketen orrialdera itzultzeko.",
-	'captcha-createaccount'      => "Spam-a saihesteko, mesedez, irudian agertzen den hizki edo zenbaki kodea, beheko laukian idatzi zure kontua sortzeko:<br /> ([[Special:Captcha/help|Zer da hau?]])",
-	'captcha-createaccount-fail' => "Baieztatze kode ezegokia.",
 );
 
 /** Finnish (Suomi)
@@ -460,17 +473,21 @@ $messages['ga'] = array(
 	'captchahelp-title'          => 'Cabhair maidir le Captcha',
 );
 
+/** Galician (Galego)
+ * @author Alma
+ * @author Xosé
+ */
 $messages['gl'] = array(
-	'captcha-edit'                => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
-	'captcha-addurl'              => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
-	'captcha-badlogin'            => 'Como protección para que non descubran o contrasinal por medios automáticos, resolva a suma simple de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]])',
-	'captcha-createaccount'       => 'Como protección fronte a sistemas de creación automática de contas de usuario usados polos \'\'spammers\'\', ten que teclear as palabras que aparecen na imaxe para rexistrar unha conta:<br /> ([[Special:Captcha/help|Qué é isto?]])',
-	'captcha-createaccount-fail'  => 'Falta o código de confirmación ou é incorrecto.',
-	'captcha-create'              => 'Para crear a páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa  ([[Special:Captcha/help|Qué é isto?]])',
-	'captchahelp-title'           => 'Axuda acerca do Captcha',
-	'captchahelp-cookies-needed'  => 'Vostede necesita ter as cookies habilitadas no seu navegador para que funcione.',
-	'captchahelp-text'            => '\'\'\'CAPTCHA\'\'\' (acrónimo de "\'\'\'C\'\'\'ompletely \'\'\'A\'\'\'utomated \'\'\'P\'\'\'ublic \'\'\'T\'\'\'uring test to tell \'\'\'C\'\'\'omputers and \'\'\'H\'\'\'umans \'\'\'A\'\'\'part") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas. Os sitios web que aceptan publicar as contribucións dos usuarios coma este wiki sofren, con frecuencia, o abuso por parte de \'\'spammers\'\' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias nunha chea de páxinas en pouco tempo. Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo. En ocasións, en particular cando engada algún novo vínculo externo, o wiki pode mostrar unha imaxe dun texto coloreado e distorsionado e pedirlle que teclee as palabras mostradas. Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e robots e dificulta os ataques automatizados dos \'\'spammers\'\'. Por desgraza, pódelles causar problemas a aqueles usuarios con dificultades de visión ou aos que utilicen navegadores de texto ou navegadores baseados en sistemas de voz. Polo de agora non dispoñemos dunha alternativa de audio. Por favor, contacte cun [[Special:Listusers/sysop|administrador]] do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas. Prema no botón "atrás" ou equivalente do seu navegador para volver á páxina na que estaba.',
-	'captcha-addurl-whitelist'    => ' #<!-- deixe esta liña exactamente como está --> <pre>
+	'captcha-edit'               => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
+	'captcha-addurl'             => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
+	'captcha-badlogin'           => 'Como protección para que non descubran o contrasinal por medios automáticos, resolva a suma simple de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]])',
+	'captcha-createaccount'      => "Como protección fronte a sistemas de creación automática de contas de usuario usados polos ''spammers'', ten que teclear as palabras que aparecen na imaxe para rexistrar unha conta:<br /> ([[Special:Captcha/help|Qué é isto?]])",
+	'captcha-createaccount-fail' => 'Falta o código de confirmación ou é incorrecto.',
+	'captcha-create'             => 'Para crear a páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa  ([[Special:Captcha/help|Qué é isto?]])',
+	'captchahelp-title'          => 'Axuda acerca do Captcha',
+	'captchahelp-cookies-needed' => 'Vostede necesita ter as cookies habilitadas no seu navegador para que funcione.',
+	'captchahelp-text'           => "'''CAPTCHA''' (acrónimo de \"'''C'''ompletely '''A'''utomated '''P'''ublic '''T'''uring test to tell '''C'''omputers and '''H'''umans '''A'''part\") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas. Os sitios web que aceptan publicar as contribucións dos usuarios coma este wiki sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias nunha chea de páxinas en pouco tempo. Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo. En ocasións, en particular cando engada algún novo vínculo externo, o wiki pode mostrar unha imaxe dun texto coloreado e distorsionado e pedirlle que teclee as palabras mostradas. Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e robots e dificulta os ataques automatizados dos ''spammers''. Por desgraza, pódelles causar problemas a aqueles usuarios con dificultades de visión ou aos que utilicen navegadores de texto ou navegadores baseados en sistemas de voz. Polo de agora non dispoñemos dunha alternativa de audio. Por favor, contacte cun [[Special:Listusers/sysop|administrador]] do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas. Prema no botón \"atrás\" ou equivalente do seu navegador para volver á páxina na que estaba.",
+	'captcha-addurl-whitelist'   => ' #<!-- deixe esta liña exactamente como está --> <pre>
 # A sintaxe é a seguinte:
 #   * Todo o que vai desde o carácter "#" até o final da liña é un comentario  
 #   * Cada liña que non estea en branco é un fragmento de expresión regular que só coincidirá con hosts dentro de URLs
@@ -529,35 +546,40 @@ $messages['he'] = array(
  #</pre> <!-- יש להשאיר שורה זו בדיוק כפי שהיא כתובה -->',
 );
 
+/** Croatian (Hrvatski)
+ * @author SpeedyGonsales
+ */
 $messages['hr'] = array(
-	'captcha-edit'                => 'Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])',
-	'captcha-addurl'              => 'Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])',
-	'captcha-badlogin'            => 'Da se spriječi automatizirano pogađanje lozinki,
+	'captcha-edit'               => 'Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])',
+	'captcha-addurl'             => 'Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])',
+	'captcha-badlogin'           => 'Da se spriječi automatizirano pogađanje lozinki,
 molimo zbrojite donje brojeve i upišite rezultat ([[Special:Captcha/help|pomoć]]):',
-	'captcha-createaccount'       => 'Kao zaštitu od automatskog spama, pri otvaranju računa trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć]])',
-	'captcha-createaccount-fail'  => 'Potvrdni kod je nepotpun ili netočan.',
-	'captcha-create'              => 'Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])',
-	'captchahelp-title'           => 'Antispam pomoć',
-	'captchahelp-cookies-needed'  => 'Trebate imati uključene kolačiće (\'\'cookies\'\') u vašem web pregledniku za ovu funkciju.',
-	'captchahelp-text'            => 'Web poslužitelje koji rade na temelju javnih doprinosa, poput wiki, često zloupotrebljavaju spameri. Oni koriste automatske alate pomoću kojih generiraju poveznice od vlastitog interesa. Iako se te poveznice najčešće uklanjaju, mogu predstavljati neugodnost pri radu. Ponekad se dogodi da wiki prikaže sliku čudnog tekstualnog sadržaja uz koju morate unijeti prikazana slova. Budući da je takvu radnju teško automatizirati, većina se napadača obeshrabri, a pravi suradnici bez većih smetnji nastavljaju pridonositi. Ukoliko ste suradnik koji koristi tekstualni klijent te vas česte ovakve provjere ometaju pri dodavanju važećih sadržaja, molimo da se obratite [[Special:Listusers/sysop|administratorima]].',
-	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre> 
+	'captcha-createaccount'      => 'Kao zaštitu od automatskog spama, pri otvaranju računa trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć]])',
+	'captcha-createaccount-fail' => 'Potvrdni kod je nepotpun ili netočan.',
+	'captcha-create'             => 'Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])',
+	'captchahelp-title'          => 'Antispam pomoć',
+	'captchahelp-cookies-needed' => "Trebate imati uključene kolačiće (''cookies'') u vašem web pregledniku za ovu funkciju.",
+	'captchahelp-text'           => 'Web poslužitelje koji rade na temelju javnih doprinosa, poput wiki, često zloupotrebljavaju spameri. Oni koriste automatske alate pomoću kojih generiraju poveznice od vlastitog interesa. Iako se te poveznice najčešće uklanjaju, mogu predstavljati neugodnost pri radu. Ponekad se dogodi da wiki prikaže sliku čudnog tekstualnog sadržaja uz koju morate unijeti prikazana slova. Budući da je takvu radnju teško automatizirati, većina se napadača obeshrabri, a pravi suradnici bez većih smetnji nastavljaju pridonositi. Ukoliko ste suradnik koji koristi tekstualni klijent te vas česte ovakve provjere ometaju pri dodavanju važećih sadržaja, molimo da se obratite [[Special:Listusers/sysop|administratorima]].',
+	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre> 
 # Rabi se slijedeća sintaksa: 
 #   * Sve od "#" znaka do kraja linije je komentar
 #   * Svaki neprazni redak je regularni izraz (regex) koji odgovara poslužitelju unutar URL-a
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ */
 $messages['hsb'] = array(
-	'captcha-edit'                => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
-	'captcha-addurl'              => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
-	'captcha-badlogin'             => 'Zo by so awtomatiskemu zadobywanju do hesłow zadźěwało, dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
-	'captcha-createaccount'       => 'Jako škitna naprawa přećiwo awtomatiskemu wutworjenju wužiwarskich kontow dyrbiš slědowacy nadawk wuličeć. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
-	'captcha-createaccount-fail'  => 'Wopačny abo pobrachowacy wuslědk.',
-	'captcha-create'              => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
-	'captchahelp-title'           => 'Pomoc z captcha',
-	'captchahelp-cookies-needed'  => 'Dyrbiš placki (cookies) w swojim wobhladowaku zmóžnić.',
-	'captchahelp-text'            => 'Sydła kaž {{SITENAME}}, kotrež móža so swobodnje wot kóždeho wobdźěłować su často z woporom spamarjow, kotřiž swoje wotkazy awtomatisce we wjele sydłach broja. Tute spam-wotkazy móža so zaso wotstronjeć, wubudźa pak njesnadne mjerzanje. W někotrych padach, wosebje při přidawanju nowych eksternych wotkazow, móže so stać, zo pokazuje tutón wiki wobraz z pisanym abo skomolenym tekstom abo kaza jednory ličenski nadawk wuličeć, kotrehož wuslědk dyrbi so potom do zapodawanskeho kašćika zapisować. Dokelž hodźi so tajki nadawk jenož ćežko z awtomatiskimi srědkami spamarjow spjelnić, móža so tajcy wotdźeržować, druzy wužiwarjo pak móža swoje změny składować. Bohužel móže to k wobćežnosćam za tutych wužiwarjow dowjesć, kotrychž kmanosć widźenja je wobmjezowana abo kotřiž dźěłaja z wobhladowakami kiž su na tekstowe abo rěčne wudawanje wusměrjene. Móžne rozrisanje tutoho problema je přizjewjenje jako wužiwar. Tłóčatko „Wróćo” swojeho wobhladowaka dowjedźe tebje zaso do wobdźěłowanskeho pola.',
-	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre>
+	'captcha-edit'               => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
+	'captcha-addurl'             => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
+	'captcha-badlogin'           => 'Zo by so awtomatiskemu zadobywanju do hesłow zadźěwało, dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
+	'captcha-createaccount'      => 'Jako škitna naprawa přećiwo awtomatiskemu wutworjenju wužiwarskich kontow dyrbiš slědowacy nadawk wuličeć. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
+	'captcha-createaccount-fail' => 'Wopačny abo pobrachowacy wuslědk.',
+	'captcha-create'             => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
+	'captchahelp-title'          => 'Pomoc z captcha',
+	'captchahelp-cookies-needed' => 'Dyrbiš placki (cookies) w swojim wobhladowaku zmóžnić.',
+	'captchahelp-text'           => 'Sydła kaž {{SITENAME}}, kotrež móža so swobodnje wot kóždeho wobdźěłować su často z woporom spamarjow, kotřiž swoje wotkazy awtomatisce we wjele sydłach broja. Tute spam-wotkazy móža so zaso wotstronjeć, wubudźa pak njesnadne mjerzanje. W někotrych padach, wosebje při přidawanju nowych eksternych wotkazow, móže so stać, zo pokazuje tutón wiki wobraz z pisanym abo skomolenym tekstom abo kaza jednory ličenski nadawk wuličeć, kotrehož wuslědk dyrbi so potom do zapodawanskeho kašćika zapisować. Dokelž hodźi so tajki nadawk jenož ćežko z awtomatiskimi srědkami spamarjow spjelnić, móža so tajcy wotdźeržować, druzy wužiwarjo pak móža swoje změny składować. Bohužel móže to k wobćežnosćam za tutych wužiwarjow dowjesć, kotrychž kmanosć widźenja je wobmjezowana abo kotřiž dźěłaja z wobhladowakami kiž su na tekstowe abo rěčne wudawanje wusměrjene. Móžne rozrisanje tutoho problema je přizjewjenje jako wužiwar. Tłóčatko „Wróćo” swojeho wobhladowaka dowjedźe tebje zaso do wobdźěłowanskeho pola.',
+	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
 # Syntaks je slědowaca:
 # * Wšo wot znamješka "#" hač do kónca linky je komentar
 # * Kóžda popisana linka je fragment regex (regularneho wuraza) kotryž so z mjenom hosta wěsteje URL přirunuje
@@ -590,16 +612,21 @@ Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséh
   #</pre> <!-- ezt a sort hagyd pontosan így -->',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ */
 $messages['id'] = array(
 	'captcha-edit'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
 ([[Special:Captcha/help|info lengkap]])",
-	'captcha-addurl'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
+	'captcha-addurl'             => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
 ([[Special:Captcha/help|info lengkap]])",
-	'captcha-badlogin'              => 'Untuk membantu perlindungan terhadap perengkahan kunci sandi otomatis, tolong masukkan kata atau hasil perhitungan sederhana berikut dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
-	'captcha-create'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
+	'captcha-badlogin'           => 'Untuk membantu perlindungan terhadap perengkahan kunci sandi otomatis, tolong masukkan kata atau hasil perhitungan sederhana berikut dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+	'captcha-createaccount'      => 'Sebagai perlindungan melawan spam, Anda diharuskan untuk mengetikkan kata atau hasil perhitungan di bawah ini di kotak yang tersedia untuk dapat mendaftarkan pengguna baru:<br />
+([[Special:Captcha/help|info lengkap]])',
+	'captcha-createaccount-fail' => 'Kode konfirmasi salah atau belum diisi.',
+	'captcha-create'             => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
 ([[Special:Captcha/help|info lengkap]])",
 	'captchahelp-title'          => 'Mengenai Captcha',
-	'captchahelp-cookies-needed' => "Anda perlu mengaktifkan cookie pada penjelajah web Anda untuk menggunakan fitur ini.",
+	'captchahelp-cookies-needed' => 'Anda perlu mengaktifkan cookie pada penjelajah web Anda untuk menggunakan fitur ini.',
 	'captchahelp-text'           => "Situs-situs web yang menerima masukan data dari publik, seperti {{ns:project}} ini, kerapkali disalahgunakan oleh pengguna-pengguna yang tidak bertanggungjawab untuk mengirimkan spam dengan menggunakan program-program otomatis. Walaupun spam-spam tersebut dapat dibuang, tetapi tetap saja menimbulkan gangguan berarti.
 
 Ketika menambahkan pranala web baru ke suatu halaman, {{ns:project}} akan menampilkan sebuah gambar tulisan yang terdistorsi atau suatu perhitungan sederhana dan meminta Anda untuk mengetikkan kata atau hasil dimaksud. Karena ini merupakan suatu pekerjaan yang sulit diotomatisasi, pembatasan ini akan mengizinkan hampir semua manusia untuk melakukannya, tapi di sisi lain akan menghentikan kebanyakan aksi spam dan penyerangan yang dilakukan oleh bot otomatis.
@@ -607,41 +634,38 @@ Ketika menambahkan pranala web baru ke suatu halaman, {{ns:project}} akan menamp
 Sayangnya, hal ini dapat menimbulkan kesulitan bagi pengguna dengan keterbatasan penglihatan atau pengguna yang menggunakan penjelajah basis teks atau suara. Saat ini, kami tidak memiliki suatu alternatif suara untuk hal ini. Silakan minta bantuan dari pengurus situs jika hal ini menghambat Anda untuk mengirimkan suntingan yang layak.
 
 Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan.",
-	'captcha-createaccount'      => "Sebagai perlindungan melawan spam, Anda diharuskan untuk mengetikkan kata atau hasil perhitungan di bawah ini di kotak yang tersedia untuk dapat mendaftarkan pengguna baru:<br />
-([[Special:Captcha/help|info lengkap]])",
-	'captcha-createaccount-fail' => "Kode konfirmasi salah atau belum diisi.",
 );
 
+/** Icelandic (Íslenska)
+ */
 $messages['is'] = array(
-	'captcha-edit'               => "Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])",
-	'captcha-addurl'               => "Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])",
-	'captcha-create'               => "Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])",
+	'captcha-edit'               => 'Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])',
+	'captcha-addurl'             => 'Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])',
+	'captcha-createaccount'      => 'Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd áður en þú skráir notandanafn: <br />([[Special:Captcha/help|Hvað er þetta?]])',
+	'captcha-createaccount-fail' => 'Staðfestingarkóðinn var rangur eða ekki til staðar.',
+	'captcha-create'             => 'Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])',
 	'captchahelp-title'          => 'Captcha-hjálp',
-	'captchahelp-text'           => "Vefsíður sem að leyfa framlög frá frá almenningi, líkt og þessi wiki-vefur, eru oft misnotaðar af svokölluðum „spömmurum“ sem nota sjálfvirk tól til þess að setja inn tengla á aðrar vefsíður. Aðrir notendur geta fjarlægt þessa tengla en töluverð truflun er af þeim.
+	'captchahelp-text'           => 'Vefsíður sem að leyfa framlög frá frá almenningi, líkt og þessi wiki-vefur, eru oft misnotaðar af svokölluðum „spömmurum“ sem nota sjálfvirk tól til þess að setja inn tengla á aðrar vefsíður. Aðrir notendur geta fjarlægt þessa tengla en töluverð truflun er af þeim.
 
 Stundum þegar þú breytir síðum, sérstaklega ef breytingin felur í sér nýja tengla á aðra vefi, getur gerst að þú sért beðin(n) um að skrifa inn orð sem birtast á lituðum eða óskýrum myndum. Fyrir flesta notendur af holdi og blóði er þetta lítið mál en sjálfvirk tól ráða ekki við þetta.
 
 Því miður kann þetta að valda notendum óþægindum sem hafa skerta sjón eða notast við talmálsvafra. Enn sem komið er eru ekki til aðrir valkostir fyrir þau tilvik. Ef þetta kemur í veg fyrir lögmætar breytingar af þinni hálfu getur þú leitað aðstoðar hjá stjórnendum vefsins.
 
-Notaðu „back“-hnapp vafrans til að halda áfram.",
-	'captcha-createaccount'      => "Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd áður en þú skráir notandanafn: <br />([[Special:Captcha/help|Hvað er þetta?]])",
-	'captcha-createaccount-fail' => "Staðfestingarkóðinn var rangur eða ekki til staðar.",
+Notaðu „back“-hnapp vafrans til að halda áfram.',
 );
 
 /** Italian (Italiano)
  * @author BrokenArrow
  */
 $messages['it'] = array(
-	'captcha-edit'               => "La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell'immagine:<br />
-([[Special:Captcha/help|Cosa vuol dire?]])",
-	'captcha-addurl'             => "La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell'immagine:<br />
-([[Special:Captcha/help|Cosa vuol dire?]])",
-	'captcha-badlogin'           => 'Ai fini di contrastare tentativi di forzatura automatica della password, risolvi per favore il seguente semplice calcolo ed inserisci la risposta nella casella ([[Speciale:Captcha/help|maggiori informazioni]]):',
-	'captcha-createaccount'      => "Come misura di sicurezza nei confronti dei messaggi di spam automatici, per registrarsi è necessario inserire le parole che appaiono nell'immagine:<br />
-([[Speciale:Captcha/help|Cosa vuol dire?]])",
+	'captcha-edit'               => 'Per modificare la pagina è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella
+([[Special:Captcha/help|maggiori informazioni]]):',
+	'captcha-addurl'             => "La modifica richiesta aggiunge dei nuovi collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|maggiori informazioni]]):",
+	'captcha-badlogin'           => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|maggiori informazioni]]):',
+	'captcha-createaccount'      => 'Come misura precauzionale contro i tentativi di creazione automatica degli account, per registrarsi è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|maggiori informazioni]]):',
 	'captcha-createaccount-fail' => 'Codice di verifica errato o mancante.',
-	'captcha-create'             => "La modifica richiesta aggiunge dei nuovi collegamenti (URL) alla pagina; come misura precauzionale contro l'inserimento automatico di spam, per confermarla è necessario inserire le parole che appaiono nell'immagine:<br />
-([[Special:Captcha/help|Cosa vuol dire?]])",
+	'captcha-create'             => 'Per creare la pagina è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella:<br />
+([[Special:Captcha/help|maggiori informazioni]]):',
 	'captchahelp-title'          => "Cos'è il captcha?",
 	'captchahelp-cookies-needed' => 'È necessario abilitare i cookie sul proprio browser per proseguire',
 	'captchahelp-text'           => "Capita spesso che i siti Web che accettano messaggi pubblici, come questo wiki, siano presi di mira da spammer che usano strumenti automatici per inserire collegamenti pubblicitari verso un gran numero di siti. Per quanto i collegamenti indesiderati si possano rimuovere, si tratta comunque di una seccatura non indifferente.
@@ -805,14 +829,15 @@ $messages['lo'] = array(
 	'captcha-create'             => 'ກະລຸນາ ແກ້ເລກບວກງ່າຍໆລຸ່ມນີ້ ແລະ ພິມຜົນບວກໃສ່ໃນກັບ ເພື່ອ ສ້າງໜ້ານີ້ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມເຕີມ]]):',
 );
 
+/** Latvian (Latviešu)
+ */
 $messages['lv'] = array(
-	'captcha-edit'               => "Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
-	'captcha-addurl'               => "Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
-	'captcha-create'               => "Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
-	'captchahelp-title'          => 'Captcha help',
+	'captcha-edit'               => 'Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
+	'captcha-addurl'             => 'Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
+	'captcha-createaccount'      => 'Lai pasargātos no automātiskas mēstuļošanas, Tev reģistrējoties ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
+	'captcha-createaccount-fail' => 'Nepareizs apstiprinājuma kods vai arī tas nav ievadīts.',
+	'captcha-create'             => 'Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
 	'captchahelp-text'           => "Interneta lapas, kurās iespējams pievienot tekstu, kā šajā wiki, bieži cieš no mēstuļotājiem, kuri izmanto automatizētus līdzekļus, lai pievienotu savus saites daudzās jo daudzās interneta lapās. Kaut arī šīs saites var viegli dzēst, tomēr tās ir nozīmīgs traucēklis. Reizēm, jo īpaši pievienojot jaunas interneta saites, wiki programmatūra var parādīt Tev attēlu, kurā ir krāsains vai sagrozīts teksts. Šis teksts ir jāpārraksta un to ir ļoti grūti izdarīt automātiski, tā apgrūtinot lielāko daļu mēstuļotāju, savukārt gandrīz visi parastie lietotāji to var izdarīt bez grūtībām. Diemžēl tas var apgrūtināt lietotājus, kuriem ir redzes traucējumi vai kuri izmanto teksta pārlūkus vai dzirdes pārlūkus. Šobrīd nav pieejama audio alternatīva, bet sazinies ar wiki administratoriem, ja tas liedz Tev veikt labi domātus papildinājumus. Spied pārlūka pogu \"Atpakaļ\" (''Back''), lai atgrieztos iepriekšējā lapā.",
-	'captcha-createaccount'      => "Lai pasargātos no automātiskas mēstuļošanas, Tev reģistrējoties ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])",
-	'captcha-createaccount-fail' => "Nepareizs apstiprinājuma kods vai arī tas nav ievadīts.",
 );
 
 $messages['nan'] = array(
@@ -839,20 +864,16 @@ $messages['nds'] = array(
 );
 
 /** Dutch (Nederlands)
- * @author SPQRobin
  * @author Siebrand
+ * @author SPQRobin
  */
 $messages['nl'] = array(
-	'captcha-edit'               => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
-([[Special:Captcha/help|Wat is dit?]])",
-	'captcha-addurl'             => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
-([[Special:Captcha/help|Wat is dit?]])",
+	'captcha-edit'               => 'U wilt deze pagina bewerken. Voer alstublieft het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
+	'captcha-addurl'             => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam alstublieft het antwoord op de onderstaande eenvoudige som in in het invoerveld ([[Special:Captcha/help|meer informatie]]):",
 	'captcha-badlogin'           => 'Los alstublieft de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
-	'captcha-createaccount'      => 'Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn om uw gebruiker aan te maken:<br />
-([[Special:Captcha/help|Wat is dit?]])',
-	'captcha-createaccount-fail' => 'Onjuiste of ontbrekende bevestigingscode.',
-	'captcha-create'             => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam de woorden in die in de volgende afbeelding te zien zijn:<br />
-([[Special:Captcha/help|Wat is dit?]])",
+	'captcha-createaccount'      => 'Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
+	'captcha-createaccount-fail' => 'De bevestigingscode ontbreekt of is onjuist.',
+	'captcha-create'             => 'U wilt een nieuwe pagina aanmaken. Voer alstublieft het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
 	'captchahelp-title'          => 'Captcha-hulp',
 	'captchahelp-cookies-needed' => 'U dient in uw browser cookies ingeschakeld te hebben om dit te laten werken.',
 	'captchahelp-text'           => "Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma's automatisch links op zetten naar vele websites. Hoewel deze externe links weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
@@ -974,6 +995,7 @@ Ch\'a-i bata ansima al boton \'andré\' ant sò navigator për torné andré a l
 #   * minca riga nen veujda a l\'é un frament d\'espression regolar ch\'as dòvra për identifiché j\'adrësse dle màchine servente ant j\'anliure
  #</pre> <!-- leave this line exactly as it is -->',
 );
+
 $messages['pt'] = array(
 	'captcha-edit'                => 'Para editar esta página será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
 	'captcha-addurl'              => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
@@ -997,18 +1019,22 @@ Pressione o botão \'voltar\' de seu navegador para retornar à página de ediç
 #   * Todas as linhas que não estiverem em branco são um fragmento de regex, as quais referem-se aos apenas através de URLs;
  #</pre> <!-- mantenha esta linha exatamente desta forma -->',
 );
+
 $messages['pt-br'] = $messages['pt'];
 
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
 $messages['ro'] = array(
-	'captcha-edit'                => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
-	'captcha-addurl'              => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
-	'captcha-badlogin'             => 'Ca măsură de protecţie împotriva spargerii de parole, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
-	'captcha-createaccount'       => 'Pentru a evita crearea automată de conturi, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
-	'captcha-createaccount-fail'  => 'Cod de confirmare incorect sau lipsă.',
-	'captcha-create'              => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
-	'captchahelp-title'           => 'Despre „Captcha”',
-	'captchahelp-cookies-needed'  => 'Trebuie ca browserul dumneavoastră să accepte cookie-uri pentru ca aceasta să funcţioneze.',
-	'captchahelp-text'            => 'Siturile Web care acceptă postări din partea publicului, precum acest wiki, sunt de obicei abuzate de persoane care folosesc unelte automate pentru a introduce legături către multe situri. Deşi aceste legături de spam pot fi scoase, acest lucru reprezintă o muncă inconvenientă.
+	'captcha-edit'               => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
+	'captcha-addurl'             => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
+	'captcha-badlogin'           => 'Ca măsură de protecţie împotriva spargerii de parole, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
+	'captcha-createaccount'      => 'Pentru a evita crearea automată de conturi, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
+	'captcha-createaccount-fail' => 'Cod de confirmare incorect sau lipsă.',
+	'captcha-create'             => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
+	'captchahelp-title'          => 'Despre „Captcha”',
+	'captchahelp-cookies-needed' => 'Trebuie ca browserul dumneavoastră să accepte cookie-uri pentru ca aceasta să funcţioneze.',
+	'captchahelp-text'           => 'Siturile Web care acceptă postări din partea publicului, precum acest wiki, sunt de obicei abuzate de persoane care folosesc unelte automate pentru a introduce legături către multe situri. Deşi aceste legături de spam pot fi scoase, acest lucru reprezintă o muncă inconvenientă.
 
 Uneori, mai ales la adăugarea de legături web noi într-o pagină, situl wiki vă poate arăta o imagine cu un text colorat sau distorsionat şi ruga să introduceţi cuvintele arătate. Deoarece aceasta este o sarcină greu de automatizat, va permite majorităţii persoanelor reale să posteze şi va opri majoritatea atacatorilor.
 
@@ -1054,34 +1080,42 @@ $messages['sco'] = array(
 	'captcha-edit' => 'Tae edit this airticle, please dae the eisy sum ablo an put the answer in the box ([[Special:Captcha/help|mair info]])',
 );
 
+/** Slovak (Slovenčina)
+ * @author Helix84
+ * @author Robbot
+ */
 $messages['sk'] = array(
-	'captcha-edit'                => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
-	'captcha-addurl'              => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
-	'captcha-badlogin'             => 'Ako ochranu proti automatizovanému lámaniu hesiel, prosím vyriešte nasledujúci súčet a zadajte ho do poľa pre odpoveď ([[Special:Captcha/help|viac informácií]]):',
-	'captcha-createaccount'       => 'Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet:
+	'captcha-edit'               => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
+	'captcha-addurl'             => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
+	'captcha-badlogin'           => 'Ako ochranu proti automatizovanému lámaniu hesiel, prosím vyriešte nasledujúci súčet a zadajte ho do poľa pre odpoveď ([[Special:Captcha/help|viac informácií]]):',
+	'captcha-createaccount'      => 'Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet:
 <br />([[Special:Captcha/help|Čo je toto?]])',
-	'captcha-createaccount-fail'  => 'Nesprávny alebo chýbajúci potvrdzovací kód.',
-	'captcha-create'              => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
-	'captchahelp-title'           => 'Pomocník ku captcha',
-	'captchahelp-cookies-needed'  => 'Aby toto fungovalo, budete si musieť v prehliadači zapnúť koláčiky (cookies).',
-	'captchahelp-text'            => 'Webstránky prijímajúce príspevky od verejnosti ako táto wiki sú často cieľom zneužitia spammemi, ktorí používajú automatizované nástroje na to, aby svoje odkazy umiestnili na množstvo stránok. Hoci je možné tieto odkazy odstrániť, zbytočne to zaťažuje používateľov.
+	'captcha-createaccount-fail' => 'Nesprávny alebo chýbajúci potvrdzovací kód.',
+	'captcha-create'             => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
+	'captchahelp-title'          => 'Pomocník ku captcha',
+	'captchahelp-cookies-needed' => 'Aby toto fungovalo, budete si musieť v prehliadači zapnúť koláčiky (cookies).',
+	'captchahelp-text'           => 'Webstránky prijímajúce príspevky od verejnosti ako táto wiki sú často cieľom zneužitia spammemi, ktorí používajú automatizované nástroje na to, aby svoje odkazy umiestnili na množstvo stránok. Hoci je možné tieto odkazy odstrániť, zbytočne to zaťažuje používateľov.
 
 Niekedy, obzvlášť keď pridávate webové odkazy k článkom, wiki Vám môže zobraziť obrázok so zafarbeným alebo pokriveným textom a požiadať Vás o prepísanie zobrazených slov. Keďže takúto úlohu je ťažké zautomatizovať a umožní skutočným ľuďom poslať svoje príspevky, zastaví to väčšinu spammerov a iných robotických útočníkov.
 
 Naneštastie, môže to byť prekážkou pre používateľov so zrakovým postihnutím alebo tých, ktorí používajú textové alebo hovoriace prehliadače. Momentálne nemáme dostupnú audio zvukovú alternatívu. Kontaktujte prosím administratorov stránok, ak Vám to neočakávane komplikuje umiestňovanie oprávnených príspevkov.
 
 Stlačením tlačidla "späť" vo Vašom prehliadači sa vrátite do editora stránky.',
-	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre> 
+	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre> 
 # Syntax je nasledovná: 
 #   * Všetko od znaku "#" do konca riadka je komentár
 #   * Každý neprázdny riadok je fragment regulárneho výrazu, ktorého zhody budú iba stroje v rámci URL
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
+/** Slovenian (Slovenščina)
+ */
 $messages['sl'] = array(
-	'captcha-edit'               => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",
-	'captcha-addurl'               => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",
-	'captcha-create'               => "Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])",
+	'captcha-edit'               => 'Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])',
+	'captcha-addurl'             => 'Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])',
+	'captcha-createaccount'      => 'Za registracijo je zaradi zaščite pred neželenimi reklamnimi sporočili treba vpisati prikazane besede: <br />([[{{ns:special}}:Captcha|Kaj je to?]])',
+	'captcha-createaccount-fail' => 'Nepravilna ali manjkajoča potrditvena koda.',
+	'captcha-create'             => 'Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])',
 	'captchahelp-title'          => 'Pomoč za captcha',
 	'captchahelp-text'           => "Spletne strani, ki omogočajo objavljanje širši javnosti, kot na primer ta wiki, pogosto zlorabljajo spamerji, ki za objavo svojih povezav na mnogih straneh uporabljajo avtomatizirana orodja. Čeprav se te neželene povezave da odstraniti, so precejšnja nadloga.
 
@@ -1090,12 +1124,15 @@ Včasih, zlasti pri dodajanju novih spletnih povezav na stran, vam bo morda wiki
 Žal lahko to povzroči nevšečnosti uporabnikom s slabim vidom in tistim, ki uporabljajo besedilne ali govorne brskalnike. Glasovna možnost trenutno še ni na razpolago. Če vam to nepričakovano preprečuje legitimno objavo, se, prosimo, obrnite na administratorje spletišča.
 
 Za vrnitev v urejevalnik izberite gumb 'nazaj' vašega brskalnika.",
-	'captcha-createaccount'      => "Za registracijo je zaradi zaščite pred neželenimi reklamnimi sporočili treba vpisati prikazane besede: <br />([[{{ns:special}}:Captcha|Kaj je to?]])",
-	'captcha-createaccount-fail' => "Nepravilna ali manjkajoča potrditvena koda.",
 );
+
+/** Albanian (Shqip)
+ */
 $messages['sq'] = array(
 	'captcha-edit'               => 'Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])',
 	'captcha-addurl'             => 'Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])',
+	'captcha-createaccount'      => 'Për mbrojtje kundër regjistrimeve automatike duhet të zgjidhni ekuacionin e mëposhtëm para se të hapni llogarinë:<br />([[Special:Captcha|Çfarë është kjo?]])',
+	'captcha-createaccount-fail' => 'Mesazhi që duhej shtypur mungon ose nuk është shtypur siç duhet.',
 	'captcha-create'             => 'Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])',
 	'captchahelp-title'          => 'Ndihmë rreth sistemit "Captcha"',
 	'captchahelp-text'           => 'Faqet e rrjetit që pranojnë shkrime nga publiku, siç është edhe kjo wiki, shpesh abuzohen nga njerëz që duan të përfitojnë duke reklamuar ose promovuar lidhjet e tyre. Këto lloj abuzimesh mund të hiqen kollaj por janë një bezdi dhe shpenzim kohe i papranueshëm.
@@ -1105,8 +1142,6 @@ Ndonjëherë, sidomos kur po hapni një llogari të re apo kur po shtoni lidhje 
 Fatkeqësisht ky lloj sistemi mund të bezdisi përdoruesit me pamje të kufizuar ose ata që përdorin mjete teksti ose shfletues leximi me zë. Tani për tani nuk kemi mundësi për të ofruar një sistem me zë në vend të figurave. Ju lutem lidhuni me administruesit nëse ky sistem po ju ndalon të jepni kontribute të vlefshme.
 
 Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e mëparshme.',
-	'captcha-createaccount'      => 'Për mbrojtje kundër regjistrimeve automatike duhet të zgjidhni ekuacionin e mëposhtëm para se të hapni llogarinë:<br />([[Special:Captcha|Çfarë është kjo?]])',
-	'captcha-createaccount-fail' => 'Mesazhi që duhej shtypur mungon ose nuk është shtypur siç duhet.',
 );
 
 /** Seeltersk (Seeltersk)
@@ -1150,6 +1185,7 @@ You will need to have cookies enabled in your browser for this to work.
 
 Hit the \'back\' button in your browser to return to the page editor.',
 );
+
 $messages['sv'] = array(
 	'captcha-edit' => 'För att redigera den här sidan måste du först skriva svaret på följande
 räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
@@ -1204,44 +1240,48 @@ $messages['vo'] = array(
 	'captchahelp-title'          => 'Yuf ela Captcha',
 );
 
+/** Walloon (Walon)
+ */
 $messages['wa'] = array(
-	'captcha-edit'  => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
-	'captcha-addurl'  => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
-	'captcha-create'  => 'Dins vos candjmints i gn a des novelès hårdêyes (URL); po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
-	'captchahelp-title' => 'Aidance passete d\' acertinaedje',
-	'captchahelp-text' => 'Les waibes k\' acceptèt des messaedjes do publik, come ci wiki chal, sont sovint eployîs pa des må-fjhants spameus, po pleur mete, avou des usteyes otomatikes, des loyéns di rclame viè les sites da zels.
-Bén seur, on pout todi les disfacer al mwin, mins c\' est on soyant ovraedje.
+	'captcha-edit'               => "Dins vos candjmints i gn a des novelès hårdêyes (URL); po s' mete a houte des robots di spam, nos vs dimandans d' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k' aparexhèt dins l' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])",
+	'captcha-addurl'             => "Dins vos candjmints i gn a des novelès hårdêyes (URL); po s' mete a houte des robots di spam, nos vs dimandans d' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k' aparexhèt dins l' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])",
+	'captcha-createaccount'      => "Po s' mete a houte des robots di spam, nos vs dimandans d' acertiner ki vos estoz bén ene djin po-z ahiver vosse conte, po çoula, tapez les mots k' aparexhèt dins l' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])",
+	'captcha-createaccount-fail' => "Li côde d' acertinaedje est incorek ou mancant.",
+	'captcha-create'             => "Dins vos candjmints i gn a des novelès hårdêyes (URL); po s' mete a houte des robots di spam, nos vs dimandans d' acertiner ki vos estoz bén ene djin, po çoula, tapez les mots k' aparexhèt dins l' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])",
+	'captchahelp-title'          => "Aidance passete d' acertinaedje",
+	'captchahelp-text'           => "Les waibes k' acceptèt des messaedjes do publik, come ci wiki chal, sont sovint eployîs pa des må-fjhants spameus, po pleur mete, avou des usteyes otomatikes, des loyéns di rclame viè les sites da zels.
+Bén seur, on pout todi les disfacer al mwin, mins c' est on soyant ovraedje.
 
-Adon, pa côps, copurade cwand vos radjoutez des hårdêyes a ene pådje, ou å moumint d\' ahiver on novea conte sol wiki, on eployrè ene passete d\' acertinaedje, dj\' ô bén k\' on vos mostere ene imådje avou on tecse kitoirdou eyet vs dimander di taper les mots so l\' imådje. Come li ricnoxhance di ç\' tecse la est målåjheye a fé otomaticmint pa on robot, çoula permete di leyî les vraiyès djins fé leus candjmints tot arestant l\' plupårt des spameus et des sfwaitès atakes pa robot.
+Adon, pa côps, copurade cwand vos radjoutez des hårdêyes a ene pådje, ou å moumint d' ahiver on novea conte sol wiki, on eployrè ene passete d' acertinaedje, dj' ô bén k' on vos mostere ene imådje avou on tecse kitoirdou eyet vs dimander di taper les mots so l' imådje. Come li ricnoxhance di ç' tecse la est målåjheye a fé otomaticmint pa on robot, çoula permete di leyî les vraiyès djins fé leus candjmints tot arestant l' plupårt des spameus et des sfwaitès atakes pa robot.
 
-Målureuzmint çoula apoite eto des målåjhminces po les cis k\' ont des problinmes po vey, ou k\' eployèt des betchteus e môde tecse ou båzés sol vwès. Pol moumint, nos n\' avans nén ene alternative odio. S\' i vs plait contactez les manaedjeus do site po d\' l\' aidance si çoula vos espaitche di fé vos candjmints ledjitimes.
+Målureuzmint çoula apoite eto des målåjhminces po les cis k' ont des problinmes po vey, ou k' eployèt des betchteus e môde tecse ou båzés sol vwès. Pol moumint, nos n' avans nén ene alternative odio. S' i vs plait contactez les manaedjeus do site po d' l' aidance si çoula vos espaitche di fé vos candjmints ledjitimes.
 
-Clitchîz sol boton «En erî» di vosse betchteu waibe po rivni al pådje di dvant.',
-	'captcha-createaccount' => 'Po s\' mete a houte des robots di spam, nos vs dimandans d\' acertiner ki vos estoz bén ene djin po-z ahiver vosse conte, po çoula, tapez les mots k\' aparexhèt dins l\' imådje chal pa dzo:<br />([[{{ns:special}}:Captcha/help|Pocwè fjhans ns çoula?]])',
-	'captcha-createaccount-fail' => 'Li côde d\' acertinaedje est incorek ou mancant.',
+Clitchîz sol boton «En erî» di vosse betchteu waibe po rivni al pådje di dvant.",
 );
 
+/** 粵語 (粵語)
+ */
 $messages['yue'] = array(
-	'captcha-edit'               => "你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
-([[Special:Captcha/help|呢個係乜嘢嚟？]])",
-	'captcha-addurl'             => "你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
-	([[Special:Captcha/help|呢個係乜嘢嚟？]])",
-	'captcha-badlogin'            => '為咗防止程式自動破解密碼，請答出一個簡單嘅加法，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
-	'captcha-createaccount'      => "為咗防止程式自動註冊，你需要輸入以下圖片中顯示的文字先至能夠註冊得到個戶口：<br />
-([[Special:Captcha/help|呢個係乜嘢嚟？]])",
-	'captcha-createaccount-fail' => "驗證碼錯誤或者唔見咗。",
-	'captcha-create'             => "你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
-([[Special:Captcha/help|呢個係乜嘢嚟？]])",
-'captchahelp-title'          => 'Captcha 幫助',
-	'captchahelp-cookies-needed' => "你需要開咗響瀏覽器度嘅cookies先至可幾用呢樣嘢。",
-	'captchahelp-text'           => "就好似呢個wiki咁，對公眾開放編輯嘅網站係會經常受到垃圾連結騷擾。嗰啲人利用自動化垃圾程序將佢哋嘅連結張貼到好多網站。雖然呢啲連結可以被清除，但係呢啲嘢確實令人十分之討厭。
+	'captcha-edit'               => '你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
+([[Special:Captcha/help|呢個係乜嘢嚟？]])',
+	'captcha-addurl'             => '你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
+	([[Special:Captcha/help|呢個係乜嘢嚟？]])',
+	'captcha-badlogin'           => '為咗防止程式自動破解密碼，請答出一個簡單嘅加法，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-createaccount'      => '為咗防止程式自動註冊，你需要輸入以下圖片中顯示的文字先至能夠註冊得到個戶口：<br />
+([[Special:Captcha/help|呢個係乜嘢嚟？]])',
+	'captcha-createaccount-fail' => '驗證碼錯誤或者唔見咗。',
+	'captcha-create'             => '你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
+([[Special:Captcha/help|呢個係乜嘢嚟？]])',
+	'captchahelp-title'          => 'Captcha 幫助',
+	'captchahelp-cookies-needed' => '你需要開咗響瀏覽器度嘅cookies先至可幾用呢樣嘢。',
+	'captchahelp-text'           => '就好似呢個wiki咁，對公眾開放編輯嘅網站係會經常受到垃圾連結騷擾。嗰啲人利用自動化垃圾程序將佢哋嘅連結張貼到好多網站。雖然呢啲連結可以被清除，但係呢啲嘢確實令人十分之討厭。
 
 有時，特別係當響一頁添加新嘅網頁連結嗰陣，呢個網站會畀你睇一幅有顏色的或者有變形文字嘅圖像，跟住要你輸入所顯示嘅文字。因為咁係難以自動完成嘅一項任務，它將允許人保存佢哋嘅編輯，同時亦阻止大多數發送垃圾郵件者同其它機械人嘅攻擊。
 
 令人遺憾嘅係，咁會令到視力唔好嘅人，或者利用基於文本或者基於聲音嘅瀏覽器用戶感到不便。而目前我哋仲未能夠提供音頻嘅選擇。如果咁樣咁啱阻止到你進行正常嘅編輯，請同管理員聯繫以獲得幫助。
 
-撳一下響瀏覽器度嘅「後退」掣返去你之前所編輯緊嘅頁面。",
-	'captcha-addurl-whitelist' => '
+撳一下響瀏覽器度嘅「後退」掣返去你之前所編輯緊嘅頁面。',
+	'captcha-addurl-whitelist'   => '
  #<!-- leave this line exactly as it is --> <pre> 
 # 語法好似下面噉: 
 #   * 所有由 "#" 字元之後嘅嘢到行尾係註解
@@ -1249,27 +1289,29 @@ $messages['yue'] = array(
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
+/** Simplified Chinese (‪中文(简体)‬)
+ */
 $messages['zh-hans'] = array(
-	'captcha-edit'               => "你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
-([[Special:Captcha/help|这是什么？]])",
-	'captcha-addurl'               => "你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
-	([[Special:Captcha/help|这是什么？]])",
-	'captcha-badlogin'              => '为了防止程序自动破解密码，请答出一个简单的加法，然后在框内输入 ([[Special:Captcha/help|更多资料]]):',
-	'captcha-createaccount'      => "为了防止程序自动注册，你需要输入以下图片中显示的文字才能注册帐户：<br />
-([[Special:Captcha/help|这是什么？]])",
-	'captcha-createaccount-fail' => "验证码错误或丢失。",
-	'captcha-create'               => "你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
-	([[Special:Captcha/help|这是什么？]])",
-	'captchahelp-cookies-needed' => "您需要开启浏览器上的cookies方可使用这个工具。",
+	'captcha-edit'               => '你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
+([[Special:Captcha/help|这是什么？]])',
+	'captcha-addurl'             => '你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
+	([[Special:Captcha/help|这是什么？]])',
+	'captcha-badlogin'           => '为了防止程序自动破解密码，请答出一个简单的加法，然后在框内输入 ([[Special:Captcha/help|更多资料]]):',
+	'captcha-createaccount'      => '为了防止程序自动注册，你需要输入以下图片中显示的文字才能注册帐户：<br />
+([[Special:Captcha/help|这是什么？]])',
+	'captcha-createaccount-fail' => '验证码错误或丢失。',
+	'captcha-create'             => '你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
+	([[Special:Captcha/help|这是什么？]])',
 	'captchahelp-title'          => 'Captcha 帮助',
-	'captchahelp-text'           => "象本站一样，对公众开放编辑的站点经常被垃圾链接骚扰。那些人使用自动化垃圾程序将他们的链接张贴到很多站点。虽然这些链接可以被清除，但是这些东西确实令人十分讨厌。
+	'captchahelp-cookies-needed' => '您需要开启浏览器上的cookies方可使用这个工具。',
+	'captchahelp-text'           => '象本站一样，对公众开放编辑的站点经常被垃圾链接骚扰。那些人使用自动化垃圾程序将他们的链接张贴到很多站点。虽然这些链接可以被清除，但是这些东西确实令人十分讨厌。
 
 有时，特别是当给一个页面添加新的网页链接时，本站会让你看一幅有颜色的或者有变形文字的图像，并且要你输入所显示的文字。因为这是难以自动完成的一项任务，它将允许人保存他们的编辑，同时阻止大多数发送垃圾邮件者和其他机器人的攻击。
 
 令人遗憾是，这会使得视力不好的人，或者使用基于文本或者基于声音的浏览器的用户感到不便。而目前我们还没有提供的音频的选择。如果这正好阻止你进行正常的编辑，请和管理员联系获得帮助。
 
-单击你浏览器中的“后退”按钮返回你所编辑的页面。",
-	'captcha-addurl-whitelist' => '
+单击你浏览器中的“后退”按钮返回你所编辑的页面。',
+	'captcha-addurl-whitelist'   => '
  #<!-- leave this line exactly as it is --> <pre> 
 # 语法像下面这样: 
 #   * 所有由 "#" 字元之后?字元至行尾是注解
@@ -1277,27 +1319,29 @@ $messages['zh-hans'] = array(
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
+/** Traditional Chinese (‪中文(繁體)‬)
+ */
 $messages['zh-hant'] = array(
-	'captcha-edit'               => "你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
-([[Special:Captcha/help|這是什麼？]])",
-	'captcha-addurl'               => "你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
-	([[Special:Captcha/help|這是什麼？]])",
-	'captcha-badlogin'              => '為了防止程式自動破解密碼，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
-	'captcha-createaccount'      => "為了防止程式自動註冊，你需要輸入以下圖片中顯示的文字才能註冊帳戶：<br />
-([[Special:Captcha/help|這是什麼？]])",
-	'captcha-createaccount-fail' => "驗證碼錯誤或丟失。",
-	'captcha-create'               => "你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
-	([[Special:Captcha/help|這是什麼？]])",
-	'captchahelp-cookies-needed' => "您需要開啟瀏覽器上的cookies方可使用這個工具。",
+	'captcha-edit'               => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
+([[Special:Captcha/help|這是什麼？]])',
+	'captcha-addurl'             => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
+	([[Special:Captcha/help|這是什麼？]])',
+	'captcha-badlogin'           => '為了防止程式自動破解密碼，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-createaccount'      => '為了防止程式自動註冊，你需要輸入以下圖片中顯示的文字才能註冊帳戶：<br />
+([[Special:Captcha/help|這是什麼？]])',
+	'captcha-createaccount-fail' => '驗證碼錯誤或丟失。',
+	'captcha-create'             => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
+	([[Special:Captcha/help|這是什麼？]])',
 	'captchahelp-title'          => 'Captcha 說明',
-	'captchahelp-text'           => "像本站一樣，對公眾開放編輯的網站經常被垃圾連結騷擾。那些人使用自動化垃圾程序將他們的連結張貼到很多網站。雖然這些連結可以被清除，但是這些東西確實令人十分討厭。
+	'captchahelp-cookies-needed' => '您需要開啟瀏覽器上的cookies方可使用這個工具。',
+	'captchahelp-text'           => '像本站一樣，對公眾開放編輯的網站經常被垃圾連結騷擾。那些人使用自動化垃圾程序將他們的連結張貼到很多網站。雖然這些連結可以被清除，但是這些東西確實令人十分討厭。
 
 有時，特別是當給一個頁面添加新的網頁連結時，本站會讓你看一幅有顏色的或者有變形文字的圖像，並且要你輸入所顯示的文字。因為這是難以自動完成的一項任務，它將允許人保存他們的編輯，同時阻止大多數發送垃圾郵件者和其他機器人的攻擊。
 
 令人遺憾是，這會使得視力不好的人，或者使用基於文本或者基於聲音的瀏覽器的用戶感到不便。而目前我們還沒有提供的音頻的選擇。如果這正好阻止你進行正常的編輯，請和管理員聯繫獲得幫助。
 
-點擊瀏覽器中的「後退」按鈕返回你所編輯的頁面。",
-	'captcha-addurl-whitelist' => '
+點擊瀏覽器中的「後退」按鈕返回你所編輯的頁面。',
+	'captcha-addurl-whitelist'   => '
  #<!-- leave this line exactly as it is --> <pre> 
 # 語法像下面這樣: 
 #   * 所有由 "#" 字元之後嘅字元至行尾是註解

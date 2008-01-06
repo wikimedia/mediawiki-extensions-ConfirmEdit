@@ -900,12 +900,12 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
  * @author Eirik
  */
 $messages['nn'] = array(
-	'captcha-edit'               => 'Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])',
+	'captcha-edit'               => 'For å endre denne sida, ver venleg og løys det enkle reknestykket nedanfor og skriv svaret i ruta ([[Special:Captcha/help|Kva er dette?]]):',
 	'captcha-addurl'             => 'Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])',
 	'captcha-badlogin'           => 'For å sikra oss mot automatisk passordtjuveri, ver venleg og skriv inn svaret på det enkle reknestykket i boksen nedanfor ([[Special:Captcha/help|meir informasjon]]):',
 	'captcha-createaccount'      => 'For å verne Wikipedia mot reklame (spam) må du skrive inn orda i biletet for å registrere ein konto. <br />([[Special:Captcha/help|Kva er dette?]])',
 	'captcha-createaccount-fail' => 'Feil eller manglande godkjenningskode.',
-	'captcha-create'             => 'Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])',
+	'captcha-create'             => 'For å opprette denne sida, ver venleg og løys det enkle reknestykket nedanfor og skriv svaret i ruta ([[Special:Captcha/help|Kva er dette?]]):',
 	'captchahelp-title'          => 'Captcha-hjelp',
 	'captchahelp-cookies-needed' => 'Du må ha informasjonskapslar aktivert i nettlesaren din for at dette skal verke.',
 	'captchahelp-text'           => 'Internettsider som kan bli endra av alle, som denne wikien, blir ofte misbruka av reklameinnleggjarar (spammarar) som nyttar robotar til å poste store tal lenkjer. Sjølv om slike reklamelenkjer kan bli fjerna er dei til betydelig irritasjon. Nokon gonger, særleg viss du vil leggje til nye internettlenker til ei side, kan wikien vise deg eit bilete av ein farga eller ujamn tekst og be deg skrive inn orda som blir visa. Sidan det er vanskeleg å automatisere denne oppgåva, vil funksjonen slippe dei fleste verkelege menneska gjennom, men stoppe reklamerobotar. Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedsett syn som brukar tekst- eller talebaserte nettlesarar. Ver venleg å kontakte administratorane viss denne funksjonen hindrar deg i å foreta legitime endringar. Trykk på «tilbake»-knappen for å komma tilbake til redigeringssida.',
@@ -1051,18 +1051,17 @@ Va fi nevoie ca browserul folosit să suporte module cookie.',
 
 /** Russian (Русский)
  * @author .:Ajvol:.
+ * @author Kalan
  */
 $messages['ru'] = array(
-	'captcha-edit'               => 'Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
-([[{{ns:special}}:Captcha/help|Что это такое?]])',
+	'captcha-edit'               => 'Чтобы отредактировать страницу, решите простой пример и введите ответ в текстовое поле ([[{{ns:special}}:Captcha/help|что это?]]):',
 	'captcha-addurl'             => 'Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
 ([[{{ns:special}}:Captcha/help|Что это такое?]])',
 	'captcha-badlogin'           => 'В целях защиты от автоматического взлома пароля, пожалуйста, выполните следующее простое арифметическое действие и введите ответ в текстовое поле ниже ([[Special:Captcha/help|подробнее]]):',
 	'captcha-createaccount'      => 'В качестве меры против автоматического спама, вы должны ввести буквы, изображённые на картинке, чтобы зарегистрироваться в системе:<br />
 ([[{{ns:special}}:Captcha/help|Что это такое?]])',
 	'captcha-createaccount-fail' => 'Код подтверждения отсутствует или неверен.',
-	'captcha-create'             => 'Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
-([[{{ns:special}}:Captcha/help|Что это такое?]])',
+	'captcha-create'             => 'Чтобы создать страницу, решите простой пример и введите ответ в текстовое поле ([[{{ns:special}}:Captcha/help|что это?]]):',
 	'captchahelp-title'          => 'Справка о CAPTCHA',
 	'captchahelp-cookies-needed' => 'Вам нужно включить куки в браузере, чтобы эта функция заработала.',
 	'captchahelp-text'           => 'Вебсайты позволяющие добавлять и изменять своё содержимое, в том числе вики, часто становятся целью спамеров, использующих программы для автоматического добавления ссылок. Хотя такие ссылки могут быть удалены, они являются существенной помехой.

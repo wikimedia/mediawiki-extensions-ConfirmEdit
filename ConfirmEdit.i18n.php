@@ -566,14 +566,15 @@ molimo zbrojite donje brojeve i upišite rezultat ([[Special:Captcha/help|pomoć
 );
 
 /** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
  */
 $messages['hsb'] = array(
-	'captcha-edit'               => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
+	'captcha-edit'               => 'Zo by stronu wobdźěłał, rozrisaj prošu slědowacy ličenski nadawk a zapodaj wuslědk do kašćika ([[Special:Captcha/help|Dalše informacije]]):',
 	'captcha-addurl'             => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
 	'captcha-badlogin'           => 'Zo by so awtomatiskemu zadobywanju do hesłow zadźěwało, dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
 	'captcha-createaccount'      => 'Jako škitna naprawa přećiwo awtomatiskemu wutworjenju wužiwarskich kontow dyrbiš slědowacy nadawk wuličeć. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
 	'captcha-createaccount-fail' => 'Wopačny abo pobrachowacy wuslědk.',
-	'captcha-create'             => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
+	'captcha-create'             => 'Zo by stronu wutworił, rozrisaj prošu slědowacy ličenski nadawk a zapodaj wuslědk do kašćika ([[Special:Captcha/help|Dalše informacije]]):',
 	'captchahelp-title'          => 'Pomoc z captcha',
 	'captchahelp-cookies-needed' => 'Dyrbiš placki (cookies) w swojim wobhladowaku zmóžnić.',
 	'captchahelp-text'           => 'Sydła kaž {{SITENAME}}, kotrež móža so swobodnje wot kóždeho wobdźěłować su často z woporom spamarjow, kotřiž swoje wotkazy awtomatisce we wjele sydłach broja. Tute spam-wotkazy móža so zaso wotstronjeć, wubudźa pak njesnadne mjerzanje. W někotrych padach, wosebje při přidawanju nowych eksternych wotkazow, móže so stać, zo pokazuje tutón wiki wobraz z pisanym abo skomolenym tekstom abo kaza jednory ličenski nadawk wuličeć, kotrehož wuslědk dyrbi so potom do zapodawanskeho kašćika zapisować. Dokelž hodźi so tajki nadawk jenož ćežko z awtomatiskimi srědkami spamarjow spjelnić, móža so tajcy wotdźeržować, druzy wužiwarjo pak móža swoje změny składować. Bohužel móže to k wobćežnosćam za tutych wužiwarjow dowjesć, kotrychž kmanosć widźenja je wobmjezowana abo kotřiž dźěłaja z wobhladowakami kiž su na tekstowe abo rěčne wudawanje wusměrjene. Móžne rozrisanje tutoho problema je přizjewjenje jako wužiwar. Tłóčatko „Wróćo” swojeho wobhladowaka dowjedźe tebje zaso do wobdźěłowanskeho pola.',

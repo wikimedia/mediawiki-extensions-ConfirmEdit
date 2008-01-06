@@ -371,6 +371,31 @@ $messages['eu'] = array(
 	'captchahelp-text'           => "Publikoki aldaketak egiteko aukerak dituzten webguneetan, wiki honetan bezalaxe, spam testuak gehitzen dira sarritan tresna automatikoak erabiliz. Lotura horiek ezabatu egin daitezkeen arren, traba dira. Batzutan, eta bereziki webgune berri bateko loturak gehitzen dituzunean, hitz batzuk dituen irudi bat agertuko zaizu, eta bertan ageri den testua idazteko eskatuko zaizu. Lan hori automatizatzeko zaila da, eta pertsonei ezer kostatzen ez zaigunez, spam testuak saihesteko lagungarria da. Zoritxarrez, ikusmen mugatua edo testu bidezko nabigatzaileak erabiltzen dituzten erabiltzeek arazoak izan ditzakete. Horrelako zerbait gertatzen bazaizu, mesedez, jarri administratzaileekin harremanetan. Zure nabigatzaileko 'atzera' lotura erabili aldaketen orrialdera itzultzeko.",
 );
 
+# فارسی (Huji)
+$messages['fa'] = array(
+	'captcha-edit'               => 'برای ویرایش این مقاله، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+	'captcha-addurl'             => 'ویرایش شما شامل پیوندهای تازه‌ای به بیرون است. برای کمک به جلوگیری از ارسال خودکار هرزنامه‌ها، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+	'captcha-badlogin'           => 'برای کمک به جلوگیری از سرقت خودکار کلمه عبور، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+	'captcha-createaccount'      => 'برای جلوگیری از ایجاد خودکار حساب کاربری، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+	'captcha-createaccount-fail' => 'کلمه تایید نادرست یا گم‌شده:',
+	'captcha-create'             => 'برای ایجاد صفحه لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+	'captchahelp-title'          => 'راهنمای Captcha',
+	'captchahelp-cookies-needed' => 'برای کار کردن آن، شما باید کوکی‌های مرورگرتان را فعال کنید.',
+	'captchahelp-text'           => 'وبگاه‌هایی که امکان تغییر توسط همگان در آن‌ها وجود دارد، مانند این ویکی، گاه و بیگاه توسط هرزنگارهایی که توسط ابزارهای خودکار پیوند خود را در چندین وبگاه درج می‌کنند مورد سوء استفاده قرار می‌گیرند.
+
+در پاره‌ای از موارد، به ویژه زمانی که یک پیوند اینترنتی جدید به صفحه اضافه می‌شود، ویکی ممکن است یک تصویر از حروف رنگی یا معوج به شما نشان بدهد و از شما بخواهد که کلمه‌ای که در آن می‌بینید را وارد کنید. به خاطر این که انجام این کار به شکل خودکار دشوار است، این عمل به اکثر انسان‌های اجازه می‌دهد که به ارسال مطالب بپردازند در حالی که بیشتر ربات‌های حمله‌کننده و هرزنگارها را متوقف می‌کند.
+
+متاسفانه این روش ممکن است کاربرانی را که بینایی محدودی دارند یا از مرورگرهای متنی یا کلامی استفاده می‌کنند دچار محدودیت‌هایی بکند. در حال حاضر هیچ جایگزین صوتی برای این روش موجود نیست. چنان‌چه این مساله شما را دچار محدودیتی دور از انتظار در ارسال نوشته‌های مجاز می‌کند، با مدیران وبگاه تماس بگیرید.
+
+دکمه «قبل» در مرورگرتان را بزنید تا به صفحهٔ ویرایش بازگردید.',
+	'captcha-addurl-whitelist'   => '  #<!-- این سطر را همان‌گونه که هست رها کنید --> <pre>
+# قواعد به این شکل است:
+#  * همه‌چیز از «#» تا آخر سطر یک توضیح در نظر گرفته می‌شود.
+#  * هر سطری که خالی نباشد یک قطعه در نظر گرفته می‌شود که فقط با نام میزبان اینترنتی سنجیده می‌شود.
+  #</pre> <!-- این سطر را همان‌گونه که هست رها کنید -->',
+
+);
+
 /** Finnish (Suomi)
  * @author Nike
  * @author Crt

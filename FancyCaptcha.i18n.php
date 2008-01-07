@@ -133,6 +133,18 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 	'fancycaptcha-edit' => 'Votre modification inclut de nouveaux liens externes. Pour vérifier qu’il ne s’agit pas de pourriel, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :',
 );
 
+/** فارسی
+ * @author Huji
+ */
+'fa' => array(
+	'fancycaptcha-addurl'        => 'ویرایش شما حاوی پیوندهای خارجی جدیدی است. برای جلوگیری از هرزنگاری خودکار، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+	'fancycaptcha-badlogin'      => 'برای کمک به جلوگیری از سرقت خودکار کلمه عبور، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+	'fancycaptcha-createaccount' => 'برای کمک به جلوگیری از ایجاد خودکار حساب کاربری، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+	'fancycaptcha-create'        => 'برای ایجاد این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+	'fancycaptcha-edit'          => 'برای ویرایش این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+
+),
+
 /* Finnish (Niklas Laxström) */
 $messages['fi'] = array(
 	'fancycaptcha-addurl' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',

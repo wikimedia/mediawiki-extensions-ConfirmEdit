@@ -136,14 +136,14 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 /** فارسی
  * @author Huji
  */
-'fa' => array(
+$messages['fa'] = array(
 	'fancycaptcha-addurl'        => 'ویرایش شما حاوی پیوندهای خارجی جدیدی است. برای جلوگیری از هرزنگاری خودکار، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-badlogin'      => 'برای کمک به جلوگیری از سرقت خودکار کلمه عبور، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-createaccount' => 'برای کمک به جلوگیری از ایجاد خودکار حساب کاربری، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-create'        => 'برای ایجاد این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-edit'          => 'برای ویرایش این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 
-),
+);
 
 /* Finnish (Niklas Laxström) */
 $messages['fi'] = array(

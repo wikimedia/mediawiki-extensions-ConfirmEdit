@@ -1001,6 +1001,7 @@ $messages['pl'] = array(
 #   * Każda linia, która nie jest pusta, jest fragmentem wyrażenia regularnego, które ma pasować do adresów wewnątrz adresów URL
  #</pre> <!-- zostaw tę linię dokładnie jak jest -->',
 );
+
 $messages['pms'] = array(
 	'captcha-edit'                => 'Për fe-ie dle modìfiche ansima a st\'artìcol-sì, për piasì ch\'a fasa ël total ambelessì sota
 e ch\'a buta l\'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',

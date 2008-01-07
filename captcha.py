@@ -22,6 +22,8 @@
 # Further tweaks by Brion Vibber <brion@pobox.com>:
 # 2006-01-26: Add command-line options for the various parameters
 # 2007-02-19: Add --dirs param for hash subdirectory splits
+# Tweaks by Greg Sabino Mullane <greg@turnstep.com>:
+# 2008-01-06: Add regex check to skip words containing other than a-z
 
 import random
 import Image
@@ -33,6 +35,7 @@ import math, string, md5
 import getopt
 import os
 import sys
+import re
 
 # Does X-axis wobbly copy, sandwiched between two rotates
 def wobbly_copy(src, wob, col, scale, ang):
@@ -119,6 +122,13 @@ def try_pick_word(words, blacklist, verbose):
 	word1 = words[random.randint(0,len(words)-1)]
 	word2 = words[random.randint(0,len(words)-1)]
 	word = word1+word2
+	if verbose:
+		print "word is %s" % word
+	r = re.compile('[^a-z]');
+	if r.search(word):
+		print "skipping word pair '%s' because it contains non-alphabetic characters" % word
+		return None
+
 	for naughty in blacklist:
 		if naughty in word:
 			if verbose:

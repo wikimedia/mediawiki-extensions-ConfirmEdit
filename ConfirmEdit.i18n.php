@@ -1289,21 +1289,17 @@ Målureuzmint çoula apoite eto des målåjhminces po les cis k' ont des problin
 Clitchîz sol boton «En erî» di vosse betchteu waibe po rivni al pådje di dvant.",
 );
 
-/** 粵語 (粵語)
+/** Cantonese (粵語)
  */
 $messages['yue'] = array(
-	'captcha-edit'               => '你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
-([[Special:Captcha/help|呢個係乜嘢嚟？]])',
-	'captcha-addurl'             => '你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
-	([[Special:Captcha/help|呢個係乜嘢嚟？]])',
-	'captcha-badlogin'           => '為咗防止程式自動破解密碼，請答出一個簡單嘅加法，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
-	'captcha-createaccount'      => '為咗防止程式自動註冊，你需要輸入以下圖片中顯示的文字先至能夠註冊得到個戶口：<br />
-([[Special:Captcha/help|呢個係乜嘢嚟？]])',
+	'captcha-edit'               => '要編輯呢一篇文，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-addurl'             => '你編輯嘅內容裏面有新嘅URL連結；為咗避免受到自動垃圾程式的侵擾，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-badlogin'           => '為咗防止程式自動破解密碼，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-createaccount'      => '為咗防止程式自動註冊，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
 	'captcha-createaccount-fail' => '驗證碼錯誤或者唔見咗。',
-	'captcha-create'             => '你編輯的內容中含有新的URL連結；為咗避免受到自動垃圾程式的侵擾，你需要輸入顯示喺下面圖片度嘅文字：<br />
-([[Special:Captcha/help|呢個係乜嘢嚟？]])',
+	'captcha-create'             => '要開呢一版，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
 	'captchahelp-title'          => 'Captcha 幫助',
-	'captchahelp-cookies-needed' => '你需要開咗響瀏覽器度嘅cookies先至可幾用呢樣嘢。',
+	'captchahelp-cookies-needed' => '你需要開咗響瀏覽器度嘅cookies先至可以用呢樣嘢。',
 	'captchahelp-text'           => '就好似呢個wiki咁，對公眾開放編輯嘅網站係會經常受到垃圾連結騷擾。嗰啲人利用自動化垃圾程序將佢哋嘅連結張貼到好多網站。雖然呢啲連結可以被清除，但係呢啲嘢確實令人十分之討厭。
 
 有時，特別係當響一頁添加新嘅網頁連結嗰陣，呢個網站會畀你睇一幅有顏色的或者有變形文字嘅圖像，跟住要你輸入所顯示嘅文字。因為咁係難以自動完成嘅一項任務，它將允許人保存佢哋嘅編輯，同時亦阻止大多數發送垃圾郵件者同其它機械人嘅攻擊。
@@ -1322,29 +1318,25 @@ $messages['yue'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  */
 $messages['zh-hans'] = array(
-	'captcha-edit'               => '你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
-([[Special:Captcha/help|这是什么？]])',
-	'captcha-addurl'             => '你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
-	([[Special:Captcha/help|这是什么？]])',
-	'captcha-badlogin'           => '为了防止程序自动破解密码，请答出一个简单的加法，然后在框内输入 ([[Special:Captcha/help|更多资料]]):',
-	'captcha-createaccount'      => '为了防止程序自动注册，你需要输入以下图片中显示的文字才能注册帐户：<br />
-([[Special:Captcha/help|这是什么？]])',
+	'captcha-edit'               => '要编辑这篇文章，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
+	'captcha-addurl'             => '你编辑的内容中含有一个新的URL连结；为了免受自动垃圾程式的侵扰，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
+	'captcha-badlogin'           => '为了防止程式自动破解密码，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
+	'captcha-createaccount'      => '为了防止程式自动注册，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
 	'captcha-createaccount-fail' => '验证码错误或丢失。',
-	'captcha-create'             => '你编辑的内容中含有一个新的URL链接；为了免受自动垃圾程序的侵扰，你需要输入显示在下面图片中的文字：<br />
-	([[Special:Captcha/help|这是什么？]])',
-	'captchahelp-title'          => 'Captcha 帮助',
+	'captcha-create'             => '要创建页面，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
+	'captchahelp-title'          => 'Captcha 说明',
 	'captchahelp-cookies-needed' => '您需要开启浏览器上的cookies方可使用这个工具。',
-	'captchahelp-text'           => '象本站一样，对公众开放编辑的站点经常被垃圾链接骚扰。那些人使用自动化垃圾程序将他们的链接张贴到很多站点。虽然这些链接可以被清除，但是这些东西确实令人十分讨厌。
+	'captchahelp-text'           => '像本站一样，对公众开放编辑的网站经常被垃圾连结骚扰。那些人使用自动化垃圾程序将他们的连结张贴到很多网站。虽然这些连结可以被清除，但是这些东西确实令人十分讨厌。
 
-有时，特别是当给一个页面添加新的网页链接时，本站会让你看一幅有颜色的或者有变形文字的图像，并且要你输入所显示的文字。因为这是难以自动完成的一项任务，它将允许人保存他们的编辑，同时阻止大多数发送垃圾邮件者和其他机器人的攻击。
+有时，特别是当给一个页面添加新的网页连结时，本站会让你看一幅有颜色的或者有变形文字的图像，并且要你输入所显示的文字。因为这是难以自动完成的一项任务，它将允许人保存他们的编辑，同时阻止大多数发送垃圾邮件者和其他机器人的攻击。
 
-令人遗憾是，这会使得视力不好的人，或者使用基于文本或者基于声音的浏览器的用户感到不便。而目前我们还没有提供的音频的选择。如果这正好阻止你进行正常的编辑，请和管理员联系获得帮助。
+令人遗憾是，这会使得视力不好的人，或者使用基於文本或者基於声音的浏览器的用户感到不便。而目前我们还没有提供的音频的选择。如果这正好阻止你进行正常的编辑，请和管理员联系获得帮助。
 
-单击你浏览器中的“后退”按钮返回你所编辑的页面。',
+点击浏览器中的「後退」按钮返回你所编辑的页面。',
 	'captcha-addurl-whitelist'   => '
  #<!-- leave this line exactly as it is --> <pre> 
 # 语法像下面这样: 
-#   * 所有由 "#" 字元之后?字元至行尾是注解
+#   * 所有由 "#" 字元之後嘅字元至行尾是注解
 #   * 所有非空白行是一个regex部份，只是跟在里面的URL主机相符
  #</pre> <!-- leave this line exactly as it is -->',
 );
@@ -1352,16 +1344,12 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  */
 $messages['zh-hant'] = array(
-	'captcha-edit'               => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
-([[Special:Captcha/help|這是什麼？]])',
-	'captcha-addurl'             => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
-	([[Special:Captcha/help|這是什麼？]])',
+	'captcha-edit'               => '要編輯這篇文章，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-addurl'             => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
 	'captcha-badlogin'           => '為了防止程式自動破解密碼，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
-	'captcha-createaccount'      => '為了防止程式自動註冊，你需要輸入以下圖片中顯示的文字才能註冊帳戶：<br />
-([[Special:Captcha/help|這是什麼？]])',
+	'captcha-createaccount'      => '為了防止程式自動註冊，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
 	'captcha-createaccount-fail' => '驗證碼錯誤或丟失。',
-	'captcha-create'             => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，你需要輸入顯示在下面圖片中的文字：<br />
-	([[Special:Captcha/help|這是什麼？]])',
+	'captcha-create'             => '要創建頁面，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
 	'captchahelp-title'          => 'Captcha 說明',
 	'captchahelp-cookies-needed' => '您需要開啟瀏覽器上的cookies方可使用這個工具。',
 	'captchahelp-text'           => '像本站一樣，對公眾開放編輯的網站經常被垃圾連結騷擾。那些人使用自動化垃圾程序將他們的連結張貼到很多網站。雖然這些連結可以被清除，但是這些東西確實令人十分討厭。

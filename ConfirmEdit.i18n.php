@@ -81,6 +81,7 @@ Punche o botón 'entazaga' d'o suyo nabegador ta tornar t'o editor de pachinas."
 /** Arabic (العربية)
  * @author Mido
  * @author Meno25
+ * @author Alnokta
  * @author OsamaK
  */
 $messages['ar'] = array(
@@ -100,11 +101,11 @@ $messages['ar'] = array(
 للأسف سيكون هذا صعبا بالنسبة لمستخدمي المتصفحات المحدودة أو التي تعتمد على النصوص فقط أو قراءة النصوص. في الوقت الحالي لا يوجد لدينا بديل سمعي. من فضلك راسل مديري الموقع للمساعدة إذا كان هذا الأمر يمنعك من التعديل ووضع وصلات قانونية.
 
 إذا كنت تحرر صفحة معينة: اضغط زر 'العودة' في متصفحك للعودة إلى التحرير.",
-	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
-# الصيغة كالتالي:
+	'captcha-addurl-whitelist'   => ' #<!-- اترك هذا السطر تمامًا كما هو --> <pre> 
+# الصيغة كما تلي: 
 #   * كل شيء من علامة "#" لنهاية السطر تعليق
-#   * كل سطر غير فارغ هو قطعة ريجيكس والتي توافق فقط المعيلين داخل المسارات
- #</pre> <!-- leave this line exactly as it is -->',
+#   * كل سطر غير فارغ هو جزء تعبير نمطي والذي سوف يطابق فقط المضيفين داخل العناوين
+ #</pre> <!-- اترك هذا السطر تمامًا كما هو -->',
 );
 
 /** Asturian (Asturianu)
@@ -729,6 +730,31 @@ $messages['ja'] = array(
 編集ページに戻るには、ブラウザの戻るボタンを押してください。',
 );
 
+$messages['kk-arab'] = array(
+	'captcha-edit' => 'بۇل بەتتٸ ٶڭدەۋ ٷشٸن, تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن
+اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+	'captcha-addurl' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸكتٸك «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
+تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+	'captcha-badlogin' => 'قۇپييا سٶزدٸ ٶزدٸكتٸك قيراتۋدان قورعانۋ ٷشٸن,
+تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+	'captcha-createaccount' => 'جاڭا تٸركەلگٸ ٶزدٸكتٸك جاسالۋىنان قورعانۋ ٷشٸن, تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى
+شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+	'captcha-createaccount-fail' => "كۋٵلاندىرۋ كودى دۇرىس ەمەس نەمەسە جوق.",
+	'captcha-create' => 'جاڭا بەتتٸ باستاۋ ٷشٸن, تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى شەشٸڭٸز دە,
+نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
+	'captchahelp-title'          => 'CAPTCHA انىقتاماسى',
+	'captchahelp-cookies-needed' => "بۇل جۇمىس ٸستەۋ ٷشٸن, شولعىشىڭىزدا  «cookies»  دەگەندٸ ەندٸرٸڭٸز.",
+	'captchahelp-text'           => "ٶزدٸكتٸك قۇرالدارى بار «سپاممەرلەر», بارشادان جٸبەرٸلگەن حاباردى قابىلدايتىن, بۇل ۋيكي سيياقتى, ۆەب-توراپتارعا سٸلتەمەلەرٸمەن جيٸ جاۋدىرادى. وسىنداي «سپام» سٸلتەمەلەرٸن الاستاۋ بولعاندا دا, بۇل مٵندٸ ىزا كەلتٸرەدٸ.
+
+كەيدە, ٵسٸرەسە بەتكە جاڭا ۆەب سٸلتەمەسٸن قوسقاندا, ۋيكي ٶڭٸ ٶزگەرگەن نە قيسايعان مٵتٸندٸ كٶرسەتٸپ جٵنە سول سٶزدەردٸ ەنگٸزۋ سۇراۋى مٷمكٸن. بۇل تاپسىرىس ٶزدٸك تٷردە اتقارۋ ٶتە قيىن, سوندىقتان بۇل يماندى ادام كٶپشٸلٸگٸنە كەدەرگٸ بولمايدى, بٸراق «سپاممەرلەردٸ» جٵنە بۇزاقى بوتپەن باسقا شابۋىل جاساعانداردى توقتاتادى.
+
+ٶكٸنٸشكە وراي, بۇل كٶرۋٸ تٶمەندەگەن, نەمەسە مٵتٸن نە داۋىس نەگٸزٸندەگٸ شولعىشتى قولداناتىن پايدالانۋشىعا ىڭعايسىزدىق كەلتٸرۋگە مٷمكٸن. وسى قازٸر بٸزدە دىبىستى بالاما جوق. ەگەر بۇل ادال جازۋىڭىزعا كەدەرگٸلەسە, توراپ باقىلاۋشىلارىنا قاتىناسىڭىز.
+
+بۇل جۇمىستى ٸستەۋ ٷشٸن شولعىشىڭىزدا «cookies» دەگەندٸ ەندٸرۋ قاجەت.
+
+بەت ٶڭدەۋٸنە قايتۋ بارۋ ٷشٸن «ارتقا» دەگەن تٷيمەسٸن باسىڭىز."
+);
+
 $messages['kk-cyrl'] = array(
 	'captcha-edit' => 'Бұл бетті өңдеу үшін, төмендегі қосындылауды шешіңіз де, нәтижесін
 аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
@@ -777,31 +803,6 @@ Keýde, äsirese betke jaña veb siltemesin qosqanda, wïkï öñi özgergen ne 
 Bul jumıstı istew üşin şolğışıñızda «cookies» degendi endirw qajet.
 
 Bet öñdewine qaýtw barw üşin «Artqa» degen tüýmesin basıñız."
-);
-
-$messages['kk-arab'] = array(
-	'captcha-edit' => 'بۇل بەتتٸ ٶڭدەۋ ٷشٸن, تٶمەندەگٸ قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن
-اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
-	'captcha-addurl' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸكتٸك «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
-تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
-	'captcha-badlogin' => 'قۇپييا سٶزدٸ ٶزدٸكتٸك قيراتۋدان قورعانۋ ٷشٸن,
-تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
-	'captcha-createaccount' => 'جاڭا تٸركەلگٸ ٶزدٸكتٸك جاسالۋىنان قورعانۋ ٷشٸن, تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى
-شەشٸڭٸز دە, نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
-	'captcha-createaccount-fail' => "كۋٵلاندىرۋ كودى دۇرىس ەمەس نەمەسە جوق.",
-	'captcha-create' => 'جاڭا بەتتٸ باستاۋ ٷشٸن, تٶمەندەگٸ قاراپايىم قوسىندىلاۋدى شەشٸڭٸز دە,
-نٵتيجەسٸن اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
-	'captchahelp-title'          => 'CAPTCHA انىقتاماسى',
-	'captchahelp-cookies-needed' => "بۇل جۇمىس ٸستەۋ ٷشٸن, شولعىشىڭىزدا  «cookies»  دەگەندٸ ەندٸرٸڭٸز.",
-	'captchahelp-text'           => "ٶزدٸكتٸك قۇرالدارى بار «سپاممەرلەر», بارشادان جٸبەرٸلگەن حاباردى قابىلدايتىن, بۇل ۋيكي سيياقتى, ۆەب-توراپتارعا سٸلتەمەلەرٸمەن جيٸ جاۋدىرادى. وسىنداي «سپام» سٸلتەمەلەرٸن الاستاۋ بولعاندا دا, بۇل مٵندٸ ىزا كەلتٸرەدٸ.
-
-كەيدە, ٵسٸرەسە بەتكە جاڭا ۆەب سٸلتەمەسٸن قوسقاندا, ۋيكي ٶڭٸ ٶزگەرگەن نە قيسايعان مٵتٸندٸ كٶرسەتٸپ جٵنە سول سٶزدەردٸ ەنگٸزۋ سۇراۋى مٷمكٸن. بۇل تاپسىرىس ٶزدٸك تٷردە اتقارۋ ٶتە قيىن, سوندىقتان بۇل يماندى ادام كٶپشٸلٸگٸنە كەدەرگٸ بولمايدى, بٸراق «سپاممەرلەردٸ» جٵنە بۇزاقى بوتپەن باسقا شابۋىل جاساعانداردى توقتاتادى.
-
-ٶكٸنٸشكە وراي, بۇل كٶرۋٸ تٶمەندەگەن, نەمەسە مٵتٸن نە داۋىس نەگٸزٸندەگٸ شولعىشتى قولداناتىن پايدالانۋشىعا ىڭعايسىزدىق كەلتٸرۋگە مٷمكٸن. وسى قازٸر بٸزدە دىبىستى بالاما جوق. ەگەر بۇل ادال جازۋىڭىزعا كەدەرگٸلەسە, توراپ باقىلاۋشىلارىنا قاتىناسىڭىز.
-
-بۇل جۇمىستى ٸستەۋ ٷشٸن شولعىشىڭىزدا «cookies» دەگەندٸ ەندٸرۋ قاجەت.
-
-بەت ٶڭدەۋٸنە قايتۋ بارۋ ٷشٸن «ارتقا» دەگەن تٷيمەسٸن باسىڭىز."
 );
 
 $messages['ko'] = array(
@@ -1045,14 +1046,8 @@ Algumas vezes, especialmente ao adicionar novos links externos em uma página, o
 Infelizmente, isso pode ser dificultoso a utilizadores com limitações visuais ou que naveguem através de  mecanismos baseados em texto ou baseados em voz. No momento não há uma alternativa em áudio. Por gentileza, contacte os administradores do sítio em casos que seja necessária a assistência de alguém para que você possa fazer as suas inserções legítimas.
 
 Pressione o botão \'voltar\' de seu navegador para retornar à página de edição.',
-	'captcha-addurl-whitelist'    => ' #<!-- mantenha esta linha exatamente desta forma --> <pre>
-# Esta é a sintaxe:
-#   * Tudo o que estiver sendo exibido em uma linha após o caractere "#" é um comentário;
-#   * Todas as linhas que não estiverem em branco são um fragmento de regex, as quais referem-se aos apenas através de URLs;
- #</pre> <!-- mantenha esta linha exatamente desta forma -->',
 );
 
-$messages['pt-br'] = $messages['pt'];
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
@@ -1368,13 +1363,11 @@ $messages['zh-hant'] = array(
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
-# Kazakh fallbacks
+$messages['kk'] = $messages['kk-cyrl'];
+$messages['kk-cn'] = $messages['kk-arab'];
 $messages['kk-kz'] = $messages['kk-cyrl'];
 $messages['kk-tr'] = $messages['kk-latn'];
-$messages['kk-cn'] = $messages['kk-arab'];
-$messages['kk'] = $messages['kk-cyrl'];
-
-# Chinese fallbacks
+$messages['pt-br'] = $messages['pt'];
 $messages['zh'] = $messages['zh-hans'];
 $messages['zh-cn'] = $messages['zh-hans'];
 $messages['zh-hk'] = $messages['zh-hant'];

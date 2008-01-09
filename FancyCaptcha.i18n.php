@@ -372,6 +372,7 @@ $messages['pt'] = array(
  */
 $messages['ru'] = array(
 	'fancycaptcha-addurl'        => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
+	'fancycaptcha-badlogin'      => 'В целях защиты от автоматического взлома паролей, пожалуйста, введите в поле ввода буквы с изображения ([[Special:Captcha/help|подробнее]]):',
 	'fancycaptcha-createaccount' => 'Для предотвращения автоматической регистрации учётных записей используется контрольная последовательность символов. Пожалуйста, введите изображённые символы в текстовое поле ниже ([[Special:Captcha/help|подробнее]]):',
 	'fancycaptcha-create'        => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
 	'fancycaptcha-edit'          => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
@@ -448,18 +449,13 @@ $messages['zh-hant'] = array(
 	'fancycaptcha-edit' => '如您想要編輯此頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
 );
 
-/* Kazakh fallbacks */
 $messages['kk'] = $messages['kk-cyrl'];
 $messages['kk-cn'] = $messages['kk-arab'];
 $messages['kk-kz'] = $messages['kk-cyrl'];
 $messages['kk-tr'] = $messages['kk-latn'];
-
-/* Chinese defaults, fallback to zh-hans or zh-hant */
 $messages['zh'] = $messages['zh-hans'];
 $messages['zh-cn'] = $messages['zh-hans'];
 $messages['zh-hk'] = $messages['zh-hant'];
 $messages['zh-sg'] = $messages['zh-hant'];
 $messages['zh-tw'] = $messages['zh-hans'];
-
-/* Cantonese default, fallback to yue */
 $messages['zh-yue'] = $messages['yue'];

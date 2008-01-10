@@ -502,7 +502,7 @@ $messages['ga'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
-	'captcha-edit'               => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
+	'captcha-edit'               => 'Para editar este artigo, resolta a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-addurl'             => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Qué é isto?]])',
 	'captcha-badlogin'           => 'Como protección para que non descubran o contrasinal por medios automáticos, resolva a suma simple de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]])',
 	'captcha-createaccount'      => "Como protección fronte a sistemas de creación automática de contas de usuario usados polos ''spammers'', ten que teclear as palabras que aparecen na imaxe para rexistrar unha conta:<br /> ([[Special:Captcha/help|Qué é isto?]])",
@@ -513,7 +513,7 @@ $messages['gl'] = array(
 	'captchahelp-text'           => "'''CAPTCHA''' (acrónimo de \"'''C'''ompletely '''A'''utomated '''P'''ublic '''T'''uring test to tell '''C'''omputers and '''H'''umans '''A'''part\") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas. Os sitios web que aceptan publicar as contribucións dos usuarios coma este wiki sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias nunha chea de páxinas en pouco tempo. Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo. En ocasións, en particular cando engada algún novo vínculo externo, o wiki pode mostrar unha imaxe dun texto coloreado e distorsionado e pedirlle que teclee as palabras mostradas. Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e robots e dificulta os ataques automatizados dos ''spammers''. Por desgraza, pódelles causar problemas a aqueles usuarios con dificultades de visión ou aos que utilicen navegadores de texto ou navegadores baseados en sistemas de voz. Polo de agora non dispoñemos dunha alternativa de audio. Por favor, contacte cun [[Special:Listusers/sysop|administrador]] do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas. Prema no botón \"atrás\" ou equivalente do seu navegador para volver á páxina na que estaba.",
 	'captcha-addurl-whitelist'   => ' #<!-- deixe esta liña exactamente como está --> <pre>
 # A sintaxe é a seguinte:
-#   * Todo o que vai desde o carácter "#" até o final da liña é un comentario
+#   * Todo o que vai desde o carácter "#" até o final da liña é un comentario  
 #   * Cada liña que non estea en branco é un fragmento de expresión regular que só coincidirá con hosts dentro de URLs
  #</pre> <!-- deixe esta liña exactamente como está -->',
 );

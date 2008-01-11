@@ -638,6 +638,7 @@ Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséh
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Borgx
  */
 $messages['id'] = array(
 	'captcha-edit'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />

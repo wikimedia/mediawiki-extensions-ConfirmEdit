@@ -1280,10 +1280,13 @@ Hit the 'back' button in your browser to return to the page editor.",
 
 /** Volapük (Volapük)
  * @author Malafaya
+ * @author Smeira
  */
 $messages['vo'] = array(
+	'captcha-edit'               => 'Ad redakön yegedi at, dunolös, begö! saedami dono e penolös saedoti in bokil ([[Special:Captcha/help|nüns pluik]]):',
 	'captcha-createaccount-fail' => 'Kot fümükama paneveräton u paseleton.',
 	'captchahelp-title'          => 'Yuf ela Captcha',
+	'captchahelp-cookies-needed' => 'Nedol mögükön „kekilis“ bevüresodanaföme olik ad dunön atosi.',
 );
 
 /** Walloon (Walon)

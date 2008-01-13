@@ -264,13 +264,14 @@ Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko
 );
 
 /** Welsh (Cymraeg)
+ * @author Lloffiwr
  */
 $messages['cy'] = array(
-	'captcha-edit'               => 'Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])',
+	'captcha-edit'               => "Er mwyn gallu golygu'r dudalen, gwnewch y swm isod a gosodwch y canlyniad yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'captcha-addurl'             => 'Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])',
 	'captcha-createaccount'      => "Teipiwch y geiriau sy'n ymddangos yn y ddelwedd isod os gwelwch yn dda. Mae'r nodwedd hon yn rhwystro rhaglenni sbam rhag creu cyfrifon i'w hunain. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
 	'captcha-createaccount-fail' => "Côd cadarnhau ar goll neu'n anghywir.",
-	'captcha-create'             => 'Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])',
+	'captcha-create'             => "Er mwyn gallu creu'r dudalen, gwnewch y swm isod a gosodwch y canlyniad yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'captchahelp-title'          => 'Cymorth "captcha"',
 	'captchahelp-text'           => "Yn anffodus, mae safleoedd gwe fel Wicipedia, sy'n caniatau i'r cyhoedd ysgrifennu iddi, yn darged beunyddiol i sbamwyr sy'n defnyddio rhaglenni arbennig i bostio eu cysylltiadau. Gellir dileu'r dolenni o'r dudalen, ond mae hyn yn drafferth mawr. O dro i dro, fe fydd y safle hon yn dangos delwedd o destun, ac fe fydd yn rhaid i chi deipio'r geiriau a ddangosir. Mae hyn yn dasg anodd iawn i ragenni cyfrifiadurol, felly dylai golygwyr go iawn gyflawni'r dasg yn di-drafferth, yn wahanol i'r rhaglenni sbam. Mae hyn yn amlwg yn creu trafferthion i'r sawl sydd yn defnyddio porwyr testun neu sydd yn colli eu golwg. Ar hyn o bryd nid oes fersiwn sain ar gael. Cysylltwch â gweinyddwyr y safle os ydi'r nodwedd hon yn eich rhwystro rhag ychwanegu golygiadau dilys. Gwasgwch botwm 'nôl' eich porwr er mwyn dychwelyd.",
 );
@@ -451,11 +452,11 @@ Parfois, en particulier lors de l’ajout de nouveaux liens externes à une page
 Cette solution peut malheureusement gêner les utilisateurs malvoyants ou utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l’instant. Veuillez contacter un administrateur du site si vous n’arrivez pas à faire vos contributions.
 
 Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page d’édition.',
-	'captcha-addurl-whitelist'   => ' #<!-- laissez cette ligne exactement telle quelle --> <pre>
-# La syntaxe est la suivante:
-#   * Tout caractère suivant "#" jusqu\'à la fin de la ligne sera interprêté comme un commentaire
-#   * Toute ligne non vide est un code regex qui sera utilisé uniquement à l\'intérieur des liens hypertext.
- #</pre> <!-- laissez cette ligne exactement telle quelle -->',
+	'captcha-addurl-whitelist'   => " #<!-- laissez cette ligne exactement telle quelle --> <pre> 
+# La syntaxe est la suivante : 
+#   * Tout caractère suivant « # » jusqu'à la fin de la ligne sera interprêté comme un commentaire
+#   * Toute ligne non vide est un code regex qui sera utilisé uniquement à l'intérieur des liens hypertextes.
+ #</pre> <!-- laissez cette ligne exactement telle quelle -->",
 );
 
 /** Franco-Provençal (Arpetan)
@@ -991,21 +992,31 @@ $messages['oc'] = array(
 	'captcha-addurl-whitelist'   => '#<!-- daissatz aquesta linha exactament tala coma es --> <pre> # La sintaxi es la seguenta: # * Tot caractèr seguissent "#" fins a la fin de la linha serà interpretat coma un comentari # * Tota linha non voida es un còde regex que serà utilizat unicament a l\'interior dels ligams hypertext. #</pre> <!-- daissatz aquesta linha exactament tala coma es -->',
 );
 
+/** Polish (Polski)
+ * @author Sp5uhe
+ * @author Derbeth
+ */
 $messages['pl'] = array(
-	'captcha-edit'                => 'Aby edytować tę stronę musisz rozwiązać proste działanie matematyczne poniżej i wpisać wynik do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
-	'captcha-addurl'              => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy wykonać proste działanie matematyczne i wpisać wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
-	'captcha-badlogin'            => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o rozwiązanie tego prostego zadania i wpisanie odwiedzi w pole obok ([[Special:Captcha/help|więcej informacji]])',
-	'captcha-createaccount'       => 'Ze względu na ochronę przed automatycznym [[wikipedia:pl:spam|spamem]], aby zarejestrować się musisz wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|wyjaśnienie]]):',
-	'captcha-createaccount-fail'  => 'Niepoprawny kod lub brak kodu potwierdzajacego.',
-	'captcha-create'              => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
-	'captchahelp-title'           => 'Pomoc dla ochrony antyspamowej',
-	'captchahelp-cookies-needed'  => 'Musisz mieć włączone w przeglądarce ciasteczka (cookies), aby ta opcja działała.',
-	'captchahelp-text'            => 'Strony internetowe akceptujące edycje dokonywane przez każdego, jak to wiki, są często atakowane przez [[wikipedia:pl:spam|spammerów]], którzy używają automatycznych narzędzi, by dodawać linki do ich stron. Chociaż te linki mogą być usunięte, jest to uciążliwe. Czasami, zwłaszcza przy dodawaniu nowych linków do strony albo przy rejestracji, wiki może pokazać obrazek z kolorowym lub zniekształconym tekstem i poprosić cię o wpisanie pokazanych wyrazów. Może pojawić się też prośba o wpisanie wyniku prostego działania matematycznego. Ponieważ jest to zadanie, które ciężko jest zautomatyzować, pozwoli większości zwykłych ludzi dokonywać ich edycji, powstrzymując jednocześnie większość spammerów i inne automatyczne ataki. Niestety, może być to niewygodne dla użytkowników z wadą wzroku lub używających przeglądarek tekstowych lub głosowych. W tym momencie nie mamy dostępnej alternatywy audio. Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać prawidłowych edycji. Zwróć uwagę, że musisz mieć włączone ciasteczka (cookies). Wciśnij przycisk "wstecz" w twojej przeglądarce by powrócić do edycji strony.',
-	'captcha-addurl-whitelist'    => ' #<!-- zostaw tę linię dokładnie jak jest --> <pre>
-# Składnia jest następująca:
+	'captcha-edit'               => 'Edytowanie tej strony jest możliwe dopiero po rozwiązaniu poniższego prostego działanie matematycznego i wpisaniu wyniku do pola obok ([[Special:Captcha/help|wyjaśnienie]]):',
+	'captcha-addurl'             => 'Dodałeś nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem musisz wykonać proste działanie matematyczne i wpisać wynik w pole obok ([[Special:Captcha/help|więcej informacji]]):',
+	'captcha-badlogin'           => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o rozwiązanie tego prostego zadania i wpisanie odwiedzi w pole obok ([[Special:Captcha/help|więcej informacji]])',
+	'captcha-createaccount'      => 'Ze względu na ochronę przed automatycznym [[wikipedia:pl:spam|spamem]], aby się zarejestrować musisz wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|wyjaśnienie]]):',
+	'captcha-createaccount-fail' => 'Niepoprawny kod lub brak kodu potwierdzajacego.',
+	'captcha-create'             => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
+	'captchahelp-title'          => 'Pomoc dla ochrony antyspamowej',
+	'captchahelp-cookies-needed' => 'Musisz mieć włączone w przeglądarce ciasteczka (cookies), aby ta opcja działała.',
+	'captchahelp-text'           => 'Strony internetowe akceptujące edycje dokonywane przez każdego, jak to wiki, są często atakowane przez [[wikipedia:pl:spam|spammerów]], którzy używają automatycznych narzędzi, by dodawać linki do swoich stron. Chociaż te linki mogą być usunięte, jest to uciążliwe. 
+
+Czasami, zwłaszcza przy dodawaniu nowych linków do strony albo przy rejestracji, wiki może pokazać obrazek z kolorowym lub zniekształconym tekstem i poprosić Cię o przepisanie zamieszczonego na nim wyrazu. Może pojawić się też prośba o wpisanie wyniku prostego działania matematycznego. Ponieważ są to zadania trudne do zautomatyzowania, to zabezpieczenie pozwoli większości ludzi dokonywać edycji, powstrzymując jednocześnie większość spammerów i inne automatyczne ataki. 
+
+Niestety, może być to niewygodne dla użytkowników z wadą wzroku lub używających przeglądarek tekstowych lub głosowych. Obecnie nie mamy alternatywnego rozwiązania audio. Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać prawidłowych edycji. Zwróć uwagę na to, że musisz mieć włączone ciasteczka (cookies).
+
+Wciśnij przycisk "wstecz" w swojej przeglądarce by powrócić do edycji strony.',
+	'captcha-addurl-whitelist'   => ' #<!-- nie modyfikuj tej linii --> <pre> 
+# Składnia jest następująca: 
 #   * Linie zaczynające się od znaku "#" są komentarzami
-#   * Każda linia, która nie jest pusta, jest fragmentem wyrażenia regularnego, które ma pasować do adresów wewnątrz adresów URL
- #</pre> <!-- zostaw tę linię dokładnie jak jest -->',
+#   * Każda linia, która nie jest pusta, jest wyrażeniem regularnym, które ma pasować do adresu serwera (fragmentu URL)
+ #</pre> <!-- nie modyfikuj tej linii -->',
 );
 
 $messages['pms'] = array(

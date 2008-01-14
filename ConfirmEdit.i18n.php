@@ -433,25 +433,26 @@ $messages['fo'] = array(
 );
 
 /** French (Français)
- * @author Grondin
+ * @author Meithal
  * @author Sherbrooke
+ * @author Grondin
  */
 $messages['fr'] = array(
-	'captcha-edit'               => "Pour modifier cette page, vous être prié de résoudre l'opération ci-dessous et d'y inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d'infos]]) :",
+	'captcha-edit'               => "Pour modifier cette page, vous être prié de résoudre l'opération ci-dessous et d'en inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d'infos]]) :",
 	'captcha-addurl'             => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-badlogin'           => "Afin de lutter contre les crackages automatisés des mots de passe par des bots, vous être prié de résoudre l'opération ci-dessous et d'y inscrire le résultat dans le champ [Special:Captcha/help|plus d'infos]]) :",
+	'captcha-badlogin'           => "Afin de lutter contre le piratage automatisé de mots de passe par des bots, vous être prié de résoudre l'opération ci-dessous et d'y inscrire le résultat dans le champ [[Special:Captcha/help|plus d'infos]]) :",
 	'captcha-createaccount'      => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de l’opération dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-createaccount-fail' => 'Code de confirmation erroné ou manquant.',
-	'captcha-create'             => "Pour modifier la page, vous être prié de résoudre l'opération ci-dessous et d'y inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d'infos]]) :",
+	'captcha-create'             => "Pour modifier la page, vous être prié de résoudre l'opération ci-dessous et d'en inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d'infos]]) :",
 	'captchahelp-title'          => 'Aide sur les captcha',
 	'captchahelp-cookies-needed' => 'Il faut activer les cookies dans votre navigateur Web pour que cela fonctionne.',
-	'captchahelp-text'           => 'Les sites Web acceptant des contributions du public, comme ce wiki, sont souvent utilisés par des spammeurs qui utilisent des outils automatiques pour placer de nombreux liens vers leurs sites. Même si ces liens de « spam » peuvent être enlevés, ils représentent une nuisance.
+	'captchahelp-text'           => "Les sites Web acceptant des contributions du public, comme ce wiki, sont souvent utilisés par des spammeurs qui utilisent des outils automatiques pour placer de nombreux liens vers leurs sites. Même si ces liens de « spam » peuvent être enlevés, ils n'en représentent pas moins une nuisance.
 
-Parfois, en particulier lors de l’ajout de nouveaux liens externes à une page, le wiki peut vous montrer une image représentant un texte coloré ou tordu et vous demander de taper les mots montrés. Cette tâche est difficile à automatiser, et permet aux humains de faire leurs contributions tout en stoppant la plupart des spammeurs.
+Parfois, en particulier lors de l’ajout de nouveaux liens externes à une page, le wiki peut vous montrer une image représentant un texte brouillé et vous demander de taper les mots indiqués. Cette tâche est difficile à automatiser, et permet aux humains de faire leurs contributions tout en stoppant la plupart des spammeurs.
 
-Cette solution peut malheureusement gêner les utilisateurs malvoyants ou utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l’instant. Veuillez contacter un administrateur du site si vous n’arrivez pas à faire vos contributions.
+Cette solution peut malheureusement gêner les utilisateurs malvoyants ou ceux utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l’instant. Veuillez contacter un [[Special:Listusers/sysop|administrateur]] du site si vous ne parvenez pas à faire vos contributions.
 
-Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page d’édition.',
+Cliquez sur le bouton « Précédent » de votre navigateur pour revenir sur la page d’édition.",
 	'captcha-addurl-whitelist'   => " #<!-- laissez cette ligne exactement telle quelle --> <pre> 
 # La syntaxe est la suivante : 
 #   * Tout caractère suivant « # » jusqu'à la fin de la ligne sera interprêté comme un commentaire

@@ -1398,6 +1398,8 @@ $messages['zh-hant'] = array(
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
+# Fallbacks:
+$messages['de-formal'] = $messages['de'];
 $messages['kk'] = $messages['kk-cyrl'];
 $messages['kk-cn'] = $messages['kk-arab'];
 $messages['kk-kz'] = $messages['kk-cyrl'];

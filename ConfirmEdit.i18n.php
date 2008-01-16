@@ -110,22 +110,29 @@ $messages['ar'] = array(
 
 /** Asturian (Asturianu)
  * @author SPQRobin
+ * @author Esbardu
  */
 $messages['ast'] = array(
 	'captcha-edit'               => "Pa editar esti artículu, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
 	'captcha-addurl'             => "La to edición inclúi nuevos enllaces esternos. P'aidar a protexer escontra'l spam automatizáu, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
+	'captcha-badlogin'           => "P'aidar a protexer escontra'l descifráu automáticu de claves, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
 	'captcha-createaccount'      => "P'aidar a protexer escontra la creación automática de cuentes, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
 	'captcha-createaccount-fail' => 'Códigu de confirmación incorreutu o ausente.',
 	'captcha-create'             => "Pa crear la páxina, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
 	'captchahelp-title'          => 'Aida tocante al captcha',
 	'captchahelp-cookies-needed' => "Has tener les cookies habilitaes nel to navegador pa que'l sistema funcione.",
-	'captchahelp-text'           => "Los sitios web qu'aceuten mensaxes del publicu, como esta uiquipedia, son davezu oxetu d'abusu por spammers qu'usen programes pa incluyir los sos enllaces automáticamente. Si bien estos enllaces spam puen quitase, son una bona molestia.
+	'captchahelp-text'           => "Los sitios web qu'aceuten mensaxes del publicu, como esta wiki, davezu son oxetu d'abusu por spammers qu'usen programes pa incluyir los sos enllaces automáticamente. Si bien estos enllaces spam puen quitase, son una bona molestia.
 
-Dacuando, especialmente cuando amiesta nuevos enllaces web nuna páxina, Uiquipedia pue amosate una imaxe de testu coloreáu o distorsionáu y va pidite qu'escribas les pallabres amosaes. Yá qu'esti ye un llabor difícil d'automatizar, permitirá a los más de les persones reales unviar los sos testos, al empar que detién los más de los spammers y otros atacantes automáticos.
+Dacuando, especialmente cuando amiesta nuevos enllaces web nuna páxina, la wiki pue amosate una imaxe de testu coloreáu o distorsionáu y va pidite qu'escribas les pallabres amosaes. Yá qu'esti ye un llabor difícil d'automatizar, permitirá a les más de les persones reales unviar los sos testos, al empar que detién los más de los spammers y otros atacantes automáticos.
 
-Desafortunadamente esto pue suponer un inconveniente pa los usuarios con visión llimitada o qu'usen navegadores de testu o voz. De momentu nun tenemos disponible una alternativa por audiu. Por favor, contauta colos alministradores del sitiu pa pidir aida si esto t'impide facer ediciones llexítimes.
+Desafortunadamente esto pue suponer un inconveniente pa los usuarios con visión llimitada o qu'usen navegadores de testu o voz. De momentu nun tenemos disponible una alternativa per audiu. Por favor, contauta colos alministradores del sitiu pa pidir aida si esto t'impide facer ediciones llexítimes.
 
 Calca nel botón 'atrás' del to navegador pa volver a la páxina d'edicion.",
+	'captcha-addurl-whitelist'   => '  #<!-- dexa esta llinia exautamente como ta --> <pre>
+# La sintaxis ye como sigue:
+#  * Too dende\'l carauter "#" hasta la fin de la llinia ye un comentariu
+#  * Toa llinia non vacia ye un fragmentu regex que namái buscará hosts n\'URLs
+  #</pre> <!-- dexa esta llinia exautamente como ta -->',
 );
 
 $messages['bcl'] = array(
@@ -1398,7 +1405,6 @@ $messages['zh-hant'] = array(
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
-# Fallbacks:
 $messages['de-formal'] = $messages['de'];
 $messages['kk'] = $messages['kk-cyrl'];
 $messages['kk-cn'] = $messages['kk-arab'];

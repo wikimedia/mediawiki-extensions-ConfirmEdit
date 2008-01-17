@@ -451,7 +451,6 @@ $messages['zh-hant'] = array(
 	'fancycaptcha-edit' => '如您想要編輯此頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
 );
 
-# Fallbacks:
 $messages['de-formal'] = $messages['de'];
 $messages['kk'] = $messages['kk-cyrl'];
 $messages['kk-cn'] = $messages['kk-arab'];

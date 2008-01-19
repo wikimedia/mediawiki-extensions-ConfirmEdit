@@ -487,9 +487,8 @@ Cliquez sur le bouton « Précédent » de votre navigateur pour revenir sur la 
  */
 $messages['frp'] = array(
 	'captcha-edit'               => 'Por modifiar ceta pâge, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
-	'captcha-addurl'             => 'Voutra èdicion encllut de novéls lims de defôr. Coment protèccion contre lo spame ôtomatico,
-volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
-	'captcha-badlogin'           => 'Coment protèccion contre les tentatives de cracâjo de mots de pâssa ôtomatisâs per des bots, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-addurl'             => 'Voutra modificacion encllut de novéls lims de defôr. Coment protèccion contre lo spame ôtomatico, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-badlogin'           => 'Coment protèccion contre lo piratâjo ôtomatisâ de mots de pâssa per des bots, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'captcha-createaccount'      => 'Coment protèccion contre les crèacions de compto abusives, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'captcha-createaccount-fail' => 'Code de confirmacion fôx ou manquent.',
 	'captcha-create'             => 'Por crèar ceta pâge, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
@@ -497,13 +496,13 @@ volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Specia
 	'captchahelp-cookies-needed' => "Fôt activar los tèmouens (''cookies'') dens voutron navigator por que cen fonccione.",
 	'captchahelp-text'           => 'Los setos Malyâjo accèptent des contribucions du publico, coment ceti vouiqui, sont sovent utilisâs per des spamors qu’utilisont des outils ôtomaticos por placiér tot plen de lims vers lors setos. Quand ben que celos lims de « spame » porront étre enlevâs, reprèsentont una nuésence.
 
-Des côps, en particuliér pendent l’aponsa de novéls lims de defôr a una pâge, lo vouiqui pôt vos montrar una émâge reprèsentent un tèxte colorâ ou ben tordu et vos demandar de tapar los mots montrâs. Cél ovrâjo est dificilo a ôtomatisar, et pèrmèt ux homos de fâre lors contribucions tot en arrètent la plepârt des spamors.
+Des côps, en particuliér pendent l’aponsa de novéls lims de defôr a una pâge, lo vouiqui pôt vos montrar una émâge reprèsentent un tèxte colorâ ou ben tordu et vos demandar de buchiér los mots montrâs. Cél ovrâjo est dificilo a ôtomatisar, et pèrmèt ux homos de fâre lors contribucions tot en arrètent la plepârt des spamors.
 
-Mâlherosament ceta solucion pôt gênar los utilisators mâl-veyents ou utilisent un navigator en tèxte solèt. Nos disposens pas d’altèrnativa ôdiô por lo moment. Volyéd vos veriér vers un administrator du seto se vos arrevâd pas a fâre voutres contribucions.
+Mâlherosament ceta solucion pôt gênar los utilisators mâl-veyents ou utilisent un navigator en tèxte solèt. Nos disposens pas d’altèrnativa ôdiô por lo moment. Volyéd vos veriér vers un [[Special:Listusers/sysop|administrator]] du seto se vos arrevâd pas a fâre voutres contribucions.
 
 Clicâd sur lo boton « Prècèdent » de voutron navigator por tornar a la pâge d’èdicion.',
-	'captcha-addurl-whitelist'   => '  #<!-- lèssiéd ceta legne justo d’ense --> <pre>
-# La sintaxa est la siuventa :
+	'captcha-addurl-whitelist'   => '  #<!-- lèssiéd ceta legne justo d’ense --> <pre>  
+# La sintaxa est la siuventa :  
 #  * Tot caractèro siuvent « # » tant qu’a la fin de la legne serat entèrprètâ coment un comentèro.
 #  * Tota legne pas voueda est un code RegEx que serat utilisâ ren qu’u dedens des lims hipèrtèxte.
   #</pre> <!-- lèssiéd ceta legne justo d’ense -->',
@@ -959,7 +958,7 @@ $messages['nn'] = array(
 	'captcha-create'             => 'For å opprette denne sida, ver venleg og løys det enkle reknestykket nedanfor og skriv svaret i ruta ([[Special:Captcha/help|Kva er dette?]]):',
 	'captchahelp-title'          => 'Captcha-hjelp',
 	'captchahelp-cookies-needed' => 'Du må ha informasjonskapslar aktivert i nettlesaren din for at dette skal verke.',
-	'captchahelp-text'           => 'Internettsider som kan verte endra av alle, som denne wikien, vert ofte misbrukte av reklameinnleggjarar (spammarar) som nyttar robotar til å poste mange lenkjer om gongen. Sjølv om slike reklamelenkjer kan verte fjerna er dei til stor irritasjon. 
+	'captchahelp-text'           => 'Internettsider som kan verte endra av alle, som denne wikien, vert ofte misbrukte av reklameinnleggjarar (spammarar) som nyttar bottar til å poste mange lenkjer om gongen. Sjølv om slike reklamelenkjer kan verte fjerna er dei til stor irritasjon. 
 
 Nokre gonger, særleg viss du vil leggje til nye internettlenker til ei side, kan wikien vise deg eit bilete av ein farga eller ujamn tekst og be deg skrive inn orda som vert viste. Sidan det er vanskeleg å automatisere denne oppgåva, vil funksjonen sleppe dei fleste verkelege menneska gjennom, men stoppe reklamerobotar.
 

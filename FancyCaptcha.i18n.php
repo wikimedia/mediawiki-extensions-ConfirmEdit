@@ -161,7 +161,7 @@ ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
  */
 $messages['frp'] = array(
 	'fancycaptcha-addurl'        => 'Voutra modificacion encllut de novéls lims de defôr. Coment protèccion contre lo spame ôtomatico, volyéd entrar los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
-	'fancycaptcha-badlogin'      => 'Coment protèccion contre les tentatives de cracâjo de mots de pâssa ôtomatisâs per des bots, volyéd entrar los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'fancycaptcha-badlogin'      => 'Coment protèccion contre lo piratâjo ôtomatisâ de mots de pâssa per des bots, volyéd entrar los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'fancycaptcha-createaccount' => 'Coment protèccion contre les crèacions de compto abusives, volyéd entrar los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'fancycaptcha-create'        => 'Por crèar ceta pâge, volyéd entrar los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'fancycaptcha-edit'          => 'Por modifiar ceta pâge, volyéd entrar los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',

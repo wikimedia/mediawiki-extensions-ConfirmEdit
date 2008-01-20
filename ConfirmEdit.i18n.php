@@ -494,17 +494,17 @@ $messages['frp'] = array(
 	'captcha-create'             => 'Por crèar ceta pâge, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'captchahelp-title'          => 'Éde sur los captcha',
 	'captchahelp-cookies-needed' => "Fôt activar los tèmouens (''cookies'') dens voutron navigator por que cen fonccione.",
-	'captchahelp-text'           => 'Los setos Malyâjo accèptent des contribucions du publico, coment ceti vouiqui, sont sovent utilisâs per des spamors qu’utilisont des outils ôtomaticos por placiér tot plen de lims vers lors setos. Quand ben que celos lims de « spame » porront étre enlevâs, reprèsentont una nuésence.
+	'captchahelp-text'           => 'Los setos Malyâjo accèptent des contribucions du publico, coment ceti vouiqui, sont sovent utilisâs per des spamors qu’utilisont des outils ôtomaticos por placiér tot plen de lims vers lors setos. Quand ben que celos lims de « spame » porriant étre enlevâs, reprèsentont una nuésence.
 
 Des côps, en particuliér pendent l’aponsa de novéls lims de defôr a una pâge, lo vouiqui pôt vos montrar una émâge reprèsentent un tèxte colorâ ou ben tordu et vos demandar de buchiér los mots montrâs. Cél ovrâjo est dificilo a ôtomatisar, et pèrmèt ux homos de fâre lors contribucions tot en arrètent la plepârt des spamors.
 
 Mâlherosament ceta solucion pôt gênar los utilisators mâl-veyents ou utilisent un navigator en tèxte solèt. Nos disposens pas d’altèrnativa ôdiô por lo moment. Volyéd vos veriér vers un [[Special:Listusers/sysop|administrator]] du seto se vos arrevâd pas a fâre voutres contribucions.
 
 Clicâd sur lo boton « Prècèdent » de voutron navigator por tornar a la pâge d’èdicion.',
-	'captcha-addurl-whitelist'   => '  #<!-- lèssiéd ceta legne justo d’ense --> <pre>  
-# La sintaxa est la siuventa :  
+	'captcha-addurl-whitelist'   => '  #<!-- lèssiéd ceta legne justo d’ense --> <pre>
+# La sintaxa est la siuventa :
 #  * Tot caractèro siuvent « # » tant qu’a la fin de la legne serat entèrprètâ coment un comentèro.
-#  * Tota legne pas voueda est un code RegEx que serat utilisâ ren qu’u dedens des lims hipèrtèxte.
+#  * Tota legne pas voueda est un bocon de RegEx que serat utilisâ ren qu’u dedens des lims hipèrtèxte.
   #</pre> <!-- lèssiéd ceta legne justo d’ense -->',
 );
 

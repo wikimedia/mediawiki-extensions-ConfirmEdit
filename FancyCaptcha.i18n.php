@@ -216,6 +216,17 @@ $messages['hsb'] = array(
 	'fancycaptcha-edit' => 'Zo by stronu wobdźěłować móhł zapodaj prošu sćěhowace znamješka do kašćika ([[Special:Captcha/help|čehodla?]]):',
 );
 
+/** Hungarian (Magyar)
+ * @author Dorgan
+ */
+$messages['hu'] = array(
+	'fancycaptcha-addurl'        => 'A szerkesztésed új külső hivatkozásokat tartalmaz. Az automatizált spamek megelőzése miatt kérjük, hogy add meg a lenti keretben olvasható szavakat ([[Special:Captcha/help|további segítség]]):',
+	'fancycaptcha-badlogin'      => 'Hogy az automatizált jelszópróbálkozásokat megelőzzük, kérjük, hogy add meg a lenti keretben olvasható szavakat ([[Special:Captcha/help|további segítség]]):',
+	'fancycaptcha-createaccount' => 'A felhasználói fiókok automatizált létrehozásának elkerülésére kérlek írd be az alább megjelenő szót a szövegdobozba ([[Special:Captcha/help|segítség]]):',
+	'fancycaptcha-create'        => 'A lap létrehozásához kérjük, hogy add meg a lenti keretben olvasható szavakat ([[Special:Captcha/help|további segítség]]):',
+	'fancycaptcha-edit'          => 'A szerkesztésed új külső linkeket tartalmaz. A spam-robotok elleni védekezés elősegítésére kérlek írd be az alább megjelenő szót a szövegdobozba ([[Special:Captcha/help|segítség]]):',
+);
+
 /* Indonesian (Ivan Lanin) */
 $messages['id'] = array(
 	'fancycaptcha-edit' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',

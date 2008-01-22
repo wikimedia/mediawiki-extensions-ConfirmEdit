@@ -186,6 +186,13 @@ $messages['bg'] = array(
 Натиснете бутона 'back' на вашия браузър, за да се върнете към редактора на страници.",
 );
 
+/** Bengali (বাংলা)
+ * @author Bellayet
+ */
+$messages['bn'] = array(
+	'captcha-createaccount-fail' => 'ভুল অথবা হারিয়ে যাওয়া নিশ্চিতকরণ সংকেত',
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  */

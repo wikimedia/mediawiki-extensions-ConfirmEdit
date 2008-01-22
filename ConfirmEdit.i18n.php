@@ -964,8 +964,8 @@ Nokre gonger, særleg viss du vil leggje til nye internettlenker til ei side, ka
 
 Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedsett syn som brukar tekst- eller talebaserte nettlesarar. Ver venleg å kontakte administratorane viss denne funksjonen hindrar deg i å gjere skikkelege endringar. Trykk på «attende»-knappen for å kome tilbake til endringssida.',
 	'captcha-addurl-whitelist'   => '  #<!-- la denne lina vere akkurat som ho er --> <pre>  
-# Synyaksen er slik:  
-#  * Alt frå teiknet «#» til enden av linja er ein kommentar
+# Syntaksen er slik:  
+#  * Alt frå teiknet «#» til enden av lina er ein kommentar
 #  * Alle liner som ikkje er tomme er fragment av regulære uttrykk som sjekkar vertar i URL-ar
   #</pre> <!-- la denne lina vere akkurat som ho er -->',
 );
@@ -1296,6 +1296,7 @@ $messages['te'] = array(
 	'captcha-createaccount-fail' => 'దృవీకరించుకోవడానికి విలువ ఇవ్వలేదు లేదా దానిని తప్పుగా ఇచ్చారు.',
 	'captcha-create'             => 'కొత్తపేజీని సృష్టించడానికి, కింద ఇచ్చిన లెక్క యొక్క జవాబును ఇక్కడున్న పెట్టెలో రాయండి ([[Special:Captcha/help|మరింత సహాయం]]):',
 	'captchahelp-title'          => 'ఆమకవేప సహాయం',
+	'captchahelp-cookies-needed' => 'ఇది పని చెయ్యాలంటే మీ బ్రౌజరులో కూకీలు సశక్తమై ఉండాలి.',
 	'captchahelp-text'           => "''ఆమకవేప'' అంటే '''ఆ'''టోమాటిక్ గా '''మ'''నుష్యులను, '''కం'''ప్యూటర్లను '''వే'''రుచేసే '''ప'''రీక్ష అని అర్థం.
 
 ప్రజలనుండి రచనలను స్వీకరించే ఈ వికీ వంటి వెబ్‌సైట్లు, ఆటోమాటిక్ ప్రోగ్రాములతో తమ స్వంత లింకులను చేర్చే స్పాముష్కరుల దాడులకు గురవడం తరచూ జరుగుతూ ఉంటుంది. ఆ లింకులను తీసేయడం పెద్ద విషయం కాకపోయినప్పటికీ, అవి తలనెప్పి అనేది మాత్రం నిజం.
@@ -1336,6 +1337,38 @@ You will need to have cookies enabled in your browser for this to work.
 
 Hit the 'back' button in your browser to return to the page editor.",
 	'captcha-createaccount-fail' => 'Невірний або відсутній код підтвердження.',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Vinhtantran
+ */
+$messages['vi'] = array(
+	'captcha-edit'               => 'Để sửa đổi bài viết này, xin hãy giải phép cộng đơn giản dưới đây và gõ câu trả lời
+vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'captcha-addurl'             => 'Sửa đổi của bạn có chứa các liên kết ra bên ngoài. Để giúp tránh spam tự động, xin hãy giải phép toán đơn giản ở dưới và gõ kết quả vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'captcha-badlogin'           => 'Để giúp tránh hành động bẻ mật khẩu tự động, xin hãy giải phép cộng
+đơn giản ở dưới và gõ kết quả vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'captcha-createaccount'      => 'Để giúp tránh việc tạo tài khoản tự động, xin hãy giải phép cộng
+đơn giản ở dưới và gõ kết quả vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'captcha-createaccount-fail' => 'Thiếu mã xác nhận hoặc mã xác nhận sai.',
+	'captcha-create'             => 'Để tạo mới trang, xin hãy giải phép cộng đơn giản ở dưới và gõ
+câu trả lời vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'captchahelp-title'          => 'Trợ giúp Captcha',
+	'captchahelp-cookies-needed' => 'Bạn sẽ cần phải bật cookie trong trình duyệt của bạn để chức năng này hoạt động',
+	'captchahelp-text'           => "
+
+Những website cho phép bất kỳ ai cũng có thể gửi thông tin như wiki thường bị các tay spam lạm dụng dùng công cụ tự động gửi các liên kết của họ tới rất nhiều website khác. Tuy chúng ta có thể xóa các liên kết này khỏi trang, chúng vẫn gây nhiều phiền toái.
+
+Đôi khi, nhất là khi bạn bổ sung liên kết mới vào trang, wiki có thể hiển thị một hình có chữ dạng màu mè và méo mó rồi yêu cầu bạn gõ lại các chữ trong hình này. Do các phần mềm tự động khó đọc những hình này, nên mọi người bình thường có thể tiếp tục gửi thông tin, đồng thời chặn được các spam và robot phá hoại.
+
+Tuy vậy, tính năng này có thể bất tiện đối với những độc giả có thị giác yếu hay đang sử dụng trình duyệt bằng văn bản thuần hay trình duyệt bằng tiếng nói. Hiện tại chúng tôi chưa có chức năng phát âm thay thế. Xin hãy liên lạc với người quản trị trang web để được trợ giúp nếu điều này vô tình ngăn cản bạn đóng góp những bài viết tốt.
+
+Nhấn chuột vào nút 'back' của trình duyệt để trở lại trang soạn thảo.",
+	'captcha-addurl-whitelist'   => '  #<!-- xin để dòng này đừng thay đổi --> <pre>
+# Cú pháp như sau:
+#   * Mọi thứ bắt đầu bằng ký tự "#" là lời chú thích
+#   * Mọi hàng không trắng là một đoạn biểu thức chính quy (regex) sẽ chỉ được so trùng với tên máy chủ trong URL
+  #</pre> <!-- xin để dòng này đừng thay đổi -->',
 );
 
 /** Volapük (Volapük)

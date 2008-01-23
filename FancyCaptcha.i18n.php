@@ -450,7 +450,11 @@ $messages['vi'] = array(
  * @author Smeira
  */
 $messages['vo'] = array(
-	'fancycaptcha-addurl' => 'Redakam olik keninükon yümis plödik nulik. Ad jelön siti ta peneds itjäfidik, penolös vödis sököl in bokil ([[Special:Captcha/help|nüns pluik]]):',
+	'fancycaptcha-addurl'        => 'Redakam olik keninükon yümis plödik nulik. Ad jelön siti ta peneds itjäfidik, penolös vödis sököl in bokil ([[Special:Captcha/help|nüns pluik]]):',
+	'fancycaptcha-badlogin'      => 'Ad jelön siti ta daget itjäfidik letavödas, penolös, begö! vödis dono pejonölis in bokil ([[Special:Captcha/help|nüns pluik]]):',
+	'fancycaptcha-createaccount' => 'Ad jelön siti ta kalijafam itjäfidik, penolös, begö! vödis dono pejonölis in bokil ([[Special:Captcha/help|nüns pluik]]):',
+	'fancycaptcha-create'        => 'Ad jafön padi at, penolös, begö! vödis dono pejonöls in bokil ([[Special:Captcha/help|nüns pluik]]):',
+	'fancycaptcha-edit'          => 'Ad redakön padi at, penolös, begö! vödis dono pejonölis ini bokil ([[Special:Captcha/help|nüns pluik]]):',
 );
 
 /* Cantonese */

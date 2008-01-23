@@ -190,7 +190,10 @@ $messages['bg'] = array(
  * @author Bellayet
  */
 $messages['bn'] = array(
+	'captcha-edit'               => 'এই নিবন্ধটি সম্পাদনা করতে, দয়া করে নিম্নের সহজ অংকটি সমাধান করুন এবং এর ফলাফল বক্সটিতে দিন ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount-fail' => 'ভুল অথবা হারিয়ে যাওয়া নিশ্চিতকরণ সংকেত',
+	'captchahelp-title'          => 'ক্যাপচা সাহায্য',
+	'captchahelp-cookies-needed' => 'এই কাজটি করার জন্য আপনাকে আপনার ব্রাউজারের কুকি সক্রিয় করতে হবে।',
 );
 
 /** Breton (Brezhoneg)

@@ -5,14 +5,13 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * Check if the submitted form matches the captcha session data provided
 	 * by the plugin when the form was generated.
 	 *
-	 * @param WebRequest $request
+	 * @param string $answer
 	 * @param array $info
 	 * @return bool
 	 */
-	function keyMatch( $request, $info ) {
+	function keyMatch( $answer, $info ) {
 		global $wgCaptchaSecret;
 
-		$answer = $request->getVal( 'wpCaptchaWord' );
 		$digest = $wgCaptchaSecret . $info['salt'] . $answer . $wgCaptchaSecret . $info['salt'];
 		$answerHash = substr( md5( $digest ), 0, 16 );
 

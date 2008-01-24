@@ -3,8 +3,8 @@
 class MathCaptcha extends SimpleCaptcha {
 
 	/** Validate a captcha response */
-	function keyMatch( $req, $info ) {
-		return (int)$req->getVal( 'wpCaptchaAnswer' ) == (int)$info['answer'];
+	function keyMatch( $answer, $info ) {
+		return (int)$answer == (int)$info['answer'];
 	}
 	
 	/** Produce a nice little form */

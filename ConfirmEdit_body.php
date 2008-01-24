@@ -206,12 +206,12 @@ class SimpleCaptcha {
 	 *
 	 * Override this!
 	 *
-	 * @param WebRequest $request
+	 * @param string $answer
 	 * @param array $info
 	 * @return bool
 	 */
-	function keyMatch( $request, $info ) {
-		return $request->getVal( 'wpCaptchaWord' ) == $info['answer'];
+	function keyMatch( $answer, $info ) {
+		return $answer == $info['answer'];
 	}
 
 	// ----------------------------------
@@ -508,7 +508,7 @@ class SimpleCaptcha {
 		$info = $this->retrieveCaptcha();
 		if( $info ) {
 			global $wgRequest;
-			if( $this->keyMatch( $wgRequest, $info ) ) {
+			if( $this->keyMatch( $wgRequest->getVal('wpCaptchaWord'), $info ) ) {
 				$this->log( "passed" );
 				$this->clearCaptcha( $info );
 				return true;

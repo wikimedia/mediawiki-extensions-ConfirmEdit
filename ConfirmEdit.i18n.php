@@ -889,10 +889,12 @@ $messages['lo'] = array(
 );
 
 /** Lithuanian (Lietuvių)
+ * @author Matasg
  * @author Garas
  */
 $messages['lt'] = array(
-	'captcha-edit' => 'Kad redaguotumėte šį straipsnį, prašome apskaičiuokite šią paprastą sumą ir įveskite atsakymą į laukelį ([[Special:Captcha/help|daugiau informacijos]]):',
+	'captcha-edit'               => 'Kad redaguotumėte šį straipsnį, prašome apskaičiuokite šią paprastą sumą ir įveskite atsakymą į laukelį ([[Special:Captcha/help|daugiau informacijos]]):',
+	'captcha-createaccount-fail' => 'Blogas arba nerastas patvirtinimo kodas.',
 );
 
 /** Latvian (Latviešu)
@@ -1145,6 +1147,22 @@ $messages['ru'] = array(
 #   * Всё, начиная с символа "#" и до конца строки считается комментарием
 #   * Каждая непустая строка считается фрагментом регулярного выражения соответствующего имени узла в URL
  #</pre> <!-- leave this line exactly as it is -->',
+);
+
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'captcha-edit'               => 'Сирэйи уларытыаххын баҕардаххына, манна баар примеры суоттаа уонна эппиэтин аналлаах сиргэ суруй ([[{{ns:special}}:Captcha/help|сиһилии]]):',
+	'captcha-addurl'             => 'Тас саайка ыйынньык туруорбуккун; спаамтан көмүскэнэр соруктаах суолу толор - манна баар буукубалары хатылаа: <br />
+([[{{ns:special}}:Captcha/help|Сиһилии]])',
+	'captcha-badlogin'           => 'Киирии тылы аптамаат алдьаппатын туһугар оҥоһуллубут харыстыыр дьайыыны толор, манна баар примеры суоттаа уонна эппиэтин анал сиргэ суруй ([[Special:Captcha/help|сиһилии]]):',
+	'captcha-createaccount'      => 'Бэлиэтэнэргэр аптамаатынан алдьатыыттан харыстыыр соруктаах дьайыыны оҥор, манна баар буукубалары анал сиргэ киллэр:<br />
+([[{{ns:special}}:Captcha/help|Сиһилии]])',
+	'captcha-createaccount-fail' => 'Бигэргэтии куода суох эбэтэр атын.',
+	'captcha-create'             => 'Сирэйи оҥорорго бу примеры суоттаа ([[{{ns:special}}:Captcha/help|сиһилии]]):',
+	'captchahelp-title'          => 'Captcha көмөтө',
+	'captchahelp-cookies-needed' => 'Бу дьайыы үлэлиирин курдук браузергар куукины холбоо.',
 );
 
 /** Scots (Scots)

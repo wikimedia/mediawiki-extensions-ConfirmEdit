@@ -391,6 +391,17 @@ $messages['ru'] = array(
 	'fancycaptcha-edit'          => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'fancycaptcha-addurl'        => 'Эн көннөрүүҥ тас ыйынньыктаах эбит. Спаамтан көмүскэнэр соруктаах дьайыыны оҥор, манна баар тыллары хатылаа ([[Special:Captcha/help|сиһилии…]]):',
+	'fancycaptcha-badlogin'      => 'Киирии тылы аптамаатынан алдьатыыттан көмүскэнэр дьайыыны оҥороргор көрдөһөбүт, манна ойууламмыт буукубалары хатылаа ([[Special:Captcha/help|сиһилии]]):',
+	'fancycaptcha-createaccount' => 'Ааттары аптамаатынан бэлиэтиири суох оҥорор туһуттан бу дьайыыны оҥороргор көрдөһөбүт: ойууламмыт сурук бэлиэлэрин анал сиргэ киллэр  ([[Special:Captcha/help|сиһилии]]):',
+	'fancycaptcha-create'        => 'Эн көннөрүүҥ тас ыйынньыктардаах эбит. Спаамтан көмүскэнэр туһуттан манна баар тыллары хатылыыргар көрдөһөбүт ([[Special:Captcha/help|сиһилии…]]):',
+	'fancycaptcha-edit'          => 'Эн көннөрүүҥ тас ыйынньыктардаах эбит. Спаамтан көмүскэнэр туһуттан манна баар тыллары хатылыыргар көрдөһөбүт ([[Special:Captcha/help|сиһилии…]]):',
+);
+
 /* Slovak (helix84) */
 $messages['sk'] = array(
 	'fancycaptcha-addurl' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',

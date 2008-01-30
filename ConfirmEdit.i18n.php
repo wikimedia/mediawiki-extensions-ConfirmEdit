@@ -664,8 +664,8 @@ Sajnos ez komoly kényelmetlenséget jelenthet azoknak a felhasználóknak, akik
 
 Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséhez, használd a böngésződ „vissza” gombját.',
 	'captcha-addurl-whitelist'   => '
-  #<!-- ezt a sort hagyd pontosan így --> <pre>
-# A szintaktika a következő:
+  #<!-- ezt a sort hagyd pontosan így --> <pre>  
+# A szintaktika a következő:  
 #  * Minden „#” karakterrel kezdődő sor megjegyzés
 #  * Minden nem üres sor egy reguláris kifejezés darabja, amely csak az URL-ekben található kiszolgálókra keres
   #</pre> <!-- ezt a sort hagyd pontosan így -->',
@@ -735,8 +735,8 @@ In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web 
 Sfortunatamente, queste misure di sicurezza possono mettere in difficoltà gli utenti con problemi visivi o coloro che utilizzano browser testuali o basati sulla sintesi vocale. Purtroppo al momento non è disponibile un meccanismo alternativo basato su messaggi audio; se queste procedure impediscono l'inserimento informazioni che si ritengono legittime, si prega di contattare gli amministratori del sito e chiedere loro assistenza.
 
 Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
-	'captcha-addurl-whitelist'   => '  #<!-- non modificare in alcun modo questa riga --> <pre>
-# La sintassi è la seguente:
+	'captcha-addurl-whitelist'   => '  #<!-- non modificare in alcun modo questa riga --> <pre>  
+# La sintassi è la seguente:  
 #  * Tutto ciò che segue un carattere "#" è un commento, fino al termine della riga
 #  * Tutte le righe non vuote sono frammenti di espressioni regolari che si applicano al solo nome dell\'host nelle URL
   #</pre> <!-- non modificare in alcun modo questa riga -->',

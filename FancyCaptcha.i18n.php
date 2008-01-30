@@ -387,8 +387,8 @@ $messages['ru'] = array(
 	'fancycaptcha-addurl'        => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
 	'fancycaptcha-badlogin'      => 'В целях защиты от автоматического взлома паролей, пожалуйста, введите в поле ввода буквы с изображения ([[Special:Captcha/help|подробнее]]):',
 	'fancycaptcha-createaccount' => 'Для предотвращения автоматической регистрации учётных записей используется контрольная последовательность символов. Пожалуйста, введите изображённые символы в текстовое поле ниже ([[Special:Captcha/help|подробнее]]):',
-	'fancycaptcha-create'        => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
-	'fancycaptcha-edit'          => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
+	'fancycaptcha-create'        => 'Для создания страницы, пожалуйста, введите буквы, которые видны на изображении ниже ([[Special:Captcha/help|подробнее…]]):',
+	'fancycaptcha-edit'          => 'Для редактирования страницы, пожалуйста, введите буквы, которые видны на изображении ниже ([[Special:Captcha/help|подробнее…]]):',
 );
 
 /** Yakut (Саха тыла)
@@ -444,6 +444,22 @@ skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information
 ([[Special:Captcha/help|mer information]]):',
 	'fancycaptcha-edit' => 'För att redigera den här sidan måste du först skriva orden som visas härunder i rutan
 ([[Special:Captcha/help|mer information]]):',
+);
+
+/** Telugu (తెలుగు)
+ * @author Mpradeep
+ */
+$messages['te'] = array(
+	'fancycaptcha-addurl'        => 'మీ దిద్దుబాటులో కొత్త బయటి లింకులున్నాయి. బాట్లద్వారా చేసే స్పాము నుండి రక్షణను ఏర్పరచేందుకు గాను,
+కింద కనిపించే బొమ్మలోని అక్షరాలను పెట్టెలో రాయండి ([[Special:Captcha/help|మరింత సమాచారం]]):',
+	'fancycaptcha-badlogin'      => 'సంకేత పదాలను దొంగిలించే ఆటోమాటిక్ ప్రోగ్రాముల నుండి రక్షించేందుకు గాను, 
+కింద కనిపించే బొమ్మలోని అక్షరాలను పెట్టెలో రాయండి ([[Special:Captcha/help|మరింత సమాచారం]]):',
+	'fancycaptcha-createaccount' => 'ఆటోమాటిగ్గా ఖాతాలను సృష్టించడాన్ని నివారించేందుకు, కింద కనిపించే పదాలను
+ఈ పెట్టెలో రాయండి ([[Special:Captcha/help|మరింత సహాయం]]):',
+	'fancycaptcha-create'        => 'కొత్త పేజీ సృష్టించేందుకు గాను, కింద కనిపించే బొమ్మలోని అక్షరాలను పెట్టెలో రాయండి
+([[Special:Captcha/help|మరింత సమాచారం]]):',
+	'fancycaptcha-edit'          => 'ఈ పేజీలో దిద్దుబాటు చేసేందుకు, కింద కనిపించే బొమ్మలోని అక్షరాలను పెట్టెలో రాయండి
+([[Special:Captcha/help|మరింత సమాచారం]]):',
 );
 
 /** Vietnamese (Tiếng Việt)

@@ -519,14 +519,15 @@ Clicâd sur lo boton « Prècèdent » de voutron navigator por tornar a la pâg
 );
 
 /** Irish (Gaeilge)
+ * @author Alison
  * @author SPQRobin
  */
 $messages['ga'] = array(
-	'captcha-edit'               => 'Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])',
+	'captcha-edit'               => 'Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Special:Captcha/help|Céard é seo?]])',
 	'captcha-addurl'             => 'Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])',
 	'captcha-createaccount'      => 'Mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur chun cuntas a chlárú: <br />([[Speisialta:Captcha/help|Céard é seo?]])',
 	'captcha-createaccount-fail' => 'Ní raibh an cód deimhnithe ceart sa bhosca, nó ní raibh aon chód ann ar chor ar bith.',
-	'captcha-create'             => 'Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Speisialta:Captcha/help|Céard é seo?]])',
+	'captcha-create'             => 'Tá naisc URL nua san athrú seo atá tú ar tí a dhéanamh; mar chosaint in éadan turscair uathoibrithe, caithfidh tú na focail san íomhá seo a ionchur: <br />([[Special:Captcha/help|Céard é seo?]])',
 	'captchahelp-title'          => 'Cabhair maidir le Captcha',
 );
 
@@ -839,8 +840,30 @@ Bul jumıstı istew üşin şolğışıñızda «cookies» degendi endirw qajet.
 Bet öñdewine qaýtw barw üşin «Artqa» degen tüýmesin basıñız."
 );
 
+/** Korean (한국어)
+ * @author Klutzy
+ */
 $messages['ko'] = array(
-	'captcha-createaccount'       => '자동 가입을 막기 위해, 아래 문제의 답을 적어야만 가입이 가능합니다([[Special:Captcha/help|관련 도움말]]):',
+	'captcha-edit'               => '글을 편집하기 위해서는, 아래의 간단한 계산 값을 입력상자에 적어 주세요([[Special:Captcha/help|자세한 정보]]):',
+	'captcha-addurl'             => '편집 내용에 다른 웹 사이트 링크가 포함되어 있습니다. 자동 스팸을 막기 위해, 아래의 간단한 계산 값을 입력상자에 적어 주세요([[Special:Captcha/help|자세한 정보]]):',
+	'captcha-badlogin'           => '계정 암호 해킹을 막기 위해, 아래의 간단한 계산 값을 입력상자에 적어 주세요([[Special:Captcha/help|자세한 정보]]):',
+	'captcha-createaccount'      => '자동 가입을 막기 위해, 아래 문제의 답을 적어야만 가입이 가능합니다([[Special:Captcha/help|관련 도움말]]):',
+	'captcha-createaccount-fail' => '입력값이 잘못되었거나 없습니다.',
+	'captcha-create'             => '문서를 만들기 위해서는, 아래의 간단한 계산 값을 입력상자에 적어 주세요([[Special:Captcha/help|자세한 정보]]):',
+	'captchahelp-title'          => 'Captcha 도움말',
+	'captchahelp-cookies-needed' => '정상적으로 작동하려면 웹 브라우저의 쿠키 사용이 활성화되어있어야 합니다.',
+	'captchahelp-text'           => "이곳의 위키와 같이 사용자들의 공개적인 참여가 가능한 웹 사이트에서는, 자동 프로그램이 스팸을 뿌리는 경우가 있습니다. 물론 이러한 스팸은 제거할 수는 있지만 귀찮은 작업이 늘어납니다.
+
+이러한 스팸을 방지하기 위해서, 이곳 위키의 문서에 웹 사이트 주소를 추가하거나 하는 등의 행동을 할 경우에는, 비틀린 글자가 들어있는 그림을 보여주고 그 그림의 글자를 입력해 달라고 하는 경우가 있습니다. 이 글자 입력 작업은 자동 프로그램을 만들기가 힘들기 때문에, 스팸을 효과적으로 막으면서 일반 사용자를 막지 않을 수 있습니다.
+
+웹 브라우저에서 그림을 완벽하게 표시할 수 없거나, 또는 그림이 나오지 않는 텍스트 방식이나 음성 합성 방식 웹 브라우저를 사용하는 경우에는 이러한 입력이 불가능합니다. 아짂가지는 이런 경우에 대한 대안책이 없습니다. 이 경우 사이트 관리자에게 도움을 요청해주세요.
+
+이전의 편집창으로 돌아가려면 웹 브라우저의 '뒤로' 버튼을 눌러 주세요.",
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
+# 문법은 다음과 같습니다:
+#  * "#"로 시작하는 줄은 주석입니다.
+#  * 빈 줄이 아닌 줄은 정규식으로, URL의 호스트만을 검사합니다.
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 $messages['la'] = array(
@@ -1369,6 +1392,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
+ * @author Minh Nguyen
  */
 $messages['vi'] = array(
 	'captcha-edit'               => 'Để sửa đổi bài viết này, xin hãy giải phép cộng đơn giản dưới đây và gõ câu trả lời
@@ -1383,18 +1407,17 @@ vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 câu trả lời vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'captchahelp-title'          => 'Trợ giúp Captcha',
 	'captchahelp-cookies-needed' => 'Bạn sẽ cần phải bật cookie trong trình duyệt của bạn để chức năng này hoạt động',
-	'captchahelp-text'           => "
-
+	'captchahelp-text'           => '
 Những website cho phép bất kỳ ai cũng có thể gửi thông tin như wiki thường bị các tay spam lạm dụng dùng công cụ tự động gửi các liên kết của họ tới rất nhiều website khác. Tuy chúng ta có thể xóa các liên kết này khỏi trang, chúng vẫn gây nhiều phiền toái.
 
 Đôi khi, nhất là khi bạn bổ sung liên kết mới vào trang, wiki có thể hiển thị một hình có chữ dạng màu mè và méo mó rồi yêu cầu bạn gõ lại các chữ trong hình này. Do các phần mềm tự động khó đọc những hình này, nên mọi người bình thường có thể tiếp tục gửi thông tin, đồng thời chặn được các spam và robot phá hoại.
 
 Tuy vậy, tính năng này có thể bất tiện đối với những độc giả có thị giác yếu hay đang sử dụng trình duyệt bằng văn bản thuần hay trình duyệt bằng tiếng nói. Hiện tại chúng tôi chưa có chức năng phát âm thay thế. Xin hãy liên lạc với người quản trị trang web để được trợ giúp nếu điều này vô tình ngăn cản bạn đóng góp những bài viết tốt.
 
-Nhấn chuột vào nút 'back' của trình duyệt để trở lại trang soạn thảo.",
+Nhấn chuột vào nút “Back” của trình duyệt để trở lại trang soạn thảo.',
 	'captcha-addurl-whitelist'   => '  #<!-- xin để dòng này đừng thay đổi --> <pre>
 # Cú pháp như sau:
-#   * Mọi thứ bắt đầu bằng ký tự "#" là lời chú thích
+#   * Mọi thứ bắt đầu bằng ký tự “#” là lời chú thích
 #   * Mọi hàng không trắng là một đoạn biểu thức chính quy (regex) sẽ chỉ được so trùng với tên máy chủ trong URL
   #</pre> <!-- xin để dòng này đừng thay đổi -->',
 );
@@ -1412,6 +1435,11 @@ $messages['vo'] = array(
 	'captcha-create'             => 'Ad jafön padi, dunolös saedami balugik dono e penolös saedoti in bokil ([[Special:Captcha/help|nüns pluik]]):',
 	'captchahelp-title'          => 'Yuf ela Captcha',
 	'captchahelp-cookies-needed' => 'Nedol mögükön „kekilis“ bevüresodanaföme olik ad dunön atosi.',
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
+# Süntag binon sökölos:
+#  * Valikos de malat: „#“ jü fin liena binon küpet
+#  * Lien no vägik alik binon brekot: „regex“, kel poleigodon te ko vöds ninü els URLs
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Walloon (Walon)

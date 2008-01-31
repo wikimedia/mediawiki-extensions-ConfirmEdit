@@ -697,14 +697,20 @@ Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan
 );
 
 /** Icelandic (Íslenska)
+ * @author S.Örvarr.S
  */
 $messages['is'] = array(
-	'captcha-edit'               => 'Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])',
-	'captcha-addurl'             => 'Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])',
-	'captcha-createaccount'      => 'Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd áður en þú skráir notandanafn: <br />([[Special:Captcha/help|Hvað er þetta?]])',
+	'captcha-edit'               => 'Til að breyta þessari grein, gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í
+kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
+	'captcha-addurl'             => 'Breyting þín felur í sér viðbætta ytri tengla. Til að hjálpa okkur að verjast sjálfvirku
+auglýsingarusli gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
+	'captcha-badlogin'           => 'Til að hjálpa okkur að verjast sjálfvirku leyniorðaárásum, gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í
+kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
+	'captcha-createaccount'      => 'Til að hjálpa okkur að verjast sjálfvirkri gerð aðganga gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
 	'captcha-createaccount-fail' => 'Staðfestingarkóðinn var rangur eða ekki til staðar.',
-	'captcha-create'             => 'Breyting þín fól í sér nýja tengla á aðrar vefsíður. Til þess að verjast sjálfvirku auglýsingarusli verðum við að biðja þig um að skrifa inn orðin sem sjást á þessari mynd: <br />([[Special:Captcha/help|Hvað er þetta?]])',
+	'captcha-create'             => 'Til að búa síðuna til, gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
 	'captchahelp-title'          => 'Captcha-hjálp',
+	'captchahelp-cookies-needed' => 'Þú verður að leyfa vefkökur til þess að þetta virki.',
 	'captchahelp-text'           => 'Vefsíður sem að leyfa framlög frá frá almenningi, líkt og þessi wiki-vefur, eru oft misnotaðar af svokölluðum „spömmurum“ sem nota sjálfvirk tól til þess að setja inn tengla á aðrar vefsíður. Aðrir notendur geta fjarlægt þessa tengla en töluverð truflun er af þeim.
 
 Stundum þegar þú breytir síðum, sérstaklega ef breytingin felur í sér nýja tengla á aðra vefi, getur gerst að þú sért beðin(n) um að skrifa inn orð sem birtast á lituðum eða óskýrum myndum. Fyrir flesta notendur af holdi og blóði er þetta lítið mál en sjálfvirk tól ráða ekki við þetta.
@@ -878,6 +884,7 @@ $messages['la'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author Siebrand
  */
 $messages['lb'] = array(
 	'captcha-edit'               => "Fir dës Säit ze änneren, léist w.e.g. déi folgend Rechenaufgab a gitt d'Resultat an d'Këscht ënnendrënner an ([[Special:Captcha/help|méi Informatiounen]]):",
@@ -895,12 +902,11 @@ Heiandsdo, besonnesch wann nei Internet-Linkën op eng Säit derbäigesat ginn, 
 Leider kann dëst zu Schwierigkeete féiere fir Persounen déi net esou gutt gesinn oder déi text-baséiert oder sprooch-baséiert Browser benotzen. Zu dësem Zäitpunkt hu mir leider keng audio-Alternativ zu eiser Verfügung. Eng Léisung ass d'Umeldung als Benotzer oder kontaktéiert een Administrateur fir Hëllef wann dëst iech onerwarter Wäis vu legitimen Editen ofhält.
 
 Dréckt op den 'Zréck' Knäppchen vun ärem Browser fir an d'Beaarbectungsfënster zréckzekommen.",
-	'captcha-addurl-whitelist'   => '
-  #<!-- leave this line exactly as it is --> <pre>
+	'captcha-addurl-whitelist'   => '   #<!-- leave this line exactly as it is --> <pre>
 #  Syntax:
 #  * Alles mat engem #-Zeechen u bis zum Enn vun däer Zeil ass eng Bemierkung
 #  * All Zeil déi net eidel ass, ass ee Regex-Fragment, dat nëmme mat Hosten bannent URLë fonktionéiert
-  #</pre> <!-- leave this line exactly as it is -->',
+   #</pre> <!-- leave this line exactly as it is -->',
 );
 
 $messages['lo'] = array(
@@ -952,6 +958,28 @@ $messages['nds'] = array(
 #     de för Delen vun de Domään steiht.
 
  #</pre> <!-- leave this line exactly as it is -->',
+);
+
+/** Low German (Plattdüütsch)
+ * @author Slomox
+ * @author Siebrand
+ */
+$messages['nds'] = array(
+	'captcha-edit'               => 'In dien Text steiht en nee Lenk na buten dat Wiki. Dat hier keen automaatsch instellten Spam rinkummt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
+	'captcha-createaccount'      => 'Dat hier nich Brukers automaatsch anleggt warrt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
+	'captcha-createaccount-fail' => 'Kood to’n Bestätigen is verkehrt oder fehlt.',
+	'captchahelp-title'          => 'Help to Captchas',
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
+# Op disse Siet staht de Websteden, bi de en Bruker,
+# de nich anmellt is un en ne’en Lenk in de Siet infögen deit,
+# keen Captcha utfüllen mutt.
+#
+# Syntax is disse:
+#  * Allens vun en „#“-Teken bet na’t Enn vun de Reeg is en Kommentar
+#  * All de annern Regen, de nich leddig sünd, warrt as regulären Utdruck bekeken,
+#    de för Delen vun de Domään steiht.
+
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Dutch (Nederlands)
@@ -1007,7 +1035,7 @@ Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedset
 
 /** Norwegian (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
- * @author Eirik
+ * @author Siebrand
  */
 $messages['no'] = array(
 	'captcha-edit'               => 'For å redigere denne artikkelen, vennligst skriv inn summen nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
@@ -1025,11 +1053,11 @@ Noen ganger, særlig hvis du vil legge til nye internettlenker til en side, kan 
 Dessverre finnes det i øyeblikket ikke noe audioalternativ for brukere med begrenset syn som som bruker tekst- eller talebaserte nettlesere. Vennlig kontakt administratorene hvis denne funksjonen forhindrer deg i å foreta legitime endringer.
 
 Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.',
-	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
 # Syntaksen er som følger:
-#   * Alle linjer som begynner med «#» er kommentarer
-#   * Alle linjer som ikke er blanke er fragmenter av regulære uttrykk som sjekker verter i URL-er
- #</pre> <!-- leave this line exactly as it is -->',
+#  * Alle linjer som begynner med «#» er kommentarer
+#  * Alle linjer som ikke er blanke er fragmenter av regulære uttrykk som sjekker verter i URL-er
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Occitan (Occitan)
@@ -1076,30 +1104,42 @@ Wciśnij przycisk "wstecz" w swojej przeglądarce by powrócić do edycji strony
  #</pre> <!-- nie modyfikuj tej linii -->',
 );
 
+/** Piemontèis (Piemontèis)
+ * @author Bèrto 'd Sèra
+ * @author Siebrand
+ */
 $messages['pms'] = array(
-	'captcha-edit'                => 'Për fe-ie dle modìfiche ansima a st\'artìcol-sì, për piasì ch\'a fasa ël total ambelessì sota
-e ch\'a buta l\'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
-	'captcha-addurl'              => 'Soa modìfica a la gionta dj\'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch\'a fasa ël total ambelessì sota e ch\'a buta l\'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
-	'captcha-badlogin'             => 'Për giutene a vardesse da \'nt ij programa ch\'a fan ciav fàosse n\'aotomàtich, për piasì ch\'a fasa ël total ambelessì sota e ch\'a buta l\'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
-	'captcha-createaccount'       => 'Për giutene a vardesse da ij programa ch\'a deurbo dij cont n\'aotomàtich, për piasì ch\'a fasa ël total ambelessì sota
-e ch\'a buta l\'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
-	'captcha-createaccount-fail'  => 'Ël còdes ëd verìfica ò ch\'a manca d\'autut ò ch\'a l\'é pa bon.',
-	'captcha-create'              => 'Për creé d\'amblé sta pàgina-sì, për piasì ch\'a fasa ël total ambelessì sota e ch\'a buta l\'arzultà
-ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):',
-	'captchahelp-title'           => 'Còs é-lo mai ës captcha?',
-	'captchahelp-cookies-needed'  => 'Për podej dovré sossì a l\'ha da manca che sò navigator (browser) a pija ij cookies.',
-	'captchahelp-text'            => 'Soèns a-i riva che ij sit dla Ragnà che la gent a peul dovré për ëscrive chèich-còs, coma sta wiki-sì, a resto ambërlifà ëd reclam da màchine che a carìo soa ròba dadsà e dadlà n\'aotomàtich. Për tant che sta reclam un a peula peuj gavela, a resta sempe un gran fastudi.
+	'captcha-edit'               => "Për fe-ie dle modìfiche ansima a st'artìcol-sì, për piasì ch'a fasa ël total ambelessì sota 
+e ch'a buta l'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captcha-addurl'             => "Soa modìfica a la gionta dj'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captcha-badlogin'           => "Për giutene a vardesse da 'nt ij programa ch'a fan ciav fàosse n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captcha-createaccount'      => "Për giutene a vardesse da ij programa ch'a deurbo dij cont n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota 
+e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captcha-createaccount-fail' => "Ël còdes ëd verìfica ò ch'a manca d'autut ò ch'a l'é pa bon.",
+	'captcha-create'             => "Për creé d'amblé sta pàgina-sì, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà 
+ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captchahelp-title'          => 'Còs é-lo mai ës captcha?',
+	'captchahelp-cookies-needed' => "Për podej dovré sossì a l'ha da manca che sò navigator (browser) a pija ij cookies.",
+	'captchahelp-text'           => "Soèns a-i riva che ij sit dla Ragnà che la gent a peul dovré për ëscrive chèich-còs, coma sta wiki-sì, a resto ambërlifà ëd reclam da màchine che a carìo soa ròba dadsà e dadlà n'aotomàtich. Për tant che sta reclam un a peula peuj gavela, a resta sempe un gran fastudi.
 
-Dle vire, dzortut quand un a caria dj\'anliure esterne neuve ansime a na pàgina, la wiki a peul ësmon-je na figurin-a con dël test colora ò pura tut ëstòrt e ciameje d\'arbate lòn ch\'a-i é scrit andrinta. Da già ch\'a l\'é grama scrive un programa ch\'a lo fasa, a ven che la pì gran part dla gent a-i la fa a scrive, ma la ói part dle màchine a-i la fa pa.
+Dle vire, dzortut quand un a caria dj'anliure esterne neuve ansime a na pàgina, la wiki a peul ësmon-je na figurin-a con dël test colora ò pura tut ëstòrt e ciameje d'arbate lòn ch'a-i é scrit andrinta. Da già ch'a l'é grama scrive un programa ch'a lo fasa, a ven che la pì gran part dla gent a-i la fa a scrive, ma la ói part dle màchine a-i la fa pa.
 
-Për maleur sossì a peul fastudié j\'uetnt ch\'a ës-ciàiro nen tant bin, col ch\'a dòvro dij navigator mach a test ò pura dij navigator vocaj. Për adess i l\'oma nen n\'altërnativa disponibila ch\'a fasa lese ël test a vos. Për piasì, ch\'a contata j\'aministrator dël sit se sossì a dovèissa mai nen lasseje carié dël test ch\'a sia legitim (visadì, nen dla reclam).
+Për maleur sossì a peul fastudié j'uetnt ch'a ës-ciàiro nen tant bin, col ch'a dòvro dij navigator mach a test ò pura dij navigator vocaj. Për adess i l'oma nen n'altërnativa disponibila ch'a fasa lese ël test a vos. Për piasì, ch'a contata j'aministrator dël sit se sossì a dovèissa mai nen lasseje carié dël test ch'a sia legitim (visadì, nen dla reclam).
 
-Ch\'a-i bata ansima al boton \'andré\' ant sò navigator për torné andré a l\'editor dla pàgina.',
-	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre>
-# La sintassi a l\'é costa:
-#   * tut lòn ch\'a-i ven dapress a un caràter "#" (fin-a a la fin dla riga) a l\'é mach ëd coment
-#   * minca riga nen veujda a l\'é un frament d\'espression regolar ch\'as dòvra për identifiché j\'adrësse dle màchine servente ant j\'anliure
- #</pre> <!-- leave this line exactly as it is -->',
+Ch'a-i bata ansima al boton 'andré' ant sò navigator për torné andré a l'editor dla pàgina.",
+	'captcha-addurl-whitelist'   => "  #<!-- leave this line exactly as it is --> <pre>
+# La sintassi a l'é costa:
+#  * tut lòn ch'a-i ven dapress a un caràter \"#\" (fin-a a la fin dla riga) a l'é mach ëd coment
+#  * minca riga nen veujda a l'é un frament d'espression regolar ch'as dòvra për identifiché j'adrësse dle màchine servente ant j'anliure
+  #</pre> <!-- leave this line exactly as it is -->",
+);
+
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'captcha-create'             => 'ددې لپاره چې نوی ليکنه ترسره کړی، لطفاً د همدغه ساده شمېرو ځواب په ورکړ شوي چوکاټ کې وليکی ([[Special:Captcha/help|نور مالومات]]):',
+	'captchahelp-cookies-needed' => 'ددې کړنې د ترسره کېدلو لپاره تاسو ته پکار ده چې د خپل کتنمل (browser) کوکيز (cookies) چارن کړی.',
 );
 
 $messages['pt'] = array(
@@ -1144,8 +1184,9 @@ Va fi nevoie ca browserul folosit să suporte module cookie.',
 );
 
 /** Russian (Русский)
- * @author .:Ajvol:.
  * @author Kalan
+ * @author .:Ajvol:.
+ * @author Siebrand
  */
 $messages['ru'] = array(
 	'captcha-edit'               => 'Чтобы отредактировать страницу, решите простой пример и введите ответ в текстовое поле ([[{{ns:special}}:Captcha/help|что это?]]):',
@@ -1165,11 +1206,11 @@ $messages['ru'] = array(
 К сожалению, подобная защита может причинить неудобства людям с ограничениями по зрению или тем, кто использует читающие браузеры. В настоящее время у нас нет звуковой альтернативы данной проверке. Пожалуйста, обратитесь за помощью к администраторам, если подобная проверка мешает вам добросовестно работать с сайтом.
 
 Нажмите кнопку «Назад» в ваше браузере, чтобы вернуться к редактированию.',
-	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
 # Описание синтаксиса:
-#   * Всё, начиная с символа "#" и до конца строки считается комментарием
-#   * Каждая непустая строка считается фрагментом регулярного выражения соответствующего имени узла в URL
- #</pre> <!-- leave this line exactly as it is -->',
+#  * Всё, начиная с символа "#" и до конца строки считается комментарием
+#  * Каждая непустая строка считается фрагментом регулярного выражения соответствующего имени узла в URL
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Yakut (Саха тыла)

@@ -1077,6 +1077,23 @@ $messages['oc'] = array(
 	'captcha-addurl-whitelist'   => '#<!-- daissatz aquesta linha exactament tala coma es --> <pre> # La sintaxi es la seguenta: # * Tot caractèr seguissent "#" fins a la fin de la linha serà interpretat coma un comentari # * Tota linha non voida es un còde regex que serà utilizat unicament a l\'interior dels ligams hypertext. #</pre> <!-- daissatz aquesta linha exactament tala coma es -->',
 );
 
+/** Pampanga (Kapampangan)
+ * @author SPQRobin
+ */
+$messages['pam'] = array(
+	'captcha-createaccount'      => 'Bang ala na kabud laltong account, pakipakibatan me ing papacuenta ra king lalam at ibili me ing pakibat ketang cahun ([[Special:Captcha/help|more info]]):',
+	'captcha-createaccount-fail' => 'E ustu o ala yu ing confirmation code.',
+	'captchahelp-text'           => "Maralas, mayayabusu la reng karinan king Aptas (websites) kareng spammer a gagamit automatic a paralan ba rong ipasquil kareng dakal a karinan deng karelang suglung.  Lipat ning malyari lang ilako deti, maragul la muring sakit buntuk.
+
+Neng kayi, lalu na neng mangibiling karagdagang suglung king metung a bulung, mapalyaring magpalto yang larawan ning sulat a maki kule o anting medisporma ing wiki, at pakisabi nang i-type me itang makasulat. Uling e malagwang gawang automatic ing dapat a iti, paintulutan nong magpasquil deng keraklan kareng tau, kabang sasabatan no reng keraklan kareng spammer at lulub a robot.
+
+Makalungkut mu pin at magkasakit la uli na niti deng gagamit a mapula mata o maki paglibut ( browser) a makabasi king sulat (text-based) o king siwala (speech-based). Ala keng alternatibu o kayaliling pakiramdaman king salukuyan. Nung malyari, pasaup ko sana ketang manibala king kekayung karinan (site administrator) nung magkasakit kayung magpasquil ulin na niti.
+
+Mangaylangan kang manyalanging cookie king kekang paglibut (browser) para king obrang iti.
+
+Timid me ing 'back' button king kekang browser bang mibalik ketang panaliling bulung (page editor).",
+);
+
 /** Polish (Polski)
  * @author Sp5uhe
  * @author Derbeth
@@ -1142,23 +1159,31 @@ $messages['ps'] = array(
 	'captchahelp-cookies-needed' => 'ددې کړنې د ترسره کېدلو لپاره تاسو ته پکار ده چې د خپل کتنمل (browser) کوکيز (cookies) چارن کړی.',
 );
 
+/** Portuguese (Português)
+ * @author Malafaya
+ */
 $messages['pt'] = array(
-	'captcha-edit'                => 'Para editar esta página será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
-	'captcha-addurl'              => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
-	'captcha-badlogin'             => 'Como prevenção contra formas automatizadas de pesquisa e descoberta de senhas, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
-	'captcha-createaccount'       => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem para que possa se cadastrar:<br />
+	'captcha-edit'               => 'Para editar esta página será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
+	'captcha-addurl'             => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
+	'captcha-badlogin'           => 'Como prevenção contra formas automatizadas de pesquisa e descoberta de senhas, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
+	'captcha-createaccount'      => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem para que possa se cadastrar:<br />
 ([[Special:Captcha/help|O que é isto?]])',
-	'captcha-createaccount-fail'  => 'Código incorreto ou não preenchido.',
-	'captcha-create'              => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
-	'captchahelp-title'           => 'Ajuda com o Captcha',
-	'captchahelp-cookies-needed'  => 'Você precisará ter cookies habilitados em seu navegador para que possa funcionar',
-	'captchahelp-text'            => 'Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a spammers que utilizem ferramentas automatizadas para inserir seus links em diversos locais. Remover tais links posteriormente poderá ser um significativo incômodo.
+	'captcha-createaccount-fail' => 'Código incorreto ou não preenchido.',
+	'captcha-create'             => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
+	'captchahelp-title'          => 'Ajuda com o Captcha',
+	'captchahelp-cookies-needed' => 'Você precisará ter cookies habilitados em seu navegador para que possa funcionar',
+	'captchahelp-text'           => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a spammers que utilizem ferramentas automatizadas para inserir seus links em diversos locais. Remover tais links posteriormente poderá ser um significativo incômodo.
 
 Algumas vezes, especialmente ao adicionar novos links externos em uma página, o sistema exibirá uma imagem com um texto colorido ou distorcido e pedirá que você digite as palavras exibidas. Uma vez que essa é uma tarefa um tanto difícil de ser automatizada, ela possibilita que vários humanos façam as suas inserções ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
 
 Infelizmente, isso pode ser dificultoso a utilizadores com limitações visuais ou que naveguem através de  mecanismos baseados em texto ou baseados em voz. No momento não há uma alternativa em áudio. Por gentileza, contacte os administradores do sítio em casos que seja necessária a assistência de alguém para que você possa fazer as suas inserções legítimas.
 
-Pressione o botão \'voltar\' de seu navegador para retornar à página de edição.',
+Pressione o botão 'voltar' de seu navegador para retornar à página de edição.",
+	'captcha-addurl-whitelist'   => '  #<!-- deixe este linha exactamente como está --> <pre>
+# A sintaxe é a que se segue:
+#  * Tudo desde o caracter "#" até ao fim da linha é um comentário
+#  * Qualquer linha não vazia é um fragmento de regex que irá apenas verificar o servidor anfitrião dentro das URLs
+  #</pre> <!-- deixe este linha exactamente como está -->',
 );
 
 

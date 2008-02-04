@@ -10,6 +10,7 @@ $messages = array();
 $messages['en'] = array(
 	'captcha-edit' => 'To edit this article, please solve the simple sum below and enter the answer in
 the box ([[Special:Captcha/help|more info]]):',
+	'captcha-desc' => 'Simple captcha implementation',
 	'captcha-addurl' => 'Your edit includes new external links. To help protect against automated
 spam, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-badlogin' => 'To help protect against automated password cracking, please solve the simple sum
@@ -471,6 +472,7 @@ $messages['fo'] = array(
  */
 $messages['fr'] = array(
 	'captcha-edit'               => "Pour modifier cette page, vous être prié de résoudre l'opération ci-dessous et d'en inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d'infos]]) :",
+	'captcha-desc'               => 'Simple implémentation captcha',
 	'captcha-addurl'             => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-badlogin'           => "Afin de lutter contre le piratage automatisé de mots de passe par des bots, vous être prié de résoudre l'opération ci-dessous et d'y inscrire le résultat dans le champ [[Special:Captcha/help|plus d'infos]]) :",
 	'captcha-createaccount'      => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de l’opération dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',

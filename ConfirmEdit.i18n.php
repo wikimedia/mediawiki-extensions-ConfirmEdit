@@ -632,6 +632,7 @@ molimo zbrojite donje brojeve i upišite rezultat ([[Special:Captcha/help|pomoć
  */
 $messages['hsb'] = array(
 	'captcha-edit'               => 'Zo by stronu wobdźěłał, rozrisaj prošu slědowacy ličenski nadawk a zapodaj wuslědk do kašćika ([[Special:Captcha/help|Dalše informacije]]):',
+	'captcha-desc'               => 'Jednora implementacija captcha',
 	'captcha-addurl'             => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo spamej dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. Klikń potom znowa na „Składować”.<br /> [[{{ns:special}}:Captcha/help|(Čehodla?)]]',
 	'captcha-badlogin'           => 'Zo by so awtomatiskemu zadobywanju do hesłow zadźěwało, dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
 	'captcha-createaccount'      => 'Jako škitna naprawa přećiwo awtomatiskemu wutworjenju wužiwarskich kontow dyrbiš slědowacy nadawk wuličeć. [[{{ns:special}}:Captcha/help|(Prašenja abo problemy?)]]',
@@ -990,6 +991,7 @@ $messages['nds'] = array(
  */
 $messages['nl'] = array(
 	'captcha-edit'               => 'U wilt deze pagina bewerken. Voer alstublieft het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
+	'captcha-desc'               => 'Eenvoudige implementatie van captcha',
 	'captcha-addurl'             => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam alstublieft het antwoord op de onderstaande eenvoudige som in in het invoerveld ([[Special:Captcha/help|meer informatie]]):",
 	'captcha-badlogin'           => 'Los alstublieft de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount'      => 'Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
@@ -1041,6 +1043,7 @@ Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedset
  */
 $messages['no'] = array(
 	'captcha-edit'               => 'For å redigere denne artikkelen, vennligst skriv inn summen nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-desc'               => 'Enkel captcha-implementering',
 	'captcha-addurl'             => 'Din redigering inneholder nye eksterne lenker. For å hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn summen av dette enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
 	'captcha-badlogin'           => 'For å hjelpe oss med å beskytte oss mot automatisk passordtyveri, vennligst løs det enkle regnestykket nedenfor og skriv inn svaret i bosken ([[Special:Captcha/help|mer informasjon]]):',
 	'captcha-createaccount'      => 'For å hjelpe oss med å beskytte oss mot automatisk kontoopprettelse, vennligst skriv inn summen av det enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
@@ -1163,9 +1166,11 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author Malafaya
+ * @author 555
  */
 $messages['pt'] = array(
 	'captcha-edit'               => 'Para editar esta página será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
+	'captcha-desc'               => 'Uma implementação simples de um sistema captcha',
 	'captcha-addurl'             => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
 	'captcha-badlogin'           => 'Como prevenção contra formas automatizadas de pesquisa e descoberta de senhas, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
 	'captcha-createaccount'      => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem para que possa se cadastrar:<br />

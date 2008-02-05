@@ -927,6 +927,14 @@ Dréckt op den 'Zréck' Knäppchen vun ärem Browser fir an d'Beaarbectungsfëns
    #</pre> <!-- leave this line exactly as it is -->',
 );
 
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'captcha-edit' => "Geer wil dees pazjena bewerke. Veur estebleef 't antjwaord op de óngerstäönde einvawdife som in 't inveurvenster in ([[Special:Captcha/help|mieë informatie]]):",
+	'captcha-desc' => 'Einvawdige implementatie van captcha',
+);
+
 $messages['lo'] = array(
 	'captcha-edit'               => 'ການດັດແກ້ ຂອງ ທ່ານ ມີລິ້ງູຄ໌ພາຍນອກ. ເພື່ອ ເປັນການຊ່ອຍປ້ອງກັນ ສະແປມອັດຕະໂນມັດ, ກະລຸນາແກ້ເລກບວກ ງ່າຍໆຂ້າງລຸ່ມນີ້ ແລ້ວ ພິມຄຳຕອບໃສ່ໃນ ກັບ ([[Special:Captcha/help|more info]]):',
 	'captcha-addurl'             => 'ການດັດແກ້ຂອງທ່ານ ມີ ການກາງລິ້ງຄ໌ຫາພາຍນອກ. ເພື່ອເປັນການຊ່ອຍປ້ອງກັນ ສະແປມອັດຕະໂນມັດ ກະລຸນາ ແກ້ເລກບວກງ່າຍໆຂ້າງລຸ່ມນີ້ ແລ້ວ ພິມຜົນບວກ ໃສ່ ກັບ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມເຕີມ]]):',
@@ -1231,12 +1239,13 @@ Va fi nevoie ca browserul folosit să suporte module cookie.',
 );
 
 /** Russian (Русский)
- * @author Kalan
  * @author .:Ajvol:.
+ * @author Kalan
  * @author Siebrand
  */
 $messages['ru'] = array(
 	'captcha-edit'               => 'Чтобы отредактировать страницу, решите простой пример и введите ответ в текстовое поле ([[{{ns:special}}:Captcha/help|что это?]]):',
+	'captcha-desc'               => 'Простая реализация CAPTCHA',
 	'captcha-addurl'             => 'Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
 ([[{{ns:special}}:Captcha/help|Что это такое?]])',
 	'captcha-badlogin'           => 'В целях защиты от автоматического взлома пароля, пожалуйста, выполните следующее простое арифметическое действие и введите ответ в текстовое поле ниже ([[Special:Captcha/help|подробнее]]):',
@@ -1265,6 +1274,7 @@ $messages['ru'] = array(
  */
 $messages['sah'] = array(
 	'captcha-edit'               => 'Сирэйи уларытыаххын баҕардаххына, манна баар примеры суоттаа уонна эппиэтин аналлаах сиргэ суруй ([[{{ns:special}}:Captcha/help|сиһилии]]):',
+	'captcha-desc'               => 'CAPTCHA судургу барыла',
 	'captcha-addurl'             => 'Тас саайка ыйынньык туруорбуккун; спаамтан көмүскэнэр соруктаах суолу толор - манна баар буукубалары хатылаа: <br />
 ([[{{ns:special}}:Captcha/help|Сиһилии]])',
 	'captcha-badlogin'           => 'Киирии тылы аптамаат алдьаппатын туһугар оҥоһуллубут харыстыыр дьайыыны толор, манна баар примеры суоттаа уонна эппиэтин анал сиргэ суруй ([[Special:Captcha/help|сиһилии]]):',
@@ -1301,6 +1311,7 @@ $messages['sco'] = array(
  */
 $messages['sk'] = array(
 	'captcha-edit'               => 'Aby ste mohli upravovať tento článok, vyriešte prosím tento jednoduchý súčet a napíšte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
+	'captcha-desc'               => 'Jednoduchá implementácia captcha',
 	'captcha-addurl'             => 'Vaša úprava obsahuje nové externé odkazy. Ako pomoc pri ochrane pred automatickým spamom vyriešte prosím tento jednoduchý súčet a zadajte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
 	'captcha-badlogin'           => 'Ako ochranu proti automatizovanému lámaniu hesiel, prosím vyriešte nasledujúci súčet a zadajte ho do poľa pre odpoveď ([[Special:Captcha/help|viac informácií]]):',
 	'captcha-createaccount'      => 'Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet:

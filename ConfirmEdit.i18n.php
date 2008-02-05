@@ -337,22 +337,37 @@ Tryk på 'tilbage'-knappen i din browser for at returnere til redigeringssiden."
  #</pre> <!-- Undlad at rette denne linie -->',
 );
 
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
 $messages['de'] = array(
 	'captcha-edit'		     => "Zur Bearbeitung der Seite löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
+	'captcha-desc'               => 'Einfache Captcha-Implementierung',
 	'captcha-addurl'	     => "Deine Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
-	'captcha-badlogin'            => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]:',
+	'captcha-badlogin'           => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]:',
 	'captcha-createaccount'      => "Zum Schutz vor automatisierter Anlage von Benutzerkonten löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
 	'captcha-createaccount-fail' => "Falscher oder fehlender Bestätigungscode.",
 	'captcha-create'	     => "Zur Erstellung der Seite löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
 	'captchahelp-title'          => 'Captcha-Hilfe',
 	'captchahelp-cookies-needed' => "'''Wichtiger Hinweis:''' Es müssen Cookies im Browser erlaubt sein.",
 	'captchahelp-text'           => "Internetangebote, die für Beiträge von praktisch jedem offen sind — so wie das {{SITENAME}}-Wiki — werden oft von Spammern missbraucht, die ihre Links automatisch auf vielen Webseiten platzieren. Diese Spam-Links können wieder entfernt werden, sie sind aber ein erhebliches Ärgernis. In manchen Fällen, insbesondere beim Hinzufügen von neuen Weblinks zu einer Seite, kann es vorkommen, dass dieses Wiki ein Bild mit einem farbigen und verzerrten Text anzeigt und dazu auffordert, die angezeigten Wörter einzutippen. Da eine solche Aufgabe nur schwer automatisch erledigt werden kann, werden dadurch die meisten Spammer, die mit automatischen Werkzeugen arbeiten, gestoppt, wogegen menschliche Benutzer ihren Beitrag absenden können. Leider kann dies zu Schwierigkeiten für Personen führen, die über eine eingeschränkte Sehfähigkeit verfügen oder text- oder sprachbasierte Browser verwenden. Eine Lösung ist die reguläre Anmeldung als Benutzer. Der „Zurück“-Knopf des Browsers führt zurück in das Bearbeitungsfenster.",
-	'captcha-addurl-whitelist' => '
+	'captcha-addurl-whitelist'   => '
  #<!-- leave this line exactly as it is --> <pre>
 #  Syntax:
 #   * Alles von einem #-Zeichen bis zum Ende der Zeile ist ein Kommentar
 #   * Jeder nicht-leere Zeile ist ein Regex-Fragment, das gegenüber den Hostnamen einer URL geprüft wird
  #</pre> <!-- leave this line exactly as it is -->',
+);
+
+/** German - formal address (Deutsch - förmliche Anrede)
+ * @author Raimond Spekking
+ */
+$messages['de'] = array(
+	'captcha-edit'		     => "Zur Bearbeitung der Seite lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
+	'captcha-addurl'	     => "Ihre Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spamming lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein. Klicken Sie dann erneut auf „Seite speichern“ [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
+	'captcha-badlogin'           => 'Zum Schutz vor einer Kompromittierung Ihres Benutzerkontos lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]]:',
+	'captcha-createaccount'      => "Zum Schutz vor automatisierter Anlage von Benutzerkonten lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
+	'captcha-create'	     => "Zur Erstellung der Seite lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[{{ns:special}}:Captcha/help|(Fragen oder Probleme?)]].",
 );
 
 $messages['el'] = array(
@@ -1624,7 +1639,6 @@ $messages['zh-hant'] = array(
  #</pre> <!-- leave this line exactly as it is -->',
 );
 
-$messages['de-formal'] = $messages['de'];
 $messages['kk'] = $messages['kk-cyrl'];
 $messages['kk-cn'] = $messages['kk-arab'];
 $messages['kk-kz'] = $messages['kk-cyrl'];

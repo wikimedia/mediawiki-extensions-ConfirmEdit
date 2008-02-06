@@ -514,6 +514,7 @@ Cliquez sur le bouton « Précédent » de votre navigateur pour revenir sur la 
  */
 $messages['frp'] = array(
 	'captcha-edit'               => 'Por modifiar ceta pâge, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-desc'               => 'Simpla emplèmentacion captcha',
 	'captcha-addurl'             => 'Voutra modificacion encllut de novéls lims de defôr. Coment protèccion contre lo spame ôtomatico, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'captcha-badlogin'           => 'Coment protèccion contre lo piratâjo ôtomatisâ de mots de pâssa per des bots, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'captcha-createaccount'      => 'Coment protèccion contre les crèacions de compto abusives, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
@@ -1412,21 +1413,25 @@ You will need to have cookies enabled in your browser for this to work.
 Hit the \'back\' button in your browser to return to the page editor.',
 );
 
+/** Swedish (Svenska)
+ * @author Lejonel
+ */
 $messages['sv'] = array(
-	'captcha-edit' => 'För att redigera den här sidan måste du först skriva svaret på följande
+	'captcha-edit'               => 'För att redigera den här sidan måste du först skriva svaret på följande
 räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
-	'captcha-addurl' => 'Din ändring lägger till nya externa länkar i texten. För att skydda wikin mot
+	'captcha-desc'               => 'Enkel implementation av captcha-system',
+	'captcha-addurl'             => 'Din ändring lägger till nya externa länkar i texten. För att skydda wikin mot
 automatisk spam måste du skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
-	'captcha-badlogin' => 'För att skydda mot wikin mot automatiserad lösenordsknäckning måste du skriva
+	'captcha-badlogin'           => 'För att skydda mot wikin mot automatiserad lösenordsknäckning måste du skriva
 svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
-	'captcha-createaccount' => 'För att skydda wikin mot automatiskt skapade användarkonton måste du
+	'captcha-createaccount'      => 'För att skydda wikin mot automatiskt skapade användarkonton måste du
 skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
-	'captcha-createaccount-fail' => "Bekräftelsekoden är felaktig eller saknas.",
-	'captcha-create' => 'För att skapa den här sidan måste du skriva svaret på följande räkneuppgift
+	'captcha-createaccount-fail' => 'Bekräftelsekoden är felaktig eller saknas.',
+	'captcha-create'             => 'För att skapa den här sidan måste du skriva svaret på följande räkneuppgift
 i rutan ([[Special:Captcha/help|mer information]]):',
 	'captchahelp-title'          => 'Captchahjälp',
-	'captchahelp-cookies-needed' => "Du måste ha cookies aktiverade i din webbläsare för att det här ska fungera.",
-	'captchahelp-text'           => "Webbplatser som tillåter inlägg från allmänheten, som den här wikin gör, kan
+	'captchahelp-cookies-needed' => 'Du måste ha cookies aktiverade i din webbläsare för att det här ska fungera.',
+	'captchahelp-text'           => 'Webbplatser som tillåter inlägg från allmänheten, som den här wikin gör, kan
 missbrukas av spammare. De använder ofta automatiserade verktyg för att lägga till länkar på många webbsajter. Även om
 dessa spamlänkar kan tas bort så är de till stort besvär.
 
@@ -1438,8 +1443,8 @@ Tyvärr kan det här orsaka problem för användare med nedsatt syn eller som an
 För tillfället finns inga ljudbaserade alternativ tillgängliga. Om det här hindrar dig från att göra legitima ändringar
 kan du be någon av administratörerna om hjälp.
 
-Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeringsläget.",
-	'captcha-addurl-whitelist' => '
+Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeringsläget.',
+	'captcha-addurl-whitelist'   => '
  #<!-- leave this line exactly as it is --> <pre>
 # Syntaxen är följande:
 #   * Allting från ett "#" till slutet av en rad är en kommentar
@@ -1473,6 +1478,13 @@ $messages['te'] = array(
 #  * "#" అనే అక్ధరం తరువా నుండి ఆ వాఖ్యం చివరివరకూ ఒక కామెంటు
 #  * ఖాళీగా లేని ప్రతీ లైను ఒక regex భాగము, ఇవి పేజీలో ఉన్న URLల్ల యొక్క హోష్టుతో మాత్రమే సరిచూడబడుతుంది
   #</pre> <!-- ఈ వాఖ్యాన్ని మొత్తం ఉన్నదున్నట్లు ఇలాగే వదిలేయండి -->',
+);
+
+/** Tajik (Тоҷикӣ)
+ * @author Ibrahim
+ */
+$messages['tg'] = array(
+	'captchahelp-cookies-needed' => 'Барои кор кардани он, шумо бояд кукиҳои мурургаратонро фаъол кунед.',
 );
 
 /** Turkish (Türkçe)

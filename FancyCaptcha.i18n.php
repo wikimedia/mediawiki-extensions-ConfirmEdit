@@ -523,15 +523,3 @@ $messages['zh-hant'] = array(
 	'fancycaptcha-create' => '為防止不當程式大量建立頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
 	'fancycaptcha-edit' => '如您想要編輯此頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
 );
-
-$messages['de-formal'] = $messages['de'];
-$messages['kk'] = $messages['kk-cyrl'];
-$messages['kk-cn'] = $messages['kk-arab'];
-$messages['kk-kz'] = $messages['kk-cyrl'];
-$messages['kk-tr'] = $messages['kk-latn'];
-$messages['zh'] = $messages['zh-hans'];
-$messages['zh-cn'] = $messages['zh-hans'];
-$messages['zh-hk'] = $messages['zh-hant'];
-$messages['zh-sg'] = $messages['zh-hant'];
-$messages['zh-tw'] = $messages['zh-hans'];
-$messages['zh-yue'] = $messages['yue'];

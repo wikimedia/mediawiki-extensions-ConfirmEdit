@@ -1675,16 +1675,3 @@ $messages['zh-hant'] = array(
 #   * 所有非空白行是一個regex部份，只是跟在裏面的URL主機相符
  #</pre> <!-- leave this line exactly as it is -->',
 );
-
-$messages['kk'] = $messages['kk-cyrl'];
-$messages['kk-cn'] = $messages['kk-arab'];
-$messages['kk-kz'] = $messages['kk-cyrl'];
-$messages['kk-tr'] = $messages['kk-latn'];
-$messages['pt-br'] = $messages['pt'];
-$messages['zh'] = $messages['zh-hans'];
-$messages['zh-cn'] = $messages['zh-hans'];
-$messages['zh-hk'] = $messages['zh-hant'];
-$messages['zh-min-nan'] = $messages['nan'];
-$messages['zh-sg'] = $messages['zh-hans'];
-$messages['zh-tw'] = $messages['zh-hant'];
-$messages['zh-yue'] = $messages['yue'];

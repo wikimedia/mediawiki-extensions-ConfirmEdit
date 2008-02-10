@@ -943,11 +943,24 @@ Dréckt op den 'Zréck' Knäppchen vun ärem Browser fir an d'Beaarbectungsfëns
 );
 
 /** Limburgish (Limburgs)
+ * @author Matthias
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
-	'captcha-edit' => "Geer wil dees pazjena bewerke. Veur estebleef 't antjwaord op de óngerstäönde einvawdife som in 't inveurvenster in ([[Special:Captcha/help|mieë informatie]]):",
-	'captcha-desc' => 'Einvawdige implementatie van captcha',
+	'captcha-edit'             => "Geer wil dees pazjena bewerke. Veur estebleef 't antjwaord op de óngerstäönde einvawdife som in 't inveurvenster in ([[Special:Captcha/help|mieë informatie]]):",
+	'captcha-desc'             => 'Einvawdige implementatie van captcha',
+	'captchahelp-text'         => "Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma's automatisch links op zetten naar vele websites. Hoewel deze externe links weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
+
+Soms, en in het bijzonder bij het toevoegen van externe links op pagina's, toont de wiki u een afbeelding met gekleurde of vervormde tekst en wordt u gevraagd de getoonde tekst in te voeren. Omdat dit proces lastig te automatiseren is, zijn vrijwel alleen mensen in staat dit proces succesvol te doorlopen en worden hiermee spammers en andere geautomatiseerde aanvallen geweerd.
+
+Helaas levert deze bevestiging voor gebruikers met een visuele handicap of een tekst- of spraakgebaseerde browser problemen op. Op het moment is er geen alternatief met geluid beschikbaar. Vraag alstublieft assistentie van de sitebeheerders als dit proces u verhindert een nuttige bijdrage te leveren.
+
+Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
+	'captcha-addurl-whitelist' => '  #<!-- laot deze regel --> <pre>  
+# De syntaxis is as volgt:  
+#  * Alle tekst vanaaf \'t karakter "#" tot het einde van de regels wordt gezien als opmerking
+#  * Iedere niet-lege regel is een fragment van een reguliere uitdrukking die alleen van toepassing is op hosts binnen URL\'s
+  #</pre> <!-- laot deze regel -->',
 );
 
 $messages['lo'] = array(
@@ -1056,6 +1069,7 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
  */
 $messages['nn'] = array(
 	'captcha-edit'               => 'For å endre denne sida, ver venleg og løys det enkle reknestykket nedanfor og skriv svaret i ruta ([[Special:Captcha/help|Kva er dette?]]):',
+	'captcha-desc'               => 'Enkel implementering av captcha-system.',
 	'captcha-addurl'             => 'Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])',
 	'captcha-badlogin'           => 'For å sikra oss mot automatisk passordtjuveri, ver venleg og skriv inn svaret på det enkle reknestykket i boksen nedanfor ([[Special:Captcha/help|meir informasjon]]):',
 	'captcha-createaccount'      => 'For å verne Wikipedia mot reklame (spam) må du skrive inn orda i biletet for å registrere ein konto. <br />([[Special:Captcha/help|Kva er dette?]])',

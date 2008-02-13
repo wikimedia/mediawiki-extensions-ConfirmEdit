@@ -158,10 +158,15 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		$info = $this->retrieveCaptcha();
 		if( $info ) {
+			/*
+			// Be a little less restrictive for now; in at least some circumstances,
+			// Konqueror tries to reload the image even if you haven't navigated
+			// away from the page.
 			if( $info['viewed'] ) {
 				wfHttpError( 403, 'Access Forbidden', "Can't view captcha image a second time." );
 				return false;
 			}
+			*/
 
 			$info['viewed'] = wfTimestamp();
 			$this->storeCaptcha( $info );
@@ -173,6 +178,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			if( file_exists( $file ) ) {
 				global $IP;
 				require_once "$IP/includes/StreamFile.php";
+				header( "Cache-Control: private, s-maxage=0, max-age=3600" );
 				wfStreamFile( $file );
 				return true;
 			}

@@ -55,7 +55,7 @@ $messages['af'] = array(
  * @author Teferra
  */
 $messages['am'] = array(
-	'captcha-edit'          => 'ይህንን ድርሰት ለማረም፣ እባክዎን የሚቀጥለውን ቀላል የመደመር ጥያቄ መልስ ሳጥን ([[Special:Captcha/help|more info]]) ውስጥ ይጻፉ።',
+	'captcha-edit'          => 'ይህንን ድርሰት ለማረም፣ እባክዎን የሚቀጥለውን ቀላል የመደመር ጥያቄ መልስ ሳጥን ውስጥ ይጻፉ። ([[Special:Captcha/help|ተጨማሪ መረጃ]])',
 	'captcha-createaccount' => 'ያልተፈለገ የመኪናነት አባልነት ለመከላከል፥ አባል ለመሆን በዚህ ምስል የታዩት እንግሊዝኛ ቃላት ወይም ቁጥር መልስ በትክክል መጻፍ ግዴታ ነው። ([[Special:Captcha/help|ይህ ምንድነው?]]):',
 	'captchahelp-title'     => "የ'ካፕቻ' መግለጫ",
 	'captchahelp-text'      => "አንዳንዴ 'ስፓም' የተባሉት ያልተፈለጉ መልእክቶች የሚላኩ ሰዎች በመኪናነት አማካይነት በብዙ ድረገጽ ላይ የማይገባ ማስታወቂያ በመልጠፍ ላይ እየተገኘ ነው። ይህን የማይገባ መያያዣ ማስወገድ ቢቻለም አስቸጋሪ ናቸው።
@@ -1122,6 +1122,7 @@ Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.',
  */
 $messages['oc'] = array(
 	'captcha-edit'               => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : ([[Special:Captcha/help|Qu'es aquò?]])",
+	'captcha-desc'               => 'Implementacion captcha simpla',
 	'captcha-addurl'             => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu'es aquò?]])",
 	'captcha-badlogin'           => "Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxt çaijós dins la boita de tèxt plaçada al dejos d'aqueste. ([[Special:Captcha/help|Mai d’entre-senhas]])",
 	'captcha-createaccount'      => 'Coma proteccion contra las creacions de compte abusivas, entratz lo resultat de l’addicion dins la boita çaijós:<br />

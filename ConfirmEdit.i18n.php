@@ -8,7 +8,7 @@
 $messages = array();
 
 $messages['en'] = array(
-	'captcha-edit' => 'To edit this article, please solve the simple sum below and enter the answer in
+	'captcha-edit' => 'To edit this page, please solve the simple sum below and enter the answer in
 the box ([[Special:Captcha/help|more info]]):',
 	'captcha-desc' => 'Simple captcha implementation',
 	'captcha-addurl' => 'Your edit includes new external links. To help protect against automated

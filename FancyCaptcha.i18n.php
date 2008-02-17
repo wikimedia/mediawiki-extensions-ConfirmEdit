@@ -62,6 +62,18 @@ $messages['bg'] = array(
 	'fancycaptcha-edit'          => 'За редактиране на страницата е необходимо да се въведат думите от картинката в полето по-долу ([[Special:Captcha/help|повече информация]]):',
 );
 
+/** Bengali (বাংলা)
+ * @author Zaheen
+ */
+$messages['bn'] = array(
+	'fancycaptcha-addurl'        => 'আপনার সম্পাদনাটিতে নতুন বহিঃসংযোগ আছে। স্বয়ংক্রিয় স্প্যামের বিরুদ্ধে সুরক্ষার খাতিরে অনুগ্রহ করে নিচের বাক্সে দেখানো শব্দগুলি প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
+	'fancycaptcha-badlogin'      => 'স্বয়ংক্রিয় শব্দচাবি ক্র্যাকিং-এর বিরুদ্ধে সুরক্ষার খাতিরে অনুগ্রহ করে নিচের বাক্সে দেখানো শব্দগুলি প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
+	'fancycaptcha-createaccount' => 'স্বয়ংক্রিয় অ্যাকাউন্ট সৃষ্টির বিরুদ্ধে সুরক্ষার জন্য অনুগ্রহ করে নিচের বাক্সে দেখানো শব্দগুলি প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
+	'fancycaptcha-create'        => 'পাতাটি সৃষ্টি করতে চাইলে অনুগ্রহ করে নিচের বাক্সে দেখানো শব্দগুলি প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
+	'fancycaptcha-edit'          => 'পাতাটি সম্পাদনা করতে চাইলে অনুগ্রহ করে নিচের বাক্সে দেখানো শব্দগুলি প্রবেশ করান
+([[Special:Captcha/help|আরও তথ্য]]):',
+);
+
 $messages['br'] = array(
 	'fancycaptcha-edit' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
 	'fancycaptcha-addurl' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
@@ -523,3 +535,4 @@ $messages['zh-hant'] = array(
 	'fancycaptcha-create' => '為防止不當程式大量建立頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
 	'fancycaptcha-edit' => '如您想要編輯此頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
 );
+

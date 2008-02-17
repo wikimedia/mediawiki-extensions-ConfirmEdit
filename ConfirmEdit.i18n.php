@@ -191,13 +191,31 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Zaheen
  * @author Bellayet
  */
 $messages['bn'] = array(
-	'captcha-edit'               => 'এই নিবন্ধটি সম্পাদনা করতে, দয়া করে নিম্নের সহজ অংকটি সমাধান করুন এবং এর ফলাফল বক্সটিতে দিন ([[Special:Captcha/help|more info]]):',
+	'captcha-edit'               => 'এই নিবন্ধটি সম্পাদনা করতে দয়া করে নিচের সহজ যোগটি সমাধান করুন এবং ফলাফলটি বাক্সটিতে প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
+	'captcha-desc'               => 'সরল captcha বাস্তবায়ন',
+	'captcha-addurl'             => 'আপনার সম্পাদনায় নতুন বহিঃসংযোগ বিদ্যমান। স্বয়ংক্রিয় স্প্যামের বিরুদ্ধে সুরক্ষার খাতিরে অনুগ্রহ নিচের যোগটি সমাহদান করুন এবং উত্তরটি বাক্সে প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
+	'captcha-badlogin'           => 'স্বয়ংক্রিয় শব্দচাবি ক্র‌্যাকিং-এর বিরুদ্ধে সুরক্ষার খাতিরে অনুগ্রহ করে নিচের যোগটি সমাধান করুন এবং উত্তরটি বাক্সে প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
+	'captcha-createaccount'      => 'স্বয়ংক্রিয় অ্যাকাউন্ট সৃষ্টি রোধ করার খাতিরে অনুগ্রহ করে নিচের যোগটি সমাধান করুন এবং উত্তরটি বাক্সে প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
 	'captcha-createaccount-fail' => 'ভুল অথবা হারিয়ে যাওয়া নিশ্চিতকরণ সংকেত',
+	'captcha-create'             => 'পাতাটি সৃষ্টি করতে চাইলে অনুগ্রহ করে নিচের যোগটি সমাধান করুন এবং উত্তরটি বাক্সে প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
 	'captchahelp-title'          => 'ক্যাপচা সাহায্য',
 	'captchahelp-cookies-needed' => 'এই কাজটি করার জন্য আপনাকে আপনার ব্রাউজারের কুকি সক্রিয় করতে হবে।',
+	'captchahelp-text'           => 'যেসব ওয়েবসাইট পোস্টিং-এর জন্য উন্মুক্ত, যেমন এই উইকিটি, সেগুলি প্রায়ই স্প্যামারদের আক্রমণের শিকার হয়। স্প্যামাররা স্বয়ংক্রিয় সরঞ্জাম ব্যবহার করে তাদের সংযোগগুলি বহু সাইটে পোস্ট করে। এই স্প্যাম সংযোগগুলি মুছে ফেলা সম্ভব, কিন্তু এগুলি যথেষ্ট বিরক্তির উদ্রেক করে।
+
+কখনো কখনো, বিশেষ করে কোন পাতায় নতুন ওয়েব সংযোগ যোগ করার সময়, উইকিটি আপনাকে রঙিন বা বিকৃত টেক্সটবিশিষ্ট ছবি দেখিয়ে আপনাকে শব্দটি টাইপ করতে বলতে পারে। যেহেতু এই কাজটি স্বয়ংক্রিয়ভাবে সম্পাদন করা দুরূহ, তাই এই ব্যবস্থার ফলে প্রকৃত মানুষেরা পোস্ট করতে পারবেন কিন্তু বেশির ভাগ স্প্যামার বা রোবটভিত্তিক আক্রমণ বাধাপ্রাপ্ত হবে।
+
+যারা চোখে কম দেখতে পান কিংবা টেক্সটভিত্তিক বা উক্তিভিত্তিক ব্রাউজার ব্যবহার করছেন, দুর্ভাগ্যবশত এই ব্যবস্থাটি তাদের জন্য সমস্যার সৃষ্টি করবে। এই মুহূর্তে আমাদের কাছে এই ব্যবস্থাটির কোন অডিও বিকল্প নেই। যদি ব্যবস্থাটি আপনাকে বৈধ পোস্ট করতে অযাচিত বাধা দেয়, অনুগ্রহ করে সাইটের প্রশাসকদের কাছে সাহায্য চান। 
+
+আপনি এখন ব্রাউজারের ব্যাক বোতাম চেপে পাতা সম্পাদকে ফেরত যেতে পারেন।',
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
+# সিনট্যাক্স নিম্নরূপ:
+#  * "#" ক্যারেক্টার থেকে শুরু হয়ে লাইনের শেষ পর্যন্ত সবকিছু একটি মন্তব্য
+#  * খালি নয় এমন প্রতিটি লাইন একটি রেজেক্স খণ্ডাংশ যেটি URLগুলির ভেতরে হোস্টগুলির সাথে মিলে যাবে।
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Breton (Brezhoneg)
@@ -575,7 +593,7 @@ $messages['ga'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'captcha-edit'               => 'Para editar este artigo, resolta a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
+	'captcha-edit'               => 'Para editar esta páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-addurl'             => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Que é isto?]])',
 	'captcha-badlogin'           => 'Como protección para que non descubran o contrasinal por medios automáticos, resolva a suma simple de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]])',
 	'captcha-createaccount'      => "Como protección fronte a sistemas de creación automática de contas de usuario usados polos ''spammers'', ten que teclear as palabras que aparecen na imaxe para rexistrar unha conta:<br /> ([[Special:Captcha/help|Que é isto?]])",
@@ -789,27 +807,36 @@ Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
   #</pre> <!-- non modificare in alcun modo questa riga -->',
 );
 
+/** Japanese (日本語)
+ * @author JtFuruhata
+ */
 $messages['ja'] = array(
-	'captcha-edit'                => 'このページを編集するには下記に現れる数式の答えを入力してください。<br />
+	'captcha-edit'               => 'このページを編集するには下記に現れる数式の答えを入力してください。<br />
 ([[Special:Captcha/help|詳細]])',
-	'captcha-addurl'              => 'あなたの編集には新たに外部リンクが追加されています。スパム防止のため、下記の数式の答えを入力してください<br />
+	'captcha-desc'               => '簡単な CAPTCHA（画像認証）の実装',
+	'captcha-addurl'             => 'あなたの編集には新たに外部リンクが追加されています。スパム防止のため、下記の数式の答えを入力してください<br />
 ([[Special:Captcha/help|詳細]])',
-	'captcha-badlogin'	      => '自動化スクリプトによるパスワードクラック攻撃を防止するため、下記に現れる数式の答えを入力してください<br />
+	'captcha-badlogin'           => '自動化スクリプトによるパスワードクラック攻撃を防止するため、下記に現れる数式の答えを入力してください<br />
 ([[Special:Captcha/help|詳細]])',
-	'captcha-createaccount'       => 'スパム防止のため、アカウントを登録するには、下記に現れる数式の答えを入力してください<br />
+	'captcha-createaccount'      => 'スパム防止のため、アカウントを登録するには、下記に現れる数式の答えを入力してください<br />
 ([[Special:Captcha/help|詳細]])',
-	'captcha-createaccount-fail'  => '確認コードの入力がないか、間違っています。',
-	'captcha-create'              => 'あなたの編集は新たに外部リンクが追加されています。スパム防止のため、下記に現れる数式の答えを入力してください<br />
+	'captcha-createaccount-fail' => '確認コードの入力がないか、間違っています。',
+	'captcha-create'             => 'あなたの編集は新たに外部リンクが追加されています。スパム防止のため、下記に現れる数式の答えを入力してください<br />
 ([[Special:Captcha/help|詳細]])',
-	'captchahelp-title'           => 'Captcha ヘルプ',
-	'captchahelp-cookies-needed'  => 'ブラウザのクッキー機能を有効にする必要があります。',
-	'captchahelp-text'            => '当Wikiのような、投稿が公開されているウェブサイトは、多くのサイトに自分たちへのリンクを自動投稿するツールを用いるスパマーにより荒らされます。これらのスパムは除去できるものの、その作業大変うっとうしいものです。
+	'captchahelp-title'          => 'CAPTCHA（画像認証） ヘルプ',
+	'captchahelp-cookies-needed' => 'ブラウザのクッキー機能を有効にする必要があります。',
+	'captchahelp-text'           => '当Wikiのような、投稿が公開されているウェブサイトは、多くのサイトに自分たちへのリンクを自動投稿するツールを用いるスパマーにより荒らされます。これらのスパムは除去できるものの、その作業大変うっとうしいものです。
 
 時々、特に新しいリンクをページに追加したとき、Wikiは色の付いた、もしくは、ゆがめられた文字を提示し、その入力をお願いすることがあります。この作業は自動化が難しいため、本当の人間の投稿を可能にしつつ、多くのスパマーやロボットの攻撃を防ぐことが出来ます。
 
 しかし、残念なことに、テキストベースやスピーチベースのブラウザを使っている、視覚障害者に不便をおかけする場合があります。現時点では、音声版の代替物がありません。正当な投稿をするにあたって、これが障害となっている場合、サイト管理者に連絡し、協力を求めてください。
 
 編集ページに戻るには、ブラウザの戻るボタンを押してください。',
+	'captcha-addurl-whitelist'   => '  #<!-- この行は変更しないでください --> <pre>
+# 構文は以下のとおりです:
+#  * "#"文字から行末まではコメントとして扱われます
+#  * 空白を含んでいない行は、URLに含まれるホスト名との一致を検出する正規表現です
+  #</pre> <!-- この行は変更しないでください -->',
 );
 
 $messages['kk-arab'] = array(
@@ -931,7 +958,7 @@ $messages['la'] = array(
  * @author Siebrand
  */
 $messages['lb'] = array(
-	'captcha-edit'               => "Fir dës Säit ze änneren, léist w.e.g. déi folgend Rechenaufgab a gitt d'Resultat an d'Këscht ënnendrënner an ([[Special:Captcha/help|méi Informatiounen]]):",
+	'captcha-edit'               => "Fir dës Säit z'änneren, léist w.e.g. dës Rechenaufgab a gitt d'Resultat an d'Këscht ënnendrënner an ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captcha-addurl'             => 'An ärer Ännerung sinn nei extern Linken. Fir eis virun automatiséiertem Spamming ze schütze froe mir iech fir déi folgend einfach  Rechenaufgab ze léisen an d\'Resultat an d\'Feld ënnen anzedroën. Klickt duerno w.e.g. nach eng Kéier op "Säit ofspäicheren" [[Special:Captcha/help|méi Informatiounen]].',
 	'captcha-badlogin'           => "Fir eis géint automatescht Hacke vu Passwierder ze schützen, léist w.e.g. déi einfach Additioun hei ënnendrënner an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captcha-createaccount'      => "Fir eis géint d'autamescht Uleeë vu Benotzerkonten ze schützen, léist w.e.g. déi einfach Additioun hei ënnendrënner an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
@@ -1106,7 +1133,7 @@ Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedset
  * @author Siebrand
  */
 $messages['no'] = array(
-	'captcha-edit'               => 'For å redigere denne artikkelen, vennligst skriv inn summen nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-edit'               => 'For å redigere denne siden, skriv inn summen nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
 	'captcha-desc'               => 'Enkel captcha-implementering',
 	'captcha-addurl'             => 'Din redigering inneholder nye eksterne lenker. For å hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn summen av dette enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
 	'captcha-badlogin'           => 'For å hjelpe oss med å beskytte oss mot automatisk passordtyveri, vennligst løs det enkle regnestykket nedenfor og skriv inn svaret i bosken ([[Special:Captcha/help|mer informasjon]]):',
@@ -1286,7 +1313,7 @@ Va fi nevoie ca browserul folosit să suporte module cookie.',
  * @author Kalan
  */
 $messages['ru'] = array(
-	'captcha-edit'               => 'Чтобы отредактировать страницу, решите простой пример и введите ответ в текстовое поле ([[{{ns:special}}:Captcha/help|что это?]]):',
+	'captcha-edit'               => 'Чтобы отредактировать эту страницу, пожалуйста, решите простой пример и введите ответ в текстовое поле ([[Special:Captcha/help|подробнее]]):',
 	'captcha-desc'               => 'Простая реализация CAPTCHA',
 	'captcha-addurl'             => 'Вы добавили ссылку на внешний сайт; в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
 ([[{{ns:special}}:Captcha/help|Что это такое?]])',
@@ -1315,7 +1342,7 @@ $messages['ru'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
-	'captcha-edit'               => 'Сирэйи уларытыаххын баҕардаххына, манна баар примеры суоттаа уонна эппиэтин аналлаах сиргэ суруй ([[{{ns:special}}:Captcha/help|сиһилии]]):',
+	'captcha-edit'               => 'Сирэйи уларытыаххын баҕардаххына, манна баар примеры суоттаа уонна эппиэтин аналлаах сиргэ суруй ([[Special:Captcha/help|сиһилии]]):',
 	'captcha-desc'               => 'CAPTCHA судургу барыла',
 	'captcha-addurl'             => 'Тас саайка ыйынньык туруорбуккун; спаамтан көмүскэнэр соруктаах суолу толор - манна баар буукубалары хатылаа: <br />
 ([[{{ns:special}}:Captcha/help|Сиһилии]])',
@@ -1503,7 +1530,7 @@ Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeri
  * @author Veeven
  */
 $messages['te'] = array(
-	'captcha-edit'               => 'ఈ వ్యాసాన్ని దిద్దుబాటు చేయడానికి కింది ఇచ్చిన సమీకరణం విలువను పక్కనున్న పెట్టెలో టైపు చెయ్యాలి ([[ప్రత్యేక:Captcha/help|ఏమిటిది?]]):',
+	'captcha-edit'               => 'ఈ పేజీని సరిదిద్దడానికి, కింది ఇచ్చిన చిన్న లెక్కని చేసి జవాబుని పక్కనున్న పెట్టెలో టైపు చెయ్యండి ([[ప్రత్యేక:Captcha/help|మరింత సమాచారం]]):',
 	'captcha-desc'               => 'సరళమైన అమకవేప అమలు',
 	'captcha-addurl'             => 'మీ దిద్దుబాటులో కొత్త బయటి లింకులు ఉన్నాయి. ఆటోమేటెడ్ స్పాము నుండి రక్షించేందుకు గాను, కింద ఇచ్చిన లెక్క యొక్క జవాబును ఇక్కడున్న పెట్టెలో రాయండి ([[Special:Captcha/help|మరింత సహాయం]]):',
 	'captcha-badlogin'           => 'పాసువోర్డును బాట్ల ద్వారా తెలుసుకోకుండా ఉండేందుకు, కింద ఇచ్చిన లెక్క యొక్క జవాబును ఇక్కడున్న పెట్టెలో రాయండి ([[Special:Captcha/help|మరింత సహాయం]]):',

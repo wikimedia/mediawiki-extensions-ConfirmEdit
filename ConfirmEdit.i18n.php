@@ -1193,11 +1193,12 @@ Timid me ing 'back' button king kekang browser bang mibalik ketang panaliling bu
 );
 
 /** Polish (Polski)
- * @author Derbeth
  * @author Sp5uhe
+ * @author Derbeth
  */
 $messages['pl'] = array(
-	'captcha-edit'               => 'Edytowanie tej strony jest możliwe dopiero po rozwiązaniu poniższego prostego działanie matematycznego i wpisaniu wyniku do pola obok ([[Special:Captcha/help|wyjaśnienie]]):',
+	'captcha-edit'               => 'By edytować tą stronę, rozwiąż proste działanie matematyczne i wstaw wynik do pola obok ([[Special:Captcha/help|pomoc]]):',
+	'captcha-desc'               => 'Proste zabezpieczenie przed automatami',
 	'captcha-addurl'             => 'Dodałeś nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem musisz wykonać proste działanie matematyczne i wpisać wynik w pole obok ([[Special:Captcha/help|więcej informacji]]):',
 	'captcha-badlogin'           => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o rozwiązanie tego prostego zadania i wpisanie odwiedzi w pole obok ([[Special:Captcha/help|więcej informacji]])',
 	'captcha-createaccount'      => 'Ze względu na ochronę przed automatycznym [[wikipedia:pl:spam|spamem]], aby się zarejestrować musisz wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|wyjaśnienie]]):',
@@ -1596,6 +1597,7 @@ Hit the 'back' button in your browser to return to the page editor.",
  */
 $messages['vi'] = array(
 	'captcha-edit'               => 'Để sửa đổi trang này, xin hãy giải phép cộng đơn giản dưới đây và gõ câu trả lời vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'captcha-desc'               => 'Bọ CAPTCHA đơn giản',
 	'captcha-addurl'             => 'Sửa đổi của bạn có chứa các liên kết ra bên ngoài. Để giúp tránh spam tự động, xin hãy giải phép toán đơn giản ở dưới và gõ kết quả vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'captcha-badlogin'           => 'Để giúp tránh hành động bẻ mật khẩu tự động, xin hãy giải phép cộng
 đơn giản ở dưới và gõ kết quả vào ô ([[Special:Captcha/help|thông tin thêm]]):',

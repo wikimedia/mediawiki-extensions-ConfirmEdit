@@ -28,6 +28,19 @@ $messages['am'] = array(
 	'fancycaptcha-createaccount' => 'ያልተፈለገ የመኪናነት አባልነት ለመከላከል፥ አባል ለመሆን በዚህ ምስል የታዩት እንግሊዝኛ ቃላት ወይም ቁጥር መልስ በትክክል መጻፍ ግዴታ ነው። ([[Special:Captcha/help|ይህ ምንድነው?]]) (To help protect against automated spam, you must type in the words or correct number answer exactly as seen beneath here before registering your account:)<br />',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'fancycaptcha-addurl'        => "Ha encluyito binclos esternos en a suya edizión. Ta aduyar a protecher contra o spam automatico, escriba por fabor as palabras que amanixen en a caxa d'o cobaxo ([[Special:Captcha/help|más informazión]]):",
+	'fancycaptcha-badlogin'      => "Ta aduyar a protecher contra o trenque automatico de palabras de paso, escriba por fabor as palabras que amanixen en a caxa d'o cobaxo ([[Special:Captcha/help|más informazión]]):",
+	'fancycaptcha-createaccount' => 'Ta aduyar a protecher contra a creyazión automatica de cuentas, escriba por fabor en o cuatrón as palabras que amanixen debaxo ([[Special:Captcha/help|más informazión]]):',
+	'fancycaptcha-create'        => "Ta creyar a pachina, escriba por fabor as palabras que amanixen en a caxa d'o cobaxo
+([[Special:Captcha/help|más informazión]]):",
+	'fancycaptcha-edit'          => "Ta editar ista pachian, escriba por fabor as palabras que amaneixen en a caixa d'o cobaxo
+([[Special:Captcha/help|más informazión]]):",
+);
+
 /* Arabic (Meno25) */
 $messages['ar'] = array(
 	'fancycaptcha-addurl' => 'تعديلك يتضمن وصلات خارجية جديدة. للحماية من السخام الأوتوماتيكي، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق ([[Special:Captcha/help|معلومات إضافية]]):',

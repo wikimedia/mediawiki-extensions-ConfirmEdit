@@ -788,6 +788,7 @@ Notaðu „back“-hnapp vafrans til að halda áfram.',
 $messages['it'] = array(
 	'captcha-edit'               => 'Per modificare la pagina è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella
 ([[Special:Captcha/help|maggiori informazioni]]):',
+	'captcha-desc'               => 'Semplice implementazione di un Captcha',
 	'captcha-addurl'             => "La modifica richiesta aggiunge dei nuovi collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|maggiori informazioni]]):",
 	'captcha-badlogin'           => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|maggiori informazioni]]):',
 	'captcha-createaccount'      => 'Come misura precauzionale contro i tentativi di creazione automatica degli account, per registrarsi è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|maggiori informazioni]]):',
@@ -1573,6 +1574,14 @@ $messages['te'] = array(
 $messages['tg'] = array(
 	'captchahelp-title'          => 'Роҳнамои Captcha',
 	'captchahelp-cookies-needed' => 'Барои кор кардани он, шумо бояд кукиҳои мурургаратонро фаъол кунед.',
+);
+
+/** Thai (ไทย)
+ * @author Passawuth
+ */
+$messages['th'] = array(
+	'captcha-edit'               => 'เพื่อที่จะแก้ไขหน้านี้ กรุณาตอบโจทย์ปัญหาทางคณิตศาสตร์ข้างล่าง และใส่คำตอบลงในกล่อง ([[Special:Captcha/help|รายละเอียดเพิ่มเติม]]) :',
+	'captcha-createaccount-fail' => 'โค้ดสำหรับการยืนยันยังไม่ได้ใส่หรือผิด',
 );
 
 /** Turkish (Türkçe)

@@ -918,6 +918,13 @@ Bul jumıstı istew üşin şolğışıñızda «cookies» degendi endirw qajet.
 Bet öñdewine qaýtw barw üşin «Artqa» degen tüýmesin basıñız."
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author Chhorran
+ */
+$messages['km'] = array(
+	'captcha-createaccount-fail' => 'អក្សរកូដ បញ្ជាក់ទទួលស្គាល់ បាត់បង់ ឬ មិនត្រឹមត្រូវ',
+);
+
 /** Korean (한국어)
  * @author Klutzy
  */

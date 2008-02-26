@@ -46,9 +46,9 @@ $messages['ar'] = array(
 	'fancycaptcha-addurl' => 'تعديلك يتضمن وصلات خارجية جديدة. للحماية من السخام الأوتوماتيكي، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق ([[Special:Captcha/help|معلومات إضافية]]):',
 	'fancycaptcha-badlogin' => 'للمساعدة في الحماية ضد سرقة كلمات السر، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق ([[Special:Captcha/help|معلومات إضافية]]):',
 	'fancycaptcha-createaccount' => 'للمساعدة في منع إنشاء حسابات بطريقة أوتوماتيكية، قم من فضلك بإدخال الكلمات التي تظهر أدناه في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',
-	'fancycaptcha-create' => 'لإنشاء الصفحة، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق 
+	'fancycaptcha-create' => 'لإنشاء الصفحة، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق
 ([[Special:Captcha/help|معلومات إضافية]]):',
-	'fancycaptcha-edit' => 'لكي تعدل هذه الصفحة، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق 
+	'fancycaptcha-edit' => 'لكي تعدل هذه الصفحة، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق
 ([[Special:Captcha/help|معلومات إضافية]]):',
 );
 
@@ -265,7 +265,9 @@ $messages['hu'] = array(
 	'fancycaptcha-edit'          => 'A szerkesztésed új külső linkeket tartalmaz. A spam-robotok elleni védekezés elősegítésére kérlek írd be az alább megjelenő szót a szövegdobozba ([[Special:Captcha/help|segítség]]):',
 );
 
-/* Indonesian (Ivan Lanin) */
+/** Indonesian (Bahasa Indonesia)
+ * @author IvanLanin
+ */
 $messages['id'] = array(
 	'fancycaptcha-edit' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 	'fancycaptcha-badlogin' => 'Untuk membantu perlindungan terhadap perengkahan kunci sandi otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
@@ -412,15 +414,15 @@ $messages['pl'] = array(
 
 /* Piedmontese (Bèrto 'd Sèra) */
 $messages['pms'] = array(
-	'fancycaptcha-addurl' => 'Soa modìfica a l\'ha andrinta dj\'anliure esterne neuve. Për dene na man a vardesse da la reclam aotomatisà, për piasì, 
+	'fancycaptcha-addurl' => 'Soa modìfica a l\'ha andrinta dj\'anliure esterne neuve. Për dene na man a vardesse da la reclam aotomatisà, për piasì,
 ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
-	'fancycaptcha-badlogin' => 'Për dene na man a vardesse da ij programa ch\'a fan ciav fàosse, për piasì, 
+	'fancycaptcha-badlogin' => 'Për dene na man a vardesse da ij programa ch\'a fan ciav fàosse, për piasì,
 ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
-	'fancycaptcha-createaccount' => 'Për dene na man a vardesse da ij programa ch\'a deurbo cont neuv n\'aotomàtich, për piasì, 
+	'fancycaptcha-createaccount' => 'Për dene na man a vardesse da ij programa ch\'a deurbo cont neuv n\'aotomàtich, për piasì,
 ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
-	'fancycaptcha-create' => 'Për creé sta pàgina-i d\'amblé, për piasì, 
+	'fancycaptcha-create' => 'Për creé sta pàgina-i d\'amblé, për piasì,
 ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
-	'fancycaptcha-edit' => 'Për fe-ie dle modìfiche ansima a sta pàgina-sì, për piasì, 
+	'fancycaptcha-edit' => 'Për fe-ie dle modìfiche ansima a sta pàgina-sì, për piasì,
 ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
 );
 
@@ -513,7 +515,7 @@ skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information
 $messages['te'] = array(
 	'fancycaptcha-addurl'        => 'మీ దిద్దుబాటులో కొత్త బయటి లింకులున్నాయి. బాట్లద్వారా చేసే స్పాము నుండి రక్షణను ఏర్పరచేందుకు గాను,
 కింద కనిపించే బొమ్మలోని అక్షరాలను పెట్టెలో రాయండి ([[Special:Captcha/help|మరింత సమాచారం]]):',
-	'fancycaptcha-badlogin'      => 'సంకేత పదాలను దొంగిలించే ఆటోమాటిక్ ప్రోగ్రాముల నుండి రక్షించేందుకు గాను, 
+	'fancycaptcha-badlogin'      => 'సంకేత పదాలను దొంగిలించే ఆటోమాటిక్ ప్రోగ్రాముల నుండి రక్షించేందుకు గాను,
 కింద కనిపించే బొమ్మలోని అక్షరాలను పెట్టెలో రాయండి ([[Special:Captcha/help|మరింత సమాచారం]]):',
 	'fancycaptcha-createaccount' => 'ఆటోమాటిగ్గా ఖాతాలను సృష్టించడాన్ని నివారించేందుకు, కింద కనిపించే పదాలను
 ఈ పెట్టెలో రాయండి ([[Special:Captcha/help|మరింత సహాయం]]):',

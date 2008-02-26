@@ -60,9 +60,9 @@ $messages['am'] = array(
 	'captchahelp-title'     => "የ'ካፕቻ' መግለጫ",
 	'captchahelp-text'      => "አንዳንዴ 'ስፓም' የተባሉት ያልተፈለጉ መልእክቶች የሚላኩ ሰዎች በመኪናነት አማካይነት በብዙ ድረገጽ ላይ የማይገባ ማስታወቂያ በመልጠፍ ላይ እየተገኘ ነው። ይህን የማይገባ መያያዣ ማስወገድ ቢቻለም አስቸጋሪ ናቸው።
 
-ስለዚህ በመጀመርያ አባልነት ሲገቡ ወይም አንዳንዴ የውጭ ድረገጽ አድራሻ ሲጨመር የፕሮግራሙ ሶፍትዌር 'ካፕቻ' የእንግሊዝኛን ቃላት ወይም የቁጥር መልስ እንዲዳግሙ ለፈተና ይጠይቃል። ይህ አደራረግ ለመኪናነት ቀላል ተግባር ሰላማይሆን፥ እውነተኛ ሰው ከሆነ ለመልጠፍ ያስችለዋል ነገር ግን መኪናነት ከሆነ ዕንቅፋት ይሆንበታል።  
+ስለዚህ በመጀመርያ አባልነት ሲገቡ ወይም አንዳንዴ የውጭ ድረገጽ አድራሻ ሲጨመር የፕሮግራሙ ሶፍትዌር 'ካፕቻ' የእንግሊዝኛን ቃላት ወይም የቁጥር መልስ እንዲዳግሙ ለፈተና ይጠይቃል። ይህ አደራረግ ለመኪናነት ቀላል ተግባር ሰላማይሆን፥ እውነተኛ ሰው ከሆነ ለመልጠፍ ያስችለዋል ነገር ግን መኪናነት ከሆነ ዕንቅፋት ይሆንበታል።
 
-ይህ ዘዴ ከመልጠፍ ያለግባብ ቢከለክልዎ እባክዎ መጋቢን ይጠይቁ። 
+ይህ ዘዴ ከመልጠፍ ያለግባብ ቢከለክልዎ እባክዎ መጋቢን ይጠይቁ።
 
 አሁን ( <= 'back' ) በbrowserዎ ላይ ይጫኑ።",
 );
@@ -87,8 +87,8 @@ Bellas begadas, espezialment cuan se mire de adibir nuebos binclos á una pachin
 Manimenos, isto puede estar un barrache ta usuarios con bisión limitata u que faigan ser nabegadors basatos en testo u en a boz. Por l'inte no tenemos garra alternatiba de audio. Por fabor, contaute con os almenistradors d'o sistema ta demandar aduya si isto le ye pribando de fer as suyas edizions lechitimas.
 
 Punche o botón 'entazaga' d'o suyo nabegador ta tornar t'o editor de pachinas.",
-	'captcha-addurl-whitelist'   => "  #<!-- leave this line exactly as it is --> <pre>  
-# A sintaxis ye asinas:  
+	'captcha-addurl-whitelist'   => "  #<!-- leave this line exactly as it is --> <pre>
+# A sintaxis ye asinas:
 #  * Tot o que bi ha dende un caráuter \"#\" dica a fin d'a linia ye un comentario
 #  * Cualsiquier linia con testo un troz d'expresión regular (regex) que sólo concordará con os hosts aintro d'URLs
   #</pre> <!-- leave this line exactly as it is -->",
@@ -118,8 +118,8 @@ $messages['ar'] = array(
 للأسف سيكون هذا صعبا بالنسبة لمستخدمي المتصفحات المحدودة أو التي تعتمد على النصوص فقط أو قراءة النصوص. في الوقت الحالي لا يوجد لدينا بديل سمعي. من فضلك راسل مديري الموقع للمساعدة إذا كان هذا الأمر يمنعك من التعديل ووضع وصلات قانونية.
 
 إذا كنت تحرر صفحة معينة: اضغط زر 'العودة' في متصفحك للعودة إلى التحرير.",
-	'captcha-addurl-whitelist'   => ' #<!-- اترك هذا السطر تمامًا كما هو --> <pre> 
-# الصيغة كما تلي: 
+	'captcha-addurl-whitelist'   => ' #<!-- اترك هذا السطر تمامًا كما هو --> <pre>
+# الصيغة كما تلي:
 #   * كل شيء من علامة "#" لنهاية السطر تعليق
 #   * كل سطر غير فارغ هو جزء تعبير نمطي والذي سوف يطابق فقط المضيفين داخل العناوين
  #</pre> <!-- اترك هذا السطر تمامًا كما هو -->',
@@ -164,8 +164,8 @@ $messages['be'] = array(
 	'captcha-create'             => 'Каб стварыць старонку, развяжыце простае ўраўненне, што ніжэй, і ўпішыце адказ у адпаведнае поле ([[Special:Captcha/help|больш падрабязна]]):',
 	'captchahelp-title'          => 'Даведка Капчы',
 	'captchahelp-cookies-needed' => 'Каб гэтая магчымасць працавала, належыць дазволіць у браўзеры апрацоўку квіткоў ("кукі").',
-	'captcha-addurl-whitelist'   => ' #<!-- радок абавязкова пакінуць як ёсць (у т.л., з прагалам у пачатку) --> <pre>  
-# Сінтаксіс наступны:  
+	'captcha-addurl-whitelist'   => ' #<!-- радок абавязкова пакінуць як ёсць (у т.л., з прагалам у пачатку) --> <pre>
+# Сінтаксіс наступны:
 #  * Усё ад знаку "#" да канца радка гэта каментар
 #  * Кожны непусты радок гэта частковы рэгулярны выраз, які параўноўваецца з адрасамі сервераў унутры URL-яў
   #</pre> <!-- радок абавязкова пакінуць як ёсць (у т.л., з прагалам у пачатку) -->',
@@ -182,11 +182,11 @@ $messages['bg'] = array(
 	'captcha-createaccount'      => 'Като защита от автоматизирани регистрации, системата изисква при регистриране на потребителска сметка потребителите да въведат отговора на задачата по-долу в текстовата кутия ([[Special:Captcha/help|повече информация]]):',
 	'captcha-createaccount-fail' => 'Грешен или липсващ код за потвърждение.',
 	'captcha-create'             => 'За създаване на страницата е необходимо да се реши задачата и да се въведе отговорът в кутията ([[Special:Captcha/help|повече информация]]):',
-	'captchahelp-text'           => "Уеб сайтовете, които позволяват свободно да се редактира и добавя ново съдържание (като това уики), често са обект на атаки от страна на спамъри, които използват средства за автоматизирано редактиране за публикуване на препратки към много сайтове. Въпреки че тези препратки могат да бъдат премахнати, те са особено неприятни за потребителите. 
+	'captchahelp-text'           => "Уеб сайтовете, които позволяват свободно да се редактира и добавя ново съдържание (като това уики), често са обект на атаки от страна на спамъри, които използват средства за автоматизирано редактиране за публикуване на препратки към много сайтове. Въпреки че тези препратки могат да бъдат премахнати, те са особено неприятни за потребителите.
 
-Понякога, особено когато се добавят нови препратки към страниците, е възможно уикито да покаже картинка с текст, който трябва да бъде въведен в посоченото поле. Тъй като това е стъпка, която е трудно да бъде прескочена при автоматизирано редактиране, тя затруднява и спира повечето спамъри и роботи, но допуска истинските потребителите да правят редакции. 
+Понякога, особено когато се добавят нови препратки към страниците, е възможно уикито да покаже картинка с текст, който трябва да бъде въведен в посоченото поле. Тъй като това е стъпка, която е трудно да бъде прескочена при автоматизирано редактиране, тя затруднява и спира повечето спамъри и роботи, но допуска истинските потребителите да правят редакции.
 
-За съжаление тази стъпка може да затрудни незрящи потребители или потребители, които използват текстови или речеви браузъри. За момента системата не разполага с възможност за гласова алтернатива. Обърнете се за помощ към администратор на сайта, ако това изискване на системата ви затруднява да допринасяте легитимно. 
+За съжаление тази стъпка може да затрудни незрящи потребители или потребители, които използват текстови или речеви браузъри. За момента системата не разполага с възможност за гласова алтернатива. Обърнете се за помощ към администратор на сайта, ако това изискване на системата ви затруднява да допринасяте легитимно.
 
 Натиснете бутона 'back' на вашия браузър, за да се върнете към редактора на страници.",
 );
@@ -209,7 +209,7 @@ $messages['bn'] = array(
 
 কখনো কখনো, বিশেষ করে কোন পাতায় নতুন ওয়েব সংযোগ যোগ করার সময়, উইকিটি আপনাকে রঙিন বা বিকৃত টেক্সটবিশিষ্ট ছবি দেখিয়ে আপনাকে শব্দটি টাইপ করতে বলতে পারে। যেহেতু এই কাজটি স্বয়ংক্রিয়ভাবে সম্পাদন করা দুরূহ, তাই এই ব্যবস্থার ফলে প্রকৃত মানুষেরা পোস্ট করতে পারবেন কিন্তু বেশির ভাগ স্প্যামার বা রোবটভিত্তিক আক্রমণ বাধাপ্রাপ্ত হবে।
 
-যারা চোখে কম দেখতে পান কিংবা টেক্সটভিত্তিক বা উক্তিভিত্তিক ব্রাউজার ব্যবহার করছেন, দুর্ভাগ্যবশত এই ব্যবস্থাটি তাদের জন্য সমস্যার সৃষ্টি করবে। এই মুহূর্তে আমাদের কাছে এই ব্যবস্থাটির কোন অডিও বিকল্প নেই। যদি ব্যবস্থাটি আপনাকে বৈধ পোস্ট করতে অযাচিত বাধা দেয়, অনুগ্রহ করে সাইটের প্রশাসকদের কাছে সাহায্য চান। 
+যারা চোখে কম দেখতে পান কিংবা টেক্সটভিত্তিক বা উক্তিভিত্তিক ব্রাউজার ব্যবহার করছেন, দুর্ভাগ্যবশত এই ব্যবস্থাটি তাদের জন্য সমস্যার সৃষ্টি করবে। এই মুহূর্তে আমাদের কাছে এই ব্যবস্থাটির কোন অডিও বিকল্প নেই। যদি ব্যবস্থাটি আপনাকে বৈধ পোস্ট করতে অযাচিত বাধা দেয়, অনুগ্রহ করে সাইটের প্রশাসকদের কাছে সাহায্য চান।
 
 আপনি এখন ব্রাউজারের ব্যাক বোতাম চেপে পাতা সম্পাদকে ফেরত যেতে পারেন।',
 	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
@@ -278,8 +278,8 @@ Necessitareu tenir les galetes activades en el vostre navegador per a que funcio
 
 Cliqueu el botó de retrocedir del vostre navegador per a tornar al formulari.",
 	'captcha-addurl-whitelist'   => "
-  #<!-- deixeu aquesta línia tal com està --> <pre>  
-# La sintaxi és la següent:  
+  #<!-- deixeu aquesta línia tal com està --> <pre>
+# La sintaxi és la següent:
 #  * Totes les línies que comencen amb un # son considerades comentaris
 #  * Tota línia no buida és un fragment d'expressió regular (regexp) que enllaçarà amb els hosts de les URL
   #</pre> <!-- deixeu aquesta línia tal com està -->",
@@ -320,8 +320,8 @@ Někdy, zvláště při přidávání nových webových odkazů, vám může wik
 Bohužel to však může představovat nepříjemný problém pro uživatele se zrakovým postižením či uživatele používající textové prohlížeče či hlasové čtečky. V současné době nemáme alternativní zvukovou verzi. Kontaktujte laskavě správce serveru, pokud vám to brání v užitečných příspěvcích a potřebujete pomoc.
 
 Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko „zpět“.',
-	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>  
-# Syntaxe je následující:  
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
+# Syntaxe je následující:
 #  * Všechno od zaku „#“ do konce řádku je komentář
 #  * Každý neprázdný řádek je fragment regulárního výrazu, kterého shody budou pouze stroje v rámci URL
   #</pre> <!-- leave this line exactly as it is -->',
@@ -507,8 +507,8 @@ Valitettavasti tämä saattaa estää käyttäjiä, joilla on rajoittunut näkö
 Varmistus ei toimi, jos evästeet eivät ole käytössä.
 
 Voit palata muokkaustilaan selaimen paluutoiminnolla.',
-	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>  
-# Syntaksi on seuraava:  
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
+# Syntaksi on seuraava:
 #  * Kaikki #-merkistä eteenpäin on kommenttia
 #  * Jokainen ei-tyhjä rivi on säännöllisen lausekkeen osa, joka suoritetaan vain linkeissä esiintyville verkkonimille.
   #</pre> <!-- leave this line exactly as it is -->',
@@ -542,8 +542,8 @@ Parfois, en particulier lors de l’ajout de nouveaux liens externes à une page
 Cette solution peut malheureusement gêner les utilisateurs malvoyants ou ceux utilisant un navigateur en texte seul. Nous ne disposons pas d’alternative audio pour l’instant. Veuillez contacter un [[Special:Listusers/sysop|administrateur]] du site si vous ne parvenez pas à faire vos contributions.
 
 Cliquez sur le bouton « Précédent » de votre navigateur pour revenir sur la page d’édition.",
-	'captcha-addurl-whitelist'   => " #<!-- laissez cette ligne exactement telle quelle --> <pre> 
-# La syntaxe est la suivante : 
+	'captcha-addurl-whitelist'   => " #<!-- laissez cette ligne exactement telle quelle --> <pre>
+# La syntaxe est la suivante :
 #   * Tout caractère suivant « # » jusqu'à la fin de la ligne sera interprêté comme un commentaire
 #   * Toute ligne non vide est un code regex qui sera utilisé uniquement à l'intérieur des liens hypertextes.
  #</pre> <!-- laissez cette ligne exactement telle quelle -->",
@@ -606,7 +606,7 @@ $messages['gl'] = array(
 	'captchahelp-text'           => "'''CAPTCHA''' (acrónimo de \"'''C'''ompletely '''A'''utomated '''P'''ublic '''T'''uring test to tell '''C'''omputers and '''H'''umans '''A'''part\") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas. Os sitios web que aceptan publicar as contribucións dos usuarios coma este wiki sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias nunha chea de páxinas en pouco tempo. Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo. En ocasións, en particular cando engada algún novo vínculo externo, o wiki pode mostrar unha imaxe dun texto coloreado e distorsionado e pedirlle que teclee as palabras mostradas. Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e robots e dificulta os ataques automatizados dos ''spammers''. Por desgraza, pódelles causar problemas a aqueles usuarios con dificultades de visión ou aos que utilicen navegadores de texto ou navegadores baseados en sistemas de voz. Polo de agora non dispoñemos dunha alternativa de audio. Por favor, contacte cun [[Special:Listusers/sysop|administrador]] do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas. Prema no botón \"atrás\" ou equivalente do seu navegador para volver á páxina na que estaba.",
 	'captcha-addurl-whitelist'   => ' #<!-- deixe esta liña exactamente como está --> <pre>
 # A sintaxe é a seguinte:
-#   * Todo o que vai desde o carácter "#" até o final da liña é un comentario  
+#   * Todo o que vai desde o carácter "#" até o final da liña é un comentario
 #   * Cada liña que non estea en branco é un fragmento de expresión regular que só coincidirá con hosts dentro de URLs
  #</pre> <!-- deixe esta liña exactamente como está -->',
 );
@@ -632,8 +632,8 @@ $messages['gu'] = array(
 કમભાગ્યે આ પદ્ધતિ, એવા લોકોને તકલિફ આપે તેમ છે જેઓની દૃષ્ટિ નબળી છે અથવાતો જેઓ વાચા આધારીત કે સાદા બ્રાઉઝરનો ઉપયોગ કરે છે. હાલમા અમારી પાસે આવા ચિત્રોની વાચા આધારિત વ્યવસ્થા નથી. જો આ કારણે આપ કોઇ લેખમાં પ્રદાન ન કરી શકતા હોવ તો વધુ સહાય માટે કૃપા કરી પ્રબંધકનો સંપર્ક સાધો.
 
 લેખમા ફેરફાર કરવાના પાના ઉપર પાછા ફરવા માટી આપના બ્રાઉઝરના 'બેક' બટન ઉપર ક્લિક કરો.",
-	'captcha-addurl-whitelist'   => '#<!-- આ લીટીને જેમ છે તેમ જ રહેવા દો --> <pre>  
-# સીન્ટેક્સ (Syntax) આ પ્રમાણે છે :  
+	'captcha-addurl-whitelist'   => '#<!-- આ લીટીને જેમ છે તેમ જ રહેવા દો --> <pre>
+# સીન્ટેક્સ (Syntax) આ પ્રમાણે છે :
 #  * "#" સંજ્ઞાથી શરૂ કરીને લીટીના અંત સુધીનું વર્ણન એક ટીપ્પણી છે
 #  * ખાલી ન હોય તેવી દરેક લીટી રેજેક્સનો ભાગ છે, જે ફક્ત URLsમાંના હોસ્ટ સાથે જ મેળ ખાશે
   #</pre> <!-- આ લીટીને જેમ છે તેમ જ રહેવા દો -->',
@@ -678,8 +678,8 @@ molimo zbrojite donje brojeve i upišite rezultat ([[Special:Captcha/help|pomoć
 	'captchahelp-title'          => 'Antispam pomoć',
 	'captchahelp-cookies-needed' => "Trebate imati uključene kolačiće (''cookies'') u vašem web pregledniku za ovu funkciju.",
 	'captchahelp-text'           => 'Web poslužitelje koji rade na temelju javnih doprinosa, poput wiki, često zloupotrebljavaju spameri. Oni koriste automatske alate pomoću kojih generiraju poveznice od vlastitog interesa. Iako se te poveznice najčešće uklanjaju, mogu predstavljati neugodnost pri radu. Ponekad se dogodi da wiki prikaže sliku čudnog tekstualnog sadržaja uz koju morate unijeti prikazana slova. Budući da je takvu radnju teško automatizirati, većina se napadača obeshrabri, a pravi suradnici bez većih smetnji nastavljaju pridonositi. Ukoliko ste suradnik koji koristi tekstualni klijent te vas česte ovakve provjere ometaju pri dodavanju važećih sadržaja, molimo da se obratite [[Special:Listusers/sysop|administratorima]].',
-	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre> 
-# Rabi se slijedeća sintaksa: 
+	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
+# Rabi se slijedeća sintaksa:
 #   * Sve od "#" znaka do kraja linije je komentar
 #   * Svaki neprazni redak je regularni izraz (regex) koji odgovara poslužitelju unutar URL-a
  #</pre> <!-- leave this line exactly as it is -->',
@@ -726,8 +726,8 @@ Sajnos ez komoly kényelmetlenséget jelenthet azoknak a felhasználóknak, akik
 
 Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséhez, használd a böngésződ „vissza” gombját.',
 	'captcha-addurl-whitelist'   => '
-  #<!-- ezt a sort hagyd pontosan így --> <pre>  
-# A szintaktika a következő:  
+  #<!-- ezt a sort hagyd pontosan így --> <pre>
+# A szintaktika a következő:
 #  * Minden „#” karakterrel kezdődő sor megjegyzés
 #  * Minden nem üres sor egy reguláris kifejezés darabja, amely csak az URL-ekben található kiszolgálókra keres
   #</pre> <!-- ezt a sort hagyd pontosan így -->',
@@ -735,10 +735,12 @@ Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséh
 
 /** Indonesian (Bahasa Indonesia)
  * @author Borgx
+ * @author IvanLanin
  */
 $messages['id'] = array(
 	'captcha-edit'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
 ([[Special:Captcha/help|info lengkap]])",
+	'captcha-desc' => 'Implementasi sederhana captcha',
 	'captcha-addurl'             => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
 ([[Special:Captcha/help|info lengkap]])",
 	'captcha-badlogin'           => 'Untuk membantu perlindungan terhadap perengkahan kunci sandi otomatis, tolong masukkan kata atau hasil perhitungan sederhana berikut dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
@@ -756,6 +758,12 @@ Ketika menambahkan pranala web baru ke suatu halaman, {{ns:project}} akan menamp
 Sayangnya, hal ini dapat menimbulkan kesulitan bagi pengguna dengan keterbatasan penglihatan atau pengguna yang menggunakan penjelajah basis teks atau suara. Saat ini, kami tidak memiliki suatu alternatif suara untuk hal ini. Silakan minta bantuan dari pengurus situs jika hal ini menghambat Anda untuk mengirimkan suntingan yang layak.
 
 Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan.",
+	'captcha-addurl-whitelist' => '
+ #<!-- biarkan baris ini sebagaimana adanya --> <pre>
+# Sintaksnya adalah sebagai berikut:
+#   * Semua yang diawali dengan karakter "#" hingga akhir baris adalah komentar
+#   * Semua baris yang tidak kosong adalah fragmen regex yang hanya akan dicocokkan dengan nama host di dalam URL
+ #</pre> <!-- biarkan baris ini sebagaimana adanya -->',
 );
 
 /** Icelandic (Íslenska)
@@ -804,8 +812,8 @@ In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web 
 Sfortunatamente, queste misure di sicurezza possono mettere in difficoltà gli utenti con problemi visivi o coloro che utilizzano browser testuali o basati sulla sintesi vocale. Purtroppo al momento non è disponibile un meccanismo alternativo basato su messaggi audio; se queste procedure impediscono l'inserimento informazioni che si ritengono legittime, si prega di contattare gli amministratori del sito e chiedere loro assistenza.
 
 Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
-	'captcha-addurl-whitelist'   => '  #<!-- non modificare in alcun modo questa riga --> <pre>  
-# La sintassi è la seguente:  
+	'captcha-addurl-whitelist'   => '  #<!-- non modificare in alcun modo questa riga --> <pre>
+# La sintassi è la seguente:
 #  * Tutto ciò che segue un carattere "#" è un commento, fino al termine della riga
 #  * Tutte le righe non vuote sono frammenti di espressioni regolari che si applicano al solo nome dell\'host nelle URL
   #</pre> <!-- non modificare in alcun modo questa riga -->',
@@ -1013,8 +1021,8 @@ Soms, en in het bijzonder bij het toevoegen van externe links op pagina's, toont
 Helaas levert deze bevestiging voor gebruikers met een visuele handicap of een tekst- of spraakgebaseerde browser problemen op. Op het moment is er geen alternatief met geluid beschikbaar. Vraag alstublieft assistentie van de sitebeheerders als dit proces u verhindert een nuttige bijdrage te leveren.
 
 Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
-	'captcha-addurl-whitelist'   => '  #<!-- laot deze regel --> <pre>  
-# De syntaxis is as volgt:  
+	'captcha-addurl-whitelist'   => '  #<!-- laot deze regel --> <pre>
+# De syntaxis is as volgt:
 #  * Alle tekst vanaaf \'t karakter "#" tot het einde van de regels wordt gezien als opmerking
 #  * Iedere niet-lege regel is een fragment van een reguliere uitdrukking die alleen van toepassing is op hosts binnen URL\'s
   #</pre> <!-- laot deze regel -->',
@@ -1115,8 +1123,8 @@ Soms, en in het bijzonder bij het toevoegen van externe links op pagina's, toont
 Helaas levert deze bevestiging voor gebruikers met een visuele handicap of een tekst- of spraakgebaseerde browser problemen op. Op het moment is er geen alternatief met geluid beschikbaar. Vraag alstublieft assistentie van de sitebeheerders als dit proces u verhindert een nuttige bijdrage te leveren.
 
 Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
-	'captcha-addurl-whitelist'   => ' #<!-- laat deze regel zoals hij is --> <pre> 
-# De syntaxis is als volgt: 
+	'captcha-addurl-whitelist'   => ' #<!-- laat deze regel zoals hij is --> <pre>
+# De syntaxis is als volgt:
 #   * Alle tekst vanaf het karakter "#" tot het einde van de regels wordt gezien als opmerking
 #   * Iedere niet-lege regel is een fragment van een reguliere uitdrukking die alleen van toepassing is op hosts binnen URL\'s
  #</pre> <!-- laat deze regel zoals hij is -->',
@@ -1135,13 +1143,13 @@ $messages['nn'] = array(
 	'captcha-create'             => 'For å opprette denne sida, ver venleg og løys det enkle reknestykket nedanfor og skriv svaret i ruta ([[Special:Captcha/help|Kva er dette?]]):',
 	'captchahelp-title'          => 'Captcha-hjelp',
 	'captchahelp-cookies-needed' => 'Du må ha informasjonskapslar aktivert i nettlesaren din for at dette skal verke.',
-	'captchahelp-text'           => 'Internettsider som kan verte endra av alle, som denne wikien, vert ofte misbrukte av reklameinnleggjarar (spammarar) som nyttar bottar til å poste mange lenkjer om gongen. Sjølv om slike reklamelenkjer kan verte fjerna er dei til stor irritasjon. 
+	'captchahelp-text'           => 'Internettsider som kan verte endra av alle, som denne wikien, vert ofte misbrukte av reklameinnleggjarar (spammarar) som nyttar bottar til å poste mange lenkjer om gongen. Sjølv om slike reklamelenkjer kan verte fjerna er dei til stor irritasjon.
 
 Nokre gonger, særleg viss du vil leggje til nye internettlenker til ei side, kan wikien vise deg eit bilete av ein farga eller ujamn tekst og be deg skrive inn orda som vert viste. Sidan det er vanskeleg å automatisere denne oppgåva, vil funksjonen sleppe dei fleste verkelege menneska gjennom, men stoppe reklamerobotar.
 
 Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedsett syn som brukar tekst- eller talebaserte nettlesarar. Ver venleg å kontakte administratorane viss denne funksjonen hindrar deg i å gjere skikkelege endringar. Trykk på «attende»-knappen for å kome tilbake til endringssida.',
-	'captcha-addurl-whitelist'   => '  #<!-- la denne lina vere akkurat som ho er --> <pre>  
-# Syntaksen er slik:  
+	'captcha-addurl-whitelist'   => '  #<!-- la denne lina vere akkurat som ho er --> <pre>
+# Syntaksen er slik:
 #  * Alt frå teiknet «#» til enden av lina er ein kommentar
 #  * Alle liner som ikkje er tomme er fragment av regulære uttrykk som sjekkar vertar i URL-ar
   #</pre> <!-- la denne lina vere akkurat som ho er -->',
@@ -1224,15 +1232,15 @@ $messages['pl'] = array(
 	'captcha-create'             => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
 	'captchahelp-title'          => 'Pomoc dla ochrony antyspamowej',
 	'captchahelp-cookies-needed' => 'Musisz mieć włączone w przeglądarce ciasteczka (cookies), aby ta opcja działała.',
-	'captchahelp-text'           => 'Strony internetowe akceptujące edycje dokonywane przez każdego, jak to wiki, są często atakowane przez [[wikipedia:pl:spam|spammerów]], którzy używają automatycznych narzędzi, by dodawać linki do swoich stron. Chociaż te linki mogą być usunięte, jest to uciążliwe. 
+	'captchahelp-text'           => 'Strony internetowe akceptujące edycje dokonywane przez każdego, jak to wiki, są często atakowane przez [[wikipedia:pl:spam|spammerów]], którzy używają automatycznych narzędzi, by dodawać linki do swoich stron. Chociaż te linki mogą być usunięte, jest to uciążliwe.
 
-Czasami, zwłaszcza przy dodawaniu nowych linków do strony albo przy rejestracji, wiki może pokazać obrazek z kolorowym lub zniekształconym tekstem i poprosić Cię o przepisanie zamieszczonego na nim wyrazu. Może pojawić się też prośba o wpisanie wyniku prostego działania matematycznego. Ponieważ są to zadania trudne do zautomatyzowania, to zabezpieczenie pozwoli większości ludzi dokonywać edycji, powstrzymując jednocześnie większość spammerów i inne automatyczne ataki. 
+Czasami, zwłaszcza przy dodawaniu nowych linków do strony albo przy rejestracji, wiki może pokazać obrazek z kolorowym lub zniekształconym tekstem i poprosić Cię o przepisanie zamieszczonego na nim wyrazu. Może pojawić się też prośba o wpisanie wyniku prostego działania matematycznego. Ponieważ są to zadania trudne do zautomatyzowania, to zabezpieczenie pozwoli większości ludzi dokonywać edycji, powstrzymując jednocześnie większość spammerów i inne automatyczne ataki.
 
 Niestety, może być to niewygodne dla użytkowników z wadą wzroku lub używających przeglądarek tekstowych lub głosowych. Obecnie nie mamy alternatywnego rozwiązania audio. Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać prawidłowych edycji. Zwróć uwagę na to, że musisz mieć włączone ciasteczka (cookies).
 
 Wciśnij przycisk "wstecz" w swojej przeglądarce by powrócić do edycji strony.',
-	'captcha-addurl-whitelist'   => ' #<!-- nie modyfikuj tej linii --> <pre> 
-# Składnia jest następująca: 
+	'captcha-addurl-whitelist'   => ' #<!-- nie modyfikuj tej linii --> <pre>
+# Składnia jest następująca:
 #   * Linie zaczynające się od znaku "#" są komentarzami
 #   * Każda linia, która nie jest pusta, jest wyrażeniem regularnym, które ma pasować do adresu serwera (fragmentu URL)
  #</pre> <!-- nie modyfikuj tej linii -->',
@@ -1243,14 +1251,14 @@ Wciśnij przycisk "wstecz" w swojej przeglądarce by powrócić do edycji strony
  * @author Siebrand
  */
 $messages['pms'] = array(
-	'captcha-edit'               => "Për fe-ie dle modìfiche ansima a st'artìcol-sì, për piasì ch'a fasa ël total ambelessì sota 
+	'captcha-edit'               => "Për fe-ie dle modìfiche ansima a st'artìcol-sì, për piasì ch'a fasa ël total ambelessì sota
 e ch'a buta l'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-addurl'             => "Soa modìfica a la gionta dj'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-badlogin'           => "Për giutene a vardesse da 'nt ij programa ch'a fan ciav fàosse n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
-	'captcha-createaccount'      => "Për giutene a vardesse da ij programa ch'a deurbo dij cont n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota 
+	'captcha-createaccount'      => "Për giutene a vardesse da ij programa ch'a deurbo dij cont n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota
 e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-createaccount-fail' => "Ël còdes ëd verìfica ò ch'a manca d'autut ò ch'a l'é pa bon.",
-	'captcha-create'             => "Për creé d'amblé sta pàgina-sì, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà 
+	'captcha-create'             => "Për creé d'amblé sta pàgina-sì, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà
 ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captchahelp-title'          => 'Còs é-lo mai ës captcha?',
 	'captchahelp-cookies-needed' => "Për podej dovré sossì a l'ha da manca che sò navigator (browser) a pija ij cookies.",
@@ -1373,9 +1381,9 @@ $messages['sah'] = array(
 	'captcha-create'             => 'Сирэйи оҥорорго бу примеры суоттаа ([[{{ns:special}}:Captcha/help|сиһилии]]):',
 	'captchahelp-title'          => 'Captcha көмөтө',
 	'captchahelp-cookies-needed' => 'Бу дьайыы үлэлиирин курдук браузергар куукины холбоо.',
-	'captchahelp-text'           => 'Биһиги саайпыт курдук иһинээҕитин уларытары көҥүллүүр саайтарга сороҕор спам ыытар программалар аптаматынан бэйэлэрин ыйынньыктарын угаллар. Оннук аптамаатынан эбиллибит ыйынньыктары суох оҥорор кыах баар эрээри, ол элбэх мэһэйдэри үөскэтиэн сөп. 
+	'captchahelp-text'           => 'Биһиги саайпыт курдук иһинээҕитин уларытары көҥүллүүр саайтарга сороҕор спам ыытар программалар аптаматынан бэйэлэрин ыйынньыктарын угаллар. Оннук аптамаатынан эбиллибит ыйынньыктары суох оҥорор кыах баар эрээри, ол элбэх мэһэйдэри үөскэтиэн сөп.
 
-Ол иһин сороҕор, холобур саҥа ыйынньыгы эбэргэ, программа өҥнөөх эбэтэр хаанньары барбыт тиэкистээх ойууну көрдөрөн, ол тиэкиһи анал түннүккэ хатылатыан сөп. Маннык көрдөһүүнү аптамаат кыайан толорбот, оттон киһи үксэ чэпчэкитик толорор. 
+Ол иһин сороҕор, холобур саҥа ыйынньыгы эбэргэ, программа өҥнөөх эбэтэр хаанньары барбыт тиэкистээх ойууну көрдөрөн, ол тиэкиһи анал түннүккэ хатылатыан сөп. Маннык көрдөһүүнү аптамаат кыайан толорбот, оттон киһи үксэ чэпчэкитик толорор.
 
 Ол гынан баран маннык көмүскэл сорох дьоҥҥо (көрбөт эбэтэр ааҕар браузердары туһанар дьоҥҥо) моһоллору үөскэтиэн сөп. Билигин бу моһолу суох оҥорор кыах суох. Оннук мэһэй таҕыстаҕына бука диэн баалама, биир эмит администраатарга этээр, көмөлөһүө.
 
@@ -1416,8 +1424,8 @@ Niekedy, obzvlášť keď pridávate webové odkazy k článkom, wiki vám môž
 Naneštastie, môže to byť prekážkou pre používateľov so zrakovým postihnutím alebo tých, ktorí používajú textové alebo hovoriace prehliadače. Momentálne nemáme dostupnú audio zvukovú alternatívu. Kontaktujte prosím správcov stránok, ak vám to neočakávane komplikuje umiestňovanie oprávnených príspevkov.
 
 Stlačením tlačidla „späť“ vo vašom prehliadači sa vrátite do editora stránky.',
-	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre> 
-# Syntax je nasledovná: 
+	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
+# Syntax je nasledovná:
 #   * Všetko od znaku „#“ do konca riadka je komentár
 #   * Každý neprázdny riadok je fragment regulárneho výrazu, ktorého zhody budú iba stroje v rámci URL
  #</pre> <!-- leave this line exactly as it is -->',
@@ -1478,7 +1486,7 @@ $messages['stq'] = array(
 In fuul Falle, besunners bie dät Bietouföigjen fon näie Webferbiendengen tou ne Siede, kon dät foarkuume, dät dit Wiki ne Bielde mäd n faawigen un fertroalden Text anwiest un deertou apfoardert, do anwiesde Woude ientoutippen. Deer sun Apgoawe man stuur automatisk ouhonneld wäide kon, wäide deertruch do maaste Spammere, do der mäd automatiske Reewen oarbaidje, stopped, wierjuun moanskelke Benutsere hieren Biedraach seende konnen.
 
 Spietelk genouch kon dät tou Meelasje foar Persoone fiere, do der minner goud sjo konnen of text- of sproakbasierde Browsere ferweende. Ne Löösenge is ju reguläre Anmäldenge as Benutser. Die „Tourääch“-Knoop fon dän Browser fiert tourääch in dät Beoarbaidengsfinster.',
-	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre> 
+	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
 #  Syntax:
 #   * Alles fon n #-Teeken bit tou dän Eend fon ju Riege is n Kommentoar
 #   * Älke nit-loose Riege is n Regex-Fragment, dät juunuur den Hostnoome fon ne URL wröiged wäd
@@ -1563,7 +1571,7 @@ $messages['te'] = array(
 
 ప్రజలనుండి రచనలను స్వీకరించే ఈ వికీ వంటి వెబ్‌సైట్లు, ఆటోమాటిక్ ప్రోగ్రాములతో తమ స్వంత లింకులను చేర్చే స్పాముష్కరుల దాడులకు గురవడం తరచూ జరుగుతూ ఉంటుంది. ఆ లింకులను తీసేయడం పెద్ద విషయం కాకపోయినప్పటికీ, అవి తలనెప్పి అనేది మాత్రం నిజం.
 
-కొన్నిసార్లు, ముఖ్యంగా ఏదైనా పేజీ నుండి బయటకు లింకులు ఇచ్చేటపుడు, వంకర్లు తిరిగిపోయి ఉన్న పదాల బొమ్మను చూపించి ఆ పదాన్ని టైపు చెయ్యమని వికీ మిమ్మల్ని అడగవచ్చు. దీన్ని ఆటోమాటిక్ టూల్సుతో చెయ్యడం చాలా కష్టం కాబట్టి, స్పాము జిత్తులు చెల్లవు; మనుష్యులు మాత్రం మామూలుగానే చెయ్యగలరు. 
+కొన్నిసార్లు, ముఖ్యంగా ఏదైనా పేజీ నుండి బయటకు లింకులు ఇచ్చేటపుడు, వంకర్లు తిరిగిపోయి ఉన్న పదాల బొమ్మను చూపించి ఆ పదాన్ని టైపు చెయ్యమని వికీ మిమ్మల్ని అడగవచ్చు. దీన్ని ఆటోమాటిక్ టూల్సుతో చెయ్యడం చాలా కష్టం కాబట్టి, స్పాము జిత్తులు చెల్లవు; మనుష్యులు మాత్రం మామూలుగానే చెయ్యగలరు.
 
 దురదృష్టవశాత్తూ, చూపు సరిగా లేనివారికి, టెక్స్టు బ్రౌజర్లు మాత్రమే వాడేవారికి ఇది అసౌకర్యం కలిగిస్తుంది. ప్రస్తుతానికి శబ్దం వినిపించే వెసులుబాటు మాకు లేదు. మీరు రచనలు చెయ్యకుండా ఇది అడ్డుపడుతుంటే, సహాయం కోసం సైటు నిర్వాహకుణ్ణి సంప్రదించండి.
 

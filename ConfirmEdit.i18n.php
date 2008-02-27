@@ -738,8 +738,7 @@ Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséh
  * @author IvanLanin
  */
 $messages['id'] = array(
-	'captcha-edit'               => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
-([[Special:Captcha/help|info lengkap]])",
+	'captcha-edit' => 'Untuk menyunting halaman ini, harap pecahkan penjumlahan sederhana di bawah ini dan masukkan jawaban di kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 	'captcha-desc' => 'Implementasi sederhana captcha',
 	'captcha-addurl'             => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
 ([[Special:Captcha/help|info lengkap]])",

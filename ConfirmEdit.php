@@ -166,7 +166,6 @@ $wgCaptchaWhitelist = false;
 $wgCaptchaRegexes = array();
 
 /** Register special page */
-global $wgSpecialPages;
 $wgSpecialPages['Captcha'] = array( /*class*/'CaptchaSpecialPage', /*name*/'Captcha' );
 
 $wgConfirmEditIP = dirname( __FILE__ );
@@ -182,6 +181,8 @@ $wgHooks['AbortNewAccount'][] = 'ConfirmEditHooks::confirmUserCreate';
 $wgHooks['LoginAuthenticateAudit'][] = 'ConfirmEditHooks::triggerUserLogin';
 $wgHooks['UserLoginForm'][] = 'ConfirmEditHooks::injectUserLogin';
 $wgHooks['AbortLogin'][] = 'ConfirmEditHooks::confirmUserLogin';
+# Register API hook
+$wgHooks['APIEditBeforeSave'][] = 'ConfirmEditHooks::confirmEditAPI';
 
 $wgAutoloadClasses['ConfirmEditHooks'] 
 	= $wgAutoloadClasses['SimpleCaptcha'] 

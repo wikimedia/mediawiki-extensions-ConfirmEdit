@@ -948,7 +948,7 @@ $messages['ko'] = array(
 
 이러한 스팸을 방지하기 위해서, 이곳 위키의 문서에 웹 사이트 주소를 추가하거나 하는 등의 행동을 할 경우에는, 비틀린 글자가 들어있는 그림을 보여주고 그 그림의 글자를 입력해 달라고 하는 경우가 있습니다. 이 글자 입력 작업은 자동 프로그램을 만들기가 힘들기 때문에, 스팸을 효과적으로 막으면서 일반 사용자를 막지 않을 수 있습니다.
 
-웹 브라우저에서 그림을 완벽하게 표시할 수 없거나, 또는 그림이 나오지 않는 텍스트 방식이나 음성 합성 방식 웹 브라우저를 사용하는 경우에는 이러한 입력이 불가능합니다. 아짂가지는 이런 경우에 대한 대안책이 없습니다. 이 경우 사이트 관리자에게 도움을 요청해주세요.
+웹 브라우저에서 그림을 완벽하게 표시할 수 없거나, 또는 그림이 나오지 않는 텍스트 방식이나 음성 합성 방식 웹 브라우저를 사용하는 경우에는 이러한 입력이 불가능합니다. 아직까지는 이런 경우에 대한 대안책이 없습니다. 이 경우 사이트 관리자에게 도움을 요청해주세요.
 
 이전의 편집창으로 돌아가려면 웹 브라우저의 '뒤로' 버튼을 눌러 주세요.",
 	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
@@ -1186,7 +1186,7 @@ Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.',
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'captcha-edit'               => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : ([[Special:Captcha/help|Qu'es aquò?]])",
+	'captcha-edit'               => "Per modificar aquesta pagina, devètz efectuar lo calcul çaijós e n'inscriure lo resultat dins lo camp ([[Special:Captcha/help|Mai d’entre-senhas]]) :",
 	'captcha-desc'               => 'Implementacion captcha simpla',
 	'captcha-addurl'             => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu'es aquò?]])",
 	'captcha-badlogin'           => "Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxt çaijós dins la boita de tèxt plaçada al dejos d'aqueste. ([[Special:Captcha/help|Mai d’entre-senhas]])",

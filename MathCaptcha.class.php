@@ -12,7 +12,7 @@ class MathCaptcha extends SimpleCaptcha {
 		$index = $this->storeCaptcha( array('answer' => $answer ) );
 		$resultArr['captcha']['type'] = 'math';
 		$resultArr['captcha']['id'] = $index;
-		$resultArr['captcha']['sum'] = $sum;
+		$resultArr['captcha']['question'] = $sum;
 	}
 	
 	/** Produce a nice little form */

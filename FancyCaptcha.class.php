@@ -33,6 +33,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		$index = $this->storeCaptcha( $info );
 		$title = Title::makeTitle( NS_SPECIAL, 'Captcha/image' );
 		$resultArr['captcha']['type'] = 'image';
+		$resultArr['captcha']['mime'] = 'image/png';
 		$resultArr['captcha']['id'] = $index;
 		$resultArr['captcha']['url'] = $title->getLocalUrl( 'wpCaptchaId=' . urlencode( $index ) );		
 	}

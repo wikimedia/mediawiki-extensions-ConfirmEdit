@@ -11,6 +11,7 @@ class MathCaptcha extends SimpleCaptcha {
 		list( $sum, $answer ) = $this->pickSum();
 		$index = $this->storeCaptcha( array('answer' => $answer ) );
 		$resultArr['captcha']['type'] = 'math';
+		$resultArr['captcha']['mime'] = 'text/tex';
 		$resultArr['captcha']['id'] = $index;
 		$resultArr['captcha']['question'] = $sum;
 	}

@@ -83,6 +83,7 @@ class SimpleCaptcha {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
 		$resultArr['captcha']['type'] = 'simple';
+		$resultArr['captcha']['mime'] = 'text/plain';
 		$resultArr['captcha']['id'] = $index;
 		$resultArr['captcha']['question'] = $captcha['question'];
 	}

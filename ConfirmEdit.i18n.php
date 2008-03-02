@@ -415,6 +415,15 @@ $messages['el'] = array(
 Πατήστε το κουμπί \'πίσω\' στη μηχανή αναζήτησης σας για να επιστρέψετε στο συντάκτη σελίδων.',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'captcha-createaccount' => 'Helpi protekti kontraux aŭtomata konto-kreado, bonvolu solvi la simplan sumon jenan
+kaj eniri la respondon en la skatolo (([[Special:Captcha/help|plua informo]]):',
+	'captchahelp-title'     => 'Helpo por Captcha',
+);
+
 /** Spanish (Español)
  * @author Icvav
  */
@@ -445,6 +454,7 @@ $messages['et'] = array(
 );
 
 /** Basque (Euskara)
+ * @author SPQRobin
  * @author BrokenArrow
  */
 $messages['eu'] = array(
@@ -454,6 +464,7 @@ $messages['eu'] = array(
 	'captcha-createaccount-fail' => 'Baieztatze kode ezegokia.',
 	'captcha-create'             => 'Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])',
 	'captchahelp-title'          => 'Captcha laguntza',
+	'captchahelp-cookies-needed' => 'Beharrezkoa da nabigatzailean cookieak gaituta izatea honek funtzionatzeko.',
 	'captchahelp-text'           => "Publikoki aldaketak egiteko aukerak dituzten webguneetan, wiki honetan bezalaxe, spam testuak gehitzen dira sarritan tresna automatikoak erabiliz. Lotura horiek ezabatu egin daitezkeen arren, traba dira. Batzutan, eta bereziki webgune berri bateko loturak gehitzen dituzunean, hitz batzuk dituen irudi bat agertuko zaizu, eta bertan ageri den testua idazteko eskatuko zaizu. Lan hori automatizatzeko zaila da, eta pertsonei ezer kostatzen ez zaigunez, spam testuak saihesteko lagungarria da. Zoritxarrez, ikusmen mugatua edo testu bidezko nabigatzaileak erabiltzen dituzten erabiltzeek arazoak izan ditzakete. Horrelako zerbait gertatzen bazaizu, mesedez, jarri administratzaileekin harremanetan. Zure nabigatzaileko 'atzera' lotura erabili aldaketen orrialdera itzultzeko.",
 );
 
@@ -769,7 +780,7 @@ Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan
  * @author S.Örvarr.S
  */
 $messages['is'] = array(
-	'captcha-edit'               => 'Til að breyta þessari grein, gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í
+	'captcha-edit'               => 'Til að breyta þessari síðu, gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í
 kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
 	'captcha-addurl'             => 'Breyting þín felur í sér viðbætta ytri tengla. Til að hjálpa okkur að verjast sjálfvirku
 auglýsingarusli gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',

@@ -501,7 +501,7 @@ $messages['fa'] = array(
  * @author Crt
  */
 $messages['fi'] = array(
-	'captcha-edit'               => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-edit'               => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-addurl'             => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-badlogin'           => 'Salasananmurtajasovellusten takia, ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-createaccount'      => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
@@ -518,8 +518,8 @@ Valitettavasti tämä saattaa estää käyttäjiä, joilla on rajoittunut näkö
 Varmistus ei toimi, jos evästeet eivät ole käytössä.
 
 Voit palata muokkaustilaan selaimen paluutoiminnolla.',
-	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
-# Syntaksi on seuraava:
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>  
+# Syntaksi on seuraava:  
 #  * Kaikki #-merkistä eteenpäin on kommenttia
 #  * Jokainen ei-tyhjä rivi on säännöllisen lausekkeen osa, joka suoritetaan vain linkeissä esiintyville verkkonimille.
   #</pre> <!-- leave this line exactly as it is -->',
@@ -1598,8 +1598,26 @@ $messages['te'] = array(
  */
 $messages['tg'] = array(
 	'captcha-edit'               => 'Барои вироиши ин мақола, лутфан ҳосили ҷамъи зеринро ҳисоб кунед ва натиҷаро дар ҷаъба ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
+	'captcha-desc'               => 'Татбиқи соддаи CAPTCHA',
+	'captcha-addurl'             => 'Вироиши шумо пайвандҳои ҷадиди хориҷиро дар бар мегирад. Барои кӯмак ба пешгири аз ирсоли худкори ҳаразномаҳо, лутфан ҳосили ҷамъи зеринро ҳисоб кунед ва натиҷаро дар ҷаъба ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
+	'captcha-badlogin'           => 'Барои кӯмак ба пешгири аз шикастани калимаи убур, лутфан ҳосили ҷамъи зеринро ҳисоб кунед ва натиҷаро дар ҷаъба ворид кунед  ([[Special:Captcha/help|иттилооти бештар]]):',
+	'captcha-createaccount'      => 'Барои кӯмак ба пешгири аз эҷоди худкори ҳисоби корбарӣ, лутфан ҳосили ҷамъи зеринро ҳисоб кунед ва натиҷаро дар ҷаъба ворид кунед  ([[Special:Captcha/help|иттилооти бештар]]):',
+	'captcha-createaccount-fail' => 'Коди таъйид нодуруст ё гумшуда.',
+	'captcha-create'             => 'Барои эҷоди саҳифа, лутфан ҳосили ҷамъи зеринро ҳисоб кунед ва натиҷаро дар ҷаъба ворид кунед  ([[Special:Captcha/help|иттилооти бештар]]):',
 	'captchahelp-title'          => 'Роҳнамои Captcha',
 	'captchahelp-cookies-needed' => 'Барои кор кардани он, шумо бояд кукиҳои мурургаратонро фаъол кунед.',
+	'captchahelp-text'           => "Сомонаҳое, ки имкони тағйир тавассути ҳамагон дар онҳо вуҷуд дорад, монанди ин вики, гоҳ ё ногоҳ тавассути ҳаразнигориҳое, ки тавассути абзорҳои худкор пайванди худро дар чандин сомонаҳо мефиристанд, мавриди сӯъистифода қарор мегиранд.
+
+Дар пораи аз маворид, ба вижа замоне, ки як пайванди интернетии ҷадид ба саҳифа изофа мешавад, вики метавонад, як тасвир аз ҳуруфи рангӣ ё матни бенурро ба шумо нишон бидиҳад ва аз шумо ворид кардани калимаи нишондодашударо пурсон мешавад. Ба хотири ин ки анҷоми ин кор ба шакли худкор душвор аст, ин амал ба аксари инсонҳое иҷозат медиҳад, ки ба ирсоли матолиб бипардозанд, дар ҳоле ки бештар роботҳои ҳамлакунанда ва ҳаразнигорҳоро мутавақиф мекунад.
+
+Мутассифона ин равиш мумкин аст, корбароне, ки қувваи босираашон суст ё аз мурургарҳои матнӣ ё овозӣ истифода мекунанд, дучори маҳдудиятҳое бикунад. Дар ҳоли ҳозир ҳеҷ чойгузини савтӣ барои ин равиш мавҷуд нест. Чунончи ин масъала шуморо дучори маҳдудияте дур аз интизор дар ирсоли навиштаҳои миҷоз мекунад, бо мудирони сомона оиди кӯмак тамос бигиред.  
+
+Дар муругаратон тугмаи 'бозгашт'-ро бо пахш кардан ба саҳифаи вироишгар баргардед.",
+	'captcha-addurl-whitelist'   => '  #<!—ин сатрро ҳамон гуна, ки ҳаст раҳо кунед --> <pre>
+# Қоида ба ин шакл аст:
+#  * Ҳама чиз аз "#" то охири сатр як тавзеҳ ба назар гирифта мешавад
+#  * Ҳар сатре, ки холӣ набошад як қитъа дар назар гирифта мешавад, ки фақат бо номи мизбони интернетӣ санҷида мешавад
+  #</pre> <!-- ин сатрро ҳамон гуна, ки ҳаст раҳо кунед-->',
 );
 
 /** Thai (ไทย)

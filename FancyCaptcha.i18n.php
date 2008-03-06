@@ -536,6 +536,17 @@ $messages['te'] = array(
 ([[Special:Captcha/help|మరింత సమాచారం]]):',
 );
 
+/** Tajik (Тоҷикӣ)
+ * @author Ibrahim
+ */
+$messages['tg'] = array(
+	'fancycaptcha-addurl'        => 'Вироиши шумо пайвандҳои ҷадиди хориҷиро дар бар мегирад. Барои кӯмак ба пешгири аз ҳаразнигори худкор, лутфан вожаеро ки дар тасвир мебинед, ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
+	'fancycaptcha-badlogin'      => 'Барои кӯмак ба пешгири аз шикастани худкори калимаҳои убур, вожаеро ки дар тасвир мебинед, ворид кунед  ([[Special:Captcha/help|иттилооти бештар]]):',
+	'fancycaptcha-createaccount' => 'Барои кӯмак аз эҷоди худкори ҳисоби корбарӣ, вожаеро ки дар тасвир мебинед, ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
+	'fancycaptcha-create'        => 'Барои эҷоди саҳифа, вожаеро ки дар тасвир мебинед, ворид кунед  ([[Special:Captcha/help|иттилооти бештар]]):',
+	'fancycaptcha-edit'          => 'Барои вироиши ин саҳифа, вожаеро ки дар тасвир мебинед, ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
  */

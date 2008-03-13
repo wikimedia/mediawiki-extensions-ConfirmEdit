@@ -9,16 +9,12 @@ $messages = array();
 
 /* English */
 $messages['en'] = array(
-	'fancycaptcha-addurl' => 'Your edit includes new external links. To help protect against automated
-spam, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-badlogin' => 'To help protect against automated password cracking, please enter the words
-that appear below in the box ([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-createaccount' => 'To help protect against automated account creation, please enter the words
-that appear below in the box ([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-create' => 'To create the page, please enter the words that appear below in the box
-([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-edit' => 'To edit this page, please enter the words that appear below in the box
-([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-addurl'        => 'Your edit includes new external links.
+To help protect against automated spam, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-badlogin'      => 'To help protect against automated password cracking, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-createaccount' => 'To help protect against automated account creation, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-create'        => 'To create the page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-edit'          => 'To edit this page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
 );
 
 /** Amharic (አማርኛ)

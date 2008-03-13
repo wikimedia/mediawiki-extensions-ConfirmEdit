@@ -938,9 +938,14 @@ Bet öñdewine qaýtw barw üşin «Artqa» degen tüýmesin basıñız."
 
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
+ * @author គីមស៊្រុន
  */
 $messages['km'] = array(
-	'captcha-createaccount-fail' => 'អក្សរកូដ បញ្ជាក់ទទួលស្គាល់ បាត់បង់ ឬ មិនត្រឹមត្រូវ',
+	'captcha-edit'               => 'ដើម្បីកែប្រែ​ទំព័រនេះ សូមដោះស្រាយ​ប្រមាណវិធីបូក​ខាងក្រោម​នេះរួច​បញ្ជូលចំលើយ​ទៅក្នុង​ប្រអប់សិន([[Special:Captcha/help|ពត៌មាន​បន្ថែម]])៖',
+	'captcha-addurl'             => 'កំនែ​របស់អ្នក​មាន​តំនភ្ជាប់ក្រៅ​ថ្មី។ ដើម្បី​ជួយបង្ការ​ស្ប៉ាម​ស្វ័យប្រវត្តិ សូមដោះស្រាយ​ប្រមាណវិធីបូក​ខាងក្រោម​នេះរួច​បញ្ជូលចំលើយ​ទៅក្នុង​ប្រអប់សិន([[Special:Captcha/help|ពត៌មាន​បន្ថែម]])៖',
+	'captcha-createaccount'      => 'ដើម្បី​បង្ការការបង្កើត​គណនី​ស្វ័យប្រវត្តិ សូមដោះស្រាយ​ប្រមាណវិធីបូក​ខាងក្រោម​នេះរួច​បញ្ជូលចំលើយ​ទៅក្នុង​ប្រអប់សិន([[Special:Captcha/help|ពត៌មាន​បន្ថែម]])៖',
+	'captcha-createaccount-fail' => 'អក្សរកូដផ្ទៀងផ្ទាត់ បាត់បង់ ឬ មិនត្រឹមត្រូវ',
+	'captcha-create'             => 'ដើម្បី​បង្កើត​ទំព័រ សូមដោះស្រាយ​ប្រមាណវិធីបូក​ខាងក្រោម​នេះរួច​បញ្ជូលចំលើយ​ទៅក្នុង​ប្រអប់សិន([[Special:Captcha/help|ពត៌មាន​បន្ថែម]])៖',
 );
 
 /** Korean (한국어)
@@ -1095,7 +1100,7 @@ $messages['nds'] = array(
  * @author Siebrand
  */
 $messages['nds'] = array(
-	'captcha-edit'               => 'In dien Text steiht en nee Lenk na buten dat Wiki. Dat hier keen automaatsch instellten Spam rinkummt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
+	'captcha-edit'               => 'Disse Siet to ännern, musst du disse lütte Rekenopgaav lösen un dat Resultat in dat Feld ingeven ([[{{ns:Special}}:Captcha/help|mehr dorto]]):',
 	'captcha-createaccount'      => 'Dat hier nich Brukers automaatsch anleggt warrt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
 	'captcha-createaccount-fail' => 'Kood to’n Bestätigen is verkehrt oder fehlt.',
 	'captchahelp-title'          => 'Help to Captchas',

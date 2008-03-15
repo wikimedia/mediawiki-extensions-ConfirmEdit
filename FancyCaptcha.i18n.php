@@ -221,16 +221,20 @@ $messages['ga'] = array(
 	'fancycaptcha-createaccount' => 'Mar chosaint in éadan cuntais a chruthaítear go huathoibríoch, ionchuir na focail a thaispeántar san íomhá seo thíos: <br />([[Special:Captcha/help|tuilleadh eolais]])',
 );
 
+/** Galician (Galego)
+ * @author Xosé
+ * @author Toliño
+ */
 $messages['gl'] = array(
-	'fancycaptcha-addurl' => 'A súa edición inclúe ligazóns externas novas. Para axudar na protección contra o spam
+	'fancycaptcha-addurl'        => 'A súa edición inclúe ligazóns externas novas. Para axudar na protección contra o spam
 automatizado, introduza as palabras que aparecen na páxina de embaixo ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-badlogin' => 'Para contribuír a que non se descubran os contrasinais por medios automáticos, introduza
-as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-badlogin'      => 'Para contribuír a que non se descubran os contrasinais por medios automáticos, introduza as palabras que aparecen na caixa de embaixo
+([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-createaccount' => 'Para contribuír contra a creación automatizada de contas, introduza as palabras
 que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-create' => 'Para crear a páxina, introduza as palabras que aparecen na caixa de embaixo
+	'fancycaptcha-create'        => 'Para crear a páxina, introduza as palabras que aparecen na caixa de embaixo
 ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-edit' => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo
+	'fancycaptcha-edit'          => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo
 ([[Special:Captcha/help|máis información]]):',
 );
 
@@ -301,6 +305,18 @@ $messages['ja'] = array(
 	'fancycaptcha-createaccount' => '自動で実行されるスパム行為防止のため、アカウントを登録するには以下のボックスに表示される確認用の文字列を入力してください。([[Special:Captcha/help|詳細]])',
 	'fancycaptcha-create' => 'ページを作成するには以下のボックスに表示される確認用の文字列を入力してください。 （[[Special:Captcha/help|詳細]]）',
 	'fancycaptcha-edit' => 'このページを編集するには以下のボックスに表示される確認用の文字列を入力してください。 （[[Special:Captcha/help|詳細]]）',
+);
+
+/** Jutish (Jysk)
+ * @author Huslåke
+ */
+$messages['jut'] = array(
+	'fancycaptcha-addurl'        => 'Din ændring tilføjer nye eksterne henvisninger. For at beskytte mod automatiseret spam, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'fancycaptcha-badlogin'      => 'For at beskytte mod automatiske forsøg på at gætte kodeord, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'fancycaptcha-createaccount' => 'For at beskytte mod automatisk oprettelse af brugernavne, der bruges til spam, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'fancycaptcha-create'        => 'For at oprette en ny side, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'fancycaptcha-edit'          => 'or at redigere denne side
+([[Special:Captcha/help|more info]]):',
 );
 
 /* Kazakh Arabic */

@@ -417,9 +417,10 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'captcha-createaccount' => 'Helpi protekti kontraux aŭtomata konto-kreado, bonvolu solvi la simplan sumon jenan
-kaj eniri la respondon en la skatolo (([[Special:Captcha/help|plua informo]]):',
-	'captchahelp-title'     => 'Helpo por Captcha',
+	'captcha-createaccount'      => 'Helpi protekti kontraŭ aŭtomata konto-kreado, bonvolu solvi la simplan sumon suben
+kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
+	'captcha-createaccount-fail' => 'Nekorekta aŭ mankanta konfirmkodo.',
+	'captchahelp-title'          => 'Helpo por Captcha',
 );
 
 /** Spanish (Español)

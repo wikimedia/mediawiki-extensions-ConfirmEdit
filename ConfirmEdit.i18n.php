@@ -601,14 +601,15 @@ $messages['ga'] = array(
 );
 
 /** Galician (Galego)
+ * @author Toliño
  * @author Alma
  * @author Xosé
- * @author Toliño
  */
 $messages['gl'] = array(
 	'captcha-edit'               => 'Para editar esta páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
+	'captcha-desc'               => 'Introdución sinxela de captcha',
 	'captcha-addurl'             => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Que é isto?]])',
-	'captcha-badlogin'           => 'Como protección para que non descubran o contrasinal por medios automáticos, resolva a suma simple de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]])',
+	'captcha-badlogin'           => 'Como protección para que non se descubra o contrasinal por medios automáticos, resolva a simple suma de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-createaccount'      => "Como protección fronte a sistemas de creación automática de contas de usuario usados polos ''spammers'', ten que teclear as palabras que aparecen na imaxe para rexistrar unha conta:<br /> ([[Special:Captcha/help|Que é isto?]])",
 	'captcha-createaccount-fail' => 'Falta o código de confirmación ou é incorrecto.',
 	'captcha-create'             => 'Para crear a páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|Que é isto?]]):',
@@ -619,7 +620,7 @@ $messages['gl'] = array(
 # A sintaxe é a seguinte:
 #   * Todo o que vai desde o carácter "#" até o final da liña é un comentario
 #   * Cada liña que non estea en branco é un fragmento de expresión regular que só coincidirá con hosts dentro de URLs
- #</pre> <!-- deixe esta liña exactamente como está -->',
+  #</pre> <!-- deixe esta liña exactamente como está -->',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -644,7 +645,7 @@ $messages['gu'] = array(
 
 લેખમા ફેરફાર કરવાના પાના ઉપર પાછા ફરવા માટી આપના બ્રાઉઝરના 'બેક' બટન ઉપર ક્લિક કરો.",
 	'captcha-addurl-whitelist'   => ' #<!-- આ લીટીને જેમ છે તેમ જ રહેવા દો --> <pre>
-# સીન્ટેક્સ (Syntax) આ પ્રમાણે છે :
+# સીન્ટેક્સ (Syntax) આ પ્રમાણે છે :  
 #  * "#" સંજ્ઞાથી શરૂ કરીને લીટીના અંત સુધીનું વર્ણન એક ટીપ્પણી છે
 #  * ખાલી ન હોય તેવી દરેક લીટી રેજેક્સનો ભાગ છે, જે ફક્ત URLsમાંના હોસ્ટ સાથે જ મેળ ખાશે
   #</pre> <!-- આ લીટીને જેમ છે તેમ જ રહેવા દો -->',
@@ -692,7 +693,7 @@ molimo zbrojite donje brojeve i upišite rezultat ([[Special:Captcha/help|pomoć
 # Rabi se slijedeća sintaksa:
 #   * Sve od "#" znaka do kraja linije je komentar
 #   * Svaki neprazni redak je regularni izraz (regex) koji odgovara poslužitelju unutar URL-a
- #</pre> <!-- leave this line exactly as it is -->',
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -721,7 +722,7 @@ $messages['hsb'] = array(
  * @author Bdanee
  */
 $messages['hu'] = array(
-	'captcha-edit'               => 'A lap szerkesztéséhez meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű összeadás eredményét. ([[Special:Captcha/help|segítség]])',
+	'captcha-edit'               => 'A lap szerkesztéséhez meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű összeadás eredményét ([[Special:Captcha/help|segítség]]):',
 	'captcha-desc'               => 'Egyszerű captcha implementáció',
 	'captcha-addurl'             => 'Szerkesztésed új külső linket tartalmaz. A reklámokat elhelyező robotok kiszűrése érdekében meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi matematikai művelet eredményét. ([[Special:Captcha/help|segítség]])',
 	'captcha-badlogin'           => 'Az automatikus jelszófeltörés kiszűrése érdekében meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű számtani művelet eredményét ([[Special:Captcha/help|segítség]]):',
@@ -732,7 +733,7 @@ $messages['hu'] = array(
 	'captchahelp-cookies-needed' => 'Engedélyezned kell a böngésződben a sütiket.',
 	'captchahelp-text'           => 'Az olyan weboldalakat, amelyekre bárki írhat, gyakran támadják meg spammerek olyan eszközök felhasználásával, amelyek képesek automatikusan, emberi felügyelet nélkül elhelyezni egy linket sok különböző oldalon. Az ilyen linkek kézi eltávolítása rengeteg energiát emésztene fel, ezért néha, különösen ha egy külső linket teszel egy cikkbe, a wiki egy valamilyen módon eltorzított szöveget (captcha-t) jelenít meg, és arra kér, hogy gépeld be azt. Mivel ezt automatikusan nagyon nehéz megtenni, a valódi szerkesztők így könnyen megkülönböztethetőek a spammerek robotjaitól.
 
-Sajnos ez komoly kényelmetlenséget jelenthet azoknak a felhasználóknak, akik gyengén látnak, vagy szöveges vagy hang-alapú böngészőt használnak. Jelenleg nem tudunk hang-alapú alternatívával szolgálni; ha a captcha megakadályoz abban, hogy szerkeszd a wiki, vedd fel a kapcsolatot az adminisztrátorokkal. Ahhoz, hogy a capctha-t meg tudd oldani, engedélyezned kell a sütiket a böngésződben.
+Sajnos ez komoly kényelmetlenséget jelenthet azoknak a felhasználóknak, akik gyengén látnak, vagy szöveges vagy hang-alapú böngészőt használnak. Jelenleg nem tudunk hang-alapú alternatívával szolgálni; ha a captcha megakadályoz abban, hogy szerkeszd a wikit, vedd fel a kapcsolatot az adminisztrátorokkal. Ahhoz, hogy a capctha-t meg tudd oldani, engedélyezned kell a sütiket a böngésződben.
 
 Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséhez, használd a böngésződ „vissza” gombját.',
 	'captcha-addurl-whitelist'   => ' #<!-- ezt a sort hagyd pontosan így --> <pre>
@@ -860,9 +861,11 @@ $messages['ja'] = array(
 
 /** Jutish (Jysk)
  * @author Huslåke
+ * @author Ælsån
  */
 $messages['jut'] = array(
 	'captcha-edit'               => 'For at redigere denne side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'captcha-desc'               => 'Semple captcha implementåsje',
 	'captcha-addurl'             => 'Din redigering tilføjer nye eksterne henvisninger til artiklen. Som beskyttelse mod automatiseret spam, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captcha-badlogin'           => 'For at beskytte mod automatiserede gæt på kodeord, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captcha-createaccount'      => 'For at beskytte mod automatisk oprettelse af brugernavne, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',

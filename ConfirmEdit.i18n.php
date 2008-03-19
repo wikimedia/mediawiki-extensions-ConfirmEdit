@@ -1219,11 +1219,15 @@ $messages['nn'] = array(
 	'captcha-create'             => 'For å opprette denne sida, ver venleg og løys det enkle reknestykket nedanfor og skriv svaret i ruta ([[Special:Captcha/help|Kva er dette?]]):',
 	'captchahelp-title'          => 'Captcha-hjelp',
 	'captchahelp-cookies-needed' => 'Du må ha informasjonskapslar aktivert i nettlesaren din for at dette skal verke.',
-	'captchahelp-text'           => 'Internettsider som kan verte endra av alle, som denne wikien, vert ofte misbrukte av reklameinnleggjarar (spammarar) som nyttar bottar til å poste mange lenkjer om gongen. Sjølv om slike reklamelenkjer kan verte fjerna er dei til stor irritasjon.
+	'captchahelp-text'           => 'Internettsider som kan verte endra av alle, som denne wikien, vert ofte misbrukte av reklameinnleggjarar (spammarar) som nyttar bottar til å poste mange lenkjer om gongen.
+Sjølv om slike reklamelenkjer kan verte fjerna er dei til stor irritasjon.
 
-Nokre gonger, særleg viss du vil leggje til nye internettlenker til ei side, kan wikien vise deg eit bilete av ein farga eller ujamn tekst og be deg skrive inn orda som vert viste. Sidan det er vanskeleg å automatisere denne oppgåva, vil funksjonen sleppe dei fleste verkelege menneska gjennom, men stoppe reklamerobotar.
+Nokre gonger, særleg viss du vil leggje til nye internettlenker til ei side, kan wikien vise deg eit bilete av ein farga eller ujamn tekst og be deg skrive inn orda som vert viste.
+Sidan det er vanskeleg å automatisere denne oppgåva, vil funksjonen sleppe dei fleste verkelege menneska gjennom, men stoppe reklamerobotar.
 
-Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedsett syn som brukar tekst- eller talebaserte nettlesarar. Ver venleg å kontakte administratorane viss denne funksjonen hindrar deg i å gjere skikkelege endringar. Trykk på «attende»-knappen for å kome tilbake til endringssida.',
+Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedsett syn som brukar tekst- eller talebaserte nettlesarar.
+Ver venleg å kontakte administratorane viss denne funksjonen hindrar deg i å gjere skikkelege endringar.
+Trykk på «attende»-knappen for å kome tilbake til endringssida.',
 	'captcha-addurl-whitelist'   => ' #<!-- la denne lina vere akkurat som ho er --> <pre>
 # Syntaksen er slik:
 #  * Alt frå teiknet «#» til enden av lina er ein kommentar
@@ -1231,7 +1235,7 @@ Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedset
   #</pre> <!-- la denne lina vere akkurat som ho er -->',
 );
 
-/** Norwegian (‪Norsk (bokmål)‬)
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  * @author Siebrand
  */
@@ -1308,18 +1312,24 @@ $messages['pl'] = array(
 	'captcha-create'             => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
 	'captchahelp-title'          => 'Pomoc dla ochrony antyspamowej',
 	'captchahelp-cookies-needed' => 'Musisz mieć włączone w przeglądarce ciasteczka (cookies), aby ta opcja działała.',
-	'captchahelp-text'           => 'Strony internetowe akceptujące edycje dokonywane przez każdego, jak to wiki, są często atakowane przez [[wikipedia:pl:spam|spammerów]], którzy używają automatycznych narzędzi, by dodawać linki do swoich stron. Chociaż te linki mogą być usunięte, jest to uciążliwe.
+	'captchahelp-text'           => 'Strony internetowe akceptujące edycje dokonywane przez każdego, jak to wiki, są często atakowane przez [[wikipedia:pl:spam|spammerów]], którzy używają automatycznych narzędzi, by dodawać linki do swoich stron.
+Chociaż te linki mogą być usunięte, jest to uciążliwe.
 
-Czasami, zwłaszcza przy dodawaniu nowych linków do strony albo przy rejestracji, wiki może pokazać obrazek z kolorowym lub zniekształconym tekstem i poprosić Cię o przepisanie zamieszczonego na nim wyrazu. Może pojawić się też prośba o wpisanie wyniku prostego działania matematycznego. Ponieważ są to zadania trudne do zautomatyzowania, to zabezpieczenie pozwoli większości ludzi dokonywać edycji, powstrzymując jednocześnie większość spammerów i inne automatyczne ataki.
+Czasami, zwłaszcza przy dodawaniu nowych linków do strony albo przy rejestracji, wiki może pokazać obrazek z kolorowym lub zniekształconym tekstem i poprosić Cię o przepisanie zamieszczonego na nim wyrazu.
+Może pojawić się też prośba o wpisanie wyniku prostego działania matematycznego.
+Ponieważ są to zadania trudne do zautomatyzowania, to zabezpieczenie pozwoli większości ludzi dokonywać edycji, powstrzymując jednocześnie większość spammerów i inne automatyczne ataki.
 
-Niestety, może być to niewygodne dla użytkowników z wadą wzroku lub używających przeglądarek tekstowych lub głosowych. Obecnie nie mamy alternatywnego rozwiązania audio. Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać prawidłowych edycji. Zwróć uwagę na to, że musisz mieć włączone ciasteczka (cookies).
+Niestety, może być to niewygodne dla użytkowników z wadą wzroku lub używających przeglądarek tekstowych lub głosowych.
+Obecnie nie mamy alternatywnego rozwiązania audio.
+Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać prawidłowych edycji.
+Zwróć uwagę na to, że musisz mieć włączone ciasteczka (cookies).
 
 Wciśnij przycisk "wstecz" w swojej przeglądarce by powrócić do edycji strony.',
 	'captcha-addurl-whitelist'   => ' #<!-- nie modyfikuj tej linii --> <pre>
 # Składnia jest następująca:
 #   * Linie zaczynające się od znaku "#" są komentarzami
 #   * Każda linia, która nie jest pusta, jest wyrażeniem regularnym, które ma pasować do adresu serwera (fragmentu URL)
- #</pre> <!-- nie modyfikuj tej linii -->',
+  #</pre> <!-- nie modyfikuj tej linii -->',
 );
 
 /** Piemontèis (Piemontèis)
@@ -1327,14 +1337,14 @@ Wciśnij przycisk "wstecz" w swojej przeglądarce by powrócić do edycji strony
  * @author Siebrand
  */
 $messages['pms'] = array(
-	'captcha-edit'               => "Për fe-ie dle modìfiche ansima a st'artìcol-sì, për piasì ch'a fasa ël total ambelessì sota
+	'captcha-edit'               => "Për fe-ie dle modìfiche ansima a st'artìcol-sì, për piasì ch'a fasa ël total ambelessì sota 
 e ch'a buta l'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-addurl'             => "Soa modìfica a la gionta dj'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-badlogin'           => "Për giutene a vardesse da 'nt ij programa ch'a fan ciav fàosse n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-createaccount'      => "Për giutene a vardesse da ij programa ch'a deurbo dij cont n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota
 e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-createaccount-fail' => "Ël còdes ëd verìfica ò ch'a manca d'autut ò ch'a l'é pa bon.",
-	'captcha-create'             => "Për creé d'amblé sta pàgina-sì, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà
+	'captcha-create'             => "Për creé d'amblé sta pàgina-sì, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà<br />
 ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captchahelp-title'          => 'Còs é-lo mai ës captcha?',
 	'captchahelp-cookies-needed' => "Për podej dovré sossì a l'ha da manca che sò navigator (browser) a pija ij cookies.",

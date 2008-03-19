@@ -449,18 +449,16 @@ $messages['pl'] = array(
 	'fancycaptcha-edit' => 'Aby edytować tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
 );
 
-/* Piedmontese (Bèrto 'd Sèra) */
+/** Piemontèis (Piemontèis)
+ * @author Bèrto 'd Sèra
+ */
 $messages['pms'] = array(
-	'fancycaptcha-addurl' => 'Soa modìfica a l\'ha andrinta dj\'anliure esterne neuve. Për dene na man a vardesse da la reclam aotomatisà, për piasì,
-ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
-	'fancycaptcha-badlogin' => 'Për dene na man a vardesse da ij programa ch\'a fan ciav fàosse, për piasì,
-ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
-	'fancycaptcha-createaccount' => 'Për dene na man a vardesse da ij programa ch\'a deurbo cont neuv n\'aotomàtich, për piasì,
-ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
-	'fancycaptcha-create' => 'Për creé sta pàgina-i d\'amblé, për piasì,
-ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
-	'fancycaptcha-edit' => 'Për fe-ie dle modìfiche ansima a sta pàgina-sì, për piasì,
-ch\'a l\'arbata le paròle ch\'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):',
+	'fancycaptcha-addurl'        => "Soa modìfica a l'ha andrinta dj'anliure esterne neuve.
+Për dene na man a vardesse da la reclam aotomatisà, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):",
+	'fancycaptcha-badlogin'      => "Për dene na man a vardesse da ij programa ch'a fan ciav fàosse, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):",
+	'fancycaptcha-createaccount' => "Për dene na man a vardesse da ij programa ch'a deurbo cont neuv n'aotomàtich, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):",
+	'fancycaptcha-create'        => "Për creé sta pàgina-i d'amblé, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):",
+	'fancycaptcha-edit'          => "Për fe-ie dle modìfiche ansima a sta pàgina-sì, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):",
 );
 
 /** Pashto (پښتو)

@@ -398,13 +398,17 @@ $messages['de-formal'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author ZaDiak
+ * @author Siebrand
  */
 $messages['el'] = array(
-	'captcha-badlogin'      => 'Για να βοηθήσετε στην προστασία ενάντια στον "σπασμένο" κωδικό πρόσβασης, παρακαλώ λύστε αυτή την απλή πράξη και εισάγετε το αποτέλεσμα της στο παρακάτω κενό ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
-	'captcha-createaccount' => 'Για να βοηθήσετε στην προστασία ενάντια στην αυτοματοποιημένη δημιουργία λογαριασμού, παρακαλώ λύστε την απλή πράξη
+	'captcha-badlogin'           => 'Για να βοηθήσετε στην προστασία ενάντια στον "σπασμένο" κωδικό πρόσβασης, παρακαλώ λύστε αυτή την απλή πράξη και εισάγετε το αποτέλεσμα της στο παρακάτω κενό ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+	'captcha-createaccount'      => 'Για να βοηθήσετε στην προστασία ενάντια στην αυτοματοποιημένη δημιουργία λογαριασμού, παρακαλώ λύστε την απλή πράξη
 και εισάγετε την λύση της στο παρακάτω κενό
 ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
-	'captchahelp-text'      => "Οι ιστοσελίδες που δέχονται τις επεξεργασίες από το κοινό, όπως αυτό το wiki, δεν χρησιμοποιούνται συχνά σωστά από τους spammers που χρησιμοποιούν τα αυτοματοποιημένα εργαλεία για να αποστείλουν τις συνδέσεις τους με πολλές σελίδες. Αυτές οι spam συνδέσεις  μπορούν να αφαιρεθούν, επειδή είναι σημαντικά ενοχλητικές.
+	'captcha-createaccount-fail' => 'Λάθος ή αγνοούμενος κωδικός ολοκλήρωσης.',
+	'captchahelp-cookies-needed' => 'Θα πρέπει να έχεις ενεργοποιημένα τα cookies στον πλοηγητή σου για να δουλέψει.',
+	'captchahelp-text'           => "Οι ιστοσελίδες που δέχονται τις επεξεργασίες από το κοινό, όπως αυτό το wiki, δεν χρησιμοποιούνται συχνά σωστά από τους spammers που χρησιμοποιούν τα αυτοματοποιημένα εργαλεία για να αποστείλουν τις συνδέσεις τους με πολλές σελίδες. Αυτές οι spam συνδέσεις  μπορούν να αφαιρεθούν, επειδή είναι σημαντικά ενοχλητικές.
 
 Μερικές φορές, ειδικά κατά την προσθήκη νέων συνδέσμων σε μια σελίδα, το wiki μπορεί να σας παρουσιάσει μια εικόνα με ένα χρωματισμένο ή διαστρεβλωμένο κείμενο και να σας ζητήσει να πληκτρολογήσετε τις λέξεις που παρουσιάζονται. Δεδομένου ότι αυτό είναι ένας στόχος που είναι δύσκολο να αυτοματοποιηθεί, θα επιτρέψει στους περισσότερους χρήστες να κάνουν τις επεξεργασίες τους, σταματώντας τους spammers και άλλους ρομποτικά επιτιθέμενους.
 
@@ -1179,9 +1183,11 @@ $messages['nds'] = array(
  * @author SPQRobin
  */
 $messages['nl'] = array(
-	'captcha-edit'               => 'U wilt deze pagina bewerken. Voer alstublieft het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
+	'captcha-edit'               => 'U wilt deze pagina bewerken.
+Voer alstublieft het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-desc'               => 'Eenvoudige implementatie van captcha',
-	'captcha-addurl'             => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam alstublieft het antwoord op de onderstaande eenvoudige som in in het invoerveld ([[Special:Captcha/help|meer informatie]]):",
+	'captcha-addurl'             => "Uw bewerking bevat nieuwe externe links (URL's).
+Voer ter bescherming tegen geautomatiseerde spam alstublieft het antwoord op de onderstaande eenvoudige som in in het invoerveld ([[Special:Captcha/help|meer informatie]]):",
 	'captcha-badlogin'           => 'Los alstublieft de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount'      => 'Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount-fail' => 'De bevestigingscode ontbreekt of is onjuist.',
@@ -1454,6 +1460,7 @@ $messages['ru'] = array(
 
 /** Yakut (Саха тыла)
  * @author HalanTul
+ * @author Siebrand
  */
 $messages['sah'] = array(
 	'captcha-edit'               => 'Сирэйи уларытыаххын баҕардаххына, манна баар примеры суоттаа уонна эппиэтин аналлаах сиргэ суруй ([[Special:Captcha/help|сиһилии]]):',
@@ -1467,18 +1474,22 @@ $messages['sah'] = array(
 	'captcha-create'             => 'Сирэйи оҥорорго бу примеры суоттаа ([[{{ns:special}}:Captcha/help|сиһилии]]):',
 	'captchahelp-title'          => 'Captcha көмөтө',
 	'captchahelp-cookies-needed' => 'Бу дьайыы үлэлиирин курдук браузергар куукины холбоо.',
-	'captchahelp-text'           => 'Биһиги саайпыт курдук иһинээҕитин уларытары көҥүллүүр саайтарга сороҕор спам ыытар программалар аптаматынан бэйэлэрин ыйынньыктарын угаллар. Оннук аптамаатынан эбиллибит ыйынньыктары суох оҥорор кыах баар эрээри, ол элбэх мэһэйдэри үөскэтиэн сөп.
+	'captchahelp-text'           => 'Биһиги саайпыт курдук иһинээҕитин уларытары көҥүллүүр саайтарга сороҕор спам ыытар программалар аптаматынан бэйэлэрин ыйынньыктарын угаллар.
+Оннук аптамаатынан эбиллибит ыйынньыктары суох оҥорор кыах баар эрээри, ол элбэх мэһэйдэри үөскэтиэн сөп.
 
-Ол иһин сороҕор, холобур саҥа ыйынньыгы эбэргэ, программа өҥнөөх эбэтэр хаанньары барбыт тиэкистээх ойууну көрдөрөн, ол тиэкиһи анал түннүккэ хатылатыан сөп. Маннык көрдөһүүнү аптамаат кыайан толорбот, оттон киһи үксэ чэпчэкитик толорор.
+Ол иһин сороҕор, холобур саҥа ыйынньыгы эбэргэ, программа өҥнөөх эбэтэр хаанньары барбыт тиэкистээх ойууну көрдөрөн, ол тиэкиһи анал түннүккэ хатылатыан сөп.
+Маннык көрдөһүүнү аптамаат кыайан толорбот, оттон киһи үксэ чэпчэкитик толорор.
 
-Ол гынан баран маннык көмүскэл сорох дьоҥҥо (көрбөт эбэтэр ааҕар браузердары туһанар дьоҥҥо) моһоллору үөскэтиэн сөп. Билигин бу моһолу суох оҥорор кыах суох. Оннук мэһэй таҕыстаҕына бука диэн баалама, биир эмит администраатарга этээр, көмөлөһүө.
+Ол гынан баран маннык көмүскэл сорох дьоҥҥо (көрбөт эбэтэр ааҕар браузердары туһанар дьоҥҥо) моһоллору үөскэтиэн сөп.
+Билигин бу моһолу суох оҥорор кыах суох.
+Оннук мэһэй таҕыстаҕына бука диэн баалама, биир эмит администраатарга этээр, көмөлөһүө.
 
 Көннөрүүгэ төттөрү тиийэргэ браузерыҥ «Назад» тимэҕин баттаа.',
 	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
 # Синтаксиһын быһаарыыта:
 #  * "#" бэлиэттэн строка бүтүөр дылы барыта хос быһаарыы курдук ааҕыллар
 #  * Хас биирдии кураанах буолбатах строка URL сорҕотун курдук ааҕыллар
-   #</pre> <!-- leave this line exactly as it is -->',
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Scots (Scots)
@@ -1491,6 +1502,7 @@ $messages['sco'] = array(
 /** Slovak (Slovenčina)
  * @author Helix84
  * @author Robbot
+ * @author Siebrand
  */
 $messages['sk'] = array(
 	'captcha-edit'               => 'Aby ste mohli upravovať túto stránku, vyriešte prosím tento jednoduchý súčet a napíšte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
@@ -1514,7 +1526,7 @@ Stlačením tlačidla „späť“ vo vašom prehliadači sa vrátite do editora
 # Syntax je nasledovná:
 #   * Všetko od znaku „#“ do konca riadka je komentár
 #   * Každý neprázdny riadok je fragment regulárneho výrazu, ktorého zhody budú iba stroje v rámci URL
- #</pre> <!-- leave this line exactly as it is -->',
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Slovenian (Slovenščina)
@@ -1557,6 +1569,7 @@ Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e
 
 /** Seeltersk (Seeltersk)
  * @author Pyt
+ * @author Siebrand
  */
 $messages['stq'] = array(
 	'captcha-edit'               => 'Tou Beoarbaidenge fon ju Siede löös ätterfoulgjende Reekenapgoawe un dräch dät Resultoat in dät Fäild hierunner ien [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
@@ -1576,7 +1589,7 @@ Spietelk genouch kon dät tou Meelasje foar Persoone fiere, do der minner goud s
 #  Syntax:
 #   * Alles fon n #-Teeken bit tou dän Eend fon ju Riege is n Kommentoar
 #   * Älke nit-loose Riege is n Regex-Fragment, dät juunuur den Hostnoome fon ne URL wröiged wäd
- #</pre> <!-- leave this line exactly as it is -->',
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Sundanese (Basa Sunda)

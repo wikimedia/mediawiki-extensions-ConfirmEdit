@@ -1254,7 +1254,7 @@ $messages['no'] = array(
 	'captcha-createaccount'      => 'For å hjelpe oss med å beskytte oss mot automatisk kontoopprettelse, vennligst skriv inn summen av det enkle regnestykket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
 	'captcha-createaccount-fail' => 'Ukorrekt eller manglende bekreftelseskode.',
 	'captcha-create'             => 'For å opprette siden, vennligst skriv inn summen av det enkle regnestyket i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
-	'captchahelp-title'          => 'Captcha-hjelp',
+	'captchahelp-title'          => 'Hjelp med Captcha',
 	'captchahelp-cookies-needed' => 'Du må slå på informasjonskapsler for at dette skal fungere.',
 	'captchahelp-text'           => 'Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til betydelig irritasjon.
 

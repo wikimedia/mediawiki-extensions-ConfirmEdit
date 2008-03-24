@@ -609,18 +609,31 @@ $messages['ga'] = array(
  * @author Toliño
  * @author Alma
  * @author Xosé
+ * @author Siebrand
  */
 $messages['gl'] = array(
 	'captcha-edit'               => 'Para editar esta páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-desc'               => 'Introdución sinxela de captcha',
 	'captcha-addurl'             => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Que é isto?]])',
 	'captcha-badlogin'           => 'Como protección para que non se descubra o contrasinal por medios automáticos, resolva a simple suma de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
-	'captcha-createaccount'      => "Como protección fronte a sistemas de creación automática de contas de usuario usados polos ''spammers'', ten que teclear as palabras que aparecen na imaxe para rexistrar unha conta:<br /> ([[Special:Captcha/help|Que é isto?]])",
+	'captcha-createaccount'      => 'Como protección fronte á creación automática de contas de usuario ten que resolver a suma de embaixo e teclear a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-createaccount-fail' => 'Falta o código de confirmación ou é incorrecto.',
 	'captcha-create'             => 'Para crear a páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|Que é isto?]]):',
 	'captchahelp-title'          => 'Axuda acerca do Captcha',
 	'captchahelp-cookies-needed' => 'Vostede necesita ter as cookies habilitadas no seu navegador para que funcione.',
-	'captchahelp-text'           => "'''CAPTCHA''' (acrónimo de \"'''C'''ompletely '''A'''utomated '''P'''ublic '''T'''uring test to tell '''C'''omputers and '''H'''umans '''A'''part\") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas. Os sitios web que aceptan publicar as contribucións dos usuarios coma este wiki sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias nunha chea de páxinas en pouco tempo. Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo. En ocasións, en particular cando engada algún novo vínculo externo, o wiki pode mostrar unha imaxe dun texto coloreado e distorsionado e pedirlle que teclee as palabras mostradas. Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e robots e dificulta os ataques automatizados dos ''spammers''. Por desgraza, pódelles causar problemas a aqueles usuarios con dificultades de visión ou aos que utilicen navegadores de texto ou navegadores baseados en sistemas de voz. Polo de agora non dispoñemos dunha alternativa de audio. Por favor, contacte cun [[Special:Listusers/sysop|administrador]] do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas. Prema no botón \"atrás\" ou equivalente do seu navegador para volver á páxina na que estaba.",
+	'captchahelp-text'           => "'''CAPTCHA''' (acrónimo de \"'''C'''ompletely '''A'''utomated '''P'''ublic '''T'''uring test to tell '''C'''omputers and '''H'''umans '''A'''part\") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas.
+
+Os sitios web que aceptan publicar as contribucións dos usuarios, coma este wiki, sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias, nunha chea de páxinas, en pouco tempo.
+Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo.
+
+En ocasións, en particular cando engada algunha nova ligazón externa, o wiki pode amosar unha imaxe dun texto coloreado e distorsionado e pedirlle que teclee as palabras amosadas.
+Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e robots e dificulta os ataques automatizados dos ''spammers''.
+
+Por desgraza, isto é un inconveniente para aqueles usuarios con dificultades de visión ou que utilicen navegadores de texto ou navegadores baseados en sistemas de voz.
+Polo de agora non dispoñemos dunha alternativa de audio.
+Por favor, contacte cun administrador do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas.
+
+Prema no botón \"atrás\" para voltar á páxina na que estaba editando.",
 	'captcha-addurl-whitelist'   => ' #<!-- deixe esta liña exactamente como está --> <pre>
 # A sintaxe é a seguinte:
 #   * Todo o que vai desde o carácter "#" até o final da liña é un comentario
@@ -1020,7 +1033,6 @@ $messages['la'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
- * @author Siebrand
  */
 $messages['lb'] = array(
 	'captcha-edit'               => "Fir dës Säit z'änneren, léist w.e.g. dës Rechenaufgab a gitt d'Resultat an d'Këscht ënnendrënner an ([[Special:Captcha/help|méi Informatiounen]]):",
@@ -1039,11 +1051,11 @@ Heiandsdo, besonnesch wann nei Internet-Linkën op eng Säit derbäigesat ginn, 
 Leider kann dëst zu Schwierigkeete féiere fir Persounen déi net esou gutt gesinn oder déi text-baséiert oder sprooch-baséiert Browser benotzen. Zu dësem Zäitpunkt hu mir leider keng audio-Alternativ zu eiser Verfügung. Eng Léisung ass d'Umeldung als Benotzer oder kontaktéiert een Administrateur fir Hëllef wann dëst iech onerwarter Wäis vu legitimen Editen ofhält.
 
 Dréckt op den 'Zréck' Knäppchen vun ärem Browser fir an d'Beaarbectungsfënster zréckzekommen.",
-	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
+	'captcha-addurl-whitelist'   => '   #<!-- Dës Linn onverännert loossen --> <pre>
 #  Syntax:
 #  * Alles mat engem #-Zeechen u bis zum Enn vun däer Zeil ass eng Bemierkung
 #  * All Zeil déi net eidel ass, ass ee Regex-Fragment, dat nëmme mat Hosten bannent URLë fonktionéiert
-   #</pre> <!-- leave this line exactly as it is -->',
+   #</pre> <!-- Dës Linn onverännert loossen -->',
 );
 
 /** Limburgish (Limburgs)
@@ -1732,7 +1744,12 @@ Ne var ki bu durum, görme sorunları yaşayan kişiler ve salt yazı-tabanlı v
 Sayfa düzenleyiciye dönmek için tarayıcınızın 'geri' tuşuna basınız.",
 );
 
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
 $messages['uk'] = array(
+	'captcha-desc'               => 'Проста реалізація CAPTCHA',
+	'captcha-createaccount-fail' => 'Невірний або відсутній код підтвердження.',
 	'captchahelp-text'           => "Вікіпедія застосовує техніку розрізнення людей від комп'ютерів, яка використовує розпізнавання образів, для захисту від  комп'ютерних  шкідливих програм, які автоматично реєструються  (найчастіше спамлять у статтях).
 
 Для реєстрації у Вікіпедії та іноді й при редагуванні статей користувачеві потрібно ввести вказану контрольну послідовність символів, і яку вони, будучи людьми, а не комп'ютерними програмами, можуть легко розпізнати.
@@ -1740,7 +1757,6 @@ $messages['uk'] = array(
 You will need to have cookies enabled in your browser for this to work.
 
 Hit the 'back' button in your browser to return to the page editor.",
-	'captcha-createaccount-fail' => 'Невірний або відсутній код підтвердження.',
 );
 
 /** Vietnamese (Tiếng Việt)

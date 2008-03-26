@@ -643,6 +643,7 @@ Prema no botón \"atrás\" para voltar á páxina na que estaba editando.",
 
 /** Gujarati (ગુજરાતી)
  * @author Dsvyas
+ * @author Siebrand
  */
 $messages['gu'] = array(
 	'captcha-edit'               => 'આ લેખમાં ફેરફાર કરવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો ([[Special:Captcha/help|more info]]):',
@@ -1609,8 +1610,10 @@ Spietelk genouch kon dät tou Meelasje foar Persoone fiere, do der minner goud s
  * @author Kandar
  */
 $messages['su'] = array(
-	'captcha-edit'               => 'Pikeun ngédit artikel ieu, mangga eusian itungan di handap ieu ([[Special:Captcha/help|émbaran lengkep]]):',
-	'captcha-addurl'             => 'Éditan anjeun ngawengku tumbu kaluar anyar. Pikeun nyegah spam, mangga eusian itungan di handap ieu [[Special:Captcha/help|émbaran lengkep]]):',
+	'captcha-edit'               => 'Pikeun ngédit artikel ieu, mangga eusian itungan di handap ([[Special:Captcha/help|émbaran lengkep]]):',
+	'captcha-addurl'             => 'Éditan anjeun ngawengku tumbu kaluar anyar.
+Pikeun nyegah spam, mangga eusian itungan di handap ieu
+([[Special:Captcha/help|émbaran lengkep]]):',
 	'captcha-createaccount'      => 'Pikeun nyegah dijieunna rekening sacara otomatis, mangga eusian itungan di handap ieu ([[Special:Captcha/help|émbaran lengkep]]):',
 	'captcha-createaccount-fail' => 'Sandi konfirmasina salah atawa can dieusian.',
 	'captcha-create'             => 'Pikeun nyieun kacana, mangga eusian itungan di handap ieu ([[Special:Captcha/help|émbaran lengkep]]):',

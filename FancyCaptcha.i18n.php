@@ -421,13 +421,15 @@ hieronder verschijnen in het invoerveld in als bescherming tegen automatische sp
 hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 );
 
-/* Norwegian (Jon Harald Søby) */
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
 $messages['no'] = array(
-	'fancycaptcha-addurl' => 'Din endring inkluderer nye eksterne lenker. For hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn ordene som kommer opp i denne boksen ([[Special:Captcha/help|mer informasjon]]):',
-	'fancycaptcha-badlogin' => 'For å hjelpe oss å beskytte oss mot passordtyveri, skriv inn ordene som dukker opp nedenfor i boksen ([[Special:Captcha/help|mer informasjon]]):',
-	'fancycaptcha-createaccount' => 'For å beskytte mot automatisk kontooprettelse, skriv inn ordene som dukker opp i boksen nedenunder ([[Special:Captcha/help|mer informasjon]]):',
-	'fancycaptcha-create' => 'For å opprette siden, vennligst skriv inn ordene som dukker opp i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
-	'fancycaptcha-edit' => 'Din endring inneholder nye eksterne lenker. For å beskytte mot automatisk spam, vennligst skriv inn ordene som dukker opp i boksten nedenunder ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-addurl'        => 'Din endring inkluderer nye eksterne lenker. For hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn ordene som kommer opp i denne boksen ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-badlogin'      => 'Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot passordtyveri ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-createaccount' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk kontoopprettelse ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-create'        => 'Skriv inn ordene som dukker opp i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-edit'          => 'Din endring inneholder nye eksterne lenker. Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot passordtyveri ([[Special:Captcha/help|mer informasjon]]):',
 );
 
 /** Occitan (Occitan)

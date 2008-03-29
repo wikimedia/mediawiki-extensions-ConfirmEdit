@@ -8,14 +8,14 @@
 $messages = array();
 
 $messages['en'] = array(
-	'captcha-edit' => 'To edit this page, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
-	'captcha-desc' => 'Simple captcha implementation',
-	'captcha-addurl' => 'Your edit includes new external links.
+	'captcha-edit'               => 'To edit this page, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
+	'captcha-desc'               => 'Simple captcha implementation',
+	'captcha-addurl'             => 'Your edit includes new external links.
 To help protect against automated spam, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
-	'captcha-badlogin' => 'To help protect against automated password cracking, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
-	'captcha-createaccount' => 'To help protect against automated account creation, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
+	'captcha-badlogin'           => 'To help protect against automated password cracking, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
+	'captcha-createaccount'      => 'To help protect against automated account creation, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount-fail' => "Incorrect or missing confirmation code.",
-	'captcha-create' => 'To create the page, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
+	'captcha-create'             => 'To create the page, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captchahelp-title'          => 'Captcha help',
 	'captchahelp-cookies-needed' => "You will need to have cookies enabled in your browser for this to work.",
 	'captchahelp-text'           => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites.
@@ -29,7 +29,7 @@ At the moment we do not have an audio alternative available.
 Please contact the site administrators for assistance if this is unexpectedly preventing you from making legitimate posts.
 
 Hit the 'back' button in your browser to return to the page editor.",
-	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
+	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
 # Syntax is as follows:
 #   * Everything from a "#" character to the end of the line is a comment
 #   * Every non-blank line is a regex fragment which will only match hosts inside URLs
@@ -1837,6 +1837,7 @@ Clitchîz sol boton «En erî» di vosse betchteu waibe po rivni al pådje di dv
  */
 $messages['yue'] = array(
 	'captcha-edit'               => '要編輯呢一篇文，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-desc'               => '簡單嘅 captcha 實行',
 	'captcha-addurl'             => '你編輯嘅內容裏面有新嘅URL連結；為咗避免受到自動垃圾程式的侵擾，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
 	'captcha-badlogin'           => '為咗防止程式自動破解密碼，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
 	'captcha-createaccount'      => '為咗防止程式自動註冊，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):',
@@ -1862,6 +1863,7 @@ $messages['yue'] = array(
  */
 $messages['zh-hans'] = array(
 	'captcha-edit'               => '要编辑这篇文章，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
+	'captcha-desc'               => '简单的 captcha 实行',
 	'captcha-addurl'             => '你编辑的内容中含有一个新的URL连结；为了免受自动垃圾程式的侵扰，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
 	'captcha-badlogin'           => '为了防止程式自动破解密码，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
 	'captcha-createaccount'      => '为了防止程式自动注册，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
@@ -1887,6 +1889,7 @@ $messages['zh-hans'] = array(
  */
 $messages['zh-hant'] = array(
 	'captcha-edit'               => '要編輯這篇文章，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-desc'               => '簡單的 captcha 實行',
 	'captcha-addurl'             => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
 	'captcha-badlogin'           => '為了防止程式自動破解密碼，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
 	'captcha-createaccount'      => '為了防止程式自動註冊，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',

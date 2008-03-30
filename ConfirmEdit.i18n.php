@@ -223,13 +223,21 @@ $messages['bn'] = array(
  * @author BrokenArrow
  */
 $messages['br'] = array(
-	'captcha-edit'               => "Liammoù diavaez nevez zo bet ouzhpennet ganeoc'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])",
+	'captcha-edit'               => "A-raok gellout degas kemmoù war ar bajenn-mañ e c'houlenner ouzhoc'h respont d'ar jedadenn eeun a-is ha lakaat an disoc'h er vaezienn [[Special:Captcha/help|Petra eo se?]])",
+	'captcha-desc'               => 'Emplementadur eeun Captcha',
 	'captcha-addurl'             => "Liammoù diavaez nevez zo bet ouzhpennet ganeoc'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])",
+	'captcha-badlogin'           => "A-benn talañ ouzh preizhadur emgefre ar gerioù-tremen gant ar botoù e c'houlenner ouzhoc'h jediñ an tamm oberiadenn ha skrivañ an disoc'h anezhi er vaezienn a-is ([[Special:Captcha/help|Petra eo se ?]]):",
 	'captcha-createaccount'      => "A-benn hor skoazellañ d'en em wareziñ diouzh ar c'hrouiñ kontoù emgefre, skrivit ar gerioù a zeu war wel er stern-mañ evit enrollañ ho kont : <br />([[Special:Captcha/help|Petra eo se?]])",
 	'captcha-createaccount-fail' => "Mankout a ra ar c'hod kadarnaat pe fall eo.",
-	'captcha-create'             => "Liammoù diavaez nevez zo bet ouzhpennet ganeoc'h. A-benn en em wareziñ diouzh ar spam emgefre skrivit disoc'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])",
+	'captcha-create'             => "A-benn krouiñ ar bajenn, skrivit disoc'h ar jedadennig eeun-mañ er vaezienn : <br />([[Special:Captcha/help|Petra eo se?]])",
 	'captchahelp-title'          => 'Skoazell Capcha',
+	'captchahelp-cookies-needed' => "Ret eo deoc'h gweredekaet an toupinoù war ho merdeer Web evit ma'z afe en-dro.",
 	'captchahelp-text'           => "Alies e vez taget al lec'hiennoù a zegemer kemennadennoù a-berzh an holl, evel ar wiki-mañ, gant ar spamerien a implij ostilhoù emgefre evit postañ o liammoù war lec'hiennoù a bep seurt. Diverket e c'hallont bezañ, gwir eo, kazus-mat ez int memes tra. A-wechoù, dreist-holl pa vez ouzhpennet liammoù Web nevez war ur bajenn, e c'hallo ar wiki-mañ diskouez deoc'h ur skeudenn warni un tamm testenn liv pe a-dreuz. Goulennet e vo diganeoc'h skrivañ ar gerioù deuet war wel. Un trevell start da emgefrekaat eo hemañ. Gant se e c'hallo an implijerien wirion postañ ar pezh a fel ldezho tra ma vo lakaet un harz d'an darn vrasañ eus ar spamerien pe d'an dagerien robotek all. Koulskoude e c'hallo an implijerien berr o gweled pe ar re a implij merdeerioù diazezet war ar skrid pe war ar vouezh bezañ strafuilhet gant se. N'omp ket evit kinnig un diskoulm dre glevet evit c'hoazh. Kit e darempred gant merourien al lec'hienn m'hoc'h eus diaesterioù evit kemer perzh abalamour d'an teknik-se. Pouezit war bouton 'kent' ho merdeer evit distreiñ d'ar bajenn gemmañ.",
+	'captcha-addurl-whitelist'   => " #<!-- laoskit al linenn-mañ tre evel m'emañ --> <pre>
+# Setu penaos emañ an ereadur :
+#  * Kement tra war-lerc'h an arouezenn \"#\" zo un urzhiad, betek penn all al linenn
+#  * Kement linenn n'eo ket goullo zo ur c'hod regex a vo implijet e diabarzh al liammoù gourdskrid hepken 
+  #</pre> <!-- laoskit al linenn-mañ tre evel m'emañ -->",
 );
 
 /** Bosnian (Bosanski)
@@ -608,19 +616,20 @@ $messages['ga'] = array(
 /** Galician (Galego)
  * @author Toliño
  * @author Alma
- * @author Xosé
  * @author Siebrand
+ * @author Xosé
  */
 $messages['gl'] = array(
 	'captcha-edit'               => 'Para editar esta páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
-	'captcha-desc'               => 'Introdución sinxela de captcha',
-	'captcha-addurl'             => 'A súa edición inclúe novos enderezos URL; como protección contra as ferramentas de publicación automática de ligazóns publicitarias necesita teclear as palabras que aparecen nesta imaxe:<br /> ([[Special:Captcha/help|Que é isto?]])',
+	'captcha-desc'               => 'Introdución sinxela do Captcha',
+	'captcha-addurl'             => 'A súa edición inclúe novas ligazóns externas.
+Como protección fronte ás ferramentas de publicación automática de ligazóns publicitarias, por favor resolva a simple suma de embaixo e teclee resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-badlogin'           => 'Como protección para que non se descubra o contrasinal por medios automáticos, resolva a simple suma de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-createaccount'      => 'Como protección fronte á creación automática de contas de usuario ten que resolver a suma de embaixo e teclear a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-createaccount-fail' => 'Falta o código de confirmación ou é incorrecto.',
 	'captcha-create'             => 'Para crear a páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|Que é isto?]]):',
 	'captchahelp-title'          => 'Axuda acerca do Captcha',
-	'captchahelp-cookies-needed' => 'Vostede necesita ter as cookies habilitadas no seu navegador para que funcione.',
+	'captchahelp-cookies-needed' => 'Necesita ter as <i>cookies</i> habilitadas no seu navegador para que funcione.',
 	'captchahelp-text'           => "'''CAPTCHA''' (acrónimo de \"'''C'''ompletely '''A'''utomated '''P'''ublic '''T'''uring test to tell '''C'''omputers and '''H'''umans '''A'''part\") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas.
 
 Os sitios web que aceptan publicar as contribucións dos usuarios, coma este wiki, sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias, nunha chea de páxinas, en pouco tempo.

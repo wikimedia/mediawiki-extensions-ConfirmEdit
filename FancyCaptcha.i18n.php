@@ -85,12 +85,16 @@ $messages['bn'] = array(
 ([[Special:Captcha/help|আরও তথ্য]]):',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
 $messages['br'] = array(
-	'fancycaptcha-edit' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
-	'fancycaptcha-addurl' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
-	'fancycaptcha-create' => 'Liammoù diavaez nevez zo bet degaset ganeoc\'h. Evit stourm a-enep d\'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
-	'fancycaptcha-createaccount' => 'Evit stourm a-enep d\'ar c\'hontoù  krouet ent emgefre, skrivit ar gerioù
-a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc\'h]]):',
+	'fancycaptcha-addurl'        => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
+	'fancycaptcha-badlogin'      => "A-benn talañ ouzh ar preizhañ kontoù dre c'herioù-termen emgefre, skrivit er vaezienn ar gerioù merket dindan ([[Special:Captcha/help|Petra eo se?]]):",
+	'fancycaptcha-createaccount' => "Evit stourm a-enep d'ar c'hontoù  krouet ent emgefre, skrivit ar gerioù
+a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
+	'fancycaptcha-create'        => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
+	'fancycaptcha-edit'          => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
 );
 
 $messages['ca'] = array(
@@ -230,8 +234,7 @@ $messages['gl'] = array(
 automatizado, introduza as palabras que aparecen na páxina de embaixo ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-badlogin'      => 'Para contribuír a que non se descubran os contrasinais por medios automáticos, introduza as palabras que aparecen na caixa de embaixo
 ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-createaccount' => 'Para contribuír contra a creación automatizada de contas, introduza as palabras
-que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-createaccount' => 'Para contribuír contra a creación automatizada de contas, introduza na caixa as palabras que aparecen embaixo ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-create'        => 'Para crear a páxina, introduza as palabras que aparecen na caixa de embaixo
 ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-edit'          => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo
@@ -368,6 +371,19 @@ $messages['la'] = array(
 	'fancycaptcha-createaccount' => 'Ut creationem rationum automaticam vitemus, necesse est tibi in capsam inscribere verba quae sub capsa monstrantur ([[Special:Captcha/help|Quidst illud?]]):',
 	'fancycaptcha-create' => 'Ad paginam creandum, necesse est tibi in capsam inscribere verba quae sub capsa monstrantur ([[Special:Captcha/help|Quidst illud?]]):',
 	'fancycaptcha-edit' => 'Ad hanc paginam recensendum, necesse est tibi in capsam inscribere verba quae sub capsa monstrantur ([[Special:Captcha/help|Quidst illud?]]):',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'fancycaptcha-addurl'        => 'An ärer ännerung sinn nei extern Linken.
+
+Fir ze hellëfe, géint automatiséierte Spam virzegoen, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):',
+	'fancycaptcha-badlogin'      => "Fir ze hellëfe fir d'automatiséiert Hacke vu Psswierder méi schwéier ze maachen, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):",
+	'fancycaptcha-createaccount' => 'Fir géint automatiséiert Opmaache vu Benotzerkonte virzegoen, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):',
+	'fancycaptcha-create'        => 'Fir dës Säit unzeleeën, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):',
+	'fancycaptcha-edit'          => "Fir dës Säit z'änneren, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):",
 );
 
 /** Limburgish (Limburgs)

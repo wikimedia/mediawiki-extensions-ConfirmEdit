@@ -407,8 +407,9 @@ $messages['de-formal'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
- * @author ZaDiak
  * @author Siebrand
+ * @author ZaDiak
+ * @author Badseed
  */
 $messages['el'] = array(
 	'captcha-badlogin'           => 'Για να βοηθήσετε στην προστασία ενάντια στον "σπασμένο" κωδικό πρόσβασης, παρακαλώ λύστε αυτή την απλή πράξη και εισάγετε το αποτέλεσμα της στο παρακάτω κενό ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
@@ -416,7 +417,7 @@ $messages['el'] = array(
 και εισάγετε την λύση της στο παρακάτω κενό
 ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
 	'captcha-createaccount-fail' => 'Λάθος ή αγνοούμενος κωδικός ολοκλήρωσης.',
-	'captchahelp-cookies-needed' => 'Θα πρέπει να έχεις ενεργοποιημένα τα cookies στον πλοηγητή σου για να δουλέψει.',
+	'captchahelp-cookies-needed' => 'Θα πρέπει να έχετε τα cookies ενεργοποιημένα στον φυλλομετρητή σας για να εκτελεστεί η λειτουργία.',
 	'captchahelp-text'           => "Οι ιστοσελίδες που δέχονται τις επεξεργασίες από το κοινό, όπως αυτό το wiki, δεν χρησιμοποιούνται συχνά σωστά από τους spammers που χρησιμοποιούν τα αυτοματοποιημένα εργαλεία για να αποστείλουν τις συνδέσεις τους με πολλές σελίδες. Αυτές οι spam συνδέσεις  μπορούν να αφαιρεθούν, επειδή είναι σημαντικά ενοχλητικές.
 
 Μερικές φορές, ειδικά κατά την προσθήκη νέων συνδέσμων σε μια σελίδα, το wiki μπορεί να σας παρουσιάσει μια εικόνα με ένα χρωματισμένο ή διαστρεβλωμένο κείμενο και να σας ζητήσει να πληκτρολογήσετε τις λέξεις που παρουσιάζονται. Δεδομένου ότι αυτό είναι ένας στόχος που είναι δύσκολο να αυτοματοποιηθεί, θα επιτρέψει στους περισσότερους χρήστες να κάνουν τις επεξεργασίες τους, σταματώντας τους spammers και άλλους ρομποτικά επιτιθέμενους.
@@ -1144,9 +1145,15 @@ $messages['lv'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
+	'captcha-edit'               => 'ഈ താള്‍ തിരുത്തുവാന്‍, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത് അതിന്റെ ഉത്തരം താഴെയുള്ള പെട്ടിയില്‍ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതല്‍ വിവരങ്ങള്‍]]):',
+	'captcha-addurl'             => 'താങ്കളുടെ തിരുത്തലലില്‍ പുറം കണ്ണികള്‍ ഉള്‍പ്പെട്ടിരിക്കുന്നു.
+യാന്ത്രിക സ്പാമിനെതിരെയുള്ള സം‌രക്ഷണത്തിന്റെ ഭാഗമായി, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത് അതിന്റെ ഉത്തരം താഴെയുള്ള പെട്ടിയില്‍ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതല്‍ വിവരങ്ങള്‍]]):',
+	'captcha-badlogin'           => 'യാന്ത്രിക രഹസ്യവാക്ക് പൊളിക്കലിനെതിരായുള്ള സം‌രക്ഷണത്തിന്റെ ഭാഗമായി, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത് അതിന്റെ ഉത്തരം താഴെയുള്ള പെട്ടിയില്‍ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതല്‍ വിവരങ്ങള്‍]]):',
+	'captcha-createaccount'      => 'യാന്ത്രിക അക്കൗണ്ട് സൃഷ്ടിക്കലിനെതിരെയുള്ള സം‌രക്ഷണത്തിന്റെ ഭാഗമായി, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത് അതിന്റെ ഉത്തരം താഴെയുള്ള പെട്ടിയില്‍ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതല്‍ വിവരങ്ങള്‍]]):',
 	'captcha-createaccount-fail' => 'അസാധുവായതോ കാണ്‍‌മാനില്ലാത്തതോ ആയ സ്ഥിരീകരണ കോഡ്.',
 	'captcha-create'             => 'ഈ താള്‍ സൃഷ്ടിക്കുവാന്‍, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന കൂട്ടല്‍ ക്രിയയുടെ ഉത്തരം താഴെയുള്ള പെട്ടിയില്‍ എഴുതുക  ([[Special:Captcha/help|കൂടുതല്‍ വിവരങ്ങള്‍ക്ക്]]):',
 	'captchahelp-title'          => 'CAPTCHA സഹായം',
+	'captchahelp-cookies-needed' => 'ഇതു പ്രവര്‍ത്തിക്കണമെങ്കില്‍ താങ്കളുടെ ബ്രൗസറില്‍ കുക്കികള്‍ സജ്ജീകരിച്ചിരിക്കണം.',
 );
 
 /** Marathi (मराठी)
@@ -1365,20 +1372,19 @@ $messages['pl'] = array(
 	'captcha-create'             => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
 	'captchahelp-title'          => 'Pomoc dla ochrony antyspamowej',
 	'captchahelp-cookies-needed' => 'Musisz mieć włączone w przeglądarce ciasteczka (cookies), aby ta opcja działała.',
-	'captchahelp-text'           => 'Strony internetowe akceptujące edycje dokonywane przez każdego, jak to wiki, są często atakowane przez [[wikipedia:pl:spam|spammerów]], którzy używają automatycznych narzędzi, by dodawać linki do swoich stron.
+	'captchahelp-text'           => 'Strony internetowe akceptujące edycje dokonywane przez każdego, jak ta wiki, są często atakowane przez spamerów, którzy używają automatycznych narzędzi, by dodawać linki prowadzące do ich stron.
 Chociaż te linki mogą być usunięte, jest to uciążliwe.
 
 Czasami, zwłaszcza przy dodawaniu nowych linków do strony albo przy rejestracji, wiki może pokazać obrazek z kolorowym lub zniekształconym tekstem i poprosić Cię o przepisanie zamieszczonego na nim wyrazu.
 Może pojawić się też prośba o wpisanie wyniku prostego działania matematycznego.
-Ponieważ są to zadania trudne do zautomatyzowania, to zabezpieczenie pozwoli większości ludzi dokonywać edycji, powstrzymując jednocześnie większość spammerów i inne automatyczne ataki.
+Ponieważ są to zadania trudne do zautomatyzowania, takie zabezpieczenia nie uniemożliwia większości ludziom dokonywania edycji, jednocześnie skutecznie powstrzymując większość spamerów i inne automatyczne ataki.
 
 Niestety, może być to niewygodne dla użytkowników z wadą wzroku lub używających przeglądarek tekstowych lub głosowych.
 Obecnie nie mamy alternatywnego rozwiązania audio.
-Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać prawidłowych edycji.
-Zwróć uwagę na to, że musisz mieć włączone ciasteczka (cookies).
+Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać uprawnionych edycji.
 
 Wciśnij przycisk "wstecz" w swojej przeglądarce by powrócić do edycji strony.',
-	'captcha-addurl-whitelist'   => ' #<!-- nie modyfikuj tej linii --> <pre>
+	'captcha-addurl-whitelist'   => '  #<!-- nie modyfikuj tej linii --> <pre>
 # Składnia jest następująca:
 #   * Linie zaczynające się od znaku "#" są komentarzami
 #   * Każda linia, która nie jest pusta, jest wyrażeniem regularnym, które ma pasować do adresu serwera (fragmentu URL)

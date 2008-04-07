@@ -601,6 +601,13 @@ Clicâd sur lo boton « Prècèdent » de voutron navigator por tornar a la pâg
   #</pre> <!-- lèssiéd ceta legne justo d’ense -->',
 );
 
+/** Friulian (Furlan)
+ * @author Klenje
+ */
+$messages['fur'] = array(
+	'captcha-createaccount-fail' => 'Il codiç di control al mancje o nol è just.',
+);
+
 /** Irish (Gaeilge)
  * @author SPQRobin
  * @author Alison
@@ -1146,6 +1153,7 @@ $messages['lv'] = array(
  */
 $messages['ml'] = array(
 	'captcha-edit'               => 'ഈ താള്‍ തിരുത്തുവാന്‍, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത് അതിന്റെ ഉത്തരം താഴെയുള്ള പെട്ടിയില്‍ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതല്‍ വിവരങ്ങള്‍]]):',
+	'captcha-desc'               => 'ലളിതമായ CAPTCHA നടപ്പിലാക്കല്‍',
 	'captcha-addurl'             => 'താങ്കളുടെ തിരുത്തലലില്‍ പുറം കണ്ണികള്‍ ഉള്‍പ്പെട്ടിരിക്കുന്നു.
 യാന്ത്രിക സ്പാമിനെതിരെയുള്ള സം‌രക്ഷണത്തിന്റെ ഭാഗമായി, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത് അതിന്റെ ഉത്തരം താഴെയുള്ള പെട്ടിയില്‍ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതല്‍ വിവരങ്ങള്‍]]):',
 	'captcha-badlogin'           => 'യാന്ത്രിക രഹസ്യവാക്ക് പൊളിക്കലിനെതിരായുള്ള സം‌രക്ഷണത്തിന്റെ ഭാഗമായി, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത് അതിന്റെ ഉത്തരം താഴെയുള്ള പെട്ടിയില്‍ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതല്‍ വിവരങ്ങള്‍]]):',

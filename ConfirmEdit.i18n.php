@@ -1809,6 +1809,27 @@ You will need to have cookies enabled in your browser for this to work.
 Hit the 'back' button in your browser to return to the page editor.",
 );
 
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'captcha-edit'               => 'Par modificar la pagina te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela
+([[Special:Captcha/help|magiori informazion]]):',
+	'captcha-desc'               => 'Senplice inplementazion de un Captcha',
+	'captcha-addurl'             => "La modifica richiesta la zonta dei colegamenti foresti novi a la pagina; come misura precauzional contro l'inserimento automatico de spam, te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):",
+	'captcha-badlogin'           => 'Come misura precauzional contro i tentativi de forzatura automatica de la password, te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):',
+	'captcha-createaccount'      => 'Come misura precauzional contro i tentativi de creazion automatica dei account, par registrarse te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):',
+	'captcha-createaccount-fail' => 'Codice de verifica sbaglià o mancante.',
+	'captcha-create'             => 'Per crear la pagina te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):',
+	'captchahelp-title'          => "Coss'èlo sto captcha?",
+	'captchahelp-cookies-needed' => 'Te ghè da verghe i cookies abilità sul to browser par proseguir.',
+	'captcha-addurl-whitelist'   => '  #<!-- no sta modificar in alcun modo sta riga --> <pre>
+# La sintassi la xe la seguente:
+#  * Tuto quel che segue un caràtere "#" el xe un comento, fin a la fine de la riga
+#  * Tute le righe mìa vode le xe framenti de espressioni regolari che se àplica al solo nome de l\'host ne le URL
+   #</pre> <!-- no sta modificar in alcun modo sta riga -->',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
  * @author Minh Nguyen

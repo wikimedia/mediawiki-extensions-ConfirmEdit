@@ -1798,15 +1798,30 @@ Sayfa düzenleyiciye dönmek için tarayıcınızın 'geri' tuşuna basınız.",
  * @author Ahonc
  */
 $messages['uk'] = array(
+	'captcha-edit'               => 'Щоб відредагувати цю сторінку, будь ласка, виконайте просту арифметичну дію і введіть відповідь у текстове поле ([[Special:Captcha/help|докладніше]]):',
 	'captcha-desc'               => 'Проста реалізація CAPTCHA',
-	'captcha-createaccount-fail' => 'Невірний або відсутній код підтвердження.',
-	'captchahelp-text'           => "Вікіпедія застосовує техніку розрізнення людей від комп'ютерів, яка використовує розпізнавання образів, для захисту від  комп'ютерних  шкідливих програм, які автоматично реєструються  (найчастіше спамлять у статтях).
+	'captcha-addurl'             => 'Ви додали посилання на зовнішній сайт.
+Із метою захисту від автоматичного спаму, будь ласка, виконайте просту арифметичну дію і введіть відповідь у текстове поле ([[Special:Captcha/help|докладніше]]):',
+	'captcha-badlogin'           => 'Із метою захисту від автоматичного злому пароля, будь ласка, виконайте просту арифметичну дію і введіть відповідь у текстове поле ([[Special:Captcha/help|докладніше]]):',
+	'captcha-createaccount'      => 'Із метою захисту від автоматичного створення облікового запису, будь ласка, виконайте просту арифметичну дію і введіть відповідь у текстове поле ([[Special:Captcha/help|докладніше]]):',
+	'captcha-createaccount-fail' => 'Неправильний або відсутній код підтвердження.',
+	'captcha-create'             => 'Щоб створити сторінку, будь ласка, виконайте просту арифметичну дію і введіть відповідь у текстове поле ([[Special:Captcha/help|докладніше]]):',
+	'captchahelp-title'          => 'Довідка про CAPTCHA',
+	'captchahelp-cookies-needed' => 'Вам потрібно ввімкнути куки у браузері, щоб ця функція запрацювала.',
+	'captchahelp-text'           => 'Веб-сторінки, що дозволяють додавати або змінювати свій вміст, у тому числі вікі, часто стають ціллю спамерів, які використовують програми для автоматичного додавання посилань.
+Хоча такі посилання і можуть бути вилучені, вони є істотною вадою.
 
-Для реєстрації у Вікіпедії та іноді й при редагуванні статей користувачеві потрібно ввести вказану контрольну послідовність символів, і яку вони, будучи людьми, а не комп'ютерними програмами, можуть легко розпізнати.
+Іноді, наприклад приклад додаванні на стоірнку нового веб-посилання, вікі може показати вам картинку з кольоровим або спотвореним текстом і запропонувати ввести текст, який ви бачите.
+Так як подібну задачу важко автоматизувати, це дає можливість більшості людей робити свої зміни, в той час як більшість спамерських і вандальних програм не можуть цього зробити.
 
-You will need to have cookies enabled in your browser for this to work.
+На жаль, подібний захист може спричинити незручності для людей із вадами зору. Зараз у нас нема звукової альтернативи для даної перевірки. Будь ласка, зверніться по допомогу до адміністраторів, якщо подібна перевірка заважає вам добросовісно працювати з сайтом.
 
-Hit the 'back' button in your browser to return to the page editor.",
+Натисніть кнопку «Назад» у вашому браузері, щоб повернутися до редагування.',
+	'captcha-addurl-whitelist'   => '#<!-- leave this line exactly as it is --> <pre>
+# Опис синтаксису:
+#  * Все, що починається з символу "#" до кінця рядка, вважається коментарем
+#  * Кожний непорожній рядок вважається фрагментом регулярного виразу відповідної назви вузла в URL
+   #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Vèneto (Vèneto)
@@ -1823,6 +1838,13 @@ $messages['vec'] = array(
 	'captcha-create'             => 'Per crear la pagina te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):',
 	'captchahelp-title'          => "Coss'èlo sto captcha?",
 	'captchahelp-cookies-needed' => 'Te ghè da verghe i cookies abilità sul to browser par proseguir.',
+	'captchahelp-text'           => "Sucéde spesso che i siti web che i acèta messagi publici, come sta wiki, i sia tolti de mira da spammer che dòpara strumenti automatici par inserir colegamenti publicitari verso un gran nùmaro de siti. Anca se i colegamenti insiderài i se pol cavar, se trata comunque de na secadura mìa da póco.
+
+In çerti casi, par esenpio quando se çerca de zontar novi colegamenti web in te na pagina, el software wiki el pol mostrar na imagine con un breve testo colorà e/o distorto, domandàndoghe a l'utente de riscrìvarlo drento na casela fata aposta. Sicome i computer no i xe mìa boni de replicar a la perfezion sta azion, sto mecanismo el ghe consente a (quasi tuti) i utenti reali de conpletar l'inserimento che i volea, inpedéndoghe l'acesso a la magior parte dei spammer e dei altri atachi automatizà.
+
+Sfortunatamente, ste misure de sicureza le pole métar in dificoltà i utenti che gà problemi de vista o quei che dòpara browser testuali o basà su la sintesi vocale. Purtropo al momento no xe disponibile nissun mecanismo alternativo basà su messagio audio; se ste procedure le inpedisse l'inserimento de informazion che se ritien legìtime, se prega de contatar i aministradori del sito e domandarghe assistensa.
+
+Struca el boton \"Indrìo\" del to browser par tornar a la pagina de modifica.",
 	'captcha-addurl-whitelist'   => '  #<!-- no sta modificar in alcun modo sta riga --> <pre>
 # La sintassi la xe la seguente:
 #  * Tuto quel che segue un caràtere "#" el xe un comento, fin a la fine de la riga

@@ -251,6 +251,14 @@ $messages['he'] = array(
 	'fancycaptcha-edit'          => 'כדי לערוך את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
 );
 
+/** Hindi (हिन्दी)
+ * @author Kaustubh
+ */
+$messages['hi'] = array(
+	'fancycaptcha-create' => 'यह पृष्ठ बनाने के लिये, नीचे दिखने वाले अक्षर टेक्स्ट बक्सेमें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
+	'fancycaptcha-edit'   => 'यह पृष्ठ बदलने के लिये, नीचे दिखने वाले अक्षर टेक्स्ट बक्सेमें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
+);
+
 $messages['hr'] = array(
 	'fancycaptcha-addurl' => 'Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama,
 molimo unesite slova koja vidite na slici dolje: ([[Special:Captcha/help|Pomoć]])',

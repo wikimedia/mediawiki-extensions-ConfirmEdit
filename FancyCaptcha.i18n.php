@@ -331,6 +331,14 @@ $messages['jut'] = array(
 ([[Special:Captcha/help|more info]]):',
 );
 
+/** Javanese (Basa Jawa)
+ * @author Meursault2004
+ */
+$messages['jv'] = array(
+	'fancycaptcha-create' => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nggawé kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
+	'fancycaptcha-edit'   => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nyunting kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
+);
+
 /* Kazakh Arabic */
 $messages['kk-arab'] = array(
 	'fancycaptcha-addurl' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸك تٷردە «سپام» جاسالۋىنان قورعانۋ ٷشٸن,

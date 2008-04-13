@@ -723,6 +723,11 @@ $messages['hi'] = array(
 	'captcha-create'             => 'यह पन्ना बनाने के लिये, नीचे दिये हुए आसान राशि का जवाब दिये हुए टेक्स्टबॉक्समें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
 	'captchahelp-title'          => 'कॅप्टचा सहायता',
 	'captchahelp-cookies-needed' => 'यह कार्य करने के लिये आपने कूकीज (cookies) एनेबल किया होना आवश्यक हैं।',
+	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
+# इसकी रुपरेषा इस प्रकार हैं:
+#  * "#" से शुरु होनेवाली सभी लाईनें टिप्पणीयाँ हैं।
+#  * हर अन्य लाईन regex fragment हैं जो सिर्फ URL के होस्टस्‌ को जोडता हैं
+   #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Croatian (Hrvatski)

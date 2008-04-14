@@ -947,8 +947,12 @@ Tryk på 'tilbage'-knappen i din browser for at returnere til redigeringssiden."
  * @author Meursault2004
  */
 $messages['jv'] = array(
-	'captcha-edit' => 'Kanggo nyunting kaca iki, mangga pecahna tambah-tambahan ing ngisor iki lan lebokna wangsulané ing kothak cedaké ([[Special:Captcha/help|info sabanjuré]]):',
-	'captcha-desc' => 'Implementasi prasaja captcha',
+	'captcha-edit'               => 'Kanggo nyunting kaca iki, mangga pecahna tambah-tambahan ing ngisor iki lan lebokna wangsulané ing kothak cedaké ([[Special:Captcha/help|info sabanjuré]]):',
+	'captcha-desc'               => 'Implementasi prasaja captcha',
+	'captcha-createaccount-fail' => 'Kode pandhedhesan (konfirmasi) salah utawa durung diisi.',
+	'captcha-create'             => 'Kanggo nggawé kaca iki, mangga itung-itungan ing ngisor iki diwangsuli sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):',
+	'captchahelp-title'          => 'Pitulung Captcha',
+	'captchahelp-cookies-needed' => 'Panjenengan perlu ngaktifaké cookie ing panjlajah wèb panjenengan kanggo nganggo fitur iki.',
 );
 
 $messages['kk-arab'] = array(

@@ -949,10 +949,22 @@ Tryk på 'tilbage'-knappen i din browser for at returnere til redigeringssiden."
 $messages['jv'] = array(
 	'captcha-edit'               => 'Kanggo nyunting kaca iki, mangga pecahna tambah-tambahan ing ngisor iki lan lebokna wangsulané ing kothak cedaké ([[Special:Captcha/help|info sabanjuré]]):',
 	'captcha-desc'               => 'Implementasi prasaja captcha',
+	'captcha-addurl'             => "Suntingan panjenengan iku nyertakaké pranala jaba anyar.
+Kanggo ngéwangi ngreksa lawan ''spam'' otomatis, tulung pecahna itung-itungan ing ngisor iki lan lebokna kasilna sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):",
+	'captcha-badlogin'           => 'Kanggo ngreksa lawan parengkahan kunci sandhi otomatis, tulung lebokna tembung utawa kasil itung-itungan gampang ing ngisor sajroning kothak sing wis sumedya ([[Special:Captcha/help|info sabanjuré]]):',
+	'captcha-createaccount'      => 'Kanggo ngreksa lawan panggawéyan rékening (akun) otomatis, tulung pecahna itung-itungan ing ngisor iki lan lebokna kasilna sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):',
 	'captcha-createaccount-fail' => 'Kode pandhedhesan (konfirmasi) salah utawa durung diisi.',
 	'captcha-create'             => 'Kanggo nggawé kaca iki, mangga itung-itungan ing ngisor iki diwangsuli sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):',
 	'captchahelp-title'          => 'Pitulung Captcha',
 	'captchahelp-cookies-needed' => 'Panjenengan perlu ngaktifaké cookie ing panjlajah wèb panjenengan kanggo nganggo fitur iki.',
+	'captchahelp-text'           => "Situs-situs wèb sing nampa masukan data saka umum, kaya ta wiki iki, kerep disalahgunakaké déning panganggo-panganggo sing ora bertanggungjawab kanggo ngirimaké ''spam'' mawa program-program otomatis. Senadyan spam-spam iku bisa dibuang kabèh, nanging waé tetep ngrusuhi lan dianggep gawé masalah.
+
+Kadhangkala, utamané yèn mènèhi pranala wèb anyar ing sawijinig kaca, wiki iki bisa nuduhaké gambar sawijining gambar tulisan sing ana wernané utawa sing rusak lan njaluk panjenengan ngetik ulang tembung sing ana gambar iki.
+Amerga pagawéyan iki angèl diotomatisasi, pawatesan iki bisa ngidinaké mèh kabèh wong asli mbanjuraké sumbangsihé ngirim suntingan nanging menggak para pangirim spam lan robot otomatis.
+
+Émané, perkara iki bisa nggawé sawetara panganggo kangélan nyunting kaca iki, utamané sing daya pandelengané kurang utawa para panganggo sing nganggo panjlajah tèks adhedhasar tèks utawa swara. Saiki iki awaké dhéwé ora duwé alternatif audio kanggo iki. Mangga nyuwun pitulung karo para pangurus yèn perkara iki menggak panjenengan ngirimaké suntingan sing layak.
+
+Pencèten tombol 'back' ing panjlajah wèb panjenengan kanggo bali menyang kaca panyuntingan.",
 );
 
 $messages['kk-arab'] = array(
@@ -1413,10 +1425,10 @@ Niestety, może być to niewygodne dla użytkowników z wadą wzroku lub używaj
 Obecnie nie mamy alternatywnego rozwiązania audio.
 Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać uprawnionych edycji.
 
-Wciśnij przycisk "wstecz" w swojej przeglądarce by powrócić do edycji strony.',
+Wciśnij przycisk „wstecz” w przeglądarce by powrócić do edycji strony.',
 	'captcha-addurl-whitelist'   => '  #<!-- nie modyfikuj tej linii --> <pre>
 # Składnia jest następująca:
-#   * Linie zaczynające się od znaku "#" są komentarzami
+#   * Linie zaczynające się od znaku „#” są komentarzami
 #   * Każda linia, która nie jest pusta, jest wyrażeniem regularnym, które ma pasować do adresu serwera (fragmentu URL)
   #</pre> <!-- nie modyfikuj tej linii -->',
 );

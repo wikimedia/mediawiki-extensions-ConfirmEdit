@@ -489,11 +489,11 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'fancycaptcha-addurl'        => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu'apareisson dins la boita çaijós ([[Special:Captcha/help|mai d’informacions]]) :",
-	'fancycaptcha-badlogin'      => 'Per ajudar a vos protegir contra lo piratatge de compte per senhals automatics, mercés d’entrar los mots que s’afichan dins aquesta boita ([[Special:Captcha/help|Ajuda]]) :',
-	'fancycaptcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, entratz los mots çaijós dins la boita ([[Special:Captcha/help|mai d’informacions]]) :',
-	'fancycaptcha-create'        => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu'apareisson dins la boita çaijós ([[Special:Captcha/help|mai d’informacions]]) :",
-	'fancycaptcha-edit'          => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, entratz los mots qu'apareisson dins la boita çaijós ([[Special:Captcha/help|mai d’informacions]]) :",
+	'fancycaptcha-addurl'        => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agisson pas de spams automatics, epicatz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",
+	'fancycaptcha-badlogin'      => 'Per ajudar a vos protegir contra lo piratatge de compte per de senhals automatics, mercés de picar los mots que s’afichan dins aquesta bóstia ([[Special:Captcha/help|Ajuda]]) :',
+	'fancycaptcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, picatz los mots çaijós dins la bóstia ([[Special:Captcha/help|mai d’entresenhas]]) :',
+	'fancycaptcha-create'        => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agisson pas de spams automatics, picatz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",
+	'fancycaptcha-edit'          => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, picatz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",
 );
 
 $messages['pl'] = array(

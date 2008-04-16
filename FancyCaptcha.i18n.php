@@ -339,8 +339,11 @@ $messages['jut'] = array(
  * @author Meursault2004
  */
 $messages['jv'] = array(
-	'fancycaptcha-create' => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nggawé kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
-	'fancycaptcha-edit'   => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nyunting kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
+	'fancycaptcha-addurl'        => 'Suntingan panjenengan iku ngandhut pranala jaba anyar. Kanggo pangreksan marang spam otomatis, mangga lebokna tembung sing kapacak ing ngisor iki ing kothak sing wis cumepak ([[Special:Captcha/help|info jangkep]]):',
+	'fancycaptcha-badlogin'      => 'Kanggo ngréwangi pangreksan marang parengkahan kunci sandhi otomatis, mangga lebokna tembung sing kapacak ing ngisor iki ing kothak sing wis cumepak ([[Special:Captcha/help|info jangkep]]):',
+	'fancycaptcha-createaccount' => 'Minangka pangreksan marang rékening (akun) sing digawé otomatis, tulung lebokna tembung sing kapacak ing ngisor iki ing kothak sing wis cumepak ([[Special:Captcha/help|info jangkep]]):',
+	'fancycaptcha-create'        => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nggawé kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
+	'fancycaptcha-edit'          => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nyunting kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
 );
 
 /* Kazakh Arabic */

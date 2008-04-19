@@ -496,12 +496,15 @@ $messages['oc'] = array(
 	'fancycaptcha-edit'          => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, picatz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",
 );
 
+/** Polish (Polski)
+ * @author Sp5uhe
+ */
 $messages['pl'] = array(
-	'fancycaptcha-addurl' => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
-	'fancycaptcha-badlogin' => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
-	'fancycaptcha-createaccount' => 'Ze względu na ochronę przed automatycznym [[wikipedia:pl:spam|spamem]], aby zarejestrować się musisz wpisać słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
-	'fancycaptcha-create' => 'Aby utworzyć tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
-	'fancycaptcha-edit' => 'Aby edytować tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|wyjaśnienie]]):',
+	'fancycaptcha-addurl'        => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
+	'fancycaptcha-badlogin'      => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
+	'fancycaptcha-createaccount' => 'Ze względu na ochronę przed automatycznym spamem, aby się zarejestrować musisz wpisać słowo, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]])',
+	'fancycaptcha-create'        => 'Aby utworzyć tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
+	'fancycaptcha-edit'          => 'Aby edytować tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 );
 
 /** Piemontèis (Piemontèis)

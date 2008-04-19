@@ -435,6 +435,17 @@ $messages['eo'] = array(
 kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 	'captcha-createaccount-fail' => 'Nekorekta aŭ mankanta konfirmkodo.',
 	'captchahelp-title'          => 'Helpo por Captcha',
+	'captchahelp-text'           => "Retejoj kiuj akcepti informon de publiko, kiel ĉi tiu vikio, estas ofte misuzitaj de spamistoj kiu uzas aŭtomatajn ilojn por sendi ligilojn al multaj retejoj.
+Kvankam ĉi tiu spam-ligiloj povas esti forigitaj, ili estas ĝeno.
+
+Iufoje, ja kiam aldonante novajn retligilojn al paĝo, la vikio eble montros al vi bildon de bunta aŭ misformita teksto, kaj petos al vi tajpi la vortojn montratajn.
+Tial ĉi tiu tasko estas malfacila por fari per roboto, elbigos al pliparto da homoj fari aldonaĵojn, kaj malebligos spamistojn kaj aliaj robotaj atakantoj.
+
+Bedaŭrinde, ĉi tio eble ĝenetos uzantojn kun malbona vidkapablo kiu utiligas tekstajn aŭ voĉajn retumilojn.
+Ĉi-momente, neniu aŭda alternativo estas havebla.
+Bonvolu kontakti la administrantojn de la retejo por helpo se ĉi tio malebligas al vi fari bonan aldonon.
+
+Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 );
 
 /** Spanish (Español)
@@ -516,6 +527,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'captcha-edit'               => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-desc'               => 'Yksinkertainen ihmisvarmennustoteutus.',
 	'captcha-addurl'             => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-badlogin'           => 'Salasananmurtajasovellusten takia, ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-createaccount'      => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
@@ -1410,18 +1422,19 @@ Timid me ing 'back' button king kekang browser bang mibalik ketang panaliling bu
 /** Polish (Polski)
  * @author Sp5uhe
  * @author Derbeth
+ * @author Leinad
  */
 $messages['pl'] = array(
-	'captcha-edit'               => 'By edytować tą stronę, rozwiąż proste działanie matematyczne i wstaw wynik do pola obok ([[Special:Captcha/help|pomoc]]):',
+	'captcha-edit'               => 'Aby edytować tę stronę musisz rozwiązać proste działanie matematyczne poniżej i wpisać wynik do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 	'captcha-desc'               => 'Proste zabezpieczenie przed automatami',
-	'captcha-addurl'             => 'Dodałeś nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem musisz wykonać proste działanie matematyczne i wpisać wynik w pole obok ([[Special:Captcha/help|więcej informacji]]):',
-	'captcha-badlogin'           => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o rozwiązanie tego prostego zadania i wpisanie odwiedzi w pole obok ([[Special:Captcha/help|więcej informacji]])',
-	'captcha-createaccount'      => 'Ze względu na ochronę przed automatycznym [[wikipedia:pl:spam|spamem]], aby się zarejestrować musisz wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|wyjaśnienie]]):',
-	'captcha-createaccount-fail' => 'Niepoprawny kod lub brak kodu potwierdzajacego.',
-	'captcha-create'             => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|więcej informacji]]):',
+	'captcha-addurl'             => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem musisz wykonać proste działanie matematyczne i wpisać wynik w pole obok ([[Special:Captcha/help|pomoc]]):',
+	'captcha-badlogin'           => 'Zabezpieczenie przed automatycznym łamaniem haseł. Proszę wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]).',
+	'captcha-createaccount'      => 'Zabezpieczenie przed automatycznie dodawanym spamem. Proszę wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]).',
+	'captcha-createaccount-fail' => 'Nieprawidłowy kod lub brak kodu potwierdzającego.',
+	'captcha-create'             => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|pomoc]]):',
 	'captchahelp-title'          => 'Pomoc dla ochrony antyspamowej',
 	'captchahelp-cookies-needed' => 'Musisz mieć włączone w przeglądarce ciasteczka (cookies), aby ta opcja działała.',
-	'captchahelp-text'           => 'Strony internetowe akceptujące edycje dokonywane przez każdego, jak ta wiki, są często atakowane przez spamerów, którzy używają automatycznych narzędzi, by dodawać linki prowadzące do ich stron.
+	'captchahelp-text'           => 'Strony internetowe akceptujące edycje dokonywane przez każdego, tak jak ta wiki, są często atakowane przez spamerów, którzy używają automatycznych narzędzi, aby dodawać linki prowadzące do ich stron.
 Chociaż te linki mogą być usunięte, jest to uciążliwe.
 
 Czasami, zwłaszcza przy dodawaniu nowych linków do strony albo przy rejestracji, wiki może pokazać obrazek z kolorowym lub zniekształconym tekstem i poprosić Cię o przepisanie zamieszczonego na nim wyrazu.

@@ -977,6 +977,11 @@ Amerga pagawéyan iki angèl diotomatisasi, pawatesan iki bisa ngidinaké mèh k
 Émané, perkara iki bisa nggawé sawetara panganggo kangélan nyunting kaca iki, utamané sing daya pandelengané kurang utawa para panganggo sing nganggo panjlajah tèks adhedhasar tèks utawa swara. Saiki iki awaké dhéwé ora duwé alternatif audio kanggo iki. Mangga nyuwun pitulung karo para pangurus yèn perkara iki menggak panjenengan ngirimaké suntingan sing layak.
 
 Pencèten tombol 'back' ing panjlajah wèb panjenengan kanggo bali menyang kaca panyuntingan.",
+	'captcha-addurl-whitelist'   => '  #<!-- leave this line exactly as it is --> <pre>
+# Sintaksisé kaya mengkéné:
+#  * Kabèh sing diawali mawa karakter "#" nganti pungkasané baris iku komentar
+#  * Kabèh garis sing ora kosong iku fragmèn regex sing namung cocog karo jeneng host sajroning URL
+  #</pre> <!-- leave this line exactly as it is -->',
 );
 
 $messages['kk-arab'] = array(
@@ -1068,9 +1073,11 @@ $messages['km'] = array(
 
 /** Korean (한국어)
  * @author Klutzy
+ * @author Siebrand
+ * @author ToePeu
  */
 $messages['ko'] = array(
-	'captcha-edit'               => '글을 편집하기 위해서는, 아래의 간단한 계산 값을 입력상자에 적어 주세요([[Special:Captcha/help|자세한 정보]]):',
+	'captcha-edit'               => '글을 편집하기 위해서는, 아래의 간단한 덧셈 값을 입력상자에 적어 주세요([[Special:Captcha/help|자세한 정보]]):',
 	'captcha-addurl'             => '편집 내용에 다른 웹 사이트 링크가 포함되어 있습니다. 자동 스팸을 막기 위해, 아래의 간단한 계산 값을 입력상자에 적어 주세요([[Special:Captcha/help|자세한 정보]]):',
 	'captcha-badlogin'           => '계정 암호 해킹을 막기 위해, 아래의 간단한 계산 값을 입력상자에 적어 주세요([[Special:Captcha/help|자세한 정보]]):',
 	'captcha-createaccount'      => '자동 가입을 막기 위해, 아래 문제의 답을 적어야만 가입이 가능합니다([[Special:Captcha/help|관련 도움말]]):',
@@ -1688,7 +1695,7 @@ Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e
  * @author Siebrand
  */
 $messages['stq'] = array(
-	'captcha-edit'               => 'Tou Beoarbaidenge fon ju Siede löös ätterfoulgjende Reekenapgoawe un dräch dät Resultoat in dät Fäild hierunner ien [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
+	'captcha-edit'               => 'Tou Beoarbaidenge fon ju Siede löös ätterfoulgjende Reekenapgoawe un dräch dät Resultoat in dät Fäild hierunner ien ([[Special:Captcha/help|(Froagen of Probleme?]]):',
 	'captcha-addurl'             => 'Dien Beoarbaidenge änthaalt näie externe Ferbiendengen. Toun Schuts foar automatisierde Spammenge löös ju ätterfoulgjende Reekenapgoawe un dräch dät Resultoat in dät Fäild hierunner ien. Klik dan fonnäien ap „Siede spiekerje“ [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
 	'captcha-badlogin'           => 'Toun Schuts foar ne Kompromittierenge fon dien Benutserkonto löös ju ätterfoulgjende Reekenapgoawe un dräch dät Resultoat in dät Fäild hierunner ien [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]]:',
 	'captcha-createaccount'      => 'Toun Schuts foar automatisierden Anloage fon Benutserkonten löös ju ätterfoulgjende Reekenapgoawe un dräch dät Resultoat in dät Fäild hierunner ien [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',

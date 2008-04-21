@@ -389,6 +389,14 @@ tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/h
 tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 );
 
+/** Korean (한국어)
+ * @author ToePeu
+ */
+$messages['ko'] = array(
+	'fancycaptcha-addurl' => '편집이 새로운 외부 링크를 포함하고 있습니다.
+자동화된 스팸을 막기 위해 아래 상자의 단어를 적어주세요. ([[Special:Captcha/help|더 많은 정보]])',
+);
+
 $messages['la'] = array(
 	'fancycaptcha-addurl' => 'Emendatione tua insunt nexus externi; ut spam automaticum vitemus, necesse est tibi in capsam inscribere verba quae sub capsa monstrantur ([[Special:Captcha/help|Quidst illud?]]):',
 	'fancycaptcha-badlogin' => 'Ut vitemus ne tesserae frangantur, necesse est tibi in capsam inscribere verba quae sub capsa monstrantur ([[Special:Captcha/help|Quidst illud?]]):',

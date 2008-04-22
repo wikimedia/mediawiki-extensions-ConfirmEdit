@@ -1434,7 +1434,7 @@ Timid me ing 'back' button king kekang browser bang mibalik ketang panaliling bu
 $messages['pl'] = array(
 	'captcha-edit'               => 'Aby edytować tę stronę musisz rozwiązać proste działanie matematyczne poniżej i wpisać wynik do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 	'captcha-desc'               => 'Proste zabezpieczenie przed automatami',
-	'captcha-addurl'             => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem musisz wykonać proste działanie matematyczne i wpisać wynik w pole obok ([[Special:Captcha/help|pomoc]]):',
+	'captcha-addurl'             => 'Dodałeś nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem musisz wykonać proste działanie matematyczne i wpisać wynik w pole obok ([[Special:Captcha/help|więcej informacji]]):',
 	'captcha-badlogin'           => 'Zabezpieczenie przed automatycznym łamaniem haseł. Proszę wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]).',
 	'captcha-createaccount'      => 'Zabezpieczenie przed automatycznie dodawanym spamem. Proszę wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]).',
 	'captcha-createaccount-fail' => 'Nieprawidłowy kod lub brak kodu potwierdzającego.',

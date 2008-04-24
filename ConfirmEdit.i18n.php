@@ -452,6 +452,7 @@ Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 
 /** Spanish (Español)
  * @author Icvav
+ * @author Jatrobat
  */
 $messages['es'] = array(
 	'captcha-edit'               => 'Para editar este artículo, por favor resuelve la sencilla suma que aparece abajo e introduce la solución en la caja ([[Special:Captcha/help|más información]]):',
@@ -755,6 +756,7 @@ $messages['hi'] = array(
 #  * "#" से शुरु होनेवाली सभी लाईनें टिप्पणीयाँ हैं।
 #  * हर अन्य लाईन regex fragment हैं जो सिर्फ URL के होस्टस्‌ को जोडता हैं
    #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => 'Captcha में जाये बिना Captcha का इस्तेमाल करने के लिये मजबूर करें',
 );
 
 /** Croatian (Hrvatski)
@@ -997,6 +999,7 @@ Pencèten tombol 'back' ing panjlajah wèb panjenengan kanggo bali menyang kaca 
 #  * Kabèh sing diawali mawa karakter "#" nganti pungkasané baris iku komentar
 #  * Kabèh garis sing ora kosong iku fragmèn regex sing namung cocog karo jeneng host sajroning URL
   #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => 'Nglakokaké aksi-aksi sing murupaké captcha tanpa kudu ngliwati captcha',
 );
 
 $messages['kk-arab'] = array(
@@ -1201,13 +1204,14 @@ $messages['lt'] = array(
 
 /** Latvian (Latviešu)
  * @author BrokenArrow
+ * @author Yyy
  */
 $messages['lv'] = array(
-	'captcha-edit'               => 'Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
+	'captcha-edit'               => 'Lai izmainītu šo lapu, atrisini šo vienādojumu un iegūto skaitli ieraksti šajā lodziņā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
 	'captcha-addurl'             => 'Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
 	'captcha-createaccount'      => 'Lai pasargātos no automātiskas mēstuļošanas, Tev reģistrējoties ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
 	'captcha-createaccount-fail' => 'Nepareizs apstiprinājuma kods vai arī tas nav ievadīts.',
-	'captcha-create'             => 'Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta vārds, kas redzams šajā attēlā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
+	'captcha-create'             => 'Lai izveidotu šo lapu, atrisini šo vienādojumu un rezulātu ieraksti šajā lodziņā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
 	'captchahelp-text'           => "Interneta lapas, kurās iespējams pievienot tekstu, kā šajā wiki, bieži cieš no mēstuļotājiem, kuri izmanto automatizētus līdzekļus, lai pievienotu savus saites daudzās jo daudzās interneta lapās. Kaut arī šīs saites var viegli dzēst, tomēr tās ir nozīmīgs traucēklis. Reizēm, jo īpaši pievienojot jaunas interneta saites, wiki programmatūra var parādīt Tev attēlu, kurā ir krāsains vai sagrozīts teksts. Šis teksts ir jāpārraksta un to ir ļoti grūti izdarīt automātiski, tā apgrūtinot lielāko daļu mēstuļotāju, savukārt gandrīz visi parastie lietotāji to var izdarīt bez grūtībām. Diemžēl tas var apgrūtināt lietotājus, kuriem ir redzes traucējumi vai kuri izmanto teksta pārlūkus vai dzirdes pārlūkus. Šobrīd nav pieejama audio alternatīva, bet sazinies ar wiki administratoriem, ja tas liedz Tev veikt labi domātus papildinājumus. Spied pārlūka pogu \"Atpakaļ\" (''Back''), lai atgrieztos iepriekšējā lapā.",
 );
 
@@ -1261,6 +1265,7 @@ $messages['mr'] = array(
 #  * "#" ने सुरु होणारे व ओळीच्या शेवटपर्यंत जाणारे वाक्य सूचना (Comment) आहे.
 #  * प्रत्येक रिकामी नसलेली ओळ ही regex fragment आहे जी फक्त URLमधील होस्टसच्या जोड्या लावेल
   #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => 'कॅपचा मध्ये न जाता कॅपचाचा वापर करणार्‍या क्रिया करा',
 );
 
 $messages['nan'] = array(
@@ -1397,6 +1402,7 @@ Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.',
 #  * Alle linjer som begynner med «#» er kommentarer
 #  * Alle linjer som ikke er blanke er fragmenter av regulære uttrykk som sjekker verter i URL-er
   #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => 'Utføre handlinger som normalt krever «captcha»-bekreftelse uten å bruke «captcha»',
 );
 
 /** Occitan (Occitan)
@@ -1515,6 +1521,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author Malafaya
+ * @author Siebrand
  * @author 555
  */
 $messages['pt'] = array(
@@ -1540,6 +1547,7 @@ Pressione o botão 'voltar' de seu navegador para retornar à página de ediçã
 #  * Tudo desde o caracter "#" até ao fim da linha é um comentário
 #  * Qualquer linha não vazia é um fragmento de regex que irá apenas verificar o servidor anfitrião dentro das URLs
   #</pre> <!-- deixe este linha exactamente como está -->',
+	'right-skipcaptcha'          => 'Executar acções despoletadoras de captcha sem ter que passar pelo captcha',
 );
 
 /** Romanian (Română)
@@ -1594,6 +1602,7 @@ $messages['ru'] = array(
 #  * Всё, начиная с символа "#" и до конца строки считается комментарием
 #  * Каждая непустая строка считается фрагментом регулярного выражения соответствующего имени узла в URL
   #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => 'выполнение требующих CAPTCHA-проверки действий без прохождения CAPTCHA',
 );
 
 /** Yakut (Саха тыла)
@@ -1754,6 +1763,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 );
 
 /** Swedish (Svenska)
+ * @author M.M.S.
  * @author Lejonel
  */
 $messages['sv'] = array(
@@ -1789,6 +1799,7 @@ Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeri
 #   * Allting från ett "#" till slutet av en rad är en kommentar
 #   * Varje icketom rad är ett reguljärt uttryck som matchar domänen i en URL
  #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => 'Utför handlingar som normalt kräver "captcha"-bekräftning utan att använda "captcha"',
 );
 
 /** Telugu (తెలుగు)

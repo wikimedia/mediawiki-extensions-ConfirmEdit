@@ -35,7 +35,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 #   * Every non-blank line is a regex fragment which will only match hosts inside URLs
  #</pre> <!-- leave this line exactly as it is -->',
 
-	'right-skipcaptcha'          'Perform captcha triggering actions without having to go through the captcha',
+	'right-skipcaptcha'          => 'Perform captcha triggering actions without having to go through the captcha',
 );
 
 /** Afrikaans (Afrikaans)

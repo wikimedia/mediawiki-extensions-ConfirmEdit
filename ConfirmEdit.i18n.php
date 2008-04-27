@@ -124,6 +124,7 @@ $messages['ar'] = array(
 #  * كل شيء من علامة "#" لنهاية السطر تعليق
 #  * كل سطر غير فارغ هو جزء تعبير نمطي والذي سوف يطابق فقط المضيفين داخل العناوين
   #</pre> <!-- اترك هذا السطر تمامًا كما هو -->',
+	'right-skipcaptcha'          => 'أداء أفعال تستوجب تنفيذ كابتشا دون المرور بها',
 );
 
 /** Asturian (Asturianu)
@@ -561,9 +562,10 @@ $messages['fo'] = array(
 
 /** French (Français)
  * @author Urhixidur
+ * @author Grondin
  * @author Sherbrooke
  * @author Meithal
- * @author Grondin
+ * @author Siebrand
  */
 $messages['fr'] = array(
 	'captcha-edit'               => 'Pour modifier cette page, vous être prié d’effectuer le calcul ci-dessous et d’en inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d’infos]]) :',
@@ -587,6 +589,7 @@ Cliquez sur le bouton « Précédent » de votre navigateur pour revenir sur la 
 #   * Tout caractère suivant « # » jusqu'à la fin de la ligne sera interprêté comme un commentaire
 #   * Toute ligne non vide est un code regex qui sera utilisé uniquement à l'intérieur des liens hypertextes.
   #</pre> <!-- laissez cette ligne exactement telle quelle -->",
+	'right-skipcaptcha'          => "Accomplit le déclenchement des actions de captcha sans devoir passer par l'intermédiaire ce dernier",
 );
 
 /** Franco-Provençal (Arpetan)
@@ -1160,6 +1163,7 @@ Dréckt op den 'Zréck' Knäppchen vun ärem Browser fir an d'Beaarbectungsfëns
 /** Limburgish (Limburgs)
  * @author Matthias
  * @author Ooswesthoesbes
+ * @author Siebrand
  */
 $messages['li'] = array(
 	'captcha-edit'               => "Geer wil dees pazjena bewerke. Veur estebleef 't antjwaord op de óngerstäönde einvawdife som in 't inveurvenster in ([[Special:Captcha/help|mieë informatie]]):",
@@ -1183,6 +1187,7 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
 #  * Alle tekst vanaaf \'t karakter "#" tot het einde van de regels wordt gezien als opmerking
 #  * Iedere niet-lege regel is een fragment van een reguliere uitdrukking die alleen van toepassing is op hosts binnen URL\'s
   #</pre> <!-- laot deze regel -->',
+	'right-skipcaptcha'          => 'Captchahandelinge oetveure zonder captcha te hove oplosse',
 );
 
 $messages['lo'] = array(
@@ -1345,6 +1350,7 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
 #   * Alle tekst vanaf het karakter "#" tot het einde van de regels wordt gezien als opmerking
 #   * Iedere niet-lege regel is een fragment van een reguliere uitdrukking die alleen van toepassing is op hosts binnen URL\'s
  #</pre> <!-- laat deze regel zoals hij is -->',
+	'right-skipcaptcha'          => 'Captchahandelingen uitvoeren zonder captcha te hoeven oplossen',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -1453,7 +1459,7 @@ Timid me ing 'back' button king kekang browser bang mibalik ketang panaliling bu
  * @author Leinad
  */
 $messages['pl'] = array(
-	'captcha-edit'               => 'Aby edytować tę stronę musisz rozwiązać proste działanie matematyczne poniżej i wpisać wynik do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
+	'captcha-edit'               => 'Możesz edytować tę stronę, jednak najpierw musisz rozwiązać poniższe proste działanie matematyczne i wpisać wynik do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 	'captcha-desc'               => 'Proste zabezpieczenie przed automatami',
 	'captcha-addurl'             => 'Dodałeś nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem musisz wykonać proste działanie matematyczne i wpisać wynik w pole obok ([[Special:Captcha/help|więcej informacji]]):',
 	'captcha-badlogin'           => 'Zabezpieczenie przed automatycznym łamaniem haseł. Proszę wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]).',
@@ -1479,6 +1485,7 @@ Wciśnij przycisk „wstecz” w przeglądarce by powrócić do edycji strony.',
 #   * Linie zaczynające się od znaku „#” są komentarzami
 #   * Każda linia, która nie jest pusta, jest wyrażeniem regularnym, które ma pasować do adresu serwera (fragmentu URL)
   #</pre> <!-- nie modyfikuj tej linii -->',
+	'right-skipcaptcha'          => 'Dostęp do czynności zabezpieczonych pytaniem o treść obrazka lub rozwiązanie zadania, z pominięciem zabezpieczenia',
 );
 
 /** Piemontèis (Piemontèis)
@@ -1674,6 +1681,7 @@ Stlačením tlačidla „späť“ vo vašom prehliadači sa vrátite do editora
 #   * Všetko od znaku „#“ do konca riadka je komentár
 #   * Každý neprázdny riadok je fragment regulárneho výrazu, ktorého zhody budú iba stroje v rámci URL
   #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => 'Vykonávať činnosti spúšťajúce captcha bez toho, aby bolo potrebné vyriešiť captcha',
 );
 
 /** Slovenian (Slovenščina)

@@ -395,6 +395,7 @@ $messages['de'] = array(
 #   * Alles von einem #-Zeichen bis zum Ende der Zeile ist ein Kommentar
 #   * Jeder nicht-leere Zeile ist ein Regex-Fragment, das gegenüber den Hostnamen einer URL geprüft wird
  #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => 'Überspringen der Captcha-Eingabe',
 );
 
 /** German - formal address (Deutsch - förmliche Anrede)

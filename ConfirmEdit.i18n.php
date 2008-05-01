@@ -70,6 +70,7 @@ $messages['am'] = array(
 
 /** Aragonese (Aragonés)
  * @author Juanpabl
+ * @author Siebrand
  */
 $messages['an'] = array(
 	'captcha-edit'               => 'Ta editar ista pachina, faiga por fabor a suma simpla que apareixe contino y escriba a soluzión en a caixa ([[Special:Captcha/help|más informazión]]):',
@@ -93,6 +94,7 @@ Punche o botón 'entazaga' d'o suyo nabegador ta tornar t'o editor de pachinas."
 #  * Tot o que bi ha dende un caráuter \"#\" dica a fin d'a linia ye un comentario
 #  * Cualsiquier linia con testo un troz d'expresión regular (regex) que sólo concordará con os hosts aintro d'URLs
    #</pre> <!-- leave this line exactly as it is -->",
+	'right-skipcaptcha'          => 'Fer aizions que requieren o captcha sin fer serbir o captcha',
 );
 
 /** Arabic (العربية)
@@ -310,7 +312,9 @@ Buóh diōng kó̤ piĕng-cĭk hiĕk-miêng, áik \"diōng kó̤ sèng 1 hiĕk\"
 
 /** Czech (Česky)
  * @author Li-sung
+ * @author Danny B.
  * @author Matěj Grabovský
+ * @author Siebrand
  */
 $messages['cs'] = array(
 	'captcha-edit'               => 'Abyste mohli editovat tuto stránku, musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
@@ -334,6 +338,7 @@ Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko
 #  * Všechno od zaku „#“ do konce řádku je komentář
 #  * Každý neprázdný řádek je fragment regulárního výrazu, kterého shody budou pouze stroje v rámci URL
   #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => 'Vykonávání akcí spojených s CAPTCHA bez nutnosti jejího řešení',
 );
 
 /** Welsh (Cymraeg)
@@ -1435,6 +1440,7 @@ Malurosament, aqueste sistèma es pas adaptat a d'utilizaires mal-vesents o util
 
 Clicatz sul boton 'precedent' de vòstre navigaire per tornar a l'editor.",
 	'captcha-addurl-whitelist'   => '#<!-- daissatz aquesta linha exactament tala coma es --> <pre> # La sintaxi es la seguenta: # * Tot caractèr seguissent "#" fins a la fin de la linha serà interpretat coma un comentari # * Tota linha non voida es un còde regex que serà utilizat unicament a l\'interior dels ligams hypertext. #</pre> <!-- daissatz aquesta linha exactament tala coma es -->',
+	'right-skipcaptcha'          => "Acomplís lo desenclavament de las accions de captcha sens dever passar per l'intermediari aqueste darrièr",
 );
 
 /** Pampanga (Kapampangan)

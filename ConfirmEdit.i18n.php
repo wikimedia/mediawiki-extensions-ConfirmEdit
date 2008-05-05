@@ -270,6 +270,7 @@ Kliknite 'nazad' ('back') dugme vašeg brauzera da se vratite na polje za unos t
 /** Catalan (Català)
  * @author SMP
  * @author Toniher
+ * @author Siebrand
  */
 $messages['ca'] = array(
 	'captcha-edit'               => 'Per a poder editar aquesta pàgina cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre ([[Special:Captcha/help|més informació]]):',
@@ -294,6 +295,7 @@ Cliqueu el botó de retrocedir del vostre navegador per a tornar al formulari.",
 #  * Totes les línies que comencen amb un # son considerades comentaris
 #  * Tota línia no buida és un fragment d'expressió regular (regexp) que enllaçarà amb els hosts de les URL
   #</pre> <!-- deixeu aquesta línia tal com està -->",
+	'right-skipcaptcha'          => 'Fer les accions que requereixen de captcha sense haver-lo de passar',
 );
 
 $messages['cdo'] = array(
@@ -444,6 +446,7 @@ $messages['eo'] = array(
 kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 	'captcha-createaccount-fail' => 'Nekorekta aŭ mankanta konfirmkodo.',
 	'captchahelp-title'          => 'Helpo por Captcha',
+	'captchahelp-cookies-needed' => 'Vi devas ebligi kuketojn en via retumilo por ĉi tiu funkcii.',
 	'captchahelp-text'           => "Retejoj kiuj akcepti informon de publiko, kiel ĉi tiu vikio, estas ofte misuzitaj de spamistoj kiu uzas aŭtomatajn ilojn por sendi ligilojn al multaj retejoj.
 Kvankam ĉi tiu spam-ligiloj povas esti forigitaj, ili estas ĝeno.
 
@@ -1925,6 +1928,7 @@ $messages['uk'] = array(
 #  * Все, що починається з символу "#" до кінця рядка, вважається коментарем
 #  * Кожний непорожній рядок вважається фрагментом регулярного виразу відповідної назви вузла в URL
    #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => 'Виконання дій, що вимагають CAPTCHA-перевірки, без проходження CAPTCHA',
 );
 
 /** Vèneto (Vèneto)
@@ -1985,6 +1989,7 @@ Nhấn chuột vào nút “Back” của trình duyệt để trở lại trang
 #   * Mọi thứ bắt đầu bằng ký tự “#” là lời chú thích
 #   * Mọi hàng không trắng là một đoạn biểu thức chính quy (regex) sẽ chỉ được so trùng với tên máy chủ trong URL
   #</pre> <!-- xin để dòng này đừng thay đổi -->',
+	'right-skipcaptcha'          => 'Tự động bỏ qua các hình CAPTCHA',
 );
 
 /** Volapük (Volapük)

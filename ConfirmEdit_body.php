@@ -408,7 +408,7 @@ class SimpleCaptcha {
 			//$regex = 'http://+[a-z0-9_\-.]*(' . implode( '|', $lines ) . ')';
 			//return '/' . str_replace( '/', '\/', preg_replace('|\\\*/|', '/', $regex) ) . '/Si';
 			$regexes = '';
-			$regexStart = '/http:\/\/+[a-z0-9_\-.]*(';
+			$regexStart = '/^https?:\/\/+[a-z0-9_\-.]*(';
 			$regexEnd = ')/Si';
 			$regexMax = 4096;
 			$build = false;

@@ -389,6 +389,19 @@ tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/h
 tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author គីមស៊្រុន
+ */
+$messages['km'] = array(
+	'fancycaptcha-addurl'        => 'កំនែប្រែរបស់អ្នកមានតំនភ្ជាប់ខាងក្រៅ។
+
+ដើម្បីការពារពីស្ប៉ាម(spam)ស្វ័យប្រវត្តិ សូមបញ្ជូលពាក្យខាងក្រោមទៅក្នុងប្រអប់ ([[Special:Captcha/help|ពត៌មានបន្ថែម]])៖',
+	'fancycaptcha-badlogin'      => 'ដើម្បីការពារការបំបែកពាក្យសំងាត់ដោយស្វ័យប្រវត្តិ សូមបញ្ជូលពាក្យខាងក្រោមទៅក្នុងប្រអប់ ([[Special:Captcha/help|ពត៌មានបន្ថែម]])៖',
+	'fancycaptcha-createaccount' => 'ដើម្បីការពារការបង្កើតគណនីដោយស្វ័យប្រវត្តិ សូមបញ្ជូលពាក្យខាងក្រោមទៅក្នុងប្រអប់ ([[Special:Captcha/help|ពត៌មានបន្ថែម]])៖',
+	'fancycaptcha-create'        => 'ដើម្បីបង្កើតទំព័រនេះ សូមបញ្ជូលពាក្យខាងក្រោមទៅក្នុងប្រអប់ ([[Special:Captcha/help|ពត៌មានបន្ថែម]])៖',
+	'fancycaptcha-edit'          => 'ដើម្បីកែប្រែទំព័រនេះ សូមបញ្ជូលពាក្យខាងក្រោមទៅក្នុងប្រអប់ ([[Special:Captcha/help|ពត៌មានបន្ថែម]])៖',
+);
+
 /** Korean (한국어)
  * @author ToePeu
  */

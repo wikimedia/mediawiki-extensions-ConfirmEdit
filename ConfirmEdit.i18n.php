@@ -1959,6 +1959,7 @@ Struca el boton \"Indrìo\" del to browser par tornar a la pagina de modifica.",
 #  * Tuto quel che segue un caràtere "#" el xe un comento, fin a la fine de la riga
 #  * Tute le righe mìa vode le xe framenti de espressioni regolari che se àplica al solo nome de l\'host ne le URL
    #</pre> <!-- no sta modificar in alcun modo sta riga -->',
+	'right-skipcaptcha'          => 'Esegui le funsion de triggering del captcha sensa passar par el captcha',
 );
 
 /** Vietnamese (Tiếng Việt)

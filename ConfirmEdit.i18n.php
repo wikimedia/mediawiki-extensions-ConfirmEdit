@@ -1591,7 +1591,7 @@ Va fi nevoie ca browserul folosit să suporte module cookie.',
 );
 
 /** Russian (Русский)
- * @author .:Ajvol:.
+ * @author Александр Сигачёв
  * @author Siebrand
  * @author Kalan
  * @author Ahonc

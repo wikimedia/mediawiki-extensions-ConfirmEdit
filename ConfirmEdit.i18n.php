@@ -442,6 +442,9 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'captcha-desc'               => 'Simpla realigo de Captcha',
+	'captcha-addurl'             => 'Via redakto entenas novajn eksterajn ligilojn.
+Por malhelpi aŭtomatan spamadon, bonvolu solvi la simplan problemon sube kaj entajpu la respondon en la kesto ([[Special:Captcha/help|pli da informo]]):',
 	'captcha-createaccount'      => 'Helpi protekti kontraŭ aŭtomata konto-kreado, bonvolu solvi la simplan sumon suben
 kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 	'captcha-createaccount-fail' => 'Nekorekta aŭ mankanta konfirmkodo.',

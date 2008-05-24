@@ -1437,15 +1437,15 @@ $messages['oc'] = array(
 	'captcha-createaccount-fail' => 'Còde de confirmacion mancant o erronèu.',
 	'captcha-create'             => "Per modificar la pagina, vos cal de resòldre l'operacion çaijós e n'inscriure lo resultat dins lo camp ([[Special:Captcha/help|Mai d'infòs]]) :",
 	'captchahelp-title'          => 'Ajuda suls Captcha',
-	'captchahelp-cookies-needed' => "Vos cal aver los cookies activats dins vòstre navigaire per qu'aquò foncione.",
+	'captchahelp-cookies-needed' => "Vos cal aver los cookies activats dins vòstre navigador per qu'aquò foncione.",
 	'captchahelp-text'           => "Los sits webs que permeton al mai grand nombre de participar, coma aqueste wiki, sovent son atacats per de spammers qu'utilizan d'espleches automatizas per mandar lor ligams sus fòrça sits a l'encòp.
 Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de far.
 
 De còps quand ajustatz de ligams novèls vèrs lo web, lo wiki vos pòt mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d'automatizar, çò que permet de diferenciar un uman real d'un logicial automatic malvolent.
 
-Malurosament, aqueste sistèma es pas adaptat a d'utilizaires mal-vesents o utilizant de navigaires textuals o audiò. Actualament, prepausem pas d'alternativas adaptadas. Se avètz besonh d'ajuda esitetz pas a contactar los administrators del sit. 
+Malurosament, aqueste sistèma es pas adaptat a d'utilizaires mal-vesents o utilizant de navigadors textuals o audio. Actualament, prepausem pas d'alternativas adaptadas. Se avètz besonh d'ajuda esitetz pas a contactar los administrators del sit. 
 
-Clicatz sul boton 'precedent' de vòstre navigaire per tornar a l'editor.",
+Clicatz sul boton 'precedent' de vòstre navigador per tornar a l'editor.",
 	'captcha-addurl-whitelist'   => '#<!-- daissatz aquesta linha exactament tala coma es --> <pre> # La sintaxi es la seguenta: # * Tot caractèr seguissent "#" fins a la fin de la linha serà interpretat coma un comentari # * Tota linha non voida es un còde regex que serà utilizat unicament a l\'interior dels ligams hypertext. #</pre> <!-- daissatz aquesta linha exactament tala coma es -->',
 	'right-skipcaptcha'          => "Acomplís lo desenclavament de las accions de captcha sens dever passar per l'intermediari aqueste darrièr",
 );

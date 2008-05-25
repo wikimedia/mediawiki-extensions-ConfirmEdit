@@ -348,12 +348,23 @@ Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko
  */
 $messages['cy'] = array(
 	'captcha-edit'               => "Er mwyn gallu golygu'r dudalen, gwnewch y swm isod a gosodwch y canlyniad yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+	'captcha-desc'               => 'Gweithredu "captcha" syml',
 	'captcha-addurl'             => 'Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, teipiwch y geiriau canlynol yn y blwch isod os gwelwch yn dda. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])',
+	'captcha-badlogin'           => 'Er mwyn ceisio rhwystro peiriannau datrys cyfrineiriau, byddwch gystal â gwneud y swm isod a gosod yr ateb yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):',
 	'captcha-createaccount'      => "Teipiwch y geiriau sy'n ymddangos yn y ddelwedd isod os gwelwch yn dda. Mae'r nodwedd hon yn rhwystro rhaglenni sbam rhag creu cyfrifon i'w hunain. <br />([[Arbennig:Captcha/help|Mwy o wybodaeth]])",
 	'captcha-createaccount-fail' => "Côd cadarnhau ar goll neu'n anghywir.",
 	'captcha-create'             => "Er mwyn gallu creu'r dudalen, gwnewch y swm isod a gosodwch y canlyniad yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'captchahelp-title'          => 'Cymorth "captcha"',
+	'captchahelp-cookies-needed' => "Er mwyn i hyn weithio mae'n rhaid bod cookies wedi eu galluogi ar eich gwe-lywiwr.",
 	'captchahelp-text'           => "Yn anffodus, mae safleoedd gwe fel Wicipedia, sy'n caniatau i'r cyhoedd ysgrifennu iddi, yn darged beunyddiol i sbamwyr sy'n defnyddio rhaglenni arbennig i bostio eu cysylltiadau. Gellir dileu'r dolenni o'r dudalen, ond mae hyn yn drafferth mawr. O dro i dro, fe fydd y safle hon yn dangos delwedd o destun, ac fe fydd yn rhaid i chi deipio'r geiriau a ddangosir. Mae hyn yn dasg anodd iawn i ragenni cyfrifiadurol, felly dylai golygwyr go iawn gyflawni'r dasg yn di-drafferth, yn wahanol i'r rhaglenni sbam. Mae hyn yn amlwg yn creu trafferthion i'r sawl sydd yn defnyddio porwyr testun neu sydd yn colli eu golwg. Ar hyn o bryd nid oes fersiwn sain ar gael. Cysylltwch â gweinyddwyr y safle os ydi'r nodwedd hon yn eich rhwystro rhag ychwanegu golygiadau dilys. Gwasgwch botwm 'nôl' eich porwr er mwyn dychwelyd.",
+	'captcha-addurl-whitelist'   => '#<!-- leave this line exactly as it is --> <pre>
+#
+# Dyma\'r gystrawen:
+#   * Mae popeth o nod "#" hyd at ddiwedd y llinell yn sylwad
+#   * Mae pob llinell nad yw\'n wag yn ddarn regex sydd ddim ond yn cydweddu 
+#   * gwesteiwyr tu mewn i gyfeiriadau URL
+
+ #</pre> <!-- leave this line exactly as it is -->',
 );
 
 /** Danish (Dansk)

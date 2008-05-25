@@ -119,6 +119,18 @@ $messages['cs'] = array(
 	'fancycaptcha-badlogin' => 'V rámci ochrany před automatickým pokusům uhodnout heslo musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 );
 
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'fancycaptcha-addurl'        => "Mae eich golygiad yn cynnwys cyswllt allanol newydd.
+Er mwyn ceisio rhwystro peiriannau spam, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+	'fancycaptcha-badlogin'      => "Er mwyn ceisio rhwystro peiriannau datrys cyfrineiriau, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+	'fancycaptcha-createaccount' => "Er mwyn ceisio rhwystro peiriannau creu cyfrifon, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+	'fancycaptcha-create'        => "Er mwyn creu'r dudalen, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+	'fancycaptcha-edit'          => "Er mwyn gallu golygu'r dudalen hon, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+);
+
 /* Danish */
 $messages['da'] = array(
 	'fancycaptcha-addurl' => 'Din ændring tilføjer nye eksterne henvisninger. For at beskytte mod automatiseret spam, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',

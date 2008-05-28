@@ -858,33 +858,36 @@ Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséh
 
 /** Indonesian (Bahasa Indonesia)
  * @author Borgx
+ * @author Rex
  * @author IvanLanin
  */
 $messages['id'] = array(
-	'captcha-edit' => 'Untuk menyunting halaman ini, harap pecahkan penjumlahan sederhana di bawah ini dan masukkan jawaban di kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
-	'captcha-desc' => 'Implementasi sederhana captcha',
+	'captcha-edit'               => 'Untuk menyunting halaman ini, harap pecahkan penjumlahan sederhana di bawah ini dan masukkan jawaban di kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+	'captcha-desc'               => 'Implementasi sederhana captcha',
 	'captcha-addurl'             => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
 ([[Special:Captcha/help|info lengkap]])",
 	'captcha-badlogin'           => 'Untuk membantu perlindungan terhadap perengkahan kunci sandi otomatis, tolong masukkan kata atau hasil perhitungan sederhana berikut dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 	'captcha-createaccount'      => 'Sebagai perlindungan melawan spam, Anda diharuskan untuk mengetikkan kata atau hasil perhitungan di bawah ini di kotak yang tersedia untuk dapat mendaftarkan pengguna baru:<br />
 ([[Special:Captcha/help|info lengkap]])',
 	'captcha-createaccount-fail' => 'Kode konfirmasi salah atau belum diisi.',
-	'captcha-create'             => "Suntingan Anda menyertakan pralana luar baru. Sebagai perlindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
-([[Special:Captcha/help|info lengkap]])",
+	'captcha-create'             => 'Untuk menyunting halaman ini, silakan pecahkan penjumlahan sederhana di bawah ini dan masukkan jawaban di kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 	'captchahelp-title'          => 'Mengenai Captcha',
 	'captchahelp-cookies-needed' => 'Anda perlu mengaktifkan cookie pada penjelajah web Anda untuk menggunakan fitur ini.',
-	'captchahelp-text'           => "Situs-situs web yang menerima masukan data dari publik, seperti {{ns:project}} ini, kerapkali disalahgunakan oleh pengguna-pengguna yang tidak bertanggungjawab untuk mengirimkan spam dengan menggunakan program-program otomatis. Walaupun spam-spam tersebut dapat dibuang, tetapi tetap saja menimbulkan gangguan berarti.
+	'captchahelp-text'           => "Situs-situs web yang menerima masukan data dari publik, seperti {{ns:project}} ini, kerapkali disalahgunakan oleh pengguna-pengguna yang tidak bertanggungjawab untuk mengirimkan spam dengan menggunakan program-program otomatis. Walaupun pranala-pranala spam tersebut dapat dibuang, tetapi tetap saja menimbulkan gangguan berarti.
 
-Ketika menambahkan pranala web baru ke suatu halaman, {{ns:project}} akan menampilkan sebuah gambar tulisan yang terdistorsi atau suatu perhitungan sederhana dan meminta Anda untuk mengetikkan kata atau hasil dimaksud. Karena ini merupakan suatu pekerjaan yang sulit diotomatisasi, pembatasan ini akan mengizinkan hampir semua manusia untuk melakukannya, tapi di sisi lain akan menghentikan kebanyakan aksi spam dan penyerangan yang dilakukan oleh bot otomatis.
+Ketika menambahkan pranala web baru ke suatu halaman, kadang-kadang {{ns:project}} akan menampilkan sebuah bentuk gambar dari tulisan yang terdistorsi dan meminta Anda untuk mengetikkan kata yang dimaksud. Karena ini merupakan suatu pekerjaan yang sulit diotomatisasi, pembatasan ini akan dapat dengan mudah dilakukan oleh manusia, sambil di sisi lain dapat menghentikan hampir semua serangan spam dan robot otomatis.
 
-Sayangnya, hal ini dapat menimbulkan kesulitan bagi pengguna dengan keterbatasan penglihatan atau pengguna yang menggunakan penjelajah basis teks atau suara. Saat ini, kami tidak memiliki suatu alternatif suara untuk hal ini. Silakan minta bantuan dari pengurus situs jika hal ini menghambat Anda untuk mengirimkan suntingan yang layak.
+Sayangnya, hal ini dapat menimbulkan kesulitan bagi pengguna dengan keterbatasan penglihatan atau pengguna yang menggunakan penjelajah web berbasis teks atau suara.
+Saat ini, kami belum memiliki suatu alternatif suara untuk hal ini.
+Silakan minta bantuan dari pengurus situs jika hal ini menghambat Anda untuk mengirimkan suntingan yang layak.
 
 Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan.",
-	'captcha-addurl-whitelist' => ' #<!-- biarkan baris ini sebagaimana adanya --> <pre>
-# Sintaksnya adalah sebagai berikut:
+	'captcha-addurl-whitelist'   => '  #<!-- biarkan baris ini sebagaimana adanya --> <pre>
+# Sintaksisnya adalah sebagai berikut:
 #   * Semua yang diawali dengan karakter "#" hingga akhir baris adalah komentar
 #   * Semua baris yang tidak kosong adalah fragmen regex yang hanya akan dicocokkan dengan nama host di dalam URL
- #</pre> <!-- biarkan baris ini sebagaimana adanya -->',
+  #</pre> <!-- biarkan baris ini sebagaimana adanya -->',
+	'right-skipcaptcha'          => 'Melakukan tindakan pemicu captcha tanpa melalui Captcha',
 );
 
 /** Icelandic (Íslenska)
@@ -1191,6 +1194,7 @@ Dréckt op den 'Zréck' Knäppchen vun ärem Browser fir an d'Beaarbectungsfëns
 #  * Alles mat engem #-Zeechen u bis zum Enn vun däer Zeil ass eng Bemierkung
 #  * All Zeil déi net eidel ass, ass ee Regex-Fragment, dat nëmme mat Hosten bannent URLë fonktionéiert
    #</pre> <!-- Dës Linn onverännert loossen -->',
+	'right-skipcaptcha'          => 'Aktiounen déi eng Captcha-Aktioun verlaangen ausféieren, ouni dës maachen ze mussen',
 );
 
 /** Limburgish (Limburgs)

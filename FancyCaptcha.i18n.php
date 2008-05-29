@@ -165,6 +165,14 @@ $messages['el'] = array(
 ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'fancycaptcha-addurl' => 'Via redakto inkluzivas novajn eksterajn ligilojn.
+Por preventi aŭtomatan spamon, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plua informo]]):',
+);
+
 /* Spanish */
 $messages['es'] = array(
 	'fancycaptcha-addurl' => 'Tu edición incluye nuevos enlaces externos. Para protegernos contra el spam automatizado, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
@@ -600,11 +608,14 @@ $messages['sk'] = array(
 	'fancycaptcha-edit' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
 );
 
-/* Albanian */
+/** Albanian (Shqip)
+ * @author Dori
+ */
 $messages['sq'] = array(
 	'fancycaptcha-addurl'        => 'Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])',
-	'fancycaptcha-create'        => 'Për të krijuar një faqe, ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
+	'fancycaptcha-badlogin'      => 'Për tu mbrojtur nga metoda automatike të gjetjes së fjalëkalimeve ju kërkojmë të vendosni fjalët e figurës në kuti ([[Special:Captcha/help|më shumë informacion]]):',
 	'fancycaptcha-createaccount' => 'Për të mbrojtur kundër hapjeve të llogarive në mënyrë automatike ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
+	'fancycaptcha-create'        => 'Për të krijuar një faqe, ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
 	'fancycaptcha-edit'          => 'Për të redaktuar këtë faqe ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
 );
 

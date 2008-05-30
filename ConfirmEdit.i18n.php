@@ -2096,6 +2096,7 @@ $messages['yue'] = array(
 #   * 所有由 "#" 字元之後嘅嘢到行尾係註解
 #   * 所有非空白行係一個regex部份，只係會同裏面嘅URL主機相符
  #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => '執行captcha引發嘅動作時唔需要經過captcha',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
@@ -2122,6 +2123,7 @@ $messages['zh-hans'] = array(
 #   * 所有由 "#" 字元之後嘅字元至行尾是注解
 #   * 所有非空白行是一个regex部份，只是跟在里面的URL主机相符
  #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => '执行captcha引发的动作时不需要经过captcha',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
@@ -2148,5 +2150,6 @@ $messages['zh-hant'] = array(
 #   * 所有由 "#" 字元之後嘅字元至行尾是註解
 #   * 所有非空白行是一個regex部份，只是跟在裏面的URL主機相符
  #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha'          => '執行captcha引發的動作時不需要經過captcha',
 );
 

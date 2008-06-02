@@ -171,6 +171,7 @@ $messages['el'] = array(
 $messages['eo'] = array(
 	'fancycaptcha-addurl' => 'Via redakto inkluzivas novajn eksterajn ligilojn.
 Por preventi aŭtomatan spamon, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plua informo]]):',
+	'fancycaptcha-create' => 'Por krei la paĝon, bonvolu enigi la vortojn montritajn en la jena skatolo ([[Special:Captcha/help|plua informo]]):',
 );
 
 /* Spanish */
@@ -364,6 +365,14 @@ $messages['jv'] = array(
 	'fancycaptcha-createaccount' => 'Minangka pangreksan marang rékening (akun) sing digawé otomatis, tulung lebokna tembung sing kapacak ing ngisor iki ing kothak sing wis cumepak ([[Special:Captcha/help|info jangkep]]):',
 	'fancycaptcha-create'        => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nggawé kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
 	'fancycaptcha-edit'          => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nyunting kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
+);
+
+/** Kara-Kalpak (Qaraqalpaqsha)
+ * @author Atabek
+ */
+$messages['kaa'] = array(
+	'fancycaptcha-createaccount' => "Jan'a akkauntlardın' avtomatik jaratılıwının' aldın alıw ushın, to'mendegi 
+ko'rsetilgen so'zlerdi kiritin'([[{{ns:special}}:Captcha/help|ko'birek mag'lıwmat]]):",
 );
 
 /* Kazakh Arabic */
@@ -630,6 +639,13 @@ $messages['stq'] = array(
 [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
 	'fancycaptcha-edit'          => 'Tou Beoarbaidenge fon disse Siede reek dät foulgjende Woud in dät Fäild hierunner ien
 [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
+);
+
+/** Sundanese (Basa Sunda)
+ * @author Irwangatot
+ */
+$messages['su'] = array(
+	'fancycaptcha-edit' => 'Éditan Anjeun ngeusikeun tumbu kaluar nu anyar. Pikeun panangtayungan ka spam otomatis, mangga asukkeun kecap di handapeun ieu ka kotak anu disadiakeun ([[Special:Captcha/help|salengkeupna]]):',
 );
 
 /* Swedish */

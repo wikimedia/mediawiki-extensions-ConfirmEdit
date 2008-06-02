@@ -455,12 +455,14 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'captcha-edit'               => 'Por redakti ĉi tiun paĝon, bonvolu solvi la simplan sumon jenan kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 	'captcha-desc'               => 'Simpla realigo de Captcha',
 	'captcha-addurl'             => 'Via redakto entenas novajn eksterajn ligilojn.
 Por malhelpi aŭtomatan spamadon, bonvolu solvi la simplan problemon sube kaj entajpu la respondon en la kesto ([[Special:Captcha/help|pli da informo]]):',
 	'captcha-createaccount'      => 'Helpi protekti kontraŭ aŭtomata konto-kreado, bonvolu solvi la simplan sumon suben
 kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 	'captcha-createaccount-fail' => 'Nekorekta aŭ mankanta konfirmkodo.',
+	'captcha-create'             => 'Por krei la paĝon, bonvolu solvi la simplan sumon jenan kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 	'captchahelp-title'          => 'Helpo por Captcha',
 	'captchahelp-cookies-needed' => 'Vi devas ebligi kuketojn en via retumilo por ĉi tiu funkcii.',
 	'captchahelp-text'           => "Retejoj kiuj akcepti informon de publiko, kiel ĉi tiu vikio, estas ofte misuzitaj de spamistoj kiu uzas aŭtomatajn ilojn por sendi ligilojn al multaj retejoj.
@@ -474,6 +476,7 @@ Bedaŭrinde, ĉi tio eble ĝenetos uzantojn kun malbona vidkapablo kiu utiligas 
 Bonvolu kontakti la administrantojn de la retejo por helpo se ĉi tio malebligas al vi fari bonan aldonon.
 
 Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
+	'right-skipcaptcha'          => "Faru ''captcha''-spronantaj agoj sen farante la ''captcha''-on",
 );
 
 /** Spanish (Español)
@@ -1032,6 +1035,13 @@ Pencèten tombol 'back' ing panjlajah wèb panjenengan kanggo bali menyang kaca 
 #  * Kabèh garis sing ora kosong iku fragmèn regex sing namung cocog karo jeneng host sajroning URL
   #</pre> <!-- leave this line exactly as it is -->',
 	'right-skipcaptcha'          => 'Nglakokaké aksi-aksi sing murupaké captcha tanpa kudu ngliwati captcha',
+);
+
+/** Kara-Kalpak (Qaraqalpaqsha)
+ * @author Atabek
+ */
+$messages['kaa'] = array(
+	'captcha-createaccount-fail' => "Tastıyıqlawshı kodın'ız nadurıs yamasa jazılmag'an",
 );
 
 $messages['kk-arab'] = array(
@@ -1596,6 +1606,13 @@ Pressione o botão 'voltar' de seu navegador para retornar à página de ediçã
 	'right-skipcaptcha'          => 'Executar acções despoletadoras de captcha sem ter que passar pelo captcha',
 );
 
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'captchahelp-title' => 'Captcha nisqamanta yanapay',
+);
+
 /** Romanian (Română)
  * @author KlaudiuMihaila
  * @author BrokenArrow
@@ -1796,9 +1813,11 @@ Spietelk genouch kon dät tou Meelasje foar Persoone fiere, do der minner goud s
 
 /** Sundanese (Basa Sunda)
  * @author Kandar
+ * @author Irwangatot
  */
 $messages['su'] = array(
 	'captcha-edit'               => 'Pikeun ngédit artikel ieu, mangga eusian itungan di handap ([[Special:Captcha/help|émbaran lengkep]]):',
+	'captcha-desc'               => 'Implementasi basajan captcha',
 	'captcha-addurl'             => 'Éditan anjeun ngawengku tumbu kaluar anyar.
 Pikeun nyegah spam, mangga eusian itungan di handap ieu
 ([[Special:Captcha/help|émbaran lengkep]]):',
@@ -1815,6 +1834,7 @@ Unfortunately this may inconvenience users with limited vision or using text-bas
 You will need to have cookies enabled in your browser for this to work.
 
 Hit the 'back' button in your browser to return to the page editor.",
+	'right-skipcaptcha'          => 'Ngalakonan pamicu captcha tanpa ngaliwatan Captcha',
 );
 
 /** Swedish (Svenska)

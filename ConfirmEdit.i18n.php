@@ -651,6 +651,7 @@ Clicâd sur lo boton « Prècèdent » de voutron navigator por tornar a la pâg
  * @author Klenje
  */
 $messages['fur'] = array(
+	'captcha-edit'               => 'Par cambiâ cheste pagjine, tu âs di risolvi cheste facile some e inserî la rispueste inte casele ([[Special:Captcha/help|altris informazions]]):',
 	'captcha-createaccount-fail' => 'Il codiç di control al mancje o nol è just.',
 );
 

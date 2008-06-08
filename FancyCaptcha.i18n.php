@@ -215,7 +215,9 @@ $messages['fi'] = array(
 	'fancycaptcha-edit' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
 );
 
-/** Võro (Võro) */
+/** Võro (Võro)
+ * @author Võrok
+ */
 $messages['fiu-vro'] = array(
 	'fancycaptcha-badlogin' => 'Salasõna automaatsõ vällänuhkmisõ vasta kirodaq pildi päält sõnaq alanolõvahe kasti
 ([[Special:Captcha/help|Abiteedüs]]):',

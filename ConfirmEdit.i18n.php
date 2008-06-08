@@ -1477,7 +1477,7 @@ $messages['oc'] = array(
 	'captchahelp-text'           => "Los sits webs que permeton al mai grand nombre de participar, coma aqueste wiki, sovent son atacats per de spammers qu'utilizan d'espleches automatizas per mandar lor ligams sus fòrça sits a l'encòp.
 Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de far.
 
-De còps quand apondissètz de ligams novèls vèrs lo web, lo wiki vos pòt mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d'automatizar, çò que permet de diferenciar un uman real d'un logicial automatic malvolent.
+De còps quand apondètz de ligams novèls vèrs lo web, lo wiki vos pòt mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d'automatizar, çò que permet de diferenciar un uman real d'un logicial automatic malvolent.
 
 Malurosament, aqueste sistèma es pas adaptat a d'utilizaires mal-vesents o utilizant de navigadors textuals o àudio. Actualament, prepausem pas d'alternativas adaptadas. Se avètz besonh d'ajuda esitetz pas a contactar los administrators del sit. 
 
@@ -1512,8 +1512,8 @@ $messages['pl'] = array(
 	'captcha-edit'               => 'Możesz edytować tę stronę, jednak najpierw musisz rozwiązać poniższe proste działanie matematyczne i wpisać wynik do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 	'captcha-desc'               => 'Proste zabezpieczenie przed automatami',
 	'captcha-addurl'             => 'Dodałeś nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem musisz wykonać proste działanie matematyczne i wpisać wynik w pole obok ([[Special:Captcha/help|więcej informacji]]):',
-	'captcha-badlogin'           => 'Zabezpieczenie przed automatycznym łamaniem haseł. Proszę wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]).',
-	'captcha-createaccount'      => 'Zabezpieczenie przed automatycznie dodawanym spamem. Proszę wpisać w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]).',
+	'captcha-badlogin'           => 'Zabezpieczenie przed automatycznym łamaniem haseł. Wpisz w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]).',
+	'captcha-createaccount'      => 'Zabezpieczenie przed automatycznie dodawanym spamem. Wpisz w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]).',
 	'captcha-createaccount-fail' => 'Nieprawidłowy kod lub brak kodu potwierdzającego.',
 	'captcha-create'             => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|pomoc]]):',
 	'captchahelp-title'          => 'Pomoc dla ochrony antyspamowej',

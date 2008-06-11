@@ -169,10 +169,12 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'fancycaptcha-addurl' => 'Via redakto inkluzivas novajn eksterajn ligilojn.
+	'fancycaptcha-addurl'        => 'Via redakto inkluzivas novajn eksterajn ligilojn.
 Por preventi aŭtomatan spamon, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plua informo]]):',
-	'fancycaptcha-create' => 'Por krei la paĝon, bonvolu enigi la vortojn montritajn en la jena skatolo ([[Special:Captcha/help|plua informo]]):',
-	'fancycaptcha-edit'   => 'Por redakti ĉi tiun paĝon, bonvolu enigi la vortojn jenajn en la kesto ([[Special:Captcha/help|plua informo]]):',
+	'fancycaptcha-badlogin'      => 'Helpi protekti kontraŭ aŭtomata divenado de pasvortoj, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plua informo]]):',
+	'fancycaptcha-createaccount' => 'Helpi protekti kontraŭ aŭtomata kreado de kontoj, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plua informo]]):',
+	'fancycaptcha-create'        => 'Por krei la paĝon, bonvolu enigi la vortojn montritajn en la jena skatolo ([[Special:Captcha/help|plua informo]]):',
+	'fancycaptcha-edit'          => 'Por redakti ĉi tiun paĝon, bonvolu enigi la vortojn jenajn en la kesto ([[Special:Captcha/help|plua informo]]):',
 );
 
 /* Spanish */

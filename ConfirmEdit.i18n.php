@@ -1166,7 +1166,8 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'captcha-desc' => 'En eijfach „Kaptscha“.',
+	'captcha-desc'      => 'En eijfach „Kaptscha“.',
+	'right-skipcaptcha' => 'de Opforderung fum Captcha överjonn',
 );
 
 /** Latin (Latina)

@@ -656,6 +656,23 @@ $messages['fur'] = array(
 	'captcha-createaccount-fail' => 'Il codiç di control al mancje o nol è just.',
 );
 
+/** Western Frisian (Frysk)
+ * @author Snakesteuben
+ */
+$messages['fy'] = array(
+	'captcha-addurl'             => 'Jo hawwe keppelings om utens oanpast/taheakke. As ekstra beskerming tsjin automatysk oanmakke reklame (SPAM) wurdt jo frege it antwurd op de ûndersteande som te jaan ([[Special:Captcha/help|meer ynformaasje]]):',
+	'captcha-createaccount'      => 'As beskerming tsjin it automatysk oanmeitsjen fan meidochnammen wurdt jo frege it antwurd op de ûndersteande som te jaan ([[Special:Captcha/help|meer ynformaasje]]):',
+	'captcha-createaccount-fail' => 'It antwurd op de som kloppet net.',
+	'captcha-create'             => 'Om de side oan te meitsjen wurdt jo frege it antwurd op de ûndersteande som te jaan ([[Special:Captcha/help|meer ynformaasje]]):',
+	'captchahelp-text'           => "Websteeën dêr't it publyk op skriuwe kin, lykas dizze wiki, kinne lêst hawwe fan lju dy't automatysk keppelings oan de websiden tafoegje. Op dizze wiki kinne sokke feroarings maklik weromset wurde, mar dat nimt al tiid dy't ek oars brûkt wurde kin.
+
+By it oanmelden as meidogger, en fierders benammen at jo keppelings om utens oan in side tafoegje, kinne jo fan de  wiki in lettertoets krije. De wiki lit dan kleurde of ferwrongen letters sjen, en jo wurdt frege dy oer te tikken. Om't dit net maklik automatisearre wurde kin, hâldt dit it automatysk tafoegjen tsjin. It spitigernôch ek in lytse lêst foar de meidoggers.
+
+In probleem dêr't noch gjin oplossing foar is it dat it in tûkelteam is foar minsken dy't net goed sjen kinne of dy't in tekst-blêder of lûd-blêder brûke. Hjir soe in lûd-ferzje foar komme moatte, mar dy is der noch net. Oerlis mei in [[Wikipedy:Behearders|behearder]] at dit foar jo problemen jout.
+
+(Gean tebek mei de tebek-knop fan jo blêder.)",
+);
+
 /** Irish (Gaeilge)
  * @author SPQRobin
  * @author Alison
@@ -922,6 +939,8 @@ Notaðu „back“-hnapp vafrans til að halda áfram.',
 
 /** Italian (Italiano)
  * @author BrokenArrow
+ * @author Darth Kule
+ * @author Siebrand
  */
 $messages['it'] = array(
 	'captcha-edit'               => 'Per modificare la pagina è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella
@@ -947,6 +966,7 @@ Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
 #  * Tutto ciò che segue un carattere "#" è un commento, fino al termine della riga
 #  * Tutte le righe non vuote sono frammenti di espressioni regolari che si applicano al solo nome dell\'host nelle URL
   #</pre> <!-- non modificare in alcun modo questa riga -->',
+	'right-skipcaptcha'          => 'Compie le azioni che attiverebbero il captcha senza dover passare per il captcha',
 );
 
 /** Japanese (日本語)

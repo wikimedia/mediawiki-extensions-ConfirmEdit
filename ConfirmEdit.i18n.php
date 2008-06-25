@@ -129,6 +129,36 @@ $messages['ar'] = array(
 	'right-skipcaptcha'          => 'أداء أفعال تستوجب تنفيذ كابتشا دون المرور بها',
 );
 
+/** Assamese (অসমীয়া)
+ * @author Rajuonline
+ */
+$messages['as'] = array(
+	'captcha-edit'               => 'এই পৃষ্ঠাটো সম্পাদনা কৰিবলৈ তলৰ সহজ অংকটো কৰি উত্তৰতো বাকছৰ ভিতৰত লিখক
+([[Special:Captcha/help|অধিক তথ্য]]):',
+	'captcha-addurl'             => 'আপোনাৰ সম্পাদনাত বাহিৰলৈ সংযোগ আছে।
+স্বয়ংক্রীয় স্পামৰ পৰা বাচিবলৈ, তলৰ সহজ অংকটো কৰি উত্তৰতো বাকছৰ ভিতৰত লিখক ([[Special:Captcha/help|অধিক তথ্য]]):',
+	'captcha-badlogin'           => 'স্বয়ংক্রীয়ভাবে গুপ্তশব্দ ভঙাৰ পৰা বাচিবলৈ, তলৰ সহজ অংকটো কৰি উত্তৰতো বাকছৰ ভিতৰত লিখক
+([[Special:Captcha/help|অধিক তথ্য]]):',
+	'captcha-createaccount'      => 'স্বয়ংক্রীয় হোৱা ভাবে সদস্যভুক্তি ৰোধ কৰিবলৈ, তলৰ সহজ অংকটো কৰি উত্তৰতো বাকছৰ ভিতৰত লিখক
+([[Special:Captcha/help|অধিক তথ্য]]):',
+	'captcha-createaccount-fail' => 'ভুল বা খালী নিশ্বিতকৰণ শব্দ',
+	'captcha-create'             => 'এই পৃষ্ঠাটো তৈয়াৰ কৰিবলৈ, তলৰ সহজ অংকটো কৰি উত্তৰতো বাকছৰ ভিতৰত লিখক
+([[Special:Captcha/help|অধিক তথ্য]]):',
+	'captchahelp-cookies-needed' => 'এই কামতো সম্পন্ন কৰিবলৈ, আপোনাৰ ব্রাউজাৰত কুকী সক্রীয় থাকিব লাগিব',
+	'captchahelp-text'           => "যিবোৰ ৱেবচাইটত জনতাই পাঠ্য ভৰাব পাৰে, যেনে এই ৱিকি, সেইবোৰক প্রায়ে দুস্ক্রিতিকাৰি স্পেমাৰবোৰে স্বয়ংক্রীয় আহিলাৰ দ্বাৰা তেওলোকৰ চাইটলৈ সংযোগ ভৰাই আক্রমন কৰে। 
+যদিও তেনে স্পাম সংযোগ গুচাব পাৰি, পিছে এয়া এক ডাঙৰ উপদ্রৱ।
+
+কেতিয়াবা, সাধাৰণতে যেতিয়া কোনো পৃষ্ঠালৈ নতুন সংযোগ সৃষ্টি কৰা হয়, তেতিয়া ৱিকিয়ে এটা ৰঙীন বা বিকৃত চবি দেখুৱাই তাত থকা শব্দখিনি আপোনাক টাইপ কৰিব কব পাৰে।
+যিহেতু এই কামতো স্বয়ংক্রীয় ভাবে কৰা প্রায়ে অসম্ভব, ই বেছিভাগ প্রকৃত ব্যক্তিক পাঠ্য ভৰাব দিয়াৰ লগতে স্বয়ংক্রীয় আহিলাৰ দ্বাৰা পাঠ্য ভৰোৱা দুস্ক্রিতিকাৰি সকলক ৰোধ কৰিব পাৰে।
+
+দুর্ভাগ্যক্রমে, সিমিত দৃষ্টিশক্তি থকা ব্যক্তিসকলে, বা পাঠ্য-আধাৰিত অথবা ধ্বনি-আধাৰিত ব্রাউজাৰ ব্যৱহাৰ কৰা ব্যক্তিসকলে ইয়াৰ বাবে আসুবিধা পাব পাৰে.
+এই সময়ত ইয়াৰ কোনো ধ্বনি-আধাৰিত বিকল্প আমাৰ হাতত নাই।
+
+ইয়াৰ বাবে যদি আপুনি যুক্তিসম্মত পঠ্য ভৰাব অসুবিধা পাইছে, তেনেহলে চাইট প্রৱন্ধকৰ লগত যোগযোগ কৰক।
+
+পৃষ্ঠা সম্পাদনালৈ ঘুৰি যাবলৈ আপোনাৰ ব্রাউজাৰৰ 'back' বুটামন টিপা মাৰক।",
+);
+
 /** Asturian (Asturianu)
  * @author SPQRobin
  * @author Esbardu
@@ -477,6 +507,11 @@ Bedaŭrinde, ĉi tio eble ĝenetos uzantojn kun malbona vidkapablo kiu utiligas 
 Bonvolu kontakti la administrantojn de la retejo por helpo se ĉi tio malebligas al vi fari bonan aldonon.
 
 Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
+	'captcha-addurl-whitelist'   => '  #<!-- ne ŝanĝu ĉi tiun linion iel ajn --> <pre>
+# Sintakso estas jen:
+#  * Ĉio ekde "#" signo al la fino de linio estas komento
+#  * Ĉiu linio ne malplena estas ero de regex kiu kongruos retnodojn nur ene de ttt-adresoj
+  #</pre> <!-- ne ŝanĝu ĉi tiun linion iel ajn -->',
 	'right-skipcaptcha'          => "Faru ''captcha''-spronantaj agoj sen farante la ''captcha''-on",
 );
 
@@ -721,6 +756,7 @@ Prema no botón \"atrás\" para voltar á páxina na que estaba editando.",
 #   * Todo o que vai desde o carácter "#" até o final da liña é un comentario
 #   * Cada liña que non estea en branco é un fragmento de expresión regular que só coincidirá con hosts dentro de URLs
   #</pre> <!-- deixe esta liña exactamente como está -->',
+	'right-skipcaptcha'          => 'Levar a cabo as accións que requiren captcha sen ter que introducilo',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -1342,6 +1378,21 @@ $messages['mr'] = array(
 #  * प्रत्येक रिकामी नसलेली ओळ ही regex fragment आहे जी फक्त URLमधील होस्टसच्या जोड्या लावेल
   #</pre> <!-- leave this line exactly as it is -->',
 	'right-skipcaptcha'          => 'कॅपचा मध्ये न जाता कॅपचाचा वापर करणार्‍या क्रिया करा',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'captcha-edit'               => 'Untuk menyunting laman ini, sila selesaikan kira-kira di bawah dan masukkan jawapannya dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+	'captcha-desc'               => 'Pelaksanaan CAPTCHA ringan',
+	'captcha-addurl'             => 'Suntingan anda mengandungi pautan luar baru.
+Untuk membanteras kegiatan spam automatik, anda diminta menyelesaikan kira-kira di bawah dan masukkan jawapannya dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+	'captcha-badlogin'           => 'Untuk membanteras kegiatan meneka kata laluan secara automatik, anda diminta menyelesaikan kira-kira di bawah dan masukkan jawapannya dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+	'captcha-createaccount'      => 'Untuk membanteras kegiatan pembukaan akaun secara automatik, anda diminta menyelesaikan kira-kira di bawah dan masukkan jawapannya dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+	'captcha-createaccount-fail' => 'Kod pengesahan salah.',
+	'captcha-create'             => 'Untuk mencipta laman tersebut, sila selesaikan kira-kira di bawah dan masukkan jawapannya dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+	'captchahelp-title'          => 'Bantuan CAPTCHA',
 );
 
 $messages['nan'] = array(
@@ -1968,11 +2019,19 @@ $messages['th'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Runningfridgesrule
  * @author SPQRobin
  */
 $messages['tr'] = array(
+	'captcha-edit'               => 'Bu sayfayı değiştirebilmek için lütfen aşağıdaki basit soruyu cevaplayın ve cevabı kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
+	'captcha-addurl'             => 'Değişikliğiniz yeni dış bağlantılar içeriyor.
+Otomatik spamdan korunmak için, lütfen aşağıdaki basit soruyu cevaplayın ve cevabı kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
+	'captcha-badlogin'           => 'Otomatik parola çözülmesinden korunmak için, lütfen aşağıdaki basit soruyu cevaplayın ve kutunın içinde cevabı yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
 	'captcha-createaccount'      => 'Otomatik spama karşı bir koruma olarak, hesabınızı kaydetmek için bu resimde gözüken kelimeleri tuşlamanız gerekmektedir ([[Special:Captcha/help|Bu nedir?]]):',
 	'captcha-createaccount-fail' => 'Hatalı ya da eksik onay kodu.',
+	'captcha-create'             => 'Bu sayfayı oluşturmak için, lütfen aşağıdaki basit soruyu cevaplayın ve kutunun içinde cevabı yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
+	'captchahelp-title'          => 'Captcha yardımı',
+	'captchahelp-cookies-needed' => 'Bunun çalışabilmesi için tarayıcınızın çerezleri kabul edilmesi gerekiyor.',
 	'captchahelp-text'           => "{{SITENAME}} gibi dışarıdan katılıma izin veren internet siteleri, pek çok siteye bağlantılar yaratan otomatik araçlarını çalıştıran ''spam''cilerin saldırılarına sıklıkla maruz kalırlar. Bu spam nitelikli bağlantılar silinebilir, fakat bu temizlik önemli bir sıkıntı yaratacaktır.
 
 Bazen, özellikle bir başka internet sitesine bağ eklerken, bozulmuş ve renklendirilmiş harflerden oluşan bir resim gösterilebilir ve sizden bu harfleri kutucuğa girmenizi istenir. Bu, otomatizasyonu oldukça zor bir iş olduğu için, gerçek insanlar bu işlemi yerine getirebilirken, spam yapmaya yarayan araçlar bunu yapmakta zorlanacaklardır.

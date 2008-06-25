@@ -50,6 +50,19 @@ $messages['ar'] = array(
 ([[Special:Captcha/help|معلومات إضافية]]):',
 );
 
+/** Assamese (অসমীয়া)
+ * @author Rajuonline
+ */
+$messages['as'] = array(
+	'fancycaptcha-addurl'        => 'আপোনাৰ সম্পাদনাত বাহ্যিক সংযোগ আছে।
+স্বয়ংক্রীয় সম্পাদনাৰ পৰা হাত সাৰিবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
+	'fancycaptcha-badlogin'      => 'স্বয়ংক্রীয় গুপ্তশব্দ চুৰিৰ পৰা হাত সাৰিবলৈ,
+তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
+	'fancycaptcha-createaccount' => 'স্বয়ংক্রীয় নতুন সদস্যভুক্তিৰ পৰা হাত সাৰিবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
+	'fancycaptcha-create'        => 'পৃষ্ঠাটো বনাবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
+	'fancycaptcha-edit'          => 'এই পৃষ্ঠাটো সম্পাদনা কৰিবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
+);
+
 /** Asturian (Asturianu)
  * @author Esbardu
  */
@@ -698,6 +711,15 @@ $messages['tg-cyrl'] = array(
 	'fancycaptcha-createaccount' => 'Барои кӯмак аз эҷоди худкори ҳисоби корбарӣ, вожаеро ки дар тасвир мебинед, ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
 	'fancycaptcha-create'        => 'Барои эҷоди саҳифа, вожаеро ки дар тасвир мебинед, ворид кунед  ([[Special:Captcha/help|иттилооти бештар]]):',
 	'fancycaptcha-edit'          => 'Барои вироиши ин саҳифа, вожаеро ки дар тасвир мебинед, ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
+);
+
+/** Turkish (Türkçe)
+ * @author Runningfridgesrule
+ */
+$messages['tr'] = array(
+	'fancycaptcha-addurl'   => 'Değişikliğiniz yeni dış bağlantılar içeriyor.
+Otomatik spamdan korunmak için, lütfen aşağıdaki sözcükleri kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
+	'fancycaptcha-badlogin' => 'Otomatik parola çözülmesinden korunmak için, lütfen aşağıdaki sözcükleri kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
 );
 
 /** Ukrainian (Українська)

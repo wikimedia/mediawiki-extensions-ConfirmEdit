@@ -150,12 +150,11 @@ global $ceAllowConfirmedEmail;
 $ceAllowConfirmedEmail = false;
 
 /** 
- * Number of bad login attempts allowed before triggering the captcha.
- * 
- * Default is 0.
+ * Number of bad login attempts before triggering the captcha.  0 means the
+ * captcha is presented on the first login.
  */
 global $wgCaptchaBadLoginAttempts;
-$wgCaptchaBadLoginAttempts = 0;
+$wgCaptchaBadLoginAttempts = 3;
 
 /**
  * Regex to whitelist URLs to known-good sites...

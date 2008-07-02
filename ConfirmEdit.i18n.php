@@ -518,10 +518,12 @@ Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 /** Spanish (Español)
  * @author Icvav
  * @author Jatrobat
+ * @author Lin linao
  */
 $messages['es'] = array(
 	'captcha-edit'               => 'Para editar este artículo, por favor resuelve la sencilla suma que aparece abajo e introduce la solución en la caja ([[Special:Captcha/help|más información]]):',
 	'captcha-addurl'             => 'Tu edición incluye nuevos enlaces externos. Para ayudar a proteger contra el spam automatizado, por favor resuelve la sencilla suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
+	'captcha-badlogin'           => 'Lo siguiente se ha implementado para resguardarse de la generación automática de cuentas. Por favor, resuelve la suma de más abajo e introduce el resultado en la caja ([[Special:Captcha/ayuda|más información]]):',
 	'captcha-createaccount'      => 'Para ayudar a protegernos de la creación automática de cuentas, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
 	'captcha-createaccount-fail' => 'Falta el código de confirmación, o éste es incorrecto.',
 	'captcha-create'             => 'Para crear la página, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',

@@ -132,6 +132,13 @@ $messages['cs'] = array(
 	'fancycaptcha-badlogin' => 'V rámci ochrany před automatickým pokusům uhodnout heslo musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 );
 
+/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'fancycaptcha-createaccount' => 'блюдє́ниꙗ дѣл҄ьма́ на аѵтома́тьно мѣстозида́ниѥ · а́влѥнъ сло́ва обраꙁъ ни́жьшиѥмь окънѣ́ напиши́ ⁙ ([[Special:Captcha/help|испльнѧ́щѧ вѣ́сти]]) :',
+);
+
 /** Welsh (Cymraeg)
  * @author Lloffiwr
  */
@@ -531,6 +538,17 @@ $messages['mr'] = array(
 	'fancycaptcha-createaccount' => 'आपोआप होणार्‍या सदस्य नोंदणीपासून वाचण्यासाठी, खाली दिसणारे शब्द दिलेल्या पृष्ठपेटी मध्ये लिहा ([[Special:Captcha/help|अधिक माहिती]]):',
 	'fancycaptcha-create'        => 'हे पान तयार करण्यासाठी, खाली दिसणारे शब्द दिलेल्या पृष्ठपेटी मध्ये लिहा ([[Special:Captcha/help|अधिक माहिती]]):',
 	'fancycaptcha-edit'          => 'हे पान संपादित करण्यासाठी, खाली दिसणारे शब्द दिलेल्या पृष्ठपेटी मध्ये लिहा ([[Special:Captcha/help|अधिक माहिती]]):',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'fancycaptcha-addurl'        => 'Suntingan anda mengandungi pautan luar baru. Untuk membanteras kegiatan spam automatik, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+	'fancycaptcha-badlogin'      => 'Untuk membanteras kegiatan meneka kata laluan secara automatik, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+	'fancycaptcha-createaccount' => 'Untuk membanteras kegiatan pembukaan akaun secara automatik, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+	'fancycaptcha-create'        => 'Untuk mencipta laman ini, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+	'fancycaptcha-edit'          => 'Untuk menyunting laman ini, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 );
 
 /** Dutch (Nederlands)

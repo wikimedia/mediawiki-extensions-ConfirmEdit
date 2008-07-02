@@ -204,8 +204,8 @@ class SimpleCaptcha {
 	 * @access private
 	 */
 	function isBadLoginTriggered() {
-		global $wgMemc;
-		return intval( $wgMemc->get( $this->badLoginKey() ) ) > 0;
+		global $wgMemc, $wgCaptchaBadLoginAttempts;
+		return intval( $wgMemc->get( $this->badLoginKey() ) ) > $wgCaptchaBadLoginAttempts;
 	}
 	
 	/**

@@ -149,6 +149,14 @@ $wgCaptchaBadLoginExpiration = 5 * 60;
 global $ceAllowConfirmedEmail;
 $ceAllowConfirmedEmail = false;
 
+/** 
+ * Number of bad login attempts allowed before triggering the captcha.
+ * 
+ * Default is 0.
+ */
+global $wgCaptchaBadLoginAttempts;
+$wgCaptchaBadLoginAttempts = 0;
+
 /**
  * Regex to whitelist URLs to known-good sites...
  * For instance:

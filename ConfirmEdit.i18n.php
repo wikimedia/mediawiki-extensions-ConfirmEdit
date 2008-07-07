@@ -1407,6 +1407,21 @@ Untuk membanteras kegiatan spam automatik, anda diminta menyelesaikan kira-kira 
 	'captcha-createaccount-fail' => 'Kod pengesahan salah.',
 	'captcha-create'             => 'Untuk mencipta laman tersebut, sila selesaikan kira-kira di bawah dan masukkan jawapannya dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 	'captchahelp-title'          => 'Bantuan CAPTCHA',
+	'captchahelp-cookies-needed' => "Sila aktifkan ''cookies'' pada pelayar web anda.",
+	'captchahelp-text'           => "Tapak web yang menerima sumbangan daripada orang awam, seperti wiki ini, adalah mudah terdedah kepada serangan spam. Biasanya, si penyerang menggunakan atur cara komputer untuk mengirim pautan-pautan ke tapak web mereka secara automatik.
+
+Apabila anda menambah pautan baru pada sesebuah laman, wiki ini akan memaparkan sebuah imej yang mengandungi teks yang berwarna atau samar-samar dan meminta supaya anda menaip perkataan yang ditunjukkan.
+Oleh sebab tugas tersebut sukar dilakukan oleh komputer, manusia sebenar boleh mengirim seperti biasa, manakala atur cara komputer terhalang daripada melakukan serangan automatik.
+
+Walau bagaimanapun, perkara ini boleh menyukarkan pengguna yang mengalami masalah penglihatan atau sedang menggunakan pelayar web teks atau tuturan. Pada masa ini kami tidak mempunyai alternatif dalam bentuk bunyi. Sila hubungi pentadbir tapak web untuk mendapatkan bantuan sekiranya perkara ini menghalang anda daripada membuat sumbangan yang sah.
+
+Sila tekan butang 'back' untuk kembali ke borang sunting.",
+	'captcha-addurl-whitelist'   => '  #<!-- jangan ubah baris ini --> <pre>
+# Sintaks:
+#  * Aksara "#" sampai akhir baris diabaikan
+#  * Ungkapan nalar dibaca daripada setiap baris dan dipadankan dengan nama hos sahaja
+  #</pre> <!-- jangan ubah baris ini -->',
+	'right-skipcaptcha'          => 'Melepasi pemeriksaan CAPTCHA',
 );
 
 $messages['nan'] = array(

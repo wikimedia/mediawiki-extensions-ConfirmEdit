@@ -632,6 +632,7 @@ $messages['fo'] = array(
  * @author Sherbrooke
  * @author Meithal
  * @author Siebrand
+ * @author Seb35
  */
 $messages['fr'] = array(
 	'captcha-edit'               => 'Pour modifier cette page, vous être prié d’effectuer le calcul ci-dessous et d’en inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d’infos]]) :',
@@ -655,7 +656,7 @@ Cliquez sur le bouton « Précédent » de votre navigateur pour revenir sur la 
 #   * Tout caractère suivant « # » jusqu'à la fin de la ligne sera interprêté comme un commentaire
 #   * Toute ligne non vide est un code regex qui sera utilisé uniquement à l'intérieur des liens hypertextes.
   #</pre> <!-- laissez cette ligne exactement telle quelle -->",
-	'right-skipcaptcha'          => "Accomplit le déclenchement des actions de captcha sans devoir passer par l'intermédiaire ce dernier",
+	'right-skipcaptcha'          => 'Accomplit le déclenchement des actions de captcha sans devoir passer par l’intermédiaire de ce dernier',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -1719,6 +1720,7 @@ $messages['qu'] = array(
 /** Romanian (Română)
  * @author KlaudiuMihaila
  * @author BrokenArrow
+ * @author Firilacroco
  */
 $messages['ro'] = array(
 	'captcha-edit'               => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',

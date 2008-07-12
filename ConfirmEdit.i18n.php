@@ -102,6 +102,7 @@ Punche o botón 'entazaga' d'o suyo nabegador ta tornar t'o editor de pachinas."
  * @author Meno25
  * @author Alnokta
  * @author OsamaK
+ * @author Siebrand
  */
 $messages['ar'] = array(
 	'captcha-edit'               => 'لتعديل هذه الصفحة، من فضلك قم بحل المسألة الرياضية البسيطة أدناه وأدخل الحل في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',
@@ -111,7 +112,7 @@ $messages['ar'] = array(
 	'captcha-createaccount'      => 'كحماية ضد العمليات التخريبية، يجب أن تدخل ناتج العملية الحسابية التالية لكي تنشأ حسابا: <br />([[Special:Captcha/help|ما هذا؟]])',
 	'captcha-createaccount-fail' => 'كود غير مطابق أو لم تقم بإدخاله.',
 	'captcha-create'             => 'من فضلك قم بحل المسألة الرياضية التالية لإنشاء هذه الصفحة وأدخل
-الجواب في الصندوق ([[Special:Captcha/help|ما هذا؟]]):',
+الجواب في الصندوق ([[Special:Captcha/help|معلومات إضافية]]):',
 	'captchahelp-title'          => 'مساعدة الكابتشا',
 	'captchahelp-cookies-needed' => 'ستحتاج إلى أن تكون الكوكيز مفعلة في متصفحك لكي يعمل هذا',
 	'captchahelp-text'           => "عادة ما يتم في المواقع التي تقبل الردود والرسائل من العامة، كهذا الويكي، تخريب الموقع عن طريق الأشخاص الذين يستعملون آليات معينة لإرسال وصلاتهم لمواقع متعددة بصورة آلية. وعلى الرغم من أن هذا يمكن إزالته ولكنه مزعج للغاية.
@@ -1443,24 +1444,6 @@ $messages['nan'] = array(
 	'captcha-createaccount-fail' => 'Khak-jīn-bé chhò-gō· iah-sī làu-kau.',
 );
 
-$messages['nds'] = array(
-	'captcha-edit'                => 'In dien Text steiht en nee Lenk na buten dat Wiki. Dat hier keen automaatsch instellten Spam rinkummt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
-	'captcha-createaccount'       => 'Dat hier nich Brukers automaatsch anleggt warrt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
-	'captcha-createaccount-fail'  => 'Kood to’n Bestätigen is verkehrt oder fehlt.',
-	'captchahelp-title'           => 'Help to Captchas',
-	'captcha-addurl-whitelist'    => ' #<!-- leave this line exactly as it is --> <pre>
-# Op disse Siet staht de Websteden, bi de en Bruker,
-# de nich anmellt is un en ne’en Lenk in de Siet infögen deit,
-# keen Captcha utfüllen mutt.
-#
-# Syntax is disse:
-#   * Allens vun en „#“-Teken bet na’t Enn vun de Reeg is en Kommentar
-#   * All de annern Regen, de nich leddig sünd, warrt as regulären Utdruck bekeken,
-#     de för Delen vun de Domään steiht.
-
- #</pre> <!-- leave this line exactly as it is -->',
-);
-
 /** Low German (Plattdüütsch)
  * @author Slomox
  * @author Siebrand
@@ -1902,6 +1885,14 @@ Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e
 #  * Çdo gjë nga simboli "#" deri në fund të rreshtit është koment
 #  * Çdo rresht jo-bosh është një pjesë regex që duhet t\'i përputhet emrat të shërbyesve brenda një URL-i
   #</pre> <!-- lëreni këtë rresht siç është -->',
+);
+
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'captcha-desc'      => 'једноставна капча имплементација',
+	'captchahelp-title' => 'помоћ за капчу',
 );
 
 /** Seeltersk (Seeltersk)

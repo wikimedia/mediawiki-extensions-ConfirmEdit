@@ -698,6 +698,17 @@ $messages['sq'] = array(
 	'fancycaptcha-edit'          => 'Për të redaktuar këtë faqe ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
 );
 
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'fancycaptcha-addurl'        => 'Твоја измена укључује нове спољне везе. У циљу заштите од аутоматског спама, унеси речи које се налазе испод у кутију ([[Special:Captcha/help|детаљније]]):',
+	'fancycaptcha-badlogin'      => 'У циљу спречавања аутоматског откривања лозинки, унеси речи које се налазе испод у кутију ([[Special:Captcha/help|детаљније]]):',
+	'fancycaptcha-createaccount' => 'У циљу заштите од аутоматског спама, унеси речи одоздо у кутију ([[Special:Captcha/help|детаљније]]):',
+	'fancycaptcha-create'        => 'Да би се направила страна, потребно је унети речи које се налазе испод кутије ([[Special:Captcha/help|детаљније]]):',
+	'fancycaptcha-edit'          => 'За измену ове стране унеси речи које се налазе испод кутије ([[Special:Captcha/help|детаљније]]):',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */

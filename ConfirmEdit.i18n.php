@@ -860,9 +860,11 @@ $messages['hi'] = array(
 /** Croatian (Hrvatski)
  * @author SpeedyGonsales
  * @author Dnik
+ * @author Dalibor Bosits
  */
 $messages['hr'] = array(
 	'captcha-edit'               => 'Da uredite ovu stranicu, molimo riješite jednostavno zbrajanje ispod i unesite rezultat u rubriku ([[Special:Captcha/help|više informacija]]):',
+	'captcha-desc'               => 'Jednostavna implementacija captcha sustava',
 	'captcha-addurl'             => 'Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Posebno:Captcha/help|Pomoć?]])',
 	'captcha-badlogin'           => 'Da se spriječi automatizirano pogađanje lozinki,
 molimo zbrojite donje brojeve i upišite rezultat ([[Special:Captcha/help|pomoć]]):',
@@ -1891,8 +1893,16 @@ Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e
  * @author Millosh
  */
 $messages['sr-ec'] = array(
-	'captcha-desc'      => 'једноставна капча имплементација',
-	'captchahelp-title' => 'помоћ за капчу',
+	'captcha-edit'               => 'За измену ове стране, реши једноставан збри испод и унеси одговор у кутију ([[Special:Captcha/help|детаљније]]):',
+	'captcha-desc'               => 'једноставна капча имплементација',
+	'captcha-addurl'             => 'Твоја измена укључује нове спољашње везе. У циљу заштите против аутоматског спама, реши једноставан збир испод и упиши одговор у кутију ([[Special:Captcha/help|детаљније]]):',
+	'captcha-badlogin'           => 'У циљу заштите од аутоматске провале у лозинку, реши једноставан збир испод и унеси одговор у кутију ([[Special:Captcha/help|детаљније]]):',
+	'captcha-createaccount'      => 'У циљу заштите од аутоматског стварања налога, реши једноставан збир доле и унеси га у кутију ([[Special:Captcha/help|детаљније]]):',
+	'captcha-createaccount-fail' => 'Неправилан или непостојећи код за потврду.',
+	'captcha-create'             => 'За стварање стране реши једноставан збир доле и унеси га у кутију ([[Special:Captcha/help|детаљније]]):',
+	'captchahelp-title'          => 'помоћ за капчу',
+	'captchahelp-cookies-needed' => 'Да би ово урадио, неопходно је да су ти колачићи омогућени у браузеру.',
+	'right-skipcaptcha'          => 'Изведи акције капче без потребе да се прође кроз капчу.',
 );
 
 /** Seeltersk (Seeltersk)

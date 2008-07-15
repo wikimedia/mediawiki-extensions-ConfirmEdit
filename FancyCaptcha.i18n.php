@@ -389,13 +389,14 @@ $messages['id'] = array(
 
 /** Italian (Italiano)
  * @author BrokenArrow
+ * @author Darth Kule
  */
 $messages['it'] = array(
 	'fancycaptcha-addurl'        => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):",
 	'fancycaptcha-badlogin'      => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):',
-	'fancycaptcha-createaccount' => 'Come misura di sicurezza nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):',
-	'fancycaptcha-create'        => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):",
-	'fancycaptcha-edit'          => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[{{ns:special}}:Captcha/help|come funziona?]]):",
+	'fancycaptcha-createaccount' => 'Come misura di sicurezza nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[Special:Captcha/help|come funziona?]]):',
+	'fancycaptcha-create'        => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[Special:Captcha/help|come funziona?]]):",
+	'fancycaptcha-edit'          => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[Special:Captcha/help|come funziona?]]):",
 );
 
 /** Japanese (日本語) */

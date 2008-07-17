@@ -376,6 +376,18 @@ $messages['hu'] = array(
 	'fancycaptcha-edit'          => 'A szerkesztésed új külső linkeket tartalmaz. A spam-robotok elleni védekezés elősegítésére kérlek írd be az alább megjelenő szót a szövegdobozba ([[Special:Captcha/help|segítség]]):',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'fancycaptcha-addurl'        => 'Tu modification include nove ligamines externe.
+Como protection contra le spam automatic, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
+	'fancycaptcha-badlogin'      => 'Como protection contra le piratage automatic de contrasignos, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
+	'fancycaptcha-createaccount' => 'Como protection contra le creation automatic de contos, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
+	'fancycaptcha-create'        => 'Pro crear le pagina, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
+	'fancycaptcha-edit'          => 'Pro modificar iste pagina, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
  */

@@ -973,6 +973,39 @@ Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséh
   #</pre> <!-- ezt a sort hagyd pontosan így -->',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'captcha-edit'               => 'Pro modificar iste pagina, per favor resolve le simple calculo infra e entra le responsa in le quadro ([[Special:Captcha/help|plus info]]):',
+	'captcha-desc'               => 'Implementation de captcha simple',
+	'captcha-addurl'             => 'Tu modification include nove ligamines externe.
+Como protection contra le spam automatic, per favor resolve le simple calculo infra e entra le resultato in le quadro [[Special:Captcha/help|plus info]]):',
+	'captcha-badlogin'           => 'Como protection contra le piratage automatic de contrasignos, per favor resolve le simple calculo infra e entra le resultato in le quadro ([[Special:Captcha/help|plus info]]):',
+	'captcha-createaccount'      => 'Como protection contra le creation automatic de contos, per favor resolve le simple calculo infra e entra le resultato in le quadro ([[Special:Captcha/help|plus info]]):',
+	'captcha-createaccount-fail' => 'Codice de confirmation incorrecte o mancante.',
+	'captcha-create'             => 'Pro crear le pagina, per favor resolve le simple calculo infra e entra le resultato in le quadro ([[Special:Captcha/help|plus info]]):',
+	'captchahelp-title'          => 'Adjuta super le captcha',
+	'captchahelp-cookies-needed' => 'Tu debe haber le cookies activate in tu navigator a fin que isto pote functionar.',
+	'captchahelp-text'           => "Le sitos web que accepta contributiones del publico, como iste wiki, es sovente abusate per spammatores que usa instrumentos automatic pro publicar lor ligamines in multe sitos.
+Ben que iste ligamines spam pote esser eliminate, illos constitue un considerabile incommoditate.
+
+Alcun vices, specialmente quando tu adde nove ligamines web a un pagina, le wiki pote monstrar te un imagine de texto colorate o distorquite e demandar que tu entra le parolas monstrate.
+Viste que isto es un carga difficile a automatisar, isto permittera al major parte del humanos real de facer lor contributiones, ben que le major parte del spammatores e altere attaccatores robotic es stoppate.
+
+Infelicemente isto pote incommodar le usatores con vision limitate o usante navigatores a base de texto o synthese vocal.
+Al momento nos non dispone de un alternativa audio.
+Per favor contacta le administratores del sito pro assistentia si isto te impedi de facer contributiones legitime.
+
+Clicca le button 'retro' in tu navigator pro retornar al pagina de modification.",
+	'captcha-addurl-whitelist'   => '  #<!-- non modificar in alcun modo iste linea --> <pre>
+# Le syntaxe es lo sequente:
+#  * Toto a partir de un character "#" usque al fin del linea es un commento
+#  * Omne linea non vacue es un fragmento regex applicabile solmente a nomines de host intra adresses URL
+  #</pre> <!-- non modificar in alcun modo iste linea -->',
+	'right-skipcaptcha'          => 'Executar le actiones que activarea le captcha sin deber passar per le captcha',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Borgx
  * @author Rex

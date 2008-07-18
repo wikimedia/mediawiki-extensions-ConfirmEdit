@@ -7,7 +7,7 @@
 
 $messages = array();
 
-/* English */
+/** English */
 $messages['en'] = array(
 	'fancycaptcha-addurl'        => 'Your edit includes new external links.
 To help protect against automated spam, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
@@ -322,11 +322,12 @@ automatizado, introduza as palabras que aparecen na páxina de embaixo ([[Specia
  * @author Rotem Liss
  */
 $messages['he'] = array(
-	'fancycaptcha-addurl'        => 'עריכתכם כוללת קישורים חיצוניים חדשים. כהגנה מפני ספאם אוטומטי, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
-	'fancycaptcha-badlogin'      => 'כהגנה מפני פריצת סיסמאות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
-	'fancycaptcha-createaccount' => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
-	'fancycaptcha-create'        => 'כדי ליצור את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
-	'fancycaptcha-edit'          => 'כדי לערוך את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[{{ns:special}}:Captcha/help|מידע נוסף]]):',
+	'fancycaptcha-addurl'        => 'עריכתכם כוללת קישורים חיצוניים חדשים.
+כהגנה מפני ספאם אוטומטי, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
+	'fancycaptcha-badlogin'      => 'כהגנה מפני פריצת סיסמאות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
+	'fancycaptcha-createaccount' => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
+	'fancycaptcha-create'        => 'כדי ליצור את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
+	'fancycaptcha-edit'          => 'כדי לערוך את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 );
 
 /** Hindi (हिन्दी)

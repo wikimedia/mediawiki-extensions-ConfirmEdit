@@ -969,6 +969,7 @@ Pou ede nou pwoteje sistèm an kont spam, imèl/mesaj otomatik, souple, kalkile 
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Siebrand
  */
 $messages['hu'] = array(
 	'captcha-edit'               => 'A lap szerkesztéséhez meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű összeadás eredményét ([[Special:Captcha/help|segítség]]):',
@@ -990,6 +991,7 @@ Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséh
 #  * Minden „#” karakterrel kezdődő sor megjegyzés
 #  * Minden nem üres sor egy reguláris kifejezés darabja, amely csak az URL-ekben található kiszolgálókra keres
   #</pre> <!-- ezt a sort hagyd pontosan így -->',
+	'right-skipcaptcha'          => 'captcha átugrása',
 );
 
 /** Interlingua (Interlingua)
@@ -1807,6 +1809,7 @@ $messages['qu'] = array(
  */
 $messages['ro'] = array(
 	'captcha-edit'               => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
+	'captcha-desc'               => 'Implementare simplă captcha',
 	'captcha-addurl'             => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
 	'captcha-badlogin'           => 'Ca măsură de protecţie împotriva spargerii de parole, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
 	'captcha-createaccount'      => 'Pentru a evita crearea automată de conturi, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',

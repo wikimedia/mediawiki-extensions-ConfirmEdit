@@ -353,6 +353,7 @@ Kliknite 'nazad' ('back') dugme vašeg brauzera da se vratite na polje za unos t
  */
 $messages['ca'] = array(
 	'captcha-edit'               => 'Per a poder editar aquesta pàgina cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre ([[Special:Captcha/help|més informació]]):',
+	'captcha-desc'               => 'Implementació de captcha simple',
 	'captcha-addurl'             => 'La vostra edició conté enllaços externs nous. Com a protecció contra la brossa de propaganda automàtica, cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
 	'captcha-badlogin'           => "Per a ajudar en la protecció contra l'obtenció automatitzada de contrasenyes haureu de resoldre la suma que apareix a continuació ([[Special:Captcha/help|més informació]]):",
 	'captcha-createaccount'      => "Com a protecció contra la creació automàtica de comptes d'usuari necessitem que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):",
@@ -1546,7 +1547,7 @@ $messages['nan'] = array(
  * @author Siebrand
  */
 $messages['nds'] = array(
-	'captcha-edit'               => 'Disse Siet to ännern, musst du disse lütte Rekenopgaav lösen un dat Resultat in dat Feld ingeven ([[{{ns:Special}}:Captcha/help|mehr dorto]]):',
+	'captcha-edit'               => 'Disse Siet to ännern, musst du disse lütte Rekenopgaav lösen un dat Resultat in dat Feld ingeven ([[Special:Captcha/help|mehr dorto]]):',
 	'captcha-createaccount'      => 'Dat hier nich Brukers automaatsch anleggt warrt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
 	'captcha-createaccount-fail' => 'Kood to’n Bestätigen is verkehrt oder fehlt.',
 	'captchahelp-title'          => 'Help to Captchas',

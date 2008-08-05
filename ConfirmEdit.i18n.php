@@ -1021,7 +1021,7 @@ $messages['ia'] = array(
 	'captcha-edit'               => 'Pro modificar iste pagina, per favor resolve le simple calculo infra e entra le responsa in le quadro ([[Special:Captcha/help|plus info]]):',
 	'captcha-desc'               => 'Implementation de captcha simple',
 	'captcha-addurl'             => 'Tu modification include nove ligamines externe.
-Como protection contra le spam automatic, per favor resolve le simple calculo infra e entra le resultato in le quadro [[Special:Captcha/help|plus info]]):',
+Como protection contra le spam automatic, per favor resolve le simple calculo infra e entra le resultato in le quadro ([[Special:Captcha/help|plus info]]):',
 	'captcha-badlogin'           => 'Como protection contra le piratage automatic de contrasignos, per favor resolve le simple calculo infra e entra le resultato in le quadro ([[Special:Captcha/help|plus info]]):',
 	'captcha-createaccount'      => 'Como protection contra le creation automatic de contos, per favor resolve le simple calculo infra e entra le resultato in le quadro ([[Special:Captcha/help|plus info]]):',
 	'captcha-createaccount-fail' => 'Codice de confirmation incorrecte o mancante.',

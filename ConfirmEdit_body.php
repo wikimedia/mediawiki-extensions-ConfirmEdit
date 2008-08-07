@@ -145,8 +145,12 @@ class SimpleCaptcha {
 	 * @return bool true to keep running callbacks
 	 */
 	function injectUserCreate( &$template ) {
-		global $wgCaptchaTriggers, $wgOut;
+		global $wgCaptchaTriggers, $wgOut, $wgUser;
 		if( $wgCaptchaTriggers['createaccount'] ) {
+			if( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
+				return true;
+			}
 			$template->set( 'header',
 				"<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
@@ -513,8 +517,12 @@ class SimpleCaptcha {
 	 * @return bool true to continue, false to abort user creation
 	 */
 	function confirmUserCreate( $u, &$message ) {
-		global $wgCaptchaTriggers;
+		global $wgCaptchaTriggers, $wgUser;
 		if( $wgCaptchaTriggers['createaccount'] ) {
+			if( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
+				return true;
+			}
 			$this->trigger = "new account '" . $u->getName() . "'";
 			if( !$this->passCaptcha() ) {
 				$message = wfMsg( 'captcha-createaccount-fail' );

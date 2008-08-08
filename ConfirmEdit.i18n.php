@@ -746,7 +746,7 @@ $messages['frp'] = array(
 
 Des côps, en particuliér pendent l’aponsa de novéls lims de defôr a una pâge, lo vouiqui pôt vos montrar una émâge reprèsentent un tèxte colorâ ou ben tordu et vos demandar de buchiér los mots montrâs. Cél ovrâjo est dificilo a ôtomatisar, et pèrmèt ux homos de fâre lors contribucions tot en arrètent la plepârt des spamors.
 
-Mâlherosament ceta solucion pôt gênar los utilisators mâl-veyents ou utilisent un navigator en tèxte solèt. Nos disposens pas d’altèrnativa ôdiô por lo moment. Volyéd vos veriér vers un [[Special:Listusers/sysop|administrator]] du seto se vos arrevâd pas a fâre voutres contribucions.
+Mâlherosament ceta solucion pôt gênar los utilisators mâl-veyents ou utilisent un navigator en tèxte solèt. Nos disposens pas d’altèrnativa ôdiô por lo moment. Volyéd vos veriér vers un [[Special:ListUsers/sysop|administrator]] du seto se vos arrevâd pas a fâre voutres contribucions.
 
 Clicâd sur lo boton « Prècèdent » de voutron navigator por tornar a la pâge d’èdicion.',
 	'captcha-addurl-whitelist'   => ' #<!-- lèssiéd ceta legne justo d’ense --> <pre>

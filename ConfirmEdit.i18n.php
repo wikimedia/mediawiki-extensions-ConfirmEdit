@@ -178,11 +178,11 @@ $messages['as'] = array(
 );
 
 /** Asturian (Asturianu)
- * @author SPQRobin
  * @author Esbardu
  */
 $messages['ast'] = array(
 	'captcha-edit'               => "Pa editar esta páxina, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
+	'captcha-desc'               => 'Implementación cenciella captcha',
 	'captcha-addurl'             => "La to edición inclúi nuevos enllaces esternos. P'aidar a protexer escontra'l spam automatizáu, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
 	'captcha-badlogin'           => "P'aidar a protexer escontra'l descifráu automáticu de claves, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
 	'captcha-createaccount'      => "P'aidar a protexer escontra la creación automática de cuentes, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
@@ -202,6 +202,7 @@ Calca nel botón 'atrás' del to navegador pa volver a la páxina d'edicion.",
 #  * Too dende\'l carauter "#" hasta la fin de la llinia ye un comentariu
 #  * Toa llinia non vacia ye un fragmentu regex que namái buscará hosts n\'URLs
   #</pre> <!-- dexa esta llinia exautamente como ta -->',
+	'right-skipcaptcha'          => 'Facer les acciones que requieren captcha ensin tener que lu introducir',
 );
 
 /** Southern Balochi (بلوچی مکرانی)

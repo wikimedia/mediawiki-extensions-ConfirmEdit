@@ -512,6 +512,23 @@ $messages['ko'] = array(
 자동화된 스팸을 막기 위해 아래 상자의 단어를 적어주세요. ([[Special:Captcha/help|더 많은 정보]])',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'fancycaptcha-addurl' => 'Do häß neu Lingks op frembde Websigge dobei jedonn.
+Mer schöze uns Wiki jäje automatesche SPAM, dröm
+don di Wööter en dat Käßje endraare. (Verklierung)',
+	'fancycaptcha-badlogin' => 'Mer schöze Metmaacher en unsem Wiki jäje automatesche
+Paßwoot-Knackerei, dröm don di Wööt onge en dat Käßje
+endraare. (Verklierung)',
+	'fancycaptcha-createaccount' => 'Mer schöze uns Wiki dojäje, dat mer en Masse automatesch
+Metmaacher aanmeldt. Dröm beß esu joot un
+don di Wööt onge en dat Käßje endraare. (Verklierung)',
+	'fancycaptcha-create' => 'Öm di Sigg neu aanzelääje, don di Wööt onge en dat Käßje endraare. (Verklierung)',
+	'fancycaptcha-edit' => 'Öm de Sigg ze ändere, don di Wööt onge en dat Käßje endraare. ([[Special:Captcha/help|Verklierung]])',
+);
+
 /** Latin (Latina)
  * @author SPQRobin
  */
@@ -673,6 +690,15 @@ $messages['pt'] = array(
 	'fancycaptcha-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
 	'fancycaptcha-create' => 'Para criar a página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
 	'fancycaptcha-edit' => 'Para editar esta página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
+);
+
+/** Romanian (Română)
+ * @author Mihai
+ */
+$messages['ro'] = array(
+	'fancycaptcha-createaccount' => 'Pentru a ajuta protecţia împotriva creării automate de conturi, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
+	'fancycaptcha-create' => 'Pentru a crea pagina, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
+	'fancycaptcha-edit' => 'Pentru a modifica această pagină, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
 );
 
 /** Russian (Русский)

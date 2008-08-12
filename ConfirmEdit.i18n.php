@@ -42,12 +42,14 @@ Hit the 'back' button in your browser to return to the page editor.",
  * @author MF-Warburg
  * @author Meithal
  * @author Meno25
+ * @author Purodha
  * @author Toliño
  */
 $messages['qqq'] = array(
 	'captcha-edit' => 'This message will be shown when editing if the wiki requires solving a captcha for editing.',
 	'captcha-create' => 'This message will be shown when creating a page if the wiki requires solving a captcha for that.',
 	'captchahelp-text' => 'This is the help text shown on [[Special:Captcha/help]].',
+	'captcha-addurl-whitelist' => 'See also: [[MediaWiki:spam-blacklist]] and [[MediaWiki:spam-whitelist]].',
 	'right-skipcaptcha' => '{{doc-right}}',
 );
 
@@ -946,6 +948,7 @@ Ukoliko ste suradnik koji koristi tekstualni klijent te vas česte ovakve provje
 #   * Sve od "#" znaka do kraja linije je komentar
 #   * Svaki neprazni redak je regularni izraz (regex) koji odgovara poslužitelju unutar URL-a
   #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha' => 'Izvođenje akcija koje pokreću captcha bez prolaženja kroz captcha sustav',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -1351,8 +1354,60 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'captcha-edit' => 'Öm de Sigg ze ändere, don di Zahle onge zosamme zälle un don de Antwoot en dat Käßje endraare. ([[Special:Captcha/help|Verklierung]])',
 	'captcha-desc' => 'En eijfach „Kaptscha“.',
-	'right-skipcaptcha' => 'de Opforderung fum Captcha överjonn',
+	'captcha-addurl' => 'Do häß neu Lingks op frembde Websigge dobei jedonn.
+Mer schöze uns Wiki jäje automatesche SPAM, dröm
+don di Zahle onge zosamme zälle un don de Antwoot
+en dat Käßje endraare. (Verklierung)',
+	'captcha-badlogin' => 'Mer schöze Metmaacher en unsem Wiki jäje automatesche
+Paßwoot-Knackerei, dröm don di Zahle onge zosamme zälle,
+un de Antwoot en dat Käßje endraare. (Verklierung)',
+	'captcha-createaccount' => 'Mer schöze uns Wiki dojäje, dat mer en Masse automatesch
+Metmaacher aanmeldt. Dröm beß esu joot un
+don di Zahle onge zosamme zälle un don de Antwoot
+en dat Käßje endraare. (Verklierung)',
+	'captcha-createaccount-fail' => 'De Bestätijungszahl fählt udder es verkeeht.',
+	'captcha-create' => 'Öm di Sigg neu aanzelääje, don di Zahle onge zosamme zälle,
+un don de Antwoot en dat Käßje endraare. (Verklierung)',
+	'captchahelp-title' => 'Äklierung zum Kaptscha SPAM-Schotz',
+	'captchahelp-cookies-needed' => 'Do moß <i lang="en">Cookies</i> en Dingem Brauser enjeschalldt han, domet da hee fluppe kann.',
+	'captchahelp-text' => 'Op Web Saits wi dat Wiki hee, wo jeder jät beidraare kann, do kumme se öff wi de Fleeje un don met Projramme un fun Hand bloß Reklame-Lingks op de eije Websigge affläje, oohne Sinn un Verstand. Esu en SPAM kam_mer widder fott maache, dat määt ävver Ärjer un Opwand.
+
+Su jät wulle_mer nit hann, un donn_et jlish widder fottschmiiße.
+
+Domet mer do_met nidd_esu fill Ärrbed hann,
+maache_mer dänne Autmaate et Lääve schwer.
+Wann uns Wikki merk, et künnd_esu jet em Bösh sinn,
+dann zeisch et e Belldshe med komije Texte dren,
+un fröhsch, dat mer se jenau esu ennjävve sullt,
+wi se do shtonn. För_enne Minsch eß dat eifach,
+ävver dat es fodammp schwierich ze projrammiere.
+Dat es e beßßje läßtish för der Minsch, ävver de
+Robbotter hälld et unß bahl komplett fum Lief,
+un su jesinn, ess et netto enne Jewenn.
+
+Wann De Dich ens fordeis, es och nit schlimm,
+De wees norr_enß jefrooch. Wat De jetipp häs,
+kütt nit fott.
+
+Schaad es, mer hann noch keine Wääsh, dat met Shprooch
+odder sönswi ze maache, su dat Lück met Shprooch_Ußßjaave,
+Braille, un met nur Tex em Brauser oohne Bellder, em Räähn
+shtonn künnte. Dooht Ühr Zeush eets enß oohne Lengk speischere,
+un saat dä [[{{MediaWiki:Grouppage-sysop}}|Wikki_Köbesse]],
+wann Ühr Probbleme hatt. Do weed_Üch jehollfe weede.
+Di [[:Special:Userlist/sysops|Wikki_Köbesse]] künnt Ühr op jeede Fall
+övver dänne ier Klaaf_Sigge un do och övver e-mail erreiche.
+
+Jetz kanns De met Dingem Brauser singem „Zeröck“-Knopp wigger maache,
+wo De fürher woohß.',
+	'captcha-addurl-whitelist' => ' #<!-- Lohß di Reih he jenou esu wi se es --> <pre>
+# Dä Opbou es:
+# * Alles fun enem #-Zeiche bes an et Engk fun ene Reih es ene Kommentaa för de Minsche
+# * Jede Reih met jet dren es en Stöck regular Expression, wat Domains en URL treffe kann
+  #</pre> <!-- Lohß di Reih he jenou esu wi se es -->',
+	'right-skipcaptcha' => 'de Opforderung fum Kaptscha överjonn',
 );
 
 /** Latin (Latina)

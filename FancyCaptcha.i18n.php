@@ -51,6 +51,14 @@ $messages['ar'] = array(
 ([[Special:Captcha/help|مزيد من المعلومات]]):',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Ramsis II
+ */
+$messages['arz'] = array(
+	'fancycaptcha-create' => 'علشان تبتدي صفحة جديدة، لو سمحت تدخل الكلمات اللي ظاهرة تحت في الصندوق
+([[Special:Captcha/help|معلومات زيادة]]):',
+);
+
 /** Assamese (অসমীয়া)
  * @author Rajuonline
  */
@@ -292,6 +300,13 @@ $messages['frp'] = array(
 	'fancycaptcha-createaccount' => 'Coment protèccion contre les crèacions de compto abusives, volyéd entrar los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'fancycaptcha-create' => 'Por crèar ceta pâge, volyéd entrar los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'fancycaptcha-edit' => 'Por modifiar ceta pâge, volyéd entrar los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+);
+
+/** Western Frisian (Frysk)
+ * @author Snakesteuben
+ */
+$messages['fy'] = array(
+	'fancycaptcha-badlogin' => 'As ekstra beskerming tsjin automatysk ûntsiferjen fan wachtwurden wurdt jo frege de ûndersteande letters oer te tikken. ([[Special:Captcha/help|mear ynformaasje]]).',
 );
 
 /** Irish (Gaeilge) */

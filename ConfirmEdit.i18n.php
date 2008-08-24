@@ -1139,6 +1139,7 @@ Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -1168,6 +1169,7 @@ $messages['ja'] = array(
 #  * "#"文字から行末まではコメントとして扱われます
 #  * 空白を含んでいない行は、URLに含まれるホスト名との一致を検出する正規表現です
   #</pre> <!-- この行は変更しないでください -->',
+	'right-skipcaptcha' => 'CAPTCHAが必要な場面でCAPTCHAをスキップして操作を実行する',
 );
 
 /** Jutish (Jysk)

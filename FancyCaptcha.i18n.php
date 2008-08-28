@@ -52,10 +52,11 @@ $messages['ar'] = array(
 );
 
 /** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'fancycaptcha-create' => 'علشان تبتدي صفحة جديدة، لو سمحت تدخل الكلمات اللي ظاهرة تحت في الصندوق
+	'fancycaptcha-create' => 'علشان تبتدى صفحة جديدة، لو سمحت تدخل الكلمات اللى ظاهرة تحت فى الصندوق
 ([[Special:Captcha/help|معلومات زيادة]]):',
 );
 

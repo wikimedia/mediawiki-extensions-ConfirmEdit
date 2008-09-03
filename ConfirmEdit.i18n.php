@@ -153,35 +153,36 @@ $messages['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Ghaly
+ * @author Meno25
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'captcha-edit' => 'علشان تعدل في الصفحة دي،لو سمحت تحل المسالة الرياضية البسيطة اللي تحت  و اكتب الاجاية في الصندوء ([[Special:Captcha/help|معلومات اكتر]]):',
+	'captcha-edit' => 'علشان تعدل فى الصفحة دى، لو سمحت تحل المسالة الرياضية البسيطة اللى تحت  و اكتب الاجاية فى الصندوء ([[Special:Captcha/help|معلومات اكتر]]):',
 	'captcha-desc' => 'تطبيق بسيط لـ كابتشا',
 	'captcha-addurl' => 'التعديل بتاعك فيه لينكات خارجية جديدة.
-علشان تساعد في الحماية من السبام الاوتوماتيكي،لو سمحت تحل المسالة الرياضية البسيطة اللي تحت و اكتب الاجابة في الصندوء([[Special:Captcha/help|معلومات اكتر]]):',
-	'captcha-badlogin' => 'علشان تساعد في الحماية من السرقة الاوتوماتيكية للباسورد، لو سمجت تحل المسألة الرياضية البسيطة اللي تحت و تكتب الاجابة جوه الصندوء([[Special:Captcha/help|معلومات اكتر]]):',
-	'captcha-createaccount' => 'علشان تساعد في الحماية من فتح الحساب الاوتوماتيكي،لو سمحت تحل المسألة الرياضية البسيطة اللي تحت و تكتب الاجابة جوه الصندوء ([[Special:Captcha/help|معلومات اكتر]]):',
+علشان تساعد فى الحماية من السبام الاوتوماتيكى،لو سمحت تحل المسالة الرياضية البسيطة اللى تحت و اكتب الاجابة فى الصندوء([[Special:Captcha/help|معلومات اكتر]]):',
+	'captcha-badlogin' => 'علشان تساعد فى الحماية من السرقة الاوتوماتيكية للباسورد، لو سمجت تحل المسألة الرياضية البسيطة اللى تحت و تكتب الاجابة جوه الصندوء([[Special:Captcha/help|معلومات اكتر]]):',
+	'captcha-createaccount' => 'علشان تساعد فى الحماية من فتح الحساب الاوتوماتيكى،لو سمحت تحل المسألة الرياضية البسيطة اللى تحت و تكتب الاجابة جوه الصندوء ([[Special:Captcha/help|معلومات اكتر]]):',
 	'captcha-createaccount-fail' => 'كود التأكيد مش صحيح أو ضايع.',
-	'captcha-create' => 'علشان تبتدي الصفحة دي، لو سمحت تحل السألة الرياضية البسيطة اللي تحت و تكتب الاجابة جوه الصندوء ([[Special:Captcha/help|معلومات اكتر]):',
+	'captcha-create' => 'علشان تبتدى الصفحة دى، لو سمحت تحل السألة الرياضية البسيطة اللى تحت و تكتب الاجابة جوه الصندوء ([[Special:Captcha/help|معلومات اكتر]]):',
 	'captchahelp-title' => 'مساعدة الكابتشا',
-	'captchahelp-cookies-needed' => 'لازم تكون الكوكيز بتاعتك متفعلة في البراوزر علشان دا يشتغل.',
-	'captchahelp-text' => "مواقع الويب اللي بتقبل رسايل من عامة الناس،زي الويكي دا،غالبا ما بيتعرضو لسوء استعمال عن طريق السبامرز اللي بيستخدمو اليات اوتوماتيكية علشان يبعتو لينكات لكذا موقع.
-على الرغم من ان السبام لينك ممكن يتشال، بس هي بتسبب ازعاج كبير .
+	'captchahelp-cookies-needed' => 'لازم تكون الكوكيز بتاعتك متفعلة فى البراوزر علشان دا يشتغل.',
+	'captchahelp-text' => "مواقع الويب اللى بتقبل رسايل من عامة الناس،زى الويكى دا،غالبا ما بيتعرضو لسوء استعمال عن طريق السبامرز اللى بيستخدمو اليات اوتوماتيكية علشان يبعتو لينكات لكذا موقع.
+على الرغم من ان السبام لينك ممكن يتشال، بس هى بتسبب ازعاج كبير .
 
-ساعات،و خصوصا لما بتضيف ويب لينك جديدة لاي صفحة،الويكي ممكن يعرض لك صورة لنص متشوه او متلون و يطلب منك انك تكتب الكلمات المعروضة.
-و علشان دي عملية من الصعب يقوم بها برنامج، فهي بتسمح لمعظم البني ادمين انهم يبعتو مشاركتهك و بتمنع معظم السبامرز و المهاجمين الاوتوماتيكيين التانيين.
+ساعات،و خصوصا لما بتضيف ويب لينك جديدة لاى صفحة،الويكى ممكن يعرض لك صورة لنص متشوه او متلون و يطلب منك انك تكتب الكلمات المعروضة.
+و علشان دى عملية من الصعب يقوم بها برنامج، فهى بتسمح لمعظم البنى ادمين انهم يبعتو مشاركتهم و بتمنع معظم السبامرز و المهاجمين الاوتوماتيكيين التانيين.
 
-للاسف،دا ممكن يسبب ازعاج لليوزرو اللي نظرهم ضعيف او اللي بيستعملو براوز معتمد على الكلام او النصوص.
-في الوقت الحالي احنا ما عندناش اي بديل سمعي متوافر.
+للاسف،دا ممكن يسبب ازعاج لليوزرو اللى نظرهم ضعيف او اللى بيستعملو براوز معتمد على الكلام او النصوص.
+فى الوقت الحالى احنا ما عندناش اى بديل سمعى متوافر.
 لو سمحت تتصل بلاداريين بتوع الموقع علشان يساعدوك لو دا منعك بشكل مش متوقع من انك تشارك بشكل قانوني.
 
-دوس على زرار 'back'اللي في البراوزر بتاعك علشان ترجع لتحرير الصفحة.",
-	'captcha-addurl-whitelist' => ' #<!-- سيب السطر دا زي ما هو كدا بالظبط--> <pre>
+دوس على زرار 'back'اللى فى البراوزر بتاعك علشان ترجع لتحرير الصفحة.",
+	'captcha-addurl-whitelist' => ' #<!-- سيب السطر دا زى ما هو كدا بالظبط--> <pre>
 # الصيغة كدا:
-#  * كل حاجة من علامة "#" لحد نهاية السطر هي تعليق
-#  * كل سطر مش فاضي هو جزء ريجيكس و اللي ح يطابق بس المضيفين جوه URLs
-  #</pre> <!-- سيب السطر دا زي ما هو كدا بالظبط -->',
+#  * كل حاجة من علامة "#" لحد نهاية السطر هى تعليق
+#  * كل سطر مش فاضى هو جزء ريجيكس و اللى ح يطابق بس المضيفين جوه URLs
+  #</pre> <!-- سيب السطر دا زى ما هو كدا بالظبط -->',
 	'right-skipcaptcha' => 'عمل حاجات بتنشط الكابتشا من غير ما تضطر تمر بالكابتشا',
 );
 
@@ -1668,14 +1669,15 @@ $messages['nds'] = array(
  */
 $messages['nl'] = array(
 	'captcha-edit' => 'U wilt deze pagina bewerken.
-Voer alstublieft het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
+Voer het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-desc' => 'Eenvoudige implementatie van captcha',
 	'captcha-addurl' => "Uw bewerking bevat nieuwe externe links (URL's).
-Voer ter bescherming tegen geautomatiseerde spam alstublieft het antwoord op de onderstaande eenvoudige som in in het invoerveld ([[Special:Captcha/help|meer informatie]]):",
-	'captcha-badlogin' => 'Los alstublieft de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
+Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in in het invoerveld ([[Special:Captcha/help|meer informatie]]):",
+	'captcha-badlogin' => 'Los de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount' => 'Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount-fail' => 'De bevestigingscode ontbreekt of is onjuist.',
-	'captcha-create' => 'U wilt een nieuwe pagina aanmaken. Voer alstublieft het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
+	'captcha-create' => 'U wilt een nieuwe pagina aanmaken.
+Voer het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
 	'captchahelp-title' => 'Captcha-hulp',
 	'captchahelp-cookies-needed' => 'U dient in uw browser cookies ingeschakeld te hebben om dit te laten werken.',
 	'captchahelp-text' => "Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma's automatisch links op zetten naar vele websites.
@@ -1686,7 +1688,7 @@ Omdat dit proces lastig te automatiseren is, zijn vrijwel alleen mensen in staat
 
 Helaas levert deze bevestiging voor gebruikers met een visuele handicap of een tekst- of spraakgebaseerde browser problemen op.
 Op het moment is er geen alternatief met geluid beschikbaar.
-Vraag alstublieft assistentie van de sitebeheerders als dit proces u verhindert een nuttige bijdrage te leveren.
+Vraag assistentie van de sitebeheerders als dit proces u verhindert een nuttige bijdrage te leveren.
 
 Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
 	'captcha-addurl-whitelist' => ' #<!-- laat deze regel zoals hij is --> <pre> 

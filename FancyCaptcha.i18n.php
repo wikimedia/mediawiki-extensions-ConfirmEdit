@@ -57,12 +57,12 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'fancycaptcha-addurl' => 'تعديلك فيه لينكات خارجية جديدة
-علشان تساعد في الحماية من السبام الاوتوماتيكي، لو سمحت تكتب الكلمات الي باينة تحت في الصندوء ([[Special:Captcha/help|معلومات زيادة]]):',
-	'fancycaptcha-badlogin' => 'علشان تساعد في الحماية من السرقة الاتوماتيكية للباسورد، لو سمحت تدخل الكلمات اللي باينة تحت في الصندوء ([[Special:Captcha/help|معلومات زيادة]]):',
-	'fancycaptcha-createaccount' => 'علشان تساعد في الحماية من الفتح الاوتوماتيكي للحسابات،لو سمحت تدخل الكلمات اللي باينة تحت في الصندوء ([[Special:Captcha/help|معلومات زيادة]]):',
+علشان تساعد فى الحماية من السبام الاوتوماتيكى، لو سمحت تكتب الكلمات اللى باينة تحت فى الصندوء ([[Special:Captcha/help|معلومات زيادة]]):',
+	'fancycaptcha-badlogin' => 'علشان تساعد فى الحماية من السرقة الاتوماتيكية للباسورد، لو سمحت تدخل الكلمات اللى باينة تحت فى الصندوء ([[Special:Captcha/help|معلومات زيادة]]):',
+	'fancycaptcha-createaccount' => 'علشان تساعد فى الحماية من الفتح الاوتوماتيكى للحسابات،لو سمحت تدخل الكلمات اللى باينة تحت فى الصندوء ([[Special:Captcha/help|معلومات زيادة]]):',
 	'fancycaptcha-create' => 'علشان تبتدى صفحة جديدة، لو سمحت تدخل الكلمات اللى ظاهرة تحت فى الصندوق
 ([[Special:Captcha/help|معلومات زيادة]]):',
-	'fancycaptcha-edit' => 'علشان تعدل في الصفحة دي،لو سمحت تكتب الكلمات اللي باينة تحت في الصندوء  ([[Special:Captcha/help|معلومات زيادة]]):',
+	'fancycaptcha-edit' => 'علشان تعدل فى الصفحة دى،لو سمحت تكتب الكلمات اللى باينة تحت فى الصندوء  ([[Special:Captcha/help|معلومات زيادة]]):',
 );
 
 /** Assamese (অসমীয়া)
@@ -640,15 +640,14 @@ $messages['ms'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe links. Voer alstublieft de woorden die
-hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-badlogin' => 'Voer alstublieft de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-createaccount' => 'Voer alstublieft de woorden die hieronder verschijnen in het invoerveld in
-ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-create' => 'Uw bewerking bevat nieuwe externe links. Voer alstublieft de woorden die
-hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe links. Voer alstublieft de woorden die
-hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe links.
+Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-badlogin' => 'Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-createaccount' => 'Voer de woorden die hieronder verschijnen in het invoerveld in ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-create' => 'Uw bewerking bevat nieuwe externe links.
+Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe links.
+Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

@@ -318,8 +318,8 @@ class SimpleCaptcha {
 			} else {
 				// Get link changes in the slowest way known to man
 				$oldtext = $this->loadText( $editPage, $section );
-				$oldLinks = $this->findLinks( $oldtext );
-				$newLinks = $this->findLinks( $newtext );
+				$oldLinks = $this->findLinks( $editPage, $oldtext );
+				$newLinks = $this->findLinks( $editPage, $newtext );
 			}
 
 			$unknownLinks = array_filter( $newLinks, array( &$this, 'filterLink' ) );
@@ -647,12 +647,12 @@ class SimpleCaptcha {
 	 * @param string $text
 	 * @return array of strings
 	 */
-	function findLinks( $text ) {
-		global $wgParser, $wgTitle, $wgUser;
+	function findLinks( &$editpage, $text ) {
+		global $wgParser, $wgUser;
 
 		$options = new ParserOptions();
-		$text = $wgParser->preSaveTransform( $text, $wgTitle, $wgUser, $options );
-		$out = $wgParser->parse( $text, $wgTitle, $options );
+		$text = $wgParser->preSaveTransform( $text, $editpage->mTitle, $wgUser, $options );
+		$out = $wgParser->parse( $text, $editpage->mTitle, $options );
 
 		return array_keys( $out->getExternalLinks() );
 	}

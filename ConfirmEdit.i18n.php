@@ -555,6 +555,13 @@ Klicken Sie dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen
 	'captcha-create' => 'Zur Erstellung der Seite lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 );
 
+/** Ewe (Eʋegbe)
+ * @author Natsubee
+ */
+$messages['ee'] = array(
+	'captcha-edit' => 'Ne enye wò didi bena yea ɖɔ axa sia ɖo la, mía ve nuwò be na bu akɔnta si le nuŋɔŋlɔ sia gɔme, eye na ŋlɔ nusi wòkpɔ ɖe go sia me ([[Special:Captcha/help|gbeƒãɖeɖe]]):',
+);
+
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Consta
@@ -836,14 +843,14 @@ $messages['gl'] = array(
 	'captcha-edit' => 'Para editar esta páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-desc' => 'Introdución sinxela do Captcha',
 	'captcha-addurl' => 'A súa edición inclúe novas ligazóns externas.
-Como protección fronte ás ferramentas de publicación automática de ligazóns publicitarias, por favor resolva a simple suma de embaixo e teclee resposta na caixa ([[Special:Captcha/help|máis información]]):',
+Como protección fronte ás ferramentas de publicación automática de ligazóns publicitarias, por favor, resolva a simple suma de embaixo e teclee resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-badlogin' => 'Como protección para que non se descubra o contrasinal por medios automáticos, resolva a simple suma de embaixo e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-createaccount' => 'Como protección fronte á creación automática de contas de usuario ten que resolver a suma de embaixo e teclear a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-createaccount-fail' => 'Falta o código de confirmación ou é incorrecto.',
 	'captcha-create' => 'Para crear a páxina, resolva a suma simple que aparece embaixo e introduza a resposta na caixa ([[Special:Captcha/help|Que é isto?]]):',
 	'captchahelp-title' => 'Axuda acerca do Captcha',
 	'captchahelp-cookies-needed' => 'Necesita ter as <i>cookies</i> habilitadas no seu navegador para que funcione.',
-	'captchahelp-text' => "'''CAPTCHA''' (acrónimo de \"'''C'''ompletely '''A'''utomated '''P'''ublic '''T'''uring test to tell '''C'''omputers and '''H'''umans '''A'''part\") é un test de autentificación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas.
+	'captchahelp-text' => "'''CAPTCHA''' (acrónimo de \"'''C'''ompletely '''A'''utomated '''P'''ublic '''T'''uring test to tell '''C'''omputers and '''H'''umans '''A'''part\") é unha proba de autenticación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas.
 
 Os sitios web que aceptan publicar as contribucións dos usuarios, coma este wiki, sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias, nunha chea de páxinas, en pouco tempo.
 Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo.
@@ -853,7 +860,7 @@ Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e 
 
 Por desgraza, isto é un inconveniente para aqueles usuarios con dificultades de visión ou que utilicen navegadores de texto ou navegadores baseados en sistemas de voz.
 Polo de agora non dispoñemos dunha alternativa de audio.
-Por favor, contacte cun administrador do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas.
+Por favor, contacte cun [[Special:ListUsers/sysop|administrador]] do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas.
 
 Prema no botón \"atrás\" para voltar á páxina na que estaba editando.",
 	'captcha-addurl-whitelist' => ' #<!-- deixe esta liña exactamente como está --> <pre>

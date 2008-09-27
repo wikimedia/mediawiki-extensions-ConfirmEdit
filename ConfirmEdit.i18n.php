@@ -47,6 +47,7 @@ Hit the 'back' button in your browser to return to the page editor.",
  */
 $messages['qqq'] = array(
 	'captcha-edit' => 'This message will be shown when editing if the wiki requires solving a captcha for editing.',
+	'captcha-desc' => 'Short description of this extension, shown in [[Special:Version]]. Do not translate or change links.',
 	'captcha-create' => 'This message will be shown when creating a page if the wiki requires solving a captcha for that.',
 	'captchahelp-text' => 'This is the help text shown on [[Special:Captcha/help]].',
 	'captcha-addurl-whitelist' => 'See also: [[MediaWiki:Spam-blacklist]] and [[MediaWiki:Spam-whitelist]].',

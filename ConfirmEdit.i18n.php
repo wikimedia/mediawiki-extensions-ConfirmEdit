@@ -1179,6 +1179,7 @@ Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Hosiryuhosi
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -1196,7 +1197,7 @@ $messages['ja'] = array(
 ([[Special:Captcha/help|詳細]])',
 	'captchahelp-title' => 'CAPTCHA（画像認証） ヘルプ',
 	'captchahelp-cookies-needed' => 'ブラウザのクッキー機能を有効にする必要があります。',
-	'captchahelp-text' => '当Wikiのような、投稿が公開されているウェブサイトは、多くのサイトに自分たちへのリンクを自動投稿するツールを用いるスパマーにより荒らされます。これらのスパムは除去できるものの、その作業大変うっとうしいものです。
+	'captchahelp-text' => '当Wikiのような、投稿が公開されているウェブサイトは、多くのサイトに自分たちへのリンクを自動投稿するツールを用いるスパマーにより荒らされます。これらのスパムは除去できるものの、その作業は大変うっとうしいものです。
 
 時々、特に新しいリンクをページに追加したとき、Wikiは色の付いた、もしくは、ゆがめられた文字を提示し、その入力をお願いすることがあります。この作業は自動化が難しいため、本当の人間の投稿を可能にしつつ、多くのスパマーやロボットの攻撃を防ぐことが出来ます。
 

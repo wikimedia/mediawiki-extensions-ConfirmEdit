@@ -409,13 +409,13 @@ $messages['ca'] = array(
 	'captcha-create' => 'La vostra edició conté enllaços externs nous. Com a protecció contra la brossa de propaganda automàtica, cal que resolgueu aquesta simple suma i introduïu el resultat en el quadre a continuació ([[Special:Captcha/help|més informació]]):',
 	'captchahelp-title' => 'Ajuda amb el sistema captcha',
 	'captchahelp-cookies-needed' => "Heu d'activar les galetes al vostre navegador per a que funcioni.",
-	'captchahelp-text' => "Els webs que accepten la publicació de missatges per part del seu públic, com aquesta wiki, són sovint víctimes de spam per part de robots automàtics que hi posen enllaços cap als seus webs. Aquests enllaços poden anar essent esborrats, però són un important destorb.
+	'captchahelp-text' => "Els webs que accepten la publicació de missatges per part del seu públic, com aquest wiki, són sovint víctimes de spam per part de robots automàtics que hi posen enllaços cap als seus webs. Aquests enllaços es poden anar eliminant, però suposen un important destorb.
 
-Quan creeu nous comptes d'usuari o voleu afegir enllaços a una pàgina se us pot demanar que respongueu una pregunta fàcil, una suma o que digueu quina paraula apareix en una imatge distorsionada. Aquestes tasques són molt difícils de fer per a un programa automàtic i per tant permet que la majoria d'usuaris humans puguin introduir la informació que creguin i alhora atura la majoria d'atacants robots.
+Quan creeu nous comptes d'usuari o afegiu enllaços a una pàgina se us demanarà que respongueu una pregunta fàcil, una suma o que teclegeu el text que apareix en una imatge distorsionada. És difícil programar un robot per aquest tipus de tasques, i gràcies a açò, es poden aturar la majoria d'atacants robots.
 
 Malauradament, aquest sistema pot suposar un inconvenient per a usuaris amb problemes de visió o que utilitzin navegadors de text simple o de veu. Actualment no disposem de cap alternativa auditiva disponible. Contacteu els administradors del web si aquests sistema us impedeix de fer edicions legítimes.
 
-Necessitareu tenir les galetes activades en el vostre navegador per a que funcioni.
+Necessitareu tenir les galetes (''cookies'') activades al vostre navegador per a realitzar aquestes accions.
 
 Cliqueu el botó de retrocedir del vostre navegador per a tornar al formulari.",
 	'captcha-addurl-whitelist' => " #<!-- deixeu aquesta línia tal com està --> <pre>

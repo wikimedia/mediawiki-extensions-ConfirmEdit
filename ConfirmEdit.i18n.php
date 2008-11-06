@@ -374,17 +374,18 @@ $messages['br'] = array(
 
 /** Bosnian (Bosanski)
  * @author BrokenArrow
+ * @author CERminator
  */
 $messages['bs'] = array(
-	'captcha-edit' => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
-<br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
-	'captcha-addurl' => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
-<br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
-	'captcha-createaccount' => 'Kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje se nalaze na slici da biste registrovali nalog:
-<br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
+	'captcha-edit' => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da izračunate zadatak ispod i upišete odgovor u prozor:
+([[Special:Captcha/help|Šta je ovo?]])',
+	'captcha-addurl' => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da upišete rezultat prikazane sume u okvir:
+([[Special:Captcha/help|Šta je ovo?]])',
+	'captcha-createaccount' => 'Kao zaštita od automatizovanog vandalizma, moraćete da ukucate rezultat sume u okvir ispod da biste registrovali nalog:
+<br />([[Special:Captcha/help|Šta je ovo?]])',
 	'captcha-createaccount-fail' => 'Netačan unos ili nedostatak šifre za potvrđivanje.',
-	'captcha-create' => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da ukucate riječi koje su prikazane u slici:
-<br />([[{{ns:special}}:Captcha/help|Šta je ovo?]])',
+	'captcha-create' => 'Da bi ste napravili stranicu; kao zaštita od automatizovanog vandalizma, moraćete da ukucate rezultat prikazane sume u okvir ispod:
+([[Special:Captcha/help|Šta je ovo?]])',
 	'captchahelp-text' => "Vebsajtovi koji podržavaju slanje sadržaja iz javnosti, kao što je ovaj viki, često zloupotrebljavaju vandali koji koriste automatizovane alate da šalju svoje poveznice ka mnogim sajtovima.  Iako se ove neželjene poveznice mogu ukloniti, one ipak zadaju veliku muku.
 
 Ponekad, pogotovo kad se dodaju nove internet poveznice na stranicu, viki softver Vam može pokazati sliku obojenog i izvrnutog teksta i tražiti da ukucate traženu riječ.  Pošto je teško automatizovati ovakav zadatak, on omogućuje svim pravim ljudima da vrše svoje izmjene, ali će zato spriječiti vandale i ostale robotske napadače.

@@ -1787,7 +1787,7 @@ Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de f
 
 De còps quand apondètz de ligams novèls cap al web, lo wiki vos pòt mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d'automatizar, çò que permet de diferenciar un uman real d'un logicial automatic malvolent.
 
-Malurosament, aqueste sistèma es pas adaptat a d'utilizaires mal-vesents o utilizant de navigadors textuals o àudio. Actualament, prepausem pas d'alternativas adaptadas. Se avètz besonh d'ajuda esitetz pas a contactar los administrators del sit. 
+Malurosament, aqueste sistèma es pas adaptat a d'utilizaires mal-vesents o utilizant de navigadors textuals o àudio. Actualament, prepausem pas d'alternativas adaptadas. S'avètz besonh d'ajuda trantalhetz pas a contactar los administrators del sit. 
 
 Clicatz sul boton 'precedent' de vòstre navigador per tornar a l'editor.",
 	'captcha-addurl-whitelist' => '#<!-- daissatz aquesta linha exactament tala coma es --> <pre> # La sintaxi es la seguenta: # * Tot caractèr seguissent "#" fins a la fin de la linha serà interpretat coma un comentari # * Tota linha non voida es un còde regex que serà utilizat unicament a l\'interior dels ligams hypertext. #</pre> <!-- daissatz aquesta linha exactament tala coma es -->',

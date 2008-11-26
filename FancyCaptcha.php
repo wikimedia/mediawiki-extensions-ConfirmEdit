@@ -37,6 +37,6 @@ $wgCaptchaDirectoryLevels = 0; // To break into subdirectories
 global $wgCaptchaSecret;
 $wgCaptchaSecret = "CHANGE_THIS_SECRET!";
 
-$wgExtensionMessagesFiles['FancyCaptcha'] = dirname(__FILE__).'/FancyCaptcha.i18n.php';
-$wgAutoloadClasses['FancyCaptcha'] = dirname( __FILE__ ) . '/FancyCaptcha.class.php';
-
+$dir = dirname(__FILE__) . '/';
+$wgExtensionMessagesFiles['FancyCaptcha'] = $dir . 'FancyCaptcha.i18n.php';
+$wgAutoloadClasses['FancyCaptcha'] = $dir . 'FancyCaptcha.class.php';

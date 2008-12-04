@@ -1018,6 +1018,7 @@ $messages['hsb'] = array(
 # * Kóžda popisana linka je fragment regex (regularneho wuraza) kotryž so z mjenom hosta wěsteje URL přirunuje
 
  #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha' => 'Captcha přeskočić',
 );
 
 /** Haitian (Kreyòl ayisyen)

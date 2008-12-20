@@ -102,12 +102,12 @@ class SimpleCaptcha {
 		$index = $this->storeCaptcha( $captcha );
 
 		return "<p><label for=\"wpCaptchaWord\">{$captcha['question']}</label> = " .
-			wfElement( 'input', array(
+			Xml::element( 'input', array(
 				'name' => 'wpCaptchaWord',
 				'id'   => 'wpCaptchaWord',
 				'tabindex' => 1 ) ) . // tab in before the edit textarea
 			"</p>\n" .
-			wfElement( 'input', array(
+			Xml::element( 'input', array(
 				'type'  => 'hidden',
 				'name'  => 'wpCaptchaId',
 				'id'    => 'wpCaptchaId',

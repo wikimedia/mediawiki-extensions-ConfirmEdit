@@ -22,8 +22,8 @@ class MathCaptcha extends SimpleCaptcha {
 		$index = $this->storeCaptcha( array( 'answer' => $answer ) );
 		
 		$form = '<table><tr><td>' . $this->fetchMath( $sum ) . '</td>';
-		$form .= '<td>' . wfInput( 'wpCaptchaWord', false, false, array( 'tabindex' => '1' ) ) . '</td></tr></table>';
-		$form .= wfHidden( 'wpCaptchaId', $index );
+		$form .= '<td>' . Xml::input( 'wpCaptchaWord', false, false, array( 'tabindex' => '1' ) ) . '</td></tr></table>';
+		$form .= Xml::hidden( 'wpCaptchaId', $index );
 		return $form;
 	}
 	

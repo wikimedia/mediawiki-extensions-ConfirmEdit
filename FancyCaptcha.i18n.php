@@ -194,14 +194,27 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author Raimond Spekking
+ * @author Umherirrender
  */
 $messages['de'] = array(
 	'fancycaptcha-addurl' => 'Deine Bearbeitung enthält neue externe Links.
 Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'fancycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]]:',
-	'fancycaptcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten gib das folgende Wort in das Feld unten ein  [[Special:Captcha/help|(Fragen oder Probleme?)]].',
+	'fancycaptcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten gib bitte das folgende Wort in das Feld unten ein ([[Special:Captcha/help|Fragen oder Probleme?]]):',
 	'fancycaptcha-create' => 'Zur Erstellung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'fancycaptcha-edit' => 'Zur Bearbeitung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
+);
+
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'fancycaptcha-addurl' => 'Twója změna wopśimujo nowe eksterne wótkaze.
+Za šćit pśeśiwo awtomatiskemu spamowanjeju, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku  ([[Special:Captcha/help|dalšne informacije]]):',
+	'fancycaptcha-badlogin' => 'Za šćit pśeśiwo awtomatiskemu wugódanjeju gronidła, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):',
+	'fancycaptcha-createaccount' => 'Za šćit pśeśiwo awtomatiskemu załoženjeju kontow, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):',
+	'fancycaptcha-create' => 'Aby bok napórał, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):',
+	'fancycaptcha-edit' => 'Aby toś ten bok wobźěłał, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):',
 );
 
 /** Greek (Ελληνικά)

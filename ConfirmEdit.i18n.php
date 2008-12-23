@@ -870,7 +870,7 @@ Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e 
 
 Por desgraza, isto é un inconveniente para aqueles usuarios con dificultades de visión ou que utilicen navegadores de texto ou navegadores baseados en sistemas de voz.
 Polo de agora non dispoñemos dunha alternativa de audio.
-Por favor, contacte cun [[Special:ListUsers/sysop|administrador]] do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas.
+Por favor, contacte cun administrador do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas.
 
 Prema no botón \"atrás\" para voltar á páxina na que estaba editando.",
 	'captcha-addurl-whitelist' => ' #<!-- deixe esta liña exactamente como está --> <pre>
@@ -1435,30 +1435,17 @@ Su jät wulle_mer nit hann, un donn_et jlish widder fottschmiiße.
 
 Domet mer do_met nidd_esu fill Ärrbed hann,
 maache_mer dänne Autmaate et Lääve schwer.
-Wann uns Wikki merk, et künnd_esu jet em Bösh sinn,
-dann zeisch et e Belldshe med komije Texte dren,
-un fröhsch, dat mer se jenau esu ennjävve sullt,
-wi se do shtonn. För_enne Minsch eß dat eifach,
-ävver dat es fodammp schwierich ze projrammiere.
-Dat es e beßßje läßtish för der Minsch, ävver de
-Robbotter hälld et unß bahl komplett fum Lief,
-un su jesinn, ess et netto enne Jewenn.
+Wann uns Wikki merk, et künnd_esu jet em Bösh sinn, dann zeisch et e Belldshe med komije Texte dren, un fröhsch, dat mer se jenau esu ennjävve sullt,
+wi se do shtonn. För_enne Minsch eß dat eifach, ävver dat es fodammp schwierich ze projrammiere.
+Dat es e beßßje läßtish för der Minsch, ävver de Robbotter hälld et unß bahl komplett fum Lief, un su jesinn, ess et netto enne Jewenn.
 
-Wann De Dich ens fordeis, es och nit schlimm,
-De wees norr_enß jefrooch. Wat De jetipp häs,
-kütt nit fott.
+Wann De Dich ens fordeis, es och nit schlimm, De wees norr_enß jefrooch. Wat De jetipp häs, kütt nit fott.
 
-Schaad es, mer hann noch keine Wääsh, dat met Shprooch
-odder sönswi ze maache, su dat Lück met Shprooch_Ußßjaave,
-Braille, un met nur Tex em Brauser oohne Bellder, em Räähn
-shtonn künnte. Dooht Ühr Zeush eets enß oohne Lengk speischere,
-un saat dä [[{{MediaWiki:Grouppage-sysop}}|Wikki_Köbesse]],
+Schaad es, mer hann noch keine Wääsh, dat met Shprooch odder sönswi ze maache, su dat Lück met Shprooch_Ußßjaave, Braille, un met nur Tex em Brauser oohne Bellder, em Räähn shtonn künnte. Dooht Ühr Zeush eets enß oohne Lengk speischere, un saat dä [[{{MediaWiki:Grouppage-sysop}}|Wikki_Köbesse]],
 wann Ühr Probbleme hatt. Do weed_Üch jehollfe weede.
-Di [[:Special:Userlist/sysops|Wikki_Köbesse]] künnt Ühr op jeede Fall
-övver dänne ier Klaaf_Sigge un do och övver e-mail erreiche.
+Di [[:Special:Userlist/sysops|Wikki_Köbesse]] künnt Ühr op jeede Fall övver dänne ier Klaaf_Sigge un do och övver e-mail erreiche.
 
-Jetz kanns De met Dingem Brauser singem „Zeröck“-Knopp wigger maache,
-wo De fürher woohß.',
+Jetz kanns De met Dingem Brauser singem „Zeröck“-Knopp wigger maache, wo De fürher woohß.',
 	'captcha-addurl-whitelist' => ' #<!-- Lohß di Reih he jenou esu wi se es --> <pre>
 # Dä Opbou es:
 # * Alles fun enem #-Zeiche bes an et Engk fun ene Reih es ene Kommentaa för de Minsche

@@ -669,7 +669,20 @@ Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming t
 Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'fancycaptcha-addurl' => 'Endringa di inneheld nye utlenkjer.
+For å hjelpa oss med å unngå automatisert spam, ver venleg og skriv inn orda som kjem til syne i boksen under ([[Special:Captcha/help|meir informasjon]]):',
+	'fancycaptcha-badlogin' => 'Skriv inn orda som kjem til syne i boksen nedanfor for å hjelpa oss med å unngå automatisert passordknekking ([[Special:Captcha/help|meir informasjon]]):',
+	'fancycaptcha-createaccount' => 'Skriv inn orda som kjem til syne i boksen nedanfor for å hjelpa oss med å unngå automatisk kontooppretting ([[Special:Captcha/help|meir informasjon]]):',
+	'fancycaptcha-create' => 'Skriv inn orda som kjem til syne i boksen nedanfor for å oppretta sida ([[Special:Captcha/help|meir informasjon]]):',
+	'fancycaptcha-edit' => 'For å endra denne sida, ver venleg og skriv inn orda som kjem til syne i boksen nedanfor ([[Special:Captcha/help|meir informasjon]]):',
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Harald Khan
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
@@ -677,7 +690,7 @@ $messages['no'] = array(
 	'fancycaptcha-badlogin' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot passordtyveri ([[Special:Captcha/help|mer informasjon]]):',
 	'fancycaptcha-createaccount' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk kontoopprettelse ([[Special:Captcha/help|mer informasjon]]):',
 	'fancycaptcha-create' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
-	'fancycaptcha-edit' => 'Din endring inneholder nye eksterne lenker. Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot passordtyveri ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-edit' => 'For å endre denne siden, vennligst skriv inn ordene som dukker opp i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
 );
 
 /** Occitan (Occitan)

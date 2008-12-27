@@ -1643,6 +1643,13 @@ Sila tekan butang 'back' untuk kembali ke borang sunting.",
 	'right-skipcaptcha' => 'Melepasi pemeriksaan CAPTCHA',
 );
 
+/** Nahuatl (Nāhuatl)
+ * @author Fluence
+ */
+$messages['nah'] = array(
+	'captchahelp-title' => 'Captchatechcopa tēpalēhuiliztli',
+);
+
 /** Min Nan Chinese (Bân-lâm-gú) */
 $messages['nan'] = array(
 	'captcha-createaccount' => 'Ūi beh ī-hông lâng iōng ke-si chū-tōng chù-chheh koh tah kóng-kò, chhiáⁿ lí kā chhut-hiān tī ang-á lāi-bīn ê jī phah 1 piàn (thang chèng-bêng lí m̄ sī ki-khì-lâng): <br />

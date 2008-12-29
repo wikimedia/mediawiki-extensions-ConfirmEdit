@@ -136,6 +136,18 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
 	'fancycaptcha-edit' => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'fancycaptcha-addurl' => 'Vaša izmjena uključuje nove vanjske linkove.
+Da bi se zaštitili od automatskog spama, molimo da unesete riječi koje su prikazane u kutiji ([[Special:Captcha/help|više informacija]]):',
+	'fancycaptcha-badlogin' => 'Da bi pomogli u sprječavanju protiv automatskog probijanja šifre, molimo Vas da unesete riječi koje su prikazane ispod u kutiji ([[Special:Captcha/help|više informacija]]):',
+	'fancycaptcha-createaccount' => 'Da bi pomogli u sprječavanju automatskog pravljenja računa, molimo Vas da unesete riječi koje su prikazane u kutiji ispod ([[Special:Captcha/help|više informacija]]):',
+	'fancycaptcha-create' => 'Da bi ste napravili stranicu, molimo Vas unesite riječi koje su prikazane u kutiji ispod ([[Special:Captcha/help|više informacija]]):',
+	'fancycaptcha-edit' => 'Da bi ste uređivali ovu stranicu, molimo Vas unesite riječi koje su prikazane u kutiji ispod ([[Special:Captcha/help|više informacija]]):',
+);
+
 /** Catalan (Català)
  * @author SMP
  */

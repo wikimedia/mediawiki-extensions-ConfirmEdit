@@ -382,6 +382,7 @@ $messages['bs'] = array(
 	'captcha-desc' => 'Jednostavno korištenje captcha procesa',
 	'captcha-addurl' => 'Vaša izmjena uključuje nove URL poveznice; kao zaštita od automatizovanog vandalizma, moraćete da upišete rezultat prikazane sume u okvir:
 ([[Special:Captcha/help|Šta je ovo?]])',
+	'captcha-badlogin' => 'Da bi ste pomogli protiv automatskog probijanja šifre, molimo riješite jednostavan zadatak sabiranja ispod i unesite rezultat u kutiju ([[Special:Captcha/help|više informacija]]):',
 	'captcha-createaccount' => 'Kao zaštita od automatizovanog vandalizma, moraćete da ukucate rezultat sume u okvir ispod da biste registrovali nalog:
 <br />([[Special:Captcha/help|Šta je ovo?]])',
 	'captcha-createaccount-fail' => 'Netačan unos ili nedostatak šifre za potvrđivanje.',
@@ -396,6 +397,11 @@ Ponekad, pogotovo kad se dodaju nove internet poveznice na stranicu, viki softve
 Nažalost, ovo može da bude nepovoljno za korisnike sa ograničenim vidom i za one koji koriste brauzere bazirane na tekstu ili govoru.  U ovom trenutku, audio alternativa nije dostupna.  Molimo Vas da kontaktirate administratore sajta radi pomoći ako Vas ovo neočekivano ometa u pravljenju dobrih izmjena.
 
 Kliknite 'nazad' ('back') dugme vašeg brauzera da se vratite na polje za unos teksta.",
+	'captcha-addurl-whitelist' => '  #<!-- ostavite ovaj red onakav kakav je --> <pre>
+# Sintaksa je slijedeća:
+#  * Sve od znaka "#" do kraja reda je komentar
+#  * Svaki neprazni red je regex fragment koji će odgovarati samo domaćinima unutar URLova
+  #</pre> <!-- ostavite ovaj red onakav kakav je -->',
 	'right-skipcaptcha' => 'Korištenje akcija nakon captcha bez potrebe prolaska kroz captcha proces',
 );
 

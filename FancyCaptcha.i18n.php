@@ -100,6 +100,18 @@ $messages['bcc'] = array(
 	'fancycaptcha-edit' => 'په اصلاح کتن ای صفحه، لطفا کلماتی که ته جهلگی جعبه ظاهراند واردش کنیت ([[Special:Captcha/help|گیشتر اطلاعات]]):',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ */
+$messages['be-tarask'] = array(
+	'fancycaptcha-addurl' => 'Вашае рэдагаваньне ўтрымлівае новыя зьнешнія спасылкі.
+У мэтах абароны ад спаму, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
+	'fancycaptcha-badlogin' => 'У мэтах абароны ад аўтаматычнага злому пароляў, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
+	'fancycaptcha-createaccount' => 'У мэтах абароны ад аўтаматычнага стварэньня рахункаў, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
+	'fancycaptcha-create' => 'Для стварэньня старонкі, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
+	'fancycaptcha-edit' => 'Для рэдагаваньня гэтай старонкі, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
+);
+
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI
@@ -669,6 +681,18 @@ $messages['ms'] = array(
 	'fancycaptcha-edit' => 'Untuk menyunting laman ini, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 );
 
+/** Low German (Plattdüütsch)
+ * @author Slomox
+ */
+$messages['nds'] = array(
+	'fancycaptcha-addurl' => 'In dien Ännern sünd ne’e Weblenken in.
+As Schutz gegen automaatsch Spam, geev disse Bookstavenreeg in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
+	'fancycaptcha-badlogin' => 'As Schutz gegen Passwoord-Knackers, geev disse Bookstavenreeg in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
+	'fancycaptcha-createaccount' => 'As Schutz gegen dat automaatsch Opstellen vun ne’e Brukerkonten, geev disse Bookstavenreeg in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
+	'fancycaptcha-create' => 'Disse Sied nee optostellen, geev disse Bookstavenreeg in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
+	'fancycaptcha-edit' => 'Disse Sied to ännern, geev disse Bookstavenreeg in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -894,6 +918,18 @@ $messages['tg-cyrl'] = array(
 	'fancycaptcha-createaccount' => 'Барои кӯмак аз эҷоди худкори ҳисоби корбарӣ, вожаеро ки дар тасвир мебинед, ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
 	'fancycaptcha-create' => 'Барои эҷоди саҳифа, вожаеро ки дар тасвир мебинед, ворид кунед  ([[Special:Captcha/help|иттилооти бештар]]):',
 	'fancycaptcha-edit' => 'Барои вироиши ин саҳифа, вожаеро ки дар тасвир мебинед, ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
+);
+
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'fancycaptcha-addurl' => "Kabilang sa ginawa mong pagbabago ang bagong panlabas na mga kawing.
+Upang makatulong sa pagsasanggalang laban sa kusang pinapadalang mga \"manlulusob\" (''spam''), pakilagay lamang ang mga salitang lumitaw sa ibaba papasok sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):",
+	'fancycaptcha-badlogin' => 'Upang makatulong sa pagsasanggalang laban sa mga kusang paglutas ng hudyat, pakilagay lamang ang mga salitang lumitaw sa ibaba patungo sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',
+	'fancycaptcha-createaccount' => 'Upang makatulong sa pagsasanggalang laban sa kusang paglikha ng kuwenta/akawnt, pakilagay lamang ang mga salitang lumitaw sa ibaba patungo sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',
+	'fancycaptcha-create' => 'Upang malikha ang pahina, pakilagay lamang ang mga salitang lumitaw sa ibaba patungo sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',
+	'fancycaptcha-edit' => 'Upang mabago ang pahinang ito, pakilagay lamang ang mga salitang lumitaw sa ibaba patungo sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',
 );
 
 /** Turkish (Türkçe)

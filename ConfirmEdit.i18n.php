@@ -299,6 +299,41 @@ $messages['be'] = array(
   #</pre> <!-- радок абавязкова пакінуць як ёсць (у т.л., з прагалам у пачатку) -->',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'captcha-edit' => 'Для рэдагаваньня гэтай старонкі, калі ласка, рашыце лёгкі прыклад і увядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
+	'captcha-desc' => 'Простая абарона ад робатаў',
+	'captcha-addurl' => 'Вашае рэдагаваньне ўтрымлівае новыя зьнешнія спасылкі.
+У мэтах абароны ад аўтаматычнага спаму, калі ласка, рашыце просты прыклад і увядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
+	'captcha-badlogin' => 'У мэтах абароны ад аўтаматычнага злому пароляў, калі ласка, рашыце просты прыклад і увядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
+	'captcha-createaccount' => 'У мэтах абароны ад аўтаматычнага стварэньня рахункаў, калі ласка, рашыце просты прыклад і увядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
+	'captcha-createaccount-fail' => 'Няслушны кантрольны код, ці ён ня ўведзены.',
+	'captcha-create' => 'Каб стварыць старонку, калі ласка, рашыце просты прыклад і увядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
+	'captchahelp-title' => 'Дапамога да простай абароны ад робатаў',
+	'captchahelp-cookies-needed' => 'Неабходна мець уключаныя закладкі (cookies) ў браўзэры, каб гэта функцыя працавала.',
+	'captchahelp-text' => 'Сайты, якія дазваляюць дадаваць і зьмяняць зьмест, падобныя на гэтую вікі, часта атакуюцца спамэрамі, якія карыстаюцца прыладамі для аўтаматычнага даданьня спасылак на іншыя сайты.
+Ня гледзячы на тое, што спамавыя спасылкі выдаляюцца, яны становяцца істотнай перашкодай для працы.
+
+У некаторых выпадках, асабліва пад час даданьня на старонку спасылкі на іншую старонку, вікі можа паказаць Вам выяву з каляровым і пераўтвораным тэкстам і Вам будзе прапанавана ўвесьці гэты тэкст.
+У выніку таго, што гэтае заданьне зьяўляецца вельмі складаным для аўтаматычных праграмаў, то большасьць спамавых праграмаў зь ёй не спраўляюцца ў адрозьненьні ад людзей.
+
+На жаль, гэта можа перашкодзіць ўдзельнікам з абмежаваньнямі па зроку ці тым, якія карыстаюцца чытаючымі браўзэрамі.
+У гэты момант мы ня маем аўдыё-альтэрнатывы гэтай праверцы.
+Калі ласка, зьвяжыцеся з адміністратарамі сайту, калі гэтая праверка перашкаджае Вам працаваць з сайтам.
+
+Націсьніце кнопку «назад» у Вашым браўзэры, каб вярнуцца да працы з сайтам.',
+	'captcha-addurl-whitelist' => '  #<!-- leave this line exactly as it is --> <pre>
+# Сынтаксіс наступны:
+#  * Усё, што пачынаецца з «#» і да канца радку, зьяўляецца камэнтарам
+#  * Усе непустыя радкі зьяўляюцца часткамі рэгулярнага выразу, які будзе выкарыстоўвацца толькі
+# ў дачыненьні да назваў сэрвэраў у вонкавых спасылках
+  #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha' => 'Доступ да магчымасьцяў абароненых пытаньнямі ў выяве ці рашэньнем прыкладаў, без ужываньня праверак',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  * @author Spiritia
@@ -1669,8 +1704,12 @@ $messages['nan'] = array(
 $messages['nds'] = array(
 	'captcha-edit' => 'Disse Siet to ännern, musst du disse lütte Rekenopgaav lösen un dat Resultat in dat Feld ingeven ([[Special:Captcha/help|mehr dorto]]):',
 	'captcha-desc' => 'Eenfach Captcha',
+	'captcha-addurl' => 'In dien Ännern sünd ne’e Weblenken in.
+As Schutz gegen automaatsch Spam, löös disse lüttje Rekenopgaav un geev dat Resultat in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
+	'captcha-badlogin' => 'As Schutz gegen Passwoord-Knackers, löös disse lüttje Rekenopgaav un geev dat Resultat in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
 	'captcha-createaccount' => 'Dat hier nich Brukers automaatsch anleggt warrt, musst du disse lütte Rekenopgaav lösen ([[Special:Captcha/help|mehr dorto]]):',
 	'captcha-createaccount-fail' => 'Kood to’n Bestätigen is verkehrt oder fehlt.',
+	'captcha-create' => 'De Sied nee optostellen, löös disse lüttje Rekenopgaav un geev dat Resultat in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
 	'captchahelp-title' => 'Help to Captchas',
 	'captchahelp-cookies-needed' => 'Dien Browser mutt Cookies ünnerstütten un aktiveert hebben, dat dat geiht.',
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
@@ -2344,6 +2383,39 @@ $messages['tg-cyrl'] = array(
 $messages['th'] = array(
 	'captcha-edit' => 'เพื่อที่จะแก้ไขหน้านี้ กรุณาตอบโจทย์ปัญหาทางคณิตศาสตร์ข้างล่าง และใส่คำตอบลงในกล่อง ([[Special:Captcha/help|รายละเอียดเพิ่มเติม]]) :',
 	'captcha-createaccount-fail' => 'โค้ดสำหรับการยืนยันยังไม่ได้ใส่หรือผิด',
+);
+
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'captcha-edit' => 'Para magawaan ng pagbabago ang pahinang ito, pakisagot lamang ang payak na pagtutuos na nasa ibaba at ipasok ang sagot sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',
+	'captcha-desc' => "Payak na pagsasakatuparan ng pagsusuring ''captcha''",
+	'captcha-addurl' => "Kasama sa mga pagbabagong ginawa mo ang bagong panlabas na mga kawing.
+Upang makatulong sa pagsasanggalang laban sa mga kusang dumarating na \"manlulusob\" (''spam''), pakisagot ang payak na pagtutuos sa ibaba at ipasok ang sagot sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):",
+	'captcha-badlogin' => 'Upang makatulong sa pagsasanggalang laban sa mga kusang paglutas ng hudyat, pakisagot lamang payak na pagtutuos na nasa ibaba at ipasok ang sagot sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',
+	'captcha-createaccount' => 'Upang makatulong sa pagsasanggalang laban sa kusang paglikha ng kuwenta, pakisagot ang payak na pagtutuos na nasa ibaba at ipasok ang sagot sa loob ng kahon ([[Special:Captcha/help|masa marami pang kabatiran]]):',
+	'captcha-createaccount-fail' => 'Hindi tama o nawawalang kodigo ng pagpapatotoo.',
+	'captcha-create' => 'Upang malikha ang pahina, pakisagot lamang ang payak na pagtutuos na nasa ibaba at ipasok ang sagot sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',
+	'captchahelp-title' => "Tulong na pangpagsusuring ''captcha''",
+	'captchahelp-cookies-needed' => "Kinakailangan mong magkaroon ng mga gumaganang mga  \"otap\" (''cookies'') sa loob ng pantingin-tingin (''browser'') mo upang maisagawa ito.",
+	'captchahelp-text' => "Ang mga websayt na tumatanggap ng mga pagtatala (pagpapahayag) mula sa madla/publiko, katulad ng wiking ito, ay kalimitang inaabuso ng mga tagapagpadala ng mga \"manlulusob\" (''spam'') na gumagamit ng mga awtomatikong mga kagamitan upang makapagpaskil ng kanilang mga kawing sa maraming mga sityo/sayt.
+Bagaman maaaring matanggal ang mga kawing na pangmanlulusob na ito, isa silang malaking abala.
+
+Kung minsan, lalo na kapag nagdaragdag ng bagong mga kawing na pangweb sa isang pahina, maaaring magpakita sa iyo ang wiki ng isang larawan ng may kulay o may masamang hubog na teksto at hihilingin kang magmakinilya ng ipinapakitang mga salita.
+Dahil sa isang itong gawaing mahirap na gawing kusa/awtomatiko, napapahintulutan nito ang halos lahat ng mga tunay na tao upang magawa ang kanilang mga pagtatala habang pinipigil ang karamihan sa mga nagpapadala ng mga ''spam'' at iba pang mga mala-robot na mga manlulusob.
+
+Sa kasawiang palad maaaring hindi makaginhawa ang mga tagagamit na may malabong paningin o ibang mga pantingin-tingin (''browser'') nakabase/nakabatay sa teksto o pagsasalita.
+Sa ngayon wala pa kaming pamalit na isang pang-audio.
+Makipagugnayan lamang sa mga tagapangasiwa ng sayt/sityo para humingi ng tulong kapag hindi inaasahang mapigilan ka sa pagsasagawa ng mga tunay na pagtatala/pagpapahayag.
+
+Pindutin ang pindutang 'bumalik' (''back'') sa iyong pantingin-tingin upang makabalik sa pampatnugot ng pahina.",
+	'captcha-addurl-whitelist' => "  #<!-- leave this line exactly as it is --> <pre>
+# Ang palaugnayan ay ayon sa mga sumusunod:
+#  * Lahat ng bagay mula sa isang \"#\" na panitik hanggang sa wakas ng isang guhit/hanay ay isang puna (kumento)
+#  * Bawat hindi/walang patlang na guhit/hanay ay isang piraso ng karaniwang pagsasaad (''regex'') na tutugma lamang sa mga tagapagpasinaya sa loob ng mga URL
+  #</pre> <!-- leave this line exactly as it is -->",
+	'right-skipcaptcha' => "Gawin ang mga galaw na nakapagsasanhi ng pagsusuring ''captcha'' na hindi kinakailangang dumaan sa ''captcha''",
 );
 
 /** Turkish (Türkçe)

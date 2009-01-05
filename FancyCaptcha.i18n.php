@@ -697,13 +697,13 @@ As Schutz gegen automaatsch Spam, geev disse Bookstavenreeg in dat Feld ünnen i
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe links.
+	'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe verwijzingen.
 Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-badlogin' => 'Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-createaccount' => 'Voer de woorden die hieronder verschijnen in het invoerveld in ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-create' => 'Uw bewerking bevat nieuwe externe links.
+	'fancycaptcha-create' => 'Uw bewerking bevat nieuwe externe verwijzingen.
 Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe links.
+	'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe verwijzingen.
 Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 );
 

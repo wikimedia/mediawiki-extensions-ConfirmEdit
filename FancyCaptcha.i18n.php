@@ -102,9 +102,10 @@ $messages['bcc'] = array(
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
+ * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
-	'fancycaptcha-addurl' => 'Вашае рэдагаваньне ўтрымлівае новыя зьнешнія спасылкі.
+	'fancycaptcha-addurl' => 'Вашае рэдагаваньне ўтрымлівае новыя вонкавыя спасылкі.
 У мэтах абароны ад спаму, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
 	'fancycaptcha-badlogin' => 'У мэтах абароны ад аўтаматычнага злому пароляў, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
 	'fancycaptcha-createaccount' => 'У мэтах абароны ад аўтаматычнага стварэньня рахункаў, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
@@ -375,6 +376,18 @@ automatizado, introduza as palabras que aparecen na páxina de embaixo ([[Specia
 ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-edit' => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo
 ([[Special:Captcha/help|máis información]]):',
+);
+
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'fancycaptcha-addurl' => 'In Dyynere Bearbeitig het s neiji externi Gleicher.
+Zum Schutz vor automatisiertem Spamming gib des Wort in s Fäld unten yy. Druck derno nomol uf „Syte spychere“ [[Special:Captcha/help|(Frogen oder Probläm?)]].',
+	'fancycaptcha-badlogin' => 'Zum Schutz vor ere Kompromittierig vu Dyynm Benutzerkonto gib des Wort in s Fäld unten yy [[Special:Captcha/help|(Frogen oder Probläm?)]]:',
+	'fancycaptcha-createaccount' => 'Zum Schutz vor ere automatisierte Aalag vu Benutzerkonte gib bitte des Wort in s Fäld unten yy ([[Special:Captcha/help|Frogen oder Probläm?]]):',
+	'fancycaptcha-create' => 'Zum d Syten aalege gib des Wort in s Fäld unten yy [[Special:Captcha/help|(Frogen oder Probläm?)]].',
+	'fancycaptcha-edit' => 'Zum d Syte bearbeite gib des Wort in s Fäld unten yy [[Special:Captcha/help|(Frogen oder Probläm?)]].',
 );
 
 /** Hebrew (עברית)

@@ -302,20 +302,21 @@ $messages['be'] = array(
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
-	'captcha-edit' => 'Для рэдагаваньня гэтай старонкі, калі ласка, рашыце лёгкі прыклад і увядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
+	'captcha-edit' => 'Для рэдагаваньня гэтай старонкі, калі ласка, разьвяжыце лёгкі прыклад і ўвядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
 	'captcha-desc' => 'Простая абарона ад робатаў',
-	'captcha-addurl' => 'Вашае рэдагаваньне ўтрымлівае новыя зьнешнія спасылкі.
-У мэтах абароны ад аўтаматычнага спаму, калі ласка, рашыце просты прыклад і увядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
-	'captcha-badlogin' => 'У мэтах абароны ад аўтаматычнага злому пароляў, калі ласка, рашыце просты прыклад і увядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
-	'captcha-createaccount' => 'У мэтах абароны ад аўтаматычнага стварэньня рахункаў, калі ласка, рашыце просты прыклад і увядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
+	'captcha-addurl' => 'Вашае рэдагаваньне ўтрымлівае новыя вонкавыя спасылкі.
+У мэтах абароны ад аўтаматычнага спаму, калі ласка, разьвяжыце просты прыклад і ўвядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
+	'captcha-badlogin' => 'У мэтах абароны ад аўтаматычнага злому пароляў, калі ласка, разьвяжыце просты прыклад і ўвядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
+	'captcha-createaccount' => 'У мэтах абароны ад аўтаматычнага стварэньня рахункаў, калі ласка, разьвяжыце просты прыклад і ўвядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
 	'captcha-createaccount-fail' => 'Няслушны кантрольны код, ці ён ня ўведзены.',
-	'captcha-create' => 'Каб стварыць старонку, калі ласка, рашыце просты прыклад і увядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
+	'captcha-create' => 'Каб стварыць старонку, калі ласка, разьвяжыце просты прыклад і ўвядзіце адказ у тэкставае поле ([[Special:Captcha/help|болей інфармацыі]]):',
 	'captchahelp-title' => 'Дапамога да простай абароны ад робатаў',
-	'captchahelp-cookies-needed' => 'Неабходна мець уключаныя закладкі (cookies) ў браўзэры, каб гэта функцыя працавала.',
+	'captchahelp-cookies-needed' => 'Неабходна мець уключаныя файлы-кукі ў браўзэры, каб гэтая функцыя працавала.',
 	'captchahelp-text' => 'Сайты, якія дазваляюць дадаваць і зьмяняць зьмест, падобныя на гэтую вікі, часта атакуюцца спамэрамі, якія карыстаюцца прыладамі для аўтаматычнага даданьня спасылак на іншыя сайты.
-Ня гледзячы на тое, што спамавыя спасылкі выдаляюцца, яны становяцца істотнай перашкодай для працы.
+Нягледзячы на тое, што спамавыя спасылкі выдаляюцца, яны становяцца істотнай перашкодай для працы.
 
 У некаторых выпадках, асабліва пад час даданьня на старонку спасылкі на іншую старонку, вікі можа паказаць Вам выяву з каляровым і пераўтвораным тэкстам і Вам будзе прапанавана ўвесьці гэты тэкст.
 У выніку таго, што гэтае заданьне зьяўляецца вельмі складаным для аўтаматычных праграмаў, то большасьць спамавых праграмаў зь ёй не спраўляюцца ў адрозьненьні ад людзей.
@@ -331,7 +332,7 @@ $messages['be-tarask'] = array(
 #  * Усе непустыя радкі зьяўляюцца часткамі рэгулярнага выразу, які будзе выкарыстоўвацца толькі
 # ў дачыненьні да назваў сэрвэраў у вонкавых спасылках
   #</pre> <!-- leave this line exactly as it is -->',
-	'right-skipcaptcha' => 'Доступ да магчымасьцяў абароненых пытаньнямі ў выяве ці рашэньнем прыкладаў, без ужываньня праверак',
+	'right-skipcaptcha' => 'Доступ да магчымасьцяў абароненых пытаньнямі ў выяве ці разьвязаньнем прыкладаў, без ужываньня праверак',
 );
 
 /** Bulgarian (Български)
@@ -956,6 +957,35 @@ Prema no botón \"atrás\" para voltar á páxina na que estaba editando.",
 #   * Cada liña que non estea en branco é un fragmento de expresión regular que só coincidirá con hosts dentro de URLs
   #</pre> <!-- deixe esta liña exactamente como está -->',
 	'right-skipcaptcha' => 'Levar a cabo as accións que requiren captcha sen ter que introducilo',
+);
+
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'captcha-edit' => 'Zum d Syte bearbeite lees die Rächenufgab un trag s Ergebnis in s Fäld unten yy [[Special:Captcha/help|(Frogen oder Probläm?)]].',
+	'captcha-desc' => 'Eifachi Captcha-Implementierig',
+	'captcha-addurl' => 'In Dyynere Bearbeitig het s neiji externi Gleicher.
+Zum Schutz vor automatisiertem Spamming lees die Rächenufgab un trag s Ergebnis in s Fäld unten yy. Druck drno nomol uf „Syte spychere“ [[Special:Captcha/help|(Frogen oder Probläm?)]].',
+	'captcha-badlogin' => 'Zum Schutz vor ere Kompromittierig vu Dyynem Benutzerkonto lees die Rächenufgab un trag s Ergebnis in s Fäld unten yy. [[Special:Captcha/help|(Frogen oder Probläm?)]]:',
+	'captcha-createaccount' => 'Zum Schutz vor automatisiertem Aalege vu Benutzerkonte lees die Rächenufgab un trag s Ergebnis in s Fäld unten yy [[Special:Captcha/help|(Frogen oder Probläm?)]].',
+	'captcha-createaccount-fail' => 'Bestätigungscode isch falsch oder fählt.',
+	'captcha-create' => 'Zum d Syten aalege lees die Rächenufgab un trag s Ergebnis in s Fäld unten yy [[Special:Captcha/help|(Frogen oder Probläm?)]].',
+	'captchahelp-title' => 'Captcha-Hilf',
+	'captchahelp-cookies-needed' => "'''Wichtiger Hiiwyys:''' Im Browser mien Cookiers erlaubt syy.",
+	'captchahelp-text' => 'Internetaagebot, wu uf sin fir Byytreg vu jedem, wie z. B. s {{SITENAME}}-Wiki, wäre vyylmol vu Spammer missbruucht, wu ihri Gleicher automatisch uf vyylene Netzsyte platziere. Die Spam-Gleicher cha mer wider useneh, si stere aber zimli un nämme Arbetszyt in Aaspruch. 
+
+In e Teil Fäll, v. a. wänn neiji Netzgleicher in e Syte dryygfiegt wäre, cha s syy, ass des Wiki derno ne Bild mit eme farbige un verzerrte Täxt aazeigt un dezue ufforderet, di aazeigte Werte yyzgee. Wel sonigi Ufgabe nit automatische chenne usgfiert wäre, cha mer eso di meischte Spammer, wu mit automatische Wärchzyyg schaffe, ufhalte, aber normali Benutzer chenne ihri Byytreg einewäg yygee. 
+
+Leider cha des derzue fiere, ass Lyt Probläm iberchemme, wu ne yygschränkti Sähfähigkeit oder e Browser bruche, wu täxt- oder sprochbasiert isch. Derno muess mer sich regulär as Benutzer aamälde, no git s die Probläm nit. 
+
+Ins Bearbeitigsfänschter chunnt mer derno eifach wider mit em „Zruck“-Chnopf.',
+	'captcha-addurl-whitelist' => ' #<!-- Die Zyyle derf nit gänderet wäre! --> <pre>
+#  Syntax:
+#   * Alles vun eme #-Zeiche bis zum Änd vu dr Zyyle isch e Kommentar
+#   * Jedi nit-lääri Zyyle isch e Regex-Fragment, wu gegeniber dr dr Hostnäme vun ere URL prieft wird
+ #</pre> <!-- Die Zyyle derf nit gänderet wäre! -->',
+	'right-skipcaptcha' => 'Iberspringe vu dr Captcha-Yygab',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -2270,6 +2300,7 @@ $messages['sr-ec'] = array(
  */
 $messages['stq'] = array(
 	'captcha-edit' => 'Tou Beoarbaidenge fon ju Siede löös ätterfoulgjende Reekenapgoawe un dräch dät Resultoat in dät Fäild hierunner ien ([[Special:Captcha/help|(Froagen of Probleme?]]):',
+	'captcha-desc' => 'Eenfache Captcha-Implementierenge',
 	'captcha-addurl' => 'Dien Beoarbaidenge änthaalt näie externe Ferbiendengen. Toun Schuts foar automatisierde Spammenge löös ju ätterfoulgjende Reekenapgoawe un dräch dät Resultoat in dät Fäild hierunner ien. Klik dan fonnäien ap „Siede spiekerje“ [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
 	'captcha-badlogin' => 'Toun Schuts foar ne Kompromittierenge fon dien Benutserkonto löös ju ätterfoulgjende Reekenapgoawe un dräch dät Resultoat in dät Fäild hierunner ien [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]]:',
 	'captcha-createaccount' => 'Toun Schuts foar automatisierden Anloage fon Benutserkonten löös ju ätterfoulgjende Reekenapgoawe un dräch dät Resultoat in dät Fäild hierunner ien [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
@@ -2287,6 +2318,7 @@ Spietelk genouch kon dät tou Meelasje foar Persoone fiere, do der minner goud s
 #   * Alles fon n #-Teeken bit tou dän Eend fon ju Riege is n Kommentoar
 #   * Älke nit-loose Riege is n Regex-Fragment, dät juunuur den Hostnoome fon ne URL wröiged wäd
   #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha' => 'Uurspringen fon ju Captcha-Iengoawe',
 );
 
 /** Sundanese (Basa Sunda)

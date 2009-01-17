@@ -1599,7 +1599,7 @@ Leider kann dëst zu Schwierigkeete féiere fir Persounen déi net esou gutt ges
 Zu dësem Zäitpunkt hu mir leider keng audio-Alternativ zu eiser Verfügung.
 Kontaktéiert een Administrateur fir Hëllef wann dëst iech onerwarter Wäis vu legitimen Editen ofhält.
 
-Dréckt op den 'Zréck' Knäppchen vun ärem Browser fir an d'Beaarbechtungsfënster zréckzekommen.",
+Dréckt op den 'Zréck' Knäppche vun ärem Browser fir an d'Beaarbechtungsfënster zréckzekommen.",
 	'captcha-addurl-whitelist' => '   #<!-- Dës Linn onverännert loossen --> <pre>
 #  Syntax:
 #  * Alles mat engem #-Zeechen u bis zum Enn vun däer Zeil ass eng Bemierkung
@@ -1648,10 +1648,11 @@ $messages['lo'] = array(
 
 /** Lithuanian (Lietuvių)
  * @author Garas
+ * @author Homo
  * @author Matasg
  */
 $messages['lt'] = array(
-	'captcha-edit' => 'Kad redaguotumėte šį straipsnį, prašome apskaičiuokite šią paprastą sumą ir įveskite atsakymą į laukelį ([[Special:Captcha/help|daugiau informacijos]]):',
+	'captcha-edit' => 'Kad redaguotumėte šį straipsnį, apskaičiuokite šią paprastą sumą ir įveskite atsakymą į laukelį ([[Special:Captcha/help|daugiau informacijos]]):',
 	'captcha-createaccount-fail' => 'Blogas arba nerastas patvirtinimo kodas.',
 );
 

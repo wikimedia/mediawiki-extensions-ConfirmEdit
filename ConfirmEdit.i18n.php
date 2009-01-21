@@ -2489,10 +2489,12 @@ Pindutin ang pindutang 'bumalik' (''back'') sa iyong pantingin-tingin upang maka
 );
 
 /** Turkish (Türkçe)
+ * @author Joseph
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
 	'captcha-edit' => 'Bu sayfayı değiştirebilmek için lütfen aşağıdaki basit soruyu cevaplayın ve cevabı kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
+	'captcha-desc' => 'Basit captcha uygulaması',
 	'captcha-addurl' => 'Değişikliğiniz yeni dış bağlantılar içeriyor.
 Otomatik spamdan korunmak için, lütfen aşağıdaki basit soruyu cevaplayın ve cevabı kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
 	'captcha-badlogin' => 'Otomatik parola çözülmesinden korunmak için, lütfen aşağıdaki basit soruyu cevaplayın ve kutunın içinde cevabı yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
@@ -2508,6 +2510,12 @@ Bazen, özellikle bir başka internet sitesine bağ eklerken, bozulmuş ve renkl
 Ne var ki bu durum, görme sorunları yaşayan kişiler ve salt yazı-tabanlı veya salt ses tabanlı internet tarayıcı programları kullanan kimseler için rahatsızlık yaratmaktadır. Ne yazık ki, şu an için sesli bir alternatifimiz bulunmamaktadır. Şayet bu sizin yeni hesap açmanızı engelliyorsa, yardım için site yöneticilerinden yardım isteyiniz.
 
 Sayfa düzenleyiciye dönmek için tarayıcınızın 'geri' tuşuna basınız.",
+	'captcha-addurl-whitelist' => '  #<!-- bu satırı olduğu gibi bırakın --> <pre>
+# Sözdizimi aşağıdaki gibidir:
+#  * "#" karakterinden satır sonuna kadar herşey yorumdur
+#  * Her boş olmayan satır, URLler içinde sadece host ile eşleşen regex parçalarıdır
+  #</pre> <!-- bu satırı olduğu gibi bırakın -->',
+	'right-skipcaptcha' => "Captcha ile tetiklenen hareketleri, captcha'yı geçme zorunluluğu olmadan yap",
 );
 
 /** Ukrainian (Українська)

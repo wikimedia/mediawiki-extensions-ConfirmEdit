@@ -54,7 +54,8 @@ class CaptchaSpecialPage extends UnlistedSpecialPage {
 		$instance = ConfirmEditHooks::getInstance();
 		switch( $par ) {
 		case "image":
-			return $instance->showImage();
+			if( method_exists($instance,'showImage') )
+				return $instance->showImage();
 		case "help":
 		default:
 			return $instance->showHelp();

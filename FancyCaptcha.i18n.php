@@ -314,7 +314,7 @@ $messages['fi'] = array(
 /** Võro (Võro)
  * @author Võrok
  */
-$messages['fiu-vro'] = array(
+$messages['vro'] = array(
 	'fancycaptcha-badlogin' => 'Salasõna automaatsõ vällänuhkmisõ vasta kirodaq pildi päält sõnaq alanolõvahe kasti
 ([[Special:Captcha/help|Abiteedüs]]):',
 );

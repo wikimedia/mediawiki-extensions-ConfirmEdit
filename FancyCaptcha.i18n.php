@@ -311,14 +311,6 @@ $messages['fi'] = array(
 	'fancycaptcha-edit' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
 );
 
-/** Võro (Võro)
- * @author Võrok
- */
-$messages['vro'] = array(
-	'fancycaptcha-badlogin' => 'Salasõna automaatsõ vällänuhkmisõ vasta kirodaq pildi päält sõnaq alanolõvahe kasti
-([[Special:Captcha/help|Abiteedüs]]):',
-);
-
 /** Faroese (Føroyskt)
  * @author Spacebirdy
  */
@@ -484,13 +476,15 @@ $messages['it'] = array(
 	'fancycaptcha-edit' => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di inserire nella casella sottostante la parola che compare distorta in questa immagine ([[Special:Captcha/help|come funziona?]]):",
 );
 
-/** Japanese (日本語) */
+/** Japanese (日本語)
+ * @author Fryed-peach
+ */
 $messages['ja'] = array(
-	'fancycaptcha-addurl' => 'あなたの編集には新たに外部リンクが追加されています。自動で実行されるスパム行為防止のため、編集を有効にするには以下のボックスに表示される確認用の文字列を入力してください （[[Special:Captcha/help|詳細]]）:',
-	'fancycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下のボックスに表示される確認用の文字列を入力してください （[[Special:Captcha/help|詳細]]）:',
-	'fancycaptcha-createaccount' => '自動で実行されるスパム行為防止のため、アカウントを登録するには以下のボックスに表示される確認用の文字列を入力してください。([[Special:Captcha/help|詳細]])',
-	'fancycaptcha-create' => 'ページを作成するには以下のボックスに表示される確認用の文字列を入力してください。 （[[Special:Captcha/help|詳細]]）',
-	'fancycaptcha-edit' => 'このページを編集するには以下のボックスに表示される確認用の文字列を入力してください。 （[[Special:Captcha/help|詳細]]）',
+	'fancycaptcha-addurl' => 'あなたの編集では新たな外部リンクが追加されています。自動で実行されるスパム行為防止のため、編集を有効にするには以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-createaccount' => '自動で実行されるスパム行為防止のため、アカウントを登録するには以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-create' => 'ページを作成するには以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-edit' => 'このページを編集するには以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
 );
 
 /** Jutish (Jysk)
@@ -1002,6 +996,14 @@ $messages['vo'] = array(
 	'fancycaptcha-createaccount' => 'Ad jelön siti ta kalijafam itjäfidik, penolös, begö! vödis dono pejonölis in bokil ([[Special:Captcha/help|nüns pluik]]):',
 	'fancycaptcha-create' => 'Ad jafön padi at, penolös, begö! vödis dono pejonöls in bokil ([[Special:Captcha/help|nüns pluik]]):',
 	'fancycaptcha-edit' => 'Ad redakön padi at, penolös, begö! vödis dono pejonölis ini bokil ([[Special:Captcha/help|nüns pluik]]):',
+);
+
+/** Võro (Võro)
+ * @author Võrok
+ */
+$messages['vro'] = array(
+	'fancycaptcha-badlogin' => 'Salasõna automaatsõ vällänuhkmisõ vasta kirodaq pildi päält sõnaq alanolõvahe kasti
+([[Special:Captcha/help|Abiteedüs]]):',
 );
 
 /** Yue (粵語) */

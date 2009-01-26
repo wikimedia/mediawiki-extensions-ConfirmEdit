@@ -1313,7 +1313,7 @@ $messages['ja'] = array(
 	'captcha-createaccount-fail' => '確認コードの入力がないか、間違っています。',
 	'captcha-create' => 'あなたの編集は新たに外部リンクが追加されています。スパム防止のため、下記に現れる数式の答えを入力してください<br />
 ([[Special:Captcha/help|詳細]])',
-	'captchahelp-title' => 'CAPTCHA（画像認証） ヘルプ',
+	'captchahelp-title' => 'CAPTCHA（画像認証）ヘルプ',
 	'captchahelp-cookies-needed' => 'ブラウザのクッキー機能を有効にする必要があります。',
 	'captchahelp-text' => 'このウィキのような、一般からの投稿を受け付けるウェブサイトは、多くのサイトに自分たちへのリンクを自動投稿するツールを用いるスパマーにより荒らされます。これらのスパムは除去できるものの、その作業は大変に面倒なものです。
 

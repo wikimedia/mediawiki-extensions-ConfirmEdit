@@ -791,6 +791,17 @@ $messages['pt'] = array(
 	'fancycaptcha-edit' => 'Para editar esta página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
 );
 
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'fancycaptcha-addurl' => "A sua edição inclui novas ligações externas. Como prevenção contra sistemas automatizados que inserem ''spam'', por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):",
+	'fancycaptcha-badlogin' => 'Como prevenção contra formas automatizadas de descoberta de palavras-chave, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
+	'fancycaptcha-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
+	'fancycaptcha-create' => 'Para criar a página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
+	'fancycaptcha-edit' => 'Para editar esta página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
+);
+
 /** Romanian (Română)
  * @author Mihai
  */

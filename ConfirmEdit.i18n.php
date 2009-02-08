@@ -1896,7 +1896,7 @@ Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.',
 $messages['oc'] = array(
 	'captcha-edit' => "Per modificar aquesta pagina, vos cal efectuar lo calcul çaijós e n'inscriure lo resultat dins lo camp ([[Special:Captcha/help|Mai d’entresenhas]]) :",
 	'captcha-desc' => 'Implementacion captcha simpla',
-	'captcha-addurl' => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, devètz picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu'es aquò?]])",
+	'captcha-addurl' => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, vos cal picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu'es aquò?]])",
 	'captcha-badlogin' => "Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxt çaijós dins la bóstia de tèxt plaçada al dejós d'aqueste. ([[Special:Captcha/help|Mai d’entresenhas]])",
 	'captcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, entratz lo resultat de l’addicion dins la bóstia çaijós:<br />
 ([[Special:Captcha/help|mai d’entresenhas]])',

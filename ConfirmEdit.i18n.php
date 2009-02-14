@@ -952,11 +952,11 @@ Polo de agora non dispoñemos dunha alternativa de audio.
 Por favor, contacte cun administrador do wiki para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas.
 
 Prema no botón \"atrás\" para voltar á páxina na que estaba editando.",
-	'captcha-addurl-whitelist' => ' #<!-- deixe esta liña exactamente como está --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- Deixe esta liña tal e como está --> <pre>
 # A sintaxe é a seguinte:
-#   * Todo o que vai desde o carácter "#" até o final da liña é un comentario
-#   * Cada liña que non estea en branco é un fragmento de expresión regular que só coincidirá con hosts dentro de URLs
-  #</pre> <!-- deixe esta liña exactamente como está -->',
+#   * Todo o que vaia despois dun carácter "#" ata o final da liña é un comentario
+#   * Toda liña que non estea en branco é un fragmento de expresión regular que só coincide con dominios dentro de enderezos URL
+  #</pre> <!-- Deixe esta liña tal e como está -->',
 	'right-skipcaptcha' => 'Levar a cabo as accións que requiren captcha sen ter que introducilo',
 );
 
@@ -2033,6 +2033,38 @@ Pressione o botão 'voltar' de seu navegador para retornar à página de ediçã
 	'right-skipcaptcha' => 'Executar acções despoletadoras de captcha sem ter que passar pelo captcha',
 );
 
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'captcha-edit' => 'Para editar esta página será necessário que você resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])',
+	'captcha-desc' => 'Uma implementação simples de um sistema captcha',
+	'captcha-addurl' => 'Sua edição inclui novas ligações externas.
+Para prevenção contra sistemas automatizados que inserem spam, será necessário que você resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])',
+	'captcha-badlogin' => 'Como prevenção contra sistemas automatizados de pesquisa e descoberta de senhas, será necessário que você resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])',
+	'captcha-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, por favor resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|O que é isto?]]):',
+	'captcha-createaccount-fail' => 'Código de confirmação incorreto ou não preenchido.',
+	'captcha-create' => 'Para criar a página, por favor resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])',
+	'captchahelp-title' => 'Ajuda com o Captcha',
+	'captchahelp-cookies-needed' => 'Você precisa ter cookies habilitados em seu navegador para que possa funcionar',
+	'captchahelp-text' => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a abusos por spammers que utilizam ferramentas automatizadas para inserir seus links em diversos locais. 
+Apesar de remover tais links posteriormente ser possível, eles são um significativo incômodo.
+
+Algumas vezes, especialmente ao adicionar novos links externos em uma página, o sistema exibirá uma imagem com uma imagem de um texto colorido ou distorcido e pedirá que você digite as palavras exibidas. 
+Uma vez que essa é uma tarefa um tanto difícil de ser automatizada, ela possibilita que vários humanos façam as suas inserções ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
+
+Infelizmente, isso pode ser dificultoso a utilizadores com limitações visuais ou que naveguem através de mecanismos baseados em texto ou baseados em voz. No momento não há uma alternativa em áudio. 
+Por gentileza, contacte os administradores do sítio em casos que seja necessária a assistência de alguém para que você possa fazer as suas inserções legítimas.
+
+Pressione o botão 'voltar' de seu navegador para retornar à página de edição.",
+	'captcha-addurl-whitelist' => ' #<!-- deixe este linha exactamente como está --> <pre>
+# A sintaxe é a que se segue:
+#  * Tudo desde o caracter "#" até ao fim da linha é um comentário
+#  * Qualquer linha não vazia é um fragmento de regex que irá apenas verificar o servidor dentro das URLs
+  #</pre> <!-- deixe este linha exactamente como está -->',
+	'right-skipcaptcha' => 'Executar ações disparadoras de captcha sem ter que passar pelo captcha',
+);
+
 /** Quechua (Runa Simi)
  * @author AlimanRuna
  */
@@ -2133,6 +2165,7 @@ $messages['sah'] = array(
 #  * "#" бэлиэттэн строка бүтүөр дылы барыта хос быһаарыы курдук ааҕыллар
 #  * Хас биирдии кураанах буолбатах строка URL сорҕотун курдук ааҕыллар
   #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha' => 'CAPTCHA-бэрэбиэркэни ааһыахтаах дьайыылары CAPTCHA-та суох толоруу',
 );
 
 /** Sicilian (Sicilianu)

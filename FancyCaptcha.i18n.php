@@ -321,10 +321,12 @@ $messages['fo'] = array(
 
 /** French (Français)
  * @author Sherbrooke
+ * @author Verdy p
  */
 $messages['fr'] = array(
-	'fancycaptcha-addurl' => 'Votre modification inclut de nouveaux liens externes. Pour vérifier qu’il ne s’agit pas de pourriel, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :',
-	'fancycaptcha-badlogin' => 'Pour aider à vous protéger contre le piratage de compte par mots de passe automatiques, merci d’entrer les mots qui s’affichent dans cette boîte ([[Special:Captcha/help|Aide]]) :',
+	'fancycaptcha-addurl' => 'Votre modification inclut de nouveaux liens externes.
+Pour vérifier qu’il ne s’agit pas de pourriel automatisés, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :',
+	'fancycaptcha-badlogin' => 'Pour nous aider à vous protéger contre les tentatives automatisées de découverte des mots de passe, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'fancycaptcha-createaccount' => 'Comme protection contre les créations de compte abusives, veuillez entrer les mots
 ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
 	'fancycaptcha-create' => 'Votre modification inclut de nouveaux liens externes. Pour vérifier qu’il ne s’agit pas de pourriel, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :',

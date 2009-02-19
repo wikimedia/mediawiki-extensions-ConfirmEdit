@@ -827,35 +827,37 @@ $messages['fo'] = array(
  * @author Seb35
  * @author Sherbrooke
  * @author Urhixidur
+ * @author Verdy p
  * @author Zetud
  */
 $messages['fr'] = array(
-	'captcha-edit' => 'Pour modifier cette page, vous être prié d’effectuer le calcul ci-dessous et d’en inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d’infos]]) :',
-	'captcha-desc' => 'Simple implémentation captcha',
-	'captcha-addurl' => 'Votre édition inclut de nouveaux liens externes. Comme protection contre le pourriel automatique, veuillez entrer le résultat de l’opération ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-badlogin' => 'Afin de lutter contre le piratage automatisé de mots de passe par des bots, vous être prié d’effectuer le calcul ci-dessous et d’en inscrire le résultat dans le champ ci-dessous ([[Special:Captcha/help|plus d’infos]]) :',
-	'captcha-createaccount' => 'Comme protection contre les créations de compte abusives, veuillez entrer le résultat de l’opération dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-edit' => 'Pour modifier cette page, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-desc' => "Implémentation simple d’un anti-automate (''captcha'')",
+	'captcha-addurl' => 'Votre édition inclut de nouveaux liens externes.
+Pour nous aider dans la protection contre le pourriel automatisé, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-badlogin' => 'Afin de nous aider à prévenir le cassage des mots de passe par des automates, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-createaccount' => 'Afin de nous aider à lutter contre les créations automatiques de comptes, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-createaccount-fail' => 'Code de confirmation erroné ou manquant.',
-	'captcha-create' => 'Pour modifier la page, vous êtes prié{{GENDER:||e|(e)}} d’effectuer le calcul ci-dessous et d’en inscrire le résultat dans le champ ([[Special:Captcha/help|Plus d’infos]]) :',
-	'captchahelp-title' => 'Aide sur les captcha',
-	'captchahelp-cookies-needed' => "Il faut activer les témoins (''cookies'') de votre navigateur Web pour que cela fonctionne.",
-	'captchahelp-text' => "Les sites Web acceptant des contributions du public, comme ce wiki, sont souvent utilisés par des spammeurs qui utilisent des outils automatiques pour placer de nombreux liens vers leurs sites.
-Même si ces liens de « spam » peuvent être enlevés, ils n'en représentent pas moins une nuisance.
+	'captcha-create' => 'Pour créer la page, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
+	'captchahelp-title' => "Aide sur le système anti-automate (''captcha'')",
+	'captchahelp-cookies-needed' => "Il vous faudra autoriser les témoins (''cookies'') de votre navigateur pour que cela fonctionne.",
+	'captchahelp-text' => "Les sites Web qui acceptent des contributions du public, tels que ce wiki, sont souvent abusés par des spammeurs qui utilisent des outils automatisés pour placer de nombreux liens vers de nombreux sites.
+Même si ces liens pourris peuvent être enlevés, ils n'en représentent pas moins une nuisance significative.
 
-Parfois, en particulier lors de l’ajout de nouveaux liens externes à une page, le wiki peut vous montrer une image représentant un texte brouillé et vous demander de taper les mots indiqués.
-Cette tâche est difficile à automatiser, et permet aux humains de faire leurs contributions tout en stoppant la plupart des spammeurs.
+Parfois, particulièrement lors de l’ajout de nouveaux liens externes à une page, le wiki peut vous montrer une image d’un texte embrouillé, déformé ou coloré et vous demander de taper les mots indiqués.
+Puisque cette tâche est difficile à automatiser, cela permettra à la plupart des humains de réaliser leurs contributions tout en stoppant la plupart des spammeurs et autres attaqueurs malveillant robotisés.
 
-Cette solution peut malheureusement gêner les utilisateurs malvoyants ou ceux utilisant un navigateur en texte seul.
+Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou ceux utilisant un navigateur en texte seul.
 Nous ne disposons pas d’alternative audio pour l’instant.
-Veuillez contacter un administrateur du site si vous ne parvenez pas à faire vos contributions.
+Veuillez contacter un des administrateurs du site si cela vous empêche de façon inattendue de poster des contributions légitimes.
 
-Cliquez sur le bouton « Précédent » de votre navigateur pour revenir sur la page d’édition.",
-	'captcha-addurl-whitelist' => " #<!-- laissez cette ligne exactement telle quelle --> <pre>
+Cliquez sur le bouton « Précédent » de votre navigateur pour revenir sur la page de modification.",
+	'captcha-addurl-whitelist' => '  #<!-- laissez cette ligne exactement telle quelle --><pre>
 # La syntaxe est la suivante :
-#   * Tout caractère suivant « # » jusqu'à la fin de la ligne sera interprêté comme un commentaire
-#   * Toute ligne non vide est un code regex qui sera utilisé uniquement à l'intérieur des liens hypertextes.
-  #</pre> <!-- laissez cette ligne exactement telle quelle -->",
-	'right-skipcaptcha' => 'Accomplit le déclenchement des actions de captcha sans devoir passer par l’intermédiaire de ce dernier',
+#  * Tout caractère depuis « # » jusqu’à la fin de la ligne est interprété comme un commentaire.
+#  * Toute ligne non vide est un fragment d’expression régulière qui ne correspondra qu’aux hôtes dans les liens hypertextes.
+  #</pre><!-- laissez cette ligne exactement telle quelle -->',
+	'right-skipcaptcha' => "Réalise des actions qui devraient déclencher un ''captcha'' sans avoir à passer par celui-ci",
 );
 
 /** Franco-Provençal (Arpetan)

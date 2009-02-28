@@ -700,6 +700,7 @@ Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 );
 
 /** Spanish (Español)
+ * @author Drini
  * @author Icvav
  * @author Jatrobat
  * @author Lin linao
@@ -719,6 +720,12 @@ $messages['es'] = array(
 	'captchahelp-text' => 'Los sitios web que aceptan mensajes del público, como esta wiki, son a menudo objeto de abusos  por spammers que utilizan programas para incluir automáticamente sus enlaces. Si bien estos enlaces pueden quitarse, son una gran molestia.
 
 En ocasiones, especialmente cuando añada nuevos enlaces a una página, la wiki le mostrará una imagen de texto coloreado o distorsionado y le pedirá que escriba las palabras que muestra. Dado que esta es una tarea difícil de automatizar, permite a la mayoría de las personas enviar sus textos, a la vez que detiene a la mayoría de los spammers y otros atacantes automáticos.',
+	'captcha-addurl-whitelist' => '  #<!-- deje esta línea exactamente como está --> <pre>
+# La sintaxis es la siguiente:
+#  * Todo desde un caracter "#" hasta el final de la línea es un comentario
+#  * Toda línea que no esté en blanco es un fragmento de expresión regular que se comparará con las URLs
+  #</pre> <!-- deje esta línea exactamente como está -->',
+	'right-skipcaptcha' => 'Realiza acciones que despliegan un captcha sin tener que confirmar el captcha',
 );
 
 /** Estonian (Eesti)
@@ -824,6 +831,7 @@ $messages['fo'] = array(
  * @author Crochet.david
  * @author Grondin
  * @author Meithal
+ * @author PieRRoMaN
  * @author Seb35
  * @author Sherbrooke
  * @author Urhixidur
@@ -832,32 +840,32 @@ $messages['fo'] = array(
  */
 $messages['fr'] = array(
 	'captcha-edit' => 'Pour modifier cette page, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-desc' => "Implémentation simple d’un anti-automate (''captcha'')",
-	'captcha-addurl' => 'Votre édition inclut de nouveaux liens externes.
+	'captcha-desc' => 'Implémentation simple d’un captcha',
+	'captcha-addurl' => 'Votre modification inclut de nouveaux liens externes.
 Pour nous aider dans la protection contre le pourriel automatisé, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-badlogin' => 'Afin de nous aider à prévenir le cassage des mots de passe par des automates, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-createaccount' => 'Afin de nous aider à lutter contre les créations automatiques de comptes, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-createaccount-fail' => 'Code de confirmation erroné ou manquant.',
 	'captcha-create' => 'Pour créer la page, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
-	'captchahelp-title' => "Aide sur le système anti-automate (''captcha'')",
+	'captchahelp-title' => 'Aide sur le captcha',
 	'captchahelp-cookies-needed' => "Il vous faudra autoriser les témoins (''cookies'') de votre navigateur pour que cela fonctionne.",
-	'captchahelp-text' => "Les sites Web qui acceptent des contributions du public, tels que ce wiki, sont souvent abusés par des spammeurs qui utilisent des outils automatisés pour placer de nombreux liens vers de nombreux sites.
-Même si ces liens pourris peuvent être enlevés, ils n'en représentent pas moins une nuisance significative.
+	'captchahelp-text' => "Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de spammeurs qui utilisent des outils automatisés pour placer de nombreux liens vers des sites.
+Même si ces liens pourris peuvent être enlevés, ils n'en restent pas moins une nuisance significative.
 
-Parfois, particulièrement lors de l’ajout de nouveaux liens externes à une page, le wiki peut vous montrer une image d’un texte embrouillé, déformé ou coloré et vous demander de taper les mots indiqués.
-Puisque cette tâche est difficile à automatiser, cela permettra à la plupart des humains de réaliser leurs contributions tout en stoppant la plupart des spammeurs et autres attaqueurs malveillant robotisés.
+Parfois, particulièrement lors de l’ajout de nouveaux liens externes dans une page, le wiki peut vous montrer une image d’un texte embrouillé, déformé ou coloré et vous demander de taper les mots indiqués.
+Cette tâche étant difficile accomplir de façon automatisée, cela permet à la plupart des humains de réaliser leurs contributions tout en empêchant la plupart des spammeurs et autres attaquants robotisés.
 
-Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou ceux utilisant un navigateur en texte seul.
+Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou qui utilisent des navigateurs en texte seul ou vocaux.
 Nous ne disposons pas d’alternative audio pour l’instant.
 Veuillez contacter un des administrateurs du site si cela vous empêche de façon inattendue de poster des contributions légitimes.
 
-Cliquez sur le bouton « Précédent » de votre navigateur pour revenir sur la page de modification.",
+Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page de modification.",
 	'captcha-addurl-whitelist' => '  #<!-- laissez cette ligne exactement telle quelle --><pre>
 # La syntaxe est la suivante :
 #  * Tout caractère depuis « # » jusqu’à la fin de la ligne est interprété comme un commentaire.
 #  * Toute ligne non vide est un fragment d’expression régulière qui ne correspondra qu’aux hôtes dans les liens hypertextes.
   #</pre><!-- laissez cette ligne exactement telle quelle -->',
-	'right-skipcaptcha' => "Réalise des actions qui devraient déclencher un ''captcha'' sans avoir à passer par celui-ci",
+	'right-skipcaptcha' => 'Réaliser des actions qui déclenchent un captcha sans avoir à passer celui-ci',
 );
 
 /** Franco-Provençal (Arpetan)

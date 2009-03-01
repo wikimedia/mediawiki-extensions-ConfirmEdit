@@ -850,7 +850,7 @@ Pour nous aider dans la protection contre le pourriel automatisé, veuillez calc
 	'captchahelp-title' => 'Aide sur le captcha',
 	'captchahelp-cookies-needed' => "Il vous faudra autoriser les témoins (''cookies'') de votre navigateur pour que cela fonctionne.",
 	'captchahelp-text' => "Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de spammeurs qui utilisent des outils automatisés pour placer de nombreux liens vers des sites.
-Même si ces liens pourris peuvent être enlevés, ils n'en restent pas moins une nuisance significative.
+Même si ces pourriels peuvent être retirés, ils n'en restent pas moins une nuisance significative.
 
 Parfois, particulièrement lors de l’ajout de nouveaux liens externes dans une page, le wiki peut vous montrer une image d’un texte embrouillé, déformé ou coloré et vous demander de taper les mots indiqués.
 Cette tâche étant difficile accomplir de façon automatisée, cela permet à la plupart des humains de réaliser leurs contributions tout en empêchant la plupart des spammeurs et autres attaquants robotisés.

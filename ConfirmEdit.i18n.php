@@ -43,6 +43,7 @@ Hit the 'back' button in your browser to return to the page editor.",
  * @author Meithal
  * @author Meno25
  * @author Purodha
+ * @author Siebrand
  * @author Toliño
  */
 $messages['qqq'] = array(
@@ -50,7 +51,7 @@ $messages['qqq'] = array(
 	'captcha-desc' => 'Short description of this extension, shown in [[Special:Version]]. Do not translate or change links.',
 	'captcha-create' => 'This message will be shown when creating a page if the wiki requires solving a captcha for that.',
 	'captchahelp-text' => 'This is the help text shown on [[Special:Captcha/help]].',
-	'captcha-addurl-whitelist' => 'See also: [[MediaWiki:Spam-blacklist]] and [[MediaWiki:Spam-whitelist]].',
+	'captcha-addurl-whitelist' => "See also: [[MediaWiki:Spam-blacklist]] and [[MediaWiki:Spam-whitelist]]. Leave all the wiki markup, including the spaces, as is. You can translate the text, including 'Leave this line exactly as it is'. The first line of this messages has one (1) leading space.",
 	'right-skipcaptcha' => '{{doc-right}}',
 );
 
@@ -144,7 +145,7 @@ $messages['ar'] = array(
 من فضلك راسل إداريي الموقع للمساعدة إذا كان هذا الأمر يمنعك من التعديل ووضع وصلات قانونية.
 
 إذا كنت تحرر صفحة معينة: اضغط زر 'العودة' في متصفحك للعودة إلى التحرير.",
-	'captcha-addurl-whitelist' => '  #<!-- اترك هذا السطر تماما كما هو --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- اترك هذا السطر تماما كما هو --> <pre>
 # الصيغة كما يلي:
 #  * كل شيء من علامة "#" لنهاية السطر تعليق
 #  * كل سطر غير فارغ هو جزء تعبير نمطي والذي سوف يطابق فقط المضيفين داخل العناوين
@@ -326,7 +327,7 @@ $messages['be-tarask'] = array(
 Калі ласка, зьвяжыцеся з адміністратарамі сайту, калі гэтая праверка перашкаджае Вам працаваць з сайтам.
 
 Націсьніце кнопку «назад» у Вашым браўзэры, каб вярнуцца да працы з сайтам.',
-	'captcha-addurl-whitelist' => '  #<!-- leave this line exactly as it is --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
 # Сынтаксіс наступны:
 #  * Усё, што пачынаецца з «#» і да канца радку, зьяўляецца камэнтарам
 #  * Усе непустыя радкі зьяўляюцца часткамі рэгулярнага выразу, які будзе выкарыстоўвацца толькі
@@ -433,7 +434,7 @@ Ponekad, pogotovo kad se dodaju nove internet poveznice na stranicu, viki softve
 Nažalost, ovo može da bude nepovoljno za korisnike sa ograničenim vidom i za one koji koriste brauzere bazirane na tekstu ili govoru.  U ovom trenutku, audio alternativa nije dostupna.  Molimo Vas da kontaktirate administratore sajta radi pomoći ako Vas ovo neočekivano ometa u pravljenju dobrih izmjena.
 
 Kliknite 'nazad' ('back') dugme vašeg brauzera da se vratite na polje za unos teksta.",
-	'captcha-addurl-whitelist' => '  #<!-- ostavite ovaj red onakav kakav je --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- ostavite ovaj red onakav kakav je --> <pre>
 # Sintaksa je slijedeća:
 #  * Sve od znaka "#" do kraja reda je komentar
 #  * Svaki neprazni red je regex fragment koji će odgovarati samo domaćinima unutar URLova
@@ -629,7 +630,7 @@ Tuchylu njamamy awdioalternatiwu.
 Staj se pšosym z administratorami sedła z pšosbu wó pomoc do zwiska, jolic to śi njewócakane  zawobarujo słanje pšawniskich pśinoskow.
 
 Klikni na tłocašk "Slědk" we swójom wobglědowaku, aby wróśił k bokowemu editoroju.',
-	'captcha-addurl-whitelist' => '  #<!-- wóstaj toś tu smužku rowno ako jo --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- wóstaj toś tu smužku rowno ako jo --> <pre>
  # Syntaksa jo ako slědujo:
  #  * Wšykno wót znamuška "#" ku kóńcoju smužki jo komentar
  #  * Kužda smužka, kótaraž njejo prozna, jo fragment regularnego wuraza, kótaryž nastupa jano hostam w URL
@@ -691,7 +692,7 @@ Bedaŭrinde, ĉi tio eble ĝenetos uzantojn kun malbona vidkapablo kiu utiligas 
 Bonvolu kontakti la administrantojn de la retejo por helpo se ĉi tio malebligas al vi fari bonan aldonon.
 
 Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
-	'captcha-addurl-whitelist' => '  #<!-- ne ŝanĝu ĉi tiun linion iel ajn --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- ne ŝanĝu ĉi tiun linion iel ajn --> <pre>
 # Sintakso estas jen:
 #  * Ĉio ekde "#" signo al la fino de linio estas komento
 #  * Ĉiu linio ne malplena estas ero de regex kiu kongruos retnodojn nur ene de ttt-adresoj
@@ -720,7 +721,7 @@ $messages['es'] = array(
 	'captchahelp-text' => 'Los sitios web que aceptan mensajes del público, como esta wiki, son a menudo objeto de abusos  por spammers que utilizan programas para incluir automáticamente sus enlaces. Si bien estos enlaces pueden quitarse, son una gran molestia.
 
 En ocasiones, especialmente cuando añada nuevos enlaces a una página, la wiki le mostrará una imagen de texto coloreado o distorsionado y le pedirá que escriba las palabras que muestra. Dado que esta es una tarea difícil de automatizar, permite a la mayoría de las personas enviar sus textos, a la vez que detiene a la mayoría de los spammers y otros atacantes automáticos.',
-	'captcha-addurl-whitelist' => '  #<!-- deje esta línea exactamente como está --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- deje esta línea exactamente como está --> <pre>
 # La sintaxis es la siguiente:
 #  * Todo desde un caracter "#" hasta el final de la línea es un comentario
 #  * Toda línea que no esté en blanco es un fragmento de expresión regular que se comparará con las URLs
@@ -860,7 +861,7 @@ Nous ne disposons pas d’alternative audio pour l’instant.
 Veuillez contacter un des administrateurs du site si cela vous empêche de façon inattendue de poster des contributions légitimes.
 
 Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page de modification.",
-	'captcha-addurl-whitelist' => '  #<!-- laissez cette ligne exactement telle quelle --><pre>
+	'captcha-addurl-whitelist' => ' #<!-- laissez cette ligne exactement telle quelle --><pre>
 # La syntaxe est la suivante :
 #  * Tout caractère depuis « # » jusqu’à la fin de la ligne est interprété comme un commentaire.
 #  * Toute ligne non vide est un fragment d’expression régulière qui ne correspondra qu’aux hôtes dans les liens hypertextes.
@@ -1208,7 +1209,7 @@ Al momento nos non dispone de un alternativa audio.
 Per favor contacta le administratores del sito pro assistentia si isto te impedi de facer contributiones legitime.
 
 Clicca le button 'retro' in tu navigator pro retornar al pagina de modification.",
-	'captcha-addurl-whitelist' => '  #<!-- non modificar in alcun modo iste linea --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- non modificar in alcun modo iste linea --> <pre>
 # Le syntaxe es lo sequente:
 #  * Toto a partir de un character "#" usque al fin del linea es un commento
 #  * Omne linea non vacue es un fragmento regex applicabile solmente a nomines de host intra adresses URL
@@ -1242,7 +1243,7 @@ Saat ini, kami belum memiliki suatu alternatif suara untuk hal ini.
 Silakan minta bantuan dari pengurus situs jika hal ini menghambat Anda untuk mengirimkan suntingan yang layak.
 
 Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan.",
-	'captcha-addurl-whitelist' => '  #<!-- biarkan baris ini sebagaimana adanya --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- biarkan baris ini sebagaimana adanya --> <pre>
 # Sintaksisnya adalah sebagai berikut:
 #   * Semua yang diawali dengan karakter "#" hingga akhir baris adalah komentar
 #   * Semua baris yang tidak kosong adalah fragmen regex yang hanya akan dicocokkan dengan nama host di dalam URL
@@ -1362,7 +1363,7 @@ I visse tilfælde, specielt når der tilføjes nye links til denne wiki, vil sof
 Desværre kan dette medføre problemer for svagtseende brugere, og brugere der bruger software der oplæser indholdet af siden. For øjeblikket findes der ikke et lydbaseret alternativ. Kontakt venligst en administrator med henblik på at få hjælp, hvis dette forhindrer tilføjelsen af godartet materiale.
 
 Tryk på 'tilbage'-knappen i din browser for at returnere til redigeringssiden.",
-	'captcha-addurl-whitelist' => '  #<!-- Undlad at rette denne linie --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- Undlad at rette denne linie --> <pre>
 # Vejledning:
 #  * Alt fra et "#"-tegn til slutningen af en linie er en kommentar
 #  * Alle ikke-blanke linier benyttes som regulært udtryk, der anvendes på hostnavne i URLer
@@ -1391,7 +1392,7 @@ Amerga pagawéyan iki angèl diotomatisasi, pawatesan iki bisa ngidinaké mèh k
 Émané, perkara iki bisa nggawé sawetara panganggo kangélan nyunting kaca iki, utamané sing daya pandelengané kurang utawa para panganggo sing nganggo panjlajah tèks adhedhasar tèks utawa swara. Saiki iki awaké dhéwé ora duwé alternatif audio kanggo iki. Mangga nyuwun pitulung karo para pangurus yèn perkara iki menggak panjenengan ngirimaké suntingan sing layak.
 
 Pencèten tombol 'back' ing panjlajah wèb panjenengan kanggo bali menyang kaca panyuntingan.",
-	'captcha-addurl-whitelist' => '  #<!-- leave this line exactly as it is --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
 # Sintaksisé kaya mengkéné:
 #  * Kabèh sing diawali mawa karakter "#" nganti pungkasané baris iku komentar
 #  * Kabèh garis sing ora kosong iku fragmèn regex sing namung cocog karo jeneng host sajroning URL
@@ -1611,7 +1612,7 @@ Zu dësem Zäitpunkt hu mir leider keng audio-Alternativ zu eiser Verfügung.
 Kontaktéiert een Administrateur fir Hëllef wann dëst iech onerwarter Wäis vu legitimen Editen ofhält.
 
 Dréckt op den 'Zréck' Knäppche vun ärem Browser fir an d'Beaarbechtungsfënster zréckzekommen.",
-	'captcha-addurl-whitelist' => '   #<!-- Dës Linn onverännert loossen --> <pre>
+	'captcha-addurl-whitelist' => '  #<!-- Dës Linn onverännert loossen --> <pre>
 #  Syntax:
 #  * Alles mat engem #-Zeechen u bis zum Enn vun däer Zeil ass eng Bemierkung
 #  * All Zeil déi net eidel ass, ass ee Regex-Fragment, dat nëmme mat Hosten bannent URLë fonktionéiert
@@ -1755,7 +1756,7 @@ Oleh sebab tugas tersebut sukar dilakukan oleh komputer, manusia sebenar boleh m
 Walau bagaimanapun, perkara ini boleh menyukarkan pengguna yang mengalami masalah penglihatan atau sedang menggunakan pelayar web teks atau tuturan. Pada masa ini kami tidak mempunyai alternatif dalam bentuk bunyi. Sila hubungi pentadbir tapak web untuk mendapatkan bantuan sekiranya perkara ini menghalang anda daripada membuat sumbangan yang sah.
 
 Sila tekan butang 'back' untuk kembali ke borang sunting.",
-	'captcha-addurl-whitelist' => '  #<!-- jangan ubah baris ini --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- jangan ubah baris ini --> <pre>
 # Sintaks:
 #  * Aksara "#" sampai akhir baris diabaikan
 #  * Ungkapan nalar dibaca daripada setiap baris dan dipadankan dengan nama hos sahaja
@@ -1968,7 +1969,7 @@ Obecnie nie mamy alternatywnego rozwiązania audio.
 Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać uprawnionych edycji.
 
 Wciśnij przycisk „wstecz” w przeglądarce by powrócić do edycji strony.',
-	'captcha-addurl-whitelist' => '  #<!-- nie modyfikuj tej linii --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- nie modyfikuj tej linii --> <pre>
 # Składnia jest następująca:
 #   * Linie zaczynające się od znaku „#” są komentarzami
 #   * Każda linia, która nie jest pusta, jest wyrażeniem regularnym, które ma pasować do adresu serwera (fragmentu URL)
@@ -2317,7 +2318,7 @@ Ndonjëherë, sidomos kur po hapni një llogari të re apo kur po shtoni lidhje 
 Fatkeqësisht ky lloj sistemi mund të bezdisi përdoruesit me pamje të kufizuar ose ata që përdorin mjete teksti ose shfletues leximi me zë. Tani për tani nuk kemi mundësi për të ofruar një sistem me zë në vend të figurave. Ju lutem lidhuni me administruesit nëse ky sistem po ju ndalon të jepni kontribute të vlefshme.
 
 Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e mëparshme.',
-	'captcha-addurl-whitelist' => '  #<!-- lëreni këtë rresht siç është --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- lëreni këtë rresht siç është --> <pre>
 # Sintaksa është si më poshtë:
 #  * Çdo gjë nga simboli "#" deri në fund të rreshtit është koment
 #  * Çdo rresht jo-bosh është një pjesë regex që duhet t\'i përputhet emrat të shërbyesve brenda një URL-i
@@ -2524,7 +2525,7 @@ Sa ngayon wala pa kaming pamalit na isang pang-audio.
 Makipagugnayan lamang sa mga tagapangasiwa ng sayt/sityo para humingi ng tulong kapag hindi inaasahang mapigilan ka sa pagsasagawa ng mga tunay na pagtatala/pagpapahayag.
 
 Pindutin ang pindutang 'bumalik' (''back'') sa iyong pantingin-tingin upang makabalik sa pampatnugot ng pahina.",
-	'captcha-addurl-whitelist' => "  #<!-- leave this line exactly as it is --> <pre>
+	'captcha-addurl-whitelist' => " #<!-- leave this line exactly as it is --> <pre>
 # Ang palaugnayan ay ayon sa mga sumusunod:
 #  * Lahat ng bagay mula sa isang \"#\" na panitik hanggang sa wakas ng isang guhit/hanay ay isang puna (kumento)
 #  * Bawat hindi/walang patlang na guhit/hanay ay isang piraso ng karaniwang pagsasaad (''regex'') na tutugma lamang sa mga tagapagpasinaya sa loob ng mga URL
@@ -2554,7 +2555,7 @@ Bazen, özellikle bir başka internet sitesine bağ eklerken, bozulmuş ve renkl
 Ne var ki bu durum, görme sorunları yaşayan kişiler ve salt yazı-tabanlı veya salt ses tabanlı internet tarayıcı programları kullanan kimseler için rahatsızlık yaratmaktadır. Ne yazık ki, şu an için sesli bir alternatifimiz bulunmamaktadır. Şayet bu sizin yeni hesap açmanızı engelliyorsa, yardım için site yöneticilerinden yardım isteyiniz.
 
 Sayfa düzenleyiciye dönmek için tarayıcınızın 'geri' tuşuna basınız.",
-	'captcha-addurl-whitelist' => '  #<!-- bu satırı olduğu gibi bırakın --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- bu satırı olduğu gibi bırakın --> <pre>
 # Sözdizimi aşağıdaki gibidir:
 #  * "#" karakterinden satır sonuna kadar herşey yorumdur
 #  * Her boş olmayan satır, URLler içinde sadece host ile eşleşen regex parçalarıdır
@@ -2615,7 +2616,7 @@ In çerti casi, par esenpio quando se çerca de zontar novi colegamenti web in t
 Sfortunatamente, ste misure de sicureza le pole métar in dificoltà i utenti che gà problemi de vista o quei che dòpara browser testuali o basà su la sintesi vocale. Purtropo al momento no xe disponibile nissun mecanismo alternativo basà su messagio audio; se ste procedure le inpedisse l'inserimento de informazion che se ritien legìtime, se prega de contatar i aministradori del sito e domandarghe assistensa.
 
 Struca el boton \"Indrìo\" del to browser par tornar a la pagina de modifica.",
-	'captcha-addurl-whitelist' => '  #<!-- no sta modificar in alcun modo sta riga --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- no sta modificar in alcun modo sta riga --> <pre>
 # La sintassi la xe la seguente:
 #  * Tuto quel che segue un caràtere "#" el xe un comento, fin a la fine de la riga
 #  * Tute le righe mìa vode le xe framenti de espressioni regolari che se àplica al solo nome de l\'host ne le URL

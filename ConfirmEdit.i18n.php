@@ -39,6 +39,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 );
 
 /** Message documentation (Message documentation)
+ * @author Aotake
  * @author MF-Warburg
  * @author Meithal
  * @author Meno25
@@ -49,7 +50,11 @@ Hit the 'back' button in your browser to return to the page editor.",
 $messages['qqq'] = array(
 	'captcha-edit' => 'This message will be shown when editing if the wiki requires solving a captcha for editing.',
 	'captcha-desc' => 'Short description of this extension, shown in [[Special:Version]]. Do not translate or change links.',
+	'captcha-addurl' => 'The explanation of CAPTCHA shown to users trying to add new external links.',
+	'captcha-badlogin' => 'The explanation of CAPTCHA shown to users failed three times to type in correct password.',
+	'captcha-createaccount' => 'The explanation of CAPTCHA shown to users trying to create a new account.',
 	'captcha-create' => 'This message will be shown when creating a page if the wiki requires solving a captcha for that.',
+	'captchahelp-title' => 'The page title of [[Special:Captcha/help]]',
 	'captchahelp-text' => 'This is the help text shown on [[Special:Captcha/help]].',
 	'captcha-addurl-whitelist' => "See also: [[MediaWiki:Spam-blacklist]] and [[MediaWiki:Spam-whitelist]]. Leave all the wiki markup, including the spaces, as is. You can translate the text, including 'Leave this line exactly as it is'. The first line of this messages has one (1) leading space.",
 	'right-skipcaptcha' => '{{doc-right}}',
@@ -1313,25 +1318,20 @@ Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'captcha-edit' => 'このページを編集するには下記に現れる数式の答えを入力してください。<br />
-([[Special:Captcha/help|詳細]])',
+	'captcha-edit' => 'このページを編集するには、下記の簡単な数式を計算し、欄に答えを入力してください。（[[Special:Captcha/help|ヘルプ]]）',
 	'captcha-desc' => '簡単な CAPTCHA（画像認証）の実装',
-	'captcha-addurl' => 'あなたの編集には新たに外部リンクが追加されています。スパム防止のため、下記の数式の答えを入力してください<br />
-([[Special:Captcha/help|詳細]])',
-	'captcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、下記に現れる数式の答えを入力してください<br />
-([[Special:Captcha/help|詳細]])',
-	'captcha-createaccount' => 'スパム防止のため、アカウントを登録するには、下記に現れる数式の答えを入力してください<br />
-([[Special:Captcha/help|詳細]])',
+	'captcha-addurl' => 'あなたの編集により新たに外部リンクが追加されようとしています。スパム防止のため、下記の簡単な数式を計算し、欄に答えを入力してください。（[[Special:Captcha/help|ヘルプ]]）',
+	'captcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防ぐため、下記の簡単な数式を計算し、欄に答えを入力してください。（[[Special:Captcha/help|ヘルプ]]）',
+	'captcha-createaccount' => 'アカウントの自動作成を防ぐため、下記の簡単な数式を計算し、欄に答えを入力してください。（[[Special:Captcha/help|ヘルプ]]）',
 	'captcha-createaccount-fail' => '確認コードの入力がないか、間違っています。',
-	'captcha-create' => 'あなたの編集は新たに外部リンクが追加されています。スパム防止のため、下記に現れる数式の答えを入力してください<br />
-([[Special:Captcha/help|詳細]])',
+	'captcha-create' => 'ページを新規作成するには、下記の簡単な数式を計算し、欄に答えを入力してください。（[[Special:Captcha/help|ヘルプ]]）',
 	'captchahelp-title' => 'CAPTCHA（画像認証）ヘルプ',
 	'captchahelp-cookies-needed' => 'ブラウザのクッキー機能を有効にする必要があります。',
-	'captchahelp-text' => 'このウィキのような、一般からの投稿を受け付けるウェブサイトは、多くのサイトに自分たちへのリンクを自動投稿するツールを用いるスパマーにより荒らされます。これらのスパムは除去できるものの、その作業は大変に面倒なものです。
+	'captchahelp-text' => '一般からの投稿を受け付けるこのウィキのようなウェブサイトは、自動投稿ツールを使って多くのサイトにリンクを張ってまわるスパマーにより荒らされがちです。このようなスパムは除去できるものの、その作業は大変に面倒なものです。
 
-特に新しい外部リンクをページに追加したときなど、そのウィキではときどき、色の付いた、あるいは形のゆがんだ文字の画像を提示し、なんと書いてあるか入力をお願いすることがあります。この作業は自動化が難しいため、スパマーなどの機械的な攻撃者をほぼ阻止し、同時に本物の人間の投稿は可能にします。
+このため、このウィキではときどき、特に新しい外部リンクがページに追加されたときなどに、色の付いた、あるいは形のゆがんだ文字の画像を提示し、なんと書いてあるか入力をお願いすることがあります。この作業は自動化が難しいため、スパマーなどのプログラムを用いた攻撃をほぼ阻止しつつ、大半の生身の人間による投稿を可能にします。
 
-しかし、残念なことに、この方法は視力の低い利用者や、テキストベースあるいは音声ベースのブラウザを使っている利用者に不便をおかけする場合があります。現時点では、音声による代替方法はありません。正当な投稿をするにあたってこれが障害となっている場合、サイト管理者に連絡して協力を求めてください。
+しかし、残念なことに、この方法により、視力の低い利用者や、テキストベースあるいは音声ベースのブラウザを使っている利用者にご不便をおかけする場合があります。現時点では、音声による代替方法はありません。正当な投稿をするにあたって本機能が障害となっている場合、サイト管理者に連絡して協力を求めてください。
 
 ページの編集に戻るには、ブラウザの戻るボタンを押してください。',
 	'captcha-addurl-whitelist' => ' #<!-- この行は変更しないでください --> <pre>

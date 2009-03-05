@@ -1566,7 +1566,6 @@ Wann De Dich ens fordeis, es och nit schlimm, De wees norr_enß jefrooch. Wat De
 
 Schaad es, mer hann noch keine Wääsh, dat met Shprooch odder sönswi ze maache, su dat Lück met Shprooch_Ußßjaave, Braille, un met nur Tex em Brauser oohne Bellder, em Räähn shtonn künnte. Dooht Ühr Zeush eets enß oohne Lengk speischere, un saat dä [[{{MediaWiki:Grouppage-sysop}}|Wikki_Köbesse]],
 wann Ühr Probbleme hatt. Do weed_Üch jehollfe weede.
-Di [[:Special:Userlist/sysops|Wikki_Köbesse]] künnt Ühr op jeede Fall övver dänne ier Klaaf_Sigge un do och övver e-mail erreiche.
 
 Jetz kanns De met Dingem Brauser singem „Zeröck“-Knopp wigger maache, wo De fürher woohß.',
 	'captcha-addurl-whitelist' => ' #<!-- Lohß di Reih he jenou esu wi se es --> <pre>

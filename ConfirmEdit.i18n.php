@@ -1791,6 +1791,16 @@ As Schutz gegen automaatsch Spam, löös disse lüttje Rekenopgaav un geev dat R
 	'captcha-create' => 'De Sied nee optostellen, löös disse lüttje Rekenopgaav un geev dat Resultat in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
 	'captchahelp-title' => 'Help to Captchas',
 	'captchahelp-cookies-needed' => 'Dien Browser mutt Cookies ünnerstütten un aktiveert hebben, dat dat geiht.',
+	'captchahelp-text' => 'Websteden, de Bidrääg vun elkereen tolaten doot, so as dit Wiki, hebbt faken mit Spammers to doon, de en Computer-Programm bruukt, dat se jümmer Text oder Warf op mööglichst veel Sieden ünnerbringt.
+Ok wenn dat gau wedder rutnahmen warrt, stöört dat doch de Arbeid op dat Wiki.
+
+Af un to, besünners wenn du Lenken op Websteden in Sieden inföögst, wiest di de Software en Bild mit bunte un verdreihte Bookstaven un fraagt di, dat du de Bookstaven in dat Textfeld ingiffst.
+En Computer-Programm kann disse Bookstaven normalerwies nich lesen, aver de mehrsten Minschen köönt dat. Dormit sünd de Spammers vun de Sied utslaten.
+
+Dat kann aver ok angahn, dat nu ok Lüüd, de nich so good sehn köönt oder villicht Text- oder Vörlees-Browsers bruukt, mit disse Biller nich torecht kaamt.
+Opstunns gifft dat noch keen Audio-Alternativ för de Biller. Wenn du mit de Biller nich torechtkummst, denn schriev man an de Administraters vun de sied un beed jem üm Help.
+
+Mit den „Trüch“-Knopp vun dien Browser kummst du trüch na dat Ännerfinster.',
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
 # Op disse Siet staht de Websteden, bi de en Bruker,
 # de nich anmellt is un en ne’en Lenk in de Siet infögen deit,

@@ -1034,6 +1034,7 @@ $messages['gu'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Rotem Liss
  * @author Amire80
  */
 $messages['he'] = array(

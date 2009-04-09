@@ -1046,8 +1046,8 @@ $messages['gu'] = array(
 );
 
 /** Hebrew (עברית)
- * @author Rotem Liss
  * @author Amire80
+ * @author Rotem Liss
  */
 $messages['he'] = array(
 	'captcha-edit' => 'כדי לערוך את הדף, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',

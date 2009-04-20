@@ -1933,17 +1933,17 @@ $messages['oc'] = array(
 	'captcha-edit' => "Per modificar aquesta pagina, vos cal efectuar lo calcul çaijós e n'inscriure lo resultat dins lo camp ([[Special:Captcha/help|Mai d’entresenhas]]) :",
 	'captcha-desc' => 'Implementacion captcha simpla',
 	'captcha-addurl' => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, vos cal picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu'es aquò?]])",
-	'captcha-badlogin' => "Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxt çaijós dins la bóstia de tèxt plaçada al dejós d'aqueste. ([[Special:Captcha/help|Mai d’entresenhas]])",
+	'captcha-badlogin' => "Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxte çaijós dins la bóstia de tèxte plaçada al dejós d'aqueste. ([[Special:Captcha/help|Mai d’entresenhas]])",
 	'captcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, entratz lo resultat de l’addicion dins la bóstia çaijós:<br />
 ([[Special:Captcha/help|mai d’entresenhas]])',
 	'captcha-createaccount-fail' => 'Còde de confirmacion mancant o erronèu.',
 	'captcha-create' => "Per modificar la pagina, vos cal de resòldre l'operacion çaijós e n'inscriure lo resultat dins lo camp ([[Special:Captcha/help|Mai d'infòs]]) :",
 	'captchahelp-title' => 'Ajuda suls Captcha',
 	'captchahelp-cookies-needed' => "Vos cal aver los cookies activats dins vòstre navigador per qu'aquò foncione.",
-	'captchahelp-text' => "Los sits webs que permeton al mai grand nombre de participar, coma aqueste wiki, sovent son atacats per de spammers qu'utilizan d'espleches automatizas per mandar lor ligams sus fòrça sits a l'encòp.
-Son fòrt aisits de suprimir mas avèm francament de causas mai risolièras de far.
+	'captchahelp-text' => "Los sits webs que permeton al mai grand nombre de participar, coma aqueste wiki, sovent son atacats per de spammers qu'utilizan d'espleches automatizas per mandar lor ligams sus fòrça sites a l'encòp.
+Son de bon suprimir mas avèm francament de causas mai risolièras de far.
 
-De còps quand apondètz de ligams novèls cap al web, lo wiki vos pòt mostrar un imatge amb un tèxt coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d'automatizar, çò que permet de diferenciar un uman real d'un logicial automatic malvolent.
+De còps quora apondètz de ligams novèls cap al web, lo wiki vos pòt mostrar un imatge amb un tèxte coloriat o torçut e vos demandar de lo picar. Es una tasca relativament complicada d'automatizar, çò que permet de diferenciar un uman real d'un logicial automatic malvolent.
 
 Malurosament, aqueste sistèma es pas adaptat a d'utilizaires mal-vesents o utilizant de navigadors textuals o àudio. Actualament, prepausem pas d'alternativas adaptadas. S'avètz besonh d'ajuda trantalhetz pas a contactar los administrators del sit. 
 

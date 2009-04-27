@@ -35,6 +35,7 @@ global $wgExtensionFunctions, $wgGroupPermissions;
 
 $wgExtensionFunctions[] = 'confirmEditSetup';
 $wgExtensionCredits['other'][] = array(
+	'path' => __FILE__,
 	'name' => 'ConfirmEdit',
 	'author' => 'Brion Vibber',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:ConfirmEdit',

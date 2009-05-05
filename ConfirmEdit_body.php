@@ -480,7 +480,7 @@ class SimpleCaptcha {
 	 * @return bool true to continue saving, false to abort and show a captcha form
 	 */
 	function confirmEdit( &$editPage, $newtext, $section, $merged = false ) {
-		if( defined('API') ) {
+		if( defined('MW_API') ) {
 			# API mode
 			# The CAPTCHA was already checked and approved 
 			return true;

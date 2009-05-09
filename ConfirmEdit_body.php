@@ -214,6 +214,22 @@ class SimpleCaptcha {
 	}
 	
 	/**
+	 * Check if the IP is allowed to skip captchas
+	 */
+	function isIPWhitelisted() {
+		global $wgCaptchaWhitelistIP;
+		if( !empty( $wgCaptchaWhitelistIP ) ) {
+			$ip = wfGetIp();
+			foreach ( $wgCaptchaWhitelistIP as $range ) {
+				if ( IP::isInRange( $ip, $range ) ) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	/**
 	 * Internal cache key for badlogin checks.
 	 * @return string
 	 * @access private
@@ -268,15 +284,8 @@ class SimpleCaptcha {
 			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
 			return false;
 		}
-		global $wgCaptchaWhitelistIP;
-		if( !empty( $wgCaptchaWhitelistIP ) ) {
-			$ip = wfGetIp();
-			foreach ( $wgCaptchaWhitelistIP as $range ) {
-				if ( IP::isInRange( $ip, $range ) ) {
-					return false;
-				}
-			}
-		}
+		if( $this->isIPWhitelisted() )
+			return false;
 
 
 		global $wgEmailAuthentication, $ceAllowConfirmedEmail;
@@ -523,6 +532,9 @@ class SimpleCaptcha {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return true;
 			}
+			if( $this->isIPWhitelisted() )
+				return true;
+				
 			$this->trigger = "new account '" . $u->getName() . "'";
 			if( !$this->passCaptcha() ) {
 				$message = wfMsg( 'captcha-createaccount-fail' );
@@ -540,6 +552,9 @@ class SimpleCaptcha {
 	 */
 	function confirmUserLogin( $u, $pass, &$retval ) {
 		if( $this->isBadLoginTriggered() ) {
+			if( $this->isIPWhitelisted() )
+				return true;
+			
 			$this->trigger = "post-badlogin login '" . $u->getName() . "'";
 			if( !$this->passCaptcha() ) {
 				$message = wfMsg( 'captcha-badlogin-fail' );

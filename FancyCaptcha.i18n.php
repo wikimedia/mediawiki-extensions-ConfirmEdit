@@ -889,13 +889,15 @@ $messages['sr-ec'] = array(
  * @author Pyt
  */
 $messages['stq'] = array(
-	'fancycaptcha-addurl' => 'Dien Beoarbaidenge änthaalt näie externe Ferbiendengen. Tou Schuts foar automatisierde Spamminge reek dät foulgjende Woud in dät Fäild ien. Klik dan fonnäien ap „Siede spiekerje“ [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
-	'fancycaptcha-badlogin' => 'Toun Schuts foar ne Kompromittierenge fon dien Benutserkonto reek dät foulgjende Woud in dät Fäild hierunner ien [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]]:',
-	'fancycaptcha-createaccount' => 'Toun Schuts foar automatisierde Anloage fon Benutserkonten reek dät foulgjende Woud in dät Fäild hierunner ien  [[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
+	'fancycaptcha-addurl' => 'Dien Beoarbaidenge änthaalt näie externe Ferbiendengen.
+Tou Schuts foar automatisierde Spamminge reek dät foulgjende Woud in dät Fäild ien.
+Klik dan fonnäien ap „Siede spiekerje“ [[Special:Captcha/help|(Froagen of Probleme?)]].',
+	'fancycaptcha-badlogin' => 'Toun Schuts foar ne Kompromittierenge fon dien Benutserkonto reek dät foulgjende Woud in dät Fäild hierunner ien [[Special:Captcha/help|(Froagen of Probleme?)]]:',
+	'fancycaptcha-createaccount' => 'Toun Schuts foar automatisierde Anloage fon Benutserkonten reek dät foulgjende Woud in dät Fäild hierunner ien [[Special:Captcha/help|(Froagen of Probleme?)]].',
 	'fancycaptcha-create' => 'Tou dät Moakjen fon ju Siede reek dät foulgjende Woud in dät Fäild hierunner ien
-[[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
+[[Special:Captcha/help|(Froagen of Probleme?)]].',
 	'fancycaptcha-edit' => 'Tou Beoarbaidenge fon disse Siede reek dät foulgjende Woud in dät Fäild hierunner ien
-[[{{ns:special}}:Captcha/help|(Froagen of Probleme?)]].',
+[[Special:Captcha/help|(Froagen of Probleme?)]].',
 );
 
 /** Sundanese (Basa Sunda)

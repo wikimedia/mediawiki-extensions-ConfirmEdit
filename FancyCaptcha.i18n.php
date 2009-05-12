@@ -18,6 +18,13 @@ To help protect against automated spam, please enter the words that appear below
 	'fancycaptcha-edit'          => 'To edit this page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
 );
 
+/** Message documentation (Message documentation)
+ * @author Purodha
+ */
+$messages['qqq'] = array(
+	'fancycaptcha-desc' => 'Short description of this extension, shown in [[Special:Version]]. Do not translate or change links.',
+);
+
 /** Amharic (አማርኛ)
  * @author Codex Sinaiticus
  */
@@ -223,6 +230,7 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
+	'fancycaptcha-desc' => 'Captcha-Generator für die Erweiterung „Confirm Edit“',
 	'fancycaptcha-addurl' => 'Deine Bearbeitung enthält neue externe Links.
 Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'fancycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]]:',
@@ -599,6 +607,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'fancycaptcha-desc' => 'Määt e nett Käptsche för dä <code lang="en">Confirm Edit</code> Projramm-Zohsatz',
 	'fancycaptcha-addurl' => 'Do häß neu Lingks op frembde Websigge dobei jedonn.
 Mer schöze uns Wiki jäje automatesche SPAM, dröm
 don di Wööter en dat Käßje endraare. (Verklierung)',

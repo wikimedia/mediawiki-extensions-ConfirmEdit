@@ -373,15 +373,14 @@ $messages['ga'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
-	'fancycaptcha-addurl' => 'A súa edición inclúe ligazóns externas novas. Para axudar na protección contra o spam
-automatizado, introduza as palabras que aparecen na páxina de embaixo ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-addurl' => 'A súa edición inclúe ligazóns externas novas.
+Para axudar na protección contra o spam automatizado, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-badlogin' => 'Para contribuír a que non se descubran os contrasinais por medios automáticos, introduza as palabras que aparecen na caixa de embaixo
 ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-createaccount' => 'Para contribuír contra a creación automatizada de contas, introduza na caixa as palabras que aparecen embaixo ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-create' => 'Para crear a páxina, introduza as palabras que aparecen na caixa de embaixo
+	'fancycaptcha-createaccount' => 'Para contribuír contra a creación automatizada de contas, introduza as palabras que aparecen na caixa de embaixo
 ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-edit' => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo
-([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-create' => 'Para crear a páxina, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-edit' => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
 );
 
 /** Swiss German (Alemannisch)

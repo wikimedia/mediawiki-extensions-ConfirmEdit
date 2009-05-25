@@ -12,3 +12,4 @@ $aliases = array();
 $aliases['en'] = array(
 	'Captcha' => array( 'Captcha' ),
 );
+

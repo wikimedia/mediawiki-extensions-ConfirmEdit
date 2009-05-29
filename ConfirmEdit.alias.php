@@ -13,3 +13,8 @@ $aliases['en'] = array(
 	'Captcha' => array( 'Captcha' ),
 );
 
+/** Maltese (Malti) */
+$aliases['mt'] = array(
+	'Captcha' => array( 'Captcha' ),
+);
+

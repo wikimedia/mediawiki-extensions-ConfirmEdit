@@ -498,6 +498,7 @@ Buóh diōng kó̤ piĕng-cĭk hiĕk-miêng, áik \"diōng kó̤ sèng 1 hiĕk\"
  * @author Danny B.
  * @author Li-sung
  * @author Matěj Grabovský
+ * @author Mormegil
  */
 $messages['cs'] = array(
 	'captcha-edit' => 'Abyste mohli editovat tuto stránku, musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
@@ -513,7 +514,7 @@ $messages['cs'] = array(
 
 Někdy, zvláště při přidávání nových webových odkazů, vám může wiki ukázat obrázek barevného či pokrouceného textu a požádat vás o opsání zobrazených znaků. Jelikož takovou úlohu lze jen těžko automatizovat, skuteční lidé mohou dále přispívat, zatímco většinu spammerů a jiných robotických útočníků to zastaví.
 
-Bohužel to však může představovat nepříjemný problém pro uživatele se zrakovým postižením či uživatele používající textové prohlížeče či hlasové čtečky. V současné době nemáme alternativní zvukovou verzi. Kontaktujte laskavě správce serveru, pokud vám to brání v užitečných příspěvcích a potřebujete pomoc.
+Bohužel to však může představovat nepříjemný problém pro uživatele se zrakovým postižením či uživatele používající textové prohlížeče či hlasové čtečky. V současné době nemáme alternativní zvukovou verzi. Kontaktujte laskavě [[{{MediaWiki:Grouppage-sysop}}|správce serveru]], pokud vám to brání v užitečných příspěvcích a potřebujete pomoc.
 
 Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko „zpět“.',
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
@@ -628,11 +629,11 @@ Za šćit pśeśiwo zawtomatizěrowanemu spamoju, rozwěž pšosym slědujucy ja
 Lěcrownož toś te spamowe wótkaze daju se wótpóraś, su wóne bejna pógóršota.
 
 Wótergi, wósebnje, gaž se nowe wótkaze pśidawaju bokoju, jo móžno, až wiki śi pokazujo wobraz barwojtego abo spryšćonego teksta a pšosy śe, aby zapódał zwobraznjone słowa.
-Dokulaž to jo nadawk, kótaryž dajo se śěžko awtomatizěrowaś, dówolujo to realnym luźam jich pśinoski wótpósłaś, najwěcej spamowarjow a robotowe ataki pak se zaźaržyju.
+Dokulaž to jo nadawk, kótaryž dajo se śěžko awtomatizěrowaś, dówolujo to napšawdnym luźam jich pśinoski wótpósłaś, najwěcej spamowarjow a robotowe ataki pak se zaźaržyju.
 
-Bóžko to móžo kazyś wužywarjow z wobgraniwoneju zamóžnosću wiźenja pśi wužywanju wobglědowakow, kótarež bazěruju na teksće abo rěcy.
+Bóžko to móžo kazyś wužywarjow z wobgraniwoneju zamóžnosću wiźenja pśi wužywanju wobglědowakow, kótarež bazěruju na teksće abo rěcnem wudaśu.
 Tuchylu njamamy awdioalternatiwu.
-Staj se pšosym z administratorami sedła z pšosbu wó pomoc do zwiska, jolic to śi njewócakane  zawobarujo słanje pšawniskich pśinoskow.
+Staj se pšosym z [[{{MediaWiki:Grouppage-sysop}}|administratorami sedła]] z pšosbu wó pomoc do zwiska, jolic to śi njewócakane  zawobarujo słanje legitimnych pśinoskow.
 
 Klikni na tłocašk "Slědk" we swójom wobglědowaku, aby wróśił k bokowemu editoroju.',
 	'captcha-addurl-whitelist' => ' #<!-- wóstaj toś tu smužku rowno ako jo --> <pre>
@@ -758,7 +759,13 @@ $messages['et'] = array(
 	'captcha-create' => 'Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])',
 	'captchahelp-title' => 'Mis on Captcha?',
 	'captchahelp-cookies-needed' => 'Selle toimimiseks peab veebibrauser lubama küpsiseid.',
-	'captchahelp-text' => 'Internetisaite, mis lubavad külastajatel sisu muuta (nagu ka see Viki), kasutavad sageli spämmerid ära, postitades reklaamlinke - spämmi. Kuigi neid linke saab alati ära võtta, on nad ikkagi üpris tülikad. Omale kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse teile moonutatud tekstiga pilti ning palutakse teil sisestada seal näidatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks spämmirobotite vastu, samas lubades tavainimestel oma muudatusi rahus teha. Kahjuks võib see tekitada ebamugavusi nägemisraskustega inimestele või neile, kes kasutavad kõnesüntesaatorit või tekstipõhist brauserit. Hetkel pole meil helipõhist alternatiivi. Kui teil tekib ootamatult raskusi oma muudatuste tegemisel, siis kirjutage sellest [[Vikipeedia:Üldine arutelu|üldise arutelu]] lehele. Konto registreerimise lehele või lehe redigeerimisele tagasi jõudmiseks vajutage oma brauseri tagasi-nuppu.',
+	'captchahelp-text' => 'Internetisaite, mis lubavad külastajatel sisu muuta (nagu ka see Viki), kasutavad sageli spämmerid ära, postitades reklaamlinke — spämmi. Kuigi neid linke saab alati ära võtta, on nad ikkagi üpris tülikad. 
+
+Omale kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse teile moonutatud tekstiga pilti ning palutakse teil sisestada seal näidatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks spämmirobotite vastu, samas lubades tavainimestel oma muudatusi rahus teha. 
+
+Kahjuks võib see tekitada ebamugavusi nägemisraskustega inimestele või neile, kes kasutavad kõnesüntesaatorit või tekstipõhist brauserit. Hetkel pole meil helipõhist alternatiivi. Kui teil tekib ootamatult raskusi oma muudatuste tegemisel, siis võtke ühendust selle saidi administraatoritega. 
+
+Konto registreerimise lehele või lehe redigeerimisele tagasi jõudmiseks vajutage oma brauseri tagasi-nuppu.',
 );
 
 /** Basque (Euskara)
@@ -1003,11 +1010,13 @@ Zum Schutz vor automatisiertem Spamming lees die Rächenufgab un trag s Ergebnis
 	'captcha-create' => 'Zum d Syten aalege lees die Rächenufgab un trag s Ergebnis in s Fäld unten yy. [[Special:Captcha/help|(Frogen oder Probläm?)]]',
 	'captchahelp-title' => 'Captcha-Hilf',
 	'captchahelp-cookies-needed' => "'''Wichtiger Hiiwyys:''' Im Browser mien Cookiers erlaubt syy.",
-	'captchahelp-text' => 'Internetaagebot, wu uf sin fir Byytreg vu jedem, wie z. B. s {{SITENAME}}-Wiki, wäre vyylmol vu Spammer missbruucht, wu ihri Gleicher automatisch uf vyylene Netzsyte platziere. Die Spam-Gleicher cha mer wider useneh, si stere aber zimli un nämme Arbetszyt in Aaspruch. 
+	'captchahelp-text' => 'Internetaagebot, wu uf sin fir Byytreg vu jedem, wie z. B. des Wiki, wäre vyylmol vu Spammer missbruucht, wu ihri Gleicher automatisch uf vyylene Netzsyte platziere. Die Spam-Gleicher cha mer wider useneh, si stere aber zimli un nämme Arbetszyt in Aaspruch. 
 
 In e Teil Fäll, v. a. wänn neiji Netzgleicher in e Syte dryygfiegt wäre, cha s syy, ass des Wiki derno ne Bild mit eme farbige un verzerrte Täxt aazeigt un dezue ufforderet, di aazeigte Werte yyzgee. Wel sonigi Ufgabe nit automatische chenne usgfiert wäre, cha mer eso di meischte Spammer, wu mit automatische Wärchzyyg schaffe, ufhalte, aber normali Benutzer chenne ihri Byytreg einewäg yygee. 
 
-Leider cha des derzue fiere, ass Lyt Probläm iberchemme, wu ne yygschränkti Sähfähigkeit oder e Browser bruche, wu täxt- oder sprochbasiert isch. Derno muess mer sich regulär as Benutzer aamälde, no git s die Probläm nit. 
+Leider cha des derzue fiere, ass Lyt Probläm iberchemme, wu ne yygschränkti Sähfähigkeit oder e Browser bruche, wu täxt- oder sprochbasiert isch.
+Im Momänt hän mir kei Audioalternative z Verfiegig.
+Bitte nimm Kontakt uf zum [[{{MediaWiki:Grouppage-sysop}}|Syteadministrator]] fir Unterstitzig wänn des Di uuerwartet abhaltet vu berächtigte Byyträg.
 
 Ins Bearbeitigsfänschter chunnt mer derno eifach wider mit em „Zruck“-Chnopf.',
 	'captcha-addurl-whitelist' => ' #<!-- Die Zyyle derf nit gänderet wäre! --> <pre>
@@ -1157,7 +1166,16 @@ $messages['hsb'] = array(
 	'captcha-create' => 'Zo by stronu wutworił, rozrisaj prošu slědowacy ličenski nadawk a zapodaj wuslědk do kašćika ([[Special:Captcha/help|Dalše informacije]]):',
 	'captchahelp-title' => 'Pomoc z captcha',
 	'captchahelp-cookies-needed' => 'Dyrbiš placki (cookies) w swojim wobhladowaku zmóžnić.',
-	'captchahelp-text' => 'Sydła kaž {{SITENAME}}, kotrež móža so swobodnje wot kóždeho wobdźěłować su často z woporom spamarjow, kotřiž swoje wotkazy awtomatisce we wjele sydłach broja. Tute spam-wotkazy móža so zaso wotstronjeć, wubudźa pak njesnadne mjerzanje. W někotrych padach, wosebje při přidawanju nowych eksternych wotkazow, móže so stać, zo pokazuje tutón wiki wobraz z pisanym abo skomolenym tekstom abo kaza jednory ličenski nadawk wuličeć, kotrehož wuslědk dyrbi so potom do zapodawanskeho kašćika zapisować. Dokelž hodźi so tajki nadawk jenož ćežko z awtomatiskimi srědkami spamarjow spjelnić, móža so tajcy wotdźeržować, druzy wužiwarjo pak móža swoje změny składować. Bohužel móže to k wobćežnosćam za tutych wužiwarjow dowjesć, kotrychž kmanosć widźenja je wobmjezowana abo kotřiž dźěłaja z wobhladowakami kiž su na tekstowe abo rěčne wudawanje wusměrjene. Móžne rozrisanje tutoho problema je přizjewjenje jako wužiwar. Tłóčatko „Wróćo” swojeho wobhladowaka dowjedźe tebje zaso do wobdźěłowanskeho pola.',
+	'captchahelp-text' => 'Websydła, kotrež powěsće wot kóždeho akceptuja, so často wot spamarjow znjewužiwaja, kotřiž swoje wotkazy awtomatisce na wjele sydłach rozdźěleja. Hačrunjež so tute spamwotkazy hodźa wotstronić, su wone njesnadne mjerzanje.
+
+Druhdy, wosebje, hdyž so nowe webwotkazy stronje přidawaja, móže so stać, zo pokazuje tutón wiki wobraz z barbnym abo skomolenym tekstom a će prosy, zo by pokazane słowa zapodał.
+Dokelž to je nadawk, kotryž hodźi so jenož ćežko awtomatizować, dowoluje to woprawdźitym wosobam swoje powěsći wotpósłać, mjeztym zo so najwjace spamarjow a druhich nadpadowacych botow blokuje.
+
+Bohužel móže to k wobćežnosćam za tutych wužiwarjow wjesć, kotrychž kmanosć widźenja je wobmjezowana abo kotřiž wobhladowaki wužiwaja, kotrež na tekst abo rěčne wudawanje bazěruja.
+Tuchwilu njedisponujemy wo awdioalternatiwje.
+Prošu staj so z [[{{MediaWiki:Grouppage-sysop}}|administratorami sydła]] z prostwu wo pomoc do zwiska, jeli to će haći legitimne powěsće pósłać.
+
+Klikń na tłócatko "Wróćo" w swojim wobhladowaku, zo by so k editorej wróćił.',
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
 # Syntaks je slědowaca:
 # * Wšo wot znamješka "#" hač do kónca linky je komentar
@@ -1347,7 +1365,7 @@ $messages['ja'] = array(
 
 このため、このウィキではときどき、特に新しい外部リンクがページに追加されたときなどに、色の付いた、あるいは形のゆがんだ文字の画像を提示し、なんと書いてあるか入力をお願いすることがあります。この作業は自動化が難しいため、スパマーなどのプログラムを用いた攻撃をほぼ阻止しつつ、大半の生身の人間による投稿を可能にします。
 
-しかし、残念なことに、この方法により、視力の低い利用者や、テキストベースあるいは音声ベースのブラウザを使っている利用者にご不便をおかけする場合があります。現時点では、音声による代替方法はありません。正当な投稿をするにあたって本機能が障害となっている場合、サイト管理者に連絡して協力を求めてください。
+しかし、残念なことに、この方法により、視力の低い利用者や、テキストベースあるいは音声ベースのブラウザを使っている利用者にご不便をおかけする場合があります。現時点では、音声による代替方法はありません。正当な投稿をするにあたって本機能が障害となっている場合、[[{{MediaWiki:Grouppage-sysop}}|サイト管理者]]に連絡して協力を求めてください。
 
 ページの編集に戻るには、ブラウザの戻るボタンを押してください。',
 	'captcha-addurl-whitelist' => ' #<!-- この行は変更しないでください --> <pre>
@@ -1856,7 +1874,7 @@ Omdat dit proces lastig te automatiseren is, zijn vrijwel alleen mensen in staat
 
 Helaas levert deze bevestiging voor gebruikers met een visuele handicap of een tekst- of spraakgebaseerde browser problemen op.
 Op het moment is er geen alternatief met geluid beschikbaar.
-Vraag assistentie van de sitebeheerders als dit proces u verhindert een nuttige bijdrage te leveren.
+Vraag assistentie van de [[{{int:Grouppage-sysop}}|sitebeheerders]] als dit proces u verhindert een nuttige bijdrage te leveren.
 
 Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
 	'captcha-addurl-whitelist' => ' #<!-- laat deze regel zoals hij is --> <pre> 
@@ -2151,15 +2169,15 @@ $messages['ru'] = array(
 	'captcha-create' => 'Чтобы создать страницу, решите простой пример и введите ответ в текстовое поле ([[Special:Captcha/help|что это?]]):',
 	'captchahelp-title' => 'Справка о CAPTCHA',
 	'captchahelp-cookies-needed' => 'Вам нужно включить куки в браузере, чтобы эта функция заработала.',
-	'captchahelp-text' => 'Веб-сайты, позволяющие добавлять и изменять своё содержимое, в том числе вики, часто становятся целью спамеров, использующих программы для автоматического добавления ссылок. 
+	'captchahelp-text' => 'Веб-сайты, позволяющие добавлять и изменять своё содержимое, в том числе эта вики, часто становятся целью спамеров, использующих программы для автоматического добавления ссылок на многие сайты. 
 Хотя такие ссылки могут быть впоследствии удалены, они являются существенной помехой.
 
 При некоторых действиях — например, при добавлении на страницу новой веб-ссылки — вы можете увидеть специальную картинку с цветным или искажённым текстом, и вам будет предложено ввести этот искажённый текст. 
-Так как распознавание искажённого текста для программ является сложной задачей, то большинство спамерских и вандальных программ не могут с ней справиться, в то время как люди справляются легко.
+Так как распознавание искажённого текста является сложной задачей для программ, то большинство спамерских и вандальных программ не могут с ней справиться, в то время как люди справляются легко.
 
 К сожалению, подобная защита может причинить неудобства людям с ограничениями по зрению или тем, кто использует текстовые или читающие браузеры. 
 В настоящее время у нас нет звуковой альтернативы данной проверке. 
-Пожалуйста, обратитесь за помощью к администраторам, если подобная проверка мешает вам добросовестно работать с сайтом.
+Пожалуйста, обратитесь за помощью к [[{{int:Grouppage-sysop}}|администраторам]], если подобная проверка мешает вам добросовестно работать с сайтом.
 
 Нажмите кнопку «Назад» в вашем браузере, чтобы вернуться к редактированию.',
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>

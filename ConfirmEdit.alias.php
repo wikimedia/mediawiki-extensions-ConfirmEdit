@@ -13,6 +13,11 @@ $aliases['en'] = array(
 	'Captcha' => array( 'Captcha' ),
 );
 
+/** Arabic (العربية) */
+$aliases['ar'] = array(
+	'Captcha' => array( 'كابتشا' ),
+);
+
 /** Maltese (Malti) */
 $aliases['mt'] = array(
 	'Captcha' => array( 'Captcha' ),

@@ -704,15 +704,15 @@ kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 	'captcha-create' => 'Por krei la paĝon, bonvolu solvi la simplan sumon jenan kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 	'captchahelp-title' => 'Helpo pri Captcha',
 	'captchahelp-cookies-needed' => 'Vi devas ebligi kuketojn en via retumilo por ĉi tiu funkcii.',
-	'captchahelp-text' => "Retejoj kiuj akcepti informon de publiko, kiel ĉi tiu vikio, estas ofte misuzitaj de spamistoj kiu uzas aŭtomatajn ilojn por sendi ligilojn al multaj retejoj.
-Kvankam ĉi tiu spam-ligiloj povas esti forigitaj, ili estas ĝeno.
+	'captchahelp-text' => "Retejoj kiuj akcepti informon de publiko, kiel ĉi tiu vikio, estas ofte misuzitaj de spamistoj kiu uzas aŭtomatajn ilojn por afiŝi ligilojn al multaj retejoj.
+Kvankam ĉi tiu spam-ligiloj estas forigeblaj, ili estas granda ĝeno.
 
 Iufoje, ja kiam aldonante novajn retligilojn al paĝo, la vikio eble montros al vi bildon de bunta aŭ misformita teksto, kaj petos al vi tajpi la vortojn montratajn.
-Tial ĉi tiu tasko estas malfacila por fari per roboto, elbigos al pliparto da homoj fari aldonaĵojn, kaj malebligos spamistojn kaj aliaj robotaj atakantoj.
+Tial ĉi tiu tasko estas malfacila por fari aŭtomate, elbigos al realaj homoj fari aldonaĵojn, kaj malebligos spamistojn kaj aliaj robotaj atakiloj.
 
 Bedaŭrinde, ĉi tio eble ĝenetos uzantojn kun malbona vidkapablo kiu utiligas tekstajn aŭ voĉajn retumilojn.
 Ĉi-momente, neniu aŭda alternativo estas havebla.
-Bonvolu kontakti la administrantojn de la retejo por helpo se ĉi tio malebligas al vi fari bonan aldonon.
+Bonvolu kontakti la [[{{MediaWiki:Grouppage-sysop}}|administrantojnde la retejo]] por helpo se ĉi tio malebligas al vi fari bonan aldonon.
 
 Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 	'captcha-addurl-whitelist' => ' #<!-- ne ŝanĝu ĉi tiun linion iel ajn --> <pre>
@@ -2010,15 +2010,14 @@ $messages['pl'] = array(
 	'captchahelp-title' => 'Pomoc dla ochrony antyspamowej',
 	'captchahelp-cookies-needed' => 'Musisz mieć włączone w przeglądarce ciasteczka (cookies), aby ta opcja działała.',
 	'captchahelp-text' => 'Strony internetowe akceptujące edycje dokonywane przez każdego, tak jak ta wiki, są często atakowane przez spamerów, którzy używają automatycznych narzędzi, aby dodawać linki prowadzące do ich stron.
-Chociaż te linki mogą być usunięte, jest to uciążliwe.
+Chociaż te linki mogą zostać usunięte, jest to uciążliwe.
 
 Czasami, zwłaszcza przy dodawaniu nowych linków do strony albo przy rejestracji, wiki może pokazać obrazek z kolorowym lub zniekształconym tekstem i poprosić Cię o przepisanie zamieszczonego na nim wyrazu.
-Może pojawić się też prośba o wpisanie wyniku prostego działania matematycznego.
-Ponieważ są to zadania trudne do zautomatyzowania, takie zabezpieczenia nie uniemożliwia większości ludziom dokonywania edycji, jednocześnie skutecznie powstrzymując większość spamerów i inne automatyczne ataki.
+Ponieważ są to zadania trudne do zautomatyzowania, takie zabezpieczenia umożliwia ludziom dokonywania edycji, jednocześnie skutecznie powstrzymując większość spamerów i inne automatyczne ataki.
 
 Niestety, może być to niewygodne dla użytkowników z wadą wzroku lub używających przeglądarek tekstowych lub głosowych.
 Obecnie nie mamy alternatywnego rozwiązania audio.
-Skontaktuj się z administratorami strony by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać uprawnionych edycji.
+Skontaktuj się z [[{{MediaWiki:Grouppage-sysop}}|administratorami strony]] by uzyskać pomoc, jeśli nie możesz z tego powodu dokonywać uprawnionych edycji.
 
 Wciśnij przycisk „wstecz” w przeglądarce by powrócić do edycji strony.',
 	'captcha-addurl-whitelist' => ' #<!-- nie modyfikuj tej linii --> <pre>
@@ -2703,11 +2702,15 @@ $messages['vi'] = array(
 câu trả lời vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'captchahelp-title' => 'Trợ giúp Captcha',
 	'captchahelp-cookies-needed' => 'Bạn sẽ cần phải bật cookie trong trình duyệt của bạn để chức năng này hoạt động',
-	'captchahelp-text' => 'Những website cho phép bất kỳ ai cũng có thể gửi thông tin như wiki thường bị các tay spam lạm dụng dùng công cụ tự động gửi các liên kết của họ tới rất nhiều website khác. Tuy chúng ta có thể xóa các liên kết này khỏi trang, chúng vẫn gây nhiều phiền toái.
+	'captchahelp-text' => 'Những website cho phép bất kỳ ai cũng có thể gửi thông tin, như wiki này, thường bị các tay spam dùng công cụ tự động để gửi các liên kết của họ tới rất nhiều trang.
+Tuy chúng ta có thể xóa các liên kết này khỏi trang, chúng vẫn gây nhiều phiền toái.
 
-Đôi khi, nhất là khi bạn bổ sung liên kết mới vào trang, wiki có thể hiển thị một hình có chữ dạng màu mè và méo mó rồi yêu cầu bạn gõ lại các chữ trong hình này. Do các phần mềm tự động khó đọc những hình này, nên mọi người bình thường có thể tiếp tục gửi thông tin, đồng thời chặn được các spam và robot phá hoại.
+Đôi khi, nhất là khi bạn bổ sung liên kết mới vào trang, wiki có thể hiển thị một hình có chữ dạng màu mè và méo mó rồi yêu cầu bạn gõ lại các chữ trong hình này. 
+Do các phần mềm tự động khó đọc những hình này, nên mọi người bình thường có thể tiếp tục gửi thông tin, mà vẫn chặn được các spam và robot phá hoại.
 
-Tuy vậy, tính năng này có thể bất tiện đối với những độc giả có thị giác yếu hay đang sử dụng trình duyệt bằng văn bản thuần hay trình duyệt bằng tiếng nói. Hiện tại chúng tôi chưa có chức năng phát âm thay thế. Xin hãy liên lạc với người quản trị trang web để được trợ giúp nếu điều này vô tình ngăn cản bạn đóng góp nội dung tốt.
+Tuy vậy, tính năng này có thể bất tiện đối với những độc giả có thị giác yếu hay đang sử dụng trình duyệt bằng văn bản thuần hay trình duyệt bằng tiếng nói.
+Hiện tại chúng tôi chưa có chức năng phát âm thay thế.
+Xin hãy liên lạc với [[{{MediaWiki:Grouppage-sysop}}|người quản trị trang web]] để được trợ giúp nếu điều này vô tình ngăn cản bạn đóng góp nội dung tốt.
 
 Nhấn chuột vào nút “Back” của trình duyệt để trở lại trang soạn thảo.',
 	'captcha-addurl-whitelist' => ' #<!-- xin để dòng này đừng thay đổi --> <pre>

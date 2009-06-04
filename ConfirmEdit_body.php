@@ -218,7 +218,7 @@ class SimpleCaptcha {
 	 */
 	function isIPWhitelisted() {
 		global $wgCaptchaWhitelistIP;
-		if( !empty( $wgCaptchaWhitelistIP ) ) {
+		if( $wgCaptchaWhitelistIP ) {
 			$ip = wfGetIp();
 			foreach ( $wgCaptchaWhitelistIP as $range ) {
 				if ( IP::isInRange( $ip, $range ) ) {
@@ -349,7 +349,7 @@ class SimpleCaptcha {
 		}
 
 		global $wgCaptchaRegexes;
-		if( !empty( $wgCaptchaRegexes ) ) {
+		if( $wgCaptchaRegexes ) {
 			// Custom regex checks
 			$oldtext = $this->loadText( $editPage, $section );
 

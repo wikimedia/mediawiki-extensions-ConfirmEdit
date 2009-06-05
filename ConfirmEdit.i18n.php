@@ -1925,6 +1925,7 @@ Trykk på «attende»-knappen for å kome tilbake til endringssida.',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Audun
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
@@ -1937,13 +1938,13 @@ $messages['no'] = array(
 	'captcha-create' => 'Løs det enkle regnestykket i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
 	'captchahelp-title' => 'Hjelp med Captcha',
 	'captchahelp-cookies-needed' => 'Du må slå på informasjonskapsler for at dette skal fungere.',
-	'captchahelp-text' => 'Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til betydelig irritasjon.
+	'captchahelp-text' => "Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til stor irritasjon.
 
-Noen ganger, særlig hvis du vil legge til nye internettlenker til en side, kan wikien vise deg et bilde av en farvet eller ujevn tekst og be deg skrive inn ordene som vises. Siden det er vanskelig å automatisere denne oppgaven, vil funksjonen slippe de fleste virkelige mennesker igjennom, men stoppe spammere.
+Noen ganger, særlig hvis du vil legge til nye internettlenker til en side, kan wikien vise deg et bilde av en farge eller ujevn tekst og be deg skrive inn ordene som vises. Siden det er vanskelig å automatisere denne oppgaven, vil funksjonen slippe de fleste virkelige mennesker igjennom, men stoppe spammere.
 
-Dessverre finnes det i øyeblikket ikke noe audioalternativ for brukere med begrenset syn som som bruker tekst- eller talebaserte nettlesere. Vennlig kontakt administratorene hvis denne funksjonen forhindrer deg i å foreta legitime endringer.
+Dessverre finnes det i øyeblikket ikke noe audioalternativ for brukere med begrenset syn som som bruker tekst- eller talebaserte nettlesere. Vennligst kontakt [[{{MediaWiki:Grouppage-sysop}}|administratorene]] hvis denne funksjonen forhindrer deg i å foreta legitime endringer.
 
-Trykk på «tilbake»-knappen for å komme tilbake til redigeringssiden.',
+Trykk på 'tilbake'-knappen for å komme tilbake til redigeringssiden.",
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
 # Syntaksen er som følger:
 #  * Alle linjer som begynner med «#» er kommentarer

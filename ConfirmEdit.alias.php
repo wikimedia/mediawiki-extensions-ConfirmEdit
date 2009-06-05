@@ -18,6 +18,11 @@ $aliases['ar'] = array(
 	'Captcha' => array( 'كابتشا' ),
 );
 
+/** Ripoarisch (Ripoarisch) */
+$aliases['ksh'] = array(
+	'Captcha' => array( 'Kaptscha' ),
+);
+
 /** Maltese (Malti) */
 $aliases['mt'] = array(
 	'Captcha' => array( 'Captcha' ),

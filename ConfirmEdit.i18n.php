@@ -2141,6 +2141,7 @@ $messages['qu'] = array(
  * @author BrokenArrow
  * @author Firilacroco
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
 	'captcha-edit' => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
@@ -2152,13 +2153,14 @@ $messages['ro'] = array(
 	'captcha-create' => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvaţi adunarea de mai jos şi introduceţi rezultatul în căsuţă ([[Special:Captcha/help|detalii]]):',
 	'captchahelp-title' => 'Despre „Captcha”',
 	'captchahelp-cookies-needed' => 'Trebuie ca browserul dumneavoastră să accepte cookie-uri pentru ca aceasta să funcţioneze.',
-	'captchahelp-text' => 'Siturile Web care acceptă postări din partea publicului, precum acest wiki, sunt de obicei abuzate de persoane care folosesc unelte automate pentru a introduce legături către multe situri. Deşi aceste legături de spam pot fi scoase, acest lucru reprezintă o muncă inconvenientă.
+	'captchahelp-text' => "Siturile Web care acceptă postări din partea publicului, precum acest wiki, sunt de obicei abuzate de persoane care folosesc unelte automate pentru a introduce legături către multe situri. Deşi aceste legături de spam pot fi scoase, acest lucru reprezintă o muncă inconvenientă.
 
-Uneori, mai ales la adăugarea de legături web noi într-o pagină, situl wiki vă poate arăta o imagine cu un text colorat sau distorsionat şi ruga să introduceţi cuvintele arătate. Deoarece aceasta este o sarcină greu de automatizat, va permite majorităţii persoanelor reale să posteze şi va opri majoritatea atacatorilor.
+Uneori, mai ales la adăugarea de legături web noi într-o pagină, situl wiki vă poate arăta o imagine cu un text colorat sau distorsionat şi veţi fi rugat să introduceţi cuvintele indicate. Deoarece aceasta este o sarcină greu de automatizat, ea permite majorităţii persoanelor reale să posteze şi va opri majoritatea atacatorilor.
 
-Din nefericire, această metodă îi poate deranja pe utilizatorii cu vedere limitată sau care folosesc browsere bazate pe text sau sunet. În acest moment nu avem o alternativă audio disponibilă. Vă rugăm, contactaţi administratorii sitului pentru asistenţă dacă metoda vă opreşte de la a face postări legitime.
+Din nefericire, această metodă îi poate deranja pe utilizatorii cu probleme vizuale sau care folosesc browsere bazate pe text sau sunet. În acest moment nu avem o alternativă audio disponibilă. 
+Vă rugăm, contactaţi [[{{MediaWiki:Grouppage-sysop}}|administratorii sitului]] pentru asistenţă dacă metoda vă opreşte de la a face postări legitime.
 
-Va fi nevoie ca browserul folosit să suporte module cookie.',
+Apasă butonul 'Înapoi' al browserului pentru a te reîntoarce la pagina de editare.",
 );
 
 /** Russian (Русский)

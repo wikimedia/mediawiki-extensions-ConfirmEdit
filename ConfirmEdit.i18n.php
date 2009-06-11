@@ -660,6 +660,7 @@ $messages['ee'] = array(
  * @author Badseed
  * @author Consta
  * @author Geraki
+ * @author Omnipaedista
  * @author ZaDiak
  */
 $messages['el'] = array(
@@ -678,7 +679,7 @@ $messages['el'] = array(
 
 Μερικές φορές, ειδικά κατά την προσθήκη νέων συνδέσμων σε μια σελίδα, το wiki μπορεί να σας παρουσιάσει μια εικόνα με ένα χρωματισμένο ή διαστρεβλωμένο κείμενο και να σας ζητήσει να πληκτρολογήσετε τις λέξεις που παρουσιάζονται. Δεδομένου ότι αυτό είναι ένας στόχος που είναι δύσκολο να αυτοματοποιηθεί, θα επιτρέψει στους περισσότερους χρήστες να κάνουν τις επεξεργασίες τους, σταματώντας τους spammers και άλλους ρομποτικά επιτιθέμενους.
 
-Δυστυχώς αυτό μπορεί να ενοχλήσει τους χρήστες περιορίζοντας το όραμα τους ή αυτούς που βασίζονται στο κείμενο ή στην ομιλία που βασίζεται στις μηχανές αναζήτησης. Προς το παρόν δεν έχουμε μια διαθέσιμη εναλλακτική λύση. Παρακαλώ ελάτε σε επαφή με τους διαχειριστές των σελίδων για βοήθεια, εάν αυτό σας αποτρέπει απροσδόκητα από την παραγωγή των νόμιμων επεξεργασιών.
+Δυστυχώς αυτό μπορεί να ενοχλήσει τους χρήστες περιορίζοντας το όραμα τους ή αυτούς που βασίζονται στο κείμενο ή στην ομιλία που βασίζεται στις μηχανές αναζήτησης. Προς το παρόν δεν έχουμε μια διαθέσιμη εναλλακτική λύση. Παρακαλώ ελάτε σε επαφή με τους [[{{MediaWiki:Grouppage-sysop}}|διαχειριστές]] των σελίδων για βοήθεια, εάν αυτό σας αποτρέπει απροσδόκητα από την παραγωγή των νόμιμων επεξεργασιών.
 
 Πατήστε το κουμπί 'πίσω' στη μηχανή αναζήτησης σας για να επιστρέψετε στο συντάκτη σελίδων.",
 	'captcha-addurl-whitelist' => '  #<!-- αφήστε αυτή την γραμμή ακριβώς όπως είναι --> <pre>
@@ -1855,6 +1856,27 @@ Mit den „Trüch“-Knopp vun dien Browser kummst du trüch na dat Ännerfinste
 
   #</pre> <!-- leave this line exactly as it is -->',
 	'right-skipcaptcha' => 'Överspringen vun Captchas',
+);
+
+/** Nedersaksisch (Nedersaksisch)
+ * @author Servien
+ */
+$messages['nds-nl'] = array(
+	'captcha-desc' => 'Eenvoudige invoering van captcha',
+	'captcha-addurl' => 'Joew bewarking bevat nieje uutgaonde verwiezingen.
+Voer ter de bescharming tegen ongewunste reclame de somme in dee hieronder steet:<br />
+([[Special:Captcha/help|Hulpe?]])',
+	'captcha-badlogin' => "Los disse eenvoudige rekensomme op en voer 't antwoord in bie 't invoervienster in ter bescharming tegen 't autematisch kraken van wachwoorden ([[Special:Captcha/help|meer infermasie]]):",
+	'captcha-createaccount' => "Voer ter bescharming tegen autematische ongewunste reclame 't antwoord op disse eenvoudige rekensomme in bie invoervienster ([[Special:Captcha/help|meer informatie]]):",
+	'captcha-createaccount-fail' => 'Verkeerde of ontbrekende bevestigingscode.',
+	'captcha-create' => "Je bin een nieje pagina an 't maken. 
+Voer 't antwoord van disse eenvoudige rekensomme in bie 't invoervienster
+([[Special:Captcha/help|meer infermasie]]).",
+	'captcha-addurl-whitelist' => ' #<!-- laot disse regel zoas e is --> <pre>  
+# De syntaxis is as volg:  
+#  * Alle tekse vanof \'t kerakter "#" tot \'t einde van de regels wonnen ezien as opmarking
+#  * Alle regels dee neet leeg bin, wonnen ezien as een regeliere uutdrokking dee veur delen van de domein staon.
+  #</pre> <!-- laot disse regel zoas e is -->',
 );
 
 /** Dutch (Nederlands)

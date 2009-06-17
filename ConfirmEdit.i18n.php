@@ -147,7 +147,7 @@ $messages['ar'] = array(
 
 للأسف سيكون هذا صعبا بالنسبة لمستخدمي المتصفحات المحدودة أو التي تعتمد على النصوص فقط أو قراءة النصوص.
 في الوقت الحالي لا يوجد لدينا بديل سمعي.
-من فضلك راسل إداريي الموقع للمساعدة إذا كان هذا الأمر يمنعك من التعديل ووضع وصلات قانونية.
+من فضلك راسل [[{{MediaWiki:Grouppage-sysop}}|إداريي الموقع]] للمساعدة إذا كان هذا الأمر يمنعك من التعديل ووضع وصلات قانونية.
 
 إذا كنت تحرر صفحة معينة: اضغط زر 'العودة' في متصفحك للعودة إلى التحرير.",
 	'captcha-addurl-whitelist' => ' #<!-- اترك هذا السطر تماما كما هو --> <pre>
@@ -904,27 +904,33 @@ Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la p
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'captcha-edit' => 'Por modifiar ceta pâge, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
-	'captcha-desc' => 'Simpla emplèmentacion captcha',
-	'captcha-addurl' => 'Voutra modificacion encllut de novéls lims de defôr. Coment protèccion contre lo spame ôtomatico, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
-	'captcha-badlogin' => 'Coment protèccion contre lo piratâjo ôtomatisâ de mots de pâssa per des bots, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
-	'captcha-createaccount' => 'Coment protèccion contre les crèacions de compto abusives, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
-	'captcha-createaccount-fail' => 'Code de confirmacion fôx ou manquent.',
-	'captcha-create' => 'Por crèar ceta pâge, volyéd entrar lo rèsultat de l’opèracion dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
-	'captchahelp-title' => 'Éde sur los captcha',
-	'captchahelp-cookies-needed' => "Fôt activar los tèmouens (''cookies'') dens voutron navigator por que cen fonccione.",
-	'captchahelp-text' => 'Los setos Malyâjo accèptent des contribucions du publico, coment ceti vouiqui, sont sovent utilisâs per des spamors qu’utilisont des outils ôtomaticos por placiér tot plen de lims vers lors setos. Quand ben que celos lims de « spame » porriant étre enlevâs, reprèsentont una nuésence.
+	'captcha-edit' => 'Por changiér ceta pâge, volyéd calcular l’opèracion simpla ce-desot et pués nen buchiér lo rèsultat dens la bouèta ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-desc' => 'Emplèmentacion simpla d’un captch·a.',
+	'captcha-addurl' => 'Voutron changement encllut de novéls lims de defôr.
+Por nos édiér a combatre contre lo spame ôtomatisâ, volyéd calcular l’opèracion simpla ce-desot et pués nen buchiér lo rèsultat dens la bouèta ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-badlogin' => 'Por nos édiér a combatre contre lo piratâjo ôtomatisâ de mots de pâssa, volyéd calcular l’opèracion simpla ce-desot et pués nen buchiér lo rèsultat dens la bouèta ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-createaccount' => 'Por nos édiér a combatre contre les crèacions ôtomatisâs de comptos, volyéd calcular l’opèracion simpla ce-desot et pués nen buchiér lo rèsultat dens la bouèta ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-createaccount-fail' => 'Code de confirmacion fôx ou ben manquent.',
+	'captcha-create' => 'Por fâre ceta pâge, volyéd calcular l’opèracion simpla ce-desot et pués nen buchiér lo rèsultat dens la bouèta ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captchahelp-title' => 'Éde sur lo captch·a',
+	'captchahelp-cookies-needed' => "Vos fôdrat ôtorisar los tèmouens (''cookies'') de voutron navigator por que cen fonccione.",
+	'captchahelp-text' => 'Los setos Malyâjo qu’accèptont des contribucions du publico, coment ceti vouiqui, sont sovent victimos de spamors qu’utilisont des outils ôtomatisâs por betar tot plen de lims de vers des setos.
+Mémo se celos lims de spame pôvont étre suprimâs, nen réstont pas muens una nuésence visibla.
 
-Des côps, en particuliér pendent l’aponsa de novéls lims de defôr a una pâge, lo vouiqui pôt vos montrar una émâge reprèsentent un tèxte colorâ ou ben tordu et vos demandar de buchiér los mots montrâs. Cél ovrâjo est dificilo a ôtomatisar, et pèrmèt ux homos de fâre lors contribucions tot en arrètent la plepârt des spamors.
+Des côps, particuliérement pendent l’aponsa de novéls lims de defôr dens una pâge, lo vouiqui vos pôt montrar una émâge d’un tèxto colorâ, dèformâ ou ben tordu et pués vos demandar de buchiér los mots montrâs.
+Mâlésiê a fâre de façon ôtomatisâ cél travâly, cen pèrmèt a la plepârt des homos de rèalisar lors contribucions tot en empachient la plepârt des spamors et des ôtros ataquents robotisâs.
 
-Mâlherosament ceta solucion pôt gênar los utilisators mâl-veyents ou utilisent un navigator en tèxte solèt. Nos disposens pas d’altèrnativa ôdiô por lo moment. Volyéd vos veriér vers un [[Special:ListUsers/sysop|administrator]] du seto se vos arrevâd pas a fâre voutres contribucions.
+Mâlherosament, ceta solucion pôt gênar los utilisators mâl-veyents ou qu’utilisont un navigator en tèxto solèt ou ben vocal.
+Por lo moment, nos avens gins d’altèrnativa ôdiô.
+Vos volyéd veriér vers los [[{{MediaWiki:Grouppage-sysop}}|administrators du seto]] se cen vos empache de façon emprèvua de fâre des contribucions lèg·itimes.
 
-Clicâd sur lo boton « Prècèdent » de voutron navigator por tornar a la pâge d’èdicion.',
-	'captcha-addurl-whitelist' => ' #<!-- lèssiéd ceta legne justo d’ense --> <pre>
-# La sintaxa est la siuventa :
-#  * Tot caractèro siuvent « # » tant qu’a la fin de la legne serat entèrprètâ coment un comentèro.
-#  * Tota legne pas voueda est un bocon de RegEx que serat utilisâ ren qu’u dedens des lims hipèrtèxte.
+Clicâd sur lo boton « Devant » de voutron navigator por tornar a la bouèta d’èdicion.',
+	'captcha-addurl-whitelist' => '  #<!-- lèssiéd ceta legne justo d’ense --> <pre>
+# La sintaxa est ceta :
+#  * Tot tèxto que siut un « # » est considèrâ coment un comentèro.
+#  * Tota legne pas voueda est un bocon d’èxprèssion règuliére (*RegEx*) qu’analiserat ren que los hôtos dedens los lims hipèrtèxtos.
   #</pre> <!-- lèssiéd ceta legne justo d’ense -->',
+	'right-skipcaptcha' => 'Rèalisar des accions que dècllenchont un captch·a sen avêr a passar ceti',
 );
 
 /** Friulian (Furlan)

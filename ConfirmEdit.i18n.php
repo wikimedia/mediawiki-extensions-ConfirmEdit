@@ -879,23 +879,20 @@ Pour nous aider dans la protection contre le pourriel automatisé, veuillez calc
 	'captcha-createaccount' => 'Afin de nous aider à lutter contre les créations automatiques de comptes, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-createaccount-fail' => 'Code de confirmation erroné ou manquant.',
 	'captcha-create' => 'Pour créer la page, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
-	'captchahelp-title' => 'Aide sur le captcha',
+	'captchahelp-title' => 'Aide pour le captcha',
 	'captchahelp-cookies-needed' => "Il vous faudra autoriser les témoins (''cookies'') de votre navigateur pour que cela fonctionne.",
-	'captchahelp-text' => "Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de spammeurs qui utilisent des outils automatisés pour placer de nombreux liens vers des sites.
-Même si ces spams peuvent être effacés, ils n'en restent pas moins une nuisance significative.
+	'captchahelp-text' => 'Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de polluposteurs qui utilisent des outils automatisés pour placer de nombreux liens vers leurs sites. Même si cette pollution peut être effacée, elle n’en reste pas moins un irritant.
 
 Parfois, particulièrement lors de l’ajout de nouveaux liens externes dans une page, le wiki peut vous montrer une image d’un texte embrouillé, déformé ou coloré et vous demander de taper les mots indiqués.
-Cette tâche étant difficile accomplir de façon automatisée, cela permet à la plupart des humains de réaliser leurs contributions tout en empêchant la plupart des spammeurs et autres attaquants robotisés.
+Cette tâche étant difficile à accomplir de façon automatisée, cela permet à la plupart des humains de réaliser leurs contributions tout en empêchant la plupart des polluposteurs et autres attaquants robotisés.
 
-Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou qui utilisent un navigateur en texte seul ou vocal.
-Nous ne disposons pas d’alternative audio pour l’instant.
-Veuillez contacter [[{{MediaWiki:Grouppage-sysop}}|les administrateurs du site]] si cela vous empêche de façon inattendue de poster des contributions légitimes.
+Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou qui utilisent un navigateur en texte seul ou vocal. Nous ne disposons pas d’alternative audio pour l’instant. Veuillez contacter [[{{MediaWiki:Grouppage-sysop}}|les administrateurs du site]] si cela vous empêche de façon inattendue de faire des contributions légitimes.
 
-Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page de modification.",
+Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page de modification.',
 	'captcha-addurl-whitelist' => ' #<!-- laissez cette ligne exactement telle quelle --><pre>
 # La syntaxe est la suivante :
 #  * Tout caractère depuis « # » jusqu’à la fin de la ligne est interprété comme un commentaire.
-#  * Toute ligne non vide est un fragment d’expression régulière qui ne correspondra qu’aux hôtes dans les liens hypertextes.
+#  * Toute ligne non vide est un fragment d’expression rationnelle qui ne correspondra qu’aux hôtes dans les liens hypertextes.
   #</pre><!-- laissez cette ligne exactement telle quelle -->',
 	'right-skipcaptcha' => 'Réaliser des actions qui déclenchent un captcha sans avoir à passer celui-ci',
 );
@@ -2025,6 +2022,13 @@ Makalungkut mu pin at magkasakit la uli na niti deng gagamit a mapula mata o mak
 Mangaylangan kang manyalanging cookie king kekang paglibut (browser) para king obrang iti.
 
 Timid me ing 'back' button king kekang browser bang mibalik ketang panaliling bulung (page editor).",
+);
+
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'captchahelp-title' => 'Captcha-Hilf',
 );
 
 /** Polish (Polski)

@@ -23,6 +23,11 @@ $aliases['ksh'] = array(
 	'Captcha' => array( 'Kaptscha' ),
 );
 
+/** Luxembourgish (Lëtzebuergesch) */
+$aliases['lb'] = array(
+	'Captcha' => array( 'Captcha' ),
+);
+
 /** Maltese (Malti) */
 $aliases['mt'] = array(
 	'Captcha' => array( 'Captcha' ),

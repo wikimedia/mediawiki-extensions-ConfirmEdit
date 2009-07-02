@@ -2520,6 +2520,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 );
 
 /** Swedish (Svenska)
+ * @author Boivie
  * @author Lejonel
  * @author M.M.S.
  */
@@ -2538,17 +2539,15 @@ skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer in
 i rutan ([[Special:Captcha/help|mer information]]):',
 	'captchahelp-title' => 'Captchahjälp',
 	'captchahelp-cookies-needed' => 'Du måste ha cookies aktiverade i din webbläsare för att det här ska fungera.',
-	'captchahelp-text' => 'Webbplatser som tillåter inlägg från allmänheten, som den här wikin gör, kan
-missbrukas av spammare. De använder ofta automatiserade verktyg för att lägga till länkar på många webbsajter. Även om
-dessa spamlänkar kan tas bort så är de till stort besvär.
+	'captchahelp-text' => 'Webbplatser som tillåter inlägg från allmänheten, som den här wikin gör, kan missbrukas av spammare som använder ofta automatiserade verktyg för att lägga till länkar på många webbsajter.
+Även om dessa spamlänkar kan tas bort så är de till stort besvär.
 
-Ibland, speciellt då du lägger till nya externa länkar på en sida, visar wikin en bild på en färgad eller förvriden text
-och ber dig skriva texten som visas. Den uppgiften är svår att automatisera, men oftast lätt för en människa att utföra.
-På så sätt stoppas spammare och andra robotattacker, medan riktiga mäniskor kan göra sina redigeringar.
+Ibland, speciellt då du lägger till nya externa länkar på en sida, visar wikin en bild på en färgad eller förvriden text och ber dig skriva texten som visas.
+Eftersom den uppgiften är svår att automatisera, låter den de flesta riktiga människor göra sina redigeringar medan spammare och andra robotattacker stoppas.
 
 Tyvärr kan det här orsaka problem för användare med nedsatt syn eller som använder text- eller talbaserade webbläsare.
-För tillfället finns inga ljudbaserade alternativ tillgängliga. Om det här hindrar dig från att göra legitima ändringar
-kan du be någon av administratörerna om hjälp.
+För tillfället finns inga ljudbaserade alternativ tillgängliga.
+Kontakta [[{{MediaWiki:Grouppage-sysop}}|webbplatsens administratörer]] för hjälp om det här hindrar dig från att göra legitima ändringar.
 
 Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeringsläget.',
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>

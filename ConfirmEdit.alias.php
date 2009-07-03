@@ -18,6 +18,11 @@ $aliases['ar'] = array(
 	'Captcha' => array( 'كابتشا' ),
 );
 
+/** Finnish (Suomi) */
+$aliases['fi'] = array(
+	'Captcha' => array( 'Ihmiskäyttäjävarmistus' ),
+);
+
 /** Ripoarisch (Ripoarisch) */
 $aliases['ksh'] = array(
 	'Captcha' => array( 'Kaptscha' ),

@@ -765,6 +765,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
+	'fancycaptcha-desc' => "Generador d’imatges ''captcha'' antirobòts que demandan una confirmacion umana de las modificacions.",
 	'fancycaptcha-addurl' => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agisson pas de spams automatics, epicatz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",
 	'fancycaptcha-badlogin' => 'Per ajudar a vos protegir contra lo piratatge de compte per de senhals automatics, mercés de picar los mots que s’afichan dins aquesta bóstia ([[Special:Captcha/help|Ajuda]]) :',
 	'fancycaptcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, picatz los mots çaijós dins la bóstia ([[Special:Captcha/help|mai d’entresenhas]]) :',

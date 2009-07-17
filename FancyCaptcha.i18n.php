@@ -335,13 +335,14 @@ $messages['fo'] = array(
 );
 
 /** French (Français)
+ * @author Crochet.david
  * @author Sherbrooke
  * @author Verdy p
  */
 $messages['fr'] = array(
 	'fancycaptcha-desc' => "Générateur d’images ''captcha'' anti-robots demandant une confirmation humaine des modifications.",
 	'fancycaptcha-addurl' => 'Votre modification inclut de nouveaux liens externes.
-Pour vérifier qu’il ne s’agit pas de pourriel automatisés, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :',
+Pour vérifier qu’il ne s’agit pas de pourriels automatisés, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'fancycaptcha-badlogin' => 'Afin de nous aider à prévenir le cassage des mots de passe par des automates, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'fancycaptcha-createaccount' => 'Afin de nous aider à lutter contre les créations automatiques de comptes, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'fancycaptcha-create' => 'Pour créer la page, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :',

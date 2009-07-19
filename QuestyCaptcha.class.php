@@ -14,7 +14,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 		return strtolower( $answer ) == strtolower( $info['answer'] );
 	}
 
-	function addCaptchaAPI(&$resultArr) {
+	function addCaptchaAPI( &$resultArr ) {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
 		$resultArr['captcha']['type'] = 'question';
@@ -22,15 +22,15 @@ class QuestyCaptcha extends SimpleCaptcha {
 		$resultArr['captcha']['id'] = $index;
 		$resultArr['captcha']['question'] = $captcha['question'];
 	}
-	
+
 	function getCaptcha() {
 		global $wgCaptchaQuestions;
-		return $wgCaptchaQuestions[mt_rand( 0, count( $wgCaptchaQuestions )-1 )]; //pick a question, any question
+		return $wgCaptchaQuestions[mt_rand( 0, count( $wgCaptchaQuestions ) - 1 )]; // pick a question, any question
 	}
-	
+
 	function getForm() {
 		$captcha = $this->getCaptcha();
-		if(!$captcha) {
+		if ( !$captcha ) {
 			die( "No questions found; set some in LocalSettings.php using the format from QuestyCaptcha.php." );
 		}
 		$index = $this->storeCaptcha( $captcha );
@@ -46,7 +46,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 				'id'    => 'wpCaptchaId',
 				'value' => $index ) );
 	}
-	
+
 	function getMessage( $action ) {
 		$name = 'questycaptcha-' . $action;
 		$text = wfMsg( $name );
@@ -54,7 +54,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 		# the default for edits
 		return wfEmptyMsg( $name, $text ) ? wfMsg( 'questycaptcha-edit' ) : $text;
 	}
-	
+
 	function showHelp() {
 		global $wgOut, $ceAllowConfirmedEmail;
 		$wgOut->setPageTitle( wfMsg( 'captchahelp-title' ) );
@@ -63,5 +63,4 @@ class QuestyCaptcha extends SimpleCaptcha {
 			$wgOut->addWikiText( wfMsg( 'captchahelp-cookies-needed' ) );
 		}
 	}
-
 }

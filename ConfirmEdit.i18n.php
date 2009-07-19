@@ -209,7 +209,7 @@ $messages['as'] = array(
 	'captcha-create' => 'এই পৃষ্ঠাটো তৈয়াৰ কৰিবলৈ, তলৰ সহজ অংকটো কৰি উত্তৰতো বাকছৰ ভিতৰত লিখক
 ([[Special:Captcha/help|অধিক তথ্য]]):',
 	'captchahelp-cookies-needed' => 'এই কামতো সম্পন্ন কৰিবলৈ, আপোনাৰ ব্রাউজাৰত কুকী সক্রীয় থাকিব লাগিব',
-	'captchahelp-text' => "যিবোৰ ৱেবচাইটত জনতাই পাঠ্য ভৰাব পাৰে, যেনে এই ৱিকি, সেইবোৰক প্রায়ে দুস্ক্রিতিকাৰি স্পেমাৰবোৰে স্বয়ংক্রীয় আহিলাৰ দ্বাৰা তেওলোকৰ চাইটলৈ সংযোগ ভৰাই আক্রমন কৰে। 
+	'captchahelp-text' => "যিবোৰ ৱেবচাইটত জনতাই পাঠ্য ভৰাব পাৰে, যেনে এই ৱিকি, সেইবোৰক প্রায়ে দুস্ক্রিতিকাৰি স্পেমাৰবোৰে স্বয়ংক্রীয় আহিলাৰ দ্বাৰা তেওলোকৰ চাইটলৈ সংযোগ ভৰাই আক্রমন কৰে।
 যদিও তেনে স্পাম সংযোগ গুচাব পাৰি, পিছে এয়া এক ডাঙৰ উপদ্রৱ।
 
 কেতিয়াবা, সাধাৰণতে যেতিয়া কোনো পৃষ্ঠালৈ নতুন সংযোগ সৃষ্টি কৰা হয়, তেতিয়া ৱিকিয়ে এটা ৰঙীন বা বিকৃত চবি দেখুৱাই তাত থকা শব্দখিনি আপোনাক টাইপ কৰিব কব পাৰে।
@@ -410,7 +410,7 @@ $messages['br'] = array(
 	'captcha-addurl-whitelist' => " #<!-- laoskit al linenn-mañ tre evel m'emañ --> <pre>
 # Setu penaos emañ an ereadur :
 #  * Kement tra war-lerc'h an arouezenn \"#\" zo un urzhiad, betek penn all al linenn
-#  * Kement linenn n'eo ket goullo zo ur c'hod regex a vo implijet e diabarzh al liammoù gourdskrid hepken 
+#  * Kement linenn n'eo ket goullo zo ur c'hod regex a vo implijet e diabarzh al liammoù gourdskrid hepken
   #</pre> <!-- laoskit al linenn-mañ tre evel m'emañ -->",
 	'right-skipcaptcha' => 'Lañsañ a ra an oberoù captcha hep bezañ rediet da dremen drezañ',
 );
@@ -542,20 +542,20 @@ $messages['cy'] = array(
 	'captcha-create' => "Er mwyn gallu creu'r dudalen, gwnewch y swm isod a gosodwch y canlyniad yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'captchahelp-title' => 'Cymorth "captcha"',
 	'captchahelp-cookies-needed' => "Er mwyn i hyn weithio mae'n rhaid bod cookies wedi eu galluogi ar eich gwe-lywiwr.",
-	'captchahelp-text' => "Yn anffodus, mae safleoedd gwe fel y wici hon, sy'n caniatau i'r cyhoedd ysgrifennu iddi, yn darged beunyddiol i sbamwyr sy'n defnyddio rhaglenni arbennig i bostio eu cysylltiadau ar wefannau lu. Gellir dileu'r dolenni o'r tudalennau, ond byddai hynny'n waith trafferthus. 
+	'captchahelp-text' => "Yn anffodus, mae safleoedd gwe fel y wici hon, sy'n caniatau i'r cyhoedd ysgrifennu iddi, yn darged beunyddiol i sbamwyr sy'n defnyddio rhaglenni arbennig i bostio eu cysylltiadau ar wefannau lu. Gellir dileu'r dolenni o'r tudalennau, ond byddai hynny'n waith trafferthus.
 
-O dro i dro, yn enwedig wrth ychwanegu dolenni at safleoedd gwe eraill, fe fydd y safle hon yn dangos delwedd o destun, ac fe fydd yn rhaid i chi deipio'r geiriau a ddangosir. Mae hyn yn dasg anodd iawn i raglenni cyfrifiadurol, felly dylai'r rhan fwyaf o olygwyr go iawn gyflawni'r dasg yn ddi-drafferth, yn wahanol i'r rhaglenni sbam. 
+O dro i dro, yn enwedig wrth ychwanegu dolenni at safleoedd gwe eraill, fe fydd y safle hon yn dangos delwedd o destun, ac fe fydd yn rhaid i chi deipio'r geiriau a ddangosir. Mae hyn yn dasg anodd iawn i raglenni cyfrifiadurol, felly dylai'r rhan fwyaf o olygwyr go iawn gyflawni'r dasg yn ddi-drafferth, yn wahanol i'r rhaglenni sbam.
 
-Yn anffodus, mae hyn yn creu trafferthion i'r rhai sydd yn defnyddio porwyr testun neu borwyr sain, neu sydd yn colli eu golwg. 
-Ar hyn o bryd nid oes fersiwn sain ar gael. 
-Cysylltwch â [[{{MediaWiki:Grouppage-sysop}}|gweinyddwyr y safle]] os ydi'r nodwedd hon yn eich rhwystro rhag ychwanegu golygiadau dilys. 
+Yn anffodus, mae hyn yn creu trafferthion i'r rhai sydd yn defnyddio porwyr testun neu borwyr sain, neu sydd yn colli eu golwg.
+Ar hyn o bryd nid oes fersiwn sain ar gael.
+Cysylltwch â [[{{MediaWiki:Grouppage-sysop}}|gweinyddwyr y safle]] os ydi'r nodwedd hon yn eich rhwystro rhag ychwanegu golygiadau dilys.
 
 Gwasgwch botwm 'nôl' eich porwr er mwyn dychwelyd at y dudalen golygu.",
 	'captcha-addurl-whitelist' => '#<!-- leave this line exactly as it is --> <pre>
 #
 # Dyma\'r gystrawen:
 #   * Mae popeth o nod "#" hyd at ddiwedd y llinell yn sylwad
-#   * Mae pob llinell nad yw\'n wag yn ddarn regex sydd ddim ond yn cydweddu 
+#   * Mae pob llinell nad yw\'n wag yn ddarn regex sydd ddim ond yn cydweddu
 #   * gwesteiwyr tu mewn i gyfeiriadau URL
 
  #</pre> <!-- leave this line exactly as it is -->',
@@ -626,8 +626,8 @@ Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
  */
 $messages['de-formal'] = array(
 	'captcha-edit' => 'Zur Bearbeitung der Seite lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
-	'captcha-addurl' => 'Ihre Bearbeitung enthält neue externe Links. 
-Zum Schutz vor automatisiertem Spamming lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein. 
+	'captcha-addurl' => 'Ihre Bearbeitung enthält neue externe Links.
+Zum Schutz vor automatisiertem Spamming lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein.
 Klicken Sie dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'captcha-badlogin' => 'Zum Schutz vor einer Kompromittierung Ihres Benutzerkontos lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]]:',
 	'captcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
@@ -702,8 +702,8 @@ $messages['el'] = array(
 Πατήστε το κουμπί 'πίσω' στη μηχανή αναζήτησης σας για να επιστρέψετε στο συντάκτη σελίδων.",
 	'captcha-addurl-whitelist' => '  #<!-- αφήστε αυτή την γραμμή ακριβώς όπως είναι --> <pre>
 # Η σύνταξη είναι όπως παρακάτω:
-#  * Οτιδήποτε από ένα χαρακτήρα "#" ως το τέλος της γραμμής είναι ένα σχόλιο 
-#  * Κάθε μη κενή γραμμή είναι μια έκφραση regex που θα ταιριάζει μόνο hosts μέσα σε URL 
+#  * Οτιδήποτε από ένα χαρακτήρα "#" ως το τέλος της γραμμής είναι ένα σχόλιο
+#  * Κάθε μη κενή γραμμή είναι μια έκφραση regex που θα ταιριάζει μόνο hosts μέσα σε URL
   #</pre> <!-- αφήστε αυτή την γραμμή ακριβώς όπως είναι -->',
 	'right-skipcaptcha' => 'Πραγματοποίηση ενεργειών που ενεργοποιούν captcha χωρίς να χρειάζεται πέρασμα από το captcha',
 );
@@ -792,11 +792,11 @@ $messages['et'] = array(
 	'captcha-create' => 'Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])',
 	'captchahelp-title' => 'Mis on Captcha?',
 	'captchahelp-cookies-needed' => 'Selle toimimiseks peab veebibrauser lubama küpsiseid.',
-	'captchahelp-text' => 'Internetisaite, mis lubavad külastajatel sisu muuta (nagu ka see Viki), kasutavad sageli spämmerid ära, postitades reklaamlinke — spämmi. Kuigi neid linke saab alati ära võtta, on nad ikkagi üpris tülikad. 
+	'captchahelp-text' => 'Internetisaite, mis lubavad külastajatel sisu muuta (nagu ka see Viki), kasutavad sageli spämmerid ära, postitades reklaamlinke — spämmi. Kuigi neid linke saab alati ära võtta, on nad ikkagi üpris tülikad.
 
-Omale kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse teile moonutatud tekstiga pilti ning palutakse teil sisestada seal näidatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks spämmirobotite vastu, samas lubades tavainimestel oma muudatusi rahus teha. 
+Omale kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse teile moonutatud tekstiga pilti ning palutakse teil sisestada seal näidatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks spämmirobotite vastu, samas lubades tavainimestel oma muudatusi rahus teha.
 
-Kahjuks võib see tekitada ebamugavusi nägemisraskustega inimestele või neile, kes kasutavad kõnesüntesaatorit või tekstipõhist brauserit. Hetkel pole meil helipõhist alternatiivi. Kui teil tekib ootamatult raskusi oma muudatuste tegemisel, siis võtke ühendust selle saidi administraatoritega. 
+Kahjuks võib see tekitada ebamugavusi nägemisraskustega inimestele või neile, kes kasutavad kõnesüntesaatorit või tekstipõhist brauserit. Hetkel pole meil helipõhist alternatiivi. Kui teil tekib ootamatult raskusi oma muudatuste tegemisel, siis võtke ühendust selle saidi administraatoritega.
 
 Konto registreerimise lehele või lehe redigeerimisele tagasi jõudmiseks vajutage oma brauseri tagasi-nuppu.',
 );
@@ -816,12 +816,12 @@ $messages['eu'] = array(
 	'captcha-create' => 'Orrialde hau sortzeko, mesedez, beheko batuketa erraz hau ebatzi eta erantzuna kutxan idatzi ([[Special:Captcha/help|argibide gehiago]]):',
 	'captchahelp-title' => 'Captcha laguntza',
 	'captchahelp-cookies-needed' => 'Beharrezkoa da nabigatzailean cookieak gaituta izatea honek funtzionatzeko.',
-	'captchahelp-text' => "Publikoki aldaketak egiteko aukerak dituzten webguneetan, wiki honetan bezalaxe, spam testuak gehitzen dira sarritan tresna automatikoak erabiliz. 
+	'captchahelp-text' => "Publikoki aldaketak egiteko aukerak dituzten webguneetan, wiki honetan bezalaxe, spam testuak gehitzen dira sarritan tresna automatikoak erabiliz.
 Lotura horiek ezabatu egin daitezkeen arren, traba dira.
 
-Batzuetan, eta bereziki webgune berri bateko loturak gehitzen dituzunean, hitz batzuk dituen irudi bat agertuko zaizu, eta bertan ageri den testua idazteko eskatuko zaizu. Lan hori automatizatzeko zaila da, eta pertsonei ezer kostatzen ez zaigunez, spam testuak saihesteko lagungarria da. 
+Batzuetan, eta bereziki webgune berri bateko loturak gehitzen dituzunean, hitz batzuk dituen irudi bat agertuko zaizu, eta bertan ageri den testua idazteko eskatuko zaizu. Lan hori automatizatzeko zaila da, eta pertsonei ezer kostatzen ez zaigunez, spam testuak saihesteko lagungarria da.
 
-Zoritxarrez, ikusmen mugatua edo testu bidezko nabigatzaileak erabiltzen dituzten erabiltzeek arazoak izan ditzakete. Horrelako zerbait gertatzen bazaizu, mesedez, jarri [[{{MediaWiki:Grouppage-sysop}}|administratzaileekin]] harremanetan. 
+Zoritxarrez, ikusmen mugatua edo testu bidezko nabigatzaileak erabiltzen dituzten erabiltzeek arazoak izan ditzakete. Horrelako zerbait gertatzen bazaizu, mesedez, jarri [[{{MediaWiki:Grouppage-sysop}}|administratzaileekin]] harremanetan.
 
 Zure nabigatzaileko 'atzera' lotura erabili aldaketen orrialdera itzultzeko.",
 );
@@ -983,11 +983,11 @@ $messages['fy'] = array(
 	'captcha-createaccount-fail' => 'It antwurd op de som kloppet net.',
 	'captcha-create' => 'Om de side oan te meitsjen wurdt jo frege it antwurd op de ûndersteande som te jaan ([[Special:Captcha/help|meer ynformaasje]]).',
 	'captchahelp-title' => 'Lettertoets-help',
-	'captchahelp-text' => "Websteeën dêr't it publyk op skriuwe kin, lykas dizze {{SITENAME}}-wiki, kinne lêst hawwe fan lju dy't automatysk keppelings oan de websiden tafoegje. Op dizze wiki kinne sokke feroarings maklik weromset wurde, mar dat nimt al tiid dy't ek oars brûkt wurde kin. 
+	'captchahelp-text' => "Websteeën dêr't it publyk op skriuwe kin, lykas dizze {{SITENAME}}-wiki, kinne lêst hawwe fan lju dy't automatysk keppelings oan de websiden tafoegje. Op dizze wiki kinne sokke feroarings maklik weromset wurde, mar dat nimt al tiid dy't ek oars brûkt wurde kin.
 
-By it oanmelden as meidogger, en fierders benammen at jo keppelings om utens oan in side tafoegje, kinne jo fan de wiki in lettertoets krije. De wiki lit dan kleurde of ferwrongen letters sjen, en jo wurdt frege dy oer te tikken. Om't dit net maklik automatisearre wurde kin, hâldt dit it automatysk tafoegjen tsjin. It spitegernôch ek in lytse lêst foar de meidoggers. 
+By it oanmelden as meidogger, en fierders benammen at jo keppelings om utens oan in side tafoegje, kinne jo fan de wiki in lettertoets krije. De wiki lit dan kleurde of ferwrongen letters sjen, en jo wurdt frege dy oer te tikken. Om't dit net maklik automatisearre wurde kin, hâldt dit it automatysk tafoegjen tsjin. It spitegernôch ek in lytse lêst foar de meidoggers.
 
-In probleem dêr't noch gjin oplossing foar is it dat it in tûkelteam is foar minsken dy't net goed sjen kinne of dy't in tekst-blêder of lûd-blêder brûke. Hjir soe in lûd-ferzje foar komme moatte, mar dy is der noch net. Oerlis mei in behearder at dit foar jo problemen jout. 
+In probleem dêr't noch gjin oplossing foar is it dat it in tûkelteam is foar minsken dy't net goed sjen kinne of dy't in tekst-blêder of lûd-blêder brûke. Hjir soe in lûd-ferzje foar komme moatte, mar dy is der noch net. Oerlis mei in behearder at dit foar jo problemen jout.
 
 Gean tebek mei de tebek-knop fan jo blêder.",
 );
@@ -1056,9 +1056,9 @@ Zum Schutz vor automatisiertem Spamming lees die Rächenufgab un trag s Ergebnis
 	'captcha-create' => 'Zum d Syten aalege lees die Rächenufgab un trag s Ergebnis in s Fäld unten yy. [[Special:Captcha/help|(Frogen oder Probläm?)]]',
 	'captchahelp-title' => 'Captcha-Hilf',
 	'captchahelp-cookies-needed' => "'''Wichtiger Hiiwyys:''' Im Browser mien Cookiers erlaubt syy.",
-	'captchahelp-text' => 'Internetaagebot, wu uf sin fir Byytreg vu jedem, wie z. B. des Wiki, wäre vyylmol vu Spammer missbruucht, wu ihri Gleicher automatisch uf vyylene Netzsyte platziere. Die Spam-Gleicher cha mer wider useneh, si stere aber zimli un nämme Arbetszyt in Aaspruch. 
+	'captchahelp-text' => 'Internetaagebot, wu uf sin fir Byytreg vu jedem, wie z. B. des Wiki, wäre vyylmol vu Spammer missbruucht, wu ihri Gleicher automatisch uf vyylene Netzsyte platziere. Die Spam-Gleicher cha mer wider useneh, si stere aber zimli un nämme Arbetszyt in Aaspruch.
 
-In e Teil Fäll, v. a. wänn neiji Netzgleicher in e Syte dryygfiegt wäre, cha s syy, ass des Wiki derno ne Bild mit eme farbige un verzerrte Täxt aazeigt un dezue ufforderet, di aazeigte Werte yyzgee. Wel sonigi Ufgabe nit automatische chenne usgfiert wäre, cha mer eso di meischte Spammer, wu mit automatische Wärchzyyg schaffe, ufhalte, aber normali Benutzer chenne ihri Byytreg einewäg yygee. 
+In e Teil Fäll, v. a. wänn neiji Netzgleicher in e Syte dryygfiegt wäre, cha s syy, ass des Wiki derno ne Bild mit eme farbige un verzerrte Täxt aazeigt un dezue ufforderet, di aazeigte Werte yyzgee. Wel sonigi Ufgabe nit automatische chenne usgfiert wäre, cha mer eso di meischte Spammer, wu mit automatische Wärchzyyg schaffe, ufhalte, aber normali Benutzer chenne ihri Byytreg einewäg yygee.
 
 Leider cha des derzue fiere, ass Lyt Probläm iberchemme, wu ne yygschränkti Sähfähigkeit oder e Browser bruche, wu täxt- oder sprochbasiert isch.
 Im Momänt hän mir kei Audioalternative z Verfiegig.
@@ -1096,7 +1096,7 @@ $messages['gu'] = array(
 
 લેખમા ફેરફાર કરવાના પાના ઉપર પાછા ફરવા માટે આપના બ્રાઉઝરના 'બેક' બટન ઉપર ક્લિક કરો.",
 	'captcha-addurl-whitelist' => ' #<!-- આ લીટીને જેમ છે તેમ જ રહેવા દો --> <pre>
-# સીન્ટેક્સ (Syntax) આ પ્રમાણે છે :  
+# સીન્ટેક્સ (Syntax) આ પ્રમાણે છે :
 #  * "#" સંજ્ઞાથી શરૂ કરીને લીટીના અંત સુધીનું વર્ણન એક ટીપ્પણી છે
 #  * ખાલી ન હોય તેવી દરેક લીટી રેજેક્સનો ભાગ છે, જે ફક્ત URLsમાંના હોસ્ટ સાથે જ મેળ ખાશે
   #</pre> <!-- આ લીટીને જેમ છે તેમ જ રહેવા દો -->',
@@ -1190,7 +1190,7 @@ Iako se te poveznice najčešće uklanjaju, mogu predstavljati neugodnost pri ra
 Ponekad se dogodi da wiki prikaže sliku čudnog tekstualnog sadržaja uz koju morate unijeti prikazana slova.
 Budući da je takvu radnju teško automatizirati, većina se napadača obeshrabri, a pravi suradnici bez većih smetnji nastavljaju pridonositi.
 
-Na žalost, ovo može biti nepristupačno za suradnike koji koriste tekstualne klijene ili one glasovno bazirane. Trenutačno nemamo glasovnu podršku za ovo. 
+Na žalost, ovo može biti nepristupačno za suradnike koji koriste tekstualne klijene ili one glasovno bazirane. Trenutačno nemamo glasovnu podršku za ovo.
 Molimo da se obratite administratorima, ukoliko vas ovo ometa pri dodavanju važećih sadržaja.
 
 Pritisnite u svom pregledniku 'nazad' kako bi se vratili na stranicu.",
@@ -1693,7 +1693,7 @@ $messages['lb'] = array(
 
 Heiandsdo, besonnesch wann nei Internet-Linkën op eng Säit derbäigesat ginn, weist dës Wiki iech e Bild mat farwegëm oder verzerrtëm Text a freet iech fir déi gewise Wierder anzetipppen. Well dëst eng Aufgab ass déi schwéier ze automatiséieren ass, erlaabt dëst dat Mënschen hir Ännerunge kënnen agi wärend déi meescht Spammer an aner Roboter-Attacken kënnen ofgewiert ginn.
 
-Leider kann dëst zu Schwierigkeete féiere fir Persounen déi net esou gutt gesinn oder déi text-baséiert oder sprooch-baséiert Browser benotzen. 
+Leider kann dëst zu Schwierigkeete féiere fir Persounen déi net esou gutt gesinn oder déi text-baséiert oder sprooch-baséiert Browser benotzen.
 Zu dësem Zäitpunkt hu mir leider keng audio-Alternativ zu eiser Verfügung.
 Kontaktéiert w.e.g. [[{{MediaWiki:Grouppage-sysop}}|een Administrateur]] fir Hëllef wann dëst iech onerwarter Wäis vu legitimen Editen ofhält.
 
@@ -1808,7 +1808,7 @@ $messages['mr'] = array(
 हे काम संगणकाकरवी करून घेण्यास अवघड असल्याने, फक्त खरी माणसेच संपादने करू शकतील व स्पॅमर्सना आळा बसू शकेल.
 
 पण खेदाची गोष्ट अशी की ह्यामुळे अर्धांध व्यक्ती तसेच ज्या व्यक्ती फक्त मजकूर दाखविणारा न्याहाळक वापरतात, अशांना असुविधा होऊ शकते.
-सध्या आमच्याकडे आवाज ऐकण्याची सुविधा नाही. 
+सध्या आमच्याकडे आवाज ऐकण्याची सुविधा नाही.
 कृपया विकिवरील प्रबंधकांशी या बाबतीत संपर्क करावा.
 
 पृष्ठ संपादनाकडे परत जाण्यासाठी आपल्या ब्राउझरची ’Back' ही कळ दाबा.",
@@ -1913,11 +1913,11 @@ Voer ter de bescharming tegen ongewunste reclame de somme in dee hieronder steet
 	'captcha-badlogin' => "Los disse eenvoudige rekensomme op en voer 't antwoord in bie 't invoervienster in ter bescharming tegen 't autematisch kraken van wachwoorden ([[Special:Captcha/help|meer infermasie]]):",
 	'captcha-createaccount' => "Voer ter bescharming tegen autematische ongewunste reclame 't antwoord op disse eenvoudige rekensomme in bie invoervienster ([[Special:Captcha/help|meer informatie]]):",
 	'captcha-createaccount-fail' => 'Verkeerde of ontbrekende bevestigingscode.',
-	'captcha-create' => "Je bin een nieje pagina an 't maken. 
+	'captcha-create' => "Je bin een nieje pagina an 't maken.
 Voer 't antwoord van disse eenvoudige rekensomme in bie 't invoervienster
 ([[Special:Captcha/help|meer infermasie]]).",
-	'captcha-addurl-whitelist' => ' #<!-- laot disse regel zoas e is --> <pre>  
-# De syntaxis is as volg:  
+	'captcha-addurl-whitelist' => ' #<!-- laot disse regel zoas e is --> <pre>
+# De syntaxis is as volg:
 #  * Alle tekse vanof \'t kerakter "#" tot \'t einde van de regels wonnen ezien as opmarking
 #  * Alle regels dee neet leeg bin, wonnen ezien as een regeliere uutdrokking dee veur delen van de domein staon.
   #</pre> <!-- laot disse regel zoas e is -->',
@@ -1951,8 +1951,8 @@ Op het moment is er geen alternatief met geluid beschikbaar.
 Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als dit proces u verhindert een nuttige bijdrage te leveren.
 
 Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
-	'captcha-addurl-whitelist' => ' #<!-- laat deze regel zoals hij is --> <pre> 
-# De syntaxis is als volgt: 
+	'captcha-addurl-whitelist' => ' #<!-- laat deze regel zoals hij is --> <pre>
+# De syntaxis is als volgt:
 #   * Alle tekst vanaf het karakter "#" tot het einde van de regels wordt gezien als opmerking
 #   * Iedere niet-lege regel is een fragment van een reguliere uitdrukking die alleen van toepassing is op hosts binnen URL\'s
  #</pre> <!-- laat deze regel zoals hij is -->',
@@ -2108,7 +2108,7 @@ Wciśnij przycisk „wstecz” w przeglądarce by powrócić do edycji strony.',
  * @author Bèrto 'd Sèra
  */
 $messages['pms'] = array(
-	'captcha-edit' => "Për fe-ie dle modìfiche ansima a st'artìcol-sì, për piasì ch'a fasa ël total ambelessì sota 
+	'captcha-edit' => "Për fe-ie dle modìfiche ansima a st'artìcol-sì, për piasì ch'a fasa ël total ambelessì sota
 e ch'a buta l'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-addurl' => "Soa modìfica a la gionta dj'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-badlogin' => "Për giutene a vardesse da 'nt ij programa ch'a fan ciav fàosse n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
@@ -2189,13 +2189,13 @@ Para prevenção contra sistemas automatizados que inserem spam, será necessár
 	'captcha-create' => 'Para criar a página, por favor resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])',
 	'captchahelp-title' => 'Ajuda com o Captcha',
 	'captchahelp-cookies-needed' => 'Você precisa ter cookies habilitados em seu navegador para que possa funcionar',
-	'captchahelp-text' => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a abusos por spammers que utilizam ferramentas automatizadas para inserir seus links em diversos locais. 
+	'captchahelp-text' => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a abusos por spammers que utilizam ferramentas automatizadas para inserir seus links em diversos locais.
 Apesar de remover tais links posteriormente ser possível, eles são um significativo incômodo.
 
-Algumas vezes, especialmente ao adicionar novos links externos em uma página, o sistema exibirá uma imagem com uma imagem de um texto colorido ou distorcido e pedirá que você digite as palavras exibidas. 
+Algumas vezes, especialmente ao adicionar novos links externos em uma página, o sistema exibirá uma imagem com uma imagem de um texto colorido ou distorcido e pedirá que você digite as palavras exibidas.
 Uma vez que essa é uma tarefa um tanto difícil de ser automatizada, ela possibilita que vários humanos façam as suas inserções ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
 
-Infelizmente, isso pode ser dificultoso a utilizadores com limitações visuais ou que naveguem através de mecanismos baseados em texto ou baseados em voz. No momento não há uma alternativa em áudio. 
+Infelizmente, isso pode ser dificultoso a utilizadores com limitações visuais ou que naveguem através de mecanismos baseados em texto ou baseados em voz. No momento não há uma alternativa em áudio.
 Por gentileza, contacte os administradores do sítio em casos que seja necessária a assistência de alguém para que você possa fazer as suas inserções legítimas.
 
 Pressione o botão 'voltar' de seu navegador para retornar à página de edição.",
@@ -2234,7 +2234,7 @@ $messages['ro'] = array(
 
 Uneori, mai ales la adăugarea de legături web noi într-o pagină, situl wiki vă poate arăta o imagine cu un text colorat sau distorsionat şi veţi fi rugat să introduceţi cuvintele indicate. Deoarece aceasta este o sarcină greu de automatizat, ea permite majorităţii persoanelor reale să posteze şi va opri majoritatea atacatorilor.
 
-Din nefericire, această metodă îi poate deranja pe utilizatorii cu probleme vizuale sau care folosesc browsere bazate pe text sau sunet. În acest moment nu avem o alternativă audio disponibilă. 
+Din nefericire, această metodă îi poate deranja pe utilizatorii cu probleme vizuale sau care folosesc browsere bazate pe text sau sunet. În acest moment nu avem o alternativă audio disponibilă.
 Vă rugăm, contactaţi [[{{MediaWiki:Grouppage-sysop}}|administratorii sitului]] pentru asistenţă dacă metoda vă opreşte de la a face postări legitime.
 
 Apasă butonul 'Înapoi' al browserului pentru a te reîntoarce la pagina de editare.",
@@ -2259,14 +2259,14 @@ $messages['ru'] = array(
 	'captcha-create' => 'Чтобы создать страницу, решите простой пример и введите ответ в текстовое поле ([[Special:Captcha/help|что это?]]):',
 	'captchahelp-title' => 'Справка о CAPTCHA',
 	'captchahelp-cookies-needed' => 'Вам нужно включить куки в браузере, чтобы эта функция заработала.',
-	'captchahelp-text' => 'Веб-сайты, позволяющие добавлять и изменять своё содержимое, в том числе эта вики, часто становятся целью спамеров, использующих программы для автоматического добавления ссылок на многие сайты. 
+	'captchahelp-text' => 'Веб-сайты, позволяющие добавлять и изменять своё содержимое, в том числе эта вики, часто становятся целью спамеров, использующих программы для автоматического добавления ссылок на многие сайты.
 Хотя такие ссылки могут быть впоследствии удалены, они являются существенной помехой.
 
-При некоторых действиях — например, при добавлении на страницу новой веб-ссылки — вы можете увидеть специальную картинку с цветным или искажённым текстом, и вам будет предложено ввести этот искажённый текст. 
+При некоторых действиях — например, при добавлении на страницу новой веб-ссылки — вы можете увидеть специальную картинку с цветным или искажённым текстом, и вам будет предложено ввести этот искажённый текст.
 Так как распознавание искажённого текста является сложной задачей для программ, то большинство спамерских и вандальных программ не могут с ней справиться, в то время как люди справляются легко.
 
-К сожалению, подобная защита может причинить неудобства людям с ограничениями по зрению или тем, кто использует текстовые или читающие браузеры. 
-В настоящее время у нас нет звуковой альтернативы данной проверке. 
+К сожалению, подобная защита может причинить неудобства людям с ограничениями по зрению или тем, кто использует текстовые или читающие браузеры.
+В настоящее время у нас нет звуковой альтернативы данной проверке.
 Пожалуйста, обратитесь за помощью к [[{{MediaWiki:Grouppage-sysop}}|администраторам]], если подобная проверка мешает вам добросовестно работать с сайтом.
 
 Нажмите кнопку «Назад» в вашем браузере, чтобы вернуться к редактированию.',
@@ -2591,7 +2591,7 @@ $messages['te'] = array(
 కొన్నిసార్లు, ముఖ్యంగా ఏదైనా పేజీ నుండి బయటకు లింకులు ఇచ్చేటపుడు, వంకర్లు తిరిగిపోయి ఉన్న పదాల బొమ్మను చూపించి ఆ పదాన్ని టైపు చెయ్యమని వికీ మిమ్మల్ని అడగవచ్చు. దీన్ని ఆటోమాటిక్ టూల్సుతో చెయ్యడం చాలా కష్టం కాబట్టి, స్పాము జిత్తులు చెల్లవు; మనుష్యులు మాత్రం మామూలుగానే చెయ్యగలరు.
 
 దురదృష్టవశాత్తూ, చూపు సరిగా లేనివారికి, టెక్స్టు బ్రౌజర్లు మాత్రమే వాడేవారికి ఇది అసౌకర్యం కలిగిస్తుంది. ప్రస్తుతానికి శబ్దం వినిపించే వెసులుబాటు మాకు లేదు. మీరు రచనలు చెయ్యకుండా ఇది అడ్డుపడుతుంటే, సహాయం కోసం సైటు నిర్వాహకుణ్ణి సంప్రదించండి.
-మీరు చెసే విలువయిన, సమ్మతమయిన వ్యాస మార్పులు భద్రపరచటము కుదరకపొతె, దయచేసి [[{{MediaWiki:Grouppage-sysop}}|సైటు నిర్వహణాధికారి]]కి లేఖ రాయండి 
+మీరు చెసే విలువయిన, సమ్మతమయిన వ్యాస మార్పులు భద్రపరచటము కుదరకపొతె, దయచేసి [[{{MediaWiki:Grouppage-sysop}}|సైటు నిర్వహణాధికారి]]కి లేఖ రాయండి
 మీ బ్రౌజర్లోని బ్యాక్(back) మీటను నొక్కి ఇంతకు ముందరి పేజీకి వెళ్ళండి.',
 	'captcha-addurl-whitelist' => ' #<!-- ఈ వాఖ్యాన్ని మొత్తం ఉన్నదున్నట్లు ఇలాగే వదిలేయండి --> <pre>
 # ఇక్కడ రాయాల్సిన విధానం ఇదీ:
@@ -2618,7 +2618,7 @@ $messages['tg-cyrl'] = array(
 
 Дар пораи аз маворид, ба вижа замоне, ки як пайванди интернетии ҷадид ба саҳифа изофа мешавад, вики метавонад, як тасвир аз ҳуруфи рангӣ ё матни бенурро ба шумо нишон бидиҳад ва аз шумо ворид кардани калимаи нишондодашударо пурсон мешавад. Ба хотири ин ки анҷоми ин кор ба шакли худкор душвор аст, ин амал ба аксари инсонҳое иҷозат медиҳад, ки ба ирсоли матолиб бипардозанд, дар ҳоле ки бештар роботҳои ҳамлакунанда ва ҳаразнигорҳоро мутавақиф мекунад.
 
-Мутассифона ин равиш мумкин аст, корбароне, ки қувваи босираашон суст ё аз мурургарҳои матнӣ ё овозӣ истифода мекунанд, дучори маҳдудиятҳое бикунад. Дар ҳоли ҳозир ҳеҷ чойгузини савтӣ барои ин равиш мавҷуд нест. Чунончи ин масъала шуморо дучори маҳдудияте дур аз интизор дар ирсоли навиштаҳои миҷоз мекунад, бо мудирони сомона оиди кӯмак тамос бигиред.  
+Мутассифона ин равиш мумкин аст, корбароне, ки қувваи босираашон суст ё аз мурургарҳои матнӣ ё овозӣ истифода мекунанд, дучори маҳдудиятҳое бикунад. Дар ҳоли ҳозир ҳеҷ чойгузини савтӣ барои ин равиш мавҷуд нест. Чунончи ин масъала шуморо дучори маҳдудияте дур аз интизор дар ирсоли навиштаҳои миҷоз мекунад, бо мудирони сомона оиди кӯмак тамос бигиред.
 
 Дар муругаратон тугмаи 'бозгашт'-ро бо пахш кардан ба саҳифаи вироишгар баргардед.",
 	'captcha-addurl-whitelist' => ' #<!—ин сатрро ҳамон гуна, ки ҳаст раҳо кунед --> <pre>
@@ -2788,7 +2788,7 @@ câu trả lời vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'captchahelp-text' => 'Những website cho phép bất kỳ ai cũng có thể gửi thông tin, như wiki này, thường bị các tay spam dùng công cụ tự động để gửi các liên kết của họ tới rất nhiều trang.
 Tuy chúng ta có thể xóa các liên kết này khỏi trang, chúng vẫn gây nhiều phiền toái.
 
-Đôi khi, nhất là khi bạn bổ sung liên kết mới vào trang, wiki có thể hiển thị một hình có chữ dạng màu mè và méo mó rồi yêu cầu bạn gõ lại các chữ trong hình này. 
+Đôi khi, nhất là khi bạn bổ sung liên kết mới vào trang, wiki có thể hiển thị một hình có chữ dạng màu mè và méo mó rồi yêu cầu bạn gõ lại các chữ trong hình này.
 Do các phần mềm tự động khó đọc những hình này, nên mọi người bình thường có thể tiếp tục gửi thông tin, mà vẫn chặn được các spam và robot phá hoại.
 
 Tuy vậy, tính năng này có thể bất tiện đối với những độc giả có thị giác yếu hay đang sử dụng trình duyệt bằng văn bản thuần hay trình duyệt bằng tiếng nói.

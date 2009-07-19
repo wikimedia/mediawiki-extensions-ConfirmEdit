@@ -536,7 +536,7 @@ $messages['jv'] = array(
  * @author Atabek
  */
 $messages['kaa'] = array(
-	'fancycaptcha-createaccount' => "Jan'a akkauntlardın' avtomatik jaratılıwının' aldın alıw ushın, to'mendegi 
+	'fancycaptcha-createaccount' => "Jan'a akkauntlardın' avtomatik jaratılıwının' aldın alıw ushın, to'mendegi
 ko'rsetilgen so'zlerdi kiritin'([[{{ns:special}}:Captcha/help|ko'birek mag'lıwmat]]):",
 );
 

@@ -29,11 +29,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 global $wgCaptchaQuestions;
 $wgCaptchaQuestions = array();
-//$wgCaptchaQuestions[] = array( 'question' => "A question?", 'answer' => "An answer!" );
-//$wgCaptchaQuestions[] = array( 'question' => 'How much wood would a woodchuck chuck if a woodchuck could chuck wood?', 'answer' => 'as much wood as...' );
-//$wgCaptchaQuestions[] = array( 'question' => "What is this wiki's name?", 'answer' => "$wgSitename" );
-//add your questions in LocalSettings.php using this format
+// $wgCaptchaQuestions[] = array( 'question' => "A question?", 'answer' => "An answer!" );
+// $wgCaptchaQuestions[] = array( 'question' => 'How much wood would a woodchuck chuck if a woodchuck could chuck wood?', 'answer' => 'as much wood as...' );
+// $wgCaptchaQuestions[] = array( 'question' => "What is this wiki's name?", 'answer' => "$wgSitename" );
+// add your questions in LocalSettings.php using this format
 
-$wgExtensionMessagesFiles['QuestyCaptcha'] = dirname(__FILE__).'/QuestyCaptcha.i18n.php';
+$wgExtensionMessagesFiles['QuestyCaptcha'] = dirname( __FILE__ ) . '/QuestyCaptcha.i18n.php';
 $wgAutoloadClasses['QuestyCaptcha'] = dirname( __FILE__ ) . '/QuestyCaptcha.class.php';
-

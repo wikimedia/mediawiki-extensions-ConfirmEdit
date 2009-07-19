@@ -95,7 +95,7 @@ $wgCaptchaTriggers['badlogin']      = true;  // Special:Userlogin after failure
 
 /**
  * You may wish to apply special rules for captcha triggering on some namespaces.
- * $wgCaptchaTriggersOnNamespace[<namespace id>][<trigger>] forces an always on / 
+ * $wgCaptchaTriggersOnNamespace[<namespace id>][<trigger>] forces an always on /
  * always off configuration with that trigger for the given namespace.
  * Leave unset to use the global options ($wgCaptchaTriggers).
  *
@@ -103,9 +103,9 @@ $wgCaptchaTriggers['badlogin']      = true;  // Special:Userlogin after failure
  */
 $wgCaptchaTriggersOnNamespace = array();
 
-#Example:
-#$wgCaptchaTriggersOnNamespace[NS_TALK]['create'] = false; //Allow creation of talk pages without captchas.
-#$wgCaptchaTriggersOnNamespace[NS_PROJECT]['edit'] = true; //Show captcha whenever editing Project pages.
+# Example:
+# $wgCaptchaTriggersOnNamespace[NS_TALK]['create'] = false; //Allow creation of talk pages without captchas.
+# $wgCaptchaTriggersOnNamespace[NS_PROJECT]['edit'] = true; //Show captcha whenever editing Project pages.
 
 /**
  * Indicate how to store per-session data required to match up the
@@ -148,7 +148,7 @@ $wgCaptchaBadLoginExpiration = 5 * 60;
 global $ceAllowConfirmedEmail;
 $ceAllowConfirmedEmail = false;
 
-/** 
+/**
  * Number of bad login attempts before triggering the captcha.  0 means the
  * captcha is presented on the first login.
  */
@@ -194,8 +194,8 @@ $wgHooks['AbortLogin'][] = 'ConfirmEditHooks::confirmUserLogin';
 # Register API hook
 $wgHooks['APIEditBeforeSave'][] = 'ConfirmEditHooks::confirmEditAPI';
 
-$wgAutoloadClasses['ConfirmEditHooks'] 
-	= $wgAutoloadClasses['SimpleCaptcha'] 
+$wgAutoloadClasses['ConfirmEditHooks']
+	= $wgAutoloadClasses['SimpleCaptcha']
 	= $wgAutoloadClasses['CaptchaSessionStore']
 	= $wgAutoloadClasses['CaptchaCacheStore']
 	= $wgAutoloadClasses['CaptchaSpecialPage']
@@ -206,7 +206,7 @@ $wgAutoloadClasses['ConfirmEditHooks']
  */
 function confirmEditSetup() {
 	global $wgGroupPermissions, $wgCaptchaTriggers;
-	if( !$wgGroupPermissions['*']['read'] && $wgCaptchaTriggers['badlogin'] ) {
+	if ( !$wgGroupPermissions['*']['read'] && $wgCaptchaTriggers['badlogin'] ) {
 		// We need to ensure that the captcha interface is accessible
 		// so that unauthenticated users can actually get in after a
 		// mistaken password typing.
@@ -217,5 +217,3 @@ function confirmEditSetup() {
 		$wgWhitelistRead[] = $help->getPrefixedText();
 	}
 }
-
-

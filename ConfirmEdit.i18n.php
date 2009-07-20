@@ -1291,11 +1291,11 @@ Como protection contra le spam automatic, per favor resolve le simple calculo in
 Ben que iste ligamines spam pote esser eliminate, illos constitue un considerabile molestia.
 
 Alcun vices, specialmente quando tu adde nove ligamines web a un pagina, le wiki pote monstrar te un imagine de texto colorate o distorquite e demandar que tu entra le parolas monstrate.
-Viste que isto es un carga difficile a automatisar, isto permittera al major parte del humanos real de facer lor contributiones, ben que le major parte del spammatores e altere attaccatores robotic es stoppate.
+Post que isto es un carga difficile de automatisar, isto permittera al major parte del humanos real de facer lor contributiones, durante que le major parte del spammatores e altere attaccatores robotic es stoppate.
 
 Infelicemente isto pote incommodar le usatores con vision limitate o usante navigatores a base de texto o synthese vocal.
 Al momento nos non dispone de un alternativa audio.
-Per favor contacta le [[{{MediaWiki:Grouppage-sysop}}|administratores del sito]] pro assistentia si isto te impedi de facer contributiones legitime.
+Per favor contacta le [[{{MediaWiki:Grouppage-sysop}}|administratores del sito]] pro assistentia si isto insperatemente te impedi de facer contributiones legitime.
 
 Clicca le button 'retro' in tu navigator pro retornar al pagina de modification.",
 	'captcha-addurl-whitelist' => ' #<!-- non modificar in alcun modo iste linea --> <pre>

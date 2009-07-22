@@ -1023,16 +1023,16 @@ Como protección fronte ás ferramentas de publicación automática de ligazóns
 	'captchahelp-text' => "'''CAPTCHA''' (acrónimo de \"'''C'''ompletely '''A'''utomated '''P'''ublic '''T'''uring test to tell '''C'''omputers and '''H'''umans '''A'''part\") é unha proba de autenticación do tipo desafío-resposta usado nos contornos informáticos para distinguir usuarios humanos de máquinas.
 
 Os sitios web que aceptan publicar as contribucións dos usuarios, coma este wiki, sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias, nunha chea de páxinas, en pouco tempo.
-Mentres ditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo.
+Mentres as devanditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo.
 
-En ocasións, en particular cando engada algunha nova ligazón externa, o wiki pode amosar unha imaxe dun texto coloreado e distorsionado e pedirlle que teclee as palabras amosadas.
+En ocasións, en particular cando engada algunha nova ligazón externa, o wiki pode amosar unha imaxe dun texto coloreado e distorsionado e pedirlle que introduza as palabras amosadas.
 Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e robots e dificulta os ataques automatizados dos ''spammers''.
 
 Por desgraza, isto é un inconveniente para aqueles usuarios con dificultades de visión ou que utilicen navegadores de texto ou navegadores baseados en sistemas de voz.
 Polo de agora non dispoñemos dunha alternativa de audio.
-Por favor, contacte cun [[{{MediaWiki:Grouppage-sysop}}|administrador do wiki]] para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas.
+Por favor, contacte cun [[{{MediaWiki:Grouppage-sysop}}|administrador do sitio]] para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas.
 
-Prema no botón \"atrás\" para voltar á páxina na que estaba editando.",
+Prema no botón \"atrás\" do seu navegador para voltar á páxina de edición.",
 	'captcha-addurl-whitelist' => ' #<!-- Deixe esta liña tal e como está --> <pre>
 # A sintaxe é a seguinte:
 #   * Todo o que vaia despois dun carácter "#" ata o final da liña é un comentario

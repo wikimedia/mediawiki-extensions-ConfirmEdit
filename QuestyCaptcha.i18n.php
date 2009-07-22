@@ -39,6 +39,29 @@ $messages['qqq'] = array(
 	'questycaptchahelp-text' => 'See also {{msg-mw|Captchahelp-text}}.',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ */
+$messages['be-tarask'] = array(
+	'questycaptcha-addurl' => 'Вашае рэдагаваньне ўтрымлівае вонкавыя спасылкі.
+Каб абараніцца да аўтаматычнага спаму, калі ласка, адкажыце на пытаньне, паказанае ніжэй ([[Special:Captcha/help|дадатковая інфармацыя]]):',
+	'questycaptcha-badlogin' => 'Для абароны супраць аўтаматычнага падбору пароля, калі ласка, адкажыце на пытаньне, паказанае ніжэй ([[Special:Captcha/help|дадатковая інфармацыя]]):',
+	'questycaptcha-createaccount' => 'Для абароны супраць аўтаматычнага стварэньня рахункаў, калі ласка, адкажыце на пытаньне, паказанае ніжэй ([[Special:Captcha/help|дадатковая інфармацыя]]):',
+	'questycaptcha-create' => 'Для стварэньня старонкі, калі ласка, адкажыце на пытаньне, паказанае ніжэй ([[Special:Captcha/help|дадатковая інфармацыя]]):',
+	'questycaptcha-edit' => 'Для рэдагаваньня гэтай старонкі, калі ласка, адкажыце на пытаньне, паказанае ніжэй ([[Special:Captcha/help|дадатковая інфармацыя]]):',
+	'questycaptchahelp-text' => 'Вэб-сайты, якія прымаюць запісы ад грамадзкасьці, падобныя на {{GRAMMAR:вінавальны|{{SITENAME}}}}, часта атакуюцца спамэрамі, якія ўжываюць аўтаматызаваныя інструмэнты, каб зьмяшчаць свае спасылкі на шмат сайтаў.
+І хаця гэтыя спасылкі могуць быць прыбраныя, яны выклікаюць значныя нязручнасьці.
+
+Часам, асабліва калі Вы дадаеце новыя вонкавыя спасылкі на старонку, {{SITENAME}} можа паказаць Вам выяву з каляровым ці скажоным тэкстам і папрасіць увесьці гэты тэкст.
+Праз тое, што гэтае заданьне цяжка аўтаматызаваць, яно дазволіць большасьці рэальных людзей рабіць запісы, але спыніць большасьць спамэраў і іншых аўтаматызаваных робатаў.
+
+На жаль, гэта можа выклікаць нязручнасьці для ўдзельнікаў з абмежаваньнямі па зроку і для тых, хто ўжывае тэкставыя ці моўныя браўзэры.
+На гэты момант мы ня маем аўдыё-альтэрнатывы гэтай праверцы.
+Калі ласка, зьвяжыцеся з [[{{MediaWiki:Grouppage-sysop}}|адміністратарамі]], калі гэтая праверка перашкаджае Вам рабіць слушныя запісы.
+
+Націсьніце кнопку «назад» у Вашым браўзэры, каб вярнуцца да рэдагаваньня старонкі.',
+);
+
 /** French (Français)
  * @author IAlex
  */
@@ -58,6 +81,27 @@ Cette tâche étant difficile à accomplir de façon automatisée, cela permet �
 Veuillez contacter [[{{MediaWiki:Grouppage-sysop}}|les administrateurs du site]] si cela vous empêche de façon inattendue de faire des contributions légitimes.
 
 Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page de modification.',
+);
+
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'questycaptcha-addurl' => 'A súa edición inclúe novas ligazóns externas.
+Para axudar na protección contra o spam automatizado, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
+	'questycaptcha-badlogin' => 'Para axudar na protección contra o descifrado automatizado de contrasinais, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
+	'questycaptcha-createaccount' => 'Para axudar na protección contra a creación automática de contas, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
+	'questycaptcha-create' => 'Para crear a páxina, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
+	'questycaptcha-edit' => 'Para editar esta páxina, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
+	'questycaptchahelp-text' => "Os sitios web que aceptan publicar as contribucións dos usuarios, coma este wiki, sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias, nunha chea de páxinas, en pouco tempo.
+Mentres as devanditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo.
+
+En ocasións, en particular cando engada algunha nova ligazón externa, o wiki pode pedirlle que conteste unha pregunta.
+Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e robots e dificulta os ataques automatizados dos ''spammers''.
+
+Por favor, contacte cun [[{{MediaWiki:Grouppage-sysop}}|administrador do sitio]] para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas.
+
+Prema no botón \"atrás\" do seu navegador para voltar á páxina de edición.",
 );
 
 /** Swiss German (Alemannisch)
@@ -207,5 +251,31 @@ $messages['ru'] = array(
 Пожалуйста, обратитесь к [[{{MediaWiki:Grouppage-sysop}}|администраторам сайта]] за помощь, если данная система не позволяет вам вносить допустимые изменения.
 
 Нажмите в вашем браузере кнопку «назад», чтобы вернуться к странице редактирования.',
+);
+
+/** Slovak (Slovenčina)
+ * @author Helix84
+ */
+$messages['sk'] = array(
+	'questycaptcha-addurl' => 'Vaša úprava obsahuje nové externé odkazy.
+Ako opatrenie proti automatizovanému spamu musíte zodpovedať dolu uvedenú otázku
+([[Special:Captcha/help|ďalšie informácie]]):',
+	'questycaptcha-badlogin' => 'Ako opatrenie proti automatizovanému lámaniu hesiel musíte zodpovedať dolu uvedenú otázku
+([[Special:Captcha/help|ďalšie informácie]]):',
+	'questycaptcha-createaccount' => 'Ako opatrenie proti automatizovanému vytváraniu účtov musíte zodpovedať dolu uvedenú otázku
+([[Special:Captcha/help|ďalšie informácie]]):',
+	'questycaptcha-create' => 'Ak chcete vytvoriť stránku, musíte zodpovedať dolu uvedenú otázku
+([[Special:Captcha/help|ďalšie informácie]]):',
+	'questycaptcha-edit' => 'Ak chcete upraviť túto stránku, musíte zodpovedať dolu uvedenú otázku
+([[Special:Captcha/help|ďalšie informácie]]):',
+	'questycaptchahelp-text' => 'Webstránky, ktoré prijímajú príspevky od verejnosti ako táto wiki, sú často cieľom zneužitia spammermi, ktorí používajú automatizované nástroje na pridávanie odkazov na svoje stránku na mnohé lokality.
+Hoci je možné odkazy na spam odstrániť, je to významná nepríjemnosť.
+
+Niekedy, obzvlášť pri pridávaní nových webových odkazov na stránku, vás wiki môže požiadať o zodpovedanie otázky.
+Pretože takúto úlohu je ťažké zautomatizovať, umožní väčšine skutočných ľudí prispievať a zastaví vačšinu spammerov a robotických útočníkov.
+
+Kontaktujte prosím [[{{MediaWiki:Grouppage-sysop}}|správcov lokality]] ak potrebujete pomoc v prípade, že vám táto funkcia neočakávaným spôsobom bráni v právoplatných príspevkoch.
+
+Späť na úpravu stránky sa vrátite kliknutím na tlačidlo „Späť“ vo vašom prehliadači.',
 );
 

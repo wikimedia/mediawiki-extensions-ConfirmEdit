@@ -31,6 +31,7 @@ Click the 'back' button in your browser to return to the page editor.",
  * @author Fryed-peach
  */
 $messages['qqq'] = array(
+	'questycaptcha-desc' => '{{desc}}',
 	'questycaptcha-addurl' => 'See also {{msg-mw|Fancycaptcha-addurl}}.',
 	'questycaptcha-badlogin' => 'See also {{msg-mw|Fancycaptcha-badlogin}}.',
 	'questycaptcha-createaccount' => 'See also {{msg-mw|Fancycaptcha-createaccount}}.',
@@ -60,6 +61,14 @@ $messages['be-tarask'] = array(
 Калі ласка, зьвяжыцеся з [[{{MediaWiki:Grouppage-sysop}}|адміністратарамі]], калі гэтая праверка перашкаджае Вам рабіць слушныя запісы.
 
 Націсьніце кнопку «назад» у Вашым браўзэры, каб вярнуцца да рэдагаваньня старонкі.',
+);
+
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'questycaptcha-addurl' => 'Vaša izmjena uključuje nove vanjske linkove.
+Da bi pomogli protiv automatskog spama, molimo odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
 );
 
 /** French (Français)

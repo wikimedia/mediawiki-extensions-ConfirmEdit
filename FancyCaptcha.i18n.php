@@ -19,10 +19,11 @@ To help protect against automated spam, please enter the words that appear below
 );
 
 /** Message documentation (Message documentation)
+ * @author Fryed-peach
  * @author Purodha
  */
 $messages['qqq'] = array(
-	'fancycaptcha-desc' => 'Short description of this extension, shown in [[Special:Version]]. Do not translate or change links.',
+	'fancycaptcha-desc' => '{{desc}}',
 );
 
 /** Amharic (አማርኛ)

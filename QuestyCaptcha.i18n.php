@@ -155,6 +155,18 @@ Bitte nimm Kontakt uf zue dr [[{{MediaWiki:Grouppage-sysop}}|Website-Administrat
 Druck dr 'Zruck'-Chnopf in Dyym Browser go zuem Bearbeitigsfänschter zruckgoh.",
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'questycaptcha-addurl' => 'Twoja změna wobsahuje nowe eksterne wotkazy.
+Za škit přećiwo awtomatizowanemu spamej, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalše informacije]]):',
+	'questycaptcha-badlogin' => 'Za škit přećiwo awtomatiskemu kradnjenju hesła, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalše informacije]]):',
+	'questycaptcha-createaccount' => 'Za škit přećiwo awtomatizowanemu tworjenju kontow, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalš informacije]]):',
+	'questycaptcha-create' => 'Zo by stronu wutworił, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalše informacije]]):',
+	'questycaptcha-edit' => 'Zo by tutu stronu změnił, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalše informacije]]):',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */

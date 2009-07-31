@@ -1677,30 +1677,31 @@ $messages['la'] = array(
 );
 
 /** Luxembourgish (Lëtzebuergesch)
+ * @author Les Meloures
  * @author Robby
  */
 $messages['lb'] = array(
 	'captcha-edit' => "Fir dës Säit z'änneren, léist w.e.g. dës Rechenaufgab a gitt d'Resultat an d'Këscht ënnendrënner an ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captcha-desc' => 'Einfach Captcha-Implementatioun',
-	'captcha-addurl' => 'An ärer Ännerung sinn nei extern Linken. Fir eis virun automatiséiertem Spamming ze schütze froe mir iech fir déi folgend einfach  Rechenaufgab ze léisen an d\'Resultat an d\'Feld ënnen anzedroën. Klickt duerno w.e.g. nach eng Kéier op "Säit ofspäicheren" [[Special:Captcha/help|méi Informatiounen]].',
+	'captcha-addurl' => 'An ärer Ännerung sinn nei extern Linken. Fir eis virun automatiséiertem Spamming ze schütze froe mir iech fir déi folgend einfach  Rechenaufgab ze léisen an d\'Resultat an d\'Feld ënnen anzedroen. Klickt duerno w.e.g. nach eng Kéier op "Säit ofspäicheren" [[Special:Captcha/help|méi Informatiounen]].',
 	'captcha-badlogin' => "Fir eis géint automatescht Hacke vu Passwierder ze schützen, léist w.e.g. déi einfach Additioun hei ënnendrënner an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captcha-createaccount' => "Fir eis géint d'automatescht Uleeë vu Benotzerkonten ze schützen, léist w.e.g. déi einfach Additioun hei ënnendrënner, an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captcha-createaccount-fail' => 'Falschen oder kee Confirmatiouns-Code.',
-	'captcha-create' => "Fir eng Nei Säit unzleeën, léist w.e.g. déi einfach Additioun hei ënnendrënner an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
+	'captcha-create' => "Fir eng Nei Säit unzeleeën, léist w.e.g. déi einfach Additioun hei ënnendrënner an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captchahelp-title' => 'Captcha-Hellëf',
 	'captchahelp-cookies-needed' => 'Dir musst Cookieën an ärem Browser erlaben fir dat dëst fonktionéiert.',
-	'captchahelp-text' => "Websiten, déi jidferengem et erlaben Ännerunge virzehuelen, sou wéi op dëser Wiki, ginn dacks vu sougenannte Spammer mëssbraucht, déi automatiséiert hir Linkën op vill Internetsitë setzen. Esou Spam-Linkë kënne wuel geläscht ginn, mee si sinn trotzdem e grousst Iergernëss.
+	'captchahelp-text' => "Websäiten, déi et jidwerengem erlaben Ännerunge virzehuelen, sou wéi op dëser Wiki, ginn dacks vu sougenannte Spammer mëssbraucht, déi automatiséiert hir Linken op vill Internetsäite setzen. Esou Spam-Linke kënne wuel geläscht ginn, mee si sinn trotzdem eng grouss Plo.
 
-Heiandsdo, besonnesch wann nei Internet-Linkën op eng Säit derbäigesat ginn, weist dës Wiki iech e Bild mat farwegëm oder verzerrtëm Text a freet iech fir déi gewise Wierder anzetipppen. Well dëst eng Aufgab ass déi schwéier ze automatiséieren ass, erlaabt dëst dat Mënschen hir Ännerunge kënnen agi wärend déi meescht Spammer an aner Roboter-Attacken kënnen ofgewiert ginn.
+Heiandsdo, besonnesch wann nei Internet-Linken op eng Säit derbäigesat ginn, weist dës Wiki iech e Bild mat faarwegem oder verzerrtem Text a freet iech fir déi gewise Wierder anzetipppen. Well dëst eng Aufgab ass déi schwéier ze automatiséieren ass, erlaabt dëst datt Mënschen hir Ännerunge kënnen agi wärend déi meescht Spammer an aner Roboter-Attacke kënnen ofgewiert ginn.
 
 Leider kann dëst zu Schwierigkeete féiere fir Persounen déi net esou gutt gesinn oder déi text-baséiert oder sprooch-baséiert Browser benotzen.
 Zu dësem Zäitpunkt hu mir leider keng audio-Alternativ zu eiser Verfügung.
-Kontaktéiert w.e.g. [[{{MediaWiki:Grouppage-sysop}}|een Administrateur]] fir Hëllef wann dëst iech onerwarter Wäis vu legitimen Editen ofhält.
+Kontaktéiert w.e.g. [[{{MediaWiki:Grouppage-sysop}}|een Administrateur]] fir Hëllef wann dëst iech onerwaarter Wäis vu legitimen Editen ofhält.
 
 Dréckt op den 'Zréck' Knäppche vun ärem Browser fir an d'Beaarbechtungsfënster zréckzekommen.",
 	'captcha-addurl-whitelist' => '  #<!-- Dës Linn onverännert loossen --> <pre>
 #  Syntax:
-#  * Alles mat engem #-Zeechen u bis zum Enn vun däer Zeil ass eng Bemierkung
+#  * Alles vun engem #-Zeechen u bis zum Enn vun däer Zeil ass eng Bemierkung
 #  * All Zeil déi net eidel ass, ass ee Regex-Fragment, dat nëmme mat Hosten bannent URLë fonktionéiert
    #</pre> <!-- Dës Linn onverännert loossen -->',
 	'right-skipcaptcha' => 'Aktiounen déi eng Captcha-Aktioun verlaangen ausféieren, ouni dës maachen ze mussen',
@@ -2299,24 +2300,25 @@ $messages['ru'] = array(
 $messages['sah'] = array(
 	'captcha-edit' => 'Сирэйи уларытыаххын баҕардаххына, манна баар примеры суоттаа уонна эппиэтин аналлаах сиргэ суруй ([[Special:Captcha/help|сиһилии]]):',
 	'captcha-desc' => 'CAPTCHA судургу барыла',
-	'captcha-addurl' => 'Тас саайка ыйынньык туруорбуккун; спаамтан көмүскэнэр соруктаах суолу толор - манна баар буукубалары хатылаа: <br />
-([[{{ns:special}}:Captcha/help|Сиһилии]])',
+	'captcha-addurl' => 'Тас саайка ыйынньык туруорбуккун; 
+спаамтан көмүскэнэр соруктаах суолу толор - ойууга баар буукубалары хатылаа: <br />
+([[Special:Captcha/help|Сиһилии]])',
 	'captcha-badlogin' => 'Киирии тылы аптамаат алдьаппатын туһугар оҥоһуллубут харыстыыр дьайыыны толор, манна баар примеры суоттаа уонна эппиэтин анал сиргэ суруй ([[Special:Captcha/help|сиһилии]]):',
-	'captcha-createaccount' => 'Бэлиэтэнэргэр аптамаатынан алдьатыыттан харыстыыр соруктаах дьайыыны оҥор, манна баар буукубалары анал сиргэ киллэр:<br />
-([[{{ns:special}}:Captcha/help|Сиһилии]])',
+	'captcha-createaccount' => 'Бэлиэтэнэргэр аптамаатынан алдьатыыттан (спаамтан) харыстыыр соруктаах дьайыыны оҥор, ойууга көстөр буукубалары анал сиргэ киллэр:<br />
+([[Special:Captcha/help|Сиһилии]])',
 	'captcha-createaccount-fail' => 'Бигэргэтии куода суох эбэтэр атын.',
 	'captcha-create' => 'Сирэйи оҥорорго бу примеры суоттаа ([[Special:Captcha/help|сиһилии]]):',
 	'captchahelp-title' => 'Captcha көмөтө',
 	'captchahelp-cookies-needed' => 'Бу дьайыы үлэлиирин курдук браузергар куукины холбоо.',
-	'captchahelp-text' => 'Биһиги саайпыт курдук иһинээҕитин уларытары көҥүллүүр саайтарга сороҕор спам ыытар программалар аптаматынан бэйэлэрин ыйынньыктарын угаллар.
-Оннук аптамаатынан эбиллибит ыйынньыктары суох оҥорор кыах баар эрээри, ол элбэх мэһэйдэри үөскэтиэн сөп.
+	'captchahelp-text' => 'Биһиги саайпыт курдук иһинээҕитин уларытары көҥүллүүр саайтарга сороҕор спам ыытар программалар аптамаатынан бэйэлэрин ыйынньыктарын угаллар.
+Оннук аптамаатынан эбиллибит ыйынньыктары суох оҥорор кыах баар эрээри, ол биллэн турар син биир мэһэйдэри үөскэтэр.
 
 Ол иһин сороҕор, холобур саҥа ыйынньыгы эбэргэ, программа өҥнөөх эбэтэр хаанньары барбыт тиэкистээх ойууну көрдөрөн, ол тиэкиһи анал түннүккэ хатылатыан сөп.
-Маннык көрдөһүүнү аптамаат кыайан толорбот, оттон киһи үксэ чэпчэкитик толорор.
+Маннык көрдөһүүнү аптамаат кыайан толорбот, оттон киһи чэпчэкитик толорор.
 
 Ол гынан баран маннык көмүскэл сорох дьоҥҥо (көрбөт эбэтэр ааҕар браузердары туһанар дьоҥҥо) моһоллору үөскэтиэн сөп.
 Билигин бу моһолу суох оҥорор кыах суох.
-Оннук мэһэй таҕыстаҕына бука диэн баалама, биир эмит администраатарга этээр, көмөлөһүө.
+Оннук мэһэй таҕыстаҕына бука диэн баалама, биир эмит [[{{MediaWiki:Grouppage-sysop}}|дьаһабылга (администраатарга)]]  этээр, көмөлөһүө.
 
 Көннөрүүгэ төттөрү тиийэргэ браузерыҥ «Назад» тимэҕин баттаа.',
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>

@@ -92,6 +92,26 @@ Sollte dich dieses Verfahren beim Vornehmen erwünschter Bearbeitungen behindern
 Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'questycaptcha-addurl' => 'Twója změna wopśimujo nowe eksterne wótkaze.
+Za šćit pśeśiwo zawtomatizěrowanemu spamoju, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
+	'questycaptcha-badlogin' => 'Za šćit pśeśiwo zawtomatizěrowanemu wusnuchlenjeju gronidła, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
+	'questycaptcha-createaccount' => 'Za šćit pśeśiwo zawtomatizěrowanemu napóranjeju kontow, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
+	'questycaptcha-create' => 'Aby napórał bok, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
+	'questycaptcha-edit' => 'Aby wobźěłał toś ten bok, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
+	'questycaptchahelp-text' => 'Websedła, kótarež akceptěruju zjawne pśinoski, ako toś ten wiki, znjewužywaju se cesto wót spamowarjow, kótarež wužywaju zawtomatizěrowane rědy, aby pśidali swóje wótkaze na wjele sedłow. Lěcrownož toś te spamowe wótkaze daju se wótpóraś, su wóne bejna pógóršota. 
+
+Wótergi, wósebnje, gaž se nowe wótkaze pśidawaju bokoju, jo móžno, až se śi wiki něco pšaša. 
+Dokulaž to jo nadawk, kótaryž dajo se śěžko awtomatizěrowaś, dowólujo to napšawdnym luźam jich pśinoski wótpósłaś, najwěcej spamowarjow a robotowe ataki pak se zaźaržyju. 
+
+Staj se pšosym z [[{{MediaWiki:Grouppage-sysop}}|administratorami sedła]] z pšosbu wó pomoc do zwiska, jolic to śi njewócakane zawobarujo słanje legitimnych pśinoskow. 
+
+Klikni na tłocašk "Slědk" we swójom wobglědowaku, aby wróśił se k wobźěłowańskemu woknoju.',
+);
+
 /** French (Français)
  * @author IAlex
  */
@@ -165,6 +185,14 @@ Za škit přećiwo awtomatizowanemu spamej, wotmołw prošu na prašenje, kotre�
 	'questycaptcha-createaccount' => 'Za škit přećiwo awtomatizowanemu tworjenju kontow, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalš informacije]]):',
 	'questycaptcha-create' => 'Zo by stronu wutworił, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalše informacije]]):',
 	'questycaptcha-edit' => 'Zo by tutu stronu změnił, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalše informacije]]):',
+	'questycaptchahelp-text' => 'Websydła, kotrež přinoški ze zjawnosće akceptuja, kaž tutón wiki, so často wot spamarjow znjewužiwaja, kotřiž awtomatizowane nastroje wužiwaja, zo bychu swoje wotkazy wjele sydłam přidali. Hačrunjež so tute spamowe wotkazy hodźa wotstronić, su wone njesnadne mjerzanje.
+
+Druhdy, wosebje, hdyž so nowe webwotkazy stronje přidawaja, wiki so ći něčeho praša.
+Dokelž to je nadawk, kotryž hodźi so jenož ćežko awtomatizować, dowoluje to woprawdźitym wosobam swoje přinoški wotpósłać, mjeztym zo so najwjace spamarjow a druhich nadpadowacych botow blokuje. 
+
+Prošu staj so z [[{{MediaWiki:Grouppage-sysop}}|administratorami sydła]] z prostwu wo pomoc do zwiska, jeli to će haći legitimne přinoški pósłać. 
+
+Klikń na tłócatko "Wróćo" w swojim wobhladowaku, zo by so k wobdźěłowanskemu woknu wróćił.',
 );
 
 /** Interlingua (Interlingua)

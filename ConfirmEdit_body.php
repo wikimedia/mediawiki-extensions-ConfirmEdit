@@ -284,8 +284,7 @@ class SimpleCaptcha {
 		}
 		if ( $this->isIPWhitelisted() )
 			return false;
-		if ( $editPage->allowBlankSummary )
-			return false;
+
 
 		global $wgEmailAuthentication, $ceAllowConfirmedEmail;
 		if ( $wgEmailAuthentication && $ceAllowConfirmedEmail &&

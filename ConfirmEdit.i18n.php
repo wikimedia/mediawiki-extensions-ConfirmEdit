@@ -783,6 +783,7 @@ Presione el botón 'atrás' en su navegador para retornar al editor de página."
 /** Estonian (Eesti)
  * @author BrokenArrow
  * @author Jaan513
+ * @author Pikne
  */
 $messages['et'] = array(
 	'captcha-edit' => 'Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])',
@@ -792,13 +793,14 @@ $messages['et'] = array(
 	'captcha-create' => 'Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])',
 	'captchahelp-title' => 'Mis on Captcha?',
 	'captchahelp-cookies-needed' => 'Selle toimimiseks peab veebibrauser lubama küpsiseid.',
-	'captchahelp-text' => 'Internetisaite, mis lubavad külastajatel sisu muuta (nagu ka see Viki), kasutavad sageli spämmerid ära, postitades reklaamlinke — spämmi. Kuigi neid linke saab alati ära võtta, on nad ikkagi üpris tülikad.
+	'captchahelp-text' => 'Võrgukohti, mis lubavad külastajatel sisu muuta, nagu ka see viki, kasutavad sageli rämpsposti levitajad, lisades näiteks lehekülgedele reklaamilinke. Kuigi neid linke saab eemaldada, on nad siiski tülikad.
 
-Omale kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse teile moonutatud tekstiga pilti ning palutakse teil sisestada seal näidatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks spämmirobotite vastu, samas lubades tavainimestel oma muudatusi rahus teha.
+Omale kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse teile moonutatud tekstiga pilti ning palutakse teil sisestada seal kuvatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks rämpspostirobotite vastu ja lubab samas tavakasutajatel rahus muudatusi teha.
 
-Kahjuks võib see tekitada ebamugavusi nägemisraskustega inimestele või neile, kes kasutavad kõnesüntesaatorit või tekstipõhist brauserit. Hetkel pole meil helipõhist alternatiivi. Kui teil tekib ootamatult raskusi oma muudatuste tegemisel, siis võtke ühendust selle saidi administraatoritega.
+Kahjuks võib see tekitada ebamugavusi nägemisraskustega inimestele või neile, kes kasutavad tehiskõneseadet või tekstipõhist veebilehitsejat. Hetkel pole meil helipõhist alternatiivi.
+Kui teil tekib raskusi muudatuste tegemisel, võtke palun ühendust selle võrgukoha [[{{MediaWiki:Grouppage-sysop}}|ülematega]].
 
-Konto registreerimise lehele või lehe redigeerimisele tagasi jõudmiseks vajutage oma brauseri tagasi-nuppu.',
+Konto registreerimise lehele või lehe redigeerimisele tagasi jõudmiseks klõpsake oma veebilehitseja tagasi-nuppu.',
 );
 
 /** Basque (Euskara)

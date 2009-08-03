@@ -112,6 +112,14 @@ Staj se pšosym z [[{{MediaWiki:Grouppage-sysop}}|administratorami sedła]] z p�
 Klikni na tłocašk "Slědk" we swójom wobglědowaku, aby wróśił se k wobźěłowańskemu woknoju.',
 );
 
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'questycaptcha-create' => 'Orrialdea sortzeko, behean agertzen den galdera erantzun ezazu mesedez ([[Special:Captcha/help|informazio gehiago]]):',
+	'questycaptcha-edit' => 'Orrialde hau aldatzeko, behean agertzen den galdera erantzun ezazu mesedez ([[Special:Captcha/help|informazio gehiago]]):',
+);
+
 /** French (Français)
  * @author IAlex
  */

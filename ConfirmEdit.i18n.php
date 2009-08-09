@@ -787,6 +787,7 @@ Presione el botón 'atrás' en su navegador para retornar al editor de página."
  */
 $messages['et'] = array(
 	'captcha-edit' => 'Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])',
+	'captcha-desc' => 'Lihtne robotilõks',
 	'captcha-addurl' => 'Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])',
 	'captcha-createaccount' => 'Kaitsena spämmi vastu peate konto registreerimiseks lahtrisse kirjutama järgneva tehte tulemuse.<br /> ([[Special:Captcha/help|Mis see on?]])',
 	'captcha-createaccount-fail' => 'Puuduv või valesti sisestatud kinnituskood.',
@@ -2211,14 +2212,15 @@ Para prevenção contra sistemas automatizados que inserem spam, será necessár
 	'captcha-create' => 'Para criar a página, por favor resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])',
 	'captchahelp-title' => 'Ajuda com o Captcha',
 	'captchahelp-cookies-needed' => 'Você precisa ter cookies habilitados em seu navegador para que possa funcionar',
-	'captchahelp-text' => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a abusos por spammers que utilizam ferramentas automatizadas para inserir seus links em diversos locais.
-Apesar de remover tais links posteriormente ser possível, eles são um significativo incômodo.
+	'captchahelp-text' => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a spammers que utilizam ferramentas automatizadas para inserir as suas ligações em diversos locais.
+Remover tais ligações posteriormente pode ser um incômodo significativo.
 
-Algumas vezes, especialmente ao adicionar novos links externos em uma página, o sistema exibirá uma imagem com uma imagem de um texto colorido ou distorcido e pedirá que você digite as palavras exibidas.
-Uma vez que essa é uma tarefa um tanto difícil de ser automatizada, ela possibilita que vários humanos façam as suas inserções ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
+Algumas vezes, especialmente ao adicionar novas ligações externas a uma página, o wiki exibirá uma imagem com um texto colorido ou distorcido e pedirá que você introduza as palavras exibidas.
+Uma vez que essa é uma tarefa um tanto difícil de ser automatizada, ela possibilita que a maioria dos humanos faça as suas inserções ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
 
-Infelizmente, isso pode ser dificultoso a utilizadores com limitações visuais ou que naveguem através de mecanismos baseados em texto ou baseados em voz. No momento não há uma alternativa em áudio.
-Por gentileza, contacte os administradores do sítio em casos que seja necessária a assistência de alguém para que você possa fazer as suas inserções legítimas.
+Infelizmente, isso pode ser um inconveniente para utilizadores com limitações visuais ou que naveguem através de mecanismos baseados em texto ou baseados em voz.
+No momento, não está disponível uma alternativa em áudio.
+Por favor, contate os [[{{MediaWiki:Grouppage-sysop}}|administradores do sítio]] em casos que seja necessária a assistência de alguém para que você possa fazer as suas inserções legítimas.
 
 Pressione o botão 'voltar' de seu navegador para retornar à página de edição.",
 	'captcha-addurl-whitelist' => ' #<!-- deixe este linha exactamente como está --> <pre>

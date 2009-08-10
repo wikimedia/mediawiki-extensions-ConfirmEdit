@@ -40,6 +40,29 @@ $messages['qqq'] = array(
 	'questycaptchahelp-text' => 'See also {{msg-mw|Captchahelp-text}}.',
 );
 
+/** Arabic (العربية)
+ * @author OsamaK
+ */
+$messages['ar'] = array(
+	'questycaptcha-addurl' => 'يحتوي تعديلك على وصلات خارجية جديدة.
+للمساعدة في الحماية من السبام التلقائي، من فضلك أجب على السؤال الذي يظهر أدناه ([[Special:Captcha/help|مزيد من المعلومات]]):',
+	'questycaptcha-badlogin' => 'للمساعدة في الحماية من السبام التلقائي، من فضلك أجب على السؤال الذي يظهر أدناه ([[Special:Captcha/help|مزيد من المعلومات]]):',
+	'questycaptcha-createaccount' => 'للمساعدة في الحماية من إنشاء الحسابات التلقائي، من فضلك أجب على السؤال الذي يظهر أدناه ([[Special:Captcha/help|مزيد من المعلومات]]):',
+	'questycaptcha-create' => 'لتنشئ الصفحة، من فضلك أجب على السؤال الذي يظهر أدناه ([[Special:Captcha/help|مزيد من المعلومات]]):',
+	'questycaptcha-edit' => 'لتحرّر هذه الصفحة، من فضلك أجب على السؤال الذي يظهر أدناه ([[Special:Captcha/help|مزيد من المعلومات]]):',
+	'questycaptchahelp-text' => "عادة ما يتم في المواقع التي تقبل الردود والرسائل من العامة، كهذا الويكي، تخريب الموقع عن طريق الأشخاص الذين يستعملون آليات معينة لإرسال وصلاتهم لمواقع متعددة بصورة آلية.
+وعلى الرغم من أن هذا يمكن إزالته ولكنه مزعج للغاية.
+
+في بعض الأحيان، خصوصا عند إضافة وصلات لصفحة، ربما يعرض الويكي صورة ملونة أو مشوشة ويطلب منك إدخال كلمات موجودة بالصورة أو يعرض عليك مسألة رياضية عشوائية ويطلب منك حلها.
+ولأن هذه المهمة صعبة للغاية لأن يقوم بها برنامج، سيسمح هذا للأشخاص الآدميين بإضافة تحريراتهم بينما ستوقف البرامج التخريبية والهجمات الآلية الأخرى.
+
+للأسف سيكون هذا صعبا بالنسبة لمستخدمي المتصفحات المحدودة أو التي تعتمد على النصوص فقط أو قراءة النصوص.
+في الوقت الحالي لا يوجد لدينا بديل سمعي.
+من فضلك راسل [[{{MediaWiki:Grouppage-sysop}}|إداريي الموقع]] للمساعدة إذا كان هذا الأمر يمنعك من التعديل ووضع وصلات قانونية.
+
+إذا كنت تحرر صفحة معينة: اضغط زر 'العودة' في متصفحك للعودة إلى التحرير.",
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  */
@@ -122,8 +145,10 @@ $messages['eu'] = array(
 
 /** French (Français)
  * @author IAlex
+ * @author Verdy p
  */
 $messages['fr'] = array(
+	'questycaptcha-desc' => "Générateur de questions ''captcha'' pour confirmer les modifications",
 	'questycaptcha-addurl' => 'Votre modification inclut de nouveaux liens externes.
 Pour nous aider dans la protection contre le pourriel automatisé, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-badlogin' => 'Afin de nous aider à prévenir le cassage des mots de passe par des automates, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
@@ -131,10 +156,10 @@ Pour nous aider dans la protection contre le pourriel automatisé, veuillez rép
 	'questycaptcha-create' => 'Pour créer la page, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-edit' => 'Pour modifier cette page, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptchahelp-text' => 'Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de polluposteurs qui utilisent des outils automatisés pour placer de nombreux liens vers leurs sites.
-Même si cette pollution peut être effacée, elle n’en reste pas moins un irritant.
+Même si cette pollution peut être effacée, elle n’en reste pas moins irritante.
 
 Parfois, particulièrement lors de l’ajout de nouveaux liens externes dans une page, le wiki peut vous demander de répondre à une question.
-Cette tâche étant difficile à accomplir de façon automatisée, cela permet à la plupart des humains de réaliser leurs contributions tout en empêchant la plupart des polluposteurs et autres attaquants robotisés.
+Cette tâche étant difficile à accomplir de façon automatisée, cela permet à la plupart des humains de réaliser leurs contributions tout en stoppant la plupart des polluposteurs et autres attaquants robotisés.
 
 Veuillez contacter [[{{MediaWiki:Grouppage-sysop}}|les administrateurs du site]] si cela vous empêche de façon inattendue de faire des contributions légitimes.
 

@@ -1771,9 +1771,11 @@ $messages['lt'] = array(
 $messages['lv'] = array(
 	'captcha-edit' => 'Lai izmainītu šo lapu, atrisini šo vienādojumu un iegūto skaitli ieraksti šajā lodziņā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
 	'captcha-addurl' => 'Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta te redzamā vienādojuma rezultāts: <br />([[Special:Captcha/help|Kāpēc tā?]])',
+	'captcha-badlogin' => 'Lai pasargātos no automātiskiem paroļu lauzējiem, lūdzu atrisino šo vienādojumu un rezultātu ieraksti apakšā esošajā lodziņā ([[Special:Captcha/help|kāpēc tā?]]):',
 	'captcha-createaccount' => 'Lai pasargātos no automātiskas mēstuļošanas, Tev reģistrējoties ir jāieraksta šī vienādojuma rezultāts: <br />([[Special:Captcha/help|Kāpēc tā?]])',
 	'captcha-createaccount-fail' => 'Nepareizs apstiprinājuma kods vai arī tas nav ievadīts.',
 	'captcha-create' => 'Lai izveidotu šo lapu, atrisini šo vienādojumu un rezulātu ieraksti šajā lodziņā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
+	'captchahelp-cookies-needed' => "Lai šis darbotos, pārlūkprogrammā jābūt iespējotām (''enabled'') sīkdatnēm (''cookies'').",
 	'captchahelp-text' => "Interneta lapas, kurās iespējams pievienot tekstu, kā šajā wiki, bieži cieš no mēstuļotājiem, kuri izmanto automatizētus līdzekļus, lai pievienotu savus saites daudzās jo daudzās interneta lapās.
 Kaut arī šīs saites var viegli dzēst, tomēr tās ir nozīmīgs traucēklis.
 

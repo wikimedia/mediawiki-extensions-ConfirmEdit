@@ -335,6 +335,18 @@ Fir d'Protectioun géint automatesche Spam ze vergréisseren, beäntwert w.e.g. 
 	'questycaptcha-edit' => "Fir dës Säit z'änneren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'questycaptcha-addurl' => "'U cangiamende tue inglude de le collegaminde esterne.
+Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a domande ca combare sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
+	'questycaptcha-badlogin' => "Pe aiutà a proteggere condre a futteminde automatece de password, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):",
+	'questycaptcha-createaccount' => "Pe aiutà a proteggere condre a ccreazione automateche de cunde utinde, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):",
+	'questycaptcha-create' => "Pe ccrejà sta pàgene, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):",
+	'questycaptcha-edit' => "Pe cangià sta pàgene, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):",
+);
+
 /** Russian (Русский)
  * @author Александр Сигачёв
  */

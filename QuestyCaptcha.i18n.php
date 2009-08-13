@@ -94,6 +94,13 @@ $messages['bs'] = array(
 Da bi pomogli protiv automatskog spama, molimo odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
 );
 
+/** Catalan (Català)
+ * @author Paucabot
+ */
+$messages['ca'] = array(
+	'questycaptcha-create' => 'Per crear la pàgina, per favor responeu la pregunta que apareix a continuació ([[Special:Captcha/help|més informació]]):',
+);
+
 /** German (Deutsch)
  * @author Pill
  */

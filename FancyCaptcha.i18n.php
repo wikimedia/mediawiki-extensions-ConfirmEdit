@@ -293,6 +293,19 @@ $messages['es'] = array(
 	'fancycaptcha-edit' => 'Para editar esta página, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
 );
 
+/** Estonian (Eesti)
+ * @author Pikne
+ */
+$messages['et'] = array(
+	'fancycaptcha-desc' => 'Kirevate piltidega robotilõks, kinnitamaks muudatuste õigsust.',
+	'fancycaptcha-addurl' => 'Sinu muudatus sisaldab uusi välislinke.
+Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaadistatud rämpsmuudatuste vastu ([[Special:Captcha/help|täpsem teave]]):',
+	'fancycaptcha-badlogin' => 'Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaatsete parooliäraarvajate vastu ([[Special:Captcha/help|täpsem teave]]):',
+	'fancycaptcha-createaccount' => 'Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks kontode automaatse loomise vastu ([[Special:Captcha/help|täpsem teave]]):',
+	'fancycaptcha-create' => 'Lehekülje loomiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|täpsem teave]]):',
+	'fancycaptcha-edit' => 'Selle lehekülje muutmiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|täpsev teave]]):',
+);
+
 /** Basque (Euskara) */
 $messages['eu'] = array(
 	'fancycaptcha-addurl' => 'Zure aldaketak kanpo lotura berriak ditu. Spam automatikoa saihestu ahal izateko, beheko koadroan ageri diren hitzak idatzi ([[Special:Captcha/help|informazio gehigarria]]):',

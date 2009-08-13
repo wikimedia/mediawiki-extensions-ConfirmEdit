@@ -240,6 +240,14 @@ Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten 
 	'fancycaptcha-edit' => 'Zur Bearbeitung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 );
 
+/** German (formal address) (Deutsch (Sie-Form))
+ * @author Imre
+ */
+$messages['de-formal'] = array(
+	'fancycaptcha-addurl' => 'Ihre Bearbeitung enthält neue externe Links.
+Zum Schutz vor automatisiertem Spamming geben Sie das folgende Wort in das Feld unten ein. Klicken Sie dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen oder Probleme?)]].',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

@@ -122,6 +122,14 @@ Sollte dich dieses Verfahren beim Vornehmen erwünschter Bearbeitungen behindern
 Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 );
 
+/** German (formal address) (Deutsch (Sie-Form))
+ * @author Imre
+ */
+$messages['de-formal'] = array(
+	'questycaptcha-addurl' => 'Ihre Bearbeitung enthält neue externe Links.
+Zum Schutz vor automatisiertem Spam beantworten Sie bitte die untenstehende Frage ([[Special:Captcha/help|weitere Informationen]]):',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

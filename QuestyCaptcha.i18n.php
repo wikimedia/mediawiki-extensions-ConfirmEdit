@@ -281,6 +281,24 @@ Untuk melindungi dari spam otomatis, mohon jawab pertanyaan di bawah ini
 ([[Special:Captcha/help|info lebih lanjut]]):',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'questycaptcha-addurl' => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):",
+	'questycaptcha-badlogin' => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'questycaptcha-createaccount' => 'Come misura di sicurezza nei confronti dei messaggi di spam automatici, si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'questycaptcha-create' => 'Per creare la pagina si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'questycaptcha-edit' => 'Per modificare questa pagina si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'questycaptchahelp-text' => "Capita spesso che i siti Web che accettano messaggi pubblici, come questo wiki, siano presi di mira da spammer che usano strumenti automatici per inserire collegamenti pubblicitari verso un gran numero di siti. Per quanto i collegamenti indesiderati si possano rimuovere, si tratta comunque di una seccatura non indifferente. 
+
+In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web in una pagina, il software wiki può richiedere di rispondere a una domanda. Poiché si tratta di un'azione difficile da replicare da parte di un computer, questo meccanismo consente a (quasi tutti) gli utenti reali di effettuare i proprio contributi, impedendo l'accesso alla maggior parte degli spammer e degli altri attacchi automatizzati. 
+
+Se queste procedure impediscono contributi che si ritengono legittimi, si prega di contattare gli [[{{MediaWiki:Grouppage-sysop}}|amministratori del sito]] e chiedere loro assistenza. 
+
+Fare clic sul pulsante 'indietro' del browser per tornare alla pagina di modifica.",
+);
+
 /** Japanese (日本語)
  * @author Fryed-peach
  */
@@ -348,6 +366,21 @@ Fir d'Protectioun géint automatesche Spam ze vergréisseren, beäntwert w.e.g. 
 	'questycaptcha-createaccount' => "Fir d'Protectioun géint d'automatiséiert Uleeë vu Benotzerkonten ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
 	'questycaptcha-create' => "Fir d'Säit unzeleeën, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
 	'questycaptcha-edit' => "Fir dës Säit z'änneren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
+);
+
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Simny
+ */
+$messages['no'] = array(
+	'questycaptcha-badlogin' => 'For å hindre passordtyveri, vær vennlig og svar på spørsmålet under ([[Special:Captcha/help|mer informasjon]]):',
+);
+
+/** Portuguese (Português)
+ * @author Giro720
+ */
+$messages['pt'] = array(
+	'questycaptcha-addurl' => 'Sua edição inclui novas ligações externas.
+Para proteção contra spam automático, por favor responda a questão que aparece abaixo ([[Especial:Captcha/ajuda|mais informações]]):',
 );
 
 /** Tarandíne (Tarandíne)

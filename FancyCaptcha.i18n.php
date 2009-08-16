@@ -524,12 +524,12 @@ $messages['it'] = array(
  * @author Fryed-peach
  */
 $messages['ja'] = array(
-	'fancycaptcha-desc' => 'Confirm Edit 用の CAPTCHA 生成器',
-	'fancycaptcha-addurl' => 'あなたの編集では新たな外部リンクが追加されています。自動で実行されるスパム行為防止のため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-createaccount' => '自動化されたアカウント作成を防止するため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-create' => 'ページを作成するには以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-edit' => 'このページを編集するには以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-desc' => 'Confirm Edit 用の装飾的な CAPTCHA 生成器',
+	'fancycaptcha-addurl' => 'あなたの編集では新たな外部リンクが追加されています。自動で実行されるスパム行為防止のため、以下のボックスに表示される確認用の文字列を入力してください （[[Special:Captcha/help|詳細]]）:',
+	'fancycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下のボックスに表示される確認用の文字列を入力してください （[[Special:Captcha/help|詳細]]）:',
+	'fancycaptcha-createaccount' => '自動化されたアカウント作成を防止するため、以下のボックスに表示される確認用の文字列を入力してください （[[Special:Captcha/help|詳細]]）:',
+	'fancycaptcha-create' => 'ページを作成するには以下のボックスに表示される確認用の文字列を入力してください （[[Special:Captcha/help|詳細]]）:',
+	'fancycaptcha-edit' => 'このページを編集するには以下のボックスに表示される確認用の文字列を入力してください （[[Special:Captcha/help|詳細]]）:',
 );
 
 /** Jutish (Jysk)
@@ -1101,19 +1101,19 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬) */
 $messages['zh-hans'] = array(
-	'fancycaptcha-addurl' => '你的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
-	'fancycaptcha-badlogin' => '为防止不当程式破解密码，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
-	'fancycaptcha-createaccount' => '为防止不当程式大量建立帐户，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
-	'fancycaptcha-create' => '为防止不当程式大量建立页面，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
-	'fancycaptcha-edit' => '如你想要编辑這个页面，请输入以下的文字([[Special:Captcha/help|相关信息]])：',
+	'fancycaptcha-addurl' => '你的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
+	'fancycaptcha-badlogin' => '为防止不当程式破解密码，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
+	'fancycaptcha-createaccount' => '为防止不当程式大量建立帐户，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
+	'fancycaptcha-create' => '为防止不当程式大量建立页面，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
+	'fancycaptcha-edit' => '如你想要编辑這个页面，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬) */
 $messages['zh-hant'] = array(
-	'fancycaptcha-addurl' => '您的編輯內容中含有本網站以外的連結。為防止不當程式大量破壞，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
-	'fancycaptcha-badlogin' => '為防止不當程式破解密碼，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
-	'fancycaptcha-createaccount' => '為防止不當程式大量建立帳戶，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
-	'fancycaptcha-create' => '為防止不當程式大量建立頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
-	'fancycaptcha-edit' => '如您想要編輯此頁面，請輸入以下的文字([[Special:Captcha/help|相關資訊]])：',
+	'fancycaptcha-addurl' => '您的編輯內容中含有本網站以外的連結。為防止不當程式大量破壞，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
+	'fancycaptcha-badlogin' => '為防止不當程式破解密碼，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
+	'fancycaptcha-createaccount' => '為防止不當程式大量建立帳戶，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
+	'fancycaptcha-create' => '為防止不當程式大量建立頁面，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
+	'fancycaptcha-edit' => '如您想要編輯此頁面，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
 );
 

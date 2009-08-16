@@ -303,11 +303,12 @@ Fare clic sul pulsante 'indietro' del browser per tornare alla pagina di modific
  * @author Fryed-peach
  */
 $messages['ja'] = array(
-	'questycaptcha-addurl' => 'あなたの編集では新たな外部リンクが追加されています。自動で実行されるスパム行為防止のため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
-	'questycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
-	'questycaptcha-createaccount' => '自動化されたアカウント作成を防止するため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
-	'questycaptcha-create' => 'ページを作成するには以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
-	'questycaptcha-edit' => 'このページを編集するには以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
+	'questycaptcha-desc' => 'Confirm Edit 用の質問形式 CAPTCHA 生成器',
+	'questycaptcha-addurl' => 'あなたの編集では新たな外部リンクが追加されています。自動で実行されるスパム行為防止のため、以下に表示される確認用の質問に回答してください （[[Special:Captcha/help|詳細]]）:',
+	'questycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下に表示される確認用の質問に回答してください （[[Special:Captcha/help|詳細]]）:',
+	'questycaptcha-createaccount' => '自動化されたアカウント作成を防止するため、以下に表示される確認用の質問に回答してください （[[Special:Captcha/help|詳細]]）:',
+	'questycaptcha-create' => 'ページを作成するには以下に表示される確認用の質問に回答してください （[[Special:Captcha/help|詳細]]）:',
+	'questycaptcha-edit' => 'このページを編集するには以下に表示される確認用の質問に回答してください （[[Special:Captcha/help|詳細]]）:',
 	'questycaptchahelp-text' => '一般からの投稿を受け付けるこのウィキのようなウェブサイトは、自動投稿ツールを使って多くのサイトにリンクを張ってまわるスパマーにより荒らされがちです。このようなスパムは除去できるものの、その作業は大変に面倒なものです。
 
 このため、このウィキではときどき、特に新しい外部リンクがページに追加されたときなどに、質問に答えていただくようお願いすることがあります。この作業は自動化が難しいため、スパマーなどのプログラムを用いた攻撃をほぼ阻止しつつ、大半の生身の人間による投稿を可能にします。
@@ -381,6 +382,27 @@ $messages['no'] = array(
 $messages['pt'] = array(
 	'questycaptcha-addurl' => 'Sua edição inclui novas ligações externas.
 Para proteção contra spam automático, por favor responda a questão que aparece abaixo ([[Especial:Captcha/ajuda|mais informações]]):',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'questycaptcha-addurl' => 'Sua edição inclui novas ligações externas.
+Para proteção contra spam automático, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|mais informações]]):',
+	'questycaptcha-badlogin' => 'Para proteger contra quebra automatizada de palavra-chave, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-createaccount' => 'Para proteger contra criação automática de contas, por favor responda as questões que aparecem abaixo ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-create' => 'Para criar a página, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-edit' => 'Para editar esta página, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|more info]]):',
+	'questycaptchahelp-text' => "Sítios que aceitam contribuições públicas, como este wiki, são vulneráveis a spammers que utilizam ferramentas automatizadas para inserir as suas ligações em diversos locais. 
+Apesar de ser possível emover tais ligações, elas são um incômodo significativo.
+
+Algumas vezes, especialmente ao adicionar novas ligações externas a uma página, a wiki pode pedir a você que responda a uma pergunta. 
+Uma vez que essa é uma tarefa um difícil de ser automatizada, ela possibilita que a maioria dos humanos faça as suas contribuições ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
+
+Por favor entre em contato com os [[{{MediaWiki:Grouppage-sysop}}|administradores do sítio]] para assistí-lo caso isto esteja impedindo-o de realizar contribuições legítimas.
+
+Pressione o botão 'voltar' de seu navegador para retornar à página de edição.\"",
 );
 
 /** Tarandíne (Tarandíne)

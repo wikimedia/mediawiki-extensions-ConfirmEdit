@@ -2948,13 +2948,13 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬) */
 $messages['zh-hans'] = array(
-	'captcha-edit' => '要编辑这篇文章，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
+	'captcha-edit' => '要编辑这篇文章，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:',
 	'captcha-desc' => '简单的 captcha 实行',
-	'captcha-addurl' => '你编辑的内容中含有一个新的URL连结；为了免受自动垃圾程式的侵扰，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
-	'captcha-badlogin' => '为了防止程式自动破解密码，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
-	'captcha-createaccount' => '为了防止程式自动注册，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
+	'captcha-addurl' => '你编辑的内容中含有一个新的URL连结；为了免受自动垃圾程式的侵扰，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:',
+	'captcha-badlogin' => '为了防止程式自动破解密码，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:',
+	'captcha-createaccount' => '为了防止程式自动注册，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:',
 	'captcha-createaccount-fail' => '验证码错误或丢失。',
-	'captcha-create' => '要创建页面，请答出一个简单的加法，然後在框内输入 ([[Special:Captcha/help|更多资料]]):',
+	'captcha-create' => '要创建页面，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:',
 	'captchahelp-title' => 'Captcha 说明',
 	'captchahelp-cookies-needed' => '您需要开启浏览器上的cookies方可使用这个工具。',
 	'captchahelp-text' => '像本站一样，对公众开放编辑的网站经常被垃圾连结骚扰。那些人使用自动化垃圾程序将他们的连结张贴到很多网站。虽然这些连结可以被清除，但是这些东西确实令人十分讨厌。
@@ -2974,13 +2974,13 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文(繁體)‬) */
 $messages['zh-hant'] = array(
-	'captcha-edit' => '要編輯這篇文章，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-edit' => '要編輯這篇文章，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
 	'captcha-desc' => '簡單的 captcha 實行',
-	'captcha-addurl' => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
-	'captcha-badlogin' => '為了防止程式自動破解密碼，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
-	'captcha-createaccount' => '為了防止程式自動註冊，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-addurl' => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
+	'captcha-badlogin' => '為了防止程式自動破解密碼，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
+	'captcha-createaccount' => '為了防止程式自動註冊，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
 	'captcha-createaccount-fail' => '驗證碼錯誤或丟失。',
-	'captcha-create' => '要創建頁面，請答出一個簡單的加法，然後在框內輸入 ([[Special:Captcha/help|更多資料]]):',
+	'captcha-create' => '要創建頁面，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
 	'captchahelp-title' => 'Captcha 說明',
 	'captchahelp-cookies-needed' => '您需要開啟瀏覽器上的cookies方可使用這個工具。',
 	'captchahelp-text' => '像本站一樣，對公眾開放編輯的網站經常被垃圾連結騷擾。那些人使用自動化垃圾程序將他們的連結張貼到很多網站。雖然這些連結可以被清除，但是這些東西確實令人十分討厭。

@@ -2148,10 +2148,12 @@ Wciśnij przycisk „wstecz” w przeglądarce by powrócić do edycji strony.',
 
 /** Piedmontese (Piemontèis)
  * @author Bèrto 'd Sèra
+ * @author Dragonòt
  */
 $messages['pms'] = array(
 	'captcha-edit' => "Për fe-ie dle modìfiche ansima a st'artìcol-sì, për piasì ch'a fasa ël total ambelessì sota
 e ch'a buta l'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captcha-desc' => 'Sempia amplementassion ëd na captcha',
 	'captcha-addurl' => "Soa modìfica a la gionta dj'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-badlogin' => "Për giutene a vardesse da 'nt ij programa ch'a fan ciav fàosse n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-createaccount' => "Për giutene a vardesse da ij programa ch'a deurbo dij cont n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota
@@ -2165,7 +2167,7 @@ ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 
 Dle vire, dzortut quand un a caria dj'anliure esterne neuve ansime a na pàgina, la wiki a peul ësmon-je na figurin-a con dël test colora ò pura tut ëstòrt e ciameje d'arbate lòn ch'a-i é scrit andrinta. Da già ch'a l'é grama scrive un programa ch'a lo fasa, a ven che la pì gran part dla gent a-i la fa a scrive, ma la ói part dle màchine a-i la fa pa.
 
-Për maleur sossì a peul fastudié j'uetnt ch'a ës-ciàiro nen tant bin, col ch'a dòvro dij navigator mach a test ò pura dij navigator vocaj. Për adess i l'oma nen n'altërnativa disponibila ch'a fasa lese ël test a vos. Për piasì, ch'a contata j'aministrator dël sit se sossì a dovèissa mai nen lasseje carié dël test ch'a sia legitim (visadì, nen dla reclam).
+Për maleur sossì a peul fastudié j'uetnt ch'a ës-ciàiro nen tant bin, col ch'a dòvro dij navigator mach a test ò pura dij navigator vocaj. Për adess i l'oma nen n'altërnativa disponibila ch'a fasa lese ël test a vos. Për piasì, ch'a contata j'[[{{MediaWiki:Grouppage-sysop}}|aministrator dël sit]] se sossì a dovèissa mai nen lasseje carié dël test ch'a sia legitim (visadì, nen dla reclam).
 
 Ch'a-i bata ansima al boton 'andré' ant sò navigator për torné andré a l'editor dla pàgina.",
 	'captcha-addurl-whitelist' => " #<!-- leave this line exactly as it is --> <pre>
@@ -2173,6 +2175,7 @@ Ch'a-i bata ansima al boton 'andré' ant sò navigator për torné andré a l'ed
 #  * tut lòn ch'a-i ven dapress a un caràter \"#\" (fin-a a la fin dla riga) a l'é mach ëd coment
 #  * minca riga nen veujda a l'é un frament d'espression regolar ch'as dòvra për identifiché j'adrësse dle màchine servente ant j'anliure
   #</pre> <!-- leave this line exactly as it is -->",
+	'right-skipcaptcha' => "A fà j'assion che a ativo la captcha sensa avèj da passé da la captcha",
 );
 
 /** Pashto (پښتو)
@@ -2770,7 +2773,7 @@ Ne var ki bu durum, görme sorunları yaşayan kişiler ve salt yazı-tabanlı v
 Sayfa düzenleyiciye dönmek için tarayıcınızın 'geri' tuşuna basınız.",
 	'captcha-addurl-whitelist' => ' #<!-- bu satırı olduğu gibi bırakın --> <pre>
 # Sözdizimi aşağıdaki gibidir:
-#  * "#" karakterinden satır sonuna kadar herşey yorumdur
+#  * "#" karakterinden satır sonuna kadar her şey yorumdur
 #  * Her boş olmayan satır, URLler içinde sadece host ile eşleşen regex parçalarıdır
   #</pre> <!-- bu satırı olduğu gibi bırakın -->',
 	'right-skipcaptcha' => "Captcha ile tetiklenen hareketleri, captcha'yı geçme zorunluluğu olmadan yap",

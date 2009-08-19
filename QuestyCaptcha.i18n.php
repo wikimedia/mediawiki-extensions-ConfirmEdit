@@ -376,6 +376,27 @@ $messages['no'] = array(
 	'questycaptcha-badlogin' => 'For å hindre passordtyveri, vær vennlig og svar på spørsmålet under ([[Special:Captcha/help|mer informasjon]]):',
 );
 
+/** Polish (Polski)
+ * @author Sp5uhe
+ */
+$messages['pl'] = array(
+	'questycaptcha-addurl' => 'Edycja zawiera nowe linki zewnętrzne. 
+Ochrona przed zautomatyzowanym spamem wymaga odpowiedzi na poniższe pytanie ([[Special:Captcha/help|więcej informacji]])',
+	'questycaptcha-badlogin' => 'Ochrona przed zautomatyzowanym łamaniem haseł wymaga odpowiedzi na poniższe pytanie ([[Special:Captcha/help|więcej informacji]])',
+	'questycaptcha-createaccount' => 'Ochrona przed zautomatyzowanym tworzeniem kont wymaga odpowiedzi na poniższe pytanie ([[Special:Captcha/help|więcej informacji]])',
+	'questycaptcha-create' => 'Utworzenie strony jest możliwe po udzieleniu odpowiedzi na poniższe pytanie ([[Special:Captcha/help|więcej informacji]])',
+	'questycaptcha-edit' => 'Edycja strony jest możliwa po udzieleniu odpowiedzi na poniższe pytanie ([[Special:Captcha/help|więcej informacji]])',
+	'questycaptchahelp-text' => "Witryny, które publicznie udostępniają możliwość wprowadzania zmian, tak jak ta wiki, często są wykorzystywane przez spamerów, którzy korzystają ze zautomatyzowanych narzędzi, aby dodawać swoje linki do wielu stron.
+Pomimo tego, że takie linki mogą zostać usunięte, jest to jednak uciążliwe.
+
+Czasami, zwłaszcza jeśli dodano nowe linki zewnętrzne, wiki może poprosić o udzielenie odpowiedzi na pytanie.
+Ponieważ odpowiadanie na pytania jest czynnością trudną do zautomatyzowania, pozwala większości ludziom na wykonywanie edycji, zarazem uniemożliwiając ją spamerom i innym atakującym automatom.
+
+Skontaktuj się z [[{{MediaWiki:Grouppage-sysop}}|administratorami]], jeśli potrzebujesz pomocy ponieważ mechanizm ten uniemożliwia Ci dokonywania uzasadnionych edycji.
+
+Kliknij przycisk 'wstecz' w przeglądarce, aby wrócić do strony edycji.",
+);
+
 /** Portuguese (Português)
  * @author Giro720
  */

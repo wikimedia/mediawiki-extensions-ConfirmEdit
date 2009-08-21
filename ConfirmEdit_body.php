@@ -23,7 +23,7 @@ class ConfirmEditHooks {
 		return self::getInstance()->confirmEditMerged( $editPage, $newtext );
 	}
 
-	static function confirmEditAPI( &$editPage, $newtext, &$resultArr ) {
+	static function confirmEditAPI( $editPage, $newtext, &$resultArr ) {
 		return self::getInstance()->confirmEditAPI( $editPage, $newtext, $resultArr );
 	}
 
@@ -509,7 +509,7 @@ class SimpleCaptcha {
 	}
 
 
-	function confirmEditAPI( &$editPage, $newtext, &$resultArr ) {
+	function confirmEditAPI( $editPage, $newtext, &$resultArr ) {
 		if ( !$this->doConfirmEdit( $editPage, $newtext, false, false ) ) {
 			$this->addCaptchaAPI( $resultArr );
 			return false;

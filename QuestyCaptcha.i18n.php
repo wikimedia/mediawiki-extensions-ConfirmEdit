@@ -369,11 +369,53 @@ Fir d'Protectioun géint automatesche Spam ze vergréisseren, beäntwert w.e.g. 
 	'questycaptcha-edit' => "Fir dës Säit z'änneren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
 );
 
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
+$messages['nl'] = array(
+	'questycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe verwijzingen.
+Beantwoord de onderstaande vraag als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
+	'questycaptcha-badlogin' => 'Beantwoord de onderstaande vraag als bescherming tegen geautomatiseerde wachtwoordaanvallen ([[Special:Captcha/help|meer informatie]]):',
+	'questycaptcha-createaccount' => 'Beantwoord de onderstaande vraag als bescherming tegen het geautomatiseerd aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
+	'questycaptcha-create' => 'Beantwoord de onderstaande vraag om de pagina aan te maken ([[Special:Captcha/help|meer informatie]]):',
+	'questycaptcha-edit' => 'Beantwoord de onderstaande vraag om deze pagina te bewerken ([[Special:Captcha/help|meer informatie]]):',
+	'questycaptchahelp-text' => "Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma's automatisch verwijzigen op zetten naar vele websites.
+Hoewel deze externe verwijzingen weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
+
+Soms, en in het bijzonder bij het toevoegen van externe verwijzingen op pagina's, vraag de wiki u een vraag te beantwoorden.
+Omdat dit proces lastig te automatiseren is, zijn vrijwel alleen mensen in staat dit proces succesvol te doorlopen en worden hiermee spammers en andere geautomatiseerde aanvallen geweerd.
+
+Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als dit proces u verhindert een nuttige bijdrage te leveren.
+
+Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Simny
  */
 $messages['no'] = array(
 	'questycaptcha-badlogin' => 'For å hindre passordtyveri, vær vennlig og svar på spørsmålet under ([[Special:Captcha/help|mer informasjon]]):',
+);
+
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'questycaptcha-addurl' => 'Vòstra modificacion inclutz de ligams extèrnes novèls.
+Per nos ajudar dins la proteccion contra lo spam automatizat, respondètz a la question çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :',
+	'questycaptcha-badlogin' => "Per nos ajudar a prevenir la copadura dels senhals per d'automats, respondètz a la question çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",
+	'questycaptcha-createaccount' => "Per nos ajudar a luchar contra las creacions automaticas de comptes, respondètz a la question qu'apareis çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",
+	'questycaptcha-create' => 'Per crear la pagina, respondètz a la question çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :',
+	'questycaptcha-edit' => 'Per modificar aquesta pagina, respondètz a la question çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :',
+	'questycaptchahelp-text' => "Los sites web qu'acceptan de contribucions del public, coma aqueste wiki, son sovent victimas de polluposteires qu'utilizan d'espleches automatizats per plaçar de ligams nombroses cap a lors sites.
+Quitament s'aquesta pollucion pòt èsser escafada, es irritanta.
+
+De còps, particularament al moment de l’apondon de ligams extèrnes novèls dins una pagina, lo wiki vos pòt demandar de respondre a una question.
+Aqueste prètzfach es pas de bon acomplir d'un biais automatizat, aquò permet a la màger part dels umans de realizar lors contribucions tot en empachant la màger part dels polluposteires e autres atacants robotizats.
+
+Contactatz [[{{MediaWiki:Grouppage-sysop}}|los administrators del site]] s'aquò vos empacha de faiçon imprevista de far de contribucions legitimas.
+
+Clicatz sul boton « Precedent » de vòstre navigador per tornar a la pagina de modificacion.",
 );
 
 /** Polish (Polski)

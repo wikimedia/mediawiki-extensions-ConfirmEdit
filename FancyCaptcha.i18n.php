@@ -151,7 +151,7 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'fancycaptcha-addurl' => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
-	'fancycaptcha-badlogin' => "A-benn talañ ouzh ar preizhañ kontoù dre c'herioù-termen emgefre, skrivit er vaezienn ar gerioù merket dindan ([[Special:Captcha/help|Petra eo se?]]):",
+	'fancycaptcha-badlogin' => "A-benn talañ ouzh ar preizhañ kontoù dre c'herioù-tremen emgefre, skrivit er vaezienn ar gerioù merket dindan ([[Special:Captcha/help|Petra eo se?]]):",
 	'fancycaptcha-createaccount' => "Evit stourm a-enep d'ar c'hontoù  krouet ent emgefre, skrivit ar gerioù
 a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
 	'fancycaptcha-create' => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",

@@ -440,11 +440,12 @@ Kliknij przycisk 'wstecz' w przeglądarce, aby wrócić do strony edycji.",
 );
 
 /** Portuguese (Português)
+ * @author Crazymadlover
  * @author Giro720
  */
 $messages['pt'] = array(
 	'questycaptcha-addurl' => 'Sua edição inclui novas ligações externas.
-Para proteção contra spam automático, por favor responda a questão que aparece abaixo ([[Especial:Captcha/ajuda|mais informações]]):',
+Para proteção contra spam automático, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|mais informações]]):',
 );
 
 /** Brazilian Portuguese (Português do Brasil)

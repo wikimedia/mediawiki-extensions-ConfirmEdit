@@ -266,6 +266,7 @@ Clicca le button 'retro' in tu navigator pro retornar al editor de paginas.",
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Irwangatot
  */
 $messages['id'] = array(
 	'questycaptcha-addurl' => 'Suntingan Anda menambahkan pranala eksternal yang baru.
@@ -279,6 +280,15 @@ Untuk melindungi dari spam otomatis, mohon jawab pertanyaan di bawah ini
 ([[Special:Captcha/help|info lebih lanjut]]):',
 	'questycaptcha-edit' => 'Untuk menyunting halaman ini, mohon jawab pertanyaan di bawah ini
 ([[Special:Captcha/help|info lebih lanjut]]):',
+	'questycaptchahelp-text' => "Situs Web yang menerima kontibusi dari masyarakat, seperti wiki ini, sering disalahgunakan oleh spammer yang menggunakan alat otomatis untuk menambahkan pranala mereka ke banyak situs. 
+Sementara pranala spam ini dapat dihilangkan, mereka adalah gangguan yang signifikan. 
+
+Kadang-kadang, khususnya saat menambahkan pranala web baru ke halaman, wiki dapat meminta Anda untuk menjawab pertanyaan. 
+sekarang tugas itu sulit untuk diotomatisasi, diperlukan manusia nyata untuk melakukannya sementara menghentikan sebagian besar spammer dan robot penyerang. 
+
+Silakan menghubungi [[{{MediaWiki:Grouppage-sysop}}|site administrators]] untuk bantuan jika ini mencegah Anda dari membuat kontribusi yang sah. 
+
+tekan tombol 'back' di browser anda untuk kembali ke halaman penyuntingan.",
 );
 
 /** Italian (Italiano)
@@ -437,6 +447,27 @@ Ponieważ odpowiadanie na pytania jest czynnością trudną do zautomatyzowania,
 Skontaktuj się z [[{{MediaWiki:Grouppage-sysop}}|administratorami]], jeśli potrzebujesz pomocy ponieważ mechanizm ten uniemożliwia Ci dokonywania uzasadnionych edycji.
 
 Kliknij przycisk 'wstecz' w przeglądarce, aby wrócić do strony edycji.",
+);
+
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'questycaptcha-addurl' => 'Toa modìfica a conten na neuva anliura esterna.
+Për giuté a protegi contra spam automàtich, për piasì arspond a la custion che a-i é sì sota ([[Special:Captcha/help|për savèjne ëd pì]]):',
+	'questycaptcha-badlogin' => 'Për giuté a protegi contra ël crack ëd ciav automatisà, për piasì arspond a la custion che a ven fòra sota ([[Special:Captcha/help|për savèjne ëd pì]]):',
+	'questycaptcha-createaccount' => 'Për giuté a protegi contra la creassion automàtica ëd cont, për piasì arspond a la custion che a ven fòra sota ([[Special:Captcha/help|për savejne ëd pì]]):',
+	'questycaptcha-create' => 'Për creé la pàgina, për piasì arspond a la custion che a ven fòra sota: ([[Special:Captcha/help|për savejne ëd pì]]):',
+	'questycaptcha-edit' => 'Për modifiché sta pàgina-sì, për piasì arspond a la custion che a ven fòra sota ([[Special:Captcha/help|për savejne ëd pì]]):',
+	'questycaptchahelp-text' => "Soèns a-i riva che ij sit dla Ragnà che la gent a peul dovré për ëscrive chèich-còs, coma sta wiki-sì, a resto ambërlifà ëd reclam da màchine che a carìo soa ròba dadsà e dadlà n'automàtich. 
+Për tant che sta reclam un a peula peuj gavela, a resta sempe un gran fastudi. 
+
+Dle vire, dzortut quand un a caria dj'anliure esterne neuve ansime a na pàgina, la wiki a peul ciamete d'arsponde a na custion. 
+Da già ch'a l'é grama scrive un programa ch'a lo fasa, a ven che la pì gran part dla gent a-i la fa a scrive, ma la ói part dle màchine a-i la fa pa. 
+
+Për piasì contata j'[[{{MediaWiki:Grouppage-sysop}}|aministrador dël sit]] për assistensa se sòn-sì a l'ha nen lassate fé na contribussion legìtima.
+
+Ch'a-i bata ansima al boton 'andré' ant sò navigator për torné andré a l'editor dla pàgina.",
 );
 
 /** Portuguese (Português)

@@ -92,6 +92,18 @@ $messages['be-tarask'] = array(
 $messages['bs'] = array(
 	'questycaptcha-addurl' => 'Vaša izmjena uključuje nove vanjske linkove.
 Da bi pomogli protiv automatskog spama, molimo odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
+	'questycaptcha-badlogin' => 'Da bi pomogli u sprječavanju protiv automatskog probijanja šifre, molimo Vas da odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
+	'questycaptcha-createaccount' => 'Da bi pomogli u sprječavanju automatskog pravljenja računa, molimo Vas da odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
+	'questycaptcha-create' => 'Da bi ste napravili stranicu, molimo Vas da odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
+	'questycaptcha-edit' => 'Da bi ste uredili ovu stranicu, molimo Vas da odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
+	'questycaptchahelp-text' => "Websajtovi koji podržavaju doprinose iz javnosti, kao što je ovaj viki, često zloupotrebljavaju vandali koji koriste automatizovane alate da šalju svoje linkove ka mnogim sajtovima.
+Iako se ovi neželjeni linkovi mogu ukloniti, oni ipak zadaju veliku muku.
+
+Ponekad, pogotovo kad se dodaju novi internet linkovi na stranicu, wiki može tražiti od Vas da odgovorite na pitanje. Pošto je teško automatizovati ovakav zadatak, on omogućuje svim pravim ljudima da vrše svoje izmjene, ali će zato spriječiti vandale i ostale robotske napadače.
+
+Molimo Vas da kontaktirate [[{{MediaWiki:Grouppage-sysop}}|administratore stranice]] za pomoć ako je ovo prepreka za Vas da pravite uobičajene izmjene.
+
+Kliknite 'nazad' ('back') dugme vašeg preglednika da se vratite na polje za unos teksta.",
 );
 
 /** Catalan (Català)

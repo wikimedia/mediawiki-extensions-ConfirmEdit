@@ -255,6 +255,26 @@ Prošu staj so z [[{{MediaWiki:Grouppage-sysop}}|administratorami sydła]] z pro
 Klikń na tłócatko "Wróćo" w swojim wobhladowaku, zo by so k wobdźěłowanskemu woknu wróćił.',
 );
 
+/** Hungarian (Magyar)
+ * @author Glanthor Reviol
+ */
+$messages['hu'] = array(
+	'questycaptcha-addurl' => 'A szerkesztésed új külső hivatkozásokat tartalmaz.
+Segíts az automatikus spamek elleni védekezésben, kérlek válaszolj az alábbi kérdésre ([[Special:Captcha/help|további információk]]):',
+	'questycaptcha-badlogin' => 'Segíts az automatikus jelszófeltörés kivédésében, kérlek válaszolj az alábbi kérdésre ([[Special:Captcha/help|további információk]]):',
+	'questycaptcha-createaccount' => 'Segíts az automatikus felhasználói fiók készítés kivédésében, kérlek válszolj az alábbi kérdésre ([[Special:Captcha/help|további információk]]):',
+	'questycaptcha-create' => 'Kérlek válaszolj az alábbi kérdésre a lap létrehozásához ([[Special:Captcha/help|további információk]]):',
+	'questycaptcha-edit' => 'A lap szerkesztéséhez kérlek válaszolj az alábbi kérdésre ([[Special:Captcha/help|további információk]]):',
+	'questycaptchahelp-text' => 'Az olyan weboldalakat, amelyekre bárki írhat, gyakran támadják meg spammerek olyan eszközök felhasználásával, amelyek képesek automatikusan, emberi felügyelet nélkül elhelyezni hivatkozásokat sok különböző oldalon. 
+
+Néha, különösen ha egy új külső hivatkozást teszel egy szócikkbe, a wiki egy egy kérdés megválaszolására kérhet.
+Mivel ezt nehéz automatizálni, a valódi szerkesztőknek lehetőségük lesz szerkeszteni, miközben kiszűri a legtöbb spammert és más automatizált kártevőket.
+
+Ha ez nem várt módon akadályoz a hasznos közreműködéseidben, segítségért kérlek vedd fel a kapcsolatot [[{{MediaWiki:Grouppage-sysop}}|az oldal adminisztrátoraival]].
+
+Használd a böngésződ „vissza” gombját a szöveg szerkesztéséhez való visszalépéshez.',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */

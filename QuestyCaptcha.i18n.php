@@ -542,6 +542,15 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a do
 	'questycaptcha-createaccount' => "Pe aiutà a proteggere condre a ccreazione automateche de cunde utinde, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):",
 	'questycaptcha-create' => "Pe ccrejà sta pàgene, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):",
 	'questycaptcha-edit' => "Pe cangià sta pàgene, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):",
+	'questycaptchahelp-text' => "Le site web ca accettane condrebbute da 'u pubbleche, cumme sta Uicchi, sonde spesse abusate da le ''spammer'' ca ausane struminde automatece e aggiungene le lore collegaminde a 'nu sacche de site.<br />
+Pure ca chiste collegaminde de spam ponne essere luate, lore sò sembre 'nu scassamende de palle.<br />
+<br />
+Certe vote, specialmende quanne aggiunge 'nu nuève collegamende web a 'na pàgene, Uicchi te pò chiedere de responnere a 'na domande.<br />
+Accussì addeviene 'nu combete cchiù defficile da automatizzà, accussì se permette a le cristiane de fà cangiaminde reale e se blocchene de cchiù le ''spammer'' e otre attacche de robot.<br />
+<br />
+Pe piacere condatte le [[{{MediaWiki:Grouppage-sysop}}|amministrature d'u site]] pe assistenze ce stu fatte non ge funzione accume se deve e no te face fà le cangiaminde legittime.<br />
+<br />
+Cazze 'u buttone 'rrete' jndr'à 'u browser tue pe turnà 'a pàgene d'u cangiamende.",
 );
 
 /** Russian (Русский)

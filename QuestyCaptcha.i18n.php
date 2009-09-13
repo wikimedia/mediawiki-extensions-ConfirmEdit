@@ -162,6 +162,14 @@ Staj se pšosym z [[{{MediaWiki:Grouppage-sysop}}|administratorami sedła]] z p�
 Klikni na tłocašk "Slědk" we swójom wobglědowaku, aby wróśił se k wobźěłowańskemu woknoju.',
 );
 
+/** Greek (Ελληνικά)
+ * @author Omnipaedista
+ */
+$messages['el'] = array(
+	'questycaptcha-addurl' => 'Η επεξεργασία σας περιέχει νέους εξωτερικούς συνδέσμους.
+Για να μας βοηθήσετε στην προστασία κατά των αυτοματοποιημένων σπαμ, παρακαλώ απαντήστε στην παρακάτω ερώτηση ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+);
+
 /** Basque (Euskara)
  * @author Kobazulo
  */

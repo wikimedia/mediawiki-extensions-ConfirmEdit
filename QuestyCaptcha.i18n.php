@@ -170,6 +170,18 @@ $messages['el'] = array(
 Για να μας βοηθήσετε στην προστασία κατά των αυτοματοποιημένων σπαμ, παρακαλώ απαντήστε στην παρακάτω ερώτηση ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
 );
 
+/** Spanish (Español)
+ * @author Crazymadlover
+ */
+$messages['es'] = array(
+	'questycaptcha-addurl' => 'Tu edición incluye nuevos vínculos externos.
+Para ayudar a proteger contra spam automático, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):',
+	'questycaptcha-badlogin' => 'Para ayudar a proteger contra craqueo de contraseña, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):',
+	'questycaptcha-createaccount' => 'Para ayudar a proteger contra la creación automática de cuentas, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):',
+	'questycaptcha-create' => 'Para crear la página, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):',
+	'questycaptcha-edit' => 'Para editar esta página, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):',
+);
+
 /** Basque (Euskara)
  * @author Kobazulo
  */

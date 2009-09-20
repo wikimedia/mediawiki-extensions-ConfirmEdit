@@ -39,8 +39,8 @@ class ConfirmEditHooks {
 		return self::getInstance()->triggerUserLogin( $user, $password, $retval );
 	}
 
-	static function injectUserLogin( &$template ) {
-		return self::getInstance()->injectUserLogin( $template );
+	static function injectUserLogin( &$sp ) {
+		return self::getInstance()->injectUserLogin( $sp );
 	}
 
 	static function confirmUserLogin( $u, $pass, &$retval ) {
@@ -144,18 +144,18 @@ class SimpleCaptcha {
 	 * @param SimpleTemplate $template
 	 * @return bool true to keep running callbacks
 	 */
-	function injectUserCreate( &$template ) {
+	function injectUserCreate( &$sp ) {
 		global $wgCaptchaTriggers, $wgOut, $wgUser;
 		if ( $wgCaptchaTriggers['createaccount'] ) {
 			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return true;
 			}
-			$template->set( 'header',
+			$sp->mFormHeader .= 
 				"<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
 				$this->getForm() .
-				"</div>\n" );
+				"</div>\n";
 		}
 		return true;
 	}
@@ -163,18 +163,17 @@ class SimpleCaptcha {
 	/**
 	 * Inject a captcha into the user login form after a failed
 	 * password attempt as a speedbump for mass attacks.
-	 * @fixme if multiple thingies insert a header, could break
 	 * @param SimpleTemplate $template
 	 * @return bool true to keep running callbacks
 	 */
-	function injectUserLogin( &$template ) {
+	function injectUserLogin( &$sp ) {
 		if ( $this->isBadLoginTriggered() ) {
 			global $wgOut;
-			$template->set( 'header',
+			$sp->mFormHeader .= 
 				"<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'badlogin' ) ) .
 				$this->getForm() .
-				"</div>\n" );
+				"</div>\n";
 		}
 		return true;
 	}
@@ -190,7 +189,7 @@ class SimpleCaptcha {
 	 */
 	function triggerUserLogin( $user, $password, $retval ) {
 		global $wgCaptchaTriggers, $wgCaptchaBadLoginExpiration, $wgMemc;
-		if ( $retval == LoginForm::WRONG_PASS && $wgCaptchaTriggers['badlogin'] ) {
+		if ( $retval == Login::WRONG_PASS && $wgCaptchaTriggers['badlogin'] ) {
 			$key = $this->badLoginKey();
 			$count = $wgMemc->get( $key );
 			if ( !$count ) {
@@ -557,7 +556,7 @@ class SimpleCaptcha {
 			if ( !$this->passCaptcha() ) {
 				$message = wfMsg( 'captcha-badlogin-fail' );
 				// Emulate a bad-password return to confuse the shit out of attackers
-				$retval = LoginForm::WRONG_PASS;
+				$retval = Login::WRONG_PASS;
 				return false;
 			}
 		}

@@ -151,11 +151,12 @@ class SimpleCaptcha {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return true;
 			}
-			$sp->mFormHeader .= 
+			$sp->addFormHeader( 
 				"<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
 				$this->getForm() .
-				"</div>\n";
+				"</div>\n"
+			);
 		}
 		return true;
 	}
@@ -169,11 +170,12 @@ class SimpleCaptcha {
 	function injectUserLogin( &$sp ) {
 		if ( $this->isBadLoginTriggered() ) {
 			global $wgOut;
-			$sp->mFormHeader .= 
+			$sp->addFormHeader(
 				"<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'badlogin' ) ) .
 				$this->getForm() .
-				"</div>\n";
+				"</div>\n"
+			);
 		}
 		return true;
 	}

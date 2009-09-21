@@ -1815,6 +1815,15 @@ Diemžēl tas var apgrūtināt lietotājus, kuriem ir redzes traucējumi vai kur
 Spied pārlūka pogu \"Atpakaļ\" (''Back''), lai atgrieztos iepriekšējā lapā.",
 );
 
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'captcha-edit' => 'За да ја уредите оваа страница потребно е да го најдете решението на едноставната задача поставена подолу и одговорот да го внесете во соодветното поле за одговор([[Special:Captcha/help|повеќе информации]]):',
+	'captcha-desc' => 'Едноставна имплементација на capthca',
+	'right-skipcaptcha' => 'Изведување на акции кои повикуваат captcha без да одат преку captcha системот',
+);
+
 /** Malayalam (മലയാളം)
  * @author Shijualex
  */

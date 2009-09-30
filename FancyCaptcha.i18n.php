@@ -243,11 +243,13 @@ Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten 
 
 /** German (formal address) (Deutsch (Sie-Form))
  * @author Imre
+ * @author MichaelFrey
  * @author Umherirrender
  */
 $messages['de-formal'] = array(
 	'fancycaptcha-addurl' => 'Ihre Bearbeitung enthält neue externe Links.
 Zum Schutz vor automatisiertem Spamming geben Sie das folgende Wort in das Feld unten ein. Klicken Sie dann erneut auf „Seite speichern“ ([[Special:Captcha/help|Fragen oder Probleme?]]).',
+	'fancycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung Ihres Benutzerkontos geben Sie bitte das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Haben Sie Fragen oder Probleme?)]]:',
 );
 
 /** Lower Sorbian (Dolnoserbski)

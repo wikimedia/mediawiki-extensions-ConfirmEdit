@@ -629,3 +629,11 @@ Kontaktujte prosím [[{{MediaWiki:Grouppage-sysop}}|správcov lokality]] ak potr
 Späť na úpravu stránky sa vrátite kliknutím na tlačidlo „Späť“ vo vašom prehliadači.',
 );
 
+/** Telugu (తెలుగు)
+ * @author Kiranmayee
+ */
+$messages['te'] = array(
+	'questycaptcha-addurl' => 'మీరు చేసిన మార్పులో కొత్త బయటి లింకులు ఉన్నాయి.
+ఆటోమేటెడ్ స్పాము నుండి రక్షణకై, క్రింద కనిపించే ప్రశ్నకు సమాధానమివ్వండి ([[Special:Captcha/help|మరింత సమాచారం]]):',
+);
+

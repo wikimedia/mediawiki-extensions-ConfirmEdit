@@ -264,6 +264,27 @@ Bitte nimm Kontakt uf zue dr [[{{MediaWiki:Grouppage-sysop}}|Website-Administrat
 Druck dr 'Zruck'-Chnopf in Dyym Browser go zuem Bearbeitigsfänschter zruckgoh.",
 );
 
+/** Hebrew (עברית)
+ * @author YaronSh
+ */
+$messages['he'] = array(
+	'questycaptcha-addurl' => 'העריכה שלכם כוללת קישורים חיצוניים.
+כדי לעזור ולהגן מפני מנגנוני השחתה אוטומטיים, אנא ענו על השאלה המופיעה להלן ([[Special:Captcha/help|מידע נוסף]]):',
+	'questycaptcha-badlogin' => 'כדי לסייע בהגנה כנגד פריצת סיסמאות אוטומטית, אנא ענו על השאלה המופיעה להלן ([[Special:Captcha/help|מידע נוסף]]):',
+	'questycaptcha-createaccount' => 'כדי לסייע בהגנה מפני יצירת חשבונות אוטומטית, אנא ענו על השאלה המופיעה להלן ([[Special:Captcha/help|מידע נוסף]]):',
+	'questycaptcha-create' => 'כדי ליצור את הדף, אנא ענו על השאלה המופיעה להלן ([[Special:Captcha/help|מידע נוסף]]):',
+	'questycaptcha-edit' => 'כדי לערוך דף זה, אנא ענו על השאלה המופיעה להלן ([[Special:Captcha/help|מידע נוסף]]):',
+	'questycaptchahelp-text' => "אתרים המקבלים תרומות מהציבור, כמו אתר ויקי זה, מנוצלים לעיתים קרובות על ידי משחיתים המשתמשים בכלים אוטומטיים כדי להוסיף קישורים אליהם באתרים רבים.
+על אף שניתן להסיר קישורים אלו, הם מהווים מטרד משמעותי.
+
+לעיתים, במיוחד בעת הוספת קישורים חדשים לדף, הוויקי יבקש מכם לענות על שאלה.
+מאחר שמשימה זו קשה לביצוע באופן אוטומטי, היא תאפשר למרבית בני האדם האמיתיים להעניק את תרומותיהם תוך כדי עצירת רב המשחיתים ומתקיפים רובוטיים אחרים.
+
+אנא צרו קשר עם [[{{MediaWiki:Grouppage-sysop}}|מנהלי האתר]] לקבלת סיוע אם תכונה זו מונעת מכם לתרום באופן לגיטימי באופן בלתי צפוי.
+
+לחצו על הלחצן 'אחורה' בדפדפן כדי לחזור אל עורך הדפים.",
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */

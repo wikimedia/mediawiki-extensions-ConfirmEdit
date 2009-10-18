@@ -522,7 +522,7 @@ $messages['cs'] = array(
 	'captcha-createaccount-fail' => 'Chybějící či neplatný potvrzovací kód.',
 	'captcha-create' => 'Abyste mohli založit stránku musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
 	'captchahelp-title' => 'Nápověda ke captcha',
-	'captchahelp-cookies-needed' => 'Musíte mít zapnuty cookies ve svém prohlížeči.',
+	'captchahelp-cookies-needed' => 'Aby to fungovalo, musíte mít ve svém prohlížeči zapnuty cookies.',
 	'captchahelp-text' => 'Webové stránky, do kterých mohou přispívat jejich návštěvníci (jako například tato wiki), jsou často terčem spammerů, kteří pomocí automatických nástrojů vkládají své odkazy na velké množství stránek. Přestože lze tento spam odstranit, představuje nepříjemné obtěžování.
 
 Někdy, zvláště při přidávání nových webových odkazů, vám může wiki ukázat obrázek barevného či pokrouceného textu a požádat vás o opsání zobrazených znaků. Jelikož takovou úlohu lze jen těžko automatizovat, skuteční lidé mohou dále přispívat, zatímco většinu spammerů a jiných robotických útočníků to zastaví.

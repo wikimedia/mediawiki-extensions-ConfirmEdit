@@ -647,6 +647,15 @@ Klicken Sie dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen
 	'captcha-create' => 'Zur Erstellung der Seite lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 );
 
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'captcha-desc' => 'Implementasyonê captacha yê asanî',
+	'captcha-createaccount-fail' => 'Kodê testiqî vin biyo ya zi raşt niyo.',
+	'captchahelp-title' => 'Yardimê captchayî',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

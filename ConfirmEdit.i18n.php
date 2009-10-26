@@ -648,12 +648,37 @@ Klicken Sie dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen
 );
 
 /** Zazaki (Zazaki)
+ * @author Aspar
  * @author Xoser
  */
 $messages['diq'] = array(
+	'captcha-edit' => 'Qe ena pel vurnayîşî, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'captcha-desc' => 'Implementasyonê captacha yê asanî',
+	'captcha-addurl' => 'Vurnayîşanê tu de linkanê harîcîyê newe esto.
+Qe otomatik spamî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
+	'captcha-badlogin' => 'Qe otomatik parola crack kerdişî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
+	'captcha-createaccount' => 'Qe otomatik hesab viraştişî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'captcha-createaccount-fail' => 'Kodê testiqî vin biyo ya zi raşt niyo.',
+	'captcha-create' => 'Qe pel viraştîşî, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'captchahelp-title' => 'Yardimê captchayî',
+	'captchahelp-cookies-needed' => 'Eka şıma wazeno bıkewê pela Wikipedia, programê internetê şıma de cookiesi gani aktiv bê.',
+	'captchahelp-text' => "Siteyan ke kamu ra aleknayişê îlanî ra destur dano, ze ena wiki, spam kerdogan ke xacetane otomatiki ser kar keno inan ra atak beno.
+Ma eşkeno linkane inan wedarno, feqat hewna inan problem zeman ma geno. 
+
+Mavaci, key ti yew pele de linkane newi darneno, wiki belki ti ra yew resim mucneno u ti ra wazeno cekuyan ke resimda inan binusi. 
+Eka ena process otomatik nibeno, ena process otomatik spam kerogan vinderneno feqay sexsi spam kerdogan nieşkeno vindaro.
+
+Ma ef bikeri ena process belki ti ra zehmeti. belki cim tu ra şcekuyan hewl niesno. 
+Nika ma da sistemê vengî cinoke ti ra vaci resim da kamci cekuyan esto. 
+Ma rica keno ti yew [[{{MediaWiki:Grouppage-sysop}}|idarekar]] ra yew mesaj bişavî u o ra yardim bivaci eka ti yew linkê hewlî darnone.
+
+Browser xo de goceke 'back' rê klik bike şo pela editorî.",
+	'captcha-addurl-whitelist' => '  #<!-- leave this line exactly as it is --> <pre>
+#Sîntaks ze ena yo: 
+#  * Nişanê "#" ra nişanê ke bînê xetî de pêran piya xulasa yo
+#  * Her xetî ke veng niyo fragmento regex u teyna URLan de hostan match keno
+  #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha' => 'Herekatanê captcha trigger perform bike ke ti ser captcha meşo',
 );
 
 /** Lower Sorbian (Dolnoserbski)

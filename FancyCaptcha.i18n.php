@@ -252,6 +252,18 @@ Zum Schutz vor automatisiertem Spamming geben Sie das folgende Wort in das Feld 
 	'fancycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung Ihres Benutzerkontos geben Sie bitte das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Haben Sie Fragen oder Probleme?)]]:',
 );
 
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'fancycaptcha-addurl' => 'Vurnayîşanê tu de linkanê harîcîyê newe esto. 
+Qe otomatik spamî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
+	'fancycaptcha-badlogin' => 'Qe otomatik parola crack kerdişî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
+	'fancycaptcha-createaccount' => 'Qe otomatik hesab viraştişî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
+	'fancycaptcha-create' => 'Qe pel viraştîşî, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
+	'fancycaptcha-edit' => 'Qe pel vurnayîşî, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

@@ -761,6 +761,19 @@ As Schutz gegen automaatsch Spam, geev disse Bookstavenreeg in dat Feld ünnen i
 	'fancycaptcha-edit' => 'Disse Sied to ännern, geev disse Bookstavenreeg in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
 );
 
+/** Nedersaksisch (Nedersaksisch)
+ * @author Servien
+ */
+$messages['nds-nl'] = array(
+	'fancycaptcha-addurl' => "Joew bewarking bevat uutgaonde verwiezingen. 
+Um dit prejek te bescharmen tegen spam, mu-j 't woord dat hieronder steet invullen ([[Special:Captcha/help|hulpe]]):",
+	'fancycaptcha-badlogin' => "Um disse webstee te beveiligen tegen 't kraken van wachwoorden, wö-j verzoch um de woorden dee-j hieronder zien in te vullen ([[Special:Captcha/help|hulpe]]):",
+	'fancycaptcha-createaccount' => "Um disse wiki te bescharmen tegen 't autematisch anmaken van gebrukersprefielen mu-j 't woord hieronder invullen ([[Special:Captcha/help|hulpe]]):",
+	'fancycaptcha-create' => "Um een pagina an te maken, mu-j 't woord dat hieronder steet invullen
+([[Special:Captcha/help|hulpe]]):",
+	'fancycaptcha-edit' => 'Joew bewarking bevat nieje uutgaonde verwiezingen. Um disse wiki te bescharmen tegen ongewunste toevoegingen mu-j de woorden hieronder invullen ([[Special:Captcha/help|hulpe]]):',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

@@ -2249,6 +2249,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Hamilton Abreu
  * @author Malafaya
  */
 $messages['pt'] = array(
@@ -2262,17 +2263,17 @@ $messages['pt'] = array(
 	'captcha-create' => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
 	'captchahelp-title' => 'Ajuda com o Captcha',
 	'captchahelp-cookies-needed' => 'Você precisará ter cookies habilitados em seu navegador para que possa funcionar',
-	'captchahelp-text' => "Sítios abertos a inserções públicas, como é o caso deste wiki, são vulneráveis a spammers que utilizem ferramentas automatizadas para inserirem as suas ligações em diversos locais.
-Remover tais ligações posteriormente poderá ser um significativo incómodo.
+	'captchahelp-text' => "Sítios da internet abertos a edição pública, como é o caso desta wiki, são frequentemente abusados por ''spammers'' que utilizam ferramentas automatizadas para inserção massiva de ligações em muitos sítios.
+Embora essas ligações possam ser removidas, representam um incómodo significativo.
 
-Algumas vezes, especialmente ao adicionar novas ligações externas a uma página, o wiki exibirá uma imagem com um texto colorido ou distorcido e pedirá que você introduza as palavras exibidas.
-Uma vez que essa é uma tarefa um tanto difícil de ser automatizada, ela possibilita que a maioria dos humanos façam as suas inserções ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
+Por vezes, especialmente quando adicionar a uma página novas ligações externas, a wiki apresentará a imagem de um texto colorido ou distorcido e pedirá que escreva o texto apresentado.
+Porque a interpretação do texto apresentado nas imagens é uma tarefa difícil de automatizar, este pedido feito pela wiki possibilita que a maioria das pessoas façam as suas edições, enquanto inibe edições por mecanismos automatizados.
 
-Infelizmente, isso pode ser um inconveniente para utilizadores com limitações visuais ou que naveguem através de  mecanismos baseados em texto ou baseados em voz.
-No momento, não está disponível uma alternativa em áudio.
-Por favor, contacte os [[{{MediaWiki:Grouppage-sysop}}|administradores do sítio]] em casos que seja necessária a assistência de alguém para que você possa fazer as suas inserções legítimas.
+Infelizmente, esta funcionalidade pode revelar-se um inconveniente para utilizadores com limitações visuais ou que utilizam navegadores baseados em texto ou voz.
+Neste momento, não temos disponível uma alternativa em áudio.
+Por favor, contacte os [[{{MediaWiki:Grouppage-sysop}}|administradores]] para assistência, caso a funcionalidade esteja a impedi-lo de fazer edições legítimas.
 
-Pressione o botão 'voltar' de seu navegador para retornar à página de edição.",
+Clique o botão 'voltar' do seu navegador para voltar à página de edição.",
 	'captcha-addurl-whitelist' => ' #<!-- deixe este linha exactamente como está --> <pre>
 # A sintaxe é a que se segue:
 #  * Tudo desde o caracter "#" até ao fim da linha é um comentário

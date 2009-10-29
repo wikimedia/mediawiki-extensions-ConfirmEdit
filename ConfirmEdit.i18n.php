@@ -2253,14 +2253,14 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'captcha-edit' => 'Para editar esta página será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
+	'captcha-edit' => "Para ajudar a prevenir o ''spam'' automatizado na edição de páginas, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):",
 	'captcha-desc' => 'Uma implementação simples de um sistema captcha',
-	'captcha-addurl' => 'Sua edição inclui novas ligações externas; como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
-	'captcha-badlogin' => 'Como prevenção contra formas automatizadas de pesquisa e descoberta de senhas, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
-	'captcha-createaccount' => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem para que possa se cadastrar:<br />
-([[Special:Captcha/help|O que é isto?]])',
+	'captcha-addurl' => "A sua edição introduziu ligações externas novas.
+Para ajudar a prevenir o ''spam'' automatizado, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):",
+	'captcha-badlogin' => 'Para ajudar a prevenir mecanismos automatizados de descoberta de palavras-chave, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):',
+	'captcha-createaccount' => 'Para ajudar a prevenir a criação de contas automatizada, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):',
 	'captcha-createaccount-fail' => 'Código incorreto ou não preenchido.',
-	'captcha-create' => 'Como prevenção contra sistemas automatizados que inserem spam, será necessário que você digite as palavras exibidas na seguinte imagem no box apropriado ([[Special:Captcha/help|o que é isto?]])',
+	'captcha-create' => "Para ajudar a prevenir o ''spam'' automatizado na criação desta página, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):",
 	'captchahelp-title' => 'Ajuda com o Captcha',
 	'captchahelp-cookies-needed' => 'Você precisará ter cookies habilitados em seu navegador para que possa funcionar',
 	'captchahelp-text' => "Sítios da internet abertos a edição pública, como é o caso desta wiki, são frequentemente abusados por ''spammers'' que utilizam ferramentas automatizadas para inserção massiva de ligações em muitos sítios.
@@ -2274,11 +2274,11 @@ Neste momento, não temos disponível uma alternativa em áudio.
 Por favor, contacte os [[{{MediaWiki:Grouppage-sysop}}|administradores]] para assistência, caso a funcionalidade esteja a impedi-lo de fazer edições legítimas.
 
 Clique o botão 'voltar' do seu navegador para voltar à página de edição.",
-	'captcha-addurl-whitelist' => ' #<!-- deixe este linha exactamente como está --> <pre>
-# A sintaxe é a que se segue:
-#  * Tudo desde o caracter "#" até ao fim da linha é um comentário
-#  * Qualquer linha não vazia é um fragmento de regex que irá apenas verificar o servidor anfitrião dentro das URLs
-  #</pre> <!-- deixe este linha exactamente como está -->',
+	'captcha-addurl-whitelist' => ' #<!-- deixe esta linha exactamente como está --> <pre>
+# A sintaxe é a seguinte:
+#  * Tudo desde um símbolo de cardinal (#) até ao fim da linha é um comentário
+#  * Qualquer linha que não esteja em branco é um fragmento de expressão regular (regex) que será comparado com o servidor das URLs
+ #</pre> <!-- deixe esta linha exactamente como está -->',
 	'right-skipcaptcha' => 'Executar acções despoletadoras de captcha sem ter que passar pelo captcha',
 );
 

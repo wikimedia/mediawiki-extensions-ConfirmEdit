@@ -2262,7 +2262,7 @@ Para ajudar a prevenir o ''spam'' automatizado, por favor resolva a soma simples
 	'captcha-createaccount-fail' => 'Código incorreto ou não preenchido.',
 	'captcha-create' => "Para ajudar a prevenir o ''spam'' automatizado na criação desta página, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):",
 	'captchahelp-title' => 'Ajuda com o Captcha',
-	'captchahelp-cookies-needed' => 'Você precisará ter cookies habilitados em seu navegador para que possa funcionar',
+	'captchahelp-cookies-needed' => "É necessário ter os ''cookies'' activados no seu navegador para que isto funcione.",
 	'captchahelp-text' => "Sítios da internet abertos a edição pública, como é o caso desta wiki, são frequentemente abusados por ''spammers'' que utilizam ferramentas automatizadas para inserção massiva de ligações em muitos sítios.
 Embora essas ligações possam ser removidas, representam um incómodo significativo.
 

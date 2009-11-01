@@ -86,6 +86,26 @@ $messages['be-tarask'] = array(
 Націсьніце кнопку «назад» у Вашым браўзэры, каб вярнуцца да рэдагаваньня старонкі.',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'questycaptcha-addurl' => "Degaset hoc'h liammoù diavaez nevez.
+A-benn hor skoazellañ da stourm a-enep d'ar strob emgefre, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
+	'questycaptcha-badlogin' => "A-benn hor skoazellañ da stourm a-enep ar freuzañ gerioù-tremen gant ardivinkoù, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
+	'questycaptcha-createaccount' => "A-benn hor skoazellañ da stourm a-enep ar c'hrouiñ kontoù emgefre, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
+	'questycaptcha-create' => "A-benn gellout krouiñ ar bajenn, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
+	'questycaptcha-edit' => "A-benn gellout degas kemmoù er bajenn-mañ, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
+	'questycaptchahelp-text' => "Alies e vez taget al lec'hiennoù a zegemer kemennadennoù a-berzh an holl, evel ar wiki-mañ, gant ar stroberien a implij ostilhoù emgefre evit postañ o liammoù war-du lec'hiennoù a bep seurt. Ha pa c'hallfent bezañ diverket, kazus-mat ez eo ar stroboù-se memes tra.
+
+A-wezhioù, dreist-holl pa vez ouzhpennet liammoù Web nevez war ur bajenn, e c'hallo ar wiki-mañ sevel ur goulenn ouzhoc'h. 
+Un trevell start da emgefrekaat eo hemañ. Gant se e c'hallo an implijerien wirion postañ ar pezh a fell dezho tra ma vo lakaet un harz d'an darn vrasañ eus ar stroberien pe d'an dagerien robotek all.
+
+Kit e darempred gant [[{{MediaWiki:Grouppage-sysop}}|merourien al lec'hienn]] evit bezañ skoazellet m'hoc'h eus diaesterioù da gemer perzh da vat abalamour d'an teknik-se.
+
+Pouezit war bouton 'kent' ho merdeer evit distreiñ d'ar bajenn gemmañ.",
+);
+
 /** Bosnian (Bosanski)
  * @author CERminator
  */
@@ -155,7 +175,7 @@ Za šćit pśeśiwo zawtomatizěrowanemu spamoju, wótegroń pšosym na pšašan
 	'questycaptchahelp-text' => 'Websedła, kótarež akceptěruju zjawne pśinoski, ako toś ten wiki, znjewužywaju se cesto wót spamowarjow, kótarež wužywaju zawtomatizěrowane rědy, aby pśidali swóje wótkaze na wjele sedłow. Lěcrownož toś te spamowe wótkaze daju se wótpóraś, su wóne bejna pógóršota. 
 
 Wótergi, wósebnje, gaž se nowe wótkaze pśidawaju bokoju, jo móžno, až se śi wiki něco pšaša. 
-Dokulaž to jo nadawk, kótaryž dajo se śěžko awtomatizěrowaś, dowólujo to napšawdnym luźam jich pśinoski wótpósłaś, najwěcej spamowarjow a robotowe ataki pak se zaźaržyju. 
+Dokulaž to jo nadawk, kótaryž dajo se śěžko awtomatizěrowaś, dowólujo to napšawdnym luźam jich pśinoski wótpósłaś, nejwěcej spamowarjow a robotowe ataki pak se zaźaržyju. 
 
 Staj se pšosym z [[{{MediaWiki:Grouppage-sysop}}|administratorami sedła]] z pšosbu wó pomoc do zwiska, jolic to śi njewócakane zawobarujo słanje legitimnych pśinoskow. 
 

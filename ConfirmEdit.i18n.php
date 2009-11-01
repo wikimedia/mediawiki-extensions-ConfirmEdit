@@ -699,7 +699,7 @@ Za šćit pśeśiwo zawtomatizěrowanemu spamoju, rozwěž pšosym slědujucy ja
 Lěcrownož toś te spamowe wótkaze daju se wótpóraś, su wóne bejna pógóršota.
 
 Wótergi, wósebnje, gaž se nowe wótkaze pśidawaju bokoju, jo móžno, až wiki śi pokazujo wobraz barwojtego abo spryšćonego teksta a pšosy śe, aby zapódał zwobraznjone słowa.
-Dokulaž to jo nadawk, kótaryž dajo se śěžko awtomatizěrowaś, dówolujo to napšawdnym luźam jich pśinoski wótpósłaś, najwěcej spamowarjow a robotowe ataki pak se zaźaržyju.
+Dokulaž to jo nadawk, kótaryž dajo se śěžko awtomatizěrowaś, dówolujo to napšawdnym luźam jich pśinoski wótpósłaś, nejwěcej spamowarjow a robotowe ataki pak se zaźaržyju.
 
 Bóžko to móžo kazyś wužywarjow z wobgraniwoneju zamóžnosću wiźenja pśi wužywanju wobglědowakow, kótarež bazěruju na teksće abo rěcnem wudaśu.
 Tuchylu njamamy awdioalternatiwu.

@@ -20,10 +20,26 @@ To help protect against automated spam, please enter the words that appear below
 
 /** Message documentation (Message documentation)
  * @author Fryed-peach
+ * @author Hamilton Abreu
  * @author Purodha
  */
 $messages['qqq'] = array(
 	'fancycaptcha-desc' => '{{desc}}',
+	'fancycaptcha-addurl' => 'See also
+*{{msg-mw|captcha-addurl}}
+*{{msg-mw|Questycaptcha-addurl}}',
+	'fancycaptcha-badlogin' => 'See also
+*{{msg-mw|captcha-badlogin}}
+*{{msg-mw|Questycaptcha-badlogin}}',
+	'fancycaptcha-createaccount' => 'See also
+*{{msg-mw|captcha-createaccount}}
+*{{msg-mw|Questycaptcha-createaccount}}',
+	'fancycaptcha-create' => 'See also
+*{{msg-mw|Captcha-create}}
+*{{msg-mw|Questycaptcha-create}}',
+	'fancycaptcha-edit' => 'See also
+*{{msg-mw|Captcha-edit}}
+*{{msg-mw|Questycaptcha-edit}}',
 );
 
 /** Amharic (አማርኛ)
@@ -868,14 +884,16 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (Português)
+ * @author Hamilton Abreu
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'fancycaptcha-addurl' => "A sua edição inclui novas ligações externas. Como prevenção contra sistemas automatizados que inserem ''spam'', por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):",
-	'fancycaptcha-badlogin' => 'Como prevenção contra formas automatizadas de descoberta de palavras-chave, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
-	'fancycaptcha-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
-	'fancycaptcha-create' => 'Para criar a página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
-	'fancycaptcha-edit' => 'Para editar esta página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
+	'fancycaptcha-addurl' => "A sua edição introduziu ligações externas novas.
+Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa abaixo as palavras  apresentadas ([[Special:Captcha/help|mais informações]]):",
+	'fancycaptcha-badlogin' => 'Para ajudar a prevenir mecanismos automatizados de descoberta de palavras-chave, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):',
+	'fancycaptcha-createaccount' => 'Para ajudar a prevenir a criação de contas automatizada, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):',
+	'fancycaptcha-create' => 'Para criar a página, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):',
+	'fancycaptcha-edit' => 'Para editar esta página, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):',
 );
 
 /** Brazilian Portuguese (Português do Brasil)

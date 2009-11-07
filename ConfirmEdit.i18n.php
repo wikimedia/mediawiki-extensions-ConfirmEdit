@@ -40,6 +40,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 
 /** Message documentation (Message documentation)
  * @author Aotake
+ * @author Hamilton Abreu
  * @author MF-Warburg
  * @author Meithal
  * @author Meno25
@@ -48,12 +49,27 @@ Hit the 'back' button in your browser to return to the page editor.",
  * @author Toliño
  */
 $messages['qqq'] = array(
-	'captcha-edit' => 'This message will be shown when editing if the wiki requires solving a captcha for editing.',
+	'captcha-edit' => 'This message will be shown when editing if the wiki requires solving a captcha for editing.
+See also
+*{{msg-mw|Questycaptcha-edit}}
+*{{msg-mw|Fancycaptcha-edit}}',
 	'captcha-desc' => 'Short description of this extension, shown in [[Special:Version]]. Do not translate or change links.',
-	'captcha-addurl' => 'The explanation of CAPTCHA shown to users trying to add new external links.',
-	'captcha-badlogin' => 'The explanation of CAPTCHA shown to users failed three times to type in correct password.',
-	'captcha-createaccount' => 'The explanation of CAPTCHA shown to users trying to create a new account.',
-	'captcha-create' => 'This message will be shown when creating a page if the wiki requires solving a captcha for that.',
+	'captcha-addurl' => 'The explanation of CAPTCHA shown to users trying to add new external links.
+See also
+*{{msg-mw|Questycaptcha-addurl}}
+*{{msg-mw|Fancycaptcha-addurl}}',
+	'captcha-badlogin' => 'The explanation of CAPTCHA shown to users failed three times to type in correct password.
+See also
+*{{msg-mw|Questycaptcha-badlogin}}
+*{{msg-mw|Fancycaptcha-badlogin}}',
+	'captcha-createaccount' => 'The explanation of CAPTCHA shown to users trying to create a new account.
+See also
+*{{msg-mw|Questycaptcha-createaccount}}
+*{{msg-mw|Fancycaptcha-createaccount}}',
+	'captcha-create' => 'This message will be shown when creating a page if the wiki requires solving a captcha for that.
+See also
+*{{msg-mw|Questycaptcha-create}}
+*{{msg-mw|Fancycaptcha-create}}',
 	'captchahelp-title' => 'The page title of [[Special:Captcha/help]]',
 	'captchahelp-text' => 'This is the help text shown on [[Special:Captcha/help]].',
 	'captcha-addurl-whitelist' => "See also: [[MediaWiki:Spam-blacklist]] and [[MediaWiki:Spam-whitelist]]. Leave all the wiki markup, including the spaces, as is. You can translate the text, including 'Leave this line exactly as it is'. The first line of this messages has one (1) leading space.",
@@ -2280,21 +2296,21 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'captcha-edit' => "Para ajudar a prevenir o ''spam'' automatizado na edição de páginas, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):",
-	'captcha-desc' => 'Uma implementação simples de um sistema captcha',
+	'captcha-edit' => 'Para editar esta página, por favor, resolva a soma simples apresentada e introduza a resposta na caixa abaixo ([[Special:Captcha/help|mais informações]]):',
+	'captcha-desc' => "Uma implementação simples de um sistema ''captcha''",
 	'captcha-addurl' => "A sua edição introduziu ligações externas novas.
-Para ajudar a prevenir o ''spam'' automatizado, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):",
-	'captcha-badlogin' => 'Para ajudar a prevenir mecanismos automatizados de descoberta de palavras-chave, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):',
-	'captcha-createaccount' => 'Para ajudar a prevenir a criação de contas automatizada, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):',
+Para ajudar a prevenir o ''spam'' automatizado, por favor, resolva a soma simples apresentada e introduza a resposta na caixa abaixo ([[Special:Captcha/help|mais informações]]):",
+	'captcha-badlogin' => 'Para ajudar a prevenir mecanismos automatizados de descoberta de palavras-chave, por favor, resolva a soma simples apresentada e introduza a resposta na caixa abaixo ([[Special:Captcha/help|mais informações]]):',
+	'captcha-createaccount' => 'Para ajudar a prevenir a criação de contas automatizada, por favor, resolva a soma simples apresentada e introduza a resposta na caixa abaixo ([[Special:Captcha/help|mais informações]]):',
 	'captcha-createaccount-fail' => 'Código incorreto ou não preenchido.',
-	'captcha-create' => "Para ajudar a prevenir o ''spam'' automatizado na criação desta página, por favor resolva a soma simples que é apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|o que é isto?]]):",
-	'captchahelp-title' => 'Ajuda com o Captcha',
-	'captchahelp-cookies-needed' => "É necessário ter os ''cookies'' activados no seu navegador para que isto funcione.",
-	'captchahelp-text' => "Sítios da internet abertos a edição pública, como é o caso desta wiki, são frequentemente abusados por ''spammers'' que utilizam ferramentas automatizadas para inserção massiva de ligações em muitos sítios.
+	'captcha-create' => 'Para criar a página, por favor, resolva a soma simples apresentada e introduza a resposta na caixa abaixo ([[Special:Captcha/help|mais informações]]):',
+	'captchahelp-title' => "Ajuda sobre o ''captcha''",
+	'captchahelp-cookies-needed' => "É necessário possibilitar o uso de ''cookies'' no seu navegador para que o ''captcha'' funcione.",
+	'captchahelp-text' => "Sítios na internet abertos a edição pública, como é o caso desta wiki, são frequentemente abusados por ''spammers'' que utilizam ferramentas automatizadas para inserção em massa de ligações em muitos sítios.
 Embora essas ligações possam ser removidas, representam um incómodo significativo.
 
-Por vezes, especialmente quando adicionar a uma página novas ligações externas, a wiki apresentará a imagem de um texto colorido ou distorcido e pedirá que escreva o texto apresentado.
-Porque a interpretação do texto apresentado nas imagens é uma tarefa difícil de automatizar, este pedido feito pela wiki possibilita que a maioria das pessoas façam as suas edições, enquanto inibe edições por mecanismos automatizados.
+Por vezes, especialmente quando introduzir novas ligações externas numa página, a wiki apresentará a imagem de um texto colorido ou distorcido e pedirá que escreva o texto apresentado.
+Porque a interpretação do texto apresentado nas imagens é uma tarefa difícil de automatizar, este pedido feito pela wiki permite que a maioria das pessoas façam as suas edições, ao mesmo tempo que inibe edições feitas por ''spammers'' e outros mecanismos automatizados.
 
 Infelizmente, esta funcionalidade pode revelar-se um inconveniente para utilizadores com limitações visuais ou que utilizam navegadores baseados em texto ou voz.
 Neste momento, não temos disponível uma alternativa em áudio.
@@ -2306,7 +2322,7 @@ Clique o botão 'voltar' do seu navegador para voltar à página de edição.",
 #  * Tudo desde um símbolo de cardinal (#) até ao fim da linha é um comentário
 #  * Qualquer linha que não esteja em branco é um fragmento de expressão regular (regex) que será comparado com o servidor das URLs
  #</pre> <!-- deixe esta linha exactamente como está -->',
-	'right-skipcaptcha' => 'Executar acções despoletadoras de captcha sem ter que passar pelo captcha',
+	'right-skipcaptcha' => "Executar acções despoletadoras do ''captcha'' sem ter de passar pelo ''captcha''",
 );
 
 /** Brazilian Portuguese (Português do Brasil)

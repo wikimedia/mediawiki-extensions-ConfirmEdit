@@ -29,14 +29,25 @@ Click the 'back' button in your browser to return to the page editor.",
 
 /** Message documentation (Message documentation)
  * @author Fryed-peach
+ * @author Hamilton Abreu
  */
 $messages['qqq'] = array(
 	'questycaptcha-desc' => '{{desc}}',
-	'questycaptcha-addurl' => 'See also {{msg-mw|Fancycaptcha-addurl}}.',
-	'questycaptcha-badlogin' => 'See also {{msg-mw|Fancycaptcha-badlogin}}.',
-	'questycaptcha-createaccount' => 'See also {{msg-mw|Fancycaptcha-createaccount}}.',
-	'questycaptcha-create' => 'See also {{msg-mw|Fancycaptcha-create}}.',
-	'questycaptcha-edit' => 'See also {{msg-mw|Fancycaptcha-edit}}.',
+	'questycaptcha-addurl' => 'See also
+*{{msg-mw|captcha-addurl}}
+*{{msg-mw|Fancycaptcha-addurl}}',
+	'questycaptcha-badlogin' => 'See also
+*{{msg-mw|captcha-badlogin}}
+*{{msg-mw|Fancycaptcha-badlogin}}',
+	'questycaptcha-createaccount' => 'See also
+*{{msg-mw|captcha-createaccount}}
+*{{msg-mw|Fancycaptcha-createaccount}}',
+	'questycaptcha-create' => 'See also
+*{{msg-mw|Captcha-create}}
+*{{msg-mw|Fancycaptcha-create}}',
+	'questycaptcha-edit' => 'See also
+*{{msg-mw|Captcha-edit}}
+*{{msg-mw|Fancycaptcha-edit}}',
 	'questycaptchahelp-text' => 'See also {{msg-mw|Captchahelp-text}}.',
 );
 
@@ -597,10 +608,24 @@ Ch'a-i bata ansima al boton 'andré' ant sò navigator për torné andré a l'ed
 /** Portuguese (Português)
  * @author Crazymadlover
  * @author Giro720
+ * @author Hamilton Abreu
  */
 $messages['pt'] = array(
-	'questycaptcha-addurl' => 'Sua edição inclui novas ligações externas.
-Para proteção contra spam automático, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|mais informações]]):',
+	'questycaptcha-addurl' => "A sua edição introduziu ligações externas novas.
+Para ajudar a prevenir o ''spam'' automatizado, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):",
+	'questycaptcha-badlogin' => 'Para ajudar a prevenir mecanismos automatizados de descoberta de palavras-chave, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):',
+	'questycaptcha-createaccount' => 'Para ajudar a prevenir a criação de contas automatizada, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):',
+	'questycaptcha-create' => 'Para criar a página, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):',
+	'questycaptcha-edit' => 'Para editar esta página, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):',
+	'questycaptchahelp-text' => "Sítios na internet abertos a edição pública, como é o caso desta wiki, são frequentemente abusados por ''spammers'' que utilizam ferramentas automatizadas para inserção em massa de ligações em muitos sítios.
+Embora essas ligações possam ser removidas, representam um incómodo significativo.
+
+Por vezes, especialmente quando introduzir novas ligações externas numa página, a wiki pedirá que responda a uma pergunta.
+Porque esta é uma tarefa difícil de automatizar, permite que a maioria das pessoas façam as suas edições, ao mesmo tempo que inibe edições feitas por ''spammers'' e outros mecanismos automatizados.
+
+Por favor, contacte os [[{{MediaWiki:Grouppage-sysop}}|administradores]] para assistência, caso esta funcionalidade esteja a impedi-lo de fazer edições legítimas.
+
+Clique o botão 'voltar' do seu navegador para voltar à página de edição.",
 );
 
 /** Brazilian Portuguese (Português do Brasil)

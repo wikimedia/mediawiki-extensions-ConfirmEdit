@@ -717,6 +717,27 @@ Kontaktujte prosím [[{{MediaWiki:Grouppage-sysop}}|správcov lokality]] ak potr
 Späť na úpravu stránky sa vrátite kliknutím na tlačidlo „Späť“ vo vašom prehliadači.',
 );
 
+/** Swedish (Svenska)
+ * @author Boivie
+ */
+$messages['sv'] = array(
+	'questycaptcha-addurl' => 'Din redigering inkluderar nya externa länkar.
+För att hjälpa till i skyddet mot automatisk spam, vänligen svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
+	'questycaptcha-badlogin' => 'För att hjälpa till i skyddet mot automatisk lösenordsknäckning, vänligen svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
+	'questycaptcha-createaccount' => 'För att hjälpa till i skyddet mot automatiskt kontoskapande, vänligen svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
+	'questycaptcha-create' => 'För att skapa sidan, vänligen svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
+	'questycaptcha-edit' => 'För att redigera denna sida, vänligen svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
+	'questycaptchahelp-text' => "Webbplatser som accepterar bidrag från allmänheten, som denna wiki, blir ofta utnyttjade av spammare som använder automatiska verktyg för att lägga till sina linkar till många sajter.
+Även om dessa spam-länkar kan tas bort är de väldigt störande.
+
+Ibland, särskilt vid tillägg av nya webblänkar till en sida, kan wikin be dig svara på en fråga.
+Eftersom denna uppgift är svår att automatisera, låter den de flesta riktiga människor göra sina bidrag medan den stoppar de flesta spammare och andra robotattackerare.
+
+Vänligen kontakta [[{{MediaWiki:Grouppage-sysop}}|sajtens administratörer]] för hjälp ifall detta oväntat förhindrar dig från att göra tillåtna bidrag.
+
+Klicka 'tillbaka'-knappen i din webbläsare för att återvända till sidredigeraren.",
+);
+
 /** Telugu (తెలుగు)
  * @author Kiranmayee
  */

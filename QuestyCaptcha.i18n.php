@@ -535,6 +535,15 @@ Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als di
 Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Gunnernett
+ */
+$messages['nn'] = array(
+	'questycaptcha-addurl' => 'Endringa di inneheld nye lenkjer ut. 
+Som ei hjelp til å unngå automatisert spam, ver venleg og skiv inn spørsmålet som er synt nedanfor ([[Special:Captcha/help|meir informasjon]]):',
+	'questycaptcha-edit' => 'For å endra sida, ver venleg og svar på spørsmålet som er synt nedanfor ([[Special:Captcha/help|meir informasjon]):',
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Simny
  */

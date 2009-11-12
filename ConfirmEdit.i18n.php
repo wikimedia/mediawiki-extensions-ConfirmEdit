@@ -3054,11 +3054,13 @@ $messages['yue'] = array(
 	'right-skipcaptcha' => '執行captcha引發嘅動作時唔需要經過captcha',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Bencmq
+ */
 $messages['zh-hans'] = array(
 	'captcha-edit' => '要编辑这篇文章，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:',
 	'captcha-desc' => '简单的 captcha 实行',
-	'captcha-addurl' => '你编辑的内容中含有一个新的URL连结；为了免受自动垃圾程式的侵扰，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:',
+	'captcha-addurl' => '你编辑的内容中含有一个新的外部链接；为了免受自动垃圾程序的侵扰，请答出一个简单的加法，然后在框内输入（[[Special:Captcha/help|更多信息]]）:',
 	'captcha-badlogin' => '为了防止程式自动破解密码，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:',
 	'captcha-createaccount' => '为了防止程式自动注册，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:',
 	'captcha-createaccount-fail' => '验证码错误或丢失。',
@@ -3074,8 +3076,8 @@ $messages['zh-hans'] = array(
 点击浏览器中的「後退」按钮返回你所编辑的页面。',
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
 # 语法像下面这样:
-#   * 所有由 "#" 字元之後嘅字元至行尾是注解
-#   * 所有非空白行是一个regex部份，只是跟在里面的URL主机相符
+#   * 所有在 "#" 字符后的内容全部是注释
+#   * 所有非空白行是一个正则表达式，只会对URL中的内容进行匹配
  #</pre> <!-- leave this line exactly as it is -->',
 	'right-skipcaptcha' => '执行captcha引发的动作时不需要经过captcha',
 );

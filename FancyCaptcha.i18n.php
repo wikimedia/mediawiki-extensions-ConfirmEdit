@@ -1155,9 +1155,11 @@ $messages['yue'] = array(
 	'fancycaptcha-edit' => '要編輯呢一版，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Bencmq
+ */
 $messages['zh-hans'] = array(
-	'fancycaptcha-addurl' => '你的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
+	'fancycaptcha-addurl' => '你的编辑内容中含有本网站以外的链接。为防止不当程式大量破坏，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
 	'fancycaptcha-badlogin' => '为防止不当程式破解密码，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
 	'fancycaptcha-createaccount' => '为防止不当程式大量建立帐户，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
 	'fancycaptcha-create' => '为防止不当程式大量建立页面，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',

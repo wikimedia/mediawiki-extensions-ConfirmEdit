@@ -541,7 +541,9 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
 $messages['nn'] = array(
 	'questycaptcha-addurl' => 'Endringa di inneheld nye lenkjer ut. 
 Som ei hjelp til å unngå automatisert spam, ver venleg og skiv inn spørsmålet som er synt nedanfor ([[Special:Captcha/help|meir informasjon]]):',
-	'questycaptcha-edit' => 'For å endra sida, ver venleg og svar på spørsmålet som er synt nedanfor ([[Special:Captcha/help|meir informasjon]):',
+	'questycaptcha-createaccount' => 'For å hjelpa til med å hindra automatisk kontooppretting, ver venleg og svar på spørsmålet nedanfor ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-create' => 'For å oppretta sida, ver venleg og svar på spørsmålet nedanfor ([[Special:Captcha/help|meir informasjon]]):',
+	'questycaptcha-edit' => 'For å endra sida, ver venleg og svar på spørsmålet som er synt nedanfor ([[Special:Captcha/help|meir informasjon]]):',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

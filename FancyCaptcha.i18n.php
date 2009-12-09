@@ -195,7 +195,7 @@ $messages['ca'] = array(
 	'fancycaptcha-badlogin' => "Com a protecció contra l'obtenció automatitzada de contrasenyes cal que escriviu en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):",
 	'fancycaptcha-createaccount' => 'Com a protecció contra la creació automatitzada de nous comptes cal que escriviu en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):',
 	'fancycaptcha-create' => "Per a poder crear la pàgina heu d'escriure en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):",
-	'fancycaptcha-edit' => "Per a poder editar la pàgina heu d'escriure en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):",
+	'fancycaptcha-edit' => "Per a poder modificar la pàgina heu d'escriure en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):",
 );
 
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */

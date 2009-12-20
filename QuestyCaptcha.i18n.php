@@ -144,6 +144,26 @@ $messages['ca'] = array(
 	'questycaptcha-create' => 'Per crear la pàgina, per favor responeu la pregunta que apareix a continuació ([[Special:Captcha/help|més informació]]):',
 );
 
+/** Czech (Česky)
+ * @author Mormegil
+ */
+$messages['cs'] = array(
+	'questycaptcha-addurl' => 'Vaše editace obsahuje nové externí odkazy.
+V zájmu ochrany před automatickým spamováním musíte zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):',
+	'questycaptcha-badlogin' => 'V rámci ochrany proti automatickým pokusům uhodnout heslo musíte zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):',
+	'questycaptcha-createaccount' => 'V rámci ochrany před automatickým vytvářením účtů musíte pro provedení registrace zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):',
+	'questycaptcha-create' => 'Abyste mohli založit stránku, musíte zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):',
+	'questycaptcha-edit' => 'Abyste mohli editovat tuto stránku, musíte zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):',
+	'questycaptchahelp-text' => 'Webové stránky, do kterých mohou přispívat jejich návštěvníci (jako například tato wiki), jsou často terčem spammerů, kteří pomocí automatických nástrojů vkládají své odkazy na velké množství stránek. Přestože lze tento spam odstranit, představuje nepříjemné obtěžování.
+
+Někdy, zvláště při přidávání nových webových odkazů, vás wiki může požádat o zodpovězení otázky.
+Jelikož takovou úlohu lze jen těžko automatizovat, skuteční lidé mohou dále přispívat, zatímco většinu spammerů a jiných robotických útočníků to zastaví.
+
+Pokud vám to brání v užitečných příspěvcích a potřebujete pomoc, kontaktujte laskavě [[{{MediaWiki:Grouppage-sysop}}|správce serveru]].
+
+Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko „zpět“.',
+);
+
 /** German (Deutsch)
  * @author Pill
  */

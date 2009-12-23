@@ -66,6 +66,7 @@ $messages['an'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
+	'fancycaptcha-desc' => 'مولد فانسي كابتشا لConfirm Edit',
 	'fancycaptcha-addurl' => 'تعديلك يتضمن وصلات خارجية جديدة.
 للحماية من السبام الأوتوماتيكي، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',
 	'fancycaptcha-badlogin' => 'للمساعدة في الحماية ضد سرقة كلمات السر، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',

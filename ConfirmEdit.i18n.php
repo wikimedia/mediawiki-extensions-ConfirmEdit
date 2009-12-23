@@ -1039,7 +1039,7 @@ Clicâd sur lo boton « Devant » de voutron navigator por tornar a la bouèta d
 	'captcha-addurl-whitelist' => '  #<!-- lèssiéd ceta legne justo d’ense --> <pre>
 # La sintaxa est ceta :
 #  * Tot tèxto que siut un « # » est considèrâ coment un comentèro.
-#  * Tota legne pas voueda est un bocon d’èxprèssion règuliére (*RegEx*) qu’analiserat ren que los hôtos dedens los lims hipèrtèxtos.
+#  * Tota legne pas voueda est un bocon d’èxprèssion racionèla (*RegEx*) qu’analiserat ren que los hôtos dedens los lims hipèrtèxtos.
   #</pre> <!-- lèssiéd ceta legne justo d’ense -->',
 	'right-skipcaptcha' => 'Rèalisar des accions que dècllenchont un captch·a sen avêr a passar ceti',
 );

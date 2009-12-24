@@ -569,10 +569,25 @@ Som ei hjelp til å unngå automatisert spam, ver venleg og skiv inn spørsmåle
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Nghtwlkr
  * @author Simny
  */
 $messages['no'] = array(
+	'questycaptcha-addurl' => 'Din endring inneholder nye eksterne lenker.
+For å beskytte mot autmatisert spam, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
 	'questycaptcha-badlogin' => 'For å hindre passordtyveri, vær vennlig og svar på spørsmålet under ([[Special:Captcha/help|mer informasjon]]):',
+	'questycaptcha-createaccount' => 'For å beskytte mot autmatisert spam, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
+	'questycaptcha-create' => 'For å opprette siden, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
+	'questycaptcha-edit' => 'For å endre denne siden, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
+	'questycaptchahelp-text' => "Nettsteder som tar imot bidrag fra allmennheten, som denne wikien, er ofte utsatt for angrep fra spammere som bruker automatiserte verktøy for å legge til lenker til mange sider.
+Selv om disse spam-lenkene kan fjernes er de en stor plage.
+
+Iblant, spesielt ved tillegg av nye lenker til en side, kan wikien be deg svare på et spørsmål.
+Siden dette er en oppgave som er vanskelig å automatisere, vil den tillate de fleste virkelige personer å bidra mens den stopper de fleste spammere og andre robotangrep.
+
+Vennligst kontakt [[{{MediaWiki:Grouppage-sysop}}|sideadministratorer]] for hjelp dersom dette er uventet hindrer deg fra å bidra med legitime bidrag.
+
+Klikk på 'tilbake'-knappen i nettleseren din for å gå tilbake til sideeditoren.",
 );
 
 /** Occitan (Occitan)

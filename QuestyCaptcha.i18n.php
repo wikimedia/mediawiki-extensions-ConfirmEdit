@@ -193,6 +193,15 @@ Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 $messages['de-formal'] = array(
 	'questycaptcha-addurl' => 'Ihre Bearbeitung enthält neue externe Links.
 Zum Schutz vor automatisiertem Spam beantworten Sie bitte die untenstehende Frage ([[Special:Captcha/help|weitere Informationen]]):',
+	'questycaptchahelp-text' => 'Internetangebote, die — wie dieses Wiki — für Beiträge von praktisch jedem offen sind, werden häufig von Spammern missbraucht, welche versuchen, mithilfe entsprechender Werkzeuge ihre Links automatisch auf vielen Webseiten zu platzieren.
+Zwar können derartige Spam-Links wieder entfernt werden, doch stellen sie trotzdem ein erhebliches Ärgernis dar.
+
+In manchen Fällen, meist beim Versuch, neue Weblinks zu einer Seite hinzuzufügen, kann es vorkommen, dass Sie um die Beantwortung einer Frage gebeten wirst.
+Da es kaum möglich ist, dies zu automatisieren, können hierdurch die meisten Spammer aufgehalten werden. Menschlichen Benutzer sollten ihre Bearbeitungen hingegen durchführen können.
+
+Sollte Sie dieses Verfahren beim Vornehmen erwünschter Bearbeitungen behindern, wenden Sie sich bitte an einen [[{{MediaWiki:Grouppage-sysop}}|Administrator]], um Unterstützung zu erhalten.
+
+Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 );
 
 /** Lower Sorbian (Dolnoserbski)

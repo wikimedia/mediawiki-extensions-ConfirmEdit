@@ -818,3 +818,24 @@ $messages['th'] = array(
 กดปุ่ม 'Back' บนเบราเซอร์ของคุณเพื่อกลับไปยังหน้าแก้ไข",
 );
 
+/** Turkish (Türkçe)
+ * @author Vito Genovese
+ */
+$messages['tr'] = array(
+	'questycaptcha-addurl' => 'Değişikliğiniz yeni dış bağlantı içeriyor.
+Otomatik reklama karşı korunmaya yardımcı olmak için, lütfen ([[Special:Captcha/help|daha fazla bilgi]]) bölümünün altında yer alan soruya cevap verin:',
+	'questycaptcha-badlogin' => 'Otomatik şifre kırmaya karşı korunmaya yardımcı olmak için, lütfen ([[Special:Captcha/help|daha fazla bilgi]]) bölümünün altında yer alan soruya cevap verin:',
+	'questycaptcha-createaccount' => 'Otomatik hesap oluşturmaya karşı korunmaya yardımcı olmak için, lütfen ([[Special:Captcha/help|daha fazla bilgi]]) bölümünün altında yer alan soruya cevap verin:',
+	'questycaptcha-create' => 'Sayfayı oluşturmak için, lütfen ([[Special:Captcha/help|daha fazla bilgi]]) bölümünün altında yer alan soruya cevap verin:',
+	'questycaptcha-edit' => 'Sayfayı değiştirmek için, lütfen ([[Special:Captcha/help|daha fazla bilgi]]) bölümünün altında yer alan soruya cevap verin:',
+	'questycaptchahelp-text' => "Bu viki gibi herkesin katkı yapmasına izin veren web siteleri, genellikle bir çok siteye verilen bağlantıları ekleyen otomatik araçlar kullanan reklam amaçlı kullanıcılar tarafından istismar edilmektedir.
+Bu reklam bağlantıları kaldırılabiliyor olsa da, önemli bir sıkıntı yaratmaktadırlar.
+
+Bazen, özellikle bir sayfaya yeni web bağlantıları eklenirken, viki size bir soru sorabilir.
+Bu, otomatikleştirilmesi zor bir iş olduğu için, insanların katkılarını yapmasını mümkün kılarken çoğu reklam amaçlı kullanıcıyı ya da robot saldırganı durduracaktır.
+
+Bu durumun sizi normal katkılarınızı yapmaktan olağandışı bir şekilde alıkoyması halinde, lütfen destek için [[{{MediaWiki:Grouppage-sysop}}|site hizmetlileri]] ile irtibata geçin.
+
+Sayfa editörüne dönmek için tarayıcınızın 'geri' düğmesine tıklayın.",
+);
+

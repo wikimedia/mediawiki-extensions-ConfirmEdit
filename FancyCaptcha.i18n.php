@@ -1080,6 +1080,16 @@ $messages['th'] = array(
 	'fancycaptcha-edit' => 'เพื่อแก้ไขหน้านี้ กรุณาพิมพ์ข้อความที่คุณเห็นด้านล่างลงในกล่องที่กำหนดให้ ([[Special:Captcha/help|ข้อมูลเพิ่มเติม]])',
 );
 
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'fancycaptcha-badlogin' => 'Awtomatik parol döwülmeginden goranmak üçin, aşakdaky sözleri gutunyň içine ýazyň ([[Special:Captcha/help|jikme-jik]]):',
+	'fancycaptcha-createaccount' => 'Hasaby awtomatik parol döwülmeginden goramak üçin, aşakdaky sözleri gutunyň içine ýazyň ([[Special:Captcha/help|jikme-jik]]):',
+	'fancycaptcha-create' => 'Sahypa döretmek üçin, aşakdaky sözleri gutunyň içine ýazyň ([[Special:Captcha/help|jikme-jik]]):',
+	'fancycaptcha-edit' => 'Bu sahypany redaktirlemek üçin, aşakdaky sözleri gutunyň içine ýazyň ([[Special:Captcha/help|jikme-jik]]):',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */

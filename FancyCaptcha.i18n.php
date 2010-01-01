@@ -268,6 +268,9 @@ $messages['de-formal'] = array(
 	'fancycaptcha-addurl' => 'Ihre Bearbeitung enthält neue externe Links.
 Zum Schutz vor automatisiertem Spamming geben Sie das folgende Wort in das Feld unten ein. Klicken Sie dann erneut auf „Seite speichern“ ([[Special:Captcha/help|Fragen oder Probleme?]]).',
 	'fancycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung Ihres Benutzerkontos geben Sie bitte das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Haben Sie Fragen oder Probleme?)]]:',
+	'fancycaptcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten geben Sie bitte das folgende Wort in das Feld unten ein ([[Special:Captcha/help|Fragen oder Probleme?]]):',
+	'fancycaptcha-create' => 'Zur Erstellung der Seite geben Sie das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
+	'fancycaptcha-edit' => 'Zur Bearbeitung der Seite geben Sie das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 );
 
 /** Zazaki (Zazaki)

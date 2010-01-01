@@ -193,6 +193,9 @@ Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 $messages['de-formal'] = array(
 	'questycaptcha-addurl' => 'Ihre Bearbeitung enthält neue externe Links.
 Zum Schutz vor automatisiertem Spam beantworten Sie bitte die untenstehende Frage ([[Special:Captcha/help|weitere Informationen]]):',
+	'questycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung Ihres Benutzerkontos beantworten Sie bitte die folgende Frage ([[Special:Captcha/help|weitere Informationen]]):',
+	'questycaptcha-create' => 'Bitte beantworten Sie die folgende Frage, um diese Seite erstellen zu können ([[Special:Captcha/help|weitere Informationen]]):',
+	'questycaptcha-edit' => 'Bitte beantworten Sie die folgende Frage, um diese Seite bearbeiten zu können ([[Special:Captcha/help|weitere Informationen]]):',
 	'questycaptchahelp-text' => 'Internetangebote, die — wie dieses Wiki — für Beiträge von praktisch jedem offen sind, werden häufig von Spammern missbraucht, welche versuchen, mithilfe entsprechender Werkzeuge ihre Links automatisch auf vielen Webseiten zu platzieren.
 Zwar können derartige Spam-Links wieder entfernt werden, doch stellen sie trotzdem ein erhebliches Ärgernis dar.
 
@@ -259,6 +262,26 @@ Haz click en el botón 'atrás' en tu navegador para regresar al editor de pági
 $messages['eu'] = array(
 	'questycaptcha-create' => 'Orrialdea sortzeko, behean agertzen den galdera erantzun ezazu mesedez ([[Special:Captcha/help|informazio gehiago]]):',
 	'questycaptcha-edit' => 'Orrialde hau aldatzeko, behean agertzen den galdera erantzun ezazu mesedez ([[Special:Captcha/help|informazio gehiago]]):',
+);
+
+/** Finnish (Suomi)
+ * @author Crt
+ */
+$messages['fi'] = array(
+	'questycaptcha-addurl' => 'Muokkauksesi sisältää uusia ulkoisia linkkejä.
+Automatisoitujen roskamuokkausten välttämiseksi vastaa alla olevaan kysymykseen ([[Special:Captcha/help|lisätietoja]]):',
+	'questycaptcha-badlogin' => 'Automatisoidun salasanan murtamisen estämiseksi vastaa alla olevaan kysymykseen ([[Special:Captcha/help|lisätietoja]]):',
+	'questycaptcha-createaccount' => 'Automaattisen käyttäjätunnusten luonnin estämiseksi vastaa alla olevaan kysymykseen ([[Special:Captcha/help|lisätietoja]]):',
+	'questycaptcha-create' => 'Luodaksesi sivun vastaa alla olevaan kysymykseen ([[Special:Captcha/help|lisätietoja]]):',
+	'questycaptcha-edit' => 'Muokataksesi tätä sivua vastaa alla olevaan kysymykseen ([[Special:Captcha/help|lisätietoja]]):',
+	'questycaptchahelp-text' => 'Web-sivustot, jotka hyväksyvät materiaalia yleisöltä, kuten tämä wiki, joutuvat usein automaattisia työkaluja käyttävien "spämmääjien" kohteeksi jotka lisäävät linkkejä eri sivustoille. Vaikka nämä roskalinkit voidaan poistaa, ne ovat merkittävä haittatekijä.
+
+Joskus, erityisesti kun lisäät uusia Web-linkkejä sivulle, wiki saattaa pyytää sinua vastaamaan kysymykseen.
+Koska tämä on vaikeasti automatisoitava tehtävä, se antaa useimpien oikeiden henkilöiden osallistua estäen roskamuokkausten ja muiden automaattisten hyökkäysten tekijöitä.
+
+Ota yhteyttä [[{{MediaWiki:Grouppage-sysop}}|ylläpitäjiin]] saadaksesi avustusta jos tämä odottamattomasti estää sinua tekemästä asiallisia muokkauksia.
+
+Napsauta selaimesi \'takaisin\'-painiketta palataksesi sivumuokkaimeen.',
 );
 
 /** French (Français)

@@ -1950,6 +1950,7 @@ $messages['ml'] = array(
 #  * "#" എന്ന അക്ഷരത്തില്‍ തുടങ്ങുന്ന എല്ലാ വരികളും കുറിപ്പുകളായിരിക്കും
 #  * Every non-blank line is a regex fragment which will only match hosts inside URLs
   #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha' => 'കാപ്ച ഉപയോഗിക്കേണ്ട പ്രവൃത്തികൾ കാപ്ചയിലൂടെ കടന്നു പോകാതെ തന്നെ ചെയ്യാൻ കഴിയുക',
 );
 
 /** Marathi (मराठी)

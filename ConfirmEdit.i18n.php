@@ -786,6 +786,7 @@ $messages['el'] = array(
 );
 
 /** Esperanto (Esperanto)
+ * @author Castelobranco
  * @author Yekrats
  */
 $messages['eo'] = array(
@@ -804,11 +805,11 @@ kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 Kvankam ĉi tiu spam-ligiloj estas forigeblaj, ili estas granda ĝeno.
 
 Iufoje, ja kiam aldonante novajn retligilojn al paĝo, la vikio eble montros al vi bildon de bunta aŭ misformita teksto, kaj petos al vi tajpi la vortojn montratajn.
-Tial ĉi tiu tasko estas malfacila por fari aŭtomate, elbigos al realaj homoj fari aldonaĵojn, kaj malebligos spamistojn kaj aliaj robotaj atakiloj.
+Tial ĉi tiu tasko estas malfacila por fari aŭtomate, ebligos al realaj homoj fari aldonaĵojn, kaj malebligos spamistojn kaj aliajn robotajn atakilojn.
 
 Bedaŭrinde, ĉi tio eble ĝenetos uzantojn kun malbona vidkapablo kiu utiligas tekstajn aŭ voĉajn retumilojn.
 Ĉi-momente, neniu aŭda alternativo estas havebla.
-Bonvolu kontakti la [[{{MediaWiki:Grouppage-sysop}}|administrantojnde la retejo]] por helpo se ĉi tio malebligas al vi fari bonan aldonon.
+Bonvolu kontakti la [[{{MediaWiki:Grouppage-sysop}}|administrantojn de la retejo]] por helpo se ĉi tio malebligas al vi fari bonan aldonon.
 
 Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 	'captcha-addurl-whitelist' => ' #<!-- ne ŝanĝu ĉi tiun linion iel ajn --> <pre>

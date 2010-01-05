@@ -235,6 +235,25 @@ $messages['el'] = array(
 Για να μας βοηθήσετε στην προστασία κατά των αυτοματοποιημένων σπαμ, παρακαλώ απαντήστε στην παρακάτω ερώτηση ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
 );
 
+/** Esperanto (Esperanto)
+ * @author Castelobranco
+ */
+$messages['eo'] = array(
+	'questycaptcha-addurl' => 'Via redakto entenas novajn eksterajn ligilojn. 
+Por helpi protekti kontraŭ aŭtomatan spamadon, bonvolu respondu la demandon sube ([[Special:Captcha/help|pli da informo]]):',
+	'questycaptcha-badlogin' => 'Por helpi protekti kontraŭ aŭtomata divenado de pasvortoj, bonvolu respondu la demandon sube ([[Special:Captcha/help|pli da informo]]):',
+	'questycaptcha-createaccount' => 'Por helpi protekti kontraŭ aŭtomata konto-kreado, bonvolu respondu la demandon sube ([[Special:Captcha/help|pli da informo]]):',
+	'questycaptcha-create' => 'Por krei la paĝon, bonvolu respondu la demandon sube ([[Special:Captcha/help|pli da informo]]):',
+	'questycaptcha-edit' => 'Por redakti ĉi tiun paĝon, bonvolu respondu la demandon sube ([[Special:Captcha/help|pli da informo]]):',
+	'questycaptchahelp-text' => "Retejoj kiuj akcepti informon de publiko, kiel ĉi tiu vikio, estas ofte misuzitaj de spamistoj kiu uzas aŭtomatajn ilojn por afiŝi ligilojn al multaj retejoj. Kvankam ĉi tiu spam-ligiloj estas forigeblaj, ili estas granda ĝeno.
+
+Iufoje, ja kiam aldonante novajn retligilojn al paĝo, la vikio eble petos al vi respondi demandon. Tial ĉi tiu tasko estas malfacila por fari aŭtomate, ebligos al realaj homoj fari aldonaĵojn, kaj malebligos spamistojn kaj aliajn robotajn atakilojn.
+
+Bonvolu kontakti la [[{{MediaWiki:Grouppage-sysop}}|administrantojn de la retejo]] por helpo se ĉi tio malebligas al vi fari bonan aldonon.
+
+Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
+);
+
 /** Spanish (Español)
  * @author Crazymadlover
  */

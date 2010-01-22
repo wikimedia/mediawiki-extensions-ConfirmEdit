@@ -1281,8 +1281,8 @@ $messages['hi'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Dnik
+ * @author Ex13
  * @author SpeedyGonsales
- * @author Suradnik13
  */
 $messages['hr'] = array(
 	'captcha-edit' => 'Da uredite ovu stranicu, molimo riješite jednostavno zbrajanje ispod i unesite rezultat u rubriku ([[Special:Captcha/help|više informacija]]):',
@@ -1890,6 +1890,13 @@ Reizēm, jo īpaši pievienojot jaunas interneta saites, wiki programmatūra var
 Diemžēl tas var apgrūtināt lietotājus, kuriem ir redzes traucējumi vai kuri izmanto teksta pārlūkus vai dzirdes pārlūkus. Šobrīd nav pieejama audio alternatīva, bet sazinies ar [[{{MediaWiki:Grouppage-sysop}}|wiki administratoriem]], ja tas liedz Tev veikt labi domātus papildinājumus.
 
 Spied pārlūka pogu \"Atpakaļ\" (''Back''), lai atgrieztos iepriekšējā lapā.",
+);
+
+/** Malagasy (Malagasy)
+ * @author Jagwar
+ */
+$messages['mg'] = array(
+	'right-skipcaptcha' => 'Manao tao mampisy ny captcha fa tsy mila mameno azy',
 );
 
 /** Macedonian (Македонски)

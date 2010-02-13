@@ -450,7 +450,7 @@ class SimpleCaptcha {
 	 * Load external links from the externallinks table
 	 */
 	function getLinksFromTracker( $title ) {
-		$dbr =& wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_SLAVE );
 		$id = $title->getArticleId(); // should be zero queries
 		$res = $dbr->select( 'externallinks', array( 'el_to' ),
 			array( 'el_from' => $id ), __METHOD__ );

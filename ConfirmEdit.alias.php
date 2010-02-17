@@ -13,28 +13,39 @@ $aliases['en'] = array(
 	'Captcha' => array( 'Captcha' ),
 );
 
-/** Arabic (العربية) */
 $aliases['ar'] = array(
-	'Captcha' => array( 'كابتشا' ),
+	'Captcha'   => array( 'كابتشا' ),
 );
 
-/** Finnish (Suomi) */
+$aliases['arz'] = array(
+	'Captcha'   => array( 'كابتشا' ),
+);
+
+$aliases['et'] = array(
+	'Captcha'   => array( 'Robotilõks' ),
+);
+
 $aliases['fi'] = array(
-	'Captcha' => array( 'Ihmiskäyttäjävarmistus' ),
+	'Captcha'   => array( 'Ihmiskäyttäjävarmistus' ),
 );
 
-/** Ripoarisch (Ripoarisch) */
 $aliases['ksh'] = array(
-	'Captcha' => array( 'Kaptscha' ),
+	'Captcha'   => array( 'Kaptscha' ),
 );
 
-/** Luxembourgish (Lëtzebuergesch) */
-$aliases['lb'] = array(
-	'Captcha' => array( 'Captcha' ),
+$aliases['mk'] = array(
+	'Captcha'   => array( 'Капча' ),
 );
 
-/** Maltese (Malti) */
-$aliases['mt'] = array(
-	'Captcha' => array( 'Captcha' ),
+$aliases['ml'] = array(
+	'Captcha'   => array( 'കാപ്ച' ),
+);
+
+$aliases['zh-hans'] = array(
+	'Captcha'   => array( '验证码' ),
+);
+
+$aliases['zh-hant'] = array(
+	'Captcha'   => array( '驗證碼' ),
 );
 

@@ -33,7 +33,7 @@ $aliases['fi'] = array(
 	'Captcha' => array( 'Ihmiskäyttäjävarmistus' ),
 );
 
-/** Ripoarisch (Ripoarisch) */
+/** Colognian (Ripoarisch) */
 $aliases['ksh'] = array(
 	'Captcha' => array( 'Kaptscha' ),
 );

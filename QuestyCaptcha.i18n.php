@@ -890,3 +890,10 @@ Bu durumun sizi normal katkılarınızı yapmaktan olağandışı bir şekilde a
 Sayfa editörüne dönmek için tarayıcınızın 'geri' düğmesine tıklayın.",
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'questycaptcha-create' => 'צו שאַפֿן דעם בלאַט, ביטע ענטפֿערט די פֿראַגע אונטן  ([[Special:Captcha/help|מער אינפֿארמאַציע]]):',
+);
+

@@ -2647,21 +2647,21 @@ Stlačením tlačidla „späť“ vo vašom prehliadači sa vrátite do editora
  * @author Dbc334
  */
 $messages['sl'] = array(
-	'captcha-edit' => 'Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])',
+	'captcha-edit' => 'Če želite urejati stran, prosimo izračunajte preprost seštevek spodaj in odgovor vpišite v polje ([[Special:Captcha/help|več informacij]]):',
 	'captcha-desc' => 'Preprosta izvedba captcha',
 	'captcha-addurl' => 'Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])',
 	'captcha-createaccount' => 'Za registracijo je zaradi zaščite pred neželenimi reklamnimi sporočili treba vpisati prikazane besede: <br />([[{{ns:special}}:Captcha|Kaj je to?]])',
 	'captcha-createaccount-fail' => 'Nepravilna ali manjkajoča potrditvena koda.',
-	'captcha-create' => 'Vaše urejanje vključuje nove URL-povezave; zaradi zaščite pred avtomatizirano navlako boste morali vpisati besede, ki se pojavijo v okencu: <br />([[{{ns:Special}}:Captcha/help|Kaj je to?]])',
+	'captcha-create' => 'Če želite ustvariti stran, prosimo izračunajte preprost seštevek spodaj in odgovor vpišite v polje ([[Special:Captcha/help|več informacij]]):',
 	'captchahelp-title' => 'Pomoč za captcha',
 	'captchahelp-cookies-needed' => 'Morali boste omogočiti piškotke v vašem brskalnik, če želite, da to deluje.',
-	'captchahelp-text' => "Spletne strani, ki omogočajo objavljanje širši javnosti, kot na primer ta wiki, pogosto zlorabljajo spamerji, ki za objavo svojih povezav na mnogih straneh uporabljajo avtomatizirana orodja. Čeprav se te neželene povezave da odstraniti, so precejšnja nadloga.
+	'captchahelp-text' => 'Spletne strani, ki omogočajo objavljanje širši javnosti, kot na primer ta wiki, pogosto zlorabljajo spamerji, ki za objavo svojih povezav na mnogih straneh uporabljajo avtomatizirana orodja. Čeprav se te neželene povezave da odstraniti, so precejšnja nadloga.
 
 Včasih, zlasti pri dodajanju novih spletnih povezav na stran, vam bo morda wiki prikazal sliko obarvanega ali popačenega besedila in zahteval vpis prikazanih besed. Ker je to opravilo težko avtomatizirati, bo s tem večini ljudi objavljanje dovoljeno, spamerji in druge robotski napadalci pa bodo ustavljeni.
 
-Žal lahko to povzroči nevšečnosti uporabnikom s slabim vidom in tistim, ki uporabljajo besedilne ali govorne brskalnike. Glasovna možnost trenutno še ni na razpolago. Če vam to nepričakovano preprečuje legitimno objavo, se, prosimo, obrnite na administratorje spletišča.
+Žal lahko to povzroči nevšečnosti uporabnikom s slabim vidom in tistim, ki uporabljajo besedilne ali govorne brskalnike. Glasovna možnost trenutno še ni na razpolago. Če vam to nepričakovano preprečuje legitimno objavo, se, prosimo, obrnite na [[{{MediaWiki:Grouppage-sysop}}|administratorje spletišča]].
 
-Za vrnitev v urejevalnik izberite gumb 'nazaj' vašega brskalnika.",
+Za vrnitev v urejevalnik izberite gumb »nazaj« vašega brskalnika.',
 );
 
 /** Albanian (Shqip)

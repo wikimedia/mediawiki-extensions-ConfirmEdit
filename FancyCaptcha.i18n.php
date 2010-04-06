@@ -893,8 +893,8 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'fancycaptcha-addurl' => "A sua edição introduziu ligações externas novas.
-Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa abaixo as palavras  apresentadas ([[Special:Captcha/help|mais informações]]):",
+	'fancycaptcha-addurl' => "A sua edição introduziu links externos novos.
+Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):",
 	'fancycaptcha-badlogin' => 'Para ajudar a prevenir mecanismos automatizados de descoberta de palavras-chave, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):',
 	'fancycaptcha-createaccount' => 'Para ajudar a prevenir a criação de contas automatizada, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):',
 	'fancycaptcha-create' => 'Para criar a página, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):',

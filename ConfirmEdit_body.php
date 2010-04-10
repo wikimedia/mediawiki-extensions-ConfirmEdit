@@ -46,6 +46,14 @@ class ConfirmEditHooks {
 	static function confirmUserLogin( $u, $pass, &$retval ) {
 		return self::getInstance()->confirmUserLogin( $u, $pass, $retval );
 	}
+
+	static function injectEmailUser( &$form ) {
+		return self::getInstance()->injectEmailUser( $form );
+	}
+
+	static function confirmEmailUser( $from, $to, $subject, $text, &$error ) {
+		return self::getInstance()->confirmEmailUser( $from, $to, $subject, $text, $error );
+	}
 }
 
 class CaptchaSpecialPage extends UnlistedSpecialPage {
@@ -136,6 +144,28 @@ class SimpleCaptcha {
 		# Obtain a more tailored message, if possible, otherwise, fall back to
 		# the default for edits
 		return wfEmptyMsg( $name, $text ) ? wfMsg( 'captcha-edit' ) : $text;
+	}
+
+	/**
+	 * Inject whazawhoo
+	 * @fixme if multiple thingies insert a header, could break
+	 * @param HTMLForm
+	 * @return bool true to keep running callbacks
+	 */
+	function injectEmailUser( &$form ) {
+		global $wgCaptchaTriggers, $wgOut, $wgUser;
+		if ( $wgCaptchaTriggers['sendemail'] ) {
+			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
+				return true;
+			}
+			$form->addFooterText( 
+				"<div class='captcha'>" .
+				$wgOut->parse( $this->getMessage( 'sendemail' ) ) .
+				$this->getForm() .
+				"</div>\n" );
+		}
+		return true;
 	}
 
 	/**
@@ -558,6 +588,40 @@ class SimpleCaptcha {
 				$message = wfMsg( 'captcha-badlogin-fail' );
 				// Emulate a bad-password return to confuse the shit out of attackers
 				$retval = LoginForm::WRONG_PASS;
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Check the captcha on Special:EmailUser 
+	 * @param $from MailAddress
+	 * @param $to MailAddress
+	 * @param $subject String
+	 * @param $text String
+	 * @param $error String reference
+	 * @return Bool true to continue saving, false to abort and show a captcha form
+	 */
+	function confirmEmailUser( $from, $to, $subject, $text, &$error ) {
+		global $wgCaptchaTriggers, $wgUser;
+		if ( $wgCaptchaTriggers['sendemail'] ) {
+			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
+				return true;
+			}
+			if ( $this->isIPWhitelisted() )
+				return true;
+		
+			if ( defined( 'MW_API' ) ) {
+				# API mode
+				# Asking for captchas in the API is really silly
+				$error = wfMsg( 'captcha-disabledinapi' );
+				return false;
+			}
+			$this->trigger = "{$wgUser->getName()} sending email";
+			if ( !$this->passCaptcha() ) {
+				$error = wfMsg( 'captcha-sendemail-fail' );
 				return false;
 			}
 		}

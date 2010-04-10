@@ -16,6 +16,9 @@ To help protect against automated spam, please solve the simple sum below and en
 	'captcha-createaccount'      => 'To help protect against automated account creation, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount-fail' => "Incorrect or missing confirmation code.",
 	'captcha-create'             => 'To create the page, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
+	'captcha-sendemail'          => 'To help protect against automated spamming, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
+	'captcha-sendemail-fail'     => 'Incorrect or missing confirmation code.',
+	'captcha-disabledinapi'      => 'This action requires a captcha, so it cannot be performed through the API.',
 	'captchahelp-title'          => 'Captcha help',
 	'captchahelp-cookies-needed' => "You will need to have cookies enabled in your browser for this to work.",
 	'captchahelp-text'           => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites.

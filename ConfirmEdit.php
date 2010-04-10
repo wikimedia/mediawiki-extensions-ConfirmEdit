@@ -88,6 +88,7 @@ $wgCaptchaClass = 'SimpleCaptcha';
 $wgCaptchaTriggers = array();
 $wgCaptchaTriggers['edit']          = false; // Would check on every edit
 $wgCaptchaTriggers['create']		= false; // Check on page creation.
+$wgCaptchaTriggers['sendemail']     = false; // Special:Emailuser
 $wgCaptchaTriggers['addurl']        = true;  // Check on edits that add URLs
 $wgCaptchaTriggers['createaccount'] = true;  // Special:Userlogin&type=signup
 $wgCaptchaTriggers['badlogin']      = true;  // Special:Userlogin after failure
@@ -190,6 +191,8 @@ $wgHooks['AbortNewAccount'][] = 'ConfirmEditHooks::confirmUserCreate';
 $wgHooks['LoginAuthenticateAudit'][] = 'ConfirmEditHooks::triggerUserLogin';
 $wgHooks['UserLoginForm'][] = 'ConfirmEditHooks::injectUserLogin';
 $wgHooks['AbortLogin'][] = 'ConfirmEditHooks::confirmUserLogin';
+$wgHooks['EmailUserForm'][] = 'ConfirmEditHooks::injectEmailUser';
+$wgHooks['EmailUser'][] = 'ConfirmEditHooks::confirmEmailUser';
 # Register API hook
 $wgHooks['APIEditBeforeSave'][] = 'ConfirmEditHooks::confirmEditAPI';
 

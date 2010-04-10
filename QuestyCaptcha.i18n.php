@@ -16,6 +16,7 @@ To help protect against automated spam, please answer the question that appears 
 	'questycaptcha-createaccount' => 'To help protect against automated account creation, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-create' => 'To create the page, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-edit' => 'To edit this page, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-sendemail' => 'To help protect against automated spamming, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
 	'questycaptchahelp-text' => "Web sites that accept contributions from the public, like this wiki, are often abused by spammers who use automated tools to add their links to many sites.
 While these spam links can be removed, they are a significant nuisance.
 

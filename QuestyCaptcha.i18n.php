@@ -218,6 +218,7 @@ Za šćit pśeśiwo zawtomatizěrowanemu spamoju, wótegroń pšosym na pšašan
 	'questycaptcha-createaccount' => 'Za šćit pśeśiwo zawtomatizěrowanemu napóranjeju kontow, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
 	'questycaptcha-create' => 'Aby napórał bok, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
 	'questycaptcha-edit' => 'Aby wobźěłał toś ten bok, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
+	'questycaptcha-sendemail' => 'Za šćit pśeśiwo awtomatiskemu spamowanjeju, wótegroń pšosym pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
 	'questycaptchahelp-text' => 'Websedła, kótarež akceptěruju zjawne pśinoski, ako toś ten wiki, znjewužywaju se cesto wót spamowarjow, kótarež wužywaju zawtomatizěrowane rědy, aby pśidali swóje wótkaze na wjele sedłow. Lěcrownož toś te spamowe wótkaze daju se wótpóraś, su wóne bejna pógóršota. 
 
 Wótergi, wósebnje, gaž se nowe wótkaze pśidawaju bokoju, jo móžno, až se śi wiki něco pšaša. 
@@ -257,6 +258,7 @@ Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Pertile
  */
 $messages['es'] = array(
 	'questycaptcha-addurl' => 'Tu edición incluye nuevos vínculos externos.
@@ -265,6 +267,7 @@ Para ayudar a proteger contra spam automático, por favor responde la pregunta q
 	'questycaptcha-createaccount' => 'Para ayudar a proteger contra la creación automática de cuentas, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):',
 	'questycaptcha-create' => 'Para crear la página, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):',
 	'questycaptcha-edit' => 'Para editar esta página, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):',
+	'questycaptcha-sendemail' => 'Para protegernos contra el spam automatizado por favor conteste la pregunta que aparece a continuación ([[Special:Captcha/help|más información]]):',
 	'questycaptchahelp-text' => "Sitios Web que aceptan contribuciones del público, como este wiki, son constantemente abusadas por enviadores de spam quienes usan herramientas automáticas para agregar sus enlaces a muchos sitios.
 Así estos enlaces spam puedan ser borrados, son una molestia significativa.
 
@@ -316,6 +319,7 @@ Pour nous aider dans la protection contre le pourriel automatisé, veuillez rép
 	'questycaptcha-createaccount' => 'Afin de nous aider à lutter contre les créations automatiques de comptes, veuillez répondre à la question qui apparaît ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-create' => 'Pour créer la page, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-edit' => 'Pour modifier cette page, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+	'questycaptcha-sendemail' => 'Afin de nous aider à prévenir le spam automatique, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptchahelp-text' => 'Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de polluposteurs qui utilisent des outils automatisés pour placer de nombreux liens vers leurs sites.
 Même si cette pollution peut être effacée, elle n’en reste pas moins irritante.
 
@@ -337,6 +341,7 @@ Para axudar na protección contra o spam automatizado, conteste a pregunta que a
 	'questycaptcha-createaccount' => 'Para axudar na protección contra a creación automática de contas, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
 	'questycaptcha-create' => 'Para crear a páxina, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
 	'questycaptcha-edit' => 'Para editar esta páxina, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
+	'questycaptcha-sendemail' => 'Para contribuír na protección contra o spam automatizado, responda a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
 	'questycaptchahelp-text' => "Os sitios web que aceptan publicar as contribucións dos usuarios, coma este wiki, sofren, con frecuencia, o abuso por parte de ''spammers'' que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias, nunha chea de páxinas, en pouco tempo.
 Mentres as devanditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo.
 
@@ -358,6 +363,7 @@ As Schutz gege automatischi Spam, beantwort bitte d FRog, wu do unter gnännt wi
 	'questycaptcha-createaccount' => 'As Schutz gege ne automatisch Aalege vu Benutzerkonte, beantwort bitte d Frog, wu do unte gnännt wird ([[Special:Captcha/help|meh Informatione]]):',
 	'questycaptcha-create' => 'Go d Syte aalege, beantwort bitte d Frog, wu do unte gnännt wird ([[Special:Captcha/help|meh Informatione]]):',
 	'questycaptcha-edit' => 'Go die Syte bearbeite, beantwort bitte d Frog, wu do unte gnännt wird ([[Special:Captcha/help|meh Informatione]]):',
+	'questycaptcha-sendemail' => 'As Schutz gege e automatischs Spamming, beantwort bitte d Frog, wu do unte gnännt wird ([[Special:Captcha/help|meh Informatione]]):',
 	'questycaptchahelp-text' => "Websyte, wu jede cha byytrage, wie des Wiki, wäre vylmol missbrucht vu Spammer, wu automatischi Wärchzyg bruche go ihri Gleicher (Links) in meglischt vyli Syte yyfiege.
 Au wänn die Spamgleicher chenne wider uusegnuu wäre, sin si einewäg e zimlig Ärgernis.
 
@@ -401,6 +407,7 @@ Za škit přećiwo awtomatizowanemu spamej, wotmołw prošu na prašenje, kotre�
 	'questycaptcha-createaccount' => 'Za škit přećiwo awtomatizowanemu tworjenju kontow, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalš informacije]]):',
 	'questycaptcha-create' => 'Zo by stronu wutworił, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalše informacije]]):',
 	'questycaptcha-edit' => 'Zo by tutu stronu změnił, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalše informacije]]):',
+	'questycaptcha-sendemail' => 'Za škit přećiwo awtomatiskemu spamowanju, wotmołw prošu na prašenje, kotrež so deleka jewi ([[Special:Captcha/help|dalše informacije]]):',
 	'questycaptchahelp-text' => 'Websydła, kotrež přinoški ze zjawnosće akceptuja, kaž tutón wiki, so často wot spamarjow znjewužiwaja, kotřiž awtomatizowane nastroje wužiwaja, zo bychu swoje wotkazy wjele sydłam přidali. Hačrunjež so tute spamowe wotkazy hodźa wotstronić, su wone njesnadne mjerzanje.
 
 Druhdy, wosebje, hdyž so nowe webwotkazy stronje přidawaja, wiki so ći něčeho praša.
@@ -441,6 +448,7 @@ Pro adjutar nos in le protection contra le spam automatisate, per favor responde
 	'questycaptcha-createaccount' => 'Pro adjutar nos in le protection contra le creation automatisate de contos, per favor responde al question ci infra ([[Special:Captcha/help|plus info]]):',
 	'questycaptcha-create' => 'Pro crear le pagina, per favor responde al question ci infra ([[Special:Captcha/help|plus info]]):',
 	'questycaptcha-edit' => 'Pro modificar iste pagina, per favor responde al question ci infra ([[Special:Captcha/help|plus info]]):',
+	'questycaptcha-sendemail' => 'Pro adjutar nos in le protection contra le spam automatic, per favor responde al question hic infra ([[Special:Captcha/help|plus info]]):',
 	'questycaptchahelp-text' => "Le sitos web que accepta contributiones del publico, como iste wiki, es frequentemente abusate per spammatores que usa instrumentos automatic pro publicar lor ligamines in multe sitos.
 Ben que iste ligamines spam pote esser eliminate, illos constitue un considerabile molestia.
 
@@ -498,6 +506,7 @@ Fare clic sul pulsante 'indietro' del browser per tornare alla pagina di modific
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author Fryed-peach
  */
 $messages['ja'] = array(
@@ -507,6 +516,7 @@ $messages['ja'] = array(
 	'questycaptcha-createaccount' => '自動化されたアカウント作成を防止するため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-create' => 'ページを作成するには以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-edit' => 'このページを編集するには以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
+	'questycaptcha-sendemail' => 'ロボットによるスパムを防ぐため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptchahelp-text' => '一般からの投稿を受け付けるこのウィキのようなウェブサイトは、自動投稿ツールを使って多くのサイトにリンクを張ってまわるスパマーにより荒らされがちです。このようなスパムは除去できるものの、その作業は大変に面倒なものです。
 
 このため、このウィキではときどき、特に新しい外部リンクがページに追加されたときなどに、質問に答えていただくようお願いすることがあります。この作業は自動化が難しいため、スパマーなどのプログラムを用いた攻撃をほぼ阻止しつつ、大半の生身の人間による投稿を可能にします。
@@ -586,6 +596,7 @@ $messages['mk'] = array(
 	'questycaptcha-createaccount' => 'За да ни помогнете да се заштитиме од автоматизирано создавање на сметки, одговорете на прашањето подолу ([[Special:Captcha/help|повеќе инфо]]):',
 	'questycaptcha-create' => 'За да ја создадете страницата, одговорете на прашањето подолу ([[Special:Captcha/help|повеќе инфо]]):',
 	'questycaptcha-edit' => 'За да ја уредите страницава, одговорете на прашањето подолу ([[Special:Captcha/help|повеќе инфо]]):',
+	'questycaptcha-sendemail' => 'За да се заштитиме од автоматизирано спамирање, одговорете на долупоставеното прашање ([[Special:Captcha/help|повеќе информации]]):',
 	'questycaptchahelp-text' => 'Веб-страниците кои прифаќаат учество на јавноста, како ова вики, честопати страдаат од спамери кои користат автоматизирани алатки за да ги додаваат нивните врски на голем број веб-страници.
 Иако врските на спамерот може да се отстранат, тие значително ја пореметуваат нашата работа.
 
@@ -607,6 +618,7 @@ Beantwoord de onderstaande vraag als bescherming tegen automatische spam ([[Spec
 	'questycaptcha-createaccount' => 'Beantwoord de onderstaande vraag als bescherming tegen het geautomatiseerd aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptcha-create' => 'Beantwoord de onderstaande vraag om de pagina aan te maken ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptcha-edit' => 'Beantwoord de onderstaande vraag om deze pagina te bewerken ([[Special:Captcha/help|meer informatie]]):',
+	'questycaptcha-sendemail' => 'Beantwoord de onderstaande vraag als bescherming tegen geautomatiseerde spam ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptchahelp-text' => "Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma's automatisch verwijzigen op zetten naar vele websites.
 Hoewel deze externe verwijzingen weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
 
@@ -726,6 +738,7 @@ Para ajudar a prevenir o ''spam'' automatizado, por favor, responda à questão 
 	'questycaptcha-createaccount' => 'Para ajudar a prevenir a criação de contas automatizada, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):',
 	'questycaptcha-create' => 'Para criar a página, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):',
 	'questycaptcha-edit' => 'Para editar esta página, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):',
+	'questycaptcha-sendemail' => "Para ajudar a prevenir o ''spam'' automatizado, por favor, responda à seguinte pergunta ([[Special:Captcha/help|mais informações]]):",
 	'questycaptchahelp-text' => "Sites na internet abertos a edição pública, como é o caso desta wiki, são frequentemente abusados por ''spammers'' que utilizam ferramentas automatizadas para inserção em massa de links em muitos sites.
 Embora esses links possam ser removidos, representam um incómodo significativo.
 
@@ -789,6 +802,7 @@ $messages['ru'] = array(
 	'questycaptcha-createaccount' => 'В целях защиты от автоматического создания учётных записей, пожалуйста, ответьте на приведённый ниже вопрос  ([[Special:Captcha/help|подробнее]]):',
 	'questycaptcha-create' => 'Для создания страницы, пожалуйста, ответьте на приведённый ниже вопрос  ([[Special:Captcha/help|подробнее]]):',
 	'questycaptcha-edit' => 'Чтобы изменить эту страницу, пожалуйста, ответьте на приведённый ниже вопрос  ([[Special:Captcha/help|подробнее]]):',
+	'questycaptcha-sendemail' => 'В целях защиты от автоматического спама, пожалуйста, ответьте на приведённый ниже вопрос ([[Special:Captcha/help|подробнее]]):',
 	'questycaptchahelp-text' => 'Веб-сайты позволяющие изменять своё содержимое, как эта вики, часто становятся целью спамеров, использующих автоматические инструменты для добавления ссылок на другие сайты.
 Несмотря на то, что такие ссылки могут быть удалены, они являются заметной помехой.
 

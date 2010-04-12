@@ -259,7 +259,7 @@ Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten 
 	'fancycaptcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten gib bitte das folgende Wort in das Feld unten ein ([[Special:Captcha/help|Fragen oder Probleme?]]):',
 	'fancycaptcha-create' => 'Zur Erstellung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'fancycaptcha-edit' => 'Zur Bearbeitung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
-	'fancycaptcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, gib bitte die Wörter unten in die Box ein ([[Special:Captcha/help|mehr Informationen]]):',
+	'fancycaptcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, gib bitte die Wörter unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
@@ -854,6 +854,7 @@ For å hjelpa oss med å unngå automatisert spam, ver venleg og skriv inn orda 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Harald Khan
  * @author Jon Harald Søby
+ * @author Laaknor
  */
 $messages['no'] = array(
 	'fancycaptcha-addurl' => 'Din endring inkluderer nye eksterne lenker. For hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn ordene som kommer opp i denne boksen ([[Special:Captcha/help|mer informasjon]]):',
@@ -861,6 +862,7 @@ $messages['no'] = array(
 	'fancycaptcha-createaccount' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk kontoopprettelse ([[Special:Captcha/help|mer informasjon]]):',
 	'fancycaptcha-create' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
 	'fancycaptcha-edit' => 'For å endre denne siden, vennligst skriv inn ordene som dukker opp i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-sendemail' => 'For å beskytte mot automatisert spam så må du skrive ordene under inn i tekstboksen ([[Special:Captcha/help|mer informasjon]]):',
 );
 
 /** Occitan (Occitan)
@@ -885,6 +887,7 @@ $messages['pl'] = array(
 	'fancycaptcha-createaccount' => 'Ze względu na ochronę przed automatycznym spamem, aby się zarejestrować musisz wpisać słowo, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]])',
 	'fancycaptcha-create' => 'Aby utworzyć tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 	'fancycaptcha-edit' => 'Aby edytować tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
+	'fancycaptcha-sendemail' => 'Zabezpieczenie przed automatycznie dodawanym spamem. Wprowadzić słowa widoczne w poniższym prostokącie ([[Special:Captcha/help|więcej informacji]]).',
 );
 
 /** Piedmontese (Piemontèis)

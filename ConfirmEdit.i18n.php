@@ -644,7 +644,7 @@ Zum Schutz vor automatisiertem Spamming löse die nachfolgende Rechenaufgabe und
 	'captcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'captcha-createaccount-fail' => 'Falscher oder fehlender Bestätigungscode.',
 	'captcha-create' => 'Zur Erstellung der Seite löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
-	'captcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, löse bitte die einfache Rechenaufgabe und gib die Antwort unten in die Box ein ([[Special:Captcha/help|mehr Informationen]]):',
+	'captcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, löse bitte die einfache Rechenaufgabe und gib die Antwort unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
 	'captcha-sendemail-fail' => 'Falscher oder fehlender Bestätigungscode.',
 	'captcha-disabledinapi' => 'Diese Aktion benötigt ein Captcha. Sie kann nicht über die API ausgeführt werden.',
 	'captchahelp-title' => 'Captcha-Hilfe',
@@ -771,6 +771,7 @@ $messages['ee'] = array(
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Consta
+ * @author Dada
  * @author Geraki
  * @author Omnipaedista
  * @author ZaDiak
@@ -785,6 +786,7 @@ $messages['el'] = array(
 ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
 	'captcha-createaccount-fail' => 'Λάθος ή αγνοούμενος κωδικός ολοκλήρωσης.',
 	'captcha-create' => 'Για να δημιουργήσετε την σελίδα, παρακαλούμε λύστε την παρακάτω πρόσθεση και απαντήστε στο πλαίσιο ([[Special:Captcha/help|πληροφορίες]]):',
+	'captcha-sendemail-fail' => 'Ελλιπής ή λανθασμένος κωδικός επιβεβαίωσης.',
 	'captchahelp-title' => 'Βοήθεια για το Captcha',
 	'captchahelp-cookies-needed' => 'Θα πρέπει να έχετε τα cookies ενεργοποιημένα στον φυλλομετρητή σας για να εκτελεστεί η λειτουργία.',
 	'captchahelp-text' => "Οι ιστοσελίδες που δέχονται τις επεξεργασίες από το κοινό, όπως αυτό το wiki, δεν χρησιμοποιούνται συχνά σωστά από τους spammers που χρησιμοποιούν τα αυτοματοποιημένα εργαλεία για να αποστείλουν τις συνδέσεις τους με πολλές σελίδες. Αυτές οι spam συνδέσεις  μπορούν να αφαιρεθούν, επειδή είναι σημαντικά ενοχλητικές.
@@ -2256,6 +2258,8 @@ Trykk på «attende»-knappen for å kome tilbake til endringssida.',
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Audun
  * @author Jon Harald Søby
+ * @author Laaknor
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'captcha-edit' => 'Skriv inn summen nedenfor i boksen for å kunne redigere denne siden ([[Special:Captcha/help|mer informasjon]]):',
@@ -2265,6 +2269,9 @@ $messages['no'] = array(
 	'captcha-createaccount' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk kontoopprettelse ([[Special:Captcha/help|mer informasjon]]):',
 	'captcha-createaccount-fail' => 'Ukorrekt eller manglende bekreftelseskode.',
 	'captcha-create' => 'Løs det enkle regnestykket i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-sendemail' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk spamming ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-sendemail-fail' => 'Ukorrekt eller manglende bekreftelseskode.',
+	'captcha-disabledinapi' => 'Denne handlinger krever en captcha, så den kan ikke bli gjort gjennom APIet.',
 	'captchahelp-title' => 'Hjelp med Captcha',
 	'captchahelp-cookies-needed' => 'Du må slå på informasjonskapsler for at dette skal fungere.',
 	'captchahelp-text' => "Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til stor irritasjon.
@@ -2346,6 +2353,9 @@ $messages['pl'] = array(
 	'captcha-createaccount' => 'Zabezpieczenie przed automatycznie dodawanym spamem. Wpisz w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]).',
 	'captcha-createaccount-fail' => 'Nieprawidłowy kod lub brak kodu potwierdzającego.',
 	'captcha-create' => 'Aby utworzyć stronę wykonaj proste działanie i wpisz wynik w pole tekstowe ([[Special:Captcha/help|pomoc]]):',
+	'captcha-sendemail' => 'Zabezpieczenie przed automatycznym spamem. Wpisz w pole poniżej wynik prostego dodawania ([[Special:Captcha/help|więcej informacji]]).',
+	'captcha-sendemail-fail' => 'Nieprawidłowy lub brak kodu potwierdzającego.',
+	'captcha-disabledinapi' => 'Ta czynność wymaga potwierdzenia capcha i z tego względu nie może być przeprowadzona z użyciem API.',
 	'captchahelp-title' => 'Pomoc dla ochrony antyspamowej',
 	'captchahelp-cookies-needed' => 'Musisz mieć włączone w przeglądarce ciasteczka (cookies), aby ta opcja działała.',
 	'captchahelp-text' => 'Strony internetowe akceptujące edycje dokonywane przez każdego, tak jak ta wiki, są często atakowane przez spamerów, którzy używają automatycznych narzędzi, aby dodawać linki prowadzące do ich stron.

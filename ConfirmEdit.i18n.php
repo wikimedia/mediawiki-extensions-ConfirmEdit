@@ -336,6 +336,7 @@ $messages['be'] = array(
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'captcha-edit' => 'Каб рэдагаваць гэтую старонку, калі ласка, знайдзіце простую суму і ўвядзіце адказ у поле ([[Special:Captcha/help|падрабязнасьці]]):',
@@ -346,6 +347,7 @@ $messages['be-tarask'] = array(
 	'captcha-createaccount' => 'У мэтах абароны ад аўтаматычнага стварэньня рахункаў, калі ласка, знайдзіце простую суму і ўвядзіце адказ у поле ([[Special:Captcha/help|падрабязнасьці]]):',
 	'captcha-createaccount-fail' => 'Пацьвярджальны код няслушны ці адсутнічае.',
 	'captcha-create' => 'Каб стварыць старонку, калі ласка, знайдзіце простую суму і ўвядзіце адказ у поле ([[Special:Captcha/help|падрабязнасьці]]):',
+	'captcha-sendemail-fail' => 'Пацьвярджальны код няслушны ці адсутнічае.',
 	'captchahelp-title' => 'Дапамога ў captcha',
 	'captchahelp-cookies-needed' => 'Вам трэба дазволіць файлы-кукі ў Вашым браўзэры, каб гэтая функцыя працавала.',
 	'captchahelp-text' => 'Вэб-сайты, якія прымаюць запісы ад грамадзкасьці, падобныя на {{GRAMMAR:вінавальны|{{SITENAME}}}}, часта атакуюцца спамэрамі, якія ўжываюць аўтаматызаваныя інструмэнты, каб зьмяшчаць свае спасылкі на шмат сайтаў.

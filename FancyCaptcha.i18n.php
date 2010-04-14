@@ -129,6 +129,7 @@ $messages['bcc'] = array(
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
+ * @author Jim-by
  * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
@@ -138,6 +139,7 @@ $messages['be-tarask'] = array(
 	'fancycaptcha-createaccount' => 'У мэтах абароны ад аўтаматычнага стварэньня рахункаў, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
 	'fancycaptcha-create' => 'Для стварэньня старонкі, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
 	'fancycaptcha-edit' => 'Для рэдагаваньня гэтай старонкі, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
+	'fancycaptcha-sendemail' => 'У мэтах абароны упраць аўтаматычнага спаму, калі лака, увядзіце словы паказаныя ніжэй у полі ([[Special:Captcha/help|падрябязьней]]):',
 );
 
 /** Bulgarian (Български)

@@ -345,9 +345,11 @@ $messages['be-tarask'] = array(
 У мэтах абароны ад аўтаматычнага спаму, калі ласка, знайдзіце простую суму і ўвядзіце адказ у поле ([[Special:Captcha/help|падрабязнасьці]]):',
 	'captcha-badlogin' => 'У мэтах абароны ад аўтаматычнага ўзлому пароляў, калі ласка, знайдзіце простую суму і ўвядзіце адказ у поле ([[Special:Captcha/help|падрабязнасьці]]):',
 	'captcha-createaccount' => 'У мэтах абароны ад аўтаматычнага стварэньня рахункаў, калі ласка, знайдзіце простую суму і ўвядзіце адказ у поле ([[Special:Captcha/help|падрабязнасьці]]):',
-	'captcha-createaccount-fail' => 'Пацьвярджальны код няслушны ці адсутнічае.',
+	'captcha-createaccount-fail' => 'Код пацьверджаньня — няслушны альбо адсутнічае.',
 	'captcha-create' => 'Каб стварыць старонку, калі ласка, знайдзіце простую суму і ўвядзіце адказ у поле ([[Special:Captcha/help|падрабязнасьці]]):',
-	'captcha-sendemail-fail' => 'Пацьвярджальны код няслушны ці адсутнічае.',
+	'captcha-sendemail' => 'У мэтах абароны упраць аўтаматычнага спаму, калі лака, увядзіце вынік простага складаньня ў полі ніжэй ([[Special:Captcha/help|падрябязьней]]):',
+	'captcha-sendemail-fail' => 'Код пацьверджаньня — няслушны альбо адсутнічае.',
+	'captcha-disabledinapi' => 'Гэтае дзеяньне патрабуе праверкі captcha, і з-за гэтага ня можа быць выканана праз API.',
 	'captchahelp-title' => 'Дапамога ў captcha',
 	'captchahelp-cookies-needed' => 'Вам трэба дазволіць файлы-кукі ў Вашым браўзэры, каб гэтая функцыя працавала.',
 	'captchahelp-text' => 'Вэб-сайты, якія прымаюць запісы ад грамадзкасьці, падобныя на {{GRAMMAR:вінавальны|{{SITENAME}}}}, часта атакуюцца спамэрамі, якія ўжываюць аўтаматызаваныя інструмэнты, каб зьмяшчаць свае спасылкі на шмат сайтаў.
@@ -2394,6 +2396,9 @@ e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë
 	'captcha-createaccount-fail' => "Ël còdes ëd verìfica ò ch'a manca d'autut ò ch'a l'é pa bon.",
 	'captcha-create' => "Për creé d'amblé sta pàgina-sì, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà<br />
 ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captcha-sendemail' => "Për giuté a protegi contra lë spamming automàtich, për piasì arzòlv la soma sempia sì sota e ansëriss l'arspòsta ant la casela ([[Special:Captcha/help|për savèjne ëd pi]]):",
+	'captcha-sendemail-fail' => "Ël còdes ëd verìfica ò ch'a manca d'autut ò ch'a l'é pa bon.",
+	'captcha-disabledinapi' => "St'assion-sì a ciama na captcha, parèj a peul pa esse fàita con na API.",
 	'captchahelp-title' => 'Còs é-lo mai ës captcha?',
 	'captchahelp-cookies-needed' => "Për podej dovré sossì a l'ha da manca che sò navigator (browser) a pija ij cookies.",
 	'captchahelp-text' => "Soèns a-i riva che ij sit dla Ragnà che la gent a peul dovré për ëscrive chèich-còs, coma sta wiki-sì, a resto ambërlifà ëd reclam da màchine che a carìo soa ròba dadsà e dadlà n'aotomàtich. Për tant che sta reclam un a peula peuj gavela, a resta sempe un gran fastudi.

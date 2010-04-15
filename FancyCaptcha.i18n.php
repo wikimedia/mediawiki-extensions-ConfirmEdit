@@ -139,7 +139,7 @@ $messages['be-tarask'] = array(
 	'fancycaptcha-createaccount' => 'У мэтах абароны ад аўтаматычнага стварэньня рахункаў, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
 	'fancycaptcha-create' => 'Для стварэньня старонкі, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
 	'fancycaptcha-edit' => 'Для рэдагаваньня гэтай старонкі, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
-	'fancycaptcha-sendemail' => 'У мэтах абароны упраць аўтаматычнага спаму, калі лака, увядзіце словы паказаныя ніжэй у полі ([[Special:Captcha/help|падрябязьней]]):',
+	'fancycaptcha-sendemail' => 'У мэтах абароны супраць аўтаматычнага спаму, калі ласка, увядзіце словы паказаныя ніжэй у полі ([[Special:Captcha/help|дадатковая інфармацыя]]):',
 );
 
 /** Bulgarian (Български)
@@ -550,13 +550,15 @@ Como protection contra le spam automatic, per favor entra le parolas que appare 
 
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
+ * @author Iwan Novirion
  */
 $messages['id'] = array(
 	'fancycaptcha-addurl' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
-	'fancycaptcha-badlogin' => 'Untuk membantu perlindungan terhadap perengkahan kunci sandi otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+	'fancycaptcha-badlogin' => 'Sebagai perlindungan terhadap pemecah kata kunci otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 	'fancycaptcha-createaccount' => 'Untuk perlindungan terhadap pembuatan akun otomatis, tolong masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
-	'fancycaptcha-create' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
-	'fancycaptcha-edit' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk perlindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+	'fancycaptcha-create' => 'Untuk membuat halaman, silahkan masukkan kata-kata yang muncul dibawah ini kedalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+	'fancycaptcha-edit' => 'Untuk menyunting halaman ini, silahkan masukkan kata-kata yang muncul dibawah ini kedalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+	'fancycaptcha-sendemail' => 'Sebagai perlindungan terhadap spam otomatis, silahkan masukkan kata-kata yang muncul dibawah ini kedalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 );
 
 /** Italian (Italiano)

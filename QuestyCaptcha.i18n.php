@@ -88,7 +88,7 @@ $messages['be-tarask'] = array(
 	'questycaptcha-createaccount' => 'Для абароны супраць аўтаматычнага стварэньня рахункаў, калі ласка, адкажыце на пытаньне, паказанае ніжэй ([[Special:Captcha/help|дадатковая інфармацыя]]):',
 	'questycaptcha-create' => 'Для стварэньня старонкі, калі ласка, адкажыце на пытаньне, паказанае ніжэй ([[Special:Captcha/help|дадатковая інфармацыя]]):',
 	'questycaptcha-edit' => 'Для рэдагаваньня гэтай старонкі, калі ласка, адкажыце на пытаньне, паказанае ніжэй ([[Special:Captcha/help|дадатковая інфармацыя]]):',
-	'questycaptcha-sendemail' => 'У мэтах абароны супраць аўтаматычнага спаму, калі ласка, адкажыце на пытаньне ніжэй ([[Special:Captcha/help|падрабязьней]]):',
+	'questycaptcha-sendemail' => 'У мэтах абароны супраць аўтаматычнага спаму, калі ласка, адкажыце на пытаньне, паказанае ніжэй ([[Special:Captcha/help|дадатковая інфармацыя]]):',
 	'questycaptchahelp-text' => 'Вэб-сайты, якія прымаюць запісы ад грамадзкасьці, падобныя на {{GRAMMAR:вінавальны|{{SITENAME}}}}, часта атакуюцца спамэрамі, якія ўжываюць аўтаматызаваныя інструмэнты, каб зьмяшчаць свае спасылкі на шмат сайтаў.
 І хаця гэтыя спасылкі могуць быць прыбраныя, яны выклікаюць значныя нязручнасьці.
 
@@ -465,6 +465,7 @@ Clicca le button 'retro' in tu navigator pro retornar al editor de paginas.",
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
  * @author Irwangatot
+ * @author Iwan Novirion
  */
 $messages['id'] = array(
 	'questycaptcha-addurl' => 'Suntingan Anda menambahkan pranala eksternal yang baru.
@@ -478,15 +479,16 @@ Untuk melindungi dari spam otomatis, mohon jawab pertanyaan di bawah ini
 ([[Special:Captcha/help|info lebih lanjut]]):',
 	'questycaptcha-edit' => 'Untuk menyunting halaman ini, mohon jawab pertanyaan di bawah ini
 ([[Special:Captcha/help|info lebih lanjut]]):',
-	'questycaptchahelp-text' => "Situs Web yang menerima kontibusi dari masyarakat, seperti wiki ini, sering disalahgunakan oleh spammer yang menggunakan alat otomatis untuk menambahkan pranala mereka ke banyak situs. 
-Sementara pranala spam ini dapat dihilangkan, mereka adalah gangguan yang signifikan. 
+	'questycaptcha-sendemail' => 'Sebagai perlindungan terhadap spam otomatis, silahkan jawab pertanyaan dibawah ini ([[Special:Captcha/help|info lengkap]]):',
+	'questycaptchahelp-text' => "Situs-situs web yang menerima tulisan dari publik, seperti wiki ini, kerapkali disalahgunakan oleh pengguna-pengguna yang tidak bertanggungjawab untuk mengirimkan spam dengan menggunakan program-program otomatis guna membahkan prnala mereka pada berbagai situs web.
+Walaupun pranala-pranala spam tersebut dapat dibuang, tetapi tetap saja menimbulkan gangguan yang berarti.
 
-Kadang-kadang, khususnya saat menambahkan pranala web baru ke halaman, wiki dapat meminta Anda untuk menjawab pertanyaan. 
-sekarang tugas itu sulit untuk diotomatisasi, diperlukan manusia nyata untuk melakukannya sementara menghentikan sebagian besar spammer dan robot penyerang. 
+Kadang-kadang, terutama sat menambahkan pranala web baru ke suatu halaman, wiki akan meminta anda menjawab suatu pertanyaan. 
+Karena ini merupakan suatu pekerjaan yang sulit diotomatisasi, pembatasan ini akan dapat dengan mudah dilalui oleh manusia, sekaligus juga dapat menghentikan hampir semua serangan spam dan robot otomatis lainnya.
 
-Silakan menghubungi [[{{MediaWiki:Grouppage-sysop}}|site administrators]] untuk bantuan jika ini mencegah Anda dari membuat kontribusi yang sah. 
+Silakan hubungi [[{{MediaWiki:Grouppage-sysop}}|pengurus]] untuk meminta bantuan jika hal ini menghambat anda untuk mengirimkan suntingan yang layak.
 
-tekan tombol 'back' di browser anda untuk kembali ke halaman penyuntingan.",
+Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan.",
 );
 
 /** Italian (Italiano)

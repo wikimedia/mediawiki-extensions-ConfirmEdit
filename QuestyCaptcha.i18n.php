@@ -492,14 +492,16 @@ Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Darth Kule
  */
 $messages['it'] = array(
 	'questycaptcha-addurl' => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):",
 	'questycaptcha-badlogin' => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
-	'questycaptcha-createaccount' => 'Come misura di sicurezza nei confronti dei messaggi di spam automatici, si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'questycaptcha-createaccount' => 'Come misura precauzionale contro i tentativi di creazione automatica degli account, si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'questycaptcha-create' => 'Per creare la pagina si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'questycaptcha-edit' => 'Per modificare questa pagina si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'questycaptcha-sendemail' => 'Come misura precauzionale nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'questycaptchahelp-text' => "Capita spesso che i siti Web che accettano messaggi pubblici, come questo wiki, siano presi di mira da spammer che usano strumenti automatici per inserire collegamenti pubblicitari verso un gran numero di siti. Per quanto i collegamenti indesiderati si possano rimuovere, si tratta comunque di una seccatura non indifferente. 
 
 In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti Web in una pagina, il software wiki può richiedere di rispondere a una domanda. Poiché si tratta di un'azione difficile da replicare da parte di un computer, questo meccanismo consente a (quasi tutti) gli utenti reali di effettuare i proprio contributi, impedendo l'accesso alla maggior parte degli spammer e degli altri attacchi automatizzati. 

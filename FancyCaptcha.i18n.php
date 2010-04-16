@@ -562,15 +562,17 @@ $messages['id'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author BrokenArrow
  * @author Darth Kule
  */
 $messages['it'] = array(
 	'fancycaptcha-addurl' => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):",
 	'fancycaptcha-badlogin' => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
-	'fancycaptcha-createaccount' => 'Come misura di sicurezza nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'fancycaptcha-createaccount' => 'Come misura precauzionale contro i tentativi di creazione automatica degli account, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'fancycaptcha-create' => 'Per creare la pagina si prega di inserire nella casella sottostante le parole che compaiono nella casella di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'fancycaptcha-edit' => 'Per modificare questa pagina si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'fancycaptcha-sendemail' => 'Come misura precauzionale nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
 );
 
 /** Japanese (日本語)

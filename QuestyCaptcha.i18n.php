@@ -532,6 +532,13 @@ $messages['ja'] = array(
 ページの編集に戻るには、ブラウザの「戻る」ボタンを押してください。',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'questycaptcha-badlogin' => '자동화된 비밀번호 깨기를 방지하기 위해 아래애 보이는 질문에 대답해주세요 ([[Special:Captcha/help|자세한 정보]]):',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */
@@ -658,6 +665,7 @@ For å beskytte mot autmatisert spam, vennligst svar på spørsmålet som vises 
 	'questycaptcha-createaccount' => 'For å beskytte mot autmatisert spam, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
 	'questycaptcha-create' => 'For å opprette siden, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
 	'questycaptcha-edit' => 'For å endre denne siden, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
+	'questycaptcha-sendemail' => 'For å beskytte mot automatisert søppelpost, svar på spørsmålet som vises nedenfor ([[Special:Captcha/help|mer info]]):',
 	'questycaptchahelp-text' => "Nettsteder som tar imot bidrag fra allmennheten, som denne wikien, er ofte utsatt for angrep fra spammere som bruker automatiserte verktøy for å legge til lenker til mange sider.
 Selv om disse spam-lenkene kan fjernes er de en stor plage.
 

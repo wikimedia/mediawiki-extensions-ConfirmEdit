@@ -588,6 +588,7 @@ Fir d'Protectioun géint automatesche Spam ze vergréisseren, beäntwert w.e.g. 
 	'questycaptcha-createaccount' => "Fir d'Protectioun géint d'automatiséiert Uleeë vu Benotzerkonten ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
 	'questycaptcha-create' => "Fir d'Säit unzeleeën, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
 	'questycaptcha-edit' => "Fir dës Säit z'änneren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
+	'questycaptcha-sendemail' => 'Fir ze hëllefe eis géint automatiséierte Spam ze schütze, beäntwert w.e.g. déi Fro hei ënnendrënner ([[Special:Captcha/help|méi Informatiounen]]):',
 	'questycaptchahelp-text' => "Websäiten, déi et jidwerengem erlaben Ännerunge virzehuelen, sou wéi dës Wiki, ginn dacks vu sougenannte Spammer mëssbraucht, déi automatiséiert hir Linken op vill Internetsäite setzen.
 Esou Spam-Linke kënne wuel geläscht ginn, mee si sinn trotzdem eng grouss Plo.
 
@@ -708,6 +709,7 @@ Ochrona przed zautomatyzowanym spamem wymaga odpowiedzi na poniższe pytanie ([[
 	'questycaptcha-createaccount' => 'Ochrona przed zautomatyzowanym tworzeniem kont wymaga odpowiedzi na poniższe pytanie ([[Special:Captcha/help|więcej informacji]])',
 	'questycaptcha-create' => 'Utworzenie strony jest możliwe po udzieleniu odpowiedzi na poniższe pytanie ([[Special:Captcha/help|więcej informacji]])',
 	'questycaptcha-edit' => 'Edycja strony jest możliwa po udzieleniu odpowiedzi na poniższe pytanie ([[Special:Captcha/help|więcej informacji]])',
+	'questycaptcha-sendemail' => 'Z uwagi na ochronę przed automatycznym spamem, należy odpowiedzieć na znajdujące się poniżej pytanie ([[Special:Captcha/help|pomoc]])',
 	'questycaptchahelp-text' => "Witryny, które publicznie udostępniają możliwość wprowadzania zmian, tak jak ta wiki, często są wykorzystywane przez spamerów, którzy korzystają ze zautomatyzowanych narzędzi, aby dodawać swoje linki do wielu stron.
 Pomimo tego, że takie linki mogą zostać usunięte, jest to jednak uciążliwe.
 

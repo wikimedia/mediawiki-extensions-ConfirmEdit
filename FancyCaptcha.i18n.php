@@ -176,6 +176,7 @@ $messages['br'] = array(
 a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
 	'fancycaptcha-create' => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
 	'fancycaptcha-edit' => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
+	'fancycaptcha-sendemail' => "Evit hor skoazellañ da zizarbenn ar strob emgefre, adskrivit ar gerioù a welit er voest dindan ([[Special:Captcha/help|gouzout hiroc'h]]):",
 );
 
 /** Bosnian (Bosanski)
@@ -898,6 +899,7 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Bèrto 'd Sèra
  */
 $messages['pms'] = array(
@@ -907,6 +909,7 @@ Për dene na man a vardesse da la reclam aotomatisà, për piasì, ch'a l'arbata
 	'fancycaptcha-createaccount' => "Për dene na man a vardesse da ij programa ch'a deurbo cont neuv n'aotomàtich, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):",
 	'fancycaptcha-create' => "Për creé sta pàgina-i d'amblé, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):",
 	'fancycaptcha-edit' => "Për fe-ie dle modìfiche ansima a sta pàgina-sì, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):",
+	'fancycaptcha-sendemail' => "Për giuté a protegi contra la rumenta automàtica, për piasì ch'a anseriss le paròle che as vëddo sota ant la casela ([[Special:Captcha/help|për savèjne ëd pi]]):",
 );
 
 /** Pashto (پښتو)

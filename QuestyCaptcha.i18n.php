@@ -112,6 +112,7 @@ A-benn hor skoazellañ da stourm a-enep d'ar strob emgefre, respontit d'ar goule
 	'questycaptcha-createaccount' => "A-benn hor skoazellañ da stourm a-enep ar c'hrouiñ kontoù emgefre, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
 	'questycaptcha-create' => "A-benn gellout krouiñ ar bajenn, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
 	'questycaptcha-edit' => "A-benn gellout degas kemmoù er bajenn-mañ, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
+	'questycaptcha-sendemail' => "Evit hor skoazellañ da zizarbenn ar strob emgefre, respontit d'ar goulenn skrivet dindan ([[Special:Captcha/help|gouzout hiroc'h]]) :",
 	'questycaptchahelp-text' => "Alies e vez taget al lec'hiennoù a zegemer kemennadennoù a-berzh an holl, evel ar wiki-mañ, gant ar stroberien a implij ostilhoù emgefre evit postañ o liammoù war-du lec'hiennoù a bep seurt. Ha pa c'hallfent bezañ diverket, kazus-mat ez eo ar stroboù-se memes tra.
 
 A-wezhioù, dreist-holl pa vez ouzhpennet liammoù Web nevez war ur bajenn, e c'hallo ar wiki-mañ sevel ur goulenn ouzhoc'h. 
@@ -722,6 +723,7 @@ Kliknij przycisk 'wstecz' w przeglądarce, aby wrócić do strony edycji.",
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
@@ -731,6 +733,7 @@ Për giuté a protegi contra spam automàtich, për piasì arspond a la custion 
 	'questycaptcha-createaccount' => 'Për giuté a protegi contra la creassion automàtica ëd cont, për piasì arspond a la custion che a ven fòra sota ([[Special:Captcha/help|për savejne ëd pì]]):',
 	'questycaptcha-create' => 'Për creé la pàgina, për piasì arspond a la custion che a ven fòra sota: ([[Special:Captcha/help|për savejne ëd pì]]):',
 	'questycaptcha-edit' => 'Për modifiché sta pàgina-sì, për piasì arspond a la custion che a ven fòra sota ([[Special:Captcha/help|për savejne ëd pì]]):',
+	'questycaptcha-sendemail' => "Për giuté a protegi contra la rumenta automàtica, për piasì ch'a risponda a la chestion ch'as vëdd sì-sota ([[Special:Captcha/help|për savèjne ëd pi]]):",
 	'questycaptchahelp-text' => "Soèns a-i riva che ij sit dla Ragnà che la gent a peul dovré për ëscrive chèich-còs, coma sta wiki-sì, a resto ambërlifà ëd reclam da màchine che a carìo soa ròba dadsà e dadlà n'automàtich. 
 Për tant che sta reclam un a peula peuj gavela, a resta sempe un gran fastudi. 
 

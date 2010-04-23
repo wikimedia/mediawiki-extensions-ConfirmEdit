@@ -218,6 +218,7 @@ $messages['cs'] = array(
 	'fancycaptcha-createaccount' => 'V rámci ochrany před automatickým zakládáním účtů musíte pro provedení registrace opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 	'fancycaptcha-create' => 'Abyste mohli založit stránku, musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 	'fancycaptcha-edit' => 'Abyste mohli editovat tuto stránku, musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
+	'fancycaptcha-sendemail' => 'V rámci ochrany proti automatickému spamování musíte opsat níže zobrazená slova ([[Special:Captcha/help|více informací]]):',
 );
 
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)

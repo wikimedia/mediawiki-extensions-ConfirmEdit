@@ -693,7 +693,7 @@ $messages['ko'] = array(
 	'fancycaptcha-sendemail' => '자동화된 스팸을 방지하기 위해, 아래 상자에 있는 단어를 입력해 주시기 바랍니다. ([[Special:Captcha/help|추가 도움말]]):',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -1217,7 +1217,7 @@ $messages['yi'] = array(
 	'fancycaptcha-edit' => 'צו רעדאִקטירן דעם בלאַט, זײַט אזוי גוט און קלאַפט אַרײַן די ווערטער וואָס שטייען אינעם קעסטל אונטן ([[Special:Captcha/help|מער אינפֿארמאַציע]]):',
 );
 
-/** Yue (粵語) */
+/** Cantonese (粵語) */
 $messages['yue'] = array(
 	'fancycaptcha-addurl' => '你嘅編輯包括咗新嘅外部連結。為咗防止自動化嘅濫貼，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',
 	'fancycaptcha-badlogin' => '為咗防止不當程式破解密碼，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',

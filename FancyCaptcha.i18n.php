@@ -833,6 +833,7 @@ Um dit prejek te bescharmen tegen spam, mu-j 't woord dat hieronder steet invull
 	'fancycaptcha-create' => "Um een pagina an te maken, mu-j 't woord dat hieronder steet invullen
 ([[Special:Captcha/help|hulpe]]):",
 	'fancycaptcha-edit' => 'Joew bewarking bevat nieje uutgaonde verwiezingen. Um disse wiki te bescharmen tegen ongewunste toevoegingen mu-j de woorden hieronder invullen ([[Special:Captcha/help|hulpe]]):',
+	'fancycaptcha-sendemail' => "Voer de woorden dee hieronder staon in 't invoerveld in as bescharming tegen autematische ongewunste reclame ([[Special:Captcha/help|meer infermasie]]):",
 );
 
 /** Dutch (Nederlands)

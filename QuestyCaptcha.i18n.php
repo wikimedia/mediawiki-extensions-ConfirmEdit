@@ -757,7 +757,7 @@ Ch'a-i bata ansima al boton 'andré' ant sò navigator për torné andré a l'ed
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
-	'questycaptcha-addurl' => "A sua edição introduziu links externos novas.
+	'questycaptcha-addurl' => "A sua edição introduziu links externos novos.
 Para ajudar a prevenir o ''spam'' automatizado, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):",
 	'questycaptcha-badlogin' => 'Para ajudar a prevenir mecanismos automatizados de descoberta de palavras-chave, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):',
 	'questycaptcha-createaccount' => 'Para ajudar a prevenir a criação de contas automatizada, por favor, responda à questão apresentada abaixo ([[Special:Captcha/help|mais informações]]):',

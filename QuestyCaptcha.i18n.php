@@ -777,6 +777,7 @@ Clique o botão 'voltar' do seu browser para voltar à página de edição.",
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
+ * @author Giro720
  */
 $messages['pt-br'] = array(
 	'questycaptcha-addurl' => 'Sua edição inclui novas ligações externas.
@@ -785,6 +786,7 @@ Para proteção contra spam automático, por favor responda a questão que apare
 	'questycaptcha-createaccount' => 'Para proteger contra criação automática de contas, por favor responda as questões que aparecem abaixo ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-create' => 'Para criar a página, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-edit' => 'Para editar esta página, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-sendemail' => "Para ajudar a prevenir o ''spam'' automatizado, por favor, responda à seguinte pergunta ([[Special:Captcha/help|mais informações]]):",
 	'questycaptchahelp-text' => "Sítios que aceitam contribuições públicas, como este wiki, são vulneráveis a spammers que utilizam ferramentas automatizadas para inserir as suas ligações em diversos locais. 
 Apesar de ser possível emover tais ligações, elas são um incômodo significativo.
 

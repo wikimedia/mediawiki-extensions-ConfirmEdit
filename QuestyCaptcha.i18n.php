@@ -436,6 +436,7 @@ Segíts az automatikus spamek elleni védekezésben, kérlek válaszolj az aláb
 	'questycaptcha-createaccount' => 'Segíts az automatikus felhasználói fiók készítés kivédésében, kérlek válszolj az alábbi kérdésre ([[Special:Captcha/help|további információk]]):',
 	'questycaptcha-create' => 'Kérlek válaszolj az alábbi kérdésre a lap létrehozásához ([[Special:Captcha/help|további információk]]):',
 	'questycaptcha-edit' => 'A lap szerkesztéséhez kérlek válaszolj az alábbi kérdésre ([[Special:Captcha/help|további információk]]):',
+	'questycaptcha-sendemail' => 'Hogy segíts az automatikus spammelés elleni védekezésben, kérünk válaszolj az alábbi kérdésre ([[Special:Captcha/help|segítség]]):',
 	'questycaptchahelp-text' => 'Az olyan weboldalakat, amelyekre bárki írhat, gyakran támadják meg spammerek olyan eszközök felhasználásával, amelyek képesek automatikusan, emberi felügyelet nélkül elhelyezni hivatkozásokat sok különböző oldalon. 
 
 Néha, különösen ha egy új külső hivatkozást teszel egy szócikkbe, a wiki egy egy kérdés megválaszolására kérhet.
@@ -912,6 +913,7 @@ $messages['th'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Joseph
  * @author Vito Genovese
  */
 $messages['tr'] = array(
@@ -921,6 +923,7 @@ Otomatik reklama karşı korunmaya yardımcı olmak için, lütfen ([[Special:Ca
 	'questycaptcha-createaccount' => 'Otomatik hesap oluşturmaya karşı korunmaya yardımcı olmak için, lütfen ([[Special:Captcha/help|daha fazla bilgi]]) bölümünün altında yer alan soruya cevap verin:',
 	'questycaptcha-create' => 'Sayfayı oluşturmak için, lütfen ([[Special:Captcha/help|daha fazla bilgi]]) bölümünün altında yer alan soruya cevap verin:',
 	'questycaptcha-edit' => 'Sayfayı değiştirmek için, lütfen ([[Special:Captcha/help|daha fazla bilgi]]) bölümünün altında yer alan soruya cevap verin:',
+	'questycaptcha-sendemail' => 'Otomatik spamlerden korunmaya yardımcı olmak için, lütfen aşağıda görünen soruyu cevaplayın ([[Special:Captcha/help|daha fazla bilgi]]):',
 	'questycaptchahelp-text' => "Bu viki gibi herkesin katkı yapmasına izin veren web siteleri, genellikle bir çok siteye verilen bağlantıları ekleyen otomatik araçlar kullanan reklam amaçlı kullanıcılar tarafından istismar edilmektedir.
 Bu reklam bağlantıları kaldırılabiliyor olsa da, önemli bir sıkıntı yaratmaktadırlar.
 
@@ -937,5 +940,17 @@ Sayfa editörüne dönmek için tarayıcınızın 'geri' düğmesine tıklayın.
  */
 $messages['yi'] = array(
 	'questycaptcha-create' => 'צו שאַפֿן דעם בלאַט, ביטע ענטפֿערט די פֿראַגע אונטן  ([[Special:Captcha/help|מער אינפֿארמאַציע]]):',
+);
+
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Horacewai2
+ */
+$messages['zh-hant'] = array(
+	'questycaptcha-addurl' => '您的編輯內容中含有本網站以外的連結。為防止不當程式大量破壞，請回答以下的問題（[[Special:Captcha/help|相關資訊]]）：',
+	'questycaptcha-badlogin' => '為防止不當程式破解密碼，請回答以下的問題（[[Special:Captcha/help|相關資訊]]）：',
+	'questycaptcha-createaccount' => '為防止不當程式大量建立帳戶，請回答以下的問題（[[Special:Captcha/help|相關資訊]]）：',
+	'questycaptcha-create' => '為防止不當程式大量建立頁面，請回答以下問題（[[Special:Captcha/help|相關資訊]]）：',
+	'questycaptcha-edit' => '為防破壞，如您想要編輯此頁面，請回答以下的問題（[[Special:Captcha/help|相關資訊]]）：',
+	'questycaptcha-sendemail' => '為防止不當程式破解密碼，請回答下列問題（[[Special:Captcha/help|相關資訊]]）：',
 );
 

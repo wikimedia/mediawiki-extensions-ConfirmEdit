@@ -529,6 +529,7 @@ $messages['hsb'] = array(
 /** Hungarian (Magyar)
  * @author Adam78
  * @author Dorgan
+ * @author Glanthor Reviol
  */
 $messages['hu'] = array(
 	'fancycaptcha-addurl' => 'A szerkesztésed új külső hivatkozásokat tartalmaz. Az automatizált spamek megelőzése miatt kérjük, hogy add meg a lenti keretben olvasható szavakat ([[Special:Captcha/help|további segítség]]):',
@@ -536,6 +537,7 @@ $messages['hu'] = array(
 	'fancycaptcha-createaccount' => 'A felhasználói fiókok automatizált létrehozásának elkerülésére, kérlek, írd be az alább megjelenő szót a szövegdobozba ([[Special:Captcha/help|segítség]]):',
 	'fancycaptcha-create' => 'A lap létrehozásához kérjük, hogy add meg a lenti keretben olvasható szavakat ([[Special:Captcha/help|további segítség]]):',
 	'fancycaptcha-edit' => 'A szerkesztésed új külső linkeket tartalmaz. A spam-robotok elleni védekezés elősegítésére kérlek írd be az alább megjelenő szót a szövegdobozba ([[Special:Captcha/help|segítség]]):',
+	'fancycaptcha-sendemail' => 'Hogy segíts az automatikus spammelés elleni védekezésben, kérünk írd be az alábbi szavakat a szövegdobozba ([[Special:Captcha/help|segítség]]):',
 );
 
 /** Interlingua (Interlingua)
@@ -1156,6 +1158,7 @@ Otomatik spamdan korunmak için, lütfen aşağıdaki sözcükleri kutunun için
 	'fancycaptcha-createaccount' => 'Otomatik hesap oluşturmaya karşı korumaya yardım etmek için, lütfen aşağıdaki kutuda görünen kelimeleri girin ([[Special:Captcha/help|daha fazla bilgi]]):',
 	'fancycaptcha-create' => 'Sayfayı oluşturmak için, lütfen aşağıdaki kutuda görünen kelimeleri girin ([[Special:Captcha/help|daha fazla bilgi]]):',
 	'fancycaptcha-edit' => 'Bu sayfayı değiştirmek için, lütfen aşağıdaki kutuda görünen kelimeleri girin ([[Special:Captcha/help|daha fazla bilgi]]):',
+	'fancycaptcha-sendemail' => 'Otomatik spamlerden korunmaya yardımcı olmak için, lütfen aşağıda görünen sözcükleri kutuya yazın ([[Special:Captcha/help|daha fazla bilgi]]):',
 );
 
 /** Ukrainian (Українська)
@@ -1240,12 +1243,15 @@ $messages['zh-hans'] = array(
 	'fancycaptcha-edit' => '如你想要编辑這个页面，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Horacewai2
+ */
 $messages['zh-hant'] = array(
 	'fancycaptcha-addurl' => '您的編輯內容中含有本網站以外的連結。為防止不當程式大量破壞，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
 	'fancycaptcha-badlogin' => '為防止不當程式破解密碼，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
 	'fancycaptcha-createaccount' => '為防止不當程式大量建立帳戶，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
 	'fancycaptcha-create' => '為防止不當程式大量建立頁面，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
 	'fancycaptcha-edit' => '如您想要編輯此頁面，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
+	'fancycaptcha-sendemail' => '為防止不當程式進行破壞，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
 );
 

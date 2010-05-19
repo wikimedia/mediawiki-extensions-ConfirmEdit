@@ -957,7 +957,7 @@ $messages['pt-br'] = array(
  * @author Mihai
  */
 $messages['ro'] = array(
-	'fancycaptcha-createaccount' => 'Pentru a ajuta protecţia împotriva creării automate de conturi, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
+	'fancycaptcha-createaccount' => 'Pentru a ajuta protecția împotriva creării automate de conturi, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
 	'fancycaptcha-create' => 'Pentru a crea pagina, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
 	'fancycaptcha-edit' => 'Pentru a modifica această pagină, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
 );

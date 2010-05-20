@@ -358,7 +358,7 @@ Como esta tarefa é difícil de automatizar, permite distinguir entre persoas e 
 
 Por favor, contacte cun [[{{MediaWiki:Grouppage-sysop}}|administrador do sitio]] para solicitar axuda se o sistema lle impide rexistrarse para facer contribucións lexítimas.
 
-Prema no botón \"atrás\" do seu navegador para voltar á páxina de edición.",
+Prema no botón \"atrás\" do seu navegador para volver á páxina de edición.",
 );
 
 /** Swiss German (Alemannisch)

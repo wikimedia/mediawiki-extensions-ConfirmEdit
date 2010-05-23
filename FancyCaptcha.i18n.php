@@ -1157,6 +1157,7 @@ Upang makatulong sa pagsasanggalang laban sa kusang pinapadalang mga \"manluluso
 	'fancycaptcha-createaccount' => 'Upang makatulong sa pagsasanggalang laban sa kusang paglikha ng kuwenta/akawnt, pakilagay lamang ang mga salitang lumitaw sa ibaba patungo sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',
 	'fancycaptcha-create' => 'Upang malikha ang pahina, pakilagay lamang ang mga salitang lumitaw sa ibaba patungo sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',
 	'fancycaptcha-edit' => 'Upang mabago ang pahinang ito, pakilagay lamang ang mga salitang lumitaw sa ibaba patungo sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',
+	'fancycaptcha-sendemail' => 'Upang makatulong sa pagsasanggalang laban sa mga kusang pagsalakay ng ispam, pakilagay lamang ang mga salitang lumilitaw sa ibaba sa loob ng kahong ([[Special:Captcha/help|marami pang kabatiran]]):',
 );
 
 /** Turkish (Türkçe)

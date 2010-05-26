@@ -6,10 +6,6 @@ class ConfirmEditHooks {
 		static $done = false;
 		if ( !$done ) {
 			$done = true;
-			wfLoadExtensionMessages( 'ConfirmEdit' );
-			if ( isset( $wgExtensionMessagesFiles[$wgCaptchaClass] ) ) {
-				wfLoadExtensionMessages( $wgCaptchaClass );
-			}
 			$wgCaptcha = new $wgCaptchaClass;
 		}
 		return $wgCaptcha;

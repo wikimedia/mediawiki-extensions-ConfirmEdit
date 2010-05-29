@@ -925,6 +925,27 @@ $messages['th'] = array(
 กดปุ่ม 'Back' บนเบราเซอร์ของคุณเพื่อกลับไปยังหน้าแก้ไข",
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'questycaptcha-addurl' => 'Kasali sa pagbago mo ang bagong panglabas na mga kawing.
+Upang makatulong sa pagsanggalang laban sa kusang panglulusob, pakisagot ang tanong na nakalitaw sa ibaba ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-badlogin' => 'Upang makatulong sa pagsasanggalang laban sa mga kusang paglutas ng hudyat, pakisagot lamang ang tanong na nakalitaw sa ibaba ([[Special:Captcha/help|marami pang kabatiran]]):',
+	'questycaptcha-createaccount' => 'Upang makatulong sa pagsasanggalang laban sa kusang paglikha ng akawnt, pakisagot ang tanong na nakalitaw sa ibaba ([[Special:Captcha/help|marami pang kabatiran]]):',
+	'questycaptcha-create' => 'Upang malikha ang pahina, pakisagot ang tanong na nakalitaw sa ibaba ([[Special:Captcha/help|marami pang kabatiran]]):',
+	'questycaptcha-edit' => 'Upang mabago ang pahina, pakisagot ang tanong na nakalitaw sa ibaba ([[Special:Captcha/help|marami pang kabatiran]]):',
+	'questycaptcha-sendemail' => 'Upang makatulong sa pagsasanggalang laban sa mga kusang paglusob, pakisagot lamang ang tanong na nakalitaw sa ibaba ([[Special:Captcha/help|marami pang kabatiran]]):',
+	'questycaptchahelp-text' => "Ang mga websayt na tumatanggap ng mga ambag mula sa madla, katulad ng wiking ito, ay madalas abusuhin ng mga manlulusob na gumagamit ng kasangkapang pangkusa upang madagdag ang kanilang mga kawing sa maraming mga sayt.
+
+Kung minsan, partikular na kapag nagdaragdag ng bagong mga kawing pangweb sa isang pahina, maaaring humiling ang wiki na sagutin mo ang isang tanong.  
+Dahil isa itong gawaing mahirap ikusa, magpapahintulot ito ng karamihan sa tunay na mga tao na gawin ang kanilang mga kontribusyon habang pinahihinto ang karamihan sa mga ispamer at iba pang mga makarobot na mga panglusob.
+
+Mangyaring makipag-ugnayan sa [[{{MediaWiki:Grouppage-sysop}}|mga tagapangasiwa ng sayt]] para sa pagtulong kung hindi inaasahang pigilan ka mula sa paggawa ng tunay na mga ambag.
+
+Pindutin ang pindutang 'bumalik' sa iyong pantingin-tingin upang makabalik sa pambago ng pahina.",
+);
+
 /** Turkish (Türkçe)
  * @author Joseph
  * @author Vito Genovese

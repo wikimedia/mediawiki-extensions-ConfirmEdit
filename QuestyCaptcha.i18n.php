@@ -2,8 +2,9 @@
 /**
  * Internationalisation file for the QuestyCaptcha plug-in
  *
- * @addtogroup Extensions
-*/
+ * @file
+ * @ingroup Extensions
+ */
 
 $messages = array();
 

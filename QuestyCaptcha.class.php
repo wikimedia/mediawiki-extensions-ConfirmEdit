@@ -3,8 +3,9 @@
 /**
  * QuestyCaptcha class
  *
+ * @file
  * @author Benjamin Lees <emufarmers@gmail.com>
- * @addtogroup extensions
+ * @ingroup Extensions
  */
 
 class QuestyCaptcha extends SimpleCaptcha {

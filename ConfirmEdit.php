@@ -214,8 +214,8 @@ function confirmEditSetup() {
 		// so that unauthenticated users can actually get in after a
 		// mistaken password typing.
 		global $wgWhitelistRead;
-		$image = Title::makeTitle( NS_SPECIAL, 'Captcha/image' );
-		$help = Title::makeTitle( NS_SPECIAL, 'Captcha/help' );
+		$image = SpecialPage::getTitleFor( 'Captcha', 'image' );
+		$help = SpecialPage::getTitleFor( 'Captcha', 'help' );
 		$wgWhitelistRead[] = $image->getPrefixedText();
 		$wgWhitelistRead[] = $help->getPrefixedText();
 	}

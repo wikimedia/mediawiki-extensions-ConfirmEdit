@@ -31,7 +31,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			return;
 		}
 		$index = $this->storeCaptcha( $info );
-		$title = Title::makeTitle( NS_SPECIAL, 'Captcha/image' );
+		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
 		$resultArr['captcha']['type'] = 'image';
 		$resultArr['captcha']['mime'] = 'image/png';
 		$resultArr['captcha']['id'] = $index;
@@ -54,7 +54,7 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		wfDebug( "Captcha id $index using hash ${info['hash']}, salt ${info['salt']}.\n" );
 
-		$title = Title::makeTitle( NS_SPECIAL, 'Captcha/image' );
+		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
 
 		return "<p>" .
 			Xml::element( 'img', array(

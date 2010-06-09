@@ -67,13 +67,13 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'fancycaptcha-addurl' => "Ha encluyito binclos esternos en a suya edizión. Ta aduyar a protecher contra o spam automatico, escriba por fabor as palabras que amanixen en a caxa d'o cobaxo ([[Special:Captcha/help|más informazión]]):",
-	'fancycaptcha-badlogin' => "Ta aduyar a protecher contra o trenque automatico de palabras de paso, escriba por fabor as palabras que amanixen en a caxa d'o cobaxo ([[Special:Captcha/help|más informazión]]):",
-	'fancycaptcha-createaccount' => 'Ta aduyar a protecher contra a creyazión automatica de cuentas, escriba por fabor en o cuatrón as palabras que amanixen debaxo ([[Special:Captcha/help|más informazión]]):',
-	'fancycaptcha-create' => "Ta creyar a pachina, escriba por fabor as palabras que amanixen en a caxa d'o cobaxo
-([[Special:Captcha/help|más informazión]]):",
-	'fancycaptcha-edit' => "Ta editar ista pachian, escriba por fabor as palabras que amaneixen en a caixa d'o cobaxo
-([[Special:Captcha/help|más informazión]]):",
+	'fancycaptcha-addurl' => "Ha encluyito vinclos esternos en a suya edición. Ta aduyar a protecher contra o spam automatico, escriba por favor as parolas que amaneixen en a caixa d'o cobaixo ([[Special:Captcha/help|más información]]):",
+	'fancycaptcha-badlogin' => "Ta aduyar a protecher contra o trenque automatico de parolas de paso, escriba por favor as parolas que amaneixen en a caixa d'o cobaixo ([[Special:Captcha/help|más información]]):",
+	'fancycaptcha-createaccount' => 'Ta aduyar a protecher contra a creyación automatica de cuentas, escriba por favor en o quatrón as parolas que amaneixen debaixo ([[Special:Captcha/help|más información]]):',
+	'fancycaptcha-create' => "Ta creyar a pachina, escriba por favor as parolas que amaneixen en a caixa d'o cobaixo
+([[Special:Captcha/help|más información]]):",
+	'fancycaptcha-edit' => "Ta editar ista pachina, escriba por favor as parolas que amaneixen en a caixa d'o cobaixo
+([[Special:Captcha/help|más información]]):",
 );
 
 /** Arabic (العربية)

@@ -150,28 +150,28 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'captcha-edit' => 'Ta editar ista pachina, faiga por fabor a suma simpla que apareixe contino y escriba a soluzión en a caixa ([[Special:Captcha/help|más informazión]]):',
-	'captcha-desc' => 'Implementazión simpla de captcha',
-	'captcha-addurl' => "A suya edizión encluye binclos esternos. Ta aduyar-nos en a protezión contra o spam automatizato, por fabor, faiga a suma simpla que s'amuestra contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más informazión]]):",
-	'captcha-badlogin' => 'Ta aduyar en a protezión contra a obtenzión automatizata de palabras de paso, por fabor faiga a suma simpla que amanixe contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más informazión]]):',
-	'captcha-createaccount' => "Ta aduyar-nos en a protezión contra a creyazión automatica de cuentas, por fabor faiga a suma simpla que s'amuestra contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más informazión]]):",
-	'captcha-createaccount-fail' => 'No ha escrito o codigo de confirmazión, u iste ye incorreuto.',
-	'captcha-create' => "Ta creyar a pachina, por fabor faiga a suma simpla que s'amuestra contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más informazión]]):",
+	'captcha-edit' => 'Ta editar ista pachina, faiga por favor a suma simpla que apareixe contino y escriba a solución en a caixa ([[Special:Captcha/help|más información]]):',
+	'captcha-desc' => 'Implementación simpla de captcha',
+	'captcha-addurl' => "A suya edición encluye vinclos esternos. Ta aduyar-nos en a proteción contra o spam automatizato, por favor, faiga a suma simpla que s'amuestra contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más información]]):",
+	'captcha-badlogin' => 'Ta aduyar en a protección contra a obtención automatizata de parolas de paso, por favor faiga a suma simpla que amaneixe contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más información]]):',
+	'captcha-createaccount' => "Ta aduyar-nos en a proteción contra a creyación automatica de cuentas, por favor faiga a suma simpla que s'amuestra contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más información]]):",
+	'captcha-createaccount-fail' => 'No ha escrito o codigo de confirmación, u iste ye incorreuto.',
+	'captcha-create' => "Ta creyar a pachina, por favor faiga a suma simpla que s'amuestra contino y escriba a respuesta en a caixa ([[Special:Captcha/help|más información]]):",
 	'captchahelp-title' => 'Aduya sobre o "captcha"',
-	'captchahelp-cookies-needed' => 'Ta que o sistema funzione le cal tener as cookies autibatas en o nabegador.',
-	'captchahelp-text' => "Os sitios web que azeptan mensaches d'o publico, como iste wiki, son á ormino obcheto d'abusos por spammers que fan serbir ferramientas automatizatas ta encluyir-ie binclos ta asabelos sitios. Anque istos binclos se pueden sacar, son un gran estorbo.
+	'captchahelp-cookies-needed' => 'Ta que o sistema funcione le cal tener as cookies activatas en o navegador.',
+	'captchahelp-text' => "Os sitios web que acceptan mensaches d'o publico, como iste wiki, son a ormino obchecto d'abusos por spammers que fan servir ferramientas automatizatas ta encluyir-ie vinclos ta a-saber-los sitios. Encara que istos vinclos se pueden sacar, son un gran estorbo.
 
-Bellas begadas, espezialment cuan se mire de adibir nuebos binclos á una pachina, o wiki talment le amuestre una imachen con testo en color y distorsionato, y le pregunte cuals son as palabras amostratas. Como ista ye una faina de mal automatizar, premitirá á os usuarios umanos fer as suyas edizions de bez que aturará á muitos spammers y atacants automaticos.
+Bellas vegadas, especialment quan se mire de adhibir nuevos vinclos a una pachina, o wiki talment le amuestre una imachen con testo en color y distorsionato, y le pregunte quáls son as parolas amostratas. Como ista ye una fayena de mal automatizar, premitirá a os usuarios humanos fer as suyas edicions de vez que aturará a muitos spammers y atacants automaticos.
 
-Manimenos, isto puede estar un barrache ta usuarios con bisión limitata u que faigan ser nabegadors basatos en testo u en a boz. Por l'inte no tenemos garra alternatiba de audio. Por fabor, contaute con os almenistradors d'o sistema ta demandar aduya si isto le ye pribando de fer as suyas edizions lechitimas.
+Manimenos, isto puede estar un barrache ta usuarios con visión limitata u que faigan ser navegadors basatos en texto u en a voz. Por l'inte no tenemos garra alternativa de audio. Por favor, contacte con os [[{{MediaWiki:Grouppage-sysop}}|administradors]] d'o wiki ta demandar aduya si isto le ye privando de fer as suyas edicions lechitimas.
 
-Punche o botón 'entazaga' d'o suyo nabegador ta tornar t'o editor de pachinas.",
+Punche o botón 'entazaga' d'o suyo navegador ta tornar ta l'editor de pachinas.",
 	'captcha-addurl-whitelist' => " #<!-- leave this line exactly as it is --> <pre>
-# A sintaxis ye asinas:
-#  * Tot o que bi ha dende un caráuter \"#\" dica a fin d'a linia ye un comentario
-#  * Cualsiquier linia con testo un troz d'expresión regular (regex) que sólo concordará con os hosts aintro d'URLs
+# A sintaxi ye asinas:
+#  * Tot o que bi ha dende un carácter \"#\" dica a fin d'a linia ye un comentario
+#  * Qualsiquier linia con testo un troz d'expresión regular (regex) que sólo concordará con os hosts aintro d'URLs
    #</pre> <!-- leave this line exactly as it is -->",
-	'right-skipcaptcha' => 'Fer aizions que requieren o captcha sin fer serbir o captcha',
+	'right-skipcaptcha' => 'Fer accions que requieren o captcha sin fer servir o captcha',
 );
 
 /** Arabic (العربية)

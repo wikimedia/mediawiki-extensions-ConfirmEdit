@@ -1054,6 +1054,7 @@ $messages['sr-el'] = array(
 	'fancycaptcha-createaccount' => 'U cilju zaštite od automatskog spama, unesi reči odozdo u kutiju ([[Special:Captcha/help|detaljnije]]):',
 	'fancycaptcha-create' => 'Da bi se napravila strana, potrebno je uneti reči koje se nalaze ispod kutije ([[Special:Captcha/help|detaljnije]]):',
 	'fancycaptcha-edit' => 'Za izmenu ove strane unesi reči koje se nalaze ispod kutije ([[Special:Captcha/help|detaljnije]]):',
+	'fancycaptcha-sendemail' => 'U cilju zaštite od automatskog spama, unesi reči odozdo u kutiju ([[Special:Captcha/help|detaljnije]]):',
 );
 
 /** Seeltersk (Seeltersk)
@@ -1261,6 +1262,7 @@ $messages['zh-hans'] = array(
 	'fancycaptcha-createaccount' => '为防止不当程式大量建立帐户，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
 	'fancycaptcha-create' => '为防止不当程式大量建立页面，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
 	'fancycaptcha-edit' => '如你想要编辑這个页面，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
+	'fancycaptcha-sendemail' => '为防止不当程式进行破坏，请输入以下的文字（[[Special:Captcha/help|相关资讯]]）：',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

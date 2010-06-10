@@ -977,6 +977,16 @@ $messages['yi'] = array(
 	'questycaptcha-create' => 'צו שאַפֿן דעם בלאַט, ביטע ענטפֿערט די פֿראַגע אונטן  ([[Special:Captcha/help|מער אינפֿארמאַציע]]):',
 );
 
+/** Simplified Chinese (‪中文(简体)‬) */
+$messages['zh-hans'] = array(
+	'questycaptcha-addurl' => '您的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请回答以下的问题（[[Special:Captcha/help|相关资讯]]）：',
+	'questycaptcha-badlogin' => '为防止不当程式破解密码，请回答以下的问题（[[Special:Captcha/help|相关资讯]]）：',
+	'questycaptcha-createaccount' => '为防止不当程式大量建立帐户，请回答以下的问题（[[Special:Captcha/help|相关资讯]]）：',
+	'questycaptcha-create' => '为防止不当程式大量建立页面，请回答以下问题（[[Special:Captcha/help|相关资讯]]）：',
+	'questycaptcha-edit' => '为防破坏，如您想要编辑此页面，请回答以下的问题（[[Special:Captcha/help|相关资讯]]）：',
+	'questycaptcha-sendemail' => '为防止不当程式破解密码，请回答下列问题（[[Special:Captcha/help|相关资讯]]）：',
+);
+
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Horacewai2
  */

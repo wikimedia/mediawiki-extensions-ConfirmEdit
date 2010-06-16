@@ -376,13 +376,16 @@ Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaad
 	'fancycaptcha-edit' => 'Selle lehekülje muutmiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|täpsev teave]]):',
 );
 
-/** Basque (Euskara) */
+/** Basque (Euskara)
+ * @author An13sa
+ */
 $messages['eu'] = array(
 	'fancycaptcha-addurl' => 'Zure aldaketak kanpo lotura berriak ditu. Spam automatikoa saihestu ahal izateko, beheko koadroan ageri diren hitzak idatzi ([[Special:Captcha/help|informazio gehigarria]]):',
 	'fancycaptcha-badlogin' => 'Pasahitzen cracking automatikoa saihestu asmoz, beheko koadroan ageri diren hitzak idazteko eskatzen dizugu ([[Special:Captcha/help|informazio gehigarria]]):',
 	'fancycaptcha-createaccount' => 'Erabiltzaile kontuak automatikoki sortzea saihestu asmoz, beheko koadroan ageri diren hitzak idazteko eskatzen dizugu ([[Special:Captcha/help|informazio gehigarria]]):',
 	'fancycaptcha-create' => 'Orrialde sortu ahal izateko, beheko koadroan ageri hitzak idatzi ([[Special:Captcha/help|informazio gehigarria]]):',
 	'fancycaptcha-edit' => 'Orrialde hau aldatu ahal izateko, beheko koadroan ageri diren hitzak idatzi ([[Special:Captcha/help|informazio gehigarria]]):',
+	'fancycaptcha-sendemail' => 'Zabor-posta automatizatuaz babesteko, idatzi azpiko kutxako hitzak ([[Special:Captcha/help|informazio gehiago]]):',
 );
 
 /** Persian (فارسی)

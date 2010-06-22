@@ -867,6 +867,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 
 /** Esperanto (Esperanto)
  * @author Castelobranco
+ * @author Petrus Adamus
  * @author Yekrats
  */
 $messages['eo'] = array(
@@ -877,13 +878,13 @@ Por malhelpi aŭtomatan spamadon, bonvolu solvi la simplan problemon sube kaj en
 	'captcha-badlogin' => 'Helpi protekti kontraŭ aŭtomata divenado de pasvortoj, bonvolu solvi la simplan sumon kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 	'captcha-createaccount' => 'Helpi protekti kontraŭ aŭtomata konto-kreado, bonvolu solvi la simplan sumon suben
 kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
-	'captcha-createaccount-fail' => 'Nekorekta aŭ mankanta konfirmkodo.',
+	'captcha-createaccount-fail' => 'Malĝusta aŭ mankanta konfirma kodo.',
 	'captcha-create' => 'Por krei la paĝon, bonvolu solvi la simplan sumon jenan kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
 	'captcha-sendemail' => 'Por helpi protekti kontraŭ aŭtomata spamado, bonvolu solvi la simplan sumon kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):',
-	'captcha-sendemail-fail' => 'Malkorekta aŭ mankanta konfirmkodo.',
-	'captcha-disabledinapi' => 'Ĉi tiu ago bezonas captcha, do ĝi ne estas farebla per la API.',
-	'captchahelp-title' => 'Helpo pri Captcha',
-	'captchahelp-cookies-needed' => 'Vi devas ebligi kuketojn en via retumilo por ĉi tiu funkcii.',
+	'captcha-sendemail-fail' => 'Malĝusta aŭ mankanta konfirma kodo.',
+	'captcha-disabledinapi' => 'Ĉi tiu ago bezonas captcha, tial ĝi ne estas farebla per API.',
+	'captchahelp-title' => 'Helpo pri captcha',
+	'captchahelp-cookies-needed' => 'Vi devas permesi kuketojn en via retumilo por funkciigi ĉi tion.',
 	'captchahelp-text' => "Retejoj kiuj akcepti informon de publiko, kiel ĉi tiu vikio, estas ofte misuzitaj de spamistoj kiu uzas aŭtomatajn ilojn por afiŝi ligilojn al multaj retejoj.
 Kvankam ĉi tiu spam-ligiloj estas forigeblaj, ili estas granda ĝeno.
 

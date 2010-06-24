@@ -947,6 +947,7 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
+	'fancycaptcha-desc' => 'Gerador sofisticado de captcha para o Confirm Edit',
 	'fancycaptcha-addurl' => "A sua edição introduziu links externos novos.
 Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):",
 	'fancycaptcha-badlogin' => 'Para ajudar a prevenir mecanismos automatizados de descoberta de palavras-chave, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):',

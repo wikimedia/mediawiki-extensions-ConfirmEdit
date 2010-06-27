@@ -1036,6 +1036,7 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Agony
+ * @author Centerlink
  * @author Crt
  * @author Nike
  * @author Varusmies
@@ -1048,6 +1049,9 @@ $messages['fi'] = array(
 	'captcha-createaccount' => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-createaccount-fail' => 'Väärä tai puuttuva varmistuskoodi.',
 	'captcha-create' => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-sendemail' => 'Jotta auttaisit suojautumaan automaattiselta roskapostitukselta, ratkaise alla oleva yksinkertainen yhteenlasku ja kirjoita vastaus laatikkoon ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-sendemail-fail' => 'Virheellinen tai puuttuva vahvistuskoodi',
+	'captcha-disabledinapi' => 'Tämä toiminto vaatii kuvavarmennusta, joten et voi suorittaa sitä APIn kautta.',
 	'captchahelp-title' => 'Captcha-ohje',
 	'captchahelp-cookies-needed' => 'Tämä toiminto vaatii evästeiden hyväksymistä.',
 	'captchahelp-text' => 'Verkkosivut, jotka sallivat ulkopuolisten lisätä sisältöä, joutuvat usein spam-hyökkäysten kohteeksi. Spam-hyökkäyksessä spammerit käyttävät työkaluja, jotka automaattisesti lisäävät linkkejä monille sivuille. Vaikka nämä linkit voidaan poistaa, aiheutuu niistä silti merkittävä haitta.

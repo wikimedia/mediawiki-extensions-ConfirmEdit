@@ -304,6 +304,8 @@ Qe otomatik spamî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan 
 	'fancycaptcha-createaccount' => 'Qe otomatik hesab viraştişî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'fancycaptcha-create' => 'Qe pel viraştîşî, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'fancycaptcha-edit' => 'Qe pel vurnayîşî, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
+	'fancycaptcha-sendemail' => 'Qe spamê otomayoni ra pawitîşi, ma rica keno çekuyanê ke qutiya cor de înan binuse 
+([[Special:Captcha/help|enformasyonê bînî]]):',
 );
 
 /** Lower Sorbian (Dolnoserbski)

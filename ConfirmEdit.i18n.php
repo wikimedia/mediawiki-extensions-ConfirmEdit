@@ -750,6 +750,8 @@ Qe otomatik spamî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor d
 	'captcha-createaccount' => 'Qe otomatik hesab viraştişî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'captcha-createaccount-fail' => 'Kodê testiqî vin biyo ya zi raşt niyo.',
 	'captcha-create' => 'Qe pel viraştîşî, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
+	'captcha-sendemail' => 'Qe otomatik spam ra pawitîşi, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse 
+([[Special:Captcha/help|enformasyonê bînî]]):',
 	'captcha-sendemail-fail' => 'Kodê testiqî vin biyo ya zi raşt niyo.',
 	'captcha-disabledinapi' => 'Ena hereket de captcha lazim o, aye ra ser API ra ena hereket nibena.',
 	'captchahelp-title' => 'Yardimê captchayî',

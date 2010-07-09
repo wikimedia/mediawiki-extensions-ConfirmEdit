@@ -892,6 +892,7 @@ För att hjälpa till i skyddet mot automatisk spam, vänligen svara på frågan
 	'questycaptcha-createaccount' => 'För att hjälpa till i skyddet mot automatiskt kontoskapande, vänligen svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
 	'questycaptcha-create' => 'För att skapa sidan, vänligen svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
 	'questycaptcha-edit' => 'För att redigera denna sida, vänligen svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
+	'questycaptcha-sendemail' => 'För att skydda mot automatisk spamning, vänligen svara på frågan som visas nedan ([[Special:Captcha/help|mer information]]):',
 	'questycaptchahelp-text' => "Webbplatser som accepterar bidrag från allmänheten, som denna wiki, blir ofta utnyttjade av spammare som använder automatiska verktyg för att lägga till sina linkar till många sajter.
 Även om dessa spam-länkar kan tas bort är de väldigt störande.
 

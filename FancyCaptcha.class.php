@@ -166,7 +166,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	}
 
 	function showImage() {
-		global $wgOut, $wgRequest;
+		global $wgOut;
 
 		$wgOut->disable();
 

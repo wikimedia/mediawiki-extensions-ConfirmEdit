@@ -738,7 +738,7 @@ class SimpleCaptcha {
 	 * Show a page explaining what this wacky thing is.
 	 */
 	function showHelp() {
-		global $wgOut, $ceAllowConfirmedEmail;
+		global $wgOut;
 		$wgOut->setPageTitle( wfMsg( 'captchahelp-title' ) );
 		$wgOut->addWikiText( wfMsg( 'captchahelp-text' ) );
 		if ( $this->storage->cookiesNeeded() ) {

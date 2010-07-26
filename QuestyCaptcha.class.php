@@ -57,7 +57,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 	}
 
 	function showHelp() {
-		global $wgOut, $ceAllowConfirmedEmail;
+		global $wgOut;
 		$wgOut->setPageTitle( wfMsg( 'captchahelp-title' ) );
 		$wgOut->addWikiText( wfMsg( 'questycaptchahelp-text' ) );
 		if ( $this->storage->cookiesNeeded() ) {

@@ -712,7 +712,8 @@ class SimpleCaptcha {
 		} else {
 			$text = $rev->getText();
 			if ( $section != '' ) {
-				return Article::getSection( $text, $section );
+				global $wgParser;
+				return $wgParser->getSection( $text, $section );
 			} else {
 				return $text;
 			}

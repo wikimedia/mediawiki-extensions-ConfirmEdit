@@ -1190,6 +1190,7 @@ Otomatik spamdan korunmak için, lütfen aşağıdaki sözcükleri kutunun için
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author Ytsukeng Fyvaprol
  */
 $messages['uk'] = array(
 	'fancycaptcha-addurl' => 'Ваше редагування містить нові зовнішні посилання.
@@ -1198,6 +1199,7 @@ $messages['uk'] = array(
 	'fancycaptcha-createaccount' => 'Із метою захисту від автоматичного створення облікових записів, будь ласка, введіть у текстове поле слова, зображені на картинці ([[Special:Captcha/help|докладніше]]):',
 	'fancycaptcha-create' => 'Щоб створити сторінку, будь ласка, введіть у текстове поле слова, зображені на картинці: ([[Special:Captcha/help|докладніше]]):',
 	'fancycaptcha-edit' => 'Щоб редагувати цю сторінку, будь ласка, введіть у текстове поле слова, зображені на картинці: ([[Special:Captcha/help|докладніше]]):',
+	'fancycaptcha-sendemail' => 'Для захисту від автоматичного спаму, будь ласка, введіть слова, які показані нижче в полі ([[Special:Captcha/help|more info]]):',
 );
 
 /** Vèneto (Vèneto)

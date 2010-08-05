@@ -580,6 +580,9 @@ bes esu joot, donn di Frooch be_anntwoode, di heh dronge shteiht.
 	'questycaptcha-edit' => 'Öm di Sigg ze änderee,
 bes esu joot, donn di Frooch be_anntwoode, di heh dronge shteiht.
 ([[Special:Captcha/help|Mieh Enfommazjuhne]])',
+	'questycaptcha-sendemail' => 'Öm et Wiki jääje automattesch enjedraare SPAM ze schötze,
+bes esu joot, donn di Frooch be_anntwoode, di heh dronger shteiht.
+([[Special:Captcha/help|Mieh Enfommazjuhne]])',
 	'questycaptchahelp-text' => 'Websigge, di Beijdrääsch vun de Öffentleschkeit aannämme, wi dat Wiki heh,
 wääde öff vun <i lang="en">SPAM</i>mer heimjesöhk. Di bruche Projramme
 för ier Lengks udder annder Jedrieße automattesch en dousende Wikis erin

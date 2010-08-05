@@ -729,6 +729,9 @@ Metmaacher aanmeldt. Dröm beß esu joot un
 don di Wööt onge en dat Käßje endraare. (Verklierung)',
 	'fancycaptcha-create' => 'Öm di Sigg neu aanzelääje, don di Wööt onge en dat Käßje endraare. (Verklierung)',
 	'fancycaptcha-edit' => 'Öm de Sigg ze ändere, don di Wööt onge en dat Käßje endraare. ([[Special:Captcha/help|Verklierung]])',
+	'fancycaptcha-sendemail' => 'Öm et Wiki jääje automattesch enjedraare SPAM ze schötze,
+bes esu joot, donn di Wööter enjävve, di en däm Käßje heh dronger shtonn.
+([[Special:Captcha/help|Mieh Enfommazjuhne]])',
 );
 
 /** Latin (Latina)

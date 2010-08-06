@@ -960,7 +960,8 @@ Presione el botón 'atrás' en su navegador para retornar al editor de página."
 $messages['et'] = array(
 	'captcha-edit' => 'Selle lehekülje muutmiseks lahendage palun lihtne tehe ja sisestage vastus kasti ([[Special:Captcha/help|täpsem teave]]).',
 	'captcha-desc' => 'Lihtne robotilõks',
-	'captcha-addurl' => 'Teie muudatuses on uusi linke; kaitseks spämmi vastu peate sisestama järgneval pildil olevad sõnad:<br /> ([[Special:Captcha/help|Mis see on?]])',
+	'captcha-addurl' => 'Sinu muudatus sisaldab uusi välislinke.
+Palun lahenda allpool lihtne tehe ja sisesta vastus kasti. Abinõu on kaitseks automaadistatud rämpsmuudatuste vastu ([[Special:Captcha/help|lisateave]]):',
 	'captcha-badlogin' => 'Kaitseks automaatsete parooliäraarvajate vastu, palun lahenda see lihtne tehe ja sisesta vastus kasti ([[Special:Captcha/help|täpsem teave]]):',
 	'captcha-createaccount' => 'Palun lahendage lihtne tehe ja sisestage vastus kasti. Abinõu on kaitseks kontode automaatse loomise vastu ([[Special:Captcha/help|täpsem teave]]).',
 	'captcha-createaccount-fail' => 'Puuduv või valesti sisestatud kinnituskood.',

@@ -3180,6 +3180,7 @@ Sayfa düzenleyiciye dönmek için tarayıcınızın 'geri' tuşuna basınız.",
 /** Ukrainian (Українська)
  * @author Ahonc
  * @author NickK
+ * @author Riwnodennyk
  * @author Тест
  */
 $messages['uk'] = array(
@@ -3192,6 +3193,7 @@ $messages['uk'] = array(
 	'captcha-createaccount-fail' => 'Неправильний або відсутній код підтвердження.',
 	'captcha-create' => 'Щоб створити сторінку, будь ласка, виконайте просту арифметичну дію і введіть відповідь у текстове поле ([[Special:Captcha/help|докладніше]]):',
 	'captcha-sendemail-fail' => 'Неправильний або відсутній код підтвердження.',
+	'captcha-disabledinapi' => 'Ця дія потребує перевірки на "бота чи людину", тому не може бути здійснена за допомогою API.',
 	'captchahelp-title' => 'Довідка про CAPTCHA',
 	'captchahelp-cookies-needed' => 'Вам потрібно ввімкнути куки у браузері, щоб ця функція запрацювала.',
 	'captchahelp-text' => 'Веб-сайти, що дозволяють додавати або змінювати свій вміст, у тому числі вікі, часто стають ціллю спамерів, які використовують програми для автоматичного додавання посилань.

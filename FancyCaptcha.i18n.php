@@ -392,6 +392,7 @@ $messages['eu'] = array(
 
 /** Persian (فارسی)
  * @author Huji
+ * @author Ladsgroup
  * @author Meisam
  * @author Wayiran
  */
@@ -402,7 +403,7 @@ $messages['fa'] = array(
 	'fancycaptcha-createaccount' => 'برای کمک به جلوگیری از ایجاد خودکار حساب کاربری، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-create' => 'برای ایجاد این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-edit' => 'برای ویرایش این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
-	'fancycaptcha-sendemail' => 'برای کمک به محافظت در برابر هرزه‌نگاری خودکار، لطفاً واژه‌هایی را که در جعبهٔ زیر نمایش داده می‌شوند وارد کنید ([[ویژه:کپچا/راهنما|اطلاعات بیش‌تر]]):',
+	'fancycaptcha-sendemail' => 'برای کمک به محافظت در برابر هرزه‌نگاری خودکار، لطفاً واژه‌هایی را که در جعبهٔ زیر نمایش داده می‌شوند وارد کنید ([[Special:Captcha/help|اطلاعات بیش‌تر]]):',
 );
 
 /** Finnish (Suomi)
@@ -1046,13 +1047,14 @@ $messages['sq'] = array(
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
+ * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'fancycaptcha-addurl' => 'Твоја измена укључује нове спољне везе. У циљу заштите од аутоматског спама, унеси речи које се налазе испод у кутију ([[Special:Captcha/help|детаљније]]):',
 	'fancycaptcha-badlogin' => 'У циљу спречавања аутоматског откривања лозинки, унеси речи које се налазе испод у кутију ([[Special:Captcha/help|детаљније]]):',
 	'fancycaptcha-createaccount' => 'У циљу заштите од аутоматског спама, унеси речи одоздо у кутију ([[Special:Captcha/help|детаљније]]):',
-	'fancycaptcha-create' => 'Да би се направила страна, потребно је унети речи које се налазе испод кутије ([[Special:Captcha/help|детаљније]]):',
+	'fancycaptcha-create' => 'Да би се направила страница, потребно је унети речи које се налазе испод кутије ([[Special:Captcha/help|детаљније]]):',
 	'fancycaptcha-edit' => 'За измену ове стране унеси речи које се налазе испод кутије ([[Special:Captcha/help|детаљније]]):',
 	'fancycaptcha-sendemail' => 'У циљу заштите од аутоматског спама, унеси речи одоздо у кутију ([[Special:Captcha/help|детаљније]]):',
 );

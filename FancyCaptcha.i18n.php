@@ -205,6 +205,7 @@ Da bi se zaštitili od automatskog spama, molimo da unesete riječi koje su prik
 );
 
 /** Catalan (Català)
+ * @author Davidpar
  * @author SMP
  * @author Ssola
  */
@@ -214,6 +215,7 @@ $messages['ca'] = array(
 	'fancycaptcha-createaccount' => 'Com a protecció contra la creació automatitzada de nous comptes cal que escriviu en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):',
 	'fancycaptcha-create' => "Per a poder crear la pàgina heu d'escriure en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):",
 	'fancycaptcha-edit' => "Per a poder modificar la pàgina heu d'escriure en la caixa les paraules que apareixen a continuació ([[Special:Captcha/help|més informació]]):",
+	'fancycaptcha-sendemail' => 'Per ajudar a protegir contra el correu brossa automatitzat, si us plau, introduïu les paraules que apareixen a sota la caixa ([[Special:Captcha/help|més informació]]):',
 );
 
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */

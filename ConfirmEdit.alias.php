@@ -13,43 +13,46 @@ $aliases['en'] = array(
 	'Captcha' => array( 'Captcha' ),
 );
 
-/** Arabic (العربية) */
 $aliases['ar'] = array(
-	'Captcha' => array( 'كابتشا' ),
+	'Captcha'   => array( 'كابتشا' ),
 );
 
-/** Estonian (Eesti) */
+$aliases['arz'] = array(
+	'Captcha'   => array( 'كابتشا' ),
+);
+
+$aliases['eo'] = array(
+	'Captcha'   => array( 'Kontraŭspamilo' ),
+);
+
 $aliases['et'] = array(
-	'Captcha' => array( 'Robotilõks' ),
+	'Captcha'   => array( 'Robotilõks' ),
 );
 
-/** Finnish (Suomi) */
+$aliases['fa'] = array(
+	'Captcha'   => array( 'کپچا' ),
+);
+
 $aliases['fi'] = array(
-	'Captcha' => array( 'Ihmiskäyttäjävarmistus' ),
+	'Captcha'   => array( 'Ihmiskäyttäjävarmistus' ),
 );
 
-/** Colognian (Ripoarisch) */
 $aliases['ksh'] = array(
-	'Captcha' => array( 'Kaptscha' ),
+	'Captcha'   => array( 'Kaptscha' ),
 );
 
-/** Macedonian (Македонски) */
 $aliases['mk'] = array(
-	'Captcha' => array( 'Капча' ),
+	'Captcha'   => array( 'Капча' ),
 );
 
-/** Malayalam (മലയാളം) */
 $aliases['ml'] = array(
-	'Captcha' => array( 'ക്യാപ്ച' ),
+	'Captcha'   => array( 'ക്യാപ്ച' ),
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
 $aliases['zh-hans'] = array(
-	'Captcha' => array( '验证码' ),
+	'Captcha'   => array( '验证码' ),
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
 $aliases['zh-hant'] = array(
-	'Captcha' => array( '驗證碼' ),
+	'Captcha'   => array( '驗證碼' ),
 );
-

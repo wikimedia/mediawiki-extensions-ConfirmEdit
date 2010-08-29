@@ -227,4 +227,23 @@ class FancyCaptcha extends SimpleCaptcha {
 		# the default for edits
 		return wfEmptyMsg( $name, $text ) ? wfMsg( 'fancycaptcha-edit' ) : $text;
 	}
+
+	/**
+	 * Delete a solved captcha image, if $wgCaptchaDeleteOnSolve is true.
+	 */
+	function passCaptcha() {
+		global $wgCaptchaDeleteOnSolve;
+
+		$info = $this->retrieveCaptcha(); // get the captcha info before it gets deleted
+		$pass = parent::passCaptcha();
+
+		if ( $pass && $wgCaptchaDeleteOnSolve ) {
+			$filename = $this->imagePath( $info['salt'], $info['hash'] );
+			if ( file_exists( $filename ) ) {
+				unlink( $filename );
+			}
+		}
+
+		return $pass;
+	}
 }

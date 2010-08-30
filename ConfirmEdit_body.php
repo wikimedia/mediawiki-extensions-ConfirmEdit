@@ -72,7 +72,7 @@ class CaptchaSpecialPage extends UnlistedSpecialPage {
 }
 
 class SimpleCaptcha {
-	function SimpleCaptcha() {
+	function __construct() {
 		global $wgCaptchaStorageClass;
 		$this->storage = new $wgCaptchaStorageClass;
 	}

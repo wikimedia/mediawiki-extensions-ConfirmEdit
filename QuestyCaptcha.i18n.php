@@ -147,6 +147,7 @@ Da bi pomogli protiv automatskog spama, molimo odgovorite na pitanje koje je pri
 	'questycaptcha-createaccount' => 'Da bi pomogli u sprječavanju automatskog pravljenja računa, molimo Vas da odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
 	'questycaptcha-create' => 'Da bi ste napravili stranicu, molimo Vas da odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
 	'questycaptcha-edit' => 'Da bi ste uredili ovu stranicu, molimo Vas da odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
+	'questycaptcha-sendemail' => 'Da bi pomogli u zaštiti protiv automatskog spamovanja, molimo Vas da odgovorite na pitanje koje je prikazano ispod ([[Special:Captcha/help|više informacija]]):',
 	'questycaptchahelp-text' => "Websajtovi koji podržavaju doprinose iz javnosti, kao što je ovaj viki, često zloupotrebljavaju vandali koji koriste automatizovane alate da šalju svoje linkove ka mnogim sajtovima.
 Iako se ovi neželjeni linkovi mogu ukloniti, oni ipak zadaju veliku muku.
 

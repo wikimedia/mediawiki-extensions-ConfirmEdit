@@ -175,6 +175,7 @@ V zájmu ochrany před automatickým spamováním musíte zodpovědět níže uv
 	'questycaptcha-createaccount' => 'V rámci ochrany před automatickým vytvářením účtů musíte pro provedení registrace zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):',
 	'questycaptcha-create' => 'Abyste mohli založit stránku, musíte zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):',
 	'questycaptcha-edit' => 'Abyste mohli editovat tuto stránku, musíte zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):',
+	'questycaptcha-sendemail' => 'V rámci ochrany proti automatickému spamování musíte zodpovědět níže zobrazenou otázku ([[Special:Captcha/help|více informací]]):',
 	'questycaptchahelp-text' => 'Webové stránky, do kterých mohou přispívat jejich návštěvníci (jako například tato wiki), jsou často terčem spammerů, kteří pomocí automatických nástrojů vkládají své odkazy na velké množství stránek. Přestože lze tento spam odstranit, představuje nepříjemné obtěžování.
 
 Někdy, zvláště při přidávání nových webových odkazů, vás wiki může požádat o zodpovězení otázky.

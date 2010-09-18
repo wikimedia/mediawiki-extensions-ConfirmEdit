@@ -1177,11 +1177,11 @@ Por lo moment, nos avens gins d’altèrnativa ôdiô.
 Vos volyéd veriér vers los [[{{MediaWiki:Grouppage-sysop}}|administrators du seto]] se cen vos empache de façon emprèvua de fâre des contribucions lèg·itimes.
 
 Clicâd sur lo boton « Devant » de voutron navigator por tornar a la bouèta d’èdicion.',
-	'captcha-addurl-whitelist' => '  #<!-- lèssiéd ceta legne justo d’ense --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- lèssiéd ceta legne justo d’ense --> <pre>
 # La sintaxa est ceta :
-#  * Tot tèxto que siut un « # » est considèrâ coment un comentèro.
+#  * Tot caractèro dês « # » tant qu’a la fin de la legne est considèrâ coment un comentèro.
 #  * Tota legne pas voueda est un bocon d’èxprèssion racionèla (*RegEx*) qu’analiserat ren que los hôtos dedens los lims hipèrtèxtos.
-  #</pre> <!-- lèssiéd ceta legne justo d’ense -->',
+ #</pre> <!-- lèssiéd ceta legne justo d’ense -->',
 	'right-skipcaptcha' => 'Rèalisar des accions que dècllenchont un captch·a sen avêr a passar ceti',
 );
 
@@ -1424,6 +1424,9 @@ molimo zbrojite donje brojeve i upišite rezultat ([[Special:Captcha/help|pomoć
 	'captcha-createaccount' => 'Kao zaštitu od automatskog spama, pri otvaranju računa trebate unijeti slova koja vidite na slici: <br />([[Special:Captcha/help|Pomoć]])',
 	'captcha-createaccount-fail' => 'Potvrdni kod je nepotpun ili netočan.',
 	'captcha-create' => 'Vaše uređivanje sadrži nove vanjske poveznice. Kao zaštitu od automatskog spama, trebate unijeti slova koja vidite na slici: <br />([[Special:Captcha/help|Pomoć?]])',
+	'captcha-sendemail' => 'Da bi ste nam pomogli protiv automatskog spama, molimo riješite jednostavan zadatak zbrajanja ispod i unesite rezultat u okvir ([[Special:Captcha/help|više informacija]]):',
+	'captcha-sendemail-fail' => 'Potvrdni kod je nepotpun ili netočan.',
+	'captcha-disabledinapi' => 'Ova akcija traži captchu, tako da se ne može izvršiti preko API-ja.',
 	'captchahelp-title' => 'Antispam pomoć',
 	'captchahelp-cookies-needed' => "Trebate imati uključene kolačiće (''cookies'') u vašem web pregledniku za ovu funkciju.",
 	'captchahelp-text' => "Internetske stranice koji prihvaćaju doprinose od javnosti, poput ovog wikija, često zloupotrebljavaju spameri, koji koriste automatizirane alate pomoću kojih postavljaju svoje poveznice na mnoge stranice.

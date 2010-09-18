@@ -536,6 +536,7 @@ unijeti slova koja vidite na slici: <br />([[Special:Captcha/help|Pomoć]])',
 	'fancycaptcha-create' => 'Da bi stvorili novu stranicu, molimo unesite
 slova koja vidite na slici dolje: <br />([[Special:Captcha/help|Pomoć]])',
 	'fancycaptcha-edit' => 'Da bi uređivali ovu stranicu, molimo unesite slova koja vidite na slici dolje: <br />([[Special:Captcha/help|Pomoć]])',
+	'fancycaptcha-sendemail' => 'Da bi ste nam pomogli protiv automatskog spama, molimo unesite riječi koje su prikazane ispod u okvir ([[Special:Captcha/help|više informacija]]):',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

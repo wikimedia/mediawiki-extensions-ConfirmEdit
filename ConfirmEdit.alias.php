@@ -6,53 +6,67 @@
  * @ingroup Extensions
  */
 
-$aliases = array();
-
-/** English */
-$aliases['en'] = array(
+/** English (English) */
+$specialPageAliases['en'] = array(
 	'Captcha' => array( 'Captcha' ),
 );
 
-$aliases['ar'] = array(
-	'Captcha'   => array( 'كابتشا' ),
+/** Arabic (العربية) */
+$specialPageAliases['ar'] = array(
+	'Captcha' => array( 'كابتشا' ),
 );
 
-$aliases['arz'] = array(
-	'Captcha'   => array( 'كابتشا' ),
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'Captcha' => array( 'كابتشا' ),
 );
 
-$aliases['eo'] = array(
-	'Captcha'   => array( 'Kontraŭspamilo' ),
+/** Esperanto (Esperanto) */
+$specialPageAliases['eo'] = array(
+	'Captcha' => array( 'Kontraŭspamilo' ),
 );
 
-$aliases['et'] = array(
-	'Captcha'   => array( 'Robotilõks' ),
+/** Estonian (Eesti) */
+$specialPageAliases['et'] = array(
+	'Captcha' => array( 'Robotilõks' ),
 );
 
-$aliases['fa'] = array(
-	'Captcha'   => array( 'کپچا' ),
+/** Persian (فارسی) */
+$specialPageAliases['fa'] = array(
+	'Captcha' => array( 'کپچا' ),
 );
 
-$aliases['fi'] = array(
-	'Captcha'   => array( 'Ihmiskäyttäjävarmistus' ),
+/** Finnish (Suomi) */
+$specialPageAliases['fi'] = array(
+	'Captcha' => array( 'Ihmiskäyttäjävarmistus' ),
 );
 
-$aliases['ksh'] = array(
-	'Captcha'   => array( 'Kaptscha' ),
+/** Colognian (Ripoarisch) */
+$specialPageAliases['ksh'] = array(
+	'Captcha' => array( 'Kaptscha' ),
 );
 
-$aliases['mk'] = array(
-	'Captcha'   => array( 'Капча' ),
+/** Macedonian (Македонски) */
+$specialPageAliases['mk'] = array(
+	'Captcha' => array( 'Капча' ),
 );
 
-$aliases['ml'] = array(
-	'Captcha'   => array( 'ക്യാപ്ച' ),
+/** Malayalam (മലയാളം) */
+$specialPageAliases['ml'] = array(
+	'Captcha' => array( 'ക്യാപ്ച' ),
 );
 
-$aliases['zh-hans'] = array(
-	'Captcha'   => array( '验证码' ),
+/** Simplified Chinese (‪中文(简体)‬) */
+$specialPageAliases['zh-hans'] = array(
+	'Captcha' => array( '验证码' ),
 );
 
-$aliases['zh-hant'] = array(
-	'Captcha'   => array( '驗證碼' ),
+/** Traditional Chinese (‪中文(繁體)‬) */
+$specialPageAliases['zh-hant'] = array(
+	'Captcha' => array( '驗證碼' ),
 );
+
+/**
+ * For backwards compatibility with MediaWiki 1.15 and earlier.
+ */
+$aliases =& $specialPageAliases;

@@ -313,6 +313,7 @@ $messages['eu'] = array(
 
 /** Finnish (Suomi)
  * @author Crt
+ * @author Nike
  */
 $messages['fi'] = array(
 	'questycaptcha-addurl' => 'Muokkauksesi sisältää uusia ulkoisia linkkejä.
@@ -321,6 +322,7 @@ Automatisoitujen roskamuokkausten välttämiseksi vastaa alla olevaan kysymyksee
 	'questycaptcha-createaccount' => 'Automaattisen käyttäjätunnusten luonnin estämiseksi vastaa alla olevaan kysymykseen ([[Special:Captcha/help|lisätietoja]]):',
 	'questycaptcha-create' => 'Luodaksesi sivun vastaa alla olevaan kysymykseen ([[Special:Captcha/help|lisätietoja]]):',
 	'questycaptcha-edit' => 'Muokataksesi tätä sivua vastaa alla olevaan kysymykseen ([[Special:Captcha/help|lisätietoja]]):',
+	'questycaptcha-sendemail' => 'Automatisoidun roskapostin lähettämisen estämiseksi vastaa alla olevaan kysymykseen ([[Special:Captcha/help|lisätietoja]]):',
 	'questycaptchahelp-text' => 'Web-sivustot, jotka hyväksyvät materiaalia yleisöltä, kuten tämä wiki, joutuvat usein automaattisia työkaluja käyttävien "spämmääjien" kohteeksi jotka lisäävät linkkejä eri sivustoille. Vaikka nämä roskalinkit voidaan poistaa, ne ovat merkittävä haittatekijä.
 
 Joskus, erityisesti kun lisäät uusia Web-linkkejä sivulle, wiki saattaa pyytää sinua vastaamaan kysymykseen.

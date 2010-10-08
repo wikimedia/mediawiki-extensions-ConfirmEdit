@@ -2715,6 +2715,9 @@ $messages['sah'] = array(
 ([[Special:Captcha/help|Сиһилии]])',
 	'captcha-createaccount-fail' => 'Бигэргэтии куода суох эбэтэр атын.',
 	'captcha-create' => 'Сирэйи оҥорорго бу примеры суоттаа ([[Special:Captcha/help|сиһилии]]):',
+	'captcha-sendemail' => 'Аптамаат спаамтан көмүскэнэр туһугар, бука диэн, бу дьайыыны суоттаа уонна эппиэтин суруй ([[Special:Captcha/help|сиһилии]]):',
+	'captcha-sendemail-fail' => 'Бигэргэтии куода суох эбэтэр атын.',
+	'captcha-disabledinapi' => 'Бу дьайыы CAPTCHA нөҥүө эрэ оҥоһуллар, онон API нөҥүө толоруллубат.',
 	'captchahelp-title' => 'Captcha көмөтө',
 	'captchahelp-cookies-needed' => 'Бу дьайыы үлэлиирин курдук браузергар куукины холбоо.',
 	'captchahelp-text' => 'Биһиги саайпыт курдук иһинээҕитин уларытары көҥүллүүр саайтарга сороҕор спам ыытар программалар аптамаатынан бэйэлэрин ыйынньыктарын угаллар.

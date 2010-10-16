@@ -2641,6 +2641,7 @@ $messages['ro'] = array(
 	'captcha-createaccount' => 'Pentru a evita crearea automată de conturi, vă rugăm să rezolvați adunarea de mai jos și introduceți rezultatul în căsuță ([[Special:Captcha/help|detalii]]):',
 	'captcha-createaccount-fail' => 'Cod de confirmare incorect sau lipsă.',
 	'captcha-create' => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvați adunarea de mai jos și introduceți rezultatul în căsuță ([[Special:Captcha/help|detalii]]):',
+	'captcha-sendemail-fail' => 'Codul de confirmare lipsește sau este incorect.',
 	'captchahelp-title' => 'Despre „Captcha”',
 	'captchahelp-cookies-needed' => 'Trebuie ca browserul dumneavoastră să accepte cookie-uri pentru ca aceasta să funcționeze.',
 	'captchahelp-text' => "Siturile Web care acceptă postări din partea publicului, precum acest wiki, sunt de obicei abuzate de persoane care folosesc unelte automate pentru a introduce legături către multe situri. Deși aceste legături de spam pot fi scoase, acest lucru reprezintă o muncă inconvenientă.

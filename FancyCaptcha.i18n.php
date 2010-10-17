@@ -1227,6 +1227,7 @@ Par jutarne a conbàtar el spam, par piaser inserissi ne la casela le parole che
 	'fancycaptcha-createaccount' => 'Par jutarne a inpedir la creazion automatica dei account, par piaser inserissi ne la casela le parole che vien fora qua soto ([[Special:Captcha/help|magiori informazion]]):',
 	'fancycaptcha-create' => 'Par crear la pagina, par piaser inserissi ne la casela le parole che vien fora qua soto ([[Special:Captcha/help|magiori informazion]]):',
 	'fancycaptcha-edit' => 'Par modificar la pagina, par piaser inserissi ne la casela le parole che vien fora qua soto ([[Special:Captcha/help|magiori informazion]]):',
+	'fancycaptcha-sendemail' => 'Par precauzion contro i tentativi de forzatura automatica de le password, par piaser inserissi ne la casela le parole che vien fora qua soto ([[Special:Captcha/help|magiori informazion]]):',
 );
 
 /** Vietnamese (Tiếng Việt)

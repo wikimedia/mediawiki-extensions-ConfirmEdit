@@ -2350,6 +2350,7 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
  * @author Eirik
  * @author Frokor
  * @author Harald Khan
+ * @author Nghtwlkr
  */
 $messages['nn'] = array(
 	'captcha-edit' => 'For å endre denne sida, ver venleg og løys det enkle reknestykket nedanfor og skriv svaret i ruta ([[Special:Captcha/help|meir informasjon]]):',
@@ -2370,11 +2371,11 @@ Sidan det er vanskeleg å automatisere denne oppgåva, vil funksjonen sleppe dei
 Diverre finst det i augeblikket ikkje noko lydalternativ for brukarar med nedsett syn som brukar tekst- eller talebaserte nettlesarar.
 Ver venleg å kontakte [[{{MediaWiki:Grouppage-sysop}}|administratorane]] viss denne funksjonen hindrar deg i å gjere skikkelege endringar.
 Trykk på «attende»-knappen for å kome tilbake til endringssida.',
-	'captcha-addurl-whitelist' => ' #<!-- la denne lina vere akkurat som ho er --> <pre>
+	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
 # Syntaksen er slik:
 #  * Alt frå teiknet «#» til enden av lina er ein kommentar
 #  * Alle liner som ikkje er tomme er fragment av regulære uttrykk som sjekkar vertar i URL-ar
-  #</pre> <!-- la denne lina vere akkurat som ho er -->',
+ #</pre> <!-- leave this line exactly as it is -->',
 	'right-skipcaptcha' => 'Utføre handlingar som normalt krever «captcha»-stadfesting utan å bruke «captcha»',
 );
 
@@ -2700,6 +2701,13 @@ $messages['ru'] = array(
 #  * Каждая непустая строка считается фрагментом регулярного выражения соответствующего имени узла в URL
   #</pre> <!-- leave this line exactly as it is -->',
 	'right-skipcaptcha' => 'выполнение требующих CAPTCHA-проверки действий без прохождения CAPTCHA',
+);
+
+/** Rusyn (Русиньскый)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'captchahelp-title' => 'Поміч про CAPTCHA',
 );
 
 /** Yakut (Саха тыла)
@@ -3259,7 +3267,9 @@ $messages['vec'] = array(
 	'captcha-createaccount' => 'Come misura precauzional contro i tentativi de creazion automatica dei account, par registrarse te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):',
 	'captcha-createaccount-fail' => 'Codice de verifica sbaglià o mancante.',
 	'captcha-create' => 'Per crear la pagina te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):',
+	'captcha-sendemail' => 'Come misura precauzional contro i tentativi de forzatura automatica de la password, te ghè da risòlvar sto senplice calcolo e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):',
 	'captcha-sendemail-fail' => 'Codice de verifica sbaglià o mancante.',
+	'captcha-disabledinapi' => 'Sta azion la richiede un captcha, quindi no se pole farla tramite API.',
 	'captchahelp-title' => "Coss'èlo sto captcha?",
 	'captchahelp-cookies-needed' => 'Te ghè da verghe i cookies abilità sul to browser par proseguir.',
 	'captchahelp-text' => "Sucéde spesso che i siti web che i acèta messagi publici, come sta wiki, i sia tolti de mira da spammer che dòpara strumenti automatici par inserir colegamenti publicitari verso un gran nùmaro de siti. Anca se i colegamenti insiderài i se pol cavar, se trata comunque de na secadura mìa da póco.

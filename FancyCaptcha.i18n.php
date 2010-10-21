@@ -1051,6 +1051,7 @@ $messages['sk'] = array(
 	'fancycaptcha-createaccount' => 'Kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku, až potom bude vytvorený nový účet: <br />([[Special:Captcha/help|Čo je toto?]])',
 	'fancycaptcha-create' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
 	'fancycaptcha-edit' => 'Vaša úprava obsahuje nové URL odkazy; kvôli ochrane proti automatizovanému spamu je potrebné napísať slová zobrazené na tomto obrázku: <br />([[Special:Captcha/help|Čo je toto?]])',
+	'fancycaptcha-sendemail' => 'Ako ochranu proti automatizovanému spamu, prosím zadajte slová z nasledujúceho obrázka do poľa pre odpoveď ([[Special:Captcha/help|ďalšie informácie]]):',
 );
 
 /** Albanian (Shqip)

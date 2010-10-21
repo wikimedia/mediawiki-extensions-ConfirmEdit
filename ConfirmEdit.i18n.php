@@ -2858,6 +2858,9 @@ $messages['sk'] = array(
 <br />([[Special:Captcha/help|Čo je toto?]])',
 	'captcha-createaccount-fail' => 'Nesprávny alebo chýbajúci potvrdzovací kód.',
 	'captcha-create' => 'Aby ste mohli vytvoriť túto stránku, vyriešte prosím tento jednoduchý súčet a napíšte výsledok do poľa ([[Special:Captcha/help|viac informácií]]):',
+	'captcha-sendemail' => 'Ako pomoc pri ochrane pred automatickým spamom, prosím, vyriešite nasledujúci jednoduchý súčet a napíšte odpoveď do poľa ([[Special:Captcha/help|ďalšie informácie]]):',
+	'captcha-sendemail-fail' => 'Nesprávny alebo chýbajúci potvrdzovací kód.',
+	'captcha-disabledinapi' => 'Táto operácia vyžaduje captcha, preto nemôže byť vykonaná prostredníctvom rozhrania API.',
 	'captchahelp-title' => 'Pomocník ku captcha',
 	'captchahelp-cookies-needed' => 'Aby toto fungovalo, budete si musieť v prehliadači zapnúť koláčiky (cookies).',
 	'captchahelp-text' => 'Webstránky prijímajúce príspevky od verejnosti ako táto wiki sú často cieľom zneužitia spammermi, ktorí používajú automatizované nástroje na to, aby svoje odkazy umiestnili na množstvo stránok. Hoci je možné tieto odkazy odstrániť, zbytočne to zaťažuje používateľov.
@@ -3400,6 +3403,14 @@ $messages['yi'] = array(
 	'captcha-badlogin' => 'כדי צו העלפֿן קעגן אויטאמאַטישער ברעכן פאַסווערטער, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'captcha-createaccount' => 'כדי צו העלפֿן קעגן אויטאמאַטישע שאַפֿן קאנטעס, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'captcha-createaccount-fail' => 'גרײַזיקער אָדער פֿעלנדיקער באַשטעטיק־קאָד',
+);
+
+/** Yoruba (Yorùbá)
+ * @author Demmy
+ */
+$messages['yo'] = array(
+	'captchahelp-title' => 'Ìrànwọ́ Captcha',
+	'captchahelp-cookies-needed' => 'Ẹ gbọ́jọ̀ gba cookies láyé nínú agbétàkùn yín kí èyí ó tó ṣiṣẹ́.',
 );
 
 /** Cantonese (粵語) */

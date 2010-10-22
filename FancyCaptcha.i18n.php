@@ -1284,6 +1284,14 @@ $messages['yi'] = array(
 	'fancycaptcha-edit' => 'צו רעדאִקטירן דעם בלאַט, זײַט אזוי גוט און קלאַפט אַרײַן די ווערטער וואָס שטייען אינעם קעסטל אונטן ([[Special:Captcha/help|מער אינפֿארמאַציע]]):',
 );
 
+/** Yoruba (Yorùbá)
+ * @author Demmy
+ */
+$messages['yo'] = array(
+	'fancycaptcha-addurl' => 'Àwọn àtúnṣe yín ní àwọn ìjápọ̀ òde nínú.
+Láti ṣèránwọ́ láti kojú spam aṣefúnrararẹ̀, ẹ jọ̀wọ́ ẹ fi àwọn ọ̀rọ̀ tí wọ́n hàn nísàlẹ̀ sínú ààyè ([[Special:Captcha/help|ẹ̀kúnrẹ́rẹ́]]):',
+);
+
 /** Cantonese (粵語) */
 $messages['yue'] = array(
 	'fancycaptcha-addurl' => '你嘅編輯包括咗新嘅外部連結。為咗防止自動化嘅濫貼，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',

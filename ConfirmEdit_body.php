@@ -76,7 +76,10 @@ class SimpleCaptcha {
 	function getCaptcha() {
 		$a = mt_rand( 0, 100 );
 		$b = mt_rand( 0, 10 );
-		$op = mt_rand( 0, 1 ) ? '+' : '-';
+
+		/* Minus sign is used in the question. UTF-8,
+		   since the api uses text/plain, not text/html */
+		$op = mt_rand( 0, 1 ) ? '+' : '−';
 
 		$test = "$a $op $b";
 		$answer = ( $op == '+' ) ? ( $a + $b ) : ( $a - $b );

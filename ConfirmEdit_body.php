@@ -584,7 +584,6 @@ class SimpleCaptcha {
 
 			$this->trigger = "post-badlogin login '" . $u->getName() . "'";
 			if ( !$this->passCaptcha() ) {
-				$message = wfMsg( 'captcha-badlogin-fail' );
 				// Emulate a bad-password return to confuse the shit out of attackers
 				$retval = LoginForm::WRONG_PASS;
 				return false;

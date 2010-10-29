@@ -2,14 +2,10 @@
 
 class ConfirmEditHooks {
 	static function getInstance() {
-		global $wgCaptcha, $wgCaptchaClass, $wgExtensionMessagesFiles;
+		global $wgCaptcha, $wgCaptchaClass;
 		static $done = false;
 		if ( !$done ) {
 			$done = true;
-			wfLoadExtensionMessages( 'ConfirmEdit' );
-			if ( isset( $wgExtensionMessagesFiles[$wgCaptchaClass] ) ) {
-				wfLoadExtensionMessages( $wgCaptchaClass );
-			}
 			$wgCaptcha = new $wgCaptchaClass;
 		}
 		return $wgCaptcha;

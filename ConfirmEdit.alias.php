@@ -43,6 +43,11 @@ $specialPageAliases['fi'] = array(
 	'Captcha' => array( 'Ihmiskäyttäjävarmistus' ),
 );
 
+/** Japanese (日本語) */
+$specialPageAliases['ja'] = array(
+	'Captcha' => array( 'キャプチャ' ),
+);
+
 /** Colognian (Ripoarisch) */
 $specialPageAliases['ksh'] = array(
 	'Captcha' => array( 'Kaptscha' ),

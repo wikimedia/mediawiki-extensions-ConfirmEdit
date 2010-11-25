@@ -653,6 +653,7 @@ Dréckt op den 'Zréck' Knäppche vun ärem Browser fir an d'Beaarbechtungsfëns
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
+	'questycaptcha-desc' => 'Captcha-создавач со текнувало за потврда на уредувања',
 	'questycaptcha-addurl' => 'Вашето уредување содржи нови надворешни врски.
 За да ни помогнете да се заштитиме од автоматизиран спам, одговорете на прашањето подолу ([[Special:Captcha/help|повеќе инфо]]):',
 	'questycaptcha-badlogin' => 'За да ни помогнете да се заштитиме од автоматизирано пробивање на лозинки, одговорете на прашањето подолу ([[Special:Captcha/help|повеќе инфо]]):',

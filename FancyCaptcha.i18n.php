@@ -341,6 +341,7 @@ Za šćit pśeśiwo awtomatiskemu spamowanjeju, zapódaj pšosym słowa, kótare
  * @author Badseed
  * @author Consta
  * @author Geraki
+ * @author Glavkos
  * @author ZaDiak
  */
 $messages['el'] = array(
@@ -352,6 +353,7 @@ $messages['el'] = array(
 ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
 	'fancycaptcha-edit' => 'Για να επεξεργαστείτε αυτήν την σελίδα, παρακαλώ εισάγετε τις λέξεις που εμφανίζονται παρακάτω μέσα στο κουτί
 ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+	'fancycaptcha-sendemail' => 'Ως βοήθεια για την προστασία από αυτόματα προγράμματα σπασίματος κωδικών, παρακαλούμε γράψτε τις λέξεις που εμφανίζονται παρακάτω στο πλαίσιο ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
 );
 
 /** Esperanto (Esperanto)

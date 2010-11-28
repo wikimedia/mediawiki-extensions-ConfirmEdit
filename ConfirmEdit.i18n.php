@@ -166,7 +166,7 @@ Bellas vegadas, especialment quan se mire de adhibir nuevos vinclos a una pachin
 
 Manimenos, isto puede estar un barrache ta usuarios con visión limitata u que faigan ser navegadors basatos en texto u en a voz. Por l'inte no tenemos garra alternativa de audio. Por favor, contacte con os [[{{MediaWiki:Grouppage-sysop}}|administradors]] d'o wiki ta demandar aduya si isto le ye privando de fer as suyas edicions lechitimas.
 
-Punche o botón 'entazaga' d'o suyo navegador ta tornar ta l'editor de pachinas.",
+Punche o botón 'enta zaga' d'o suyo navegador ta tornar ta l'editor de pachinas.",
 	'captcha-addurl-whitelist' => " #<!-- leave this line exactly as it is --> <pre>
 # A sintaxi ye asinas:
 #  * Tot o que bi ha dende un carácter \"#\" dica a fin d'a linia ye un comentario

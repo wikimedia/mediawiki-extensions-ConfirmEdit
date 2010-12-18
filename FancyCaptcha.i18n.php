@@ -106,14 +106,15 @@ $messages['arz'] = array(
 );
 
 /** Assamese (অসমীয়া)
+ * @author Chaipau
  * @author Rajuonline
  */
 $messages['as'] = array(
 	'fancycaptcha-addurl' => 'আপোনাৰ সম্পাদনাত বাহ্যিক সংযোগ আছে।
-স্বয়ংক্রীয় সম্পাদনাৰ পৰা হাত সাৰিবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
-	'fancycaptcha-badlogin' => 'স্বয়ংক্রীয় গুপ্তশব্দ চুৰিৰ পৰা হাত সাৰিবলৈ,
+স্বয়ংক্ৰীয় সম্পাদনাৰ পৰা হাত সাৰিবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
+	'fancycaptcha-badlogin' => 'স্বয়ংক্ৰীয় গুপ্তশব্দ চুৰিৰ পৰা হাত সাৰিবলৈ,
 তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
-	'fancycaptcha-createaccount' => 'স্বয়ংক্রীয় নতুন সদস্যভুক্তিৰ পৰা হাত সাৰিবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
+	'fancycaptcha-createaccount' => 'স্বয়ংক্ৰীয় নতুন সদস্যভুক্তিৰ পৰা হাত সাৰিবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
 	'fancycaptcha-create' => 'পৃষ্ঠাটো বনাবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
 	'fancycaptcha-edit' => 'এই পৃষ্ঠাটো সম্পাদনা কৰিবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
 );
@@ -1049,6 +1050,7 @@ $messages['sah'] = array(
 );
 
 /** Sinhala (සිංහල)
+ * @author Thameera123
  * @author නන්දිමිතුරු
  */
 $messages['si'] = array(
@@ -1058,6 +1060,7 @@ $messages['si'] = array(
 	'fancycaptcha-createaccount' => 'ස්වයංක්‍රීය ගිණුම් තැනීම වැලකුම‍ට උදවු වනු වස්, පහත පෙන්නුම් කෙරෙන වචන  කොටුව තුල ඇතුලත් කරන්න ([[Special:Captcha/help|වැඩිමනත් තොරතුරු]]):',
 	'fancycaptcha-create' => 'පිටුව තනනු වස්, පහත පෙන්නුම් කෙරෙන වචන  කොටුව තුල ඇතුලත් කරන්න ([[Special:Captcha/help|වැඩිමනත් තොරතුරු]]):',
 	'fancycaptcha-edit' => 'මෙම පිටුව සංස්කරණය කරනු වස්, පහත පෙන්නුම් කෙරෙන වචන  කොටුව තුල ඇතුලත් කරන්න ([[Special:Captcha/help|වැඩිමනත් තොරතුරු]]):',
+	'fancycaptcha-sendemail' => 'ස්වයංක්‍රීය ස්පෑම් කිරීම්වලින් ආරක්ෂා කිරීම සඳහා උදව් වීමට පහත කොටුවේ පෙන්වන වචන ඇතුළත් කරන්න ([[Special:Captcha/help|more info]]):',
 );
 
 /** Slovak (Slovenčina)

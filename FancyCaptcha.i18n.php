@@ -287,7 +287,7 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'fancycaptcha-desc' => 'Captcha-Generator für die Erweiterung „Confirm Edit“',
+	'fancycaptcha-desc' => 'CAPTCHA-Generator für die Erweiterung „Confirm Edit“',
 	'fancycaptcha-addurl' => 'Deine Bearbeitung enthält neue externe Links.
 Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ ([[Special:Captcha/help|Fragen oder Probleme?]]).',
 	'fancycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]]:',

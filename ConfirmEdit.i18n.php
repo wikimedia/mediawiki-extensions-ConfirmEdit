@@ -744,15 +744,15 @@ Zum Schutz vor automatisiertem Spamming löse die nachfolgende Rechenaufgabe und
 	'captcha-create' => 'Zur Erstellung der Seite löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'captcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, löse bitte die einfache Rechenaufgabe und gib die Antwort unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
 	'captcha-sendemail-fail' => 'Falscher oder fehlender Bestätigungscode.',
-	'captcha-disabledinapi' => 'Diese Aktion benötigt ein Captcha. Sie kann nicht über die API ausgeführt werden.',
-	'captchahelp-title' => 'Captcha-Hilfe',
+	'captcha-disabledinapi' => 'Diese Aktion benötigt ein CAPTCHA. Sie kann nicht über die API ausgeführt werden.',
+	'captchahelp-title' => 'CAPTCHA-Hilfe',
 	'captchahelp-cookies-needed' => "'''Wichtiger Hinweis:''' Es müssen Cookies im Browser erlaubt sein.",
 	'captchahelp-text' => 'Internetangebote, die für Beiträge von praktisch jedem offen sind — so wie dieses Wiki — werden oft von Spammern missbraucht, die ihre Links automatisch auf vielen Webseiten platzieren. Diese Spam-Links können wieder entfernt werden, sie sind aber ein erhebliches Ärgernis.
 
 In manchen Fällen, insbesondere beim Hinzufügen von neuen Weblinks zu einer Seite, kann es vorkommen, dass dieses Wiki ein Bild mit einem farbigen und verzerrten Text anzeigt und dazu auffordert, die angezeigten Wörter einzutippen.
 Da eine solche Aufgabe nur schwer automatisch erledigt werden kann, werden dadurch die meisten Spammer, die mit automatischen Werkzeugen arbeiten, gestoppt, wogegen menschliche Benutzer ihren Beitrag absenden können.
 
-Leider kann dies zu Schwierigkeiten für Personen führen, die über eine eingeschränkte Sehfähigkeit verfügen oder text- oder sprachbasierte Browser verwenden. Aktuell sind keine Audio-Captchas verfügbar.
+Leider kann dies zu Schwierigkeiten für Personen führen, die über eine eingeschränkte Sehfähigkeit verfügen oder text- oder sprachbasierte Browser verwenden. Aktuell sind keine Audio-CAPTCHAs verfügbar.
 
 Bitte kontaktiere einen [[{{MediaWiki:Grouppage-sysop}}|Administratoren]] für weitere Hilfe, wenn dies es unmöglich macht, erwünschte Bearbeitungen vorzunehmen.
 
@@ -762,7 +762,7 @@ Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 #   * Alles von einem #-Zeichen bis zum Ende der Zeile ist ein Kommentar
 #   * Jede nicht-leere Zeile ist ein Regex-Fragment, das gegenüber den Hostnamen einer URL geprüft wird
  #</pre> <!-- Diese Zeile darf nicht verändert werden! -->',
-	'right-skipcaptcha' => 'Überspringen der Captcha-Eingabe',
+	'right-skipcaptcha' => 'Überspringen der CAPTCHA-Eingabe',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
@@ -1160,6 +1160,7 @@ $messages['fo'] = array(
  * @author Sherbrooke
  * @author Urhixidur
  * @author Verdy p
+ * @author Wyz
  * @author Zetud
  */
 $messages['fr'] = array(
@@ -1174,13 +1175,13 @@ Pour nous aider dans la protection contre le pourriel automatisé, veuillez calc
 	'captcha-sendemail' => 'Afin de nous aider à prévenir le spam automatique, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-sendemail-fail' => 'Code de confirmation incorrect ou manquant.',
 	'captcha-disabledinapi' => "Cette action requiert un captcha, donc elle ne peut pas être effectuée via l'API.",
-	'captchahelp-title' => 'Aide pour le captcha',
+	'captchahelp-title' => 'Aide sur le captcha',
 	'captchahelp-cookies-needed' => "Il vous faudra autoriser les témoins (''cookies'') de votre navigateur pour que cela fonctionne.",
-	'captchahelp-text' => 'Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de polluposteurs qui utilisent des outils automatisés pour placer de nombreux liens vers leurs sites.
+	'captchahelp-text' => 'Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de spammeurs qui utilisent des outils automatisés pour placer de nombreux liens vers leurs sites.
 Même si cette pollution peut être effacée, elle n’en reste pas moins irritante.
 
 Parfois, particulièrement lors de l’ajout de nouveaux liens externes dans une page, le wiki peut vous montrer une image d’un texte embrouillé, déformé ou coloré et vous demander de taper les mots indiqués.
-Cette tâche étant difficile à accomplir de façon automatisée, cela permet à la plupart des humains de réaliser leurs contributions tout en stoppant la plupart des polluposteurs et autres attaquants robotisés.
+Cette tâche étant difficile à accomplir de façon automatisée, cela permet à la plupart des humains de réaliser leurs contributions tout en stoppant la plupart des spammeurs et autres attaquants robotisés.
 
 Malheureusement, cette solution peut gêner les utilisateurs malvoyants ou qui utilisent un navigateur en texte seul ou vocal. Nous ne disposons pas d’alternative audio pour l’instant.
 Veuillez contacter [[{{MediaWiki:Grouppage-sysop}}|les administrateurs du site]] si cela vous empêche de façon inattendue de faire des contributions légitimes.

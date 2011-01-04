@@ -1530,14 +1530,15 @@ Klikń na tłócatko "Wróćo" w swojim wobhladowaku, zo by so k editorej wróć
 );
 
 /** Haitian (Kreyòl ayisyen)
+ * @author Boukman
  * @author Masterches
  */
 $messages['ht'] = array(
 	'captcha-edit' => 'Pou ou kapab modifye paj sa, nou mande w kalkile ti adisyon fasil sa epitou mete rezilta, repons ou an nan bwat ki bò kote l ([[Special:Captcha/help|konnen plis sou fonksyon sa]]):',
 	'captcha-desc' => 'Yon enplemantasyon captcha senp',
-	'captcha-addurl' => 'Edisyon ou an genyen lyen pou sòti nan sistèm an.
-Pou ede nou pwoteje sistèm an kont spam, imèl/mesaj otomatik, souple, kalkile ti pwoblèm adisyon fasil sa epi bay repons ou an nan bwat sa ([[Special:Captcha/help|plis èd sou fonksyon sa]]):',
-	'captcha-badlogin' => 'Pou ede nou lite kont moun ki ap krake, pirate mopas yo, souple rezoud ti adisyon fasil sa epi mete repons ou an nan bwat li ([[Special:Captcha/help|konnen plis sou fonksyon sa]]):',
+	'captcha-addurl' => 'Edisyon ou an genyen nouvo lyen pou andeyò.
+Pou ede nou pwoteje sistèm an kont pouryèl, tanpri, fè ti adisyon fasil sa epi bay repons ou an nan bwat ([[Special:Captcha/help|plis èd sou fonksyon sa]]):',
+	'captcha-badlogin' => 'Pou ede nou lite kont òdinatè ki ap krake, pirate mopas yo, tanpri rezoud ti adisyon fasil sa epi mete repons ou an nan bwat ([[Special:Captcha/help|konnen plis sou fonksyon sa]]):',
 	'captcha-createaccount' => 'Pou ede nou lite kont kreyasyon kont otomatik yo, souple rezoud ti adisyon sa epi mete nan bwat an repons ou an ([[Special:Captcha/help|konnen plis sou fonksyon sa]]):',
 );
 

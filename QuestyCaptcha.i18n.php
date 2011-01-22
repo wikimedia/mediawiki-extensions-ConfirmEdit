@@ -91,7 +91,7 @@ $messages['ar'] = array(
 إذا كنت تحرر صفحة معينة: اضغط زر 'العودة' في متصفحك للعودة إلى التحرير.",
 );
 
-/** Bashkir (Башҡорт)
+/** Bashkir (Башҡортса)
  * @author Assele
  */
 $messages['ba'] = array(
@@ -112,7 +112,7 @@ $messages['ba'] = array(
 Мөхәррирләүгә кире ҡайтыу өсөн, браузерығыҙҙа кире ҡайтыу төймәһенә баҫығыҙ.',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -231,7 +231,7 @@ Sollte dich dieses Verfahren beim Vornehmen erwünschter Bearbeitungen behindern
 Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 );
 
-/** German (formal address) (Deutsch (Sie-Form))
+/** German (formal address) (‪Deutsch (Sie-Form)‬)
  * @author Imre
  * @author Umherirrender
  */
@@ -1043,6 +1043,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Horacewai2
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'questycaptcha-addurl' => '您的編輯內容中含有本網站以外的連結。為防止不當程式大量破壞，請回答以下的問題（[[Special:Captcha/help|相關資訊]]）：',

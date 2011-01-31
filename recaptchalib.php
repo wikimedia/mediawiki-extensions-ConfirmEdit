@@ -92,8 +92,6 @@ function _recaptcha_http_post($host, $path, $data, $port = 80) {
         return $response;
 }
 
-
-
 /**
  * Gets the challenge HTML (javascript and non-javascript version).
  * This is called from the browser, and the resulting reCAPTCHA HTML widget
@@ -111,7 +109,7 @@ function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false)
 	if ($pubkey == null || $pubkey == '') {
 		die ("To use reCAPTCHA you must get an API key from <a href='http://recaptcha.net/api/getkey'>http://recaptcha.net/api/getkey</a>");
 	}
-	
+
 	if ($use_ssl) {
            $server = $recaptcha_api_ssl_server;
         } else {
@@ -130,9 +128,6 @@ function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false)
 	</noscript>';
 }
 
-
-
-
 /**
  * A ReCaptchaResponse is returned from recaptcha_check_answer()
  */
@@ -140,7 +135,6 @@ class ReCaptchaResponse {
         var $is_valid;
         var $error;
 }
-
 
 /**
   * Calls an HTTP POST function to verify if the user's guess was correct
@@ -160,8 +154,6 @@ function recaptcha_check_answer ($privkey, $remoteip, $challenge, $response)
 		die ("For security reasons, you must pass the remote ip to reCAPTCHA");
 	}
 
-	
-	
         //discard spam submissions
         if ($challenge == null || strlen($challenge) == 0 || $response == null || strlen($response) == 0) {
                 $recaptcha_response = new ReCaptchaResponse();
@@ -205,15 +197,13 @@ function recaptcha_get_signup_url ($domain = null, $appname = null) {
 	return "http://recaptcha.net/api/getkey?" .  _recaptcha_qsencode (array ('domain' => $domain, 'app' => $appname));
 }
 
-
-
 /* Mailhide related code */
 
 function _recaptcha_aes_encrypt($val,$ky) {
 	if (! function_exists ("mcrypt_encrypt")) {
 		die ("To use reCAPTCHA Mailhide, you need to have the mcrypt php module installed.");
 	}
-	$mode=MCRYPT_MODE_CBC;   
+	$mode=MCRYPT_MODE_CBC;
 	$enc=MCRYPT_RIJNDAEL_128;
 	$val=str_pad($val, (16*(floor(strlen($val) / 16)+(strlen($val) % 16==0?2:1))), chr(16-(strlen($val) % 16)));
 	return mcrypt_encrypt($enc, $ky, $val, $mode, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0");
@@ -230,11 +220,10 @@ function recaptcha_mailhide_url($pubkey, $privkey, $email) {
 		die ("To use reCAPTCHA Mailhide, you have to sign up for a public and private key, " .
 		     "you can do so at <a href='http://mailhide.recaptcha.net/apikey'>http://mailhide.recaptcha.net/apikey</a>");
 	}
-	
 
 	$ky = pack('H*', $privkey);
 	$cryptmail = _recaptcha_aes_encrypt ($email, $ky);
-	
+
 	return "http://mailhide.recaptcha.net/d?k=" . $pubkey . "&c=" . _recaptcha_mailhide_urlbase64 ($cryptmail);
 }
 
@@ -265,11 +254,9 @@ function _recaptcha_mailhide_email_parts ($email) {
 function recaptcha_mailhide_html($pubkey, $privkey, $email) {
 	$emailparts = _recaptcha_mailhide_email_parts ($email);
 	$url = recaptcha_mailhide_url ($pubkey, $privkey, $email);
-	
+
 	return htmlentities($emailparts[0]) . "<a href='" . htmlentities ($url) .
 		"' onclick=\"window.open('" . htmlentities ($url) . "', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;\" title=\"Reveal this e-mail address\">...</a>@" . htmlentities ($emailparts [1]);
 
 }
 
-
-?>

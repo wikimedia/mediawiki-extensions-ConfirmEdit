@@ -1,6 +1,7 @@
 <?php
 /**
- * Internationalisation file for the FancyCaptcha plug-in
+ * Internationalisation file for the FancyCaptcha module of the ConfirmEdit
+ * extension.
  *
  * @file
  * @ingroup Extensions

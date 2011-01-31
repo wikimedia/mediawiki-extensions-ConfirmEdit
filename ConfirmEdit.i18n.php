@@ -1,6 +1,6 @@
 <?php
 /**
- * Internationalisation file for ConfirmEdit extension.
+ * Internationalisation file for the ConfirmEdit extension.
  *
  * @file
  * @ingroup Extensions

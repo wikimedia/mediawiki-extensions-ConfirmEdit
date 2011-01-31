@@ -1,6 +1,7 @@
 <?php
 /**
- * Internationalisation file for the QuestyCaptcha plug-in
+ * Internationalisation file for the QuestyCaptcha module of the ConfirmEdit
+ * extension.
  *
  * @file
  * @ingroup Extensions

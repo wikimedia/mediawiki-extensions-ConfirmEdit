@@ -25,6 +25,7 @@ $wgReCaptchaPrivateKey = '';
 $recaptcha_public_key = '';
 $recaptcha_private_key = '';
 
+$wgExtensionFunctions[] = 'efReCaptcha';
 
 /**
  * Make sure the keys are defined.
@@ -35,7 +36,7 @@ function efReCaptcha() {
 	global $wgServerName;
 
 	// Backwards compatibility
-	$wgReCaptchaPublicKey == '' ) {
+	if ( $wgReCaptchaPublicKey == '' ) {
 		$wgReCaptchaPublicKey = $recaptcha_public_key;
 	}
 	if ( $wgReCaptchaPrivateKey == '' ) {

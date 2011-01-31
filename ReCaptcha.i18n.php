@@ -17,7 +17,6 @@ $messages['en'] = array(
 	'recaptcha-createaccount' => 'To help protect against automated account creation, please type the two words you see in the box below:',
 	'recaptcha-createaccount-fail' => "Incorrect or missing reCAPTCHA answer.",
 	'recaptcha-create' => 'To help protect against automated page creation, please type the two words you see in the box below:', 
-
 );
 
 /* French */
@@ -31,7 +30,7 @@ $messages['fr'] = array(
 );
 
 /* Spanish */
-$message['es'] = array(
+$messages['es'] = array(
      'recaptcha-edit' => 'Para protegernos de los robots, escribid por favor las dos palabras visibles en el cuadro abajo:', 
      'recaptcha-addurl' => 'Su aportación contiene enlaces externos. Para protegernos de los robots, escribid por favor las dos palabras visibles en el cuadro abajo:',
      'recaptcha-badpass' => 'Para protegernos de los robots que intentan adivinar contraseñas, escribid por favor las dos palabras visibles en el cuadro abajo:',
@@ -71,7 +70,7 @@ $messages['pt'] = array(
 );
 
 /* Brazilian Portuguese */
-$messages['pt_br'] = array(
+$messages['pt-br'] = array(
         'recaptcha-edit' => 'Para ajudar a prevenir contra vandalismos, por favor digite as duas palavras que voc&amp;ecirc; v&amp;ecirc; na caixa abaixo:', 
         'recaptcha-addurl' => 'A sua edi&amp;ccedil;&amp;atilde;o inclui liga&amp;ccedil;&amp;otilde;es externas. Para ajudar a prevenir contra vandalismos, por favor digite as duas palavras que voc&amp;ecirc; v&amp;ecirc; na caixa abaixo:',
     'recaptcha-badpass' => 'Para ajudar a prevenir contra tentativas de desbloquear senhas, por favor digite as duas palavras que voc&amp;ecirc; v&amp;ecirc; na caixa abaixo:',
@@ -118,3 +117,4 @@ $messages['ja'] = array(
 	'recaptcha-createaccount-fail' => '入力された文字列が正しくありません。',
 	'recaptcha-create' => '自動ページ作成からの保護のために、下の画像に表示されている２つの言葉を入 力してください。', 
 );
+

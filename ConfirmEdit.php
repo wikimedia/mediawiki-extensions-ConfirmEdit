@@ -1,10 +1,12 @@
 <?php
 
 /**
- * Experimental captcha plugin framework.
- * Not intended as a real production captcha system; derived classes
- * can extend the base to produce their fancy images in place of the
- * text-based test output here.
+ * ConfirmEdit MediaWiki extension.
+ *
+ * This is a framework that holds a variety of CAPTCHA tools. The
+ * default one, 'SimpleCaptcha', is not intended as a production-
+ * level CAPTCHA system, and another one of the options provided
+ * should be used in its place for any real usages.
  *
  * Copyright (C) 2005-2007 Brion Vibber <brion@wikimedia.org>
  * http://www.mediawiki.org/
@@ -38,8 +40,9 @@ $wgExtensionFunctions[] = 'confirmEditSetup';
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'ConfirmEdit',
-	'author' => 'Brion Vibber',
+	'author' => 'Brion Vibber and others',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:ConfirmEdit',
+	'version' => '1.0',
 	'descriptionmsg' => 'captcha-desc',
 );
 

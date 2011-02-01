@@ -19,6 +19,19 @@ $messages['en'] = array(
 	'recaptcha-create' => 'To help protect against automated page creation, please type the two words you see in the box below:', 
 );
 
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+ * @author EugeneZelenko
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'recaptcha-edit' => 'Для абароны супраць спаму, калі ласка, увядзіце два словы, якія Вы бачыце ў полі ніжэй:',
+	'recaptcha-addurl' => 'Вашае рэдагаваньне ўтрымлівае новыя вонкавыя спасылкі. Для абароны супраць спаму, калі ласка, увядзіце два словы, якія Вы бачыце ў полі ніжэй:',
+	'recaptcha-badpass' => 'Для абароны супраць узлому паролю, калі ласка, увядзіце два словы, якія Вы бачыце ў полі ніжэй:',
+	'recaptcha-createaccount' => 'Для абароны супраць аўтаматычнага стварэньня рахункаў, калі ласка, увядзіце два словы, якія Вы бачыце ў полі ніжэй:',
+	'recaptcha-createaccount-fail' => 'Адказ reCAPTCHA няслушны ці адсутнічае.',
+	'recaptcha-create' => 'Для абароны супраць аўтаматычнага стварэньня старонак, калі ласка, увядзіце два словы, якія Вы бачыце ў полі ніжэй:',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'recaptcha-edit' => 'Zum Schutz vor automatisiertem Spam, gib bitte die beiden folgenden Wörter in das untenstehende Feld ein:',
@@ -47,6 +60,18 @@ $messages['fr'] = array(
 	'recaptcha-createaccount' => "Pour nous protéger des créations automatiques de compte, merci d'écrire les deux mots visibles dans le cadre qui suit:",
 	'recaptcha-createaccount-fail' => 'Réponse de reCAPTCHA fausse ou manquante.',
 	'recaptcha-create' => "Pour nous protéger des créations automatiques de pages, merci d'écrire les deux mots visibles dans le cadre qui suit:",
+);
+
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'recaptcha-edit' => 'Zum Schutz vor automatisiertem Spam, gib bitte di beide Werter in s Fäld unten yy:',
+	'recaptcha-addurl' => 'In Dyre Bearbeitg het s neji extärni Links. Zum Schutz vor automatisiertem Spam, gib bitte di beide Werter in s Fäld unten yy:',
+	'recaptcha-badpass' => 'Zum Schutz gege automatisiert Knacken vu Passwerter, gib bitte di beide Werter in s Fäld unten yy:',
+	'recaptcha-createaccount' => 'Zum Schutz gege s automatisiert Aalege vu Benutzerkonte, gib bitte di beide Werter in s Fäld unten yy:',
+	'recaptcha-createaccount-fail' => 'D reCAPTCHA-Antwort isch fählerhaft oder si fählt.',
+	'recaptcha-create' => 'Zum Schutz gege s automatisiert Aalege vu Syte, gib bitte di beide Werter in s Fäld unten yy:',
 );
 
 /** Hebrew (עברית) */
@@ -79,6 +104,31 @@ $messages['ja'] = array(
 	'recaptcha-createaccount' => '自動アカウント登録からの保護のために、下の画像に表示されている２つの言葉 を入力してください。',
 	'recaptcha-createaccount-fail' => '入力された文字列が正しくありません。',
 	'recaptcha-create' => '自動ページ作成からの保護のために、下の画像に表示されている２つの言葉を入 力してください。',
+);
+
+/** Macedonian (Македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'recaptcha-desc' => 'Модул reCAPTCHA за потврда на уредувања',
+	'recaptcha-edit' => 'Како заштитна мерка против автоматизиран спам, внесете ги двата збора прикажани во полето:',
+	'recaptcha-addurl' => 'Во вашите измени има нови надворешни врски. Како заштитна мерка против автоматизиран спам, внесете ги двата збора прикажани во полето:',
+	'recaptcha-badpass' => 'Како заштитна мерка против автоматизирано провалување на лозинки, внесете ги двата збора прикажани во полето:',
+	'recaptcha-createaccount' => 'Како заштитна мерка против автоматизирано создавање на сметки, внесете ги двата збора прикажани во полето:',
+	'recaptcha-createaccount-fail' => 'reCAPTCHA доби погрешен одговор или одговорот недостасува.',
+	'recaptcha-create' => 'Како заштитна мерка против автоматизирано создавање на страници, внесете ги двата збора прикажани во полето:',
+);
+
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
+$messages['nl'] = array(
+	'recaptcha-edit' => 'Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
+	'recaptcha-addurl' => 'Uw bewerking bevat nieuwe externe verwijzingen. Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
+	'recaptcha-badpass' => 'Voer ter bescherming tegen het automatisch kraken van wachtwoorden de twee woorden die u ziet in het invoervenster in:',
+	'recaptcha-createaccount' => 'Om het automatisch aanmaken van gebruikers tegen te gaan moet u de twee woorden die u ziet invoeren:',
+	'recaptcha-createaccount-fail' => 'Het reCAPTCHA-antwoord is onjuist of niet ingevoerd.',
+	'recaptcha-create' => "Om het automatisch aanmaken van pagina's tegen te gaan moet u de twee woorden die u ziet invoeren:",
 );
 
 /** Polish (Polski) */
@@ -119,6 +169,13 @@ $messages['sv'] = array(
 	'recaptcha-createaccount' => 'För att skydda wikin mot robotar som skapar konton behöver användare bevisa att de är människor. Var vänlig och skriv ner de två orden du ser i boxen nedan:',
 	'recaptcha-createaccount-fail' => 'Du har angivit ett felaktig svar för reCAPTCHA.',
 	'recaptcha-create' => 'För att skydda wikin mot robotar som skapar nya artiklar. Var vänlig och skriv ner de två orden som finns i boxen nedan:',
+);
+
+/** Ukrainian (Українська)
+ * @author Тест
+ */
+$messages['uk'] = array(
+	'recaptcha-createaccount-fail' => 'Відповідь reCAPTCHA неправильна або відсутня.',
 );
 
 /** Vietnamese (Tiếng Việt) */

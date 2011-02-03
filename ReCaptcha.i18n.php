@@ -84,6 +84,17 @@ $messages['he'] = array(
 	'recaptcha-create' => 'אינכם משתמש רשום.כהגנה מפני ספאם אוטומטי, אנא הקלידו את שתי המילים שלהלן. תודה.',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'recaptcha-edit' => 'Za škit přećiwo awtomatizowanemu spamej, prošu zapisaj dwě słowje, kotrejž w slědowacym polu widźiš:',
+	'recaptcha-addurl' => 'Twoja změna wobsahuje nowe eksterne wotkazy. Za škit přećiwo awtomatizowanemu spamej, prošu zapisaj dwě słowje, kotrerjž w slědowacym polu widźiš:',
+	'recaptcha-createaccount' => 'Za škit přećiwo awtomatiskemu wutworjenju konta, prošu zapisaj tej wobě słowje, kotrejž w slědowacym polu widźiš:',
+	'recaptcha-createaccount-fail' => 'Wopačna abo falowaca wotmołwa reCAPTCHA.',
+	'recaptcha-create' => 'Za škit přećiwo awtomatiskemu wutworjenju strony, prošu zapisaj tej wobě słowje, kotrejž w slědowacym polu widźiš:',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */

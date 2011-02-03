@@ -1286,6 +1286,7 @@ Par jutarne a conbàtar el spam, par piaser inserissi ne la casela le parole che
  * @author Vinhtantran
  */
 $messages['vi'] = array(
+	'fancycaptcha-desc' => 'Trình sản xuất hình CAPTCHA đặc biệt cho ConfirmEdit',
 	'fancycaptcha-addurl' => 'Sửa đổi của bạn có chứa các liên kết ngoài. Để giúp tránh spam tự động, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'fancycaptcha-badlogin' => 'Để giúp tránh bẻ mật khẩu tự động, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'fancycaptcha-createaccount' => 'Để giúp tránh tạo tài khoản tự động, xin hãy nhập những chữ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',

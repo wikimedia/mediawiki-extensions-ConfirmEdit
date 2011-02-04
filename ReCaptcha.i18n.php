@@ -90,6 +90,7 @@ $messages['he'] = array(
 $messages['hsb'] = array(
 	'recaptcha-edit' => 'Za škit přećiwo awtomatizowanemu spamej, prošu zapisaj dwě słowje, kotrejž w slědowacym polu widźiš:',
 	'recaptcha-addurl' => 'Twoja změna wobsahuje nowe eksterne wotkazy. Za škit přećiwo awtomatizowanemu spamej, prošu zapisaj dwě słowje, kotrerjž w slědowacym polu widźiš:',
+	'recaptcha-badpass' => 'Za škit přećiwo awtomatizowanemu złamanju hesłow, zapisaj prošu wobě słowje, kotrejž widźiš, do slědowaceho pola:',
 	'recaptcha-createaccount' => 'Za škit přećiwo awtomatiskemu wutworjenju konta, prošu zapisaj tej wobě słowje, kotrejž w slědowacym polu widźiš:',
 	'recaptcha-createaccount-fail' => 'Wopačna abo falowaca wotmołwa reCAPTCHA.',
 	'recaptcha-create' => 'Za škit přećiwo awtomatiskemu wutworjenju strony, prošu zapisaj tej wobě słowje, kotrejž w slědowacym polu widźiš:',

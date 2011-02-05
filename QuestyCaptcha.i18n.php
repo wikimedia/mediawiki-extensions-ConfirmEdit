@@ -11,7 +11,7 @@ $messages = array();
 
 /** English */
 $messages['en'] = array(
-	'questycaptcha-desc' => 'Questy captcha generator for Confirm Edit',
+	'questycaptcha-desc' => 'Questy CAPTCHA generator for Confirm Edit',
 	'questycaptcha-addurl' => 'Your edit includes new external links.
 To help protect against automated spam, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-badlogin' => 'To help protect against automated password cracking, please answer the question that appears below ([[Special:Captcha/help|more info]]):',

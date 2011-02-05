@@ -11,7 +11,7 @@ $messages = array();
 
 /** English */
 $messages['en'] = array(
-	'fancycaptcha-desc'          => 'Fancy captcha generator for Confirm Edit',
+	'fancycaptcha-desc'          => 'Fancy CAPTCHA generator for Confirm Edit',
 	'fancycaptcha-addurl'        => 'Your edit includes new external links.
 To help protect against automated spam, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-badlogin'      => 'To help protect against automated password cracking, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',

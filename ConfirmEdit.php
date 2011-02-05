@@ -40,9 +40,7 @@ $wgExtensionFunctions[] = 'confirmEditSetup';
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'ConfirmEdit',
-	'author' => 'Brion Vibber',	/* Add "and others" here when you find
-								 * a way to do it properly with
-								 * i18n */
+	'author' => array( 'Brion Vibber', '...' ),
 	'url' => 'http://www.mediawiki.org/wiki/Extension:ConfirmEdit',
 	'version' => '1.0',
 	'descriptionmsg' => 'captcha-desc',

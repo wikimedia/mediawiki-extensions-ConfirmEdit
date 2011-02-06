@@ -118,6 +118,14 @@ $messages['ja'] = array(
 	'recaptcha-create' => '自動ページ作成からの保護のために、下の画像に表示されている２つの言葉を入 力してください。',
 );
 
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'recaptcha-addurl' => "An Ärer Ännerung sinn nei extern Linken! Fir ze hëllefe géint automatiséierte Spam virzegoen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner:",
+	'recaptcha-createaccount-fail' => 'reCAPTCHA Äntwert feelt oder ass net korrekt.',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */

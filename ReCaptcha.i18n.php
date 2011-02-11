@@ -181,6 +181,18 @@ $messages['pt-br'] = array(
 	'recaptcha-create' => 'Para ajudar a prevenir contra criação automatizada de páginas, por favor digite as duas palavras que você vê na caixa abaixo:',
 );
 
+/** Russian (Русский)
+ * @author Александр Сигачёв
+ */
+$messages['ru'] = array(
+	'recaptcha-edit' => 'В целях защиты от автоматического спама в правках, пожалуйста, введите два слова, которые вы видите ниже:',
+	'recaptcha-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от автоматического спама, пожалуйста, введите два слова, которые вы видите ниже:',
+	'recaptcha-badpass' => 'В целях защиты от автоматического подбора пароля, пожалуйста, введите два слова, которые вы видите ниже:',
+	'recaptcha-createaccount' => 'В целях защиты от автоматического создания учётных записей, пожалуйста, введите два слова, которые вы видите ниже:',
+	'recaptcha-createaccount-fail' => 'Ответ reCAPTCHA неправильный или отсутствует.',
+	'recaptcha-create' => 'В целях защиты от автоматического создания страниц, пожалуйста, введите два слова, которые вы видите ниже:',
+);
+
 /** Swedish (Svenska) */
 $messages['sv'] = array(
 	'recaptcha-edit' => 'Den här sidan skyddas mot spam-robotar, bevisa att du är en människa genom att skriva de två orden du ser i boxen nedan:',

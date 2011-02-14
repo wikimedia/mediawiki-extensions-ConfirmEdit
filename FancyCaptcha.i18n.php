@@ -1093,6 +1093,7 @@ Zaradi zaščite pred samodejnim smetjem, prosimo vnesite spodnje besede v polje
 
 /** Albanian (Shqip)
  * @author Dori
+ * @author Olsi
  */
 $messages['sq'] = array(
 	'fancycaptcha-addurl' => 'Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])',
@@ -1100,6 +1101,7 @@ $messages['sq'] = array(
 	'fancycaptcha-createaccount' => 'Për të mbrojtur kundër hapjeve të llogarive në mënyrë automatike ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
 	'fancycaptcha-create' => 'Për të krijuar një faqe, ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
 	'fancycaptcha-edit' => 'Për të redaktuar këtë faqe ju lutem shtypni çfarë shfaqet tek figura e mëposhtme ([[Special:Captcha|Çfarë është kjo?]]):',
+	'fancycaptcha-sendemail' => "Për t'u mbrojtur nga metoda automatike e gjetjes së fjalëkalimeve ju kërkojmë të vendosni fjalët e figurës në kuti ([[Special:Captcha/help|më shumë informacion]]):",
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)

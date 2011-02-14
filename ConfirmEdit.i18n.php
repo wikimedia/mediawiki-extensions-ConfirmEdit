@@ -2966,15 +2966,20 @@ Za vrnitev v urejevalnik izberite gumb »nazaj« vašega brskalnika.',
  * @author BrokenArrow
  * @author Dori
  * @author Mikullovci11
+ * @author Olsi
  */
 $messages['sq'] = array(
 	'captcha-edit' => 'Për të redaktuar këtë faqe ju lutem zgjidhni shumën e mëposhtme dhe vendosni përgjigjen në kuti ([[Special:Captcha/help|më shumë informacion]]):',
-	'captcha-desc' => 'Pajisje me captcha të thjeshtë',
+	'captcha-desc' => 'Siguron teknika CAPTCHA për të mbrojtur kundër spam',
 	'captcha-addurl' => 'Redaktimi juaj ka lidhje URL të reja dhe si mbrojtje kundër abuzimeve automatike duhet të shtypni çfarë shfaqet tek figura e mëposhtme:<br /> ([[Special:Captcha|Çfarë është kjo?]])',
 	'captcha-badlogin' => 'Për tu mbrojtur nga metoda automatike të gjetjes së fjalëkalimeve ju kërkojmë të gjeni zgjidhni shumën e mëposhtme dhe të vendosni përgjigjen në kuti ([[Special:Captcha/help|më shumë informacion]]):',
 	'captcha-createaccount' => 'Për mbrojtje kundër regjistrimeve automatike duhet të zgjidhni ekuacionin e mëposhtëm para se të hapni llogarinë:<br />([[Special:Captcha|Çfarë është kjo?]])',
 	'captcha-createaccount-fail' => 'Mesazhi që duhej shtypur mungon ose nuk është shtypur siç duhet.',
 	'captcha-create' => 'Për të krijuar këtë faqe ju lutem zgjidhni shumën e mëposhtme dhe vendosni përgjigjen në kuti ([[Special:Captcha/help|më shumë informacion]]):',
+	'captcha-sendemail' => 'Për të ndihmuar në mbrojtjen kundër spamit të automatizuar, ju lutemi zgjidhni këtë më poshtë dhe shkruani përgjigjen në kuti
+([[Special:Captcha/help|më shumë informacion]]):',
+	'captcha-sendemail-fail' => 'Mungon kodi i konfirmimit ose është i pasaktë.',
+	'captcha-disabledinapi' => 'Ky veprim kërkon një captcha, kështu që nuk mund të kryhet nëpërmjet API.',
 	'captchahelp-title' => 'Ndihmë rreth sistemit "Captcha"',
 	'captchahelp-cookies-needed' => 'Duhet të pranoni "biskota" nga shfletuesi juaj për këtë veprim.',
 	'captchahelp-text' => 'Faqet e rrjetit që pranojnë shkrime nga publiku, siç është edhe kjo wiki, shpesh abuzohen nga njerëz që duan të përfitojnë duke reklamuar ose promovuar lidhjet e tyre. Këto lloj abuzimesh mund të hiqen kollaj por janë një bezdi dhe shpenzim kohe i papranueshëm.
@@ -2989,6 +2994,7 @@ Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e
 #  * Çdo gjë nga simboli "#" deri në fund të rreshtit është koment
 #  * Çdo rresht jo-bosh është një pjesë regex që duhet t\'i përputhet emrat të shërbyesve brenda një URL-i
   #</pre> <!-- lëreni këtë rresht siç është -->',
+	'right-skipcaptcha' => 'Kryen veprime CAPTCHA-triggering pa pasur nevojë të shkojë nëpërmjet CAPTCHA',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)

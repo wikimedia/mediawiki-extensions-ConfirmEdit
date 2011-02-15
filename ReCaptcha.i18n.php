@@ -32,6 +32,18 @@ $messages['be-tarask'] = array(
 	'recaptcha-create' => 'Для абароны супраць аўтаматычнага стварэньня старонак, калі ласка, увядзіце два словы, якія Вы бачыце ў полі ніжэй:',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'recaptcha-edit' => "Da sikour en em wareziñ diouzh ar stroboù emgefre, merkit an daou c'her a welit er voest dindan :",
+	'recaptcha-addurl' => "Liamm diavaez nevez zo bet degaset ganeoc'h. Da sikour en em wareziñ diouzh ar stroboù, merkit an daou c'her a welit er voest dindan :",
+	'recaptcha-badpass' => "Da sikour en em wareziñ diouzh an diskuliañ gerioù-tremen emgefre dre daolioù-esae, merkit an daou c'her a welit er voest dindan :",
+	'recaptcha-createaccount' => "Da sikour en em wareziñ diouzh ar c'hrouiñ kontoù emgefre, merkit an daou c'her a welit er voest dindan :",
+	'recaptcha-createaccount-fail' => 'Respont reCAPTHCA faziek pe ezvezant.',
+	'recaptcha-create' => "Da sikour en em wareziñ diouzh ar c'hrouiñ pajennoù emgefre, merkit an daou c'her a welit er voest dindan :",
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'recaptcha-edit' => 'Zum Schutz vor automatisiertem Spam, gib bitte die beiden folgenden Wörter in das untenstehende Feld ein:',

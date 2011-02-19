@@ -19,6 +19,18 @@ $messages['en'] = array(
 	'recaptcha-create' => 'To help protect against automated page creation, please type the two words you see in the box below:', 
 );
 
+/** Asturian (Asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'recaptcha-edit' => "P'ayudar a protexenos escontra'l spam d'edición, escribi les dos pallabres que se ven na caxella d'abaxo:",
+	'recaptcha-addurl' => "La to edición incluye enllaces esternos nuevos. P'ayudar a protexenos escontra'l spam automáticu, escribi les dos pallabres que se ven na caxella d'abaxo:",
+	'recaptcha-badpass' => "P'ayudar a protexenos escontra'l frañimientu de claves automáticu, escribi les dos pallabres que se ven na caxella d'abaxo:",
+	'recaptcha-createaccount' => "P'ayudar a protexenos escontra la creación de cuentes automática, escribi les dos pallabres que se ven na caxella d'abaxo:",
+	'recaptcha-createaccount-fail' => 'Falta la rempuesta a la entruga de reCAPTCHA o ye incorreuta',
+	'recaptcha-create' => "P'ayudar a protexenos escontra la creación de páxines automática, escribi les dos pallabres que se ven na caxella d'abaxo:",
+);
+
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
@@ -72,6 +84,16 @@ $messages['fr'] = array(
 	'recaptcha-createaccount' => "Pour nous protéger des créations automatiques de compte, merci d'écrire les deux mots visibles dans le cadre qui suit:",
 	'recaptcha-createaccount-fail' => 'Réponse de reCAPTCHA fausse ou manquante.',
 	'recaptcha-create' => "Pour nous protéger des créations automatiques de pages, merci d'écrire les deux mots visibles dans le cadre qui suit:",
+);
+
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'recaptcha-edit' => 'Para axudarnos á protección contra o spam, escriba as dúas palabras que vexa nesta caixa:',
+	'recaptcha-badpass' => 'Para axudarnos á protección contra o roubo de contrasinais, escriba as dúas palabras que vexa nesta caixa:',
+	'recaptcha-createaccount' => 'Para axudarnos á protección contra a creación automática de contas, escriba as dúas palabras que vexa nesta caixa:',
+	'recaptcha-create' => 'Para axudarnos á protección contra a creación automática de páxinas, escriba as dúas palabras que vexa nesta caixa:',
 );
 
 /** Swiss German (Alemannisch)
@@ -128,6 +150,23 @@ $messages['ja'] = array(
 	'recaptcha-createaccount' => '自動アカウント登録からの保護のために、下の画像に表示されている２つの言葉 を入力してください。',
 	'recaptcha-createaccount-fail' => '入力された文字列が正しくありません。',
 	'recaptcha-create' => '自動ページ作成からの保護のために、下の画像に表示されている２つの言葉を入 力してください。',
+);
+
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'recaptcha-edit' => 'Schrief di zwei Wööt en dä Kaste onge erin.
+Dat sull jääje et automattesche Ändere un SPAM em Wiki schöze.',
+	'recaptcha-addurl' => 'Schrief di zwei Wööt en dä Kaste onge erin.
+Dat sull jääje automattesch en et Wiki jebraate SPAM schöze, nohdämm en Dingem Beidraach {{PLURAL:$1|ene neue Lengk dren es|neue Lengks dren sin|kein neue Lengks dren sin}}.',
+	'recaptcha-badpass' => 'Schrief di zwei Wööt en dä Kaste onge erin.
+Dat sull jääje et automattesche Paßwoot Knacke em Wiki schöze.',
+	'recaptcha-createaccount' => 'Schrief di zwei Wööt en dä Kaste onge erin.
+Dat sull jääje SPAM un automattesch aanjelaate Zohjäng nohm Wiki schöze.',
+	'recaptcha-createaccount-fail' => 'Dat wohr en verkehte udder jaa kei Antwoot op dat Kaptscha.',
+	'recaptcha-create' => 'Schrief di zwei Wööt en dä Kaste onge erin.
+Dat sull jääje SPAM un automattesch aanjelaate Sigge em Wiki schöze.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

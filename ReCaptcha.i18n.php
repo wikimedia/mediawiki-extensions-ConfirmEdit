@@ -212,6 +212,18 @@ $messages['pl'] = array(
 	'recaptcha-create' => 'Aby uchronić nas przed tworzeniem stron przez robotów, proszę wpisać dwa widoczne słowa w poniższym polu:',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'recaptcha-edit' => "Për giuté a protegi contra lë spam ëd modìfiche automàtiche, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
+	'recaptcha-addurl' => "Toa modìfica a conten colegament estern neuv. Për giuté a protegi contra lë spam ëd modìfiche automàtiche, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
+	'recaptcha-badpass' => "Për giuté a protegi contra la forsadura automatisà ëd ciav, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
+	'recaptcha-createaccount' => "Për giuté a protegi contra la creassion automatisà ëd cont, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
+	'recaptcha-createaccount-fail' => 'Arsposta pa giusta o mancanta ëd reCAPTCHA.',
+	'recaptcha-create' => "Për giuté a protegi contra la creassion automatisà ëd pàgine, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
+);
+
 /** Portuguese (Português) */
 $messages['pt'] = array(
 	'recaptcha-edit' => 'Para proteger-nos de spam, por favor escreva  as duas palavras visíveis abaixo:',

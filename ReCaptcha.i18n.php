@@ -56,6 +56,18 @@ $messages['br'] = array(
 	'recaptcha-create' => "Da sikour en em wareziñ diouzh ar c'hrouiñ pajennoù emgefre, merkit an daou c'her a welit er voest dindan :",
 );
 
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'recaptcha-edit' => "Er mwyn ei gwneud yn annodd i olygyddion awtomatig osod sbam, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
+	'recaptcha-addurl' => "Mae'ch golygiad yn cynnwys cysylltiadau allanol newydd. Er mwyn helpu i ddiogelu rhag sbam awtomatig, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
+	'recaptcha-badpass' => "Er mwyn helpu i arbed rhag i'ch cyfrinair gael ei ddatrys gan beiriant, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
+	'recaptcha-createaccount' => "Er mwyn ei gwneud yn annodd i beiriannau i agor cyfrifon yn awtomatig, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
+	'recaptcha-createaccount-fail' => "Mae'r ateb i'r pos CAPTCHA yn anghywir neu yn eisiau.",
+	'recaptcha-create' => "Er mwyn ei gwneud yn annodd i beiriannau i ddechrau tudalennau yn awtomatig, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'recaptcha-edit' => 'Zum Schutz vor automatisiertem Spam, gib bitte die beiden folgenden Wörter in das untenstehende Feld ein:',
@@ -264,6 +276,18 @@ $messages['sv'] = array(
 	'recaptcha-createaccount' => 'För att skydda wikin mot robotar som skapar konton behöver användare bevisa att de är människor. Var vänlig och skriv ner de två orden du ser i boxen nedan:',
 	'recaptcha-createaccount-fail' => 'Du har angivit ett felaktig svar för reCAPTCHA.',
 	'recaptcha-create' => 'För att skydda wikin mot robotar som skapar nya artiklar. Var vänlig och skriv ner de två orden som finns i boxen nedan:',
+);
+
+/** Swahili (Kiswahili)
+ * @author Lloffiwr
+ */
+$messages['sw'] = array(
+	'recaptcha-edit' => 'Ili kusaidia kuzuia mashine zisihariri, tafadhali andika maneno mawili yanayoonekana katika kisanduku pakipo chini:',
+	'recaptcha-addurl' => 'Haririo lako lina viungo vipya vya nje. Ili kusaidia katika kuzuisha viungo visivyotakiwa visiwekwe na mashine, tafadhali andika maneno mawili yanayoonekana katika kisanduku pakipo chini:',
+	'recaptcha-badpass' => 'Ili kusaidia katika kuzuia neno lako la siri lisigunduliwe na mashine, tafadhali andika maneno mawili yanayoonekana katika kisanduku pakipo chini:',
+	'recaptcha-createaccount' => 'Ili kusaidia kuzuia akaunti zisifunguliwe nyingi na mashine, tafadhali andika maneno mawili yanayoonekana katika kisanduku pakipo chini:',
+	'recaptcha-createaccount-fail' => 'Jibu la swali la CAPTCHA si sahihi au halipo.',
+	'recaptcha-create' => 'Ili kusaidia kuzuia kurasa zisianzishwe nyingi na mashine, tafadhali andika maneno mawili yanayoonekana katika kisanduku pakipo chini:',
 );
 
 /** Ukrainian (Українська)

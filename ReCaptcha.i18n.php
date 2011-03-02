@@ -103,8 +103,10 @@ $messages['fr'] = array(
  */
 $messages['gl'] = array(
 	'recaptcha-edit' => 'Para axudarnos á protección contra o spam, escriba as dúas palabras que vexa nesta caixa:',
+	'recaptcha-addurl' => 'A súa edición inclúe novas ligazóns externas. Para axudar na protección contra o spam automático, ten que escribir as dúas palabras que aparecen na caixa inferior:',
 	'recaptcha-badpass' => 'Para axudarnos á protección contra o roubo de contrasinais, escriba as dúas palabras que vexa nesta caixa:',
 	'recaptcha-createaccount' => 'Para axudarnos á protección contra a creación automática de contas, escriba as dúas palabras que vexa nesta caixa:',
+	'recaptcha-createaccount-fail' => 'Falta a resposta ao reCAPTCHA ou esta é incorrecta.',
 	'recaptcha-create' => 'Para axudarnos á protección contra a creación automática de páxinas, escriba as dúas palabras que vexa nesta caixa:',
 );
 

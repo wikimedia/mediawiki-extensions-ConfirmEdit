@@ -2245,11 +2245,12 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Aurora
  * @author Aviator
  */
 $messages['ms'] = array(
 	'captcha-edit' => 'Untuk menyunting laman ini, sila selesaikan kira-kira di bawah dan masukkan jawapannya dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
-	'captcha-desc' => 'Pelaksanaan CAPTCHA ringan',
+	'captcha-desc' => 'Menyediakan teknik CAPTCHA untuk melindungi daripada spam dan teka kata laluan',
 	'captcha-addurl' => 'Suntingan anda mengandungi pautan luar baru.
 Untuk membanteras kegiatan spam automatik, anda diminta menyelesaikan kira-kira di bawah dan masukkan jawapannya dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 	'captcha-badlogin' => 'Untuk membanteras kegiatan meneka kata laluan secara automatik, anda diminta menyelesaikan kira-kira di bawah dan masukkan jawapannya dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
@@ -2258,14 +2259,16 @@ Untuk membanteras kegiatan spam automatik, anda diminta menyelesaikan kira-kira 
 	'captcha-create' => 'Untuk mencipta laman tersebut, sila selesaikan kira-kira di bawah dan masukkan jawapannya dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 	'captchahelp-title' => 'Bantuan CAPTCHA',
 	'captchahelp-cookies-needed' => "Sila aktifkan ''cookies'' pada pelayar web anda.",
-	'captchahelp-text' => "Tapak web yang menerima sumbangan daripada orang awam, seperti wiki ini, adalah mudah terdedah kepada serangan spam. Biasanya, si penyerang menggunakan atur cara komputer untuk mengirim pautan-pautan ke tapak web mereka secara automatik.
+	'captchahelp-text' => "Tapak web yang menerima sumbangan daripada orang awam, seperti wiki ini, sering disalahgunakan oleh penghantar spam yang menggunakan alatan automatik untuk mengirim pautan-pautan mereka di merata web.
+Walaupun pautan ini boleh dibuang, ia amat mengganggu.
 
-Apabila anda menambah pautan baru pada sesebuah laman, wiki ini akan memaparkan sebuah imej yang mengandungi teks yang berwarna atau samar-samar dan meminta supaya anda menaip perkataan yang ditunjukkan.
-Oleh sebab tugas tersebut sukar dilakukan oleh komputer, manusia sebenar boleh mengirim seperti biasa, manakala atur cara komputer terhalang daripada melakukan serangan automatik.
+Kadangkala, terutamanya apabila menambah pautan baharu pada sesebuah laman, wiki ini akan memaparkan suatu imej yang mengandungi teks yang berwarna atau samar-samar dan meminta supaya anda menaip perkataan yang ditunjukkan.
+Oleh sebab tugas tersebut sukar dilakukan secara automatik, ia membolehkan manusia sebenar mengirim seperti biasa, manakala penghantar spam dan penyerang robot terhalang.
 
-Walau bagaimanapun, perkara ini boleh menyukarkan pengguna yang mengalami masalah penglihatan atau sedang menggunakan pelayar web teks atau tuturan. Pada masa ini kami tidak mempunyai alternatif dalam bentuk bunyi. Sila hubungi pentadbir tapak web untuk mendapatkan bantuan sekiranya perkara ini menghalang anda daripada membuat sumbangan yang sah.
+Malangnya perkara ini boleh menyukarkan pengguna yang mengalami masalah penglihatan atau sedang menggunakan pelayar web teks atau tuturan. Pada masa ini kami tidak mempunyai alternatif audio.
+Sila hubungi [[{{MediaWiki:Grouppage-sysop}}|pentadbir tapak]] untuk mendapatkan bantuan sekiranya perkara ini menghalang anda daripada membuat sumbangan yang sah.
 
-Sila tekan butang 'back' untuk kembali ke borang sunting.",
+Sila tekan butang 'back' di pelayar web anda untuk kembali ke laman suntingan.",
 	'captcha-addurl-whitelist' => ' #<!-- jangan ubah baris ini --> <pre>
 # Sintaks:
 #  * Aksara "#" sampai akhir baris diabaikan

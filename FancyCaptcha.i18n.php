@@ -665,6 +665,15 @@ $messages['jv'] = array(
 	'fancycaptcha-edit' => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nyunting kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
 );
 
+/** Georgian (ქართული)
+ * @author ITshnik
+ */
+$messages['ka'] = array(
+	'fancycaptcha-addurl' => 'თქვენი ცვლილება შეიცავს ახალ გარე ბმულებს.
+ავტომატური სპამინგისგან თავდაცვის მიზნით, გთხოვთ, შეიყვანოთ ქვემოთ მოცემული სიტყვები ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
+	'fancycaptcha-badlogin' => 'პაროლების ავტომატური გატეხვისგან თავდაცვის მიზნით, გთხოვთ, შეიყვანოთ ქვემოთ მოცემული სიტყვები ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
+);
+
 /** Kara-Kalpak (Qaraqalpaqsha)
  * @author Atabek
  */

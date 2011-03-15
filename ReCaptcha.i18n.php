@@ -292,6 +292,18 @@ $messages['sw'] = array(
 	'recaptcha-create' => 'Ili kusaidia kuzuia kurasa zisianzishwe nyingi na mashine, tafadhali andika maneno mawili yanayoonekana katika kisanduku pakipo chini:',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'recaptcha-edit' => 'Upang makatulong sa pagprutekta laban sa kusang basurang pamamatnugot, paki imakinilya ang dalawang mga salitang nakikita mo sa loob ng kahong nasa ibaba:',
+	'recaptcha-addurl' => 'Ang pagbabago mo ay nagsasama ng bagong panlabas na mga kawing.  Upang makatulong sa pagprutekta laban sa kusang paglusob ng basurang-liham, paki imakinilya ang dalawang mga salitang nakikita sa loob ng kahong nasa ibaba:',
+	'recaptcha-badpass' => 'Upang makatulong sa pagsasanggalang laban sa kusang panghuhula ng hudyat, paki imakinilya ang dalawang mga salitang nakikita mo sa loob ng kahong nasa ibaba:',
+	'recaptcha-createaccount' => 'Upang makatulong sa pagprutekta laban sa kusang paglikha ng akawnt, paki imakinilya ang dalawang mga salitang nakikita mo sa loob ng kahong nasa ibaba:',
+	'recaptcha-createaccount-fail' => 'Hindi tama o nawawalang sagot sa reCAPTCHA.',
+	'recaptcha-create' => 'Upang makatulong sa pagprutekta laban sa kusang paglikha ng pahina, paki imakinilya ang dalawang mga salitang nakikita mo sa loob ng kahong nasa ibaba:',
+);
+
 /** Ukrainian (Українська)
  * @author Тест
  */

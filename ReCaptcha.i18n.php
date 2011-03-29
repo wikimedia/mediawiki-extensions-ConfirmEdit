@@ -56,6 +56,18 @@ $messages['br'] = array(
 	'recaptcha-create' => "Da sikour en em wareziñ diouzh ar c'hrouiñ pajennoù emgefre, merkit an daou c'her a welit er voest dindan :",
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'recaptcha-edit' => 'Da bismo pomogli protiv automatiziranog spam uređivanja, molimo upišite dvije riječi koje vidite u kutiju ispod:',
+	'recaptcha-addurl' => 'Vaše izmjene uključuju nove vanjske linkove. Da bismo pomogli protiv automatiziranog spama, molimo upišite dvije riječi koje vidite u kutiju ispod.',
+	'recaptcha-badpass' => 'Da bismo pomogli protiv automatiziranog probijanja šifre, molimo upišite dvije riječi koje vidite u kutiju ispod:',
+	'recaptcha-createaccount' => 'Da bismo pomogli protiv automatiziranog pravljenja računa, molimo upišite dvije riječi koje vidite u kutiju ispod:',
+	'recaptcha-createaccount-fail' => 'Neispravan ili nedostajući reCAPTCHA odgovor.',
+	'recaptcha-create' => 'Da bismo pomogli protiv automatiziranog pravljenja stranica, molimo upišite dvije riječi koje vidite u kutiju ispod:',
+);
+
 /** Welsh (Cymraeg)
  * @author Lloffiwr
  */

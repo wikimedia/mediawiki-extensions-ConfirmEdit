@@ -787,16 +787,17 @@ $messages['la'] = array(
 );
 
 /** Luxembourgish (Lëtzebuergesch)
+ * @author Les Meloures
  * @author Robby
  */
 $messages['lb'] = array(
-	'fancycaptcha-addurl' => 'An ärer ännerung sinn nei extern Linken.
+	'fancycaptcha-addurl' => 'An Ärer Ännerung sinn nei extern Linken.
 
-Fir ze hellëfe, géint automatiséierte Spam virzegoen, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):',
-	'fancycaptcha-badlogin' => "Fir ze hellëfe fir d'automatiséiert Hacke vu Psswierder méi schwéier ze maachen, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):",
-	'fancycaptcha-createaccount' => 'Fir géint automatiséiert Opmaache vu Benotzerkonte virzegoen, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):',
-	'fancycaptcha-create' => 'Fir dës Säit unzeleeën, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):',
-	'fancycaptcha-edit' => "Fir dës Säit z'änneren, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):",
+Fir ze hellëfen, géint automatiséierte Spam virzegoen, gitt w.e.g. déi Wierder an, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):',
+	'fancycaptcha-badlogin' => "Fir ze hellëfe fir d'automatiséiert Hacke vu Passwierder méi schwéier ze maachen, gitt w.e.g. déi Wierder an, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
+	'fancycaptcha-createaccount' => "Fir géint d'automatiséiert Opmaache vu Benotzerkonte virzegoen, gitt w.e.g. déi Wierder an, déi an der Këscht ënnedrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
+	'fancycaptcha-create' => 'Fir dës Säit unzeleeën, gitt w.e.g. déi Wierder an, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):',
+	'fancycaptcha-edit' => "Fir dës Säit z'änneren, gitt w.e.g. déi Wierder an, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
 	'fancycaptcha-sendemail' => 'Fir eis géint automatescht Spammen ze schützen, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):',
 );
 

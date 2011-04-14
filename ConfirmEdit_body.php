@@ -53,6 +53,9 @@ class ConfirmEditHooks {
 }
 
 class CaptchaSpecialPage extends UnlistedSpecialPage {
+	public function __construct(){
+		parent::__construct( 'Captcha' );
+	}
 	function execute( $par ) {
 		$this->setHeaders();
 		$instance = ConfirmEditHooks::getInstance();

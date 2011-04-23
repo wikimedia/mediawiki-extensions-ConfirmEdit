@@ -200,12 +200,11 @@ $wgHooks['EmailUser'][] = 'ConfirmEditHooks::confirmEmailUser';
 # Register API hook
 $wgHooks['APIEditBeforeSave'][] = 'ConfirmEditHooks::confirmEditAPI';
 
-$wgAutoloadClasses['ConfirmEditHooks']
-	= $wgAutoloadClasses['SimpleCaptcha']
-	= $wgAutoloadClasses['CaptchaSessionStore']
-	= $wgAutoloadClasses['CaptchaCacheStore']
-	= $wgAutoloadClasses['CaptchaSpecialPage']
-	= "$wgConfirmEditIP/ConfirmEdit_body.php";
+$wgAutoloadClasses['ConfirmEditHooks'] = "$wgConfirmEditIP/ConfirmEditHooks.php";
+$wgAutoloadClasses['SimpleCaptcha']= "$wgConfirmEditIP/Captcha.php";
+$wgAutoloadClasses['CaptchaSessionStore']= "$wgConfirmEditIP/CaptchaStore.php";
+$wgAutoloadClasses['CaptchaCacheStore']= "$wgConfirmEditIP/CaptchaStore.php";
+$wgAutoloadClasses['CaptchaSpecialPage'] = "$wgConfirmEditIP/ConfirmEditHooks.php";
 
 /**
  * Set up $wgWhitelistRead

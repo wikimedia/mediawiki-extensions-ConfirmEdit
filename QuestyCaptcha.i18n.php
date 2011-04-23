@@ -513,6 +513,7 @@ Clicca le button 'retro' in tu navigator pro retornar al editor de paginas.",
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
  * @author Irwangatot
+ * @author IvanLanin
  * @author Iwan Novirion
  */
 $messages['id'] = array(
@@ -527,7 +528,7 @@ Untuk melindungi dari spam otomatis, mohon jawab pertanyaan di bawah ini
 ([[Special:Captcha/help|info lebih lanjut]]):',
 	'questycaptcha-edit' => 'Untuk menyunting halaman ini, mohon jawab pertanyaan di bawah ini
 ([[Special:Captcha/help|info lebih lanjut]]):',
-	'questycaptcha-sendemail' => 'Sebagai perlindungan terhadap spam otomatis, silahkan jawab pertanyaan dibawah ini ([[Special:Captcha/help|info lengkap]]):',
+	'questycaptcha-sendemail' => 'Sebagai pelindungan terhadap spam otomatis, silahkan jawab pertanyaan di bawah ini ([[Special:Captcha/help|info lengkap]]):',
 	'questycaptchahelp-text' => "Situs-situs web yang menerima tulisan dari publik, seperti wiki ini, kerapkali disalahgunakan oleh pengguna-pengguna yang tidak bertanggungjawab untuk mengirimkan spam dengan menggunakan program-program otomatis guna membahkan prnala mereka pada berbagai situs web.
 Walaupun pranala-pranala spam tersebut dapat dibuang, tetapi tetap saja menimbulkan gangguan yang berarti.
 

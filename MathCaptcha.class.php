@@ -39,7 +39,11 @@ class MathCaptcha extends SimpleCaptcha {
 
 	/** Fetch the math */
 	function fetchMath( $sum ) {
-		$math = new MathRenderer( $sum );
+		if( MWInit::classExists( 'MathRenderer' ) ){
+			$math = new MathRenderer( $sum );
+		} else {
+			throw new MWException( 'MathCaptcha requires the Math extension for MediaWiki versions 1.18 and above.' );
+		}
 		$math->setOutputMode( MW_MATH_PNG );
 		$html = $math->render();
 		return preg_replace( '/alt=".*?"/', '', $html );

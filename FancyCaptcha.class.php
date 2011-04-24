@@ -44,7 +44,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	function getForm() {
 		$info = $this->pickImage();
 		if ( !$info ) {
-			die( "out of captcha images; this shouldn't happen" );
+			throw new MWException( "Ran out of captcha images" );
 		}
 
 		// Generate a random key for use of this captcha image in this session.

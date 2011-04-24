@@ -202,6 +202,7 @@ $wgHooks['APIEditBeforeSave'][] = 'ConfirmEditHooks::confirmEditAPI';
 
 $wgAutoloadClasses['ConfirmEditHooks'] = "$wgConfirmEditIP/ConfirmEditHooks.php";
 $wgAutoloadClasses['SimpleCaptcha']= "$wgConfirmEditIP/Captcha.php";
+$wgAutoloadClasses['CaptchaStore']= "$wgConfirmEditIP/CaptchaStore.php";
 $wgAutoloadClasses['CaptchaSessionStore']= "$wgConfirmEditIP/CaptchaStore.php";
 $wgAutoloadClasses['CaptchaCacheStore']= "$wgConfirmEditIP/CaptchaStore.php";
 $wgAutoloadClasses['CaptchaSpecialPage'] = "$wgConfirmEditIP/ConfirmEditHooks.php";

@@ -1,9 +1,19 @@
 <?php
 
 class SimpleCaptcha {
+
+	/**
+	 * @var CaptchaStore
+	 */
+	protected $storage;
+
 	function __construct() {
 		global $wgCaptchaStorageClass;
-		$this->storage = new $wgCaptchaStorageClass;
+		if( in_array( 'CaptchaStore', class_implements( $wgCaptchaStorageClass ) ) ) {
+			$this->storage = new $wgCaptchaStorageClass;
+		} else {
+			throw new MWException( "Invalid CaptchaStore class $wgCaptchaStorageClass" );
+		}
 	}
 
 	function getCaptcha() {
@@ -81,7 +91,7 @@ class SimpleCaptcha {
 	/**
 	 * Inject whazawhoo
 	 * @fixme if multiple thingies insert a header, could break
-	 * @param HTMLForm
+	 * @param $form HTMLForm
 	 * @return bool true to keep running callbacks
 	 */
 	function injectEmailUser( &$form ) {
@@ -103,7 +113,7 @@ class SimpleCaptcha {
 	/**
 	 * Inject whazawhoo
 	 * @fixme if multiple thingies insert a header, could break
-	 * @param SimpleTemplate $template
+	 * @param QuickTemplate $template
 	 * @return bool true to keep running callbacks
 	 */
 	function injectUserCreate( &$template ) {
@@ -126,7 +136,7 @@ class SimpleCaptcha {
 	 * Inject a captcha into the user login form after a failed
 	 * password attempt as a speedbump for mass attacks.
 	 * @fixme if multiple thingies insert a header, could break
-	 * @param SimpleTemplate $template
+	 * @param $template QuickTemplate
 	 * @return bool true to keep running callbacks
 	 */
 	function injectUserLogin( &$template ) {
@@ -410,6 +420,8 @@ class SimpleCaptcha {
 
 	/**
 	 * Load external links from the externallinks table
+	 * @param $title Title
+	 * @return Array
 	 */
 	function getLinksFromTracker( $title ) {
 		$dbr = wfGetDB( DB_SLAVE );

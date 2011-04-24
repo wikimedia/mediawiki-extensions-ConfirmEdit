@@ -1,6 +1,12 @@
 <?php
 
 class ConfirmEditHooks {
+
+	/**
+	 * Get the global Captcha instance
+	 *
+	 * @return Captcha
+	 */
 	static function getInstance() {
 		global $wgCaptcha, $wgCaptchaClass;
 		static $done = false;

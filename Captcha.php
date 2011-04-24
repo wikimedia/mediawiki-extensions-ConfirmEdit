@@ -218,20 +218,6 @@ abstract class Captcha {
 
 class SimpleCaptcha {
 
-	/**
-	 * @var CaptchaStore
-	 */
-	protected $storage;
-
-	function __construct() {
-		global $wgCaptchaStorageClass;
-		if( in_array( 'CaptchaStore', class_implements( $wgCaptchaStorageClass ) ) ) {
-			$this->storage = new $wgCaptchaStorageClass;
-		} else {
-			throw new MWException( "Invalid CaptchaStore class $wgCaptchaStorageClass" );
-		}
-	}
-
 	function getCaptcha() {
 		$a = mt_rand( 0, 100 );
 		$b = mt_rand( 0, 10 );
@@ -835,7 +821,7 @@ class SimpleCaptcha {
 			// Assign random index if we're not udpating
 			$info['index'] = strval( mt_rand() );
 		}
-		$this->storage->store( $info['index'], $info );
+		CaptchaStore::get()->store( $info['index'], $info );
 		return $info['index'];
 	}
 
@@ -846,7 +832,7 @@ class SimpleCaptcha {
 	function retrieveCaptcha() {
 		global $wgRequest;
 		$index = $wgRequest->getVal( 'wpCaptchaId' );
-		return $this->storage->retrieve( $index );
+		return CaptchaStore::get()->retrieve( $index );
 	}
 
 	/**
@@ -854,7 +840,7 @@ class SimpleCaptcha {
 	 * it can't be reused.
 	 */
 	function clearCaptcha( $info ) {
-		$this->storage->clear( $info['index'] );
+		CaptchaStore::get()->clear( $info['index'] );
 	}
 
 	/**
@@ -901,7 +887,7 @@ class SimpleCaptcha {
 		global $wgOut;
 		$wgOut->setPageTitle( wfMsg( 'captchahelp-title' ) );
 		$wgOut->addWikiText( wfMsg( 'captchahelp-text' ) );
-		if ( $this->storage->cookiesNeeded() ) {
+		if ( CaptchaStore::get()->cookiesNeeded() ) {
 			$wgOut->addWikiText( wfMsg( 'captchahelp-cookies-needed' ) );
 		}
 	}

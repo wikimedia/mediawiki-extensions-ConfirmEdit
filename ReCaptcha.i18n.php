@@ -68,6 +68,18 @@ $messages['bs'] = array(
 	'recaptcha-create' => 'Da bismo pomogli protiv automatiziranog pravljenja stranica, molimo upišite dvije riječi koje vidite u kutiju ispod:',
 );
 
+/** Czech (Česky)
+ * @author Jkjk
+ */
+$messages['cs'] = array(
+	'recaptcha-edit' => 'Z důvodu ochrany před strojovým spamem napiště dvě slova, která jsou na obrázku výše.',
+	'recaptcha-addurl' => 'Vaše editace obsahuje nové externí odkazy. Z důvodu ochrany před strojovým spamem napiště dvě slova, která jsou na obrázku výše:',
+	'recaptcha-badpass' => 'Z důvodu ochrany strojovým prolamováním hesel napiště dvě slova, která jsou na obrázku výše',
+	'recaptcha-createaccount' => 'Z důvodu ochrany před strojovým vytvářením účtů napiště dvě slova, která jsou na obrázku výše:',
+	'recaptcha-createaccount-fail' => 'Chybná nebo chybějící reCAPTCHA odpověď.',
+	'recaptcha-create' => 'Z důvodu ochrany před strojovým vytvářením stránek napiště dvě slova, která jsou na obrázku výše:',
+);
+
 /** Welsh (Cymraeg)
  * @author Lloffiwr
  */

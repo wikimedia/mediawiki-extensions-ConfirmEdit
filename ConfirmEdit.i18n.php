@@ -2581,7 +2581,7 @@ Wciśnij przycisk „wstecz” w przeglądarce by powrócić do edycji strony.',
 $messages['pms'] = array(
 	'captcha-edit' => "Për fe-ie dle modìfiche ansima a st'artìcol-sì, për piasì ch'a fasa ël total ambelessì sota
 e ch'a buta l'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
-	'captcha-desc' => 'A dà dle técniche CAPTCHA për protegi contra spam e password-guessing',
+	'captcha-desc' => "A dà dle técniche CAPTCHA për protege contra la rumenta e ij tentativ d'andviné la ciav",
 	'captcha-addurl' => "Soa modìfica a la gionta dj'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-badlogin' => "Për giutene a vardesse da 'nt ij programa ch'a fan ciav fàosse n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-createaccount' => "Për giutene a vardesse da ij programa ch'a deurbo dij cont n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota
@@ -2733,8 +2733,15 @@ Apasă butonul 'Înapoi' al browserului pentru a te reîntoarce la pagina de edi
  * @author Reder
  */
 $messages['roa-tara'] = array(
+	'captcha-edit' => "Pe cangià sta pàgene, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
 	'captcha-createaccount-fail' => 'Codece de conferme non corrette o mangande.',
+	'captcha-sendemail-fail' => 'Codece de conferme non corrette o mangande.',
 	'captchahelp-title' => 'Aijute pu captcha',
+	'captcha-addurl-whitelist' => " #<!-- leave this line exactly as it is --> <pre>
+# 'A sindasse jè a cumme segue:
+#   * Ogneccose da 'nu carattere \"#\" 'mbonde a fine d'a linèe jè 'nu commende
+#   * Ogne linèe chiene jè 'nu frammende de regex 'u quale addà sulamende combrondarse cu le host jndr'à l'URL
+ #</pre> <!-- leave this line exactly as it is -->",
 );
 
 /** Russian (Русский)

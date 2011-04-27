@@ -180,6 +180,18 @@ $messages['ia'] = array(
 	'recaptcha-create' => 'Pro adjutar a proteger nos contra le creation automatisate de paginas, per favor entra le duo parolas que tu vide in le quadro sequente:',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author IvanLanin
+ */
+$messages['id'] = array(
+	'recaptcha-edit' => 'Untuk membantu pelindungan terhadap spam penyuntingan otomatis, silakan ketik dua kata yang Anda lihat dalam kotak di bawah ini:',
+	'recaptcha-addurl' => 'Suntingan Anda menyertakan pranala eksternal baru. Untuk membantu pelindungan terhadap spam otomatis, silakan ketik dua kata yang Anda lihat dalam kotak di bawah ini:',
+	'recaptcha-badpass' => 'Untuk membantu pelindungan terhadap perengkahan sandi otomatis, silakan ketik dua kata yang Anda lihat dalam kotak di bawah ini:',
+	'recaptcha-createaccount' => 'Untuk membantu pelindungan terhadap pembuatan akun otomatis, silakan ketik dua kata yang Anda lihat dalam kotak di bawah ini:',
+	'recaptcha-createaccount-fail' => 'Jawaban reCAPTCHA tidak benar atau tidak dimasukkan.',
+	'recaptcha-create' => 'Untuk membantu pelindungan terhadap pembuatan halaman otomatis, silakan ketik dua kata yang Anda lihat dalam kotak di bawah ini:',
+);
+
 /** Japanese (日本語) */
 $messages['ja'] = array(
 	'recaptcha-edit' => '自動編集スパムからの保護のため、下の画像に表示されている２つの言葉を入力 してください。',
@@ -255,13 +267,14 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'recaptcha-edit' => "Për giuté a protegi contra lë spam ëd modìfiche automàtiche, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
-	'recaptcha-addurl' => "Toa modìfica a conten colegament estern neuv. Për giuté a protegi contra lë spam ëd modìfiche automàtiche, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
-	'recaptcha-badpass' => "Për giuté a protegi contra la forsadura automatisà ëd ciav, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
-	'recaptcha-createaccount' => "Për giuté a protegi contra la creassion automatisà ëd cont, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
+	'recaptcha-edit' => "Për giuté a protege contra la rumenta dle modìfiche automàtiche, për piasì ch'a scriva le doe paròle ch'a s-ciàira ant ël quàder sì-sota:",
+	'recaptcha-addurl' => "Soa modìfica a conten d'anliure esterne neuv. Për giuté a protege contra la rumenta dle modìfiche automàtiche, për piasì ch'a scriva le doe paròle ch'a s-ciàira ant ël quàder sì-sota:",
+	'recaptcha-badpass' => "Për giuté a protege contra la forsadura automatisà ëd le ciav, për piasì ch'a scriva le doe paròle ch'a s-ciàira ant ël formolari sì-sota:",
+	'recaptcha-createaccount' => "Për giuté a protege contra la creassion automatisà ëd cont, për piasì ch'a scriva le doe paròle ch'a s-ciàira ant ël formolari sì-sota:",
 	'recaptcha-createaccount-fail' => 'Arsposta pa giusta o mancanta ëd reCAPTCHA.',
 	'recaptcha-create' => "Për giuté a protegi contra la creassion automatisà ëd pàgine, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
 );

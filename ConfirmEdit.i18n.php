@@ -2734,9 +2734,16 @@ Apasă butonul 'Înapoi' al browserului pentru a te reîntoarce la pagina de edi
  */
 $messages['roa-tara'] = array(
 	'captcha-edit' => "Pe cangià sta pàgene, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
+	'captcha-addurl' => "'U cangiamende tue inglude de le collegaminde esterne.
+Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a domande ca combare sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
+	'captcha-badlogin' => "Pe aiutà a proteggere da le futteminde de passuord automateche, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
 	'captcha-createaccount-fail' => 'Codece de conferme non corrette o mangande.',
+	'captcha-create' => "Pe ccrejà sta pàgene, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
+	'captcha-sendemail' => "Pe aiutà a proteggere da 'a munnezze automateche, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
 	'captcha-sendemail-fail' => 'Codece de conferme non corrette o mangande.',
+	'captcha-disabledinapi' => "St'azione ave abbesogne de 'nu captcha, accussì non g'è possibbele eseguirle cu le API.",
 	'captchahelp-title' => 'Aijute pu captcha',
+	'captchahelp-cookies-needed' => "Tu è abbesogne de avè le cookie abbilitate jndr'à 'u browser tune pe sta fatìe.",
 	'captcha-addurl-whitelist' => " #<!-- leave this line exactly as it is --> <pre>
 # 'A sindasse jè a cumme segue:
 #   * Ogneccose da 'nu carattere \"#\" 'mbonde a fine d'a linèe jè 'nu commende

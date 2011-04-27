@@ -1027,6 +1027,19 @@ $messages['ro'] = array(
 	'fancycaptcha-edit' => 'Pentru a modifica această pagină, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'fancycaptcha-addurl' => "'U cangiamende tue inglude de le collegaminde esterne.
+Pe aiutà a proteggere condre a 'u spam automateche, pe piacere mitte le parole ca combare sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
+	'fancycaptcha-badlogin' => 'Pe aiutà a proteggere condre a futteminde automatece de password, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-createaccount' => 'Pe aiutà a proteggere condre a ccreazione automateche de cunde utinde, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-create' => 'Pe ccrejà sta pàgene, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-edit' => 'Pe cangià sta pàgene, pe piacere mitte le parole combare aqquà sotte ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-sendemail' => "Pe aiutà a proteggere condre a spam automatece, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
+);
+
 /** Russian (Русский)
  * @author Lockal
  * @author Александр Сигачёв

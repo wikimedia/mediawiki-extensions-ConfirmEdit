@@ -955,6 +955,13 @@ $messages['oc'] = array(
 	'fancycaptcha-sendemail' => "Per tal de nos ajudar a prevenir lo spam automatic, entratz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’informacions]]) :",
 );
 
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Psubhashish
+ */
+$messages['or'] = array(
+	'fancycaptcha-createaccount' => 'ଆପେଆପେ ଖାତା ଖୋଲିବାକୁ ଅଟକାଇବା ପାଇଁ ଦୟାକରି ଏହି ଘରଭିତରେ ଥିବା ଶବ୍ଦସବୁକୁ ତା ତଳେ ଥିବା ବାକ୍ସରେ ଟାଇପ କରନ୍ତୁ । ([[Special:Captcha/help|ଅଧିକ ଜାଣିବା]]):',
+);
+
 /** Polish (Polski)
  * @author Sp5uhe
  */

@@ -52,13 +52,12 @@ function efReCaptcha() {
 
 
 class ReCaptcha extends SimpleCaptcha {
-		
+
 	//reCAPTHCA error code returned from recaptcha_check_answer
 	private $recaptcha_error = null;
 
-		
-	/** 
-	 * Displays the reCAPTCHA widget.  
+	/**
+	 * Displays the reCAPTCHA widget.
          * If $this->recaptcha_error is set, it will display an error in the widget.
 	 *
          */
@@ -68,12 +67,10 @@ class ReCaptcha extends SimpleCaptcha {
 		recaptcha_get_html($wgReCaptchaPublicKey, $this->recaptcha_error);
 	}
 
-
-		
 	/**
 	 * Calls the library function recaptcha_check_answer to verify the users input.
 	 * Sets $this->recaptcha_error if the user is incorrect.
-         * @return boolean 
+         * @return boolean
          *
          */
 	function passCaptcha() {
@@ -91,36 +88,32 @@ class ReCaptcha extends SimpleCaptcha {
 
 	}
 
+	/**
+	 * Called on all edit page saves. (EditFilter events)
+	 * @return boolean - true if page save should continue, false if should display Captcha widget.
+	 */
+	function confirmEdit( $editPage, $newtext, $section, $merged = false ) {
+		if( $this->shouldCheck( $editPage, $newtext, $section ) ) {
 
+			if (!isset($_POST['recaptcha_response_field'])) {
+					//User has not yet been presented with Captcha, show the widget.
+					$editPage->showEditForm( array( &$this, 'editCallback' ) );
+					return false;
+			}
 
-        /**
-         * Called on all edit page saves. (EditFilter events)
-         * @return boolean - true if page save should continue, false if should display Captcha widget.
-         */
-        function confirmEdit( $editPage, $newtext, $section ) {
-                if( $this->shouldCheck( $editPage, $newtext, $section ) ) {
+			if( $this->passCaptcha() ) {
+					return true;
+			} else {
+					//Try again - show the widget
+					$editPage->showEditForm( array( &$this, 'editCallback' ) );
+					return false;
+			}
 
-                        if (!isset($_POST['recaptcha_response_field'])) {
-                                //User has not yet been presented with Captcha, show the widget.
-                                $editPage->showEditForm( array( &$this, 'editCallback' ) );
-                                return false;
-                        }
-
-                        if( $this->passCaptcha() ) {
-                                return true;
-                        } else {
-                                //Try again - show the widget
-                                $editPage->showEditForm( array( &$this, 'editCallback' ) );
-                                return false;
-                        }
-
-                } else {
-                        wfDebug( "ConfirmEdit: no need to show captcha.\n" );
-                        return true;
-                }
-        }
-
-	
+		} else {
+			wfDebug( "ConfirmEdit: no need to show captcha.\n" );
+			return true;
+		}
+	}
 
 	/**
 	 * Show a message asking the user to enter a captcha on edit

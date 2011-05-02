@@ -70,8 +70,10 @@ $messages['bs'] = array(
 
 /** Czech (Česky)
  * @author Jkjk
+ * @author Mormegil
  */
 $messages['cs'] = array(
+	'recaptcha-desc' => 'Podpora reCAPTCHA pro rozšíření Confirm Edit',
 	'recaptcha-edit' => 'Z důvodu ochrany před strojovým spamem napiště dvě slova, která jsou na obrázku výše.',
 	'recaptcha-addurl' => 'Vaše editace obsahuje nové externí odkazy. Z důvodu ochrany před strojovým spamem napiště dvě slova, která jsou na obrázku výše:',
 	'recaptcha-badpass' => 'Z důvodu ochrany strojovým prolamováním hesel napiště dvě slova, která jsou na obrázku výše',

@@ -638,7 +638,8 @@ Buóh diōng kó̤ piĕng-cĭk hiĕk-miêng, áik \"diōng kó̤ sèng 1 hiĕk\"
 $messages['cs'] = array(
 	'captcha-edit' => 'Abyste mohli editovat tuto stránku, musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
 	'captcha-desc' => 'Poskytuje techniky CAPTCHA pro ochranu před spamem a hádáním hesel',
-	'captcha-addurl' => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
+	'captcha-addurl' => 'Vaše editace obsahuje nové externí odkazy.
+V zájmu ochrany před automatickým spamováním vyřešte následující jednoduchý součet a napište výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
 	'captcha-badlogin' => 'V rámci ochrany před automatickým pokusům uhodnout heslo musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]]):',
 	'captcha-createaccount' => 'V rámci ochrany před automatickým vytvářením účtů musíte pro provedení registrace vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])',
 	'captcha-createaccount-fail' => 'Chybějící či neplatný potvrzovací kód.',
@@ -2145,8 +2146,7 @@ $messages['mk'] = array(
 За да ни помогнете да се заштитиме од автоматизиран спам, решете ја простата задача подолу и впишете го бројот во полето ([[Special:Captcha/help|повеќе инфо]]):',
 	'captcha-badlogin' => 'За да ни помогнете да се заштитиме од автоматизирано пробивање на лозинки, решете ја простата задача подолу и впишете го решението во полето
 ([[Special:Captcha/help|повеќе инфо]]):',
-	'captcha-createaccount' => 'За да ни помогнете да се заштитиме од автоматизирано создавање на сметки, решете ја простата задача подолу и впишете го бројот во полето:<br />
- ([[Special:Captcha/help|повеќе инфо]]):',
+	'captcha-createaccount' => 'За да ни помогнете да се заштитиме од автоматизирано создавање на сметки, решете ја простата задача подолу и впишете го бројот во полето ([[Special:Captcha/help|повеќе инфо]]):',
 	'captcha-createaccount-fail' => 'Потврдниот код е неточен или недостасува.',
 	'captcha-create' => 'За да ја создадете страницата, прво решете ја простата задача подолу и впишете го решението во полето ([[Special:Captcha/help|повеќе инфо]]):',
 	'captcha-sendemail' => 'За да се заштитиме од автоматизирано спамирање, решете ја простата задача подолу и впишете го резултатот во полето ([[Special:Captcha/help|повеќе информации]]):',

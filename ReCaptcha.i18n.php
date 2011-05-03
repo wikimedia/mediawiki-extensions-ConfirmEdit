@@ -277,8 +277,8 @@ $messages['pms'] = array(
 	'recaptcha-addurl' => "Soa modìfica a conten d'anliure esterne neuv. Për giuté a protege contra la rumenta dle modìfiche automàtiche, për piasì ch'a scriva le doe paròle ch'a s-ciàira ant ël quàder sì-sota:",
 	'recaptcha-badpass' => "Për giuté a protege contra la forsadura automatisà ëd le ciav, për piasì ch'a scriva le doe paròle ch'a s-ciàira ant ël formolari sì-sota:",
 	'recaptcha-createaccount' => "Për giuté a protege contra la creassion automatisà ëd cont, për piasì ch'a scriva le doe paròle ch'a s-ciàira ant ël formolari sì-sota:",
-	'recaptcha-createaccount-fail' => 'Arsposta pa giusta o mancanta ëd reCAPTCHA.',
-	'recaptcha-create' => "Për giuté a protegi contra la creassion automatisà ëd pàgine, për piasì scriv le doe paròle ch'it vëdde ant la forma sota:",
+	'recaptcha-createaccount-fail' => 'Rispòsta ëd reCAPTCHA fàussa o mancanta.',
+	'recaptcha-create' => "Për giuté a protege contra la creassion automatisà ëd pàgine, për piasì ch'a scriv le doe paròle ch'a s-ciàira ant la casela sì-sota:",
 );
 
 /** Portuguese (Português) */

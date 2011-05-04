@@ -258,7 +258,7 @@ $messages['cs'] = array(
  * @author ОйЛ
  */
 $messages['cu'] = array(
-	'fancycaptcha-createaccount' => 'блюдє́ниꙗ дѣл҄ьма́ на аѵтома́тьно мѣстозида́ниѥ · а́влѥнъ сло́ва обраꙁъ ни́жьшиѥмь окънѣ́ напиши́ ⁙ ([[Special:Captcha/help|испльнѧ́щѧ вѣ́сти]]) :',
+	'fancycaptcha-createaccount' => 'блюдєниꙗ дѣл҄ьма на аѵтоматьно мѣстоꙁиданиѥ · авлѥнъ слова обраꙁъ нижьшиѥмь окънѣ напиши ⁙ ([[Special:Captcha/help|испльнѧщѧ вѣсти]]) :',
 );
 
 /** Welsh (Cymraeg)

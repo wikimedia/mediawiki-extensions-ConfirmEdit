@@ -74,12 +74,12 @@ $messages['bs'] = array(
  */
 $messages['cs'] = array(
 	'recaptcha-desc' => 'Podpora reCAPTCHA pro rozšíření Confirm Edit',
-	'recaptcha-edit' => 'Z důvodu ochrany před strojovým spamem napiště dvě slova, která jsou na obrázku výše.',
-	'recaptcha-addurl' => 'Vaše editace obsahuje nové externí odkazy. Z důvodu ochrany před strojovým spamem napiště dvě slova, která jsou na obrázku výše:',
-	'recaptcha-badpass' => 'Z důvodu ochrany strojovým prolamováním hesel napiště dvě slova, která jsou na obrázku výše',
-	'recaptcha-createaccount' => 'Z důvodu ochrany před strojovým vytvářením účtů napiště dvě slova, která jsou na obrázku výše:',
-	'recaptcha-createaccount-fail' => 'Chybná nebo chybějící reCAPTCHA odpověď.',
-	'recaptcha-create' => 'Z důvodu ochrany před strojovým vytvářením stránek napiště dvě slova, která jsou na obrázku výše:',
+	'recaptcha-edit' => 'V zájmu ochrany před automatickým spamováním opište dvě slova, která vidíte na obrázku:',
+	'recaptcha-addurl' => 'Vaše editace obsahuje nové externí odkazy. V zájmu ochrany před automatickým spamováním opište dvě slova, která vidíte na obrázku:',
+	'recaptcha-badpass' => 'V zájmu ochrany proti automatickým pokusům uhodnout heslo opište dvě slova, která vidíte na obrázku:',
+	'recaptcha-createaccount' => 'V rámci ochrany před automatickým vytvářením účtů opište dvě slova, která vidíte na obrázku:',
+	'recaptcha-createaccount-fail' => 'Nesprávná nebo chybějící odpověď na reCAPTCHA.',
+	'recaptcha-create' => 'V zájmu ochrany před automatickým zakládáním stránek opište dvě slova, která vidíte na obrázku:',
 );
 
 /** Welsh (Cymraeg)

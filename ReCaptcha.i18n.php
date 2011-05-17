@@ -19,6 +19,13 @@ $messages['en'] = array(
 	'recaptcha-create' => 'To help protect against automated page creation, please type the two words you see in the box below:', 
 );
 
+/** Arabic (العربية)
+ * @author Meno25
+ */
+$messages['ar'] = array(
+	'recaptcha-desc' => 'موديل reCAPTCHA لConfirm Edit',
+);
+
 /** Asturian (Asturianu)
  * @author Xuacu
  */

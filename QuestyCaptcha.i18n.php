@@ -383,6 +383,7 @@ Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la p
  * @author Toliño
  */
 $messages['gl'] = array(
+	'questycaptcha-desc' => 'Xerador de preguntas CAPTCHA para Confirm Edit',
 	'questycaptcha-addurl' => 'A súa edición inclúe novas ligazóns externas.
 Para axudar na protección contra o spam automatizado, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
 	'questycaptcha-badlogin' => 'Para axudar na protección contra o descifrado automatizado de contrasinais, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',

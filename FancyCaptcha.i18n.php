@@ -497,6 +497,7 @@ $messages['ga'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
+	'fancycaptcha-desc' => 'Xerador de imaxes CAPTCHA para Confirm Edit',
 	'fancycaptcha-addurl' => 'A súa edición inclúe ligazóns externas novas.
 Para contribuír na protección contra o spam automatizado, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-badlogin' => 'Para contribuír a que non se descubran os contrasinais por medios automáticos, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',

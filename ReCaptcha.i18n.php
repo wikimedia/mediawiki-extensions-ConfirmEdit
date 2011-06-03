@@ -135,6 +135,7 @@ $messages['fr'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
+	'recaptcha-desc' => 'Módulo de reCAPTCHA para Confirm Edit',
 	'recaptcha-edit' => 'Para axudarnos á protección contra o spam, escriba as dúas palabras que vexa nesta caixa:',
 	'recaptcha-addurl' => 'A súa edición inclúe novas ligazóns externas. Para axudar na protección contra o spam automático, ten que escribir as dúas palabras que aparecen na caixa inferior:',
 	'recaptcha-badpass' => 'Para axudarnos á protección contra o roubo de contrasinais, escriba as dúas palabras que vexa nesta caixa:',

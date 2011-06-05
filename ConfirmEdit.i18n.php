@@ -176,6 +176,7 @@ Punche o botón 'enta zaga' d'o suyo navegador ta tornar ta l'editor de pachinas
 );
 
 /** Arabic (العربية)
+ * @author Aiman titi
  * @author Alnokta
  * @author Loya
  * @author Meno25
@@ -195,6 +196,7 @@ $messages['ar'] = array(
 الإجابة في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',
 	'captcha-sendemail' => 'للمساعدة في الحماية ضد السخام الأتوماتيكي، رجاءً حُل مسألة الجمع البسيطة أدناه وأدخل الإجابة في المربع ([[Special:Captcha/help|مزيد من المعلومات]]):',
 	'captcha-sendemail-fail' => 'كود تأكيد غير صحيح أو مفقود',
+	'captcha-disabledinapi' => 'هذا الإجراء يتطلب تحقيق , لذلك لايمكن أعتمادها من API.',
 	'captchahelp-title' => 'مساعدة الكابتشا',
 	'captchahelp-cookies-needed' => 'ستحتاج إلى أن تكون الكوكيز مفعلة في متصفحك لكي يعمل هذا',
 	'captchahelp-text' => "عادة ما يتم في المواقع التي تقبل الردود والرسائل من العامة، كهذا الويكي، تخريب الموقع عن طريق الأشخاص الذين يستعملون آليات معينة لإرسال وصلاتهم لمواقع متعددة بصورة آلية.

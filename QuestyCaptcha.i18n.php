@@ -685,6 +685,28 @@ $messages['ml'] = array(
 യാന്ത്രിക സ്പാമിനെതിരെയുള്ള സം‌രക്ഷണത്തിന്റെ ഭാഗമായി, താഴെ കാണുന്ന വാക്കുകൾ പെട്ടിയിൽ ടൈപ്പു ചെയ്യുക  ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'questycaptcha-addurl' => 'Suntingan anda mengandungi pautan luar baru.
+Untuk membanteras kegiatan spam automatik, anda diminta menjawab soalan yang berikut ([[Special:Captcha/help|maklumat lanjut]]):',
+	'questycaptcha-badlogin' => 'Untuk membanteras kegiatan meneka kata laluan secara automatik, anda diminta menjawab soalan berikut ([[Special:Captcha/help|maklumat lanjut]]):',
+	'questycaptcha-createaccount' => 'Untuk membanteras kegiatan pembukaan akaun secara automatik, anda diminta menjawab soalan berikut ([[Special:Captcha/help|maklumat lanjut]]):',
+	'questycaptcha-create' => 'Untuk mencipta laman ini, anda diminta menjawab soalan berikut ([[Special:Captcha/help|maklumat lanjut]]):',
+	'questycaptcha-edit' => 'Untuk menyunting laman ini, anda diminta menjawab soalan berikut ([[Special:Captcha/help|maklumat lanjut]]):',
+	'questycaptcha-sendemail' => 'Untuk membanteras kegiatan spam secara automatik, anda diminta menjawab soalan berikut ([[Special:Captcha/help|maklumat lanjut]]):',
+	'questycaptchahelp-text' => "Tapak-tapak web yang menerima sumbangan awam, misalnya wiki ini, sering disalah guna oleh pembuat spam yang menggunakan peralatan berautomasi untuk membubuh pautan mereka di banyak tapak.
+Walaupun pautan-pautan spam ini boleh dipadamkan, namun ia amat menyusahkan.
+
+Adakalanya, terutamanya apabila membubuh pautan web baru pada sesuatu laman, wiki ini mungkin akan menanya anda satu soalan.
+Memandangkan ini ialah tugas yang sukar diautomasi, ia akan membolehkan kebanyakan manusia sebenar untuk membuat sumbangan, sambil menghalang spam dan serangan robotik yang seumpamanya.
+
+Sila hubungi [[{{MediaWiki:Grouppage-sysop}}|pentadbir laman]] untuk mendapatkan bantuan jika ia menghalang anda daripada membuat sumbangan yang munasabah tanpa dijangka.
+
+Klik butang '←' untuk kembali ke editor laman.",
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

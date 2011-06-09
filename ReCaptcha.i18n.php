@@ -254,6 +254,18 @@ $messages['mk'] = array(
 	'recaptcha-create' => 'Како заштитна мерка против автоматизирано создавање на страници, внесете ги двата збора прикажани во полето:',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'recaptcha-edit' => 'Untuk membanteras kegiatan spam automatik, sila taipkan dua perkataan yang anda lihat dalam petak di bawah:',
+	'recaptcha-addurl' => 'Suntingan anda termasuk pautan luar baru. Untuk membanteras kegiatan spam automatik, sila taipkan dua perkataan yang anda lihat dalam petak di bawah:',
+	'recaptcha-badpass' => 'Untuk membanteras kegiatan meneka kata laluan secara automatik, sila taipkan dua perkataan yang anda lihat dalam petak di bawah:',
+	'recaptcha-createaccount' => 'Untuk membanteras kegiatan membuka akaun secara automatik, sila taipkan dua perkataan yang anda lihat dalam petak di bawah:',
+	'recaptcha-createaccount-fail' => 'Jawapan reCAPTCHA tidak betul atau tidak ada.',
+	'recaptcha-create' => 'Untuk membanteras kegiatan mencipta laman secara automatik, sila taipkan dua perkataan yang anda lihat dalam petak di bawah:',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

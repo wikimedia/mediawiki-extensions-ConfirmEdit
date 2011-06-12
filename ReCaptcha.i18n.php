@@ -384,3 +384,15 @@ $messages['vi'] = array(
 	'recaptcha-create' => 'Để giúp tránh việc tạo trang tự động, xin hãy gõ hai từ mà bạn nhìn vào ô dưới đây:',
 );
 
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Hydra
+ */
+$messages['zh-hans'] = array(
+	'recaptcha-edit' => '要帮助保护免受垃圾邮件自动的编辑，请键入您在下面的框中看到这两个词：',
+	'recaptcha-addurl' => '您的编辑包含新的外部链接。为了帮助防止自动垃圾邮件，请键入您在下面的框中看到这两个词：',
+	'recaptcha-badpass' => '为帮助防止自动密码破解，请键入您看到下面的框中的两个字：',
+	'recaptcha-createaccount' => '为了帮助防止创建自动化的帐户，请键入您在下面的框中看到的这两个字：',
+	'recaptcha-createaccount-fail' => '不正确或缺失的 reCAPTCHA 答案。',
+	'recaptcha-create' => '为了帮助防止自动的页创建，请键入您在下面的框中看到这两个词：',
+);
+

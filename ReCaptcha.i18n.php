@@ -111,14 +111,16 @@ $messages['de'] = array(
 	'recaptcha-create' => 'Zum Schutz gegen automatisierte Erstellung von Seiten gib bitte die beiden folgenden Wörter in das folgende Feld ein:',
 );
 
-/** Spanish (Español) */
+/** Spanish (Español)
+ * @author Fitoschido
+ */
 $messages['es'] = array(
-	'recaptcha-edit' => 'Para protegernos de los robots, escribid por favor las dos palabras visibles en el cuadro abajo:',
-	'recaptcha-addurl' => 'Su aportación contiene enlaces externos. Para protegernos de los robots, escribid por favor las dos palabras visibles en el cuadro abajo:',
-	'recaptcha-badpass' => 'Para protegernos de los robots que intentan adivinar contraseñas, escribid por favor las dos palabras visibles en el cuadro abajo:',
-	'recaptcha-createaccount' => 'Para protegernos de la creación automática de cuentas, escribid por favor las dos palabras visibles en el cuadro abajo:',
-	'recaptcha-createaccount-fail' => 'La respuesta al reCAPTCHA esta falsa o faltante.',
-	'recaptcha-create' => 'Para protegernos de la creación automática de páginas, escribid por favor las dos palabras visibles en el cuadro abajo:',
+	'recaptcha-edit' => 'Para protegernos de la publicidad automatizada, escribe las dos palabras visibles en el cuadro de abajo:',
+	'recaptcha-addurl' => 'Tu edición incluye nuevos enlaces externos. Para ayudar a protegernos contra el spam automatizado, por favor, escribe las dos palabras que ves en el cuadro a continuación:',
+	'recaptcha-badpass' => 'Para protegernos del robo automatizado de contraseñas, escribe las dos palabras visibles en el cuadro de abajo:',
+	'recaptcha-createaccount' => 'Para protegernos de la creación automática de cuentas, escribe las dos palabras que ves en el cuadro de abajo:',
+	'recaptcha-createaccount-fail' => 'ReCAPTCHA incorrecto o sin responder.',
+	'recaptcha-create' => 'Para protegernos de la creación automática de páginas, escribe las dos palabras que ves en el cuadro de abajo:',
 );
 
 /** French (Français) */

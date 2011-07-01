@@ -3144,6 +3144,7 @@ Hit the 'back' button in your browser to return to the page editor.",
  * @author Boivie
  * @author Lejonel
  * @author M.M.S.
+ * @author MagnusA
  * @author Per
  */
 $messages['sv'] = array(
@@ -3180,7 +3181,7 @@ Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeri
 #   * Allting från ett "#" till slutet av en rad är en kommentar
 #   * Varje icketom rad är ett reguljärt uttryck som matchar domänen i en URL
  #</pre> <!-- leave this line exactly as it is -->',
-	'right-skipcaptcha' => 'Utför handlingar som normalt kräver "captcha"-bekräftning utan att använda "captcha"',
+	'right-skipcaptcha' => 'Utföra handlingar som normalt kräver "captcha"-bekräftning utan att använda "captcha"',
 );
 
 /** Telugu (తెలుగు)

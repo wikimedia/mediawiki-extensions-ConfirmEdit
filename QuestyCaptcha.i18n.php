@@ -182,8 +182,11 @@ Kliknite 'nazad' ('back') dugme vašeg preglednika da se vratite na polje za uno
 
 /** Catalan (Català)
  * @author Paucabot
+ * @author Toniher
  */
 $messages['ca'] = array(
+	'questycaptcha-addurl' => "L'edició inclou enllaços externs nous.
+Per ajudar a protegir-se contra la brossa automàtica, responeu la pregunta que apareix a continuació ([[Special:Captcha/help|més informació]]):",
 	'questycaptcha-create' => 'Per crear la pàgina, per favor responeu la pregunta que apareix a continuació ([[Special:Captcha/help|més informació]]):',
 );
 

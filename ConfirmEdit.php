@@ -42,7 +42,7 @@ $wgExtensionCredits['other'][] = array(
 	'name' => 'ConfirmEdit',
 	'author' => array( 'Brion Vibber', '...' ),
 	'url' => 'http://www.mediawiki.org/wiki/Extension:ConfirmEdit',
-	'version' => '1.0',
+	'version' => '1.1',
 	'descriptionmsg' => 'captcha-desc',
 );
 

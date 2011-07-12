@@ -39,11 +39,17 @@ class MathCaptcha extends SimpleCaptcha {
 
 	/** Fetch the math */
 	function fetchMath( $sum ) {
-		if ( class_exists( 'MathRenderer' ) ){
-			$math = new MathRenderer( $sum );
-		} else {
+		// class_exists() unfortunately doesn't work with HipHop, and
+		// its replacement, MWInit::classExists(), wasn't added until
+		// MW 1.18, and is thus unusable here - so instead, we'll
+		// just duplicate the code of MWInit::classExists().
+		try {
+			$r = new ReflectionClass( 'MathRenderer' );
+		} catch( ReflectionException $r ) {
 			throw new MWException( 'MathCaptcha requires the Math extension for MediaWiki versions 1.18 and above.' );
 		}
+
+		$math = new MathRenderer( $sum );
 		$math->setOutputMode( MW_MATH_PNG );
 		$html = $math->render();
 		return preg_replace( '/alt=".*?"/', '', $html );

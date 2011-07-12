@@ -21,7 +21,6 @@ $messages['en'] = array(
 	'asirra-nojs' => '\'\'\'Please enable JavaScript and resubmit the page.\'\'\''
 );
 
-
 /** German (Deutsch) */
 $messages['de'] = array(
 	'asirra-desc' => 'Asirra-Modul für ConfirmEdit',
@@ -31,5 +30,6 @@ $messages['de'] = array(
 	'asirra-createaccount' => 'Zum Schutz gegen automatisierte Erstellung von Benutzerkonten wähle bitte nur die Katzen im untenstehenden Feld aus:',
 	'asirra-createaccount-fail' => 'Bitte wähle nur Katzen aus.',
 	'asirra-create' => 'Zum Schutz gegen automatisierte Erstellung von Seiten, wähle bitte nur die Katzen im untenstehenden Feld aus:',
-	'asirra-nojs' => '\'\'\'Bitte aktiviere JavaScript und sende die Seite noch einmal ab.\'\'\''
+	'asirra-nojs' => "'''Bitte aktiviere JavaScript und sende die Seite noch einmal ab.'''",
 );
+

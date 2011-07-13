@@ -303,10 +303,12 @@ $messages['pms'] = array(
 	'recaptcha-create' => "Për giuté a protege contra la creassion automatisà ëd pàgine, për piasì ch'a scriv le doe paròle ch'a s-ciàira ant la casela sì-sota:",
 );
 
-/** Portuguese (Português) */
+/** Portuguese (Português)
+ * @author Hamilton Abreu
+ */
 $messages['pt'] = array(
 	'recaptcha-edit' => 'Para proteger-nos de spam, por favor escreva  as duas palavras visíveis abaixo:',
-	'recaptcha-addurl' => 'A sua edição contem ligações externas. Para proteger-nos de spam, por favor escreva  as duas palavras visíveis abaixo:',
+	'recaptcha-addurl' => "A sua edição contém links externos novos. Como prevenção contra sistemas automatizados de inserção de ''spam'', escreva as duas palavras visíveis na caixa abaixo:",
 	'recaptcha-badpass' => 'Para proteger-nos de robots que tentam adivinhar senhas, por favor escreva  as duas palavras visíveis abaixo:',
 	'recaptcha-createaccount' => 'Para proteger-nos de criação automática de contas, por favor escreva  as duas palavras visíveis abaixo:',
 	'recaptcha-createaccount-fail' => 'A resposta ao reCAPTCHA é errada.',

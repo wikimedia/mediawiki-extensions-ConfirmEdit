@@ -47,6 +47,15 @@ $messages['ia'] = array(
 	'asirra-nojs' => "'''Per favor activa JavaScript e resubmitte le pagina.'''",
 );
 
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'asirra-desc' => 'Asirra-Modul fir ConfirmEdit',
+	'asirra-createaccount-fail' => "Identifizéiert d'Kaze w.e.g. richteg.",
+	'asirra-nojs' => "'''Aktivéiert w.e.g. JavaScript a schéckt d'Säit nachemol.'''",
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */

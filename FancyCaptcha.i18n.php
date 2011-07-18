@@ -606,6 +606,7 @@ Como protection contra le spam automatic, per favor entra le parolas que appare 
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author IvanLanin
  * @author Iwan Novirion
  */
@@ -613,8 +614,8 @@ $messages['id'] = array(
 	'fancycaptcha-addurl' => 'Suntingan Anda mencantumkan pranala luar baru. Untuk pelindungan terhadap spam otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 	'fancycaptcha-badlogin' => 'Sebagai pelindungan terhadap pemecah kata kunci otomatis, harap masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 	'fancycaptcha-createaccount' => 'Untuk pelindungan terhadap pembuatan akun otomatis, tolong masukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
-	'fancycaptcha-create' => 'Untuk membuat halaman, silahkan masukkan kata-kata yang muncul dibawah ini kedalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
-	'fancycaptcha-edit' => 'Untuk menyunting halaman ini, silahkan masukkan kata-kata yang muncul dibawah ini kedalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+	'fancycaptcha-create' => 'Untuk membuat halaman, silahkan masukkan kata-kata yang muncul di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+	'fancycaptcha-edit' => 'Untuk menyunting halaman ini, silahkan masukkan kata-kata yang muncul di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 	'fancycaptcha-sendemail' => 'Sebagai pelindungan terhadap spam otomatis, silahkan masukkan kata-kata yang muncul di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 );
 
@@ -1029,6 +1030,13 @@ $messages['pt-br'] = array(
 	'fancycaptcha-create' => 'Para criar a página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
 	'fancycaptcha-edit' => 'Para editar esta página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
 	'fancycaptcha-sendemail' => "Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa as palavras que aparecem abaixo ([[Special:Captcha/help|mais informações]]):",
+);
+
+/** Romansh (Rumantsch)
+ * @author Kazu89
+ */
+$messages['rm'] = array(
+	'fancycaptcha-createaccount' => "Per impedir la creaziun automatica da contos d'utilisader, endatescha per plaschair ils bustabs che vegnan mussads sutvart ([[Special:Captcha/help|dapli infos]]):",
 );
 
 /** Romanian (Română)

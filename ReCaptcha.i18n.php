@@ -280,6 +280,18 @@ $messages['nl'] = array(
 	'recaptcha-create' => "Om het automatisch aanmaken van pagina's tegen te gaan moet u de twee woorden die u ziet invoeren:",
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Event
+ */
+$messages['no'] = array(
+	'recaptcha-edit' => 'Som beskyttelse mot automatisk redigert spam, vennligst skriv inn de to ordene du ser i boksen under:',
+	'recaptcha-addurl' => 'Din redigering inneholder nye eksterne lenker. Som beskyttelse mot automatisk spam, vennligst skriv inn de to ordene du ser i boksen under:',
+	'recaptcha-badpass' => 'Som beskyttelse mot automatisk passordknekking, vennligst skriv inn de to ordene du ser i boksen under:',
+	'recaptcha-createaccount' => 'Som beskyttelse mot automatisk opprettelse av brukerkonto, vennligst skriv inn de to ordene du ser i boksen under:',
+	'recaptcha-createaccount-fail' => 'Feil eller manglende reCAPTCHA-svar.',
+	'recaptcha-create' => 'Som beskyttelse mot automatisk opprettelse av side, vennligst skriv inn de to ordene du ser i boksen under:',
+);
+
 /** Polish (Polski) */
 $messages['pl'] = array(
 	'recaptcha-edit' => 'Aby uchronić nas przed robotami, proszę wpisać dwa widoczne słowa w poniższym polu:',

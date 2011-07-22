@@ -70,6 +70,28 @@ $messages['mk'] = array(
 	'asirra-nojs' => "'''Овозможете JavaScript и поднесете ја страницата повторно.'''",
 );
 
+/** Dutch (Nederlands)
+ * @author SPQRobin
+ */
+$messages['nl'] = array(
+	'asirra-createaccount-fail' => 'Identificeer de katten juist.',
+	'asirra-nojs' => "'''Schakel JavaScript in en probeer de pagina opnieuw op te slaan.'''",
+);
+
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Event
+ */
+$messages['no'] = array(
+	'asirra-desc' => 'Assirra-modulen for ConfirmEdit',
+	'asirra-edit' => 'Som beskyttelse mot automatisk redigert spam, vennligst velg kun kattebildene i boksen under:',
+	'asirra-addurl' => 'Din redigering inneholder nye eksterne lenker. Som beskyttelse mot automatisk redigert spam, vennligst velg kun kattebildene i boksen under:',
+	'asirra-badpass' => 'Som beskyttelse mot automatisk passordknekking, vennligst velg kun kattebildene i boksen under:',
+	'asirra-createaccount' => 'Som beskyttelse mot automatisk opprettelse av brukerkonto, vennligst velg kun kattebildene i boksen under:',
+	'asirra-createaccount-fail' => 'Vennligst angi hva som er katter.',
+	'asirra-create' => 'Som beskyttelse mot automatisk opprettelse av sider, vennligst velg kun kattebildene i boksen under:',
+	'asirra-nojs' => "'''Vennligst åpne for JavaScript og lagre siden en gang til.'''",
+);
+
 /** Portuguese (Português)
  * @author Hamilton Abreu
  */

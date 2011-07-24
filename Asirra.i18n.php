@@ -74,6 +74,7 @@ $messages['mk'] = array(
  * @author SPQRobin
  */
 $messages['nl'] = array(
+	'asirra-addurl' => "Uw bewerking bevat nieuwe externe verwijzingen. Om te helpen beschermen tegen geautomatiseerde spam, selecteer de foto's van katten in het vak hieronder:",
 	'asirra-createaccount-fail' => 'Identificeer de katten juist.',
 	'asirra-nojs' => "'''Schakel JavaScript in en probeer de pagina opnieuw op te slaan.'''",
 );

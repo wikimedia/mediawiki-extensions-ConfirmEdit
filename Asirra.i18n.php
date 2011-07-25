@@ -33,6 +33,20 @@ $messages['de'] = array(
 	'asirra-nojs' => "'''Bitte aktiviere JavaScript und sende die Seite noch einmal ab.'''",
 );
 
+/** French (Français)
+ * @author Seb35
+ */
+$messages['fr'] = array(
+	'asirra-desc' => 'Module Asirra pour ConfirmEdit',
+	'asirra-edit' => 'Pour aider à nous protéger contre le spam d’édition automatique, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
+	'asirra-addurl' => 'Votre édition contient des liens externes. Pour nous aider à nous protéger contre le spam automatique, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
+	'asirra-badpass' => 'Pour nous aider à nous protéger des essais automatiques de cassage de mot de passe, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
+	'asirra-createaccount' => 'Pour nous aider à nous protéger contre la création automatique de comptes, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
+	'asirra-createaccount-fail' => 'Veuillez identifier correctement les chats.',
+	'asirra-create' => 'Pour nous aider à nous protéger contre la création automatique de pages, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
+	'asirra-nojs' => "'''Veuillez activer le JavaScript et re-soumettre la page.'''",
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */

@@ -900,13 +900,13 @@ As Schutz gegen automaatsch Spam, geev disse Bookstavenreeg in dat Feld ünnen i
  */
 $messages['nds-nl'] = array(
 	'fancycaptcha-addurl' => "Joew bewarking bevat uutgaonde verwiezingen. 
-Um dit prejek te bescharmen tegen spam, mu-j 't woord dat hieronder steet invullen ([[Special:Captcha/help|hulpe]]):",
-	'fancycaptcha-badlogin' => "Um disse webstee te beveiligen tegen 't kraken van wachwoorden, wö-j verzoch um de woorden dee-j hieronder zien in te vullen ([[Special:Captcha/help|hulpe]]):",
-	'fancycaptcha-createaccount' => "Um disse wiki te bescharmen tegen 't autematisch anmaken van gebrukersprefielen mu-j 't woord hieronder invullen ([[Special:Captcha/help|hulpe]]):",
-	'fancycaptcha-create' => "Um een pagina an te maken, mu-j 't woord dat hieronder steet invullen
+Um dit projekt te bescharmen tegen ongewunst reklame, mö'j t woord dat hieronder steet invullen ([[Special:Captcha/help|hulpe]]):",
+	'fancycaptcha-badlogin' => "Um disse webstee te beveiligen tegen t kraken van wachtwoorden, wö'j verzöcht um de woorden die'j hieronder zien in te vullen ([[Special:Captcha/help|hulpe]]):",
+	'fancycaptcha-createaccount' => "Um disse wiki te bescharmen tegen t automaties anmaken van gebrukersprefielen mö'j t woord hieronder invullen ([[Special:Captcha/help|hulpe]]):",
+	'fancycaptcha-create' => "Um een pagina an te maken, mö'j t woord dat hieronder steet invullen
 ([[Special:Captcha/help|hulpe]]):",
-	'fancycaptcha-edit' => 'Joew bewarking bevat nieje uutgaonde verwiezingen. Um disse wiki te bescharmen tegen ongewunste toevoegingen mu-j de woorden hieronder invullen ([[Special:Captcha/help|hulpe]]):',
-	'fancycaptcha-sendemail' => "Voer de woorden dee hieronder staon in 't invoerveld in as bescharming tegen autematische ongewunste reclame ([[Special:Captcha/help|meer infermasie]]):",
+	'fancycaptcha-edit' => "Joew bewarking bevat nieje uutgaonde verwiezingen. Um disse wiki te bescharmen tegen ongewunste reklame mö'j de woorden hieronder invullen ([[Special:Captcha/help|hulpe]]):",
+	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder staon in t invoerveld in as bescharming tegen automatiese ongewunste reklame ([[Special:Captcha/help|meer informasie]]):',
 );
 
 /** Dutch (Nederlands)

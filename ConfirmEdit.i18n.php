@@ -2364,29 +2364,29 @@ Mit den „Trüch“-Knopp vun dien Browser kummst du trüch na dat Ännerfinste
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'captcha-edit' => "Um disse pagina te bewarken, mu-j eers 't antwoord op disse eenvoudige somme invullen ([[Special:Captcha/help|meer infermasie]]):",
+	'captcha-edit' => "Um disse pagina te bewarken, mö'j eers t antwoord op disse eenvoudige somme invullen ([[Special:Captcha/help|meer informasie]]):",
 	'captcha-desc' => 'Eenvoudige invoering van captcha',
 	'captcha-addurl' => 'Joew bewarking bevat nieje uutgaonde verwiezingen.
-Voer ter de bescharming tegen ongewunste reclame de somme in dee hieronder steet:<br />
+Voer ter de bescharming tegen ongewunste reklame de somme in die hieronder steet:<br />
 ([[Special:Captcha/help|Hulpe?]])',
-	'captcha-badlogin' => "Los disse eenvoudige rekensomme op en voer 't antwoord in bie 't invoervienster in ter bescharming tegen 't autematisch kraken van wachwoorden ([[Special:Captcha/help|meer infermasie]]):",
-	'captcha-createaccount' => "Voer ter bescharming tegen autematische ongewunste reclame 't antwoord op disse eenvoudige rekensomme in bie invoervienster ([[Special:Captcha/help|meer informatie]]):",
-	'captcha-createaccount-fail' => 'Verkeerde of ontbrekende bevestigingscode.',
-	'captcha-create' => "Je bin een nieje pagina an 't maken.
-Voer 't antwoord van disse eenvoudige rekensomme in bie 't invoervienster
-([[Special:Captcha/help|meer infermasie]]).",
+	'captcha-badlogin' => 'Los disse eenvoudige rekensomme op en voer t antwoord in bie t invoervienster in ter bescharming tegen t automaties kraken van wachtwoorden ([[Special:Captcha/help|meer informasie]]):',
+	'captcha-createaccount' => 'Voer ter bescharming tegen automatiese ongewunste reklame t antwoord op disse eenvoudige rekensomme in bie invoervienster ([[Special:Captcha/help|meer informatie]]):',
+	'captcha-createaccount-fail' => 'Verkeerde of ontbrekende bevestigingskode.',
+	'captcha-create' => 'Je bin een nieje pagina an t maken.
+Voer t antwoord van disse eenvoudige rekensomme in bie t invoervienster
+([[Special:Captcha/help|meer informasie]]).',
 	'captchahelp-title' => 'Lettertoetshulpe',
-	'captchahelp-cookies-needed' => 'Je mutten cookies an hemmen staon um disse functie te gebruken.',
-	'captchahelp-text' => "Websteeën waor iederene an kan biedragen, zoas disse {{SITENAME}}-wiki, wonnen vake misbruuk deurdat der ongewunste verwiezingen op ezet wonnen. Op disse wiki kunnen zokken bewarkingen makkelijk weerummezet wonnen, mar 't nimp wel tied in beslag dee aanders gebruuk kan wonnen.
+	'captchahelp-cookies-needed' => 'Je mötten scheumbestaanden (cookies) an hebben staon um disse funksie te gebruken.',
+	'captchahelp-text' => "Websteeën waor iederene an kan biedragen, zo as disse {{SITENAME}}-wiki, wörden vake misbruukt deurdat der ongewunste verwiezingen op ezet wörden. Op disse wiki kunnen zokken bewarkingen makkelik weerummezet wörden, mer t nimp wel tied in beslag die aanders gebruukt kan wörden.
 
-Soms a-j nieje verwiezingen bie een pagina derop zetten, wo-j evreugen um iets over te typen of in te vullen. Dit zörg derveur dat der gien ongewunste verwiezingen eplaos wonnen, umdat dit allinnig deur meensen edaon kan wonnen en neet deur botgebrukers.
+Soms a'j nieje verwiezingen bie een pagina derop zetten, wö'j evreugen um iets over te tikken of in te vullen. Dit zörgt derveur dat der gien ongewunste verwiezingen eplaotst wörden, umdat dit allenig deur meensen edaon kan wörden en niet deur botgebrukers.
 
-(Klik op de knoppe 'terug' in joew webkieker, um weerumme te gaon naor 't teksbewarkingscharm.)",
-	'captcha-addurl-whitelist' => ' #<!-- laot disse regel zoas e is --> <pre>
-# De syntaxis is as volg:
-#  * Alle tekse vanof \'t kerakter "#" tot \'t einde van de regels wonnen ezien as opmarking
-#  * Alle regels dee neet leeg bin, wonnen ezien as een regeliere uutdrokking dee veur delen van de domein staon.
-  #</pre> <!-- laot disse regel zoas e is -->',
+(Klik op de knoppe 'terug' in joew webkieker, um weerumme te gaon naor t tekstbewarkingscharm.)",
+	'captcha-addurl-whitelist' => ' #<!-- laot disse regel zo as t is --> <pre>
+# De syntaxis is as volgt:
+#  * Alle tekste vanaof t karakter "#" tot t einde van de regels wörden ezien as opmarking
+#  * Alle regels die niet leeg bin, wörden ezien as een reguliere uutdrokking die veur delen van de domein staon.
+  #</pre> <!-- laot disse regel zo as t is -->',
 );
 
 /** Dutch (Nederlands)

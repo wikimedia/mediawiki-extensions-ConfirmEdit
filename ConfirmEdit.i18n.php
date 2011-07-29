@@ -749,7 +749,7 @@ Tryk på 'tilbage'-knappen i din browser for at returnere til redigeringssiden."
  */
 $messages['de'] = array(
 	'captcha-edit' => 'Zur Bearbeitung der Seite löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
-	'captcha-desc' => 'Stellt CAPTCHA-Techniken zum Schutz vor Spam und dem Erraten von Passwörtern bereit',
+	'captcha-desc' => 'Stellt verschiedene CAPTCHA-Techniken zum Schutz vor Spam und dem Erraten von Passwörtern bereit',
 	'captcha-addurl' => 'Deine Bearbeitung enthält neue externe Links.
 Zum Schutz vor automatisiertem Spamming löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'captcha-badlogin' => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]]:',

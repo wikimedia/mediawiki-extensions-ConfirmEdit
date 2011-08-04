@@ -2372,20 +2372,20 @@ Voer ter de bescharming tegen ongewunste reklame de somme in die hieronder steet
 	'captcha-badlogin' => 'Los disse eenvoudige rekensomme op en voer t antwoord in bie t invoervienster in ter bescharming tegen t automaties kraken van wachtwoorden ([[Special:Captcha/help|meer informasie]]):',
 	'captcha-createaccount' => 'Voer ter bescharming tegen automatiese ongewunste reklame t antwoord op disse eenvoudige rekensomme in bie invoervienster ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount-fail' => 'Verkeerde of ontbrekende bevestigingskode.',
-	'captcha-create' => 'Je bin een nieje pagina an t maken.
+	'captcha-create' => 'Je bin n nieje pagina an t maken.
 Voer t antwoord van disse eenvoudige rekensomme in bie t invoervienster
 ([[Special:Captcha/help|meer informasie]]).',
 	'captchahelp-title' => 'Lettertoetshulpe',
-	'captchahelp-cookies-needed' => 'Je mötten scheumbestaanden (cookies) an hebben staon um disse funksie te gebruken.',
+	'captchahelp-cookies-needed' => 'Je mutten scheumbestaanden (cookies) an hebben staon um disse funksie te gebruken.',
 	'captchahelp-text' => "Websteeën waor iederene an kan biedragen, zo as disse {{SITENAME}}-wiki, wörden vake misbruukt deurdat der ongewunste verwiezingen op ezet wörden. Op disse wiki kunnen zokken bewarkingen makkelik weerummezet wörden, mer t nimp wel tied in beslag die aanders gebruukt kan wörden.
 
-Soms a'j nieje verwiezingen bie een pagina derop zetten, wö'j evreugen um iets over te tikken of in te vullen. Dit zörgt derveur dat der gien ongewunste verwiezingen eplaotst wörden, umdat dit allenig deur meensen edaon kan wörden en niet deur botgebrukers.
+Soms a'j nieje verwiezingen bie n pagina derop zetten, wö'j evreugen um iets over te tikken of in te vullen. Dit zörgt derveur dat der gien ongewunste verwiezingen eplaotst wörden, umdat dit allenig deur meensen edaon kan wörden en niet deur botgebrukers.
 
 (Klik op de knoppe 'terug' in joew webkieker, um weerumme te gaon naor t tekstbewarkingscharm.)",
 	'captcha-addurl-whitelist' => ' #<!-- laot disse regel zo as t is --> <pre>
 # De syntaxis is as volgt:
 #  * Alle tekste vanaof t karakter "#" tot t einde van de regels wörden ezien as opmarking
-#  * Alle regels die niet leeg bin, wörden ezien as een reguliere uutdrokking die veur delen van de domein staon.
+#  * Alle regels die niet leeg bin, wörden ezien as n reguliere uutdrokking die veur delen van de domein staon.
   #</pre> <!-- laot disse regel zo as t is -->',
 );
 

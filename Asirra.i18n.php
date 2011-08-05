@@ -21,6 +21,15 @@ $messages['en'] = array(
 	'asirra-nojs' => '\'\'\'Please enable JavaScript and resubmit the page.\'\'\''
 );
 
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'asirra-desc' => 'Модуль Asirra для ConfirmEdit',
+	'asirra-edit' => 'Для абароны супраць спаму, калі ласка, выберыце толькі фота з катом ў полі ніжэй:',
+	'asirra-addurl' => 'Вашае рэдагаваньне ўтрымлівае новыя вонкавыя спасылкі. Для абароны супраць спаму, калі ласка, выберыце толькі фота з катом ў полі ніжэй:',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'asirra-desc' => 'Asirra-Modul für ConfirmEdit',
@@ -86,10 +95,16 @@ $messages['mk'] = array(
 
 /** Dutch (Nederlands)
  * @author SPQRobin
+ * @author Siebrand
  */
 $messages['nl'] = array(
+	'asirra-desc' => 'Asirra-module voor ConfirmEdit',
+	'asirra-edit' => 'Kies ter bescherming tegen geautomatiseerde spam de afbeeldingen met een poes in het onderstaande venster:',
 	'asirra-addurl' => "Uw bewerking bevat nieuwe externe verwijzingen. Om te helpen beschermen tegen geautomatiseerde spam, selecteer de foto's van katten in het vak hieronder:",
+	'asirra-badpass' => 'Kies ter bescherming tegen het automatisch kraken van wachtwoorden de afbeeldingen met een poes in het onderstaande venster:',
+	'asirra-createaccount' => 'Kies om het automatisch aanmaken van gebruikers tegen te gaan de afbeeldingen met een poes in het onderstaande venster:',
 	'asirra-createaccount-fail' => 'Identificeer de katten juist.',
+	'asirra-create' => "Kies om het automatisch aanmaken van pagina's tegen te gaan de afbeeldingen met een poes in het onderstaande venster:",
 	'asirra-nojs' => "'''Schakel JavaScript in en probeer de pagina opnieuw op te slaan.'''",
 );
 

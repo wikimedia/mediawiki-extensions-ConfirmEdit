@@ -417,6 +417,7 @@ $messages['eu'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Huji
  * @author Ladsgroup
  * @author Meisam
@@ -429,7 +430,7 @@ $messages['fa'] = array(
 	'fancycaptcha-createaccount' => 'برای کمک به جلوگیری از ایجاد خودکار حساب کاربری، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-create' => 'برای ایجاد این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-edit' => 'برای ویرایش این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
-	'fancycaptcha-sendemail' => 'برای کمک به محافظت در برابر هرزه‌نگاری خودکار، لطفاً واژه‌هایی را که در جعبهٔ زیر نمایش داده می‌شوند وارد کنید ([[Special:Captcha/help|اطلاعات بیش‌تر]]):',
+	'fancycaptcha-sendemail' => 'برای کمک به محافظت در برابر هرزه‌نگاری خودکار، لطفاً واژه‌هایی را که در جعبهٔ زیر نمایش داده می‌شوند وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 );
 
 /** Finnish (Suomi)

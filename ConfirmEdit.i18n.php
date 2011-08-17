@@ -2833,7 +2833,7 @@ $messages['rue'] = array(
 	'right-skipcaptcha' => 'Выконованя дїй споєных з CAPTCHA без потребы їх рїшіня',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(

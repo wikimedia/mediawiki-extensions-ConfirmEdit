@@ -1087,7 +1087,7 @@ $messages['rue'] = array(
 	'fancycaptcha-sendemail' => 'В рамках охороны перед автоматічным спамом мусите описати текст з наступного образку. ([[Special:Captcha/help|Што тото значіть?]]):',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(

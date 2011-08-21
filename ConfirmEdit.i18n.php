@@ -2619,6 +2619,15 @@ Ch'a-i bata ansima al boton 'andré' ant sò navigator për torné andré a l'ed
 	'right-skipcaptcha' => "A fà j'assion che a ativo la captcha sensa avèj da passé da la captcha",
 );
 
+/** Western Punjabi (پنجابی)
+ * @author Khalid Mahmood
+ */
+$messages['pnb'] = array(
+	'captcha-createaccount-fail' => 'غلط کنفرمیشن کوڈ۔',
+	'captcha-sendemail-fail' => 'غلط یا  چھوٹے کنفرمیشن کوڈ',
+	'captchahelp-title' => 'کیپچا مدد',
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */

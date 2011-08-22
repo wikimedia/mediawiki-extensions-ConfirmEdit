@@ -997,6 +997,19 @@ Për dene na man a vardesse da la reclam aotomatisà, për piasì, ch'a l'arbata
 	'fancycaptcha-sendemail' => "Për giuté a protegi contra la rumenta automàtica, për piasì ch'a anseriss le paròle che as vëddo sota ant la casela ([[Special:Captcha/help|për savèjne ëd pi]]):",
 );
 
+/** Western Punjabi (پنجابی)
+ * @author Khalid Mahmood
+ */
+$messages['pnb'] = array(
+	'fancycaptcha-addurl' => 'تواڈی تبدیلی چ نویں بارلے جوڑ نیں۔
+اس صفحے نوں تبدیل کرن واسطے، مہربانی کر کے ڈبے چ دتے گۓ شبداں نوں لکھو ([[Special:Captcha/help|مزید جانکاری]]):',
+	'fancycaptcha-badlogin' => 'اپنے آپ کنجی توڑن دے خلاف مدد واسطے، مہربانی کر کے ڈبے چ دتے گۓ شبداں نوں لکھو ([[Special:Captcha/help|مزید جانکاری]]):',
+	'fancycaptcha-createaccount' => 'اپنے آپ غلط نویں کھاتے بنان نوں روکن واسطے، مہربانی کر کے ڈبے چ دتے گۓ شبداں نوں لکھو ([[Special:Captcha/help|مزید جانکاری]]):',
+	'fancycaptcha-create' => 'صفحہ بنان واسطے، مہربانی کر کے ڈبے چ دتے گۓ شبداں نوں لکھو ([[Special:Captcha/help|مزید جانکاری]]):',
+	'fancycaptcha-edit' => 'اس صفحے تے تبدیلی کرن واسطے، مہربانی کر کے ڈبے چ دتے گۓ شبداں نوں لکھو ([[Special:Captcha/help|مزید جانکاری]]):',
+	'fancycaptcha-sendemail' => 'اپنے آپ غلط مال آن نوں روکن واسطے، مہربانی کر کے ڈبے چ دتے گۓ شبداں نوں لکھو ([[Special:Captcha/help|مزید جانکاری]]):',
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */

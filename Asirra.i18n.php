@@ -62,6 +62,20 @@ $messages['fr'] = array(
 	'asirra-nojs' => "'''Veuillez activer le JavaScript et re-soumettre la page.'''",
 );
 
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'asirra-desc' => 'Módulo Asirra para ConfirmEdit',
+	'asirra-edit' => 'Para axudarnos á protección contra o spam, seleccione só as fotos de gatos na caixa:',
+	'asirra-addurl' => 'A súa edición inclúe novas ligazóns externas. Para axudar na protección contra o spam automático, seleccione só as fotos de gatos na caixa:',
+	'asirra-badpass' => 'Para axudarnos á protección contra o roubo de contrasinais, seleccione só as fotos de gatos na caixa:',
+	'asirra-createaccount' => 'Para axudarnos á protección contra a creación automática de contas, seleccione só as fotos de gatos na caixa:',
+	'asirra-createaccount-fail' => 'Identifique correctamente os gatos.',
+	'asirra-create' => 'Para axudarnos á protección contra a creación automática de páxinas, seleccione só as fotos de gatos na caixa:',
+	'asirra-nojs' => "'''Active o JavaScript e volva enviar a páxina.'''",
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */

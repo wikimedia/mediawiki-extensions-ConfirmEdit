@@ -2102,6 +2102,7 @@ $messages['lo'] = array(
 );
 
 /** Lithuanian (Lietuvių)
+ * @author Eitvys200
  * @author Garas
  * @author Homo
  * @author Matasg
@@ -2109,6 +2110,8 @@ $messages['lo'] = array(
 $messages['lt'] = array(
 	'captcha-edit' => 'Kad redaguotumėte šį straipsnį, apskaičiuokite šią paprastą sumą ir įveskite atsakymą į laukelį ([[Special:Captcha/help|daugiau informacijos]]):',
 	'captcha-createaccount-fail' => 'Blogas arba nerastas patvirtinimo kodas.',
+	'captchahelp-title' => 'CAPTCHA pagalba',
+	'captchahelp-cookies-needed' => 'Jums reikia būti įjungus sausainėlius savo naršyklėje kad tai veiktu',
 );
 
 /** Latvian (Latviešu)
@@ -2746,7 +2749,9 @@ $messages['ro'] = array(
 	'captcha-createaccount' => 'Pentru a evita crearea automată de conturi, vă rugăm să rezolvați adunarea de mai jos și introduceți rezultatul în căsuță ([[Special:Captcha/help|detalii]]):',
 	'captcha-createaccount-fail' => 'Cod de confirmare incorect sau lipsă.',
 	'captcha-create' => 'Editarea include legături externe noi. Pentru a evita spam-ul automat, vă rugăm să rezolvați adunarea de mai jos și introduceți rezultatul în căsuță ([[Special:Captcha/help|detalii]]):',
+	'captcha-sendemail' => 'Pentru a împiedica roboții de spam, vă rugăm să rezolvați operația simplă de mai jos și să introduceți răspunsul în căsuță ([[Special:Captcha/help\\mai multe detalii]]):',
 	'captcha-sendemail-fail' => 'Codul de confirmare lipsește sau este incorect.',
+	'captcha-disabledinapi' => 'Această acțiune necesită rezolvarea unui captcha, deci nu poate fi efectuată prin API.',
 	'captchahelp-title' => 'Despre „Captcha”',
 	'captchahelp-cookies-needed' => 'Trebuie ca browserul dumneavoastră să accepte cookie-uri pentru ca aceasta să funcționeze.',
 	'captchahelp-text' => "Siturile Web care acceptă postări din partea publicului, precum acest wiki, sunt de obicei abuzate de persoane care folosesc unelte automate pentru a introduce legături către multe situri. Deși aceste legături de spam pot fi scoase, acest lucru reprezintă o muncă inconvenientă.
@@ -2757,6 +2762,12 @@ Din nefericire, această metodă îi poate deranja pe utilizatorii cu probleme v
 Vă rugăm, contactați [[{{MediaWiki:Grouppage-sysop}}|administratorii sitului]] pentru asistență dacă metoda vă oprește de la a face postări legitime.
 
 Apasă butonul 'Înapoi' al browserului pentru a te reîntoarce la pagina de editare.",
+	'captcha-addurl-whitelist' => ' #<!-- lăsați această linie așa cum este --> <pre>
+# Sintaxa este așa cum urmează:
+#   * Toate liniile care încep cu "#" sunt considerate comentarii
+#   * Toate liniile care nu sunt goale sunt fragmente RegEx care vor găsi doar gazda din interiorul URL-urilor
+ #</pre> <!-- lăsați această linie așa cum este -->',
+	'right-skipcaptcha' => 'Efectuați acțiuni care necesită completarea unu cod CAPTCHA fără a fi nevoie să faceți acest lucru',
 );
 
 /** Tarandíne (Tarandíne)

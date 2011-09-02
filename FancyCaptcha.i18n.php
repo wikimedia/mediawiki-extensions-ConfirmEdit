@@ -1054,12 +1054,17 @@ $messages['rm'] = array(
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author Mihai
  */
 $messages['ro'] = array(
-	'fancycaptcha-createaccount' => 'Pentru a ajuta protecția împotriva creării automate de conturi, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
+	'fancycaptcha-addurl' => 'Modificarea dumneavoastră include legături externe noi.
+Pentru a împiedica roboții de spam, vă rugăm să introduceți cuvintele care apar mai jos în căsuță ([[Special:Captcha/help|mai multe detalii]]):',
+	'fancycaptcha-badlogin' => 'Pentru a împiedica spargerea automată a parolelor, vă rugăm să introduceți cuvintele care apar mai jos în căsuță ([[Special:Captcha/help|mai multe detalii]]):',
+	'fancycaptcha-createaccount' => 'Pentru a împiedica crearea automată de conturi, vă rugăm să introduceți cuvintele care apar mai jos în căsuță ([[Special:Captcha/help|mai multe detalii]]):',
 	'fancycaptcha-create' => 'Pentru a crea pagina, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
 	'fancycaptcha-edit' => 'Pentru a modifica această pagină, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
+	'fancycaptcha-sendemail' => 'Pentru a împiedica roboții de spam, vă rugăm să introduceți cuvintele care apar mai jos în căsuță ([[Special:Captcha/help|mai multe detalii]]):',
 );
 
 /** Tarandíne (Tarandíne)

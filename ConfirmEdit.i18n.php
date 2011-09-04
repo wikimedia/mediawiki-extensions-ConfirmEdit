@@ -1222,6 +1222,7 @@ Por nos édiér a combatre contre lo spame ôtomatisâ, volyéd calcular l’op�
 	'captcha-createaccount' => 'Por nos édiér a combatre contre les crèacions ôtomatisâs de comptos, volyéd calcular l’opèracion simpla ce-desot et pués nen buchiér lo rèsultat dens la bouèta ([[Special:Captcha/help|més d’enformacions]]) :',
 	'captcha-createaccount-fail' => 'Code de confirmacion fôx ou ben manquent.',
 	'captcha-create' => 'Por fâre ceta pâge, volyéd calcular l’opèracion simpla ce-desot et pués nen buchiér lo rèsultat dens la bouèta ([[Special:Captcha/help|més d’enformacions]]) :',
+	'captcha-sendemail' => 'Por nos édiér a combatre contre lo spame ôtomatisâ, volyéd calcular l’opèracion simpla ce-desot et pués nen buchiér lo rèsultat dens la bouèta ([[Special:Captcha/help|més d’enformacions]]) :',
 	'captcha-sendemail-fail' => 'Code de confirmacion fôx ou ben manquent.',
 	'captcha-disabledinapi' => 'Ceta accion at fôta d’un captch·a, donc pôt pas étre fêta per l’API.',
 	'captchahelp-title' => 'Éde sur lo captch·a',

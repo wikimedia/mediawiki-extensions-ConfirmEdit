@@ -475,7 +475,7 @@ Pour vérifier qu’il ne s’agit pas de pourriels automatisés, veuillez entre
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'fancycaptcha-desc' => "G·ènèrator d’émâges ''captcha'' anti-robots que demande una confirmacion d’homo des changements.",
+	'fancycaptcha-desc' => "G·ènèrator d’émâges ''captch·a'' anti-robots que demande una confirmacion d’homo des changements.",
 	'fancycaptcha-addurl' => 'Voutron changement encllut de lims de defôr novéls.
 Por nos édiér a combatre contre lo spame ôtomatisâ, volyéd buchiér los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'fancycaptcha-badlogin' => 'Por nos édiér a combatre contre lo piratâjo ôtomatisâ de mots de pâssa, volyéd buchiér los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',

@@ -1082,10 +1082,12 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere mitte le parole 
 );
 
 /** Russian (Русский)
+ * @author Dim Grits
  * @author Lockal
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
+	'fancycaptcha-desc' => 'Необычный CAPTCHA-генератор для подтверждения редактирования',
 	'fancycaptcha-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
 	'fancycaptcha-badlogin' => 'В целях защиты от автоматического взлома паролей, пожалуйста, введите в поле ввода буквы с изображения ([[Special:Captcha/help|подробнее]]):',
 	'fancycaptcha-createaccount' => 'Для предотвращения автоматической регистрации учётных записей, пожалуйста, введите изображённые символы в текстовое поле ([[Special:Captcha/help|подробнее]]):',
@@ -1326,9 +1328,11 @@ Otomatik spamdan korunmak için, lütfen aşağıdaki sözcükleri kutunun için
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author Dim Grits
  * @author Ytsukeng Fyvaprol
  */
 $messages['uk'] = array(
+	'fancycaptcha-desc' => 'Чудернацький CAPTCHA-генератор для підтвердження редагування',
 	'fancycaptcha-addurl' => 'Ваше редагування містить нові зовнішні посилання.
 Із метою захисту від спаму, будь ласка, введіть у текстове поле слова, зображені на картинці ([[Special:Captcha/help|докладніше]]):',
 	'fancycaptcha-badlogin' => 'Із метою захисту від автоматичного злому пароля, будь ласка, введіть у текстове поле слова, зображені на картинці ([[Special:Captcha/help|докладніше]]):',

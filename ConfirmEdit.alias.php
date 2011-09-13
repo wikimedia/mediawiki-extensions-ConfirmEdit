@@ -63,9 +63,14 @@ $specialPageAliases['ml'] = array(
 	'Captcha' => array( 'ക്യാപ്ച' ),
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬) */
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬) */
 $specialPageAliases['sr-ec'] = array(
 	'Captcha' => array( 'Потврдни_код' ),
+);
+
+/** Cantonese (粵語) */
+$specialPageAliases['yue'] = array(
+	'Captcha' => array( '驗證碼' ),
 );
 
 /** Simplified Chinese (‪中文(简体)‬) */

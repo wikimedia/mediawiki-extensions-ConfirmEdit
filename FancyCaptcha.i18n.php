@@ -810,6 +810,7 @@ Fir ze hellëfen, géint automatiséierte Spam virzegoen, gitt w.e.g. déi Wierd
 
 /** Limburgish (Limburgs)
  * @author Matthias
+ * @author Ooswesthoesbes
  */
 $messages['li'] = array(
 	'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe links. Voer alstublieft de woorden die
@@ -821,6 +822,7 @@ ter bescherming tegen het automatisch aanmaken van gebruikers ([[Special:Captcha
 hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-edit' => 'Uw bewerking bevat nieuwe externe links. Voer alstublieft de woorden die
 hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|mie informatie]]):',
+	'fancycaptcha-sendemail' => "Veur de weurd die hie onger versjienen in 't inveurvèldj in es besjerming taege geautometiseerde spam ([[Special:Captcha/help|mier info]]):",
 );
 
 /** Lao (ລາວ) */

@@ -63,8 +63,9 @@ class ReCaptcha extends SimpleCaptcha {
          */
 	function getForm() {
 		global $wgReCaptchaPublicKey;
+		$useHttps = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' );
 		return "<script>var RecaptchaOptions = { tabindex : 1 }; </script> " .
-		recaptcha_get_html($wgReCaptchaPublicKey, $this->recaptcha_error);
+			recaptcha_get_html($wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps);
 	}
 
 	/**

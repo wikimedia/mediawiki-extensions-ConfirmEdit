@@ -1180,13 +1180,14 @@ $messages['sq'] = array(
 	'fancycaptcha-sendemail' => "Për t'u mbrojtur nga metoda automatike e gjetjes së fjalëkalimeve ju kërkojmë të vendosni fjalët e figurës në kuti ([[Special:Captcha/help|më shumë informacion]]):",
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
+	'fancycaptcha-desc' => 'Обогаћен стварач сликовног кода за потврду уређивања',
 	'fancycaptcha-addurl' => 'Ваша измена садржи нове спољне везе.
 У циљу заштите од злоупотребе, унесите знакове са слике у поље изнад.',
 	'fancycaptcha-badlogin' => 'У циљу спречавања откривања лозинки, унесите знакове са слике у поље изнад.',

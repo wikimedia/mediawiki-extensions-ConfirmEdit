@@ -952,6 +952,13 @@ Kontaktujte prosím [[{{MediaWiki:Grouppage-sysop}}|správcov lokality]] ak potr
 Späť na úpravu stránky sa vrátite kliknutím na tlačidlo „Späť“ vo vašom prehliadači.',
 );
 
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+ * @author Rancher
+ */
+$messages['sr-ec'] = array(
+	'questycaptcha-desc' => 'Стварач сликовног кода за потврду уређивања',
+);
+
 /** Swedish (Svenska)
  * @author Boivie
  */

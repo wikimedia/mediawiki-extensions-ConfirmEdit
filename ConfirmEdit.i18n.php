@@ -52,6 +52,7 @@ Hit the 'back' button in your browser to return to the page editor.",
  * @author Siebrand
  * @author The Evil IP address
  * @author Toliño
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'captcha-edit' => 'This message will be shown when editing if the wiki requires solving a captcha for editing.
@@ -78,7 +79,7 @@ See also
 	'captchahelp-title' => 'The page title of [[Special:Captcha/help]]',
 	'captchahelp-text' => 'This is the help text shown on [[Special:Captcha/help]].',
 	'captcha-addurl-whitelist' => "See also: [[MediaWiki:Spam-blacklist]] and [[MediaWiki:Spam-whitelist]]. Leave all the wiki markup, including the spaces, as is. You can translate the text, including 'Leave this line exactly as it is'. The first line of this messages has one (1) leading space.",
-	'right-skipcaptcha' => '{{doc-right}}',
+	'right-skipcaptcha' => '{{doc-right|skipcaptcha}}',
 );
 
 /** Afrikaans (Afrikaans)

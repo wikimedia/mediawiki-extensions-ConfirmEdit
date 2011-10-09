@@ -356,6 +356,13 @@ $messages['ru'] = array(
 	'recaptcha-create' => 'В целях защиты от автоматического создания страниц, пожалуйста, введите два слова, которые вы видите ниже:',
 );
 
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+ * @author Rancher
+ */
+$messages['sr-ec'] = array(
+	'recaptcha-desc' => 'Модул reCAPTCHA за потврду уређивања',
+);
+
 /** Swedish (Svenska) */
 $messages['sv'] = array(
 	'recaptcha-edit' => 'Den här sidan skyddas mot spam-robotar, bevisa att du är en människa genom att skriva de två orden du ser i boxen nedan:',

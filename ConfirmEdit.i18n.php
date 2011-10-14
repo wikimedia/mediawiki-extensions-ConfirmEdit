@@ -1191,7 +1191,7 @@ Pour nous aider dans la protection contre le pourriel automatisé, veuillez calc
 	'captcha-create' => 'Pour créer la page, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-sendemail' => 'Afin de nous aider à prévenir le spam automatique, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-sendemail-fail' => 'Code de confirmation incorrect ou manquant.',
-	'captcha-disabledinapi' => "Cette action requiert un captcha, donc elle ne peut pas être effectuée via l'API.",
+	'captcha-disabledinapi' => 'Cette action requiert un captcha, donc elle ne peut pas être effectuée via l’IPA.',
 	'captchahelp-title' => 'Aide sur le captcha',
 	'captchahelp-cookies-needed' => "Il vous faudra autoriser les témoins (''cookies'') de votre navigateur pour que cela fonctionne.",
 	'captchahelp-text' => 'Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de spammeurs qui utilisent des outils automatisés pour placer de nombreux liens vers leurs sites.

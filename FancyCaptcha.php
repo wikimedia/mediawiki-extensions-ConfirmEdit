@@ -29,6 +29,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
+require_once dirname( __FILE__ ) . '/ConfirmEdit.php';
+$wgCaptchaClass = 'FancyCaptcha';
+
 global $wgCaptchaDirectory;
 $wgCaptchaDirectory = "$wgUploadDirectory/captcha"; // bad default :D
 

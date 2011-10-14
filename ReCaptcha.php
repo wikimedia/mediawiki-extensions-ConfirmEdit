@@ -10,9 +10,12 @@
  * @licence MIT/X11
  */
 
-if( !defined( 'MEDIAWIKI' ) ) {
+if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
+
+require_once dirname( __FILE__ ) . '/ConfirmEdit.php';
+$wgCaptchaClass = 'ReCaptcha';
 
 $wgExtensionMessagesFiles['ReCaptcha'] = dirname( __FILE__ ) . '/ReCaptcha.i18n.php';
 

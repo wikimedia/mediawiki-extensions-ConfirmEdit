@@ -1047,12 +1047,12 @@ Palun lahenda allpool lihtne tehe ja sisesta vastus kasti. Abinõu on kaitseks a
 	'captchahelp-cookies-needed' => 'Selle toimimiseks peab veebilehitseja lubama küpsiseid.',
 	'captchahelp-text' => 'Võrgukohti, mis lubavad külastajatel sisu muuta, nagu ka see viki, kasutavad sageli rämpsposti levitajad, lisades näiteks lehekülgedele reklaamilinke. Kuigi neid linke saab eemaldada, on nad siiski tülikad.
 
-Omale kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse teile moonutatud tekstiga pilti ning palutakse teil sisestada seal kuvatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks rämpspostirobotite vastu ja lubab samas tavakasutajatel rahus muudatusi teha.
+Kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades näidatakse moonutatud tekstiga pilti ja palutakse sisestada seal kuvatud sõnad. Kuna selliselt pildilt on arvutil raske teksti välja lugeda, on see efektiivseks kaitseks rämpspostirobotite vastu ja lubab samas tavakasutajatel rahus muudatusi teha.
 
 Kahjuks võib see tekitada ebamugavusi nägemisraskustega inimestele või neile, kes kasutavad tehiskõneseadet või tekstipõhist veebilehitsejat. Hetkel pole meil helipõhist alternatiivi.
-Kui teil tekib raskusi muudatuste tegemisel, võtke palun ühendust selle võrgukoha [[{{MediaWiki:Grouppage-sysop}}|ülematega]].
+Kui sul tekib raskusi muudatuste tegemisel, võta palun ühendust selle võrgukoha [[{{MediaWiki:Grouppage-sysop}}|administraatoritega]].
 
-Konto registreerimise lehele või lehe redigeerimisele tagasi jõudmiseks klõpsake oma veebilehitseja tagasi-nuppu.',
+Konto registreerimise lehele või redigeerimisaknasse tagasi jõudmiseks klõpsa veebilehitseja tagasi-nuppu.',
 	'captcha-addurl-whitelist' => '  #<!-- Jäta see rida muutmata kujule. --> <pre>
 # Süntaks:
 #  * Kõik alates märgist "#" kuni rea lõpuni on kommentaar
@@ -3136,18 +3136,19 @@ Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e
 	'right-skipcaptcha' => 'Kryen veprime CAPTCHA-triggering pa pasur nevojë të shkojë nëpërmjet CAPTCHA',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  */
 $messages['sr-ec'] = array(
 	'captcha-edit' => 'За измену ове стране, реши једноставан збри испод и унеси одговор у кутију ([[Special:Captcha/help|детаљније]]):',
 	'captcha-desc' => 'Пружа заштиту против непожељних порука у виду потврдног кода',
-	'captcha-addurl' => 'Твоја измена укључује нове спољашње везе. У циљу заштите против аутоматског спама, реши једноставан збир испод и упиши одговор у кутију ([[Special:Captcha/help|детаљније]]):',
-	'captcha-badlogin' => 'У циљу заштите од аутоматске провале у лозинку, реши једноставан збир испод и унеси одговор у кутију ([[Special:Captcha/help|детаљније]]):',
-	'captcha-createaccount' => 'У циљу заштите од аутоматског стварања налога, реши једноставан збир доле и унеси га у кутију ([[Special:Captcha/help|детаљније]]):',
+	'captcha-addurl' => 'Ваша измена садржи нове спољашње везе.
+У циљу заштите од непожељних порука, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):',
+	'captcha-badlogin' => 'У циљу заштите од пробијања лозинки, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):',
+	'captcha-createaccount' => 'У циљу заштите од самоотварања налога, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):',
 	'captcha-createaccount-fail' => 'Неправилан или непостојећи код за потврду.',
-	'captcha-create' => 'За стварање стране реши једноставан збир доле и унеси га у кутију ([[Special:Captcha/help|детаљније]]):',
+	'captcha-create' => 'Да бисте направили страницу, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):',
 	'captcha-sendemail-fail' => 'Неправилан или непостојећи код за потврду.',
 	'captchahelp-title' => 'Помоћ око потврдног кôда',
 	'captchahelp-cookies-needed' => 'Потребно је да омогућите колачиће да би ово радило.',

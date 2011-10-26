@@ -1672,6 +1672,30 @@ Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan
 	'right-skipcaptcha' => 'Melakukan tindakan pemicu captcha tanpa melalui Captcha',
 );
 
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
+$messages['ilo'] = array(
+	'captcha-edit' => 'Tapno mabaliwam daytoy nga panid, pangaasim nga sulbaren ti nalaka nga dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'captcha-desc' => 'Agusar dagitti CAPTCHA teknik tapno makaprotekta kadagiti spam ken mangpugpugto ti pasesbalikas',
+	'captcha-addurl' => 'Ti baliw mo ket adda nagyan na nga panilpo ti ruar.
+Tapno  makaprotekta kadagiti automatiko nga spam, pangaasim nga sulbaren ti nalaka nga dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'captcha-badlogin' => 'Tapno  makaprotekta kadagiti automatiko nga pinagsulbar ti pasesbalikas, pangaasim nga sulbaren ti nalaka nga dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'captcha-createaccount' => 'Tapno  makaprotekta kadagiti automatiko nga pinagaramid ti pakabilan, pangaasim nga sulbaren ti nalaka nga dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'captcha-createaccount-fail' => 'Saan nga usto wenno awan ti pasingkedan a kodigo.',
+	'captcha-create' => 'Tapno maramid ti panid, pangaasim nga sulbaren ti nalaka nga dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'captcha-sendemail' => 'Tapno  makaprotekta kadagiti automatiko nga pinagspam, pangaasim nga sulbaren ti nalaka nga dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'captcha-sendemail-fail' => 'Saan nga usto wenno awan ti pasingkedan a kodigo.',
+	'captcha-disabledinapi' => 'Daytoy nga aksion ket masapul ti captcha, saan nga mabalin nga maaramid idiay API.',
+	'captchahelp-title' => 'Tulong ti CAPTCHA',
+	'captchahelp-cookies-needed' => 'Masapul nga addaanka ti cookies iti browsermo tapno mabalin daytoy.',
+	'captcha-addurl-whitelist' => ' #<!-- baybayam nga kasta daytoy nga linia --> <pre>
+# Dagiti sumaganad nga syntax:
+#   * Amin-amin nga naggapu iti "#" a karakter inggana ti maibus ket komento
+#   * Amin nga saan nga blanko nga linia ket regex fragment nga mangipada laeng ti naggapuan nga uneg ti URLs
+ #</pre> <!-- baybayam nga kasta daytoy nga linia -->',
+);
+
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
  */

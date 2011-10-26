@@ -546,6 +546,29 @@ Silakan hubungi [[{{MediaWiki:Grouppage-sysop}}|pengurus]] untuk meminta bantuan
 Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan.",
 );
 
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
+$messages['ilo'] = array(
+	'questycaptcha-addurl' => 'Ti baliw mo ket adda nagyan na nga baro a panilpo ti ruar.
+Tapno  makaprotekta kadagiti automatiko nga spam, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'questycaptcha-badlogin' => 'Tapno  makaprotekta kadagiti automatiko nga pinagsulbar ti pasesbalikas, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'questycaptcha-createaccount' => 'Tapno  makaprotekta kadagiti automatiko nga pinagaramid ti pakabilan, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'questycaptcha-create' => 'Ti agaramid ti panid, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'questycaptcha-edit' => 'Ti pinagbaliw daytoy nga panid, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'questycaptcha-sendemail' => 'Tapno  makaprotekta kadagiti automatiko nga pinagspam, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'questycaptchahelp-text' => 'Dagiti web sites nga agawat ti kaaramidan nga naggapu ti publiko, kasla daytoy nga wiki, ket kanayon nga naabuso dagiti spammers nga agususar ti automatiko nga ramramit tapno agikabil da dagiti panilpo ti adu nga sites.
+Ke mabalin nga ikkaten dagiti spam nga panilpo, dagitoy ket makariri da met unay.
+
+No dadduma pay, nga agikabkabil ti baro panilpo ti web kadagiti panid, ti wiki ket agdamag nga sungbatam ti saludsud.
+
+Kas itoy ket narigat nga ma-automatiko, makabalin dagiti agpayso nga  tattao ti makaaramid dagiti kontribusion ken makapasardeng kadagiti spammers ken "robotic attackers".
+
+Panngaasi nga ibagam dagiti [[{{MediaWiki:Grouppage-sysop}}|administrador]] ti tumulong no daytoy ket agpasardeng kenka ti agaramid ti pudno a kontribusion.
+
+Ikklik ti \'agsubli\' a buton ti browsermo ti agsubli ti panid nga pagbaliw.',
+);
+
 /** Italian (Italiano)
  * @author Beta16
  * @author Darth Kule

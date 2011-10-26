@@ -621,6 +621,19 @@ $messages['id'] = array(
 	'fancycaptcha-sendemail' => 'Sebagai pelindungan terhadap spam otomatis, silahkan masukkan kata-kata yang muncul di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 );
 
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
+$messages['ilo'] = array(
+	'fancycaptcha-addurl' => 'Ti baliw mo ket adda nagyan na nga baro a panilpo ti ruar.
+Tapno  makaprotekta kadagiti automatiko nga spam, pangaasim nga ikabil ti balikas nga agparang dita baba nga kahon. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'fancycaptcha-badlogin' => 'Tapno  makaprotekta kadagiti automatiko nga pinagsulbar ti pasesbalikas, pangaasim nga ikabil ti balikas nga agparang dita baba nga kahon. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'fancycaptcha-createaccount' => 'Tapno  makaprotekta kadagiti automatiko nga pinagaramid ti pakabilan, pangaasim nga ikabil ti balikas nga agparang dita baba nga kahon. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'fancycaptcha-create' => 'Ti agaramid ti panid, pangaasim nga ikabil ti balikas nga agparang dita baba nga kahon. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'fancycaptcha-edit' => 'Ti pinagbaliw daytoy nga panid, pangaasim nga ikabil ti balikas nga agparang dita baba nga kahon. ([[Special:Captcha/help|adu pay nga informasion]]):',
+	'fancycaptcha-sendemail' => 'Tapno  makaprotekta kadagiti automatiko nga pinagspam, pangaasim nga ikabil ti balikas nga agparang dita baba nga kahon. ([[Special:Captcha/help|adu pay nga informasion]]):',
+);
+
 /** Italian (Italiano)
  * @author Beta16
  * @author BrokenArrow

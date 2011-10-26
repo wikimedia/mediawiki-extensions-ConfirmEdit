@@ -28,6 +28,13 @@ $wgReCaptchaPrivateKey = '';
 $recaptcha_public_key = '';
 $recaptcha_private_key = '';
 
+/**
+ * Sets the theme for ReCaptcha
+ *
+ * See http://code.google.com/apis/recaptcha/docs/customization.html
+ */
+$wgReCaptchaTheme = 'red';
+
 $wgExtensionFunctions[] = 'efReCaptcha';
 
 /**
@@ -65,9 +72,11 @@ class ReCaptcha extends SimpleCaptcha {
 	 *
          */
 	function getForm() {
-		global $wgReCaptchaPublicKey;
+		global $wgReCaptchaPublicKey, $wgReCaptchaTheme;
 		$useHttps = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' );
-		return "<script>var RecaptchaOptions = { tabindex : 1 }; </script> " .
+		$escapedTheme = Xml::escapeJsString( $wgReCaptchaTheme );
+
+		return "<script>var RecaptchaOptions = { theme : '$escapedTheme', tabindex : 1 }; </script> " .
 			recaptcha_get_html($wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps);
 	}
 

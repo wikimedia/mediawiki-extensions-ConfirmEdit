@@ -74,10 +74,9 @@ class ReCaptcha extends SimpleCaptcha {
 	function getForm() {
 		global $wgReCaptchaPublicKey, $wgReCaptchaTheme;
 		$useHttps = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' );
-		$escapedTheme = Xml::escapeJsString( $wgReCaptchaTheme );
+		$js = 'var RecaptchaOptions = ' . Xml::encodeJsVar( array( 'theme' => $wgReCaptchaTheme, 'tabindex' => 1  ) );
 
-		return "<script>var RecaptchaOptions = { theme : '$escapedTheme', tabindex : 1 }; </script> " .
-			recaptcha_get_html($wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps);
+		return Html::inlineScript( $js ) . recaptcha_get_html($wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps);
 	}
 
 	/**

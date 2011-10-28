@@ -1677,7 +1677,7 @@ Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan
  */
 $messages['ilo'] = array(
 	'captcha-edit' => 'Tapno mabaliwam daytoy nga panid, pangaasim nga sulbaren ti nalaka nga dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay nga informasion]]):',
-	'captcha-desc' => 'Agusar dagitti CAPTCHA teknik tapno makaprotekta kadagiti spam ken mangpugpugto ti pasesbalikas',
+	'captcha-desc' => 'Agusar dagiti CAPTCHA teknik tapno makaprotekta kadagiti spam ken mangpugpugto ti pasesbalikas',
 	'captcha-addurl' => 'Ti baliw mo ket adda nagyan na nga panilpo ti ruar.
 Tapno  makaprotekta kadagiti automatiko nga spam, pangaasim nga sulbaren ti nalaka nga dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay nga informasion]]):',
 	'captcha-badlogin' => 'Tapno  makaprotekta kadagiti automatiko nga pinagsulbar ti pasesbalikas, pangaasim nga sulbaren ti nalaka nga dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay nga informasion]]):',

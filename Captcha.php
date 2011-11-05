@@ -253,7 +253,9 @@ class SimpleCaptcha {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
 
-		return "<p><label for=\"wpCaptchaWord\">{$captcha['question']}</label> = " .
+		// dir="ltr" is needed because otherwise it may say
+		// "5 - 20" instead of "20 - 5" and that would be wrong.
+		return "<p><label dir="ltr" for=\"wpCaptchaWord\">{$captcha['question']}</label> = " .
 			Xml::element( 'input', array(
 				'name' => 'wpCaptchaWord',
 				'id'   => 'wpCaptchaWord',

@@ -101,12 +101,12 @@ $messages['cs'] = array(
  * @author Lloffiwr
  */
 $messages['cy'] = array(
-	'recaptcha-edit' => "Er mwyn ei gwneud yn annodd i olygyddion awtomatig osod sbam, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
+	'recaptcha-edit' => "Er mwyn ei gwneud yn anodd i olygyddion awtomatig osod sbam, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
 	'recaptcha-addurl' => "Mae'ch golygiad yn cynnwys cysylltiadau allanol newydd. Er mwyn helpu i ddiogelu rhag sbam awtomatig, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
 	'recaptcha-badpass' => "Er mwyn helpu i arbed rhag i'ch cyfrinair gael ei ddatrys gan beiriant, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
-	'recaptcha-createaccount' => "Er mwyn ei gwneud yn annodd i beiriannau i agor cyfrifon yn awtomatig, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
+	'recaptcha-createaccount' => "Er mwyn ei gwneud yn anodd i beiriannau i agor cyfrifon yn awtomatig, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
 	'recaptcha-createaccount-fail' => "Mae'r ateb i'r pos CAPTCHA yn anghywir neu yn eisiau.",
-	'recaptcha-create' => "Er mwyn ei gwneud yn annodd i beiriannau i ddechrau tudalennau yn awtomatig, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
+	'recaptcha-create' => "Er mwyn ei gwneud yn anodd i beiriannau i ddechrau tudalennau yn awtomatig, teipiwch y ddau air sydd i'w gweld yn y blwch isod:",
 );
 
 /** German (Deutsch)

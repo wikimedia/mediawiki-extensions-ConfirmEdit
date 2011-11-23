@@ -44,7 +44,7 @@ abstract class Captcha {
 
 	/**
 	 * Instantiate a new Captcha object for a given Id
-	 * 
+	 *
 	 * @param  $id Int
 	 * @return Captcha
 	 */
@@ -305,7 +305,7 @@ class SimpleCaptcha {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
 				return true;
 			}
-			$form->addFooterText( 
+			$form->addFooterText(
 				"<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'sendemail' ) ) .
 				$this->getForm() .
@@ -692,6 +692,7 @@ class SimpleCaptcha {
 			$this->addCaptchaAPI( $resultArr );
 			return false;
 		}
+
 		return true;
 	}
 
@@ -742,7 +743,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Check the captcha on Special:EmailUser 
+	 * Check the captcha on Special:EmailUser
 	 * @param $from MailAddress
 	 * @param $to MailAddress
 	 * @param $subject String
@@ -759,7 +760,7 @@ class SimpleCaptcha {
 			}
 			if ( $this->isIPWhitelisted() )
 				return true;
-		
+
 			if ( defined( 'MW_API' ) ) {
 				# API mode
 				# Asking for captchas in the API is really silly
@@ -772,6 +773,36 @@ class SimpleCaptcha {
 				return false;
 			}
 		}
+		return true;
+	}
+
+	/**
+	 * @param $module ApiBase
+	 * @param $params array
+	 * @return bool
+	 */
+	public function APIGetAllowedParams( &$module, &$params ) {
+		if ( !$module instanceof ApiEditPage ) {
+			return true;
+		}
+		$params['captchaword'] = null;
+		$params['captchaid'] = null;
+
+		return true;
+	}
+
+	/**
+	 * @param $module ApiBae
+	 * @param $desc array
+	 * @return bool
+	 */
+	public function APIGetParamDescription( &$module, &$desc ) {
+		if ( !$module instanceof ApiEditPage ) {
+			return true;
+		}
+		$desc['captchaid'] = 'CAPTCHA ID from previous request';
+		$desc['captchaword'] = 'Answer to the CAPTCHA';
+
 		return true;
 	}
 

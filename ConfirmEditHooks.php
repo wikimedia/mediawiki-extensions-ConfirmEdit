@@ -5,7 +5,7 @@ class ConfirmEditHooks {
 	/**
 	 * Get the global Captcha instance
 	 *
-	 * @return Captcha
+	 * @return Captcha|SimpleCaptcha
 	 */
 	static function getInstance() {
 		global $wgCaptcha, $wgCaptchaClass;
@@ -55,6 +55,14 @@ class ConfirmEditHooks {
 
 	static function confirmEmailUser( $from, $to, $subject, $text, &$error ) {
 		return self::getInstance()->confirmEmailUser( $from, $to, $subject, $text, $error );
+	}
+
+	public static function APIGetAllowedParams( &$module, &$params ) {
+		return self::getInstance()->APIGetAllowedParams( $module, $params );
+	}
+
+	public static function APIGetParamDescription( &$module, &$desc ) {
+		return self::getInstance()->APIGetParamDescription( $module, $desc );
 	}
 }
 

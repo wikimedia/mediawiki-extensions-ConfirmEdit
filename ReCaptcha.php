@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Captcha class using the reCAPTCHA widget. 
- * Stop Spam. Read Books.  
+ * Captcha class using the reCAPTCHA widget.
+ * Stop Spam. Read Books.
  *
  * @addtogroup Extensions
  * @author Mike Crawford <mike.crawford@gmail.com>
@@ -57,7 +57,7 @@ function efReCaptcha() {
 		die ('You need to set $wgReCaptchaPrivateKey and $wgReCaptchaPublicKey in LocalSettings.php to ' .
 		     "use the reCAPTCHA plugin. You can sign up for a key <a href='" .
 		     htmlentities(recaptcha_get_signup_url ($wgServerName, "mediawiki")) . "'>here</a>.");
-	}	
+	}
 }
 
 
@@ -142,4 +142,11 @@ class ReCaptcha extends SimpleCaptcha {
 		return wfEmptyMsg( $name, $text ) ? wfMsg( 'recaptcha-edit' ) : $text;
 	}
 
+	public function APIGetAllowedParams( &$module, &$params ) {
+		return true;
+	}
+
+	public function APIGetParamDescription( &$module, &$desc ) {
+		return true;
+	}
 }

@@ -428,6 +428,13 @@ class SimpleCaptcha {
 	 * @return bool false if the CAPTCHA is rejected, true otherwise
 	 */
 	private function doConfirmEdit( $editPage, $newtext, $section, $merged = false ) {
+		global $wgRequest;
+		if ( $wgRequest->getVal( 'captchaid' ) ) {
+			$wgRequest->setVal( 'wpCaptchaId', $wgRequest->getVal( 'captchaid' ) );
+		}
+		if ( $wgRequest->getVal( 'captchaword' ) ) {
+			$wgRequest->setVal( 'wpCaptchaWord', $wgRequest->getVal( 'captchaword' ) );
+		}
 		if ( $this->shouldCheck( $editPage, $newtext, $section, $merged ) ) {
 			return $this->passCaptcha();
 		} else {

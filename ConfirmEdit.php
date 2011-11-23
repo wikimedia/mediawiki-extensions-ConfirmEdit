@@ -185,11 +185,7 @@ $wgConfirmEditIP = dirname( __FILE__ );
 $wgExtensionMessagesFiles['ConfirmEdit'] = "$wgConfirmEditIP/ConfirmEdit.i18n.php";
 $wgExtensionAliasesFiles['ConfirmEdit'] = "$wgConfirmEditIP/ConfirmEdit.alias.php";
 
-if ( defined( 'MW_SUPPORTS_EDITFILTERMERGED' ) ) {
-	$wgHooks['EditFilterMerged'][] = 'ConfirmEditHooks::confirmEditMerged';
-} else {
-	$wgHooks['EditFilter'][] = 'ConfirmEditHooks::confirmEdit';
-}
+$wgHooks['EditFilterMerged'][] = 'ConfirmEditHooks::confirmEditMerged';
 $wgHooks['UserCreateForm'][] = 'ConfirmEditHooks::injectUserCreate';
 $wgHooks['AbortNewAccount'][] = 'ConfirmEditHooks::confirmUserCreate';
 $wgHooks['LoginAuthenticateAudit'][] = 'ConfirmEditHooks::triggerUserLogin';

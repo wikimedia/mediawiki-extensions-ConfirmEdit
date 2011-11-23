@@ -645,11 +645,7 @@ class SimpleCaptcha {
 	 */
 	private function doConfirmEdit( $editPage, $newtext, $section, $merged = false ) {
 		if ( $this->shouldCheck( $editPage, $newtext, $section, $merged ) ) {
-			if ( $this->passCaptcha() ) {
-				return true;
-			} else {
-				return false;
-			}
+			return $this->passCaptcha();
 		} else {
 			wfDebug( "ConfirmEdit: no need to show captcha.\n" );
 			return true;
@@ -685,7 +681,6 @@ class SimpleCaptcha {
 	function confirmEditMerged( $editPage, $newtext ) {
 		return $this->confirmEdit( $editPage, $newtext, false, true );
 	}
-
 
 	function confirmEditAPI( $editPage, $newtext, &$resultArr ) {
 		if ( !$this->doConfirmEdit( $editPage, $newtext, false, false ) ) {

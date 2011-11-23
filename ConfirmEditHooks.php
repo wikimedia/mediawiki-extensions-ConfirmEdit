@@ -17,10 +17,6 @@ class ConfirmEditHooks {
 		return $wgCaptcha;
 	}
 
-	static function confirmEdit( $editPage, $newtext, $section ) {
-		return self::getInstance()->confirmEdit( $editPage, $newtext, $section );
-	}
-
 	static function confirmEditMerged( $editPage, $newtext ) {
 		return self::getInstance()->confirmEditMerged( $editPage, $newtext );
 	}

@@ -1894,7 +1894,7 @@ $messages['kk-arab'] = array(
 بەت ٶڭدەۋٸنە قايتۋ بارۋ ٷشٸن «ارتقا» دەگەن تٷيمەسٸن باسىڭىز.',
 );
 
-/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
+/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'captcha-edit' => 'Бұл бетті өңдеу үшін, төмендегі қосындылауды шешіңіз де, нәтижесін
 аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
@@ -1920,7 +1920,7 @@ $messages['kk-cyrl'] = array(
 Бет өңдеуіне қайту бару үшін «Артқа» деген түймесін басыңыз.',
 );
 
-/** Kazakh (Latin) (Қазақша (Latin)) */
+/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'captcha-edit' => 'Bul betti öñdew üşin, tömendegi qosındılawdı şeşiñiz de, nätïjesin
 awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
@@ -3179,7 +3179,7 @@ $messages['sr-ec'] = array(
 	'right-skipcaptcha' => 'прескакање радњи које захтевају унос потврдног кода',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -3329,7 +3329,7 @@ $messages['te'] = array(
 	'right-skipcaptcha' => 'ఆమకవేప ద్వారా పోకుండానే దాని ట్రిగ్గరు చర్యలను అమలు చెయ్యి',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
+/** Tajik (Cyrillic script) (Тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -3356,7 +3356,7 @@ $messages['tg-cyrl'] = array(
   #</pre> <!-- ин сатрро ҳамон гуна, ки ҳаст раҳо кунед-->',
 );
 
-/** Tajik (Latin) (Тоҷикӣ (Latin))
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(

@@ -718,7 +718,7 @@ $messages['kk-arab'] = array(
 تٶمەندەگٸ كٶرسەتٸلگەن سٶزدەردٸ اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
 );
 
-/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
+/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'fancycaptcha-addurl' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
@@ -732,7 +732,7 @@ $messages['kk-cyrl'] = array(
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 );
 
-/** Kazakh (Latin) (Қазақша (Latin)) */
+/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'fancycaptcha-addurl' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
 tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
@@ -1210,7 +1210,7 @@ $messages['sr-ec'] = array(
 	'fancycaptcha-sendemail' => 'У циљу заштите од непожељних порука, унесите речи са слике у поље испод ([[Special:Captcha/help|више информација]]):',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -1278,7 +1278,7 @@ $messages['te'] = array(
 ([[Special:Captcha/help|మరింత సమాచారం]]):',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
+/** Tajik (Cyrillic script) (Тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1289,7 +1289,7 @@ $messages['tg-cyrl'] = array(
 	'fancycaptcha-edit' => 'Барои вироиши ин саҳифа, вожаеро ки дар тасвир мебинед, ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
 );
 
-/** Tajik (Latin) (Тоҷикӣ (Latin))
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(

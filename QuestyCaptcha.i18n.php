@@ -219,6 +219,7 @@ Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko
  * @author Umherirrender
  */
 $messages['de'] = array(
+	'questycaptcha-desc' => 'Questy-CAPTCHA-Generator für die Erweiterung „Confirm Edit“',
 	'questycaptcha-addurl' => 'Deine Bearbeitung enthält neue externe Links.
 Zum Schutz vor automatisiertem Spam beantworte bitte die untenstehende Frage ([[Special:Captcha/help|weitere Informationen]]):',
 	'questycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos beantworte bitte die folgende Frage ([[Special:Captcha/help|weitere Informationen]]):',

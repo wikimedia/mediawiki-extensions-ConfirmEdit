@@ -19,6 +19,13 @@ $messages['en'] = array(
 	'recaptcha-create' => 'To help protect against automated page creation, please type the two words you see in the box below:', 
 );
 
+/** Message documentation (Message documentation)
+ * @author Umherirrender
+ */
+$messages['qqq'] = array(
+	'recaptcha-desc' => '{{desc}}',
+);
+
 /** Arabic (العربية)
  * @author Alexknight12
  * @author Ciphers
@@ -111,8 +118,10 @@ $messages['cy'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Umherirrender
  */
 $messages['de'] = array(
+	'recaptcha-desc' => 'reCAPTCHA-Module für die Erweiterung „Confirm Edit“',
 	'recaptcha-edit' => 'Zum Schutz vor automatisiertem Spam, gib bitte die beiden folgenden Wörter in das untenstehende Feld ein:',
 	'recaptcha-addurl' => 'Deine Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spam gib bitte die beiden folgenden Wörter in das folgende Feld ein:',
 	'recaptcha-badpass' => 'Zum Schutz gegen automatisiertes Knacken von Passwörtern, gib bitte die beiden folgenden Wörter in das folgende Feld ein:',

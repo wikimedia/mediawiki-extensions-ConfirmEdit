@@ -478,7 +478,7 @@ $messages['frp'] = array(
 	'fancycaptcha-desc' => "G·ènèrator d’émâges ''captch·a'' anti-robots que demande una confirmacion d’homo des changements.",
 	'fancycaptcha-addurl' => 'Voutron changement encllut de lims de defôr novéls.
 Por nos édiér a combatre contre lo spame ôtomatisâ, volyéd buchiér los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
-	'fancycaptcha-badlogin' => 'Por nos édiér a combatre contre lo piratâjo ôtomatisâ de mots de pâssa, volyéd buchiér los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
+	'fancycaptcha-badlogin' => 'Por nos édiér a combatre contre lo cassâjo ôtomatisâ de contresegnos, volyéd buchiér los mots qu’aparèssont dedens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'fancycaptcha-createaccount' => 'Por nos édiér a combatre contre les crèacions ôtomatisâs de comptos, volyéd buchiér los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'fancycaptcha-create' => 'Por fâre ceta pâge, volyéd buchiér los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',
 	'fancycaptcha-edit' => 'Por changiér ceta pâge, volyéd buchiér los mots qu’aparèssont dens la bouèta ce-desot ([[Special:Captcha/help|més d’enformacions]]) :',

@@ -55,8 +55,8 @@ function efReCaptcha() {
 
 	if ($wgReCaptchaPublicKey == '' || $wgReCaptchaPrivateKey == '') {
 		die ('You need to set $wgReCaptchaPrivateKey and $wgReCaptchaPublicKey in LocalSettings.php to ' .
-			 "use the reCAPTCHA plugin. You can sign up for a key <a href='" .
-			 htmlentities(recaptcha_get_signup_url ($wgServerName, "mediawiki")) . "'>here</a>.");
+			"use the reCAPTCHA plugin. You can sign up for a key <a href='" .
+			htmlentities(recaptcha_get_signup_url ($wgServerName, "mediawiki")) . "'>here</a>.");
 	}
 }
 
@@ -68,9 +68,9 @@ class ReCaptcha extends SimpleCaptcha {
 
 	/**
 	 * Displays the reCAPTCHA widget.
-		 * If $this->recaptcha_error is set, it will display an error in the widget.
+	 * If $this->recaptcha_error is set, it will display an error in the widget.
 	 *
-		 */
+	 */
 	function getForm() {
 		global $wgReCaptchaPublicKey, $wgReCaptchaTheme;
 		$useHttps = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' );
@@ -82,21 +82,24 @@ class ReCaptcha extends SimpleCaptcha {
 	/**
 	 * Calls the library function recaptcha_check_answer to verify the users input.
 	 * Sets $this->recaptcha_error if the user is incorrect.
-		 * @return boolean
-		 *
-		 */
+	 * @return boolean
+	 *
+	 */
 	function passCaptcha() {
 		global $wgReCaptchaPrivateKey;
-		$recaptcha_response = recaptcha_check_answer ($wgReCaptchaPrivateKey,
-								  wfGetIP (),
-								  $_POST['recaptcha_challenge_field'],
-								  $_POST['recaptcha_response_field']);
-				if (!$recaptcha_response->is_valid) {
+		$recaptcha_response =
+			recaptcha_check_answer (
+				$wgReCaptchaPrivateKey,
+				wfGetIP (),
+				$_POST['recaptcha_challenge_field'],
+				$_POST['recaptcha_response_field']
+			);
+		if (!$recaptcha_response->is_valid) {
 			$this->recaptcha_error = $recaptcha_response->error;
 			return false;
-				}
+		}
 		$recaptcha_error = null;
-				return true;
+		return true;
 
 	}
 
@@ -108,17 +111,17 @@ class ReCaptcha extends SimpleCaptcha {
 		if( $this->shouldCheck( $editPage, $newtext, $section ) ) {
 
 			if (!isset($_POST['recaptcha_response_field'])) {
-					//User has not yet been presented with Captcha, show the widget.
-					$editPage->showEditForm( array( &$this, 'editCallback' ) );
-					return false;
+				//User has not yet been presented with Captcha, show the widget.
+				$editPage->showEditForm( array( &$this, 'editCallback' ) );
+				return false;
 			}
 
 			if( $this->passCaptcha() ) {
-					return true;
+				return true;
 			} else {
-					//Try again - show the widget
-					$editPage->showEditForm( array( &$this, 'editCallback' ) );
-					return false;
+				//Try again - show the widget
+				$editPage->showEditForm( array( &$this, 'editCallback' ) );
+				return false;
 			}
 
 		} else {

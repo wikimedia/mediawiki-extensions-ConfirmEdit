@@ -87,12 +87,22 @@ class ReCaptcha extends SimpleCaptcha {
 	 */
 	function passCaptcha() {
 		global $wgReCaptchaPrivateKey;
+		global $wgRequest;
+
+		//API is hardwired to return wpCaptchaId and wpCaptchaWord, so use that if the standard two are empty
+		$challenge = $wgRequest->getVal('recaptcha_challenge_field',$wgRequest->getVal('wpCaptchaId'));
+		$response = $wgRequest->getVal('recaptcha_response_field',$wgRequest->getVal('wpCaptchaWord'));
+		if ( $response === null ) {
+			//new captcha session
+			return false;
+		}
+
 		$recaptcha_response =
 			recaptcha_check_answer (
 				$wgReCaptchaPrivateKey,
 				wfGetIP (),
-				$_POST['recaptcha_challenge_field'],
-				$_POST['recaptcha_response_field']
+				$challenge,
+				$response
 			);
 		if (!$recaptcha_response->is_valid) {
 			$this->recaptcha_error = $recaptcha_response->error;
@@ -103,31 +113,12 @@ class ReCaptcha extends SimpleCaptcha {
 
 	}
 
-	/**
-	 * Called on all edit page saves. (EditFilter events)
-	 * @return boolean - true if page save should continue, false if should display Captcha widget.
-	 */
-	function confirmEdit( $editPage, $newtext, $section, $merged = false ) {
-		if( $this->shouldCheck( $editPage, $newtext, $section ) ) {
-
-			if (!isset($_POST['recaptcha_response_field'])) {
-				//User has not yet been presented with Captcha, show the widget.
-				$editPage->showEditForm( array( &$this, 'editCallback' ) );
-				return false;
-			}
-
-			if( $this->passCaptcha() ) {
-				return true;
-			} else {
-				//Try again - show the widget
-				$editPage->showEditForm( array( &$this, 'editCallback' ) );
-				return false;
-			}
-
-		} else {
-			wfDebug( "ConfirmEdit: no need to show captcha.\n" );
-			return true;
-		}
+	function addCaptchaAPI( &$resultArr ) {
+		global $wgReCaptchaPublicKey;
+		$resultArr['captcha']['type'] = 'recaptcha';
+		$resultArr['captcha']['mime'] = 'image/png';
+		$resultArr['captcha']['key'] = $wgReCaptchaPublicKey;
+		$resultArr['captcha']['error'] = $this->recaptcha_error;
 	}
 
 	/**

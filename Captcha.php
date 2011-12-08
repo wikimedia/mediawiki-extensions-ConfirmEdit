@@ -10,7 +10,9 @@ class SimpleCaptcha {
 		   since the api uses text/plain, not text/html */
 		$op = mt_rand( 0, 1 ) ? '+' : '−';
 
-		$test = "$a $op $b";
+		// No space before and after $op, to ensure correct
+		// directionality.
+		$test = "$a$op$b";
 		$answer = ( $op == '+' ) ? ( $a + $b ) : ( $a - $b );
 		return array( 'question' => $test, 'answer' => $answer );
 	}
@@ -37,9 +39,7 @@ class SimpleCaptcha {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
 
-		// dir="ltr" is needed because otherwise it may say
-		// "5 - 20" instead of "20 - 5" and that would be wrong.
-		return "<p><label dir=\"ltr\" for=\"wpCaptchaWord\">{$captcha['question']}</label> = " .
+		return "<p><label for=\"wpCaptchaWord\">{$captcha['question']}</label> = " .
 			Xml::element( 'input', array(
 				'name' => 'wpCaptchaWord',
 				'id'   => 'wpCaptchaWord',

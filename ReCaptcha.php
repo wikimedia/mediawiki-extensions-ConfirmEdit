@@ -86,29 +86,31 @@ class ReCaptcha extends SimpleCaptcha {
 	 *
 	 */
 	function passCaptcha() {
-		global $wgReCaptchaPrivateKey;
-		global $wgRequest;
+		global $wgReCaptchaPrivateKey, $wgRequest;
 
 		//API is hardwired to return wpCaptchaId and wpCaptchaWord, so use that if the standard two are empty
-		$challenge = $wgRequest->getVal('recaptcha_challenge_field',$wgRequest->getVal('wpCaptchaId'));
-		$response = $wgRequest->getVal('recaptcha_response_field',$wgRequest->getVal('wpCaptchaWord'));
+		$challenge = $wgRequest->getVal( 'recaptcha_challenge_field', $wgRequest->getVal( 'wpCaptchaId' ) );
+		$response = $wgRequest->getVal( 'recaptcha_response_field', $wgRequest->getVal( 'wpCaptchaWord' ) );
+		
 		if ( $response === null ) {
 			//new captcha session
 			return false;
 		}
 
+		$recaptcha_response = recaptcha_check_answer(
+			$wgReCaptchaPrivateKey,
+			$wgRequest->getIP(),
+			$challenge,
+			$response
+		);
 		
-			recaptcha_check_answer (
-				$wgReCaptchaPrivateKey,
-				$wgRequest->getIP(),
-				$challenge,
-				$response
-			);
 		if (!$recaptcha_response->is_valid) {
 			$this->recaptcha_error = $recaptcha_response->error;
 			return false;
 		}
+		
 		$recaptcha_error = null;
+		
 		return true;
 
 	}

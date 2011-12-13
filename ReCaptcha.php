@@ -97,10 +97,10 @@ class ReCaptcha extends SimpleCaptcha {
 			return false;
 		}
 
-		$recaptcha_response =
+		
 			recaptcha_check_answer (
 				$wgReCaptchaPrivateKey,
-				wfGetIP (),
+				$wgRequest->getIP(),
 				$challenge,
 				$response
 			);

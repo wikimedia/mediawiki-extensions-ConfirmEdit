@@ -551,23 +551,22 @@ Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'questycaptcha-addurl' => 'Ti baliw mo ket adda nagyan na nga baro a panilpo ti ruar.
-Tapno  makaprotekta kadagiti automatiko nga spam, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
-	'questycaptcha-badlogin' => 'Tapno  makaprotekta kadagiti automatiko nga pinagsulbar ti pasesbalikas, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
-	'questycaptcha-createaccount' => 'Tapno  makaprotekta kadagiti automatiko nga pinagaramid ti pakabilan, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
-	'questycaptcha-create' => 'Ti agaramid ti panid, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
-	'questycaptcha-edit' => 'Ti pinagbaliw daytoy nga panid, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
-	'questycaptcha-sendemail' => 'Tapno  makaprotekta kadagiti automatiko nga pinagspam, pangaasim nga sungbatan ti saludsud nga nagparang dita baba. ([[Special:Captcha/help|adu pay nga informasion]]):',
-	'questycaptchahelp-text' => 'Dagiti web sites nga agawat ti kaaramidan nga naggapu ti publiko, kasla daytoy nga wiki, ket kanayon nga naabuso dagiti spammers nga agususar ti automatiko nga ramramit tapno agikabil da dagiti panilpo ti adu nga sites.
-Ke mabalin nga ikkaten dagiti spam nga panilpo, dagitoy ket makariri da met unay.
+	'questycaptcha-addurl' => 'Ti inurnos mo ket adda nagyan na a baro a panilpo ti ruar.
+Tapno  makasalaknib kadagiti automatiko a spam, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'questycaptcha-badlogin' => 'Tapno  makasalaknib kadagiti automatiko a pinagsulbar ti kontrasenias, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'questycaptcha-createaccount' => 'Tapno  makasalaknib kadagiti automatiko a pinagaramid ti pakabilangan, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'questycaptcha-create' => 'Tapno makaaramid ti panid, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'questycaptcha-edit' => 'Tapno makaurnoy ditoya panid, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'questycaptcha-sendemail' => 'Tapno  makasalaknib kadagiti automatiko a pinagspam, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'questycaptchahelp-text' => "Dagiti sapot a pagsaadan nga agaw-awat kadagiti maipablaak iti publiko, kasla daytoy a wiki, ket kanayon nga inabuso dagiti spammers nga agus-usar ti automatiko a ramramit ti pinagipablaak da kadagiti kukua da a panilpo ti adu a pagsasaadan. 
+Maikkat met dagitoy a panilpo, mgen makariri da unay.
 
-No dadduma pay, nga agikabkabil ti baro panilpo ti web kadagiti panid, ti wiki ket agdamag nga sungbatam ti saludsud.
+No sagpaminsan pay, nangruna no agikabil kadagiti baro a panilpo ti sapot iti panid, ti wiki ket agdamag kenka nga agsungbat ti maysa a saludsod. 
+Yantangay daytoy ket obra a narigat a ma-automatiko, agpalubos kadagiti agpayso a tattao ti agipablaak bayat nga agpasardeng ti kaaduan a spammers ken dagiti robot nga agraraut.
 
-Kas itoy ket narigat nga ma-automatiko, makabalin dagiti agpayso nga  tattao ti makaaramid dagiti kontribusion ken makapasardeng kadagiti spammers ken "robotic attackers".
+Pangngaasi a kontaken ti [[{{MediaWiki:Grouppage-sysop}}|administrador ti pagsaadan ]] para iti pannulong no daytoy ket saan a napadpadaanan a pawilan na ti agpayso a pinagbaplaak mo.
 
-Panngaasi nga ibagam dagiti [[{{MediaWiki:Grouppage-sysop}}|administrador]] ti tumulong no daytoy ket agpasardeng kenka ti agaramid ti pudno a kontribusion.
-
-Ikklik ti \'agsubli\' a buton ti browsermo ti agsubli ti panid nga pagbaliw.',
+Peslen ti 'agsubli' a buton dita pagbasabasam (browser) ti agsubli idiay panid ti pinagurnos.",
 );
 
 /** Italian (Italiano)

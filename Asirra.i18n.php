@@ -146,6 +146,7 @@ $messages['nl'] = array(
 	'asirra-createaccount-fail' => 'Identificeer de katten juist.',
 	'asirra-create' => "Kies om het automatisch aanmaken van pagina's tegen te gaan de afbeeldingen met een poes in het onderstaande venster:",
 	'asirra-nojs' => "'''Schakel JavaScript in en probeer de pagina opnieuw op te slaan.'''",
+	'asirra-failed' => 'Identificeer alle afbeeldingen van katten.',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

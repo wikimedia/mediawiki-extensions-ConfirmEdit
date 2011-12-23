@@ -982,6 +982,11 @@ $messages['sr-ec'] = array(
 	'questycaptcha-desc' => 'Стварач сликовног кода за потврду уређивања',
 );
 
+/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+$messages['sr-el'] = array(
+	'questycaptcha-desc' => 'Stvarač slikovnog koda za potvrdu uređivanja',
+);
+
 /** Swedish (Svenska)
  * @author Boivie
  */

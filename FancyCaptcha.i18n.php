@@ -1215,6 +1215,7 @@ $messages['sr-ec'] = array(
  * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
+	'fancycaptcha-desc' => 'Obogaćen stvarač slikovnog koda za potvrdu uređivanja',
 	'fancycaptcha-addurl' => 'Tvoja izmena uključuje nove spoljne veze. U cilju zaštite od automatskog spama, unesi reči koje se nalaze ispod u kutiju ([[Special:Captcha/help|detaljnije]]):',
 	'fancycaptcha-badlogin' => 'U cilju sprečavanja automatskog otkrivanja lozinki, unesi reči koje se nalaze ispod u kutiju ([[Special:Captcha/help|detaljnije]]):',
 	'fancycaptcha-createaccount' => 'U cilju zaštite od automatskog spama, unesi reči odozdo u kutiju ([[Special:Captcha/help|detaljnije]]):',

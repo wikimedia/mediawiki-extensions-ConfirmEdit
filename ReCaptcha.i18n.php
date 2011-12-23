@@ -382,6 +382,11 @@ $messages['sr-ec'] = array(
 	'recaptcha-desc' => 'Модул reCAPTCHA за потврду уређивања',
 );
 
+/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+$messages['sr-el'] = array(
+	'recaptcha-desc' => 'Modul reCAPTCHA za potvrdu uređivanja',
+);
+
 /** Swedish (Svenska) */
 $messages['sv'] = array(
 	'recaptcha-edit' => 'Den här sidan skyddas mot spam-robotar, bevisa att du är en människa genom att skriva de två orden du ser i boxen nedan:',
@@ -443,5 +448,15 @@ $messages['zh-hans'] = array(
 	'recaptcha-createaccount' => '为了帮助防止创建自动化的帐户，请键入您在下面的框中看到的这两个字：',
 	'recaptcha-createaccount-fail' => '不正确或缺失的 reCAPTCHA 答案。',
 	'recaptcha-create' => '为了帮助防止自动的页创建，请键入您在下面的框中看到这两个词：',
+);
+
+/** Traditional Chinese (‪中文(繁體)‬) */
+$messages['zh-hant'] = array(
+	'recaptcha-edit' => '要幫助保護免受垃圾郵件自動的編輯，請鍵入您在下面的框中看到這兩個詞：',
+	'recaptcha-addurl' => '您的編輯包含新的外部鏈接。為了幫助防止自動垃圾郵件，請鍵入您在下面的框中看到這兩個詞：',
+	'recaptcha-badpass' => '為幫助防止自動密碼破解，請鍵入您看到下面的框中的兩個字：',
+	'recaptcha-createaccount' => '為了幫助防止創建自動化的帳戶，請鍵入您在下面的框中看到的這兩個字：',
+	'recaptcha-createaccount-fail' => '不正確或缺失的 reCAPTCHA 答案。',
+	'recaptcha-create' => '為了幫助防止自動的頁創建，請鍵入您在下面的框中看到這兩個詞：',
 );
 

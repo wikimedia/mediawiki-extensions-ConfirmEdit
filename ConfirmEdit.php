@@ -34,8 +34,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
-global $wgExtensionFunctions, $wgGroupPermissions;
-
 $wgExtensionFunctions[] = 'confirmEditSetup';
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
@@ -71,7 +69,6 @@ $wgAvailableRights[] = 'skipcaptcha';
  */
 $wgCaptchaWhitelistIP = false;
 
-global $wgCaptcha, $wgCaptchaClass, $wgCaptchaTriggers;
 $wgCaptcha = null;
 $wgCaptchaClass = 'SimpleCaptcha';
 
@@ -121,7 +118,6 @@ $wgCaptchaTriggersOnNamespace = array();
  * 'CaptchaCacheStore' uses $wgMemc, which avoids the cookie dependency
  * but may be fragile depending on cache configuration.
  */
-global $wgCaptchaStorageClass;
 $wgCaptchaStorageClass = 'CaptchaSessionStore';
 
 /**
@@ -130,7 +126,6 @@ $wgCaptchaStorageClass = 'CaptchaSessionStore';
  *
  * Default is a half hour.
  */
-global $wgCaptchaSessionExpiration;
 $wgCaptchaSessionExpiration = 30 * 60;
 
 /**
@@ -142,21 +137,18 @@ $wgCaptchaSessionExpiration = 30 * 60;
  *
  * Default is five minutes.
  */
-global $wgCaptchaBadLoginExpiration;
 $wgCaptchaBadLoginExpiration = 5 * 60;
 
 /**
  * Allow users who have confirmed their e-mail addresses to post
  * URL links without being harassed by the captcha.
  */
-global $ceAllowConfirmedEmail;
 $ceAllowConfirmedEmail = false;
 
 /**
  * Number of bad login attempts before triggering the captcha.  0 means the
  * captcha is presented on the first login.
  */
-global $wgCaptchaBadLoginAttempts;
 $wgCaptchaBadLoginAttempts = 3;
 
 /**

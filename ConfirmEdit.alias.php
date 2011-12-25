@@ -43,6 +43,11 @@ $specialPageAliases['fi'] = array(
 	'Captcha' => array( 'Ihmiskäyttäjävarmistus' ),
 );
 
+/** Galician (Galego) */
+$specialPageAliases['gl'] = array(
+	'Captcha' => array( 'Captcha' ),
+);
+
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = array(
 	'Captcha' => array( 'キャプチャ' ),
@@ -82,8 +87,3 @@ $specialPageAliases['zh-hans'] = array(
 $specialPageAliases['zh-hant'] = array(
 	'Captcha' => array( '驗證碼' ),
 );
-
-/**
- * For backwards compatibility with MediaWiki 1.15 and earlier.
- */
-$aliases =& $specialPageAliases;

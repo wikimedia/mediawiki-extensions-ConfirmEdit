@@ -772,7 +772,7 @@ Som ei hjelp til å unngå automatisert spam, ver venleg og skiv inn spørsmåle
  * @author Nghtwlkr
  * @author Simny
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'questycaptcha-addurl' => 'Din endring inneholder nye eksterne lenker.
 For å beskytte mot autmatisert spam, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
 	'questycaptcha-badlogin' => 'For å hindre passordtyveri, vær vennlig og svar på spørsmålet under ([[Special:Captcha/help|mer informasjon]]):',

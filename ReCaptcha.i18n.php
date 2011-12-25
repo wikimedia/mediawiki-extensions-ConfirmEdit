@@ -309,7 +309,7 @@ $messages['nl'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Event
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'recaptcha-edit' => 'Som beskyttelse mot automatisk redigert spam, vennligst skriv inn de to ordene du ser i boksen under:',
 	'recaptcha-addurl' => 'Din redigering inneholder nye eksterne lenker. Som beskyttelse mot automatisk spam, vennligst skriv inn de to ordene du ser i boksen under:',
 	'recaptcha-badpass' => 'Som beskyttelse mot automatisk passordknekking, vennligst skriv inn de to ordene du ser i boksen under:',

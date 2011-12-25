@@ -152,7 +152,7 @@ $messages['nl'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Event
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'asirra-desc' => 'Assirra-modulen for ConfirmEdit',
 	'asirra-edit' => 'Som beskyttelse mot automatisk redigert spam, vennligst velg kun kattebildene i boksen under:',
 	'asirra-addurl' => 'Din redigering inneholder nye eksterne lenker. Som beskyttelse mot automatisk redigert spam, vennligst velg kun kattebildene i boksen under:',

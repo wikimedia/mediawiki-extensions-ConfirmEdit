@@ -175,7 +175,7 @@ $wgSpecialPages['Captcha'] = 'CaptchaSpecialPage';
 
 $wgConfirmEditIP = dirname( __FILE__ );
 $wgExtensionMessagesFiles['ConfirmEdit'] = "$wgConfirmEditIP/ConfirmEdit.i18n.php";
-$wgExtensionAliasesFiles['ConfirmEdit'] = "$wgConfirmEditIP/ConfirmEdit.alias.php";
+$wgExtensionMessagesFiles['ConfirmEditAlias'] = "$wgConfirmEditIP/ConfirmEdit.alias.php";
 
 $wgHooks['EditFilterMerged'][] = 'ConfirmEditHooks::confirmEditMerged';
 $wgHooks['UserCreateForm'][] = 'ConfirmEditHooks::injectUserCreate';

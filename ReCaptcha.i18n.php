@@ -294,18 +294,6 @@ $messages['ms'] = array(
 	'recaptcha-create' => 'Untuk membanteras kegiatan mencipta laman secara automatik, sila taipkan dua perkataan yang anda lihat dalam petak di bawah:',
 );
 
-/** Dutch (Nederlands)
- * @author Siebrand
- */
-$messages['nl'] = array(
-	'recaptcha-edit' => 'Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
-	'recaptcha-addurl' => 'Uw bewerking bevat nieuwe externe verwijzingen. Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
-	'recaptcha-badpass' => 'Voer ter bescherming tegen het automatisch kraken van wachtwoorden de twee woorden die u ziet in het invoervenster in:',
-	'recaptcha-createaccount' => 'Om het automatisch aanmaken van gebruikers tegen te gaan moet u de twee woorden die u ziet invoeren:',
-	'recaptcha-createaccount-fail' => 'Het reCAPTCHA-antwoord is onjuist of niet ingevoerd.',
-	'recaptcha-create' => "Om het automatisch aanmaken van pagina's tegen te gaan moet u de twee woorden die u ziet invoeren:",
-);
-
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Event
  */
@@ -316,6 +304,18 @@ $messages['nb'] = array(
 	'recaptcha-createaccount' => 'Som beskyttelse mot automatisk opprettelse av brukerkonto, vennligst skriv inn de to ordene du ser i boksen under:',
 	'recaptcha-createaccount-fail' => 'Feil eller manglende reCAPTCHA-svar.',
 	'recaptcha-create' => 'Som beskyttelse mot automatisk opprettelse av side, vennligst skriv inn de to ordene du ser i boksen under:',
+);
+
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
+$messages['nl'] = array(
+	'recaptcha-edit' => 'Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
+	'recaptcha-addurl' => 'Uw bewerking bevat nieuwe externe verwijzingen. Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
+	'recaptcha-badpass' => 'Voer ter bescherming tegen het automatisch kraken van wachtwoorden de twee woorden die u ziet in het invoervenster in:',
+	'recaptcha-createaccount' => 'Om het automatisch aanmaken van gebruikers tegen te gaan moet u de twee woorden die u ziet invoeren:',
+	'recaptcha-createaccount-fail' => 'Het reCAPTCHA-antwoord is onjuist of niet ingevoerd.',
+	'recaptcha-create' => "Om het automatisch aanmaken van pagina's tegen te gaan moet u de twee woorden die u ziet invoeren:",
 );
 
 /** Polish (Polski) */

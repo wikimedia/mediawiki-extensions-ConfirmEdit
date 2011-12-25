@@ -2371,6 +2371,40 @@ $messages['nan'] = array(
 	'captcha-createaccount-fail' => 'Khak-jīn-bé chhò-gō· iah-sī làu-kau.',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Audun
+ * @author Jon Harald Søby
+ * @author Laaknor
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'captcha-edit' => 'Skriv inn summen nedenfor i boksen for å kunne redigere denne siden ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-desc' => 'Gir tilgang til CAPTCHA-teknikker for å beskytte mot søppl og passordgjetting',
+	'captcha-addurl' => 'Din redigering inneholder nye eksterne lenker. Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk spam ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-badlogin' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk passordtyveri ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-createaccount' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk kontoopprettelse ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-createaccount-fail' => 'Ukorrekt eller manglende bekreftelseskode.',
+	'captcha-create' => 'Løs det enkle regnestykket i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-sendemail' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk spamming ([[Special:Captcha/help|mer informasjon]]):',
+	'captcha-sendemail-fail' => 'Ukorrekt eller manglende bekreftelseskode.',
+	'captcha-disabledinapi' => 'Denne handlinger krever en captcha, så den kan ikke bli gjort gjennom APIet.',
+	'captchahelp-title' => 'Hjelp med Captcha',
+	'captchahelp-cookies-needed' => 'Du må slå på informasjonskapsler for at dette skal fungere.',
+	'captchahelp-text' => "Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til stor irritasjon.
+
+Noen ganger, særlig hvis du vil legge til nye internettlenker til en side, kan wikien vise deg et bilde av en farge eller ujevn tekst og be deg skrive inn ordene som vises. Siden det er vanskelig å automatisere denne oppgaven, vil funksjonen slippe de fleste virkelige mennesker igjennom, men stoppe spammere.
+
+Dessverre finnes det i øyeblikket ikke noe audioalternativ for brukere med begrenset syn som som bruker tekst- eller talebaserte nettlesere. Vennligst kontakt [[{{MediaWiki:Grouppage-sysop}}|administratorene]] hvis denne funksjonen forhindrer deg i å foreta legitime endringer.
+
+Trykk på 'tilbake'-knappen for å komme tilbake til redigeringssiden.",
+	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
+# Syntaksen er som følger:
+#  * Alle linjer som begynner med «#» er kommentarer
+#  * Alle linjer som ikke er blanke er fragmenter av regulære uttrykk som sjekker verter i URL-er
+  #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha' => 'Utføre handlinger som normalt krever «captcha»-bekreftelse uten å bruke «captcha»',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -2508,40 +2542,6 @@ Trykk på «attende»-knappen for å kome tilbake til endringssida.',
 #  * Alle liner som ikkje er tomme er fragment av regulære uttrykk som sjekkar vertar i URL-ar
  #</pre> <!-- leave this line exactly as it is -->',
 	'right-skipcaptcha' => 'Utføre handlingar som normalt krever «captcha»-stadfesting utan å bruke «captcha»',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Audun
- * @author Jon Harald Søby
- * @author Laaknor
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'captcha-edit' => 'Skriv inn summen nedenfor i boksen for å kunne redigere denne siden ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-desc' => 'Gir tilgang til CAPTCHA-teknikker for å beskytte mot søppl og passordgjetting',
-	'captcha-addurl' => 'Din redigering inneholder nye eksterne lenker. Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk spam ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-badlogin' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk passordtyveri ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-createaccount' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk kontoopprettelse ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-createaccount-fail' => 'Ukorrekt eller manglende bekreftelseskode.',
-	'captcha-create' => 'Løs det enkle regnestykket i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-sendemail' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk spamming ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-sendemail-fail' => 'Ukorrekt eller manglende bekreftelseskode.',
-	'captcha-disabledinapi' => 'Denne handlinger krever en captcha, så den kan ikke bli gjort gjennom APIet.',
-	'captchahelp-title' => 'Hjelp med Captcha',
-	'captchahelp-cookies-needed' => 'Du må slå på informasjonskapsler for at dette skal fungere.',
-	'captchahelp-text' => "Internettsider som kan redigeres av alle, som denne wikien, blir ofte misbrukt av spammere som bruker roboter for å poste massive antall lenker. Selv om slike spamlenker kan fjernes er de til stor irritasjon.
-
-Noen ganger, særlig hvis du vil legge til nye internettlenker til en side, kan wikien vise deg et bilde av en farge eller ujevn tekst og be deg skrive inn ordene som vises. Siden det er vanskelig å automatisere denne oppgaven, vil funksjonen slippe de fleste virkelige mennesker igjennom, men stoppe spammere.
-
-Dessverre finnes det i øyeblikket ikke noe audioalternativ for brukere med begrenset syn som som bruker tekst- eller talebaserte nettlesere. Vennligst kontakt [[{{MediaWiki:Grouppage-sysop}}|administratorene]] hvis denne funksjonen forhindrer deg i å foreta legitime endringer.
-
-Trykk på 'tilbake'-knappen for å komme tilbake til redigeringssiden.",
-	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
-# Syntaksen er som følger:
-#  * Alle linjer som begynner med «#» er kommentarer
-#  * Alle linjer som ikke er blanke er fragmenter av regulære uttrykk som sjekker verter i URL-er
-  #</pre> <!-- leave this line exactly as it is -->',
-	'right-skipcaptcha' => 'Utføre handlinger som normalt krever «captcha»-bekreftelse uten å bruke «captcha»',
 );
 
 /** Occitan (Occitan)
@@ -3187,6 +3187,7 @@ $messages['sr-ec'] = array(
 	'captcha-createaccount' => 'У циљу заштите од самоотварања налога, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):',
 	'captcha-createaccount-fail' => 'Неправилан или непостојећи код за потврду.',
 	'captcha-create' => 'Да бисте направили страницу, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):',
+	'captcha-sendemail' => 'У циљу заштите од слања непожељних порука, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):',
 	'captcha-sendemail-fail' => 'Неправилан или непостојећи код за потврду.',
 	'captchahelp-title' => 'Помоћ око потврдног кôда',
 	'captchahelp-cookies-needed' => 'Потребно је да омогућите колачиће да би ово радило.',

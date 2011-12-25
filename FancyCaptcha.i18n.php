@@ -900,6 +900,20 @@ $messages['ms'] = array(
 	'fancycaptcha-sendemail' => 'Untuk membanteras kegiatan spam secara automatik, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Harald Khan
+ * @author Jon Harald Søby
+ * @author Laaknor
+ */
+$messages['nb'] = array(
+	'fancycaptcha-addurl' => 'Din endring inkluderer nye eksterne lenker. For hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn ordene som kommer opp i denne boksen ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-badlogin' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot passordtyveri ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-createaccount' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk kontoopprettelse ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-create' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-edit' => 'For å endre denne siden, vennligst skriv inn ordene som dukker opp i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-sendemail' => 'For å beskytte mot automatisert spam så må du skrive ordene under inn i tekstboksen ([[Special:Captcha/help|mer informasjon]]):',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -950,20 +964,6 @@ For å hjelpa oss med å unngå automatisert spam, ver venleg og skriv inn orda 
 	'fancycaptcha-createaccount' => 'Skriv inn orda som kjem til syne i boksen nedanfor for å hjelpa oss med å unngå automatisk kontooppretting ([[Special:Captcha/help|meir informasjon]]):',
 	'fancycaptcha-create' => 'Skriv inn orda som kjem til syne i boksen nedanfor for å oppretta sida ([[Special:Captcha/help|meir informasjon]]):',
 	'fancycaptcha-edit' => 'For å endra denne sida, ver venleg og skriv inn orda som kjem til syne i boksen nedanfor ([[Special:Captcha/help|meir informasjon]]):',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Harald Khan
- * @author Jon Harald Søby
- * @author Laaknor
- */
-$messages['nb'] = array(
-	'fancycaptcha-addurl' => 'Din endring inkluderer nye eksterne lenker. For hjelpe oss å beskytte oss mot automatisk spam, vennligst skriv inn ordene som kommer opp i denne boksen ([[Special:Captcha/help|mer informasjon]]):',
-	'fancycaptcha-badlogin' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot passordtyveri ([[Special:Captcha/help|mer informasjon]]):',
-	'fancycaptcha-createaccount' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk kontoopprettelse ([[Special:Captcha/help|mer informasjon]]):',
-	'fancycaptcha-create' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
-	'fancycaptcha-edit' => 'For å endre denne siden, vennligst skriv inn ordene som dukker opp i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
-	'fancycaptcha-sendemail' => 'For å beskytte mot automatisert spam så må du skrive ordene under inn i tekstboksen ([[Special:Captcha/help|mer informasjon]]):',
 );
 
 /** Occitan (Occitan)

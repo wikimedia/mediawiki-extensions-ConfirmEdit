@@ -714,7 +714,7 @@ Gwasgwch botwm 'nôl' eich porwr er mwyn dychwelyd at y dudalen golygu.",
  * @author Peter Alberti
  */
 $messages['da'] = array(
-	'captcha-edit' => 'For at redigere denne side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'captcha-edit' => 'For at redigere denne side, skal du give svaret på regnestykket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captcha-desc' => 'Giver CAPTCHA-teknikker til at beskytte mod spam og gætning af adgangskoder',
 	'captcha-addurl' => 'Din redigering tilføjer nye eksterne henvisninger til artiklen. Som beskyttelse mod automatiseret spam, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captcha-badlogin' => 'For at beskytte mod automatiserede gæt på kodeord, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
@@ -795,6 +795,7 @@ Klicken Sie dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen
 	'captcha-badlogin' => 'Zum Schutz vor einer Kompromittierung Ihres Benutzerkontos lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]]:',
 	'captcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'captcha-create' => 'Zur Erstellung der Seite lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
+	'captcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, lösen Sie bitte die einfache Rechenaufgabe und geben Sie die Antwort unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
 	'captchahelp-text' => 'Internetangebote, die für Beiträge von praktisch jedem offen sind — so wie dieses Wiki — werden oft von Spammern missbraucht, die ihre Links automatisch auf vielen Webseiten platzieren. Diese Spam-Links können wieder entfernt werden, sie sind aber ein erhebliches Ärgernis.
 
 In manchen Fällen, insbesondere beim Hinzufügen von neuen Weblinks zu einer Seite, kann es vorkommen, dass dieses Wiki ein Bild mit einem farbigen und verzerrten Text anzeigt und dazu auffordert, die angezeigten Wörter einzutippen.
@@ -1036,14 +1037,15 @@ $messages['et'] = array(
 	'captcha-edit' => 'Selle lehekülje muutmiseks lahenda palun lihtne tehe ja sisesta vastus kasti ([[Special:Captcha/help|lisateave]]).',
 	'captcha-desc' => 'Pakub robotilõksu abil kaitset rämpspostituste ja paroolide äraarvamise vastu.',
 	'captcha-addurl' => 'Sinu muudatus sisaldab uusi välislinke.
-Palun lahenda allpool lihtne tehe ja sisesta vastus kasti. Abinõu on kaitseks automaadistatud rämpsmuudatuste vastu ([[Special:Captcha/help|lisateave]]):',
-	'captcha-badlogin' => 'Kaitseks automaatsete parooliäraarvajate vastu, palun lahenda see lihtne tehe ja sisesta vastus kasti ([[Special:Captcha/help|täpsem teave]]):',
-	'captcha-createaccount' => 'Palun lahenda lihtne tehe ja sisesta vastus kasti. Abinõu on kaitseks kontode automaatse loomise vastu ([[Special:Captcha/help|lisateave]]):',
+Palun lahenda allpool lihtne tehe ja sisesta vastus kasti. Abinõu on kaitseks automaadistatud rämpsmuudatuste eest ([[Special:Captcha/help|lisateave]]):',
+	'captcha-badlogin' => 'Palun lahenda allpool lihtne tehe ja sisesta vastus kasti. Abinõu on kaitseks automaatsete parooliäraarvajate eest ([[Special:Captcha/help|lisateave]]):',
+	'captcha-createaccount' => 'Palun lahenda lihtne tehe ja sisesta vastus kasti. Abinõu on kaitseks kontode automaatse loomise eest ([[Special:Captcha/help|lisateave]]):',
 	'captcha-createaccount-fail' => 'Puuduv või valesti sisestatud kinnituskood.',
 	'captcha-create' => 'Lehekülje loomiseks lahenda palun lihtne tehe ja sisesta vastus kasti
-([[Special:Captcha/help|täpsem teave]]):',
+([[Special:Captcha/help|lisateave]]):',
 	'captcha-sendemail' => 'Palun lahenda allpool lihtne tehe ja sisesta vastus kasti. Abinõu on kaitseks automaadistatud rämpsmuudatuste vastu ([[Special:Captcha/help|lisateave]]):',
 	'captcha-sendemail-fail' => 'Vigane või puuduv kinnituskood.',
+	'captcha-disabledinapi' => 'Ühes selle toiminguga tuleb läbida robotilõks ja seetõttu ei saa seda API kaudu sooritada.',
 	'captchahelp-title' => 'Mis on robotilõks?',
 	'captchahelp-cookies-needed' => 'Selle toimimiseks peab veebilehitseja lubama küpsiseid.',
 	'captchahelp-text' => 'Võrgukohti, mis lubavad külastajatel sisu muuta, nagu ka see viki, kasutavad sageli rämpsposti levitajad, lisades näiteks lehekülgedele reklaamilinke. Kuigi neid linke saab eemaldada, on nad siiski tülikad.

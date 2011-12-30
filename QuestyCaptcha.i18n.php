@@ -331,6 +331,27 @@ Por favor contacta a los [[{{MediaWiki:Grouppage-sysop}}|administradores del sit
 Haz click en el botón 'atrás' en tu navegador para regresar al editor de página.",
 );
 
+/** Estonian (Eesti)
+ * @author Pikne
+ */
+$messages['et'] = array(
+	'questycaptcha-addurl' => 'Sinu muudatus sisaldab uusi välislinke.
+Palun vasta alljärgnevale küsimusele. Abinõu on kaitseks automaadistatud rämpsmuudatuste eest ([[Special:Captcha/help|lisateave]]):',
+	'questycaptcha-badlogin' => 'Palun vasta alljärgnevale küsimusele. Abinõu on kaitseks automaatsete parooliäraarvajate eest ([[Special:Captcha/help|lisateave]]):',
+	'questycaptcha-createaccount' => 'Palun vasta alljärgnevale küsimusele. Abinõu on kaitseks kontode automaatse loomise eest ([[Special:Captcha/help|lisateave]]):',
+	'questycaptcha-create' => 'Lehekülje loomiseks vasta palun alljärgnevale küsimusele ([[Special:Captcha/help|lisateave]]):',
+	'questycaptcha-edit' => 'Selle lehekülje muutmiseks vasta palun alljärgnevale küsimusele ([[Special:Captcha/help|lisateave]]):',
+	'questycaptcha-sendemail' => 'Palun vasta alljärgnevale küsimusele. Abinõu on kaitseks automaadistatud rämpsmuudatuste eest ([[Special:Captcha/help|lisateave]]):',
+	'questycaptchahelp-text' => "Võrgukohti, mis lubavad külastajatel sisu muuta, nagu ka see viki, kasutavad sageli rämpsposti levitajad, lisades näiteks lehekülgedele reklaamilinke. Kuigi neid linke saab eemaldada, on nad siiski tülikad.
+
+Kasutajakontot registreerides või mõnele lehele uusi internetiaadresse postitades võidakse paluda sul küsimusele vastata.
+Kuna sellist tegevust on raske automaadistada, on see efektiivseks kaitseks rämpspostirobotite vastu ja lubab samas tavakasutajatel rahus muudatusi teha.
+
+Kui sul tekib raskusi muudatuste tegemisel, võta palun ühendust selle võrgukoha [[{{MediaWiki:Grouppage-sysop}}|administraatoritega]].
+
+Redigeerimislehele naasmiseks klõpsa võrgulehitseja ''tagasi''-nuppu.",
+);
+
 /** Basque (Euskara)
  * @author Kobazulo
  */

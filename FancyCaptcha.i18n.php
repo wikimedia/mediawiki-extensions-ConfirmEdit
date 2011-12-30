@@ -277,14 +277,15 @@ Er mwyn ceisio rhwystro peiriannau spam, byddwch gystal â theipio'r geiriau a w
 	'fancycaptcha-sendemail' => "Er mwyn cyfrannu at ddiogelu rhag sbamio awtomatig, byddwch gystal â gwneud y swm isod ac ysgrifennu'r ateb yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 );
 
-/** Danish (Dansk) */
+/** Danish (Dansk)
+ * @author Peter Alberti
+ */
 $messages['da'] = array(
 	'fancycaptcha-addurl' => 'Din ændring tilføjer nye eksterne henvisninger. For at beskytte mod automatiseret spam, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'fancycaptcha-badlogin' => 'For at beskytte mod automatiske forsøg på at gætte kodeord, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'fancycaptcha-createaccount' => 'For at beskytte mod automatisk oprettelse af brugernavne, der bruges til spam, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'fancycaptcha-create' => 'For at oprette en ny side, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
-	'fancycaptcha-edit' => 'or at redigere denne side
-([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-edit' => 'For at redigere denne side, indtast da venligst ordene, der står i feltet nedenfor ([[Special:Captcha/help|mere information]]):',
 );
 
 /** German (Deutsch)
@@ -315,6 +316,7 @@ Zum Schutz vor automatisiertem Spamming geben Sie das folgende Wort in das Feld 
 	'fancycaptcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten geben Sie bitte das folgende Wort in das Feld unten ein ([[Special:Captcha/help|Fragen oder Probleme?]]):',
 	'fancycaptcha-create' => 'Zur Erstellung der Seite geben Sie das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'fancycaptcha-edit' => 'Zur Bearbeitung der Seite geben Sie das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
+	'fancycaptcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, geben Sie bitte die Wörter unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
 );
 
 /** Zazaki (Zazaki)
@@ -396,11 +398,11 @@ $messages['es'] = array(
 $messages['et'] = array(
 	'fancycaptcha-desc' => 'Kirevate piltidega robotilõks, kinnitamaks muudatuste õigsust.',
 	'fancycaptcha-addurl' => 'Sinu muudatus sisaldab uusi välislinke.
-Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaadistatud rämpsmuudatuste vastu ([[Special:Captcha/help|täpsem teave]]):',
-	'fancycaptcha-badlogin' => 'Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaatsete parooliäraarvajate vastu ([[Special:Captcha/help|täpsem teave]]):',
-	'fancycaptcha-createaccount' => 'Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks kontode automaatse loomise vastu ([[Special:Captcha/help|täpsem teave]]):',
-	'fancycaptcha-create' => 'Lehekülje loomiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|täpsem teave]]):',
-	'fancycaptcha-edit' => 'Selle lehekülje muutmiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|täpsev teave]]):',
+Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaadistatud rämpsmuudatuste eest ([[Special:Captcha/help|lisateave]]):',
+	'fancycaptcha-badlogin' => 'Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaatsete parooliäraarvajate eest ([[Special:Captcha/help|lisateave]]):',
+	'fancycaptcha-createaccount' => 'Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks kontode automaatse loomise eest ([[Special:Captcha/help|lisateave]]):',
+	'fancycaptcha-create' => 'Lehekülje loomiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|lisateave]]):',
+	'fancycaptcha-edit' => 'Selle lehekülje muutmiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|lisateave]]):',
 	'fancycaptcha-sendemail' => 'Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaadistatud rämpsmuudatuste vastu ([[Special:Captcha/help|lisateave]]):',
 );
 

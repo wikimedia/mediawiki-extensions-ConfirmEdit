@@ -230,6 +230,18 @@ $messages['id'] = array(
 	'recaptcha-create' => 'Untuk membantu pelindungan terhadap pembuatan halaman otomatis, silakan ketik dua kata yang Anda lihat dalam kotak di bawah ini:',
 );
 
+/** Italian (Italiano)
+ * @author Nemo bis
+ */
+$messages['it'] = array(
+	'recaptcha-edit' => 'Per aiutarci a proteggerci dalle modifiche automatiche che aggiungono spam, scrivi le due parole mostrate nel riquadro sottostante:',
+	'recaptcha-addurl' => 'La tua modifica aggiunge qualche nuovo collegamento esterno. Per aiutarci a proteggerci dallo spam automatico, scrivi le due parole mostrate nel riquadro sottostante:',
+	'recaptcha-badpass' => 'Per aiutarci a proteggerci dalla forzatura automatica delle password, scrivi le due parole mostrate nel riquadro sottostante:',
+	'recaptcha-createaccount' => 'Per aiutarci a proteggerci dalla creazione automatica di nuovi accessi, scrivi le due parole mostrate nel riquadro sottostante:',
+	'recaptcha-createaccount-fail' => 'Risposta reCAPTCHA mancante o errata.',
+	'recaptcha-create' => 'Per aiutarci a proteggerci dalla creazione automatica di pagine, scrivi le due parole mostrate nel riquadro sottostante:',
+);
+
 /** Japanese (日本語) */
 $messages['ja'] = array(
 	'recaptcha-edit' => '自動編集スパムからの保護のため、下の画像に表示されている２つの言葉を入力 してください。',

@@ -85,6 +85,7 @@ See also
 /** Afrikaans (Afrikaans)
  * @author BrokenArrow
  * @author Naudefj
+ * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
 	'captcha-edit' => 'U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Special:Captcha/help|Wat is hierdie?]])',
@@ -95,6 +96,8 @@ As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn
 	'captcha-createaccount' => "As 'n beskerming teen geoutomatiseerde gemors, tik asseblief die woorde wat in die beeld verskyn in om 'n rekening te skep: <br />([[Special:Captcha/help|Wat is hierdie?]])",
 	'captcha-createaccount-fail' => 'Verkeerde of geen bevestigingkode.',
 	'captcha-create' => 'U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Special:Captcha/help|Wat is hierdie?]])',
+	'captcha-sendemail-fail' => 'Verkeerde of ontbrekende bevestigingskode.',
+	'captcha-disabledinapi' => "Hierdie aksie vereis dat 'n captcha, so dit kan nie uitgevoer word deur die API nie.",
 	'captchahelp-title' => 'Captcha-hulp',
 	'captchahelp-cookies-needed' => 'U moet koekies in u webblaaier aanskakel hê om dit te laat werk.',
 	'captchahelp-text' => "Webwerwe wat bydraes van die publiek aanvaar (soos hierdie wiki) word soms lastig geval deur kwaaddoeners met programme wat outomaties skakels in 'n klomp werwe plaas. Alhoewel hierdie gemors verwyder kan word, is dit lastig.
@@ -3323,6 +3326,13 @@ Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeri
 #   * Varje icketom rad är ett reguljärt uttryck som matchar domänen i en URL
  #</pre> <!-- leave this line exactly as it is -->',
 	'right-skipcaptcha' => 'Utföra handlingar som normalt kräver "captcha"-bekräftning utan att använda "captcha"',
+);
+
+/** Tamil (தமிழ்)
+ * @author Shanmugamp7
+ */
+$messages['ta'] = array(
+	'captchahelp-title' => 'CAPTCHA உதவி',
 );
 
 /** Telugu (తెలుగు)

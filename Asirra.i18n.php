@@ -113,6 +113,7 @@ $messages['ia'] = array(
  */
 $messages['lb'] = array(
 	'asirra-desc' => 'Asirra-Modul fir ConfirmEdit',
+	'asirra-addurl' => "An Ärer Ännerung sinn nei extern Linken. Fir ze hëllefe géint automatiséierte Spam virzegoen, sicht w.e.g. d'Kategorie vun de Fotoen an der Këscht ënnendrënner eraus:",
 	'asirra-createaccount-fail' => "Identifizéiert d'Kaze w.e.g. richteg.",
 	'asirra-nojs' => "'''Aktivéiert w.e.g. JavaScript a schéckt d'Säit nachemol.'''",
 	'asirra-failed' => 'Identifizéiert w.e.g. all Biller wou Kazen drop sinn',
@@ -133,6 +134,20 @@ $messages['mk'] = array(
 	'asirra-failed' => 'Изберете ги сликите што имаат мачка',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Event
+ */
+$messages['nb'] = array(
+	'asirra-desc' => 'Assirra-modulen for ConfirmEdit',
+	'asirra-edit' => 'Som beskyttelse mot automatisk redigert spam, vennligst velg kun kattebildene i boksen under:',
+	'asirra-addurl' => 'Din redigering inneholder nye eksterne lenker. Som beskyttelse mot automatisk redigert spam, vennligst velg kun kattebildene i boksen under:',
+	'asirra-badpass' => 'Som beskyttelse mot automatisk passordknekking, vennligst velg kun kattebildene i boksen under:',
+	'asirra-createaccount' => 'Som beskyttelse mot automatisk opprettelse av brukerkonto, vennligst velg kun kattebildene i boksen under:',
+	'asirra-createaccount-fail' => 'Vennligst angi hva som er katter.',
+	'asirra-create' => 'Som beskyttelse mot automatisk opprettelse av sider, vennligst velg kun kattebildene i boksen under:',
+	'asirra-nojs' => "'''Vennligst åpne for JavaScript og lagre siden en gang til.'''",
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
@@ -147,20 +162,6 @@ $messages['nl'] = array(
 	'asirra-create' => "Kies om het automatisch aanmaken van pagina's tegen te gaan de afbeeldingen met een poes in het onderstaande venster:",
 	'asirra-nojs' => "'''Schakel JavaScript in en probeer de pagina opnieuw op te slaan.'''",
 	'asirra-failed' => 'Identificeer alle afbeeldingen van katten.',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Event
- */
-$messages['nb'] = array(
-	'asirra-desc' => 'Assirra-modulen for ConfirmEdit',
-	'asirra-edit' => 'Som beskyttelse mot automatisk redigert spam, vennligst velg kun kattebildene i boksen under:',
-	'asirra-addurl' => 'Din redigering inneholder nye eksterne lenker. Som beskyttelse mot automatisk redigert spam, vennligst velg kun kattebildene i boksen under:',
-	'asirra-badpass' => 'Som beskyttelse mot automatisk passordknekking, vennligst velg kun kattebildene i boksen under:',
-	'asirra-createaccount' => 'Som beskyttelse mot automatisk opprettelse av brukerkonto, vennligst velg kun kattebildene i boksen under:',
-	'asirra-createaccount-fail' => 'Vennligst angi hva som er katter.',
-	'asirra-create' => 'Som beskyttelse mot automatisk opprettelse av sider, vennligst velg kun kattebildene i boksen under:',
-	'asirra-nojs' => "'''Vennligst åpne for JavaScript og lagre siden en gang til.'''",
 );
 
 /** Portuguese (Português)

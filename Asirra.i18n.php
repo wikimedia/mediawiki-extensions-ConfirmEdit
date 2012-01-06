@@ -93,6 +93,21 @@ $messages['gl'] = array(
 	'asirra-failed' => 'Identifique todas as fotos de gatos',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'asirra-desc' => 'Modul Asirra za ConfirmEdit',
+	'asirra-edit' => 'Za škit přećiwo awtomatizowanemu spamej, prošu wubjer jenož fota kóčkow w slědowacym polu:',
+	'asirra-addurl' => 'Twoja změna wobsahuje nowe eksterne wotkazy. Za škit přećiwo awtomatizowanemu spamej, prošu wubjer jenož fota kóčkow w slědowacym polu:',
+	'asirra-badpass' => 'Za škit přećiwo awtomatizowanemu złamanju hesłow, prošu wubjer jenož fota kóčkow w slědowacym polu:',
+	'asirra-createaccount' => 'Za škit přećiwo awtomatiskemu wutworjenju konta, prošu wubjer jenož fota kóčkow w slědowacym polu:',
+	'asirra-createaccount-fail' => 'Prošu identifikuj kóčki.',
+	'asirra-create' => 'Za škit přećiwo awtomatiskemu wutworjenju strony, prošu wubjer jenož fota kóčkow w slědowacym polu:',
+	'asirra-nojs' => "'''Prošu zmóžń JavaScript a składuj stronu hišće raz.'''",
+	'asirra-failed' => 'Prošu identifikuj wšě wobrazy z kóčkami',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */

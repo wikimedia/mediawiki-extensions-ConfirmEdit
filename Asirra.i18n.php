@@ -193,3 +193,18 @@ $messages['pt'] = array(
 	'asirra-nojs' => "'''Possibilite o uso de JavaScript e reenvie a página, por favor.'''",
 );
 
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Hzy980512
+ */
+$messages['zh-hans'] = array(
+	'asirra-desc' => 'ConfirmEdit的Asirra模块',
+	'asirra-edit' => '为了防止垃圾编辑攻击，请在下面的方框中选出猫的图片：',
+	'asirra-addurl' => '您的编辑包含新的外部链接。为了帮助防止自动垃圾邮件，请在下面的方框中选出猫的图片：',
+	'asirra-badpass' => '为防止自动程序破解密码，请在下面的方框中选出猫的图片：',
+	'asirra-createaccount' => '为了防止自动程序创建帐户，请在下面的方框中选出猫的图片：',
+	'asirra-createaccount-fail' => '请正确辨认出猫的图片。',
+	'asirra-create' => '为了防止自动程序创建页面，请在下面的方框中选出猫的图片：',
+	'asirra-nojs' => "'''请启动JavaScript后再提交页面。'''",
+	'asirra-failed' => '请选出所有猫的图片',
+);
+

@@ -68,6 +68,7 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
+	'fancycaptcha-desc' => 'Chenerador chocant de CAPTCHAs ta Confirmar Edicions.',
 	'fancycaptcha-addurl' => "Ha encluyito vinclos esternos en a suya edición. Ta aduyar a protecher contra o spam automatico, escriba por favor as parolas que amaneixen en a caixa d'o cobaixo ([[Special:Captcha/help|más información]]):",
 	'fancycaptcha-badlogin' => "Ta aduyar a protecher contra o trenque automatico de parolas de paso, escriba por favor as parolas que amaneixen en a caixa d'o cobaixo ([[Special:Captcha/help|más información]]):",
 	'fancycaptcha-createaccount' => 'Ta aduyar a protecher contra a creyación automatica de cuentas, escriba por favor en o quatrón as parolas que amaneixen debaixo ([[Special:Captcha/help|más información]]):',
@@ -75,6 +76,7 @@ $messages['an'] = array(
 ([[Special:Captcha/help|más información]]):",
 	'fancycaptcha-edit' => "Ta editar ista pachina, escriba por favor as parolas que amaneixen en a caixa d'o cobaixo
 ([[Special:Captcha/help|más información]]):",
+	'fancycaptcha-sendemail' => 'Ta protecher-nos contra o spam automatizau por favor escriba as parolas que amaneixen en o siguient quadro ([[Special:Captcha/help|mas información]]):',
 );
 
 /** Arabic (العربية)

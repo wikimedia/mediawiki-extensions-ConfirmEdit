@@ -179,6 +179,21 @@ $messages['nl'] = array(
 	'asirra-failed' => 'Identificeer alle afbeeldingen van katten.',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'asirra-desc' => 'Mòdul Asirra për ConfirmEdit',
+	'asirra-edit' => "Për giuté a protege contra la rumenta dle modìfiche automàtiche, për piasì ch'a selession-a mach la fòto dël gat ant la ant ël quàder sì-sota:",
+	'asirra-addurl' => "Soa modìfica a conten d'anliure esterne neuv. Për giuté a protege contra la rumenta dle modìfiche automàtiche, për piasì ch'a selession-a mach la fòto dël gat ant ël quàder sì-sota:",
+	'asirra-badpass' => "Për giuté a protege contra la forsadura automatisà ëd le ciav, për piasì ch'a selession-a mach la fòto dël gat ant ël quàder sì-sota:",
+	'asirra-createaccount' => "Për giuté a protege contra la creassion automatisà ëd cont, për piasì ch'a selession-a mach la fòto dël gat ant ël quàder sì-sota:",
+	'asirra-createaccount-fail' => 'Për piasì identifica coretament ij gat.',
+	'asirra-create' => "Për giuté a protege contra la creassion automatisà ëd pagine, për piasì ch'a selession-a mach la fòto dël gat ant ël quàder sì-sota:",
+	'asirra-nojs' => "'''Për piasì abìlita JavaScript e rispediss la pagina.'''",
+	'asirra-failed' => 'Për piasì identìfica tute le figure ëd gat',
+);
+
 /** Portuguese (Português)
  * @author Hamilton Abreu
  */

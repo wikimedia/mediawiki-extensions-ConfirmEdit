@@ -191,12 +191,12 @@ $wgHooks['APIGetAllowedParams'][] = 'ConfirmEditHooks::APIGetAllowedParams';
 $wgHooks['APIGetParamDescription'][] = 'ConfirmEditHooks::APIGetParamDescription';
 
 $wgAutoloadClasses['ConfirmEditHooks'] = "$wgConfirmEditIP/ConfirmEditHooks.php";
-$wgAutoloadClasses['SimpleCaptcha']= "$wgConfirmEditIP/Captcha.php";
-$wgAutoloadClasses['CaptchaStore']= "$wgConfirmEditIP/CaptchaStore.php";
-$wgAutoloadClasses['CaptchaSessionStore']= "$wgConfirmEditIP/CaptchaStore.php";
-$wgAutoloadClasses['CaptchaCacheStore']= "$wgConfirmEditIP/CaptchaStore.php";
+$wgAutoloadClasses['SimpleCaptcha'] = "$wgConfirmEditIP/Captcha.php";
+$wgAutoloadClasses['CaptchaStore'] = "$wgConfirmEditIP/CaptchaStore.php";
+$wgAutoloadClasses['CaptchaSessionStore'] = "$wgConfirmEditIP/CaptchaStore.php";
+$wgAutoloadClasses['CaptchaCacheStore'] = "$wgConfirmEditIP/CaptchaStore.php";
 $wgAutoloadClasses['CaptchaSpecialPage'] = "$wgConfirmEditIP/ConfirmEditHooks.php";
-$wgAutoloadClasses['HTMLCaptchaField']= "$wgConfirmEditIP/HTMLCaptchaField.php";
+$wgAutoloadClasses['HTMLCaptchaField'] = "$wgConfirmEditIP/HTMLCaptchaField.php";
 
 /**
  * Set up $wgWhitelistRead

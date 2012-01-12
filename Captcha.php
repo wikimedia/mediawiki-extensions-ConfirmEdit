@@ -177,12 +177,12 @@ class SimpleCaptcha {
 	 */
 	function isIPWhitelisted() {
 		global $wgCaptchaWhitelistIP;
-		
+
 		if ( $wgCaptchaWhitelistIP ) {
 			global $wgRequest;
-			
+
 			$ip = $wgRequest->getIP();
-			
+
 			foreach ( $wgCaptchaWhitelistIP as $range ) {
 				if ( IP::isInRange( $ip, $range ) ) {
 					return true;

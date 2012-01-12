@@ -34,7 +34,7 @@ JAVASCRIPT
 
 		$ticket = $wgRequest->getVal( 'Asirra_Ticket' );
 		$api = 'http://challenge.asirra.com/cgi/Asirra?';
-		$params = array( 
+		$params = array(
 			'action' => 'ValidateTicket',
 			'ticket' => $ticket,
 		);

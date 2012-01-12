@@ -21,7 +21,7 @@ $dir = dirname( __FILE__ );
 
 $wgExtensionMessagesFiles['ReCaptcha'] = $dir . '/ReCaptcha.i18n.php';
 
-$wgAutoloadClasses['ReCaptcha']= $dir . '/ReCaptcha.class.php';
+$wgAutoloadClasses['ReCaptcha'] = $dir . '/ReCaptcha.class.php';
 
 require_once( 'recaptchalib.php' );
 
@@ -57,9 +57,9 @@ function efReCaptcha() {
 		$wgReCaptchaPrivateKey = $recaptcha_private_key;
 	}
 
-	if ($wgReCaptchaPublicKey == '' || $wgReCaptchaPrivateKey == '') {
-		die ('You need to set $wgReCaptchaPrivateKey and $wgReCaptchaPublicKey in LocalSettings.php to ' .
+	if ( $wgReCaptchaPublicKey == '' || $wgReCaptchaPrivateKey == '' ) {
+		die ( 'You need to set $wgReCaptchaPrivateKey and $wgReCaptchaPublicKey in LocalSettings.php to ' .
 				"use the reCAPTCHA plugin. You can sign up for a key <a href='" .
-				htmlentities(recaptcha_get_signup_url ($wgServerName, "mediawiki")) . "'>here</a>.");
+				htmlentities( recaptcha_get_signup_url ( $wgServerName, "mediawiki" ) ) . "'>here</a>." );
 	}
 }

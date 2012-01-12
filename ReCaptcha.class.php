@@ -1,8 +1,7 @@
 <?php
 
 class ReCaptcha extends SimpleCaptcha {
-
-	//reCAPTHCA error code returned from recaptcha_check_answer
+	// reCAPTHCA error code returned from recaptcha_check_answer
 	private $recaptcha_error = null;
 
 	/**
@@ -12,10 +11,11 @@ class ReCaptcha extends SimpleCaptcha {
 	 */
 	function getForm() {
 		global $wgReCaptchaPublicKey, $wgReCaptchaTheme;
+
 		$useHttps = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' );
 		$js = 'var RecaptchaOptions = ' . Xml::encodeJsVar( array( 'theme' => $wgReCaptchaTheme, 'tabindex' => 1  ) );
 
-		return Html::inlineScript( $js ) . recaptcha_get_html($wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps);
+		return Html::inlineScript( $js ) . recaptcha_get_html( $wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps );
 	}
 
 	/**
@@ -27,12 +27,12 @@ class ReCaptcha extends SimpleCaptcha {
 	function passCaptcha() {
 		global $wgReCaptchaPrivateKey, $wgRequest;
 
-		//API is hardwired to return wpCaptchaId and wpCaptchaWord, so use that if the standard two are empty
+		// API is hardwired to return wpCaptchaId and wpCaptchaWord, so use that if the standard two are empty
 		$challenge = $wgRequest->getVal( 'recaptcha_challenge_field', $wgRequest->getVal( 'wpCaptchaId' ) );
 		$response = $wgRequest->getVal( 'recaptcha_response_field', $wgRequest->getVal( 'wpCaptchaWord' ) );
 
 		if ( $response === null ) {
-			//new captcha session
+			// new captcha session
 			return false;
 		}
 
@@ -43,7 +43,7 @@ class ReCaptcha extends SimpleCaptcha {
 			$response
 		);
 
-		if (!$recaptcha_response->is_valid) {
+		if ( !$recaptcha_response->is_valid ) {
 			$this->recaptcha_error = $recaptcha_response->error;
 			return false;
 		}
@@ -56,6 +56,7 @@ class ReCaptcha extends SimpleCaptcha {
 
 	function addCaptchaAPI( &$resultArr ) {
 		global $wgReCaptchaPublicKey;
+
 		$resultArr['captcha']['type'] = 'recaptcha';
 		$resultArr['captcha']['mime'] = 'image/png';
 		$resultArr['captcha']['key'] = $wgReCaptchaPublicKey;
@@ -72,6 +73,7 @@ class ReCaptcha extends SimpleCaptcha {
 	function getMessage( $action ) {
 		$name = 'recaptcha-' . $action;
 		$text = wfMsg( $name );
+
 		# Obtain a more tailored message, if possible, otherwise, fall back to
 		# the default for edits
 		return wfEmptyMsg( $name, $text ) ? wfMsg( 'recaptcha-edit' ) : $text;

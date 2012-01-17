@@ -25,6 +25,7 @@ $messages['en'] = array(
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'asirra-desc' => 'Модуль Asirra для ConfirmEdit',
@@ -35,6 +36,7 @@ $messages['be-tarask'] = array(
 	'asirra-createaccount-fail' => 'Калі ласка, слушна выберыце катоў.',
 	'asirra-create' => 'Для абароны супраць аўтаматычнага стварэньня старонак, калі ласка, выберыце толькі фота з катом ў полі ніжэй:',
 	'asirra-nojs' => "'''Калі ласка, дазвольце JavaScript і дашліце старонку зноў.'''",
+	'asirra-failed' => 'Калі ласка, вызначце ўсе выявы з катамі',
 );
 
 /** German (Deutsch)

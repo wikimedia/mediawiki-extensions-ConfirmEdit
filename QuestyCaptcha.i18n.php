@@ -221,12 +221,12 @@ Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko
 $messages['de'] = array(
 	'questycaptcha-desc' => 'Questy-CAPTCHA-Generator für die Erweiterung „Confirm Edit“',
 	'questycaptcha-addurl' => 'Deine Bearbeitung enthält neue externe Links.
-Zum Schutz vor automatisiertem Spam beantworte bitte die untenstehende Frage ([[Special:Captcha/help|weitere Informationen]]):',
-	'questycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos beantworte bitte die folgende Frage ([[Special:Captcha/help|weitere Informationen]]):',
+Zum Schutz vor automatisiertem Spam, beantworte bitte die untenstehende Frage, um die Seite speichern zu können ([[Special:Captcha/help|weitere Informationen]]):',
+	'questycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos, beantworte bitte die untenstehende Frage, um dich anmelden zu können ([[Special:Captcha/help|weitere Informationen]]):',
 	'questycaptcha-createaccount' => 'Zum Schutz vor einer automatisierten Anlage von Benutzerkonten ist es erforderlich, die folgende Frage zu beantworten ([[Special:Captcha/help|weitere Informationen]]):',
 	'questycaptcha-create' => 'Bitte beantworte die folgende Frage, um diese Seite erstellen zu können ([[Special:Captcha/help|weitere Informationen]]):',
-	'questycaptcha-edit' => 'Bitte beantworte die folgende Frage, um diese Seite bearbeiten zu können ([[Special:Captcha/help|weitere Informationen]]):',
-	'questycaptcha-sendemail' => 'Zum Schutz vor automatisiertem Spam bitten wir dich, die unten angezeigte Frage zu beantworten ([[Special:Captcha/help|weitere Informationen]]):',
+	'questycaptcha-edit' => 'Bitte beantworte die folgende Frage, um diese Seite speichern zu können ([[Special:Captcha/help|weitere Informationen]]):',
+	'questycaptcha-sendemail' => 'Zum Schutz vor automatisiertem Spam, beantworte bitte die untenstehende Frage, um die E-Mail-Nachricht senden zu können ([[Special:Captcha/help|weitere Informationen]]):',
 	'questycaptchahelp-text' => 'Internetangebote, die — wie dieses Wiki — für Beiträge von praktisch jedem offen sind, werden häufig von Spammern missbraucht, welche versuchen, mithilfe entsprechender Werkzeuge ihre Links automatisch auf vielen Webseiten zu platzieren.
 Zwar können derartige Spam-Links wieder entfernt werden, doch stellen sie trotzdem ein erhebliches Ärgernis dar.
 
@@ -235,7 +235,7 @@ Da es kaum möglich ist, dies zu automatisieren, können hierdurch die meisten S
 
 Sollte dich dieses Verfahren beim Vornehmen erwünschter Bearbeitungen behindern, wende dich bitte an einen [[{{MediaWiki:Grouppage-sysop}}|Administrator]], um Unterstützung zu erhalten.
 
-Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
+Die Schaltfläche „Zurück“ des Browsers führt zurück zum vorherigen Bearbeitungsfenster.',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)

@@ -936,6 +936,23 @@ $messages['el'] = array(
 	'right-skipcaptcha' => 'Πραγματοποίηση ενεργειών που ενεργοποιούν captcha χωρίς να χρειάζεται πέρασμα από το captcha',
 );
 
+/** Canadian English (Canadian English)
+ * @author Techman224
+ */
+$messages['en-ca'] = array(
+	'captchahelp-text' => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites.
+While these spam links can be removed, they are a significant nuisance.
+
+Sometimes, especially when adding new web links to a page, the wiki may show you an image of coloured or distorted text and ask you to type the words shown.
+Since this is a task that's hard to automate, it will allow most real humans to make their posts while stopping most spammers and other robotic attackers.
+
+Unfortunately this may inconvenience users with limited vision or using text-based or speech-based browsers.
+At the moment we do not have an audio alternative available.
+Please contact the  [[{{MediaWiki:Grouppage-sysop}}|site administrators]] for assistance if this is unexpectedly preventing you from making legitimate posts.
+
+Hit the 'back' button in your browser to return to the page editor.",
+);
+
 /** British English (British English)
  * @author Lcawte
  */
@@ -1400,8 +1417,9 @@ $messages['gu'] = array(
 ([[Special:Captcha/help|more info]]):',
 	'captcha-badlogin' => 'આપોઆપ થતી ગુપ્તસંજ્ઞાની ચોરી (password cracking)થી બચાવવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount' => 'આપોઆપ નવા ખાતા ખુલતા રોકવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો',
-	'captcha-createaccount-fail' => 'ખોટી અથવા ખૂટતી પુષ્ટિ સંજ્ઞા',
+	'captcha-createaccount-fail' => 'ખોટી અથવા ખૂટતી ખાતરી સંજ્ઞા.',
 	'captcha-create' => 'નવું પાનું બનાવવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો  ([[Special:Captcha/help|more info]]):',
+	'captcha-sendemail-fail' => 'ખોટી અથવા ખૂટતી ખાતરી સંજ્ઞા.',
 	'captchahelp-title' => 'કેપ્ટ્ચા/કેપ્ચા (Captcha) મદદ',
 	'captchahelp-cookies-needed' => 'આ વ્યવસ્થિત રીતે જોઇ શકાય તે માટે તમારા બ્રાઉઝરમાં કુકીઝ એનેબલ કરેલી હોવી જોઇશે.',
 	'captchahelp-text' => "આપણી વિકિ જેવી વૅબ સાઇટો કે જે લોકોને યોગદાન કરવાની પરવાનગી આપે છે, તેમનો સ્પામરો દ્વારા દુરૂપયોગ થતો આવ્યો છે. આવા સ્પામરો તેમની કડીઓ એક સાથે અનેક વૅબ સાઇટો પર મુકવા માટે સ્વચાલિત સાધનો વાપરે છે. આવી કડીઓ ખરેખર એક દૂષણ છે અને તેને દૂર કરવાના ઉપાય કરવા જોઇએ.

@@ -530,6 +530,19 @@ Zum Schutz vor automatisiertem Spamming gib des Wort in s Fäld unten yy. Druck 
 	'fancycaptcha-sendemail' => 'As Schutz gege e automatischs Spamming, gib bitte des Wort in s Fäld unten yy ([[Special:Captcha/help|meh Informatione]]):',
 );
 
+/** Gujarati (ગુજરાતી)
+ * @author Dsvyas
+ * @author Sushant savla
+ */
+$messages['gu'] = array(
+	'fancycaptcha-addurl' => 'તમારા ફેરફારમાં નવી બાહ્ય કડીઓ શામિલ છે.
+તમે કરેલા ફેરફારોમાં નવી બાહ્ય કડીઓ સામેલ છે. સ્વચાલિત સ્પેમ/સ્પામ(spam) થી બચવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો
+([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-createaccount' => 'આપોઆપ નવા ખાતા ખુલતા રોકવા માટે નીચે દેખાતા શબ્દો ખાનામાં લખો ([[Special:Captcha/help|વધુ માહિતી]]):',
+	'fancycaptcha-create' => 'પાનું બનાવવા માટે નીચે દેખાતા શબ્દો ખાનામાં ટાઈપ કરો ([[Special:Captcha/help|વધુ માહિતી]]):',
+	'fancycaptcha-edit' => 'આ પાનામાં ફેરફાર કરવા માટે નીચે દેખાતા શબ્દો ખાનામાં ટાઈપ કરો ([[Special:Captcha/help|વધુ માહિતી]]):',
+);
+
 /** Hebrew (עברית)
  * @author Amire80
  * @author Rotem Liss

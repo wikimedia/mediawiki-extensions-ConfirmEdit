@@ -181,6 +181,13 @@ $messages['nl'] = array(
 	'asirra-failed' => 'Identificeer alle afbeeldingen van katten.',
 );
 
+/** Polish (Polski)
+ * @author BeginaFelicysym
+ */
+$messages['pl'] = array(
+	'asirra-desc' => 'Moduł Asirra dla ConfirmEdit',
+);
+
 /** Piedmontese (Piemontèis)
  * @author Borichèt
  * @author Dragonòt

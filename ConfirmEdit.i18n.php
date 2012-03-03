@@ -325,6 +325,13 @@ Calca nel botón 'atrás' del to navegador pa volver a la páxina d'edición.",
 	'right-skipcaptcha' => 'Facer les acciones que requieren captcha ensin tener que lu introducir',
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Vugar 1981
+ */
+$messages['az'] = array(
+	'captchahelp-title' => 'CAPTCHA kömək',
+);
+
 /** Bashkir (Башҡортса)
  * @author Assele
  */

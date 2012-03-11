@@ -418,7 +418,7 @@ class SimpleCaptcha {
 	 */
 	function getLinksFromTracker( $title ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$id = $title->getArticleId(); // should be zero queries
+		$id = $title->getArticleID(); // should be zero queries
 		$res = $dbr->select( 'externallinks', array( 'el_to' ),
 			array( 'el_from' => $id ), __METHOD__ );
 		$links = array();

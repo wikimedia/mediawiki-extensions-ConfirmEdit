@@ -3366,8 +3366,12 @@ Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeri
 
 /** Tamil (தமிழ்)
  * @author Shanmugamp7
+ * @author செல்வா
  */
 $messages['ta'] = array(
+	'captcha-createaccount-fail' => 'தவறான அல்லது குறையுடைய உறுதிப்படுத்தல் குறியீடு.',
+	'captcha-sendemail-fail' => 'தவறான அல்லது குறையுடைய உறுதிப்படுத்தல் குறியீடு.',
+	'captcha-disabledinapi' => 'இச்செயற்பாட்டிற்கு காப்சா (நெளியெழுத்து) தேவை, ஆகவே இதனை ஏபிஐ (API) வழியாக செய்ய முடியாது.',
 	'captchahelp-title' => 'CAPTCHA உதவி',
 );
 

@@ -824,11 +824,12 @@ Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Erdemaslancan
  * @author Xoser
  */
 $messages['diq'] = array(
 	'captcha-edit' => 'Qe ena pel vurnayîşî, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
-	'captcha-desc' => 'Implementasyonê captacha yê asanî',
+	'captcha-desc' => 'Rehat CAPTCHA teknoloci u  dezgina parola-ezayan',
 	'captcha-addurl' => 'Vurnayîşanê tu de linkanê harîcîyê newe esto.
 Qe otomatik spamî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'captcha-badlogin' => 'Qe otomatik parola crack kerdişî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
@@ -1908,16 +1909,40 @@ Pencèten tombol 'back' ing panjlajah wèb panjenengan kanggo bali menyang kaca 
 );
 
 /** Georgian (ქართული)
+ * @author David1010
  * @author ITshnik
  */
 $messages['ka'] = array(
 	'captcha-edit' => 'ამ გვერდის რედაქტირებისათვის, გთხოვთ, ამოხსნათ ქვემოთ მოცემული მარტივი მაგალითი და პასუხი შეიყვანოთ ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
+	'captcha-desc' => 'უზრუნველყოფს CAPTCHA-ს მეთოდების გამოყენებას სპამისა და პაროლის გამოცნობისაგან დასაცავად',
 	'captcha-addurl' => 'თქვენი ცვლილება შეიცავს ახალ გარე ბმულებს.
 ავტომატური სპამინგისგან თავდაცვის მიზნით, გთხოვთ, ამოხსნათ ქვემოთ მოცემული მარტივი მაგალითი და პასუხი შეიყვანოთ ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
 	'captcha-badlogin' => 'პაროლების ავტომატური გატეხვისგან თავდაცვის მიზნით, გთხოვთ, ამოხსნათ ქვემოთ მოცემული მარტივი მაგალითი და პასუხი შეიყვანოთ ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
 	'captcha-createaccount' => 'ანგარიშების ავტომატური შექმნისგან თავდაცვის მიზნით, გთხოვთ, ამოხსნათ ქვემოთ მოცემული მარტივი მაგალითი და პასუხი შეიყვანოთ ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
+	'captcha-createaccount-fail' => 'დადასტურების კოდი არასწორია ან დაკარგულია.',
 	'captcha-create' => 'გვერდის შესაქმნელად, გთხოვთ, ამოხსნათ ქვემოთ მოცემული მარტივი მაგალითი და პასუხი შეიყვანოთ ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
 	'captcha-sendemail' => 'ავტომატური სპამინგისგან თავდაცვის მიზნით, გთხოვთ, ამოხსნათ ქვემოთ მოცემული მარტივი მაგალითი და პასუხი შეიყვანოთ ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
+	'captcha-sendemail-fail' => 'დადასტურების კოდი არასწორია ან დაკარგულია.',
+	'captcha-disabledinapi' => 'ეს მოქმედება მოითხოვს CAPTCHA-ს შემოწმებას და ამიტომ შეუძლებელია მისი შესრულება API-ით.',
+	'captchahelp-title' => 'CAPTCHA-ს დახმარება',
+	'captchahelp-cookies-needed' => 'თქვენ უნდა ჩართოთ ბრაუზერში კუკი, რათა ფუქცია ამოქმედდეს.',
+	'captchahelp-text' => 'ვებ-გვერდები, რომლებიც  მათი შინაარსის დამატებისა და ცვლილებების საშუალებას იძლევიან, მათ შორის ეს ვიკიც, ხშირად ხდებიან სპამერების სამიზნე, რომლებიც იყენებენ საიტზე ავტომატური ბმულების დამატების პროგრამებს.
+მიუხედავად იმისა, რომ ასეთი ბმულების წაშლა შეიძლება, ისინი მაინც არსებით შემაფერხებელს წარმადგენს.
+
+ზოგიერთი ქმედებისას — მაგალითად, გვერდზე ახალი ვებ-ბმულის დამატებისას — თქვენ შეგიძლიათ იხილოთ სპეციალური სურათი ფერადი ან დამახინჯებული ტექსტით და თქვენ შემოგეთავაზებათ ამ დამახინჯებული ტექსტის შეყვანა.
+რადგანაც დამახინჯებული ტექსტის ამოცნობა პროგრამისათვის რთულ ამოცანას წარმოადგენს, სპამისა და ვანდალური პროგრამების უმრავლესობისათვის მათთან გამკლავება შეუძლებელი იქნება, მაშინ როდესაც ადამიანები მას იოლად უმკლავდებიან.
+
+სამწუხაროდ, მსგავსმა დაცვამ შეიძლება დისკომფორტი შეუქმნას სუსტი მხედველობის მქონე ადამიანებს, ან მათ ვინც იყენებს ტექსტურ ან კითხვად ბრაუზერებს.
+ამჟამად ჩვენ არ გვაქვს ამ შემოწმების ხმოვანი ალტერნატივა.
+გთხოვთ, თუ მსგავსი შემოწმება ხელს გიშლით საიტზე კეთილსინდისიერ მუშაობაში, დახმარებისათვის მიმართეთ [[{{MediaWiki:Grouppage-sysop}}|ადმინისტრატორებს]].
+
+თქვენ ბრაუზერში დააჭირეთ ღილაკს „უკან“, რათა დაუბრუნდეთ რედაქტირებას.',
+	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
+# სინტაქსის აღწერა:
+#  * ყველაფერი, დაწყებული "#" სიმბოლოდან - ხაზის ბოლომდე ითვლება კომენტარად
+#  * ყველა არაცარიელი ხაზი ითვლება URL-ში კვანძის შესაბამისი სახელის რეგულარული გამონათქვამის ფრაგმენტად
+  #</pre> <!-- leave this line exactly as it is -->',
+	'right-skipcaptcha' => 'CAPTCHA-შემოწმების მოთხოვნილი მოქმედებების შესრულება CAPTCHA-ს გავლის გარეშე',
 );
 
 /** Kara-Kalpak (Qaraqalpaqsha)

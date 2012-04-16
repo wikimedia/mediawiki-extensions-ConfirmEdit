@@ -906,6 +906,7 @@ Clique o botão 'voltar' do seu browser para voltar à página de edição.",
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
+ * @author 555
  */
 $messages['pt-br'] = array(
 	'questycaptcha-addurl' => 'Sua edição inclui novas ligações externas.
@@ -915,15 +916,15 @@ Para proteção contra spam automático, por favor responda a questão que apare
 	'questycaptcha-create' => 'Para criar a página, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-edit' => 'Para editar esta página, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-sendemail' => "Para ajudar a prevenir o ''spam'' automatizado, por favor, responda à seguinte pergunta ([[Special:Captcha/help|mais informações]]):",
-	'questycaptchahelp-text' => "Sítios que aceitam contribuições públicas, como este wiki, são vulneráveis a spammers que utilizam ferramentas automatizadas para inserir as suas ligações em diversos locais. 
-Apesar de ser possível emover tais ligações, elas são um incômodo significativo.
+	'questycaptchahelp-text' => "Sites que aceitam contribuições públicas, como este wiki, são vulneráveis a spammers que utilizam ferramentas automatizadas para inserir os seus links em diversos locais. 
+Apesar de ser possível remover tais links, eles são um incômodo significativo.
 
-Algumas vezes, especialmente ao adicionar novas ligações externas a uma página, a wiki pode pedir a você que responda a uma pergunta. 
-Uma vez que essa é uma tarefa um difícil de ser automatizada, ela possibilita que a maioria dos humanos faça as suas contribuições ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
+Algumas vezes, especialmente ao adicionar novos links externos a uma página, o wiki pode pedir a você que responda a uma pergunta. 
+Uma vez que essa é uma tarefa um tanto difícil de ser automatizada, ela possibilita que a maioria dos humanos faça as suas contribuições ao mesmo tempo que inibe as que forem feitas por spammers e mecanismos automatizados.
 
-Por favor entre em contato com os [[{{MediaWiki:Grouppage-sysop}}|administradores do sítio]] para assistí-lo caso isto esteja impedindo-o de realizar contribuições legítimas.
+Entre em contato com os [[{{MediaWiki:Grouppage-sysop}}|administradores do site]] para pedir ajuda caso isso esteja te impedindo de realizar contribuições legítimas.
 
-Pressione o botão 'voltar' de seu navegador para retornar à página de edição.\"",
+Clique no botão 'voltar' de seu navegador para retornar ao editor de páginas.",
 );
 
 /** Tarandíne (Tarandíne)

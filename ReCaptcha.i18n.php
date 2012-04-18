@@ -242,8 +242,11 @@ $messages['it'] = array(
 	'recaptcha-create' => 'Per aiutarci a proteggerci dalla creazione automatica di pagine, scrivi le due parole mostrate nel riquadro sottostante:',
 );
 
-/** Japanese (日本語) */
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
 $messages['ja'] = array(
+	'recaptcha-desc' => 'Confirm Edit 用 reCAPTCHA モジュール',
 	'recaptcha-edit' => '自動編集スパムからの保護のため、下の画像に表示されている２つの言葉を入力 してください。',
 	'recaptcha-addurl' => 'あなたの編集は新しい外部リンクを含んでいます。自動スパムからの保護のた め、下の画像に表示されている２つの言葉を入力してください。',
 	'recaptcha-badpass' => '自動パスワードクラッキングからの保護のために、下の画像に表示されている２ つの言葉を入力してください。',

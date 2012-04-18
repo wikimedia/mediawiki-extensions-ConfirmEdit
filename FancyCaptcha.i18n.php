@@ -671,9 +671,10 @@ $messages['it'] = array(
  * @author Aotake
  * @author Fryed-peach
  * @author Marine-Blue
+ * @author Shirayuki
  */
 $messages['ja'] = array(
-	'fancycaptcha-desc' => 'Confirm Edit 用の装飾的な CAPTCHA 生成器',
+	'fancycaptcha-desc' => 'Confirm Edit 用の装飾的な CAPTCHA ジェネレータ',
 	'fancycaptcha-addurl' => 'あなたの編集で新たな外部リンクが追加されています。
 自動化スクリプトによるスパム行為防止のため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',

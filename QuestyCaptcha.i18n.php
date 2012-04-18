@@ -613,9 +613,10 @@ Fare clic sul pulsante 'indietro' del browser per tornare alla pagina di modific
 /** Japanese (日本語)
  * @author Aotake
  * @author Fryed-peach
+ * @author Shirayuki
  */
 $messages['ja'] = array(
-	'questycaptcha-desc' => 'Confirm Edit 用の質問形式 CAPTCHA 生成器',
+	'questycaptcha-desc' => 'Confirm Edit 用の質問形式 CAPTCHA ジェネレータ',
 	'questycaptcha-addurl' => 'あなたの編集では新たな外部リンクが追加されています。自動で実行されるスパム行為防止のため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-createaccount' => '自動化されたアカウント作成を防止するため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
@@ -904,9 +905,9 @@ Clique o botão 'voltar' do seu browser para voltar à página de edição.",
 );
 
 /** Brazilian Portuguese (Português do Brasil)
+ * @author 555
  * @author Eduardo.mps
  * @author Giro720
- * @author 555
  */
 $messages['pt-br'] = array(
 	'questycaptcha-addurl' => 'Sua edição inclui novas ligações externas.

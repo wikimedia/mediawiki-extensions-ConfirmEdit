@@ -11,6 +11,7 @@ $messages = array();
 $messages['en'] = array(
 	'captcha-edit'               => 'To edit this page, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-desc'               => 'Provides CAPTCHA techniques to protect against spam and password-guessing',
+	'captcha-label'              => 'CAPTCHA',
 	'captcha-addurl'             => 'Your edit includes new external links.
 To help protect against automated spam, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-badlogin'           => 'To help protect against automated password cracking, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
@@ -60,6 +61,7 @@ See also
 *{{msg-mw|Questycaptcha-edit}}
 *{{msg-mw|Fancycaptcha-edit}}',
 	'captcha-desc' => '{{desc}}',
+	'captcha-label' => 'Label field for input field shown in forms',
 	'captcha-addurl' => 'The explanation of CAPTCHA shown to users trying to add new external links.
 See also
 *{{msg-mw|Questycaptcha-addurl}}

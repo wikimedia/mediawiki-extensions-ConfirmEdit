@@ -149,10 +149,12 @@ $messages['es'] = array(
 	'recaptcha-create' => 'Para protegernos de la creación automática de páginas, escribe las dos palabras que ves en el cuadro de abajo:',
 );
 
-/** French (Français) */
+/** French (Français)
+ * @author Urhixidur
+ */
 $messages['fr'] = array(
 	'recaptcha-edit' => "Pour nous protéger des robots, merci d'écrire les deux mots visibles dans le cadre qui suit:",
-	'recaptcha-addurl' => "Votre contribution contient des liens vers un site externe. Pour nous protéger des robots, merci d'écrire les deux mots visibles dans le cadre qui suit:",
+	'recaptcha-addurl' => 'Votre contribution contient des liens vers un site externe. Pour nous protéger des robots, merci d’écrire les deux mots visibles dans le cadre qui suit :',
 	'recaptcha-badpass' => "Pour nous protéger des essais automatiques de cassage de mot de passe, merci d'écrire les deux mots visibles dans le cadre qui suit:",
 	'recaptcha-createaccount' => "Pour nous protéger des créations automatiques de compte, merci d'écrire les deux mots visibles dans le cadre qui suit:",
 	'recaptcha-createaccount-fail' => 'Réponse de reCAPTCHA fausse ou manquante.',

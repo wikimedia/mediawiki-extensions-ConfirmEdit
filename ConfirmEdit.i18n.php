@@ -1823,8 +1823,8 @@ Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
  * @author Whym
  */
 $messages['ja'] = array(
-	'captcha-edit' => 'このページを編集するには、下記の簡単な数式を計算し、欄に答えを入力してください。([[Special:Captcha/help|ヘルプ]])',
-	'captcha-desc' => 'スパムやパスワード推定の攻撃を防ぐためのCAPTCHA技術を提供します',
+	'captcha-edit' => 'このページを編集するには、下記の簡単な数式を計算し、欄に答えを入力してください([[Special:Captcha/help|ヘルプ]])：',
+	'captcha-desc' => 'スパムやパスワード推定の攻撃を防ぐためのCAPTCHA技術を提供する',
 	'captcha-addurl' => 'あなたの編集により新たに外部リンクが追加されようとしています。スパム防止のため、下記の簡単な数式を計算し、欄に答えを入力してください。([[Special:Captcha/help|ヘルプ]])',
 	'captcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防ぐため、下記の簡単な数式を計算し、欄に答えを入力してください。([[Special:Captcha/help|ヘルプ]])',
 	'captcha-createaccount' => 'アカウントの自動作成を防ぐため、下記の簡単な数式を計算し、欄に答えを入力してください。([[Special:Captcha/help|ヘルプ]])',
@@ -1834,7 +1834,7 @@ $messages['ja'] = array(
 	'captcha-sendemail-fail' => '確認コードが間違っているか入力されていません。',
 	'captcha-disabledinapi' => 'この操作はキャプチャを必要としているため、APIによって実行することができません。',
 	'captchahelp-title' => 'CAPTCHA(画像認証)ヘルプ',
-	'captchahelp-cookies-needed' => 'ブラウザのクッキー機能を有効にする必要があります。',
+	'captchahelp-cookies-needed' => 'ブラウザの Cookie を有効にする必要があります。',
 	'captchahelp-text' => '一般からの投稿を受け付けるこのウィキのようなウェブサイトは、自動投稿ツールを使って多くのサイトにリンクを張ってまわるスパマーにより荒らされがちです。
 このようなスパムは除去できるものの、その作業は大変に面倒なものです。
 
@@ -1847,9 +1847,9 @@ $messages['ja'] = array(
 
 ページの編集に戻るには、ブラウザの「戻る」ボタンを押してください。',
 	'captcha-addurl-whitelist' => ' #<!-- この行は変更しないでください --> <pre>
-# 構文は以下のとおりです:
+# 構文は以下の通りです:
 #  * "#"文字から行末まではコメントとして扱われます
-#  * 空白を含んでいない行は、URLに含まれるホスト名との一致を検出する正規表現です
+#  * 空白を含まない行は、URLに含まれるホスト名との一致を検出する正規表現です
   #</pre> <!-- この行は変更しないでください -->',
 	'right-skipcaptcha' => 'CAPTCHAが必要な場面でCAPTCHAをスキップして操作を実行',
 );

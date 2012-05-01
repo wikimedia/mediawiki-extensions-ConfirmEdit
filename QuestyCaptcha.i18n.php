@@ -998,6 +998,28 @@ Kontaktujte prosím [[{{MediaWiki:Grouppage-sysop}}|správcov lokality]] ak potr
 Späť na úpravu stránky sa vrátite kliknutím na tlačidlo „Späť“ vo vašom prehliadači.',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'questycaptcha-addurl' => 'Vaše urejanje vključuje nove zunanje povezave.
+Zaradi zaščite pred samodejnim smetjem prosimo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
+	'questycaptcha-badlogin' => 'Zaradi zaščite pred samodejnim ugotavljanjem gesel prosimo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
+	'questycaptcha-createaccount' => 'Zaradi zaščite pred samodejnim ustvarjanjem računov prosimo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
+	'questycaptcha-create' => 'Če želite ustvariti stran, prosimo odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
+	'questycaptcha-edit' => 'Če želite urediti stran, prosimo odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
+	'questycaptcha-sendemail' => 'Zaradi zaščite pred samodejnim smetenjem prosimo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
+	'questycaptchahelp-text' => 'Spletne strani, ki omogočajo prispevanje širši javnosti, kot na primer ta wiki, pogosto zlorabljajo spamerji, ki za dodajanje svojih povezav na mnoge strani uporabljajo avtomatizirana orodja.
+Čeprav je neželene povezave mogoče odstraniti, so precejšnja nadloga.
+
+Včasih, zlasti pri dodajanju novih spletnih povezav na stran, vam bo wiki morda zastavil vprašanje.
+Ker je to opravilo težko avtomatizirati, bo s tem večini ljudi prispevanje dovoljeno, spamerji in drugi robotski napadalci pa bodo ustavljeni.
+
+Če vam to nepričakovano preprečuje legitimno prispevanje, prosimo, da se obrnete na [[{{MediaWiki:Grouppage-sysop}}|administratorje spletišča]].
+
+Za vrnitev v urejevalnik izberite gumb »nazaj« v vašem brskalniku.',
+);
+
 /** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Rancher
  */

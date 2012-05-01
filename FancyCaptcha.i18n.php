@@ -1194,12 +1194,12 @@ $messages['sk'] = array(
  */
 $messages['sl'] = array(
 	'fancycaptcha-addurl' => 'Vaše urejanje vključuje nove zunanje povezave.
-Zaradi zaščite pred samodejnim smetjem, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
-	'fancycaptcha-badlogin' => 'Zaradi zaščite pred samodejnim ugotavljanjem gesel, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
-	'fancycaptcha-createaccount' => 'Zaradi zaščite pred samodejnim ustvarjanjem računov, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
+Zaradi zaščite pred samodejnim smetjem prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
+	'fancycaptcha-badlogin' => 'Zaradi zaščite pred samodejnim ugotavljanjem gesel prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
+	'fancycaptcha-createaccount' => 'Zaradi zaščite pred samodejnim ustvarjanjem računov prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
 	'fancycaptcha-create' => 'Če želite ustvariti stran, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
-	'fancycaptcha-edit' => 'Če želite urejati stran, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
-	'fancycaptcha-sendemail' => 'Zaradi zaščite pred samodejnim smetenjem, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
+	'fancycaptcha-edit' => 'Če želite urediti stran, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
+	'fancycaptcha-sendemail' => 'Zaradi zaščite pred samodejnim smetenjem prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
 );
 
 /** Albanian (Shqip)

@@ -3196,22 +3196,26 @@ $messages['sl'] = array(
 	'captcha-desc' => 'Nudi pristope CAPTCHA za zaščito proti smetju in ugibanju gesel',
 	'captcha-addurl' => 'Vaše urejanje vključuje nove zunanje povezave.
 Zaradi zaščite pred samodejno navlako boste morali vpisati besede, ki se pojavijo v okencu ([[Special:Captcha/help|več informacij]]):',
-	'captcha-badlogin' => 'Zaradi zaščite pred samodejnim ugotavljanjem gesel, prosimo rešite preprost seštevek spodaj in vnesite odgovor v okence ([[Special:Captcha/help|več informacij]]):',
-	'captcha-createaccount' => 'Zaradi zaščite pred samodejnim ustvarjanjem računov, prosimo rešite preprost seštevek spodaj in vnesite odgovor v okence ([[Special:Captcha/help|več informacij]]):',
+	'captcha-badlogin' => 'Zaradi zaščite pred samodejnim ugotavljanjem gesel prosimo, da rešite preprost seštevek spodaj in vnesete odgovor v okence ([[Special:Captcha/help|več informacij]]):',
+	'captcha-createaccount' => 'Zaradi zaščite pred samodejnim ustvarjanjem računov prosimo, da spodaj rešite preprost seštevek in vnesete odgovor v okence ([[Special:Captcha/help|več informacij]]):',
 	'captcha-createaccount-fail' => 'Napačna ali manjkajoča potrditvena koda.',
 	'captcha-create' => 'Če želite ustvariti stran, prosimo izračunajte preprost seštevek spodaj in odgovor vpišite v polje ([[Special:Captcha/help|več informacij]]):',
 	'captcha-sendemail' => 'Zaradi zaščite pred samodejnim smetenjem, prosimo rešite preprost seštevek spodaj in vnesite odgovor v okence ([[Special:Captcha/help|več informacij]]):',
 	'captcha-sendemail-fail' => 'Napačna ali manjkajoča potrditvena koda.',
 	'captcha-disabledinapi' => 'To dejanje zahteva preverjanje captcha, zato ga ni mogoče izvesti preko API.',
 	'captchahelp-title' => 'Pomoč za captcha',
-	'captchahelp-cookies-needed' => 'Morali boste omogočiti piškotke v vašem brskalnik, če želite, da to deluje.',
-	'captchahelp-text' => 'Spletne strani, ki omogočajo objavljanje širši javnosti, kot na primer ta wiki, pogosto zlorabljajo spamerji, ki za objavo svojih povezav na mnogih straneh uporabljajo avtomatizirana orodja. Čeprav se te neželene povezave da odstraniti, so precejšnja nadloga.
+	'captchahelp-cookies-needed' => 'Če želite, da to deluje, boste morali v svojem brskalniku omogočiti piškotke.',
+	'captchahelp-text' => 'Spletne strani, ki omogočajo objavljanje širši javnosti, kot na primer ta wiki, pogosto zlorabljajo spamerji, ki za objavo svojih povezav na mnoge strani uporabljajo avtomatizirana orodja.
+Čeprav je neželene povezave mogoče odstraniti, so precejšnja nadloga.
 
-Včasih, zlasti pri dodajanju novih spletnih povezav na stran, vam bo morda wiki prikazal sliko obarvanega ali popačenega besedila in zahteval vpis prikazanih besed. Ker je to opravilo težko avtomatizirati, bo s tem večini ljudi objavljanje dovoljeno, spamerji in druge robotski napadalci pa bodo ustavljeni.
+Včasih, zlasti pri dodajanju novih spletnih povezav na stran, vam bo wiki morda prikazal sliko obarvanega ali popačenega besedila in zahteval vpis prikazanih besed.
+Ker je to opravilo težko avtomatizirati, bo s tem večini ljudi objavljanje dovoljeno, spamerji in drugi robotski napadalci pa bodo ustavljeni.
 
-Žal lahko to povzroči nevšečnosti uporabnikom s slabim vidom in tistim, ki uporabljajo besedilne ali govorne brskalnike. Glasovna možnost trenutno še ni na razpolago. Če vam to nepričakovano preprečuje legitimno objavo, se, prosimo, obrnite na [[{{MediaWiki:Grouppage-sysop}}|administratorje spletišča]].
+Žal lahko to povzroči nevšečnosti uporabnikom s slabim vidom in tistim, ki uporabljajo besedilne ali govorne brskalnike.
+Glasovna možnost trenutno še ni na razpolago.
+Če vam to nepričakovano preprečuje legitimno objavo, prosimo, da se obrnete na [[{{MediaWiki:Grouppage-sysop}}|administratorje spletišča]].
 
-Za vrnitev v urejevalnik izberite gumb »nazaj« vašega brskalnika.',
+Za vrnitev v urejevalnik izberite gumb »nazaj« v vašem brskalniku.',
 	'captcha-addurl-whitelist' => ' #<!-- pustite to vrstico takšno, kot je --> <pre>
 # Skladnja je sledeča:
 #   * Vse od znaka »#« do konca vrstice je pripomba

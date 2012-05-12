@@ -82,6 +82,7 @@ $messages['es'] = array(
 );
 
 /** French (Français)
+ * @author Gomoko
  * @author Seb35
  */
 $messages['fr'] = array(
@@ -93,6 +94,7 @@ $messages['fr'] = array(
 	'asirra-createaccount-fail' => 'Veuillez identifier correctement les chats.',
 	'asirra-create' => 'Pour nous aider à nous protéger contre la création automatique de pages, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
 	'asirra-nojs' => "'''Veuillez activer le JavaScript et re-soumettre la page.'''",
+	'asirra-failed' => 'Veuillez identifier toutes les images de chat',
 );
 
 /** Galician (Galego)

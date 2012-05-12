@@ -246,6 +246,13 @@ $messages['cdo'] = array(
 	'fancycaptcha-badlogin' => 'Ôi-lāu huòng-cī tiàng-sê̤ṳ cê̤ṳ-dông puái-gāi mĭk-mā, chiāng nṳ̄ sṳ̆-ĭk â-dā̤ bēng-bēng diē-lié gì sṳ̀ ([[Special:Captcha/help|gáing sâ̤ séng-sék]]):',
 );
 
+/** Sorani (کوردی)
+ * @author Asoxor
+ */
+$messages['ckb'] = array(
+	'fancycaptcha-createaccount' => 'بۆ یارمەتیدانی بەرگری لە دروستکردنی خۆکاری ھەژمار، تکایە ئەو وشانە لە خوارەوەدا دیارن لە بۆکسەکەدا بنووسە ([[Special:Captcha/help|زانیاریی زۆرتر]]):',
+);
+
 /** Czech (Česky)
  * @author Mormegil
  */
@@ -517,11 +524,12 @@ Para contribuír na protección contra o spam automatizado, introduza as palabra
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  * @author Melancholie
  */
 $messages['gsw'] = array(
-	'fancycaptcha-addurl' => 'In Dyynere Bearbeitig het s neiji externi Gleicher.
+	'fancycaptcha-addurl' => 'In Dyynere Bearbeitig het s neiji externi Link.
 Zum Schutz vor automatisiertem Spamming gib des Wort in s Fäld unten yy. Druck derno nomol uf „Syte spychere“. [[Special:Captcha/help|(Frogen oder Probläm?)]]',
 	'fancycaptcha-badlogin' => 'Zum Schutz vor ere Kompromittierig vu Dyynm Benutzerkonto gib des Wort in s Fäld unten yy [[Special:Captcha/help|(Frogen oder Probläm?)]]:',
 	'fancycaptcha-createaccount' => 'Zum Schutz vor ere automatisierte Aalag vu Benutzerkonte gib bitte des Wort in s Fäld unten yy ([[Special:Captcha/help|Frogen oder Probläm?]]):',
@@ -708,12 +716,17 @@ $messages['jv'] = array(
 );
 
 /** Georgian (ქართული)
+ * @author David1010
  * @author ITshnik
  */
 $messages['ka'] = array(
 	'fancycaptcha-addurl' => 'თქვენი ცვლილება შეიცავს ახალ გარე ბმულებს.
 ავტომატური სპამინგისგან თავდაცვის მიზნით, გთხოვთ, შეიყვანოთ ქვემოთ მოცემული სიტყვები ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
 	'fancycaptcha-badlogin' => 'პაროლების ავტომატური გატეხვისგან თავდაცვის მიზნით, გთხოვთ, შეიყვანოთ ქვემოთ მოცემული სიტყვები ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
+	'fancycaptcha-createaccount' => 'ანგარიშების ავტომატური რეგისტრაციისაგან თავდაცვის მიზნით, გთხოვთ, შეიყვანოთ ნაჩვენები სიმბოლოები ტექსტურ ველში ([[Special:Captcha/help|დეტალურად]]):',
+	'fancycaptcha-create' => 'გვერდის შესაქმნელად, გთხოვთ, შეიყვანეთ ასოები, რომლებიც ნაჩვენებია ქვედა სურათზე ([[Special:Captcha/help|დეტალურად…]]):',
+	'fancycaptcha-edit' => 'გვერდის რედაქტირებისათვის, გთხოვთ, შეიყვანეთ ასოები, რომლებიც ნაჩვენებია ქვედა სურათზე ([[Special:Captcha/help|დეტალურად…]]):',
+	'fancycaptcha-sendemail' => 'ავტომატური სპამისაგან თავდაცვის მიზნით, გთხოვთ, შეიყვანოთ ქვევით ნაჩვენები სიტყვა ტექსტურ ველში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
 );
 
 /** Kara-Kalpak (Qaraqalpaqsha)
@@ -978,6 +991,7 @@ Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming t
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Harald Khan
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'fancycaptcha-addurl' => 'Endringa di inneheld nye utlenkjer.
@@ -1312,7 +1326,7 @@ $messages['tg-cyrl'] = array(
 	'fancycaptcha-edit' => 'Барои вироиши ин саҳифа, вожаеро ки дар тасвир мебинед, ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(

@@ -430,11 +430,12 @@ Prema no botón \"atrás\" do seu navegador para volver á páxina de edición."
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'questycaptcha-addurl' => 'In Dynere Bearbeitig het s neji extärni Gleicher (Links).
-As Schutz gege automatischi Spam, beantwort bitte d FRog, wu do unter gnännt wird ([[Special:Captcha/help|meh Informatione]]):',
+	'questycaptcha-addurl' => 'In Dynere Bearbeitig het s neji extärni Links.
+As Schutz gege automatischi Spam, beantwort bitte d Frog, wu do unter gnännt wird ([[Special:Captcha/help|meh Informatione]]):',
 	'questycaptcha-badlogin' => 'As Schutz gege ne automatisch Passwort-Knacke, beantwort bitte d Frog, wu do unte gnännt wird ([[Special:Captcha/help|meh Informatione]]):',
 	'questycaptcha-createaccount' => 'As Schutz gege ne automatisch Aalege vu Benutzerkonte, beantwort bitte d Frog, wu do unte gnännt wird ([[Special:Captcha/help|meh Informatione]]):',
 	'questycaptcha-create' => 'Go d Syte aalege, beantwort bitte d Frog, wu do unte gnännt wird ([[Special:Captcha/help|meh Informatione]]):',

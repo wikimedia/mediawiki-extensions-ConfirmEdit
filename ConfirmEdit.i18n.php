@@ -2590,8 +2590,8 @@ Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als di
 Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
 	'captcha-addurl-whitelist' => ' #<!-- laat deze regel zoals hij is --> <pre>
 # De syntaxis is als volgt:
-#   * Alle tekst vanaf het karakter "#" tot het einde van de regels wordt gezien als opmerking
-#   * Iedere niet-lege regel is een fragment van een reguliere uitdrukking die alleen van toepassing is op hosts binnen URL\'s
+#   * Alle tekst vanaf het teken "#" tot het einde van de regels wordt gezien als opmerking
+#   * Iedere niet-lege regel is een fragment van een reguliere expressie die alleen van toepassing is op hosts binnen URL\'s
  #</pre> <!-- laat deze regel zoals hij is -->',
 	'right-skipcaptcha' => 'Captchahandelingen uitvoeren zonder captcha te hoeven oplossen',
 );

@@ -190,6 +190,7 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Nasir8891
  * @author Zaheen
  */
 $messages['bn'] = array(
@@ -199,6 +200,7 @@ $messages['bn'] = array(
 	'fancycaptcha-create' => 'পাতাটি সৃষ্টি করতে চাইলে অনুগ্রহ করে নিচের বাক্সে দেখানো শব্দগুলি প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
 	'fancycaptcha-edit' => 'পাতাটি সম্পাদনা করতে চাইলে অনুগ্রহ করে নিচের বাক্সে দেখানো শব্দগুলি প্রবেশ করান
 ([[Special:Captcha/help|আরও তথ্য]]):',
+	'fancycaptcha-sendemail' => 'স্বয়ংক্রিয় স্প্যামিং এর বিরুদ্ধে সুরক্ষার খাতিরে অনুগ্রহ করে নিচের বাক্সে দেখানো শব্দগুলি প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
 );
 
 /** Breton (Brezhoneg)

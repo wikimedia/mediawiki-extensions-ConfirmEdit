@@ -137,6 +137,13 @@ $messages['de-formal'] = array(
 	'recaptcha-createaccount' => 'Zum Schutz gegen die automatisierte Erstellung von Benutzerkonten bitten wir Sie, die folgenden beiden Wörter in das untenstehende Feld einzugeben:',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'recaptcha-createaccount-fail' => 'Wopacne abo felujuce wótegrono reCAPTCHA.',
+);
+
 /** Spanish (Español)
  * @author Fitoschido
  */

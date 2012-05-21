@@ -142,6 +142,14 @@ $messages['ia'] = array(
 	'asirra-failed' => 'Per favor identifica tote le imagines de cattos',
 );
 
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'asirra-desc' => 'ConfirmEdit 用 Asirra モジュール',
+	'asirra-nojs' => "'''JavaScript を有効にしてページを再読込してください。'''",
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

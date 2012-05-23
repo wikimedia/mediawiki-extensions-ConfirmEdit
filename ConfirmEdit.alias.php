@@ -48,14 +48,24 @@ $specialPageAliases['gl'] = array(
 	'Captcha' => array( 'Captcha' ),
 );
 
+/** Hindi (हिन्दी) */
+$specialPageAliases['hi'] = array(
+	'Captcha' => array( 'कैप्चा', 'कैपचा' ),
+);
+
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = array(
-	'Captcha' => array( 'キャプチャ' ),
+	'Captcha' => array( '画像認証' ),
 );
 
 /** Colognian (Ripoarisch) */
 $specialPageAliases['ksh'] = array(
 	'Captcha' => array( 'Kaptscha' ),
+);
+
+/** Cornish (Kernowek) */
+$specialPageAliases['kw'] = array(
+	'Captcha' => array( 'Captcha' ),
 );
 
 /** Macedonian (Македонски) */

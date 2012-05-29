@@ -635,8 +635,10 @@ $messages['ja'] = array(
 
 /** Korean (한국어)
  * @author Kwj2772
+ * @author 아라
  */
 $messages['ko'] = array(
+	'questycaptcha-desc' => '편집 확인에 대한 탐구적인 캡차(CAPCHA) 생성기',
 	'questycaptcha-badlogin' => '자동화된 비밀번호 깨기를 방지하기 위해 아래애 보이는 질문에 대답해주세요 ([[Special:Captcha/help|자세한 정보]]):',
 );
 

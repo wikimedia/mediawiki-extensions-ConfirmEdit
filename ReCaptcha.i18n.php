@@ -264,6 +264,13 @@ $messages['ja'] = array(
 	'recaptcha-create' => '自動ページ作成からの保護のために、下の画像に表示されている２つの言葉を入 力してください。',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'recaptcha-desc' => '편집 확인에 대한 reCAPCHA 모듈',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */

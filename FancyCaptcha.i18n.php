@@ -112,6 +112,7 @@ $messages['arz'] = array(
 
 /** Assamese (অসমীয়া)
  * @author Chaipau
+ * @author Gitartha.bordoloi
  * @author Rajuonline
  */
 $messages['as'] = array(
@@ -122,6 +123,7 @@ $messages['as'] = array(
 	'fancycaptcha-createaccount' => 'স্বয়ংক্ৰীয় নতুন সদস্যভুক্তিৰ পৰা হাত সাৰিবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
 	'fancycaptcha-create' => 'পৃষ্ঠাটো বনাবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
 	'fancycaptcha-edit' => 'এই পৃষ্ঠাটো সম্পাদনা কৰিবলৈ, তলত দেখিবলৈ পোৱা শব্দটো বাকচৰ ভিতৰত লিখক। ([[Special:Captcha/help|অধিক তথ্য]]):',
+	'fancycaptcha-sendemail' => 'স্বয়ংক্ৰিয় স্পেমিঙৰ পৰা বাচিবলৈ অনুগ্ৰহ কৰি তলৰ বাকছটোৰ তলত ওলোৱা আখৰকেইটা লিখক ([[Special:Captcha/help|অধিক তথ্য]]):',
 );
 
 /** Asturian (Asturianu)

@@ -813,6 +813,13 @@ $messages['ko'] = array(
 	'fancycaptcha-sendemail' => '자동화된 스팸을 방지하기 위해, 아래 상자에 있는 단어를 입력해 주시기 바랍니다. ([[Special:Captcha/help|추가 도움말]]):',
 );
 
+/** Karachay-Balkar (Къарачай-Малкъар)
+ * @author Iltever
+ */
+$messages['krc'] = array(
+	'fancycaptcha-createaccount' => 'Тергеу джазыуланы (аккаунтланы) автомат халда регистрация этиуню къоймаз ючюн, текстлик терезеде суратланнган символланы джазыгъыз ([[Special:Captcha/help|толуракъ]]):',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */

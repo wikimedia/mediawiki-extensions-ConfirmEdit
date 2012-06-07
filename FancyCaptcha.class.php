@@ -71,7 +71,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			'<p>' .
 			Html::element( 'label', array(
 				'for' => 'wpCaptchaWord',
-			), parent::getMessage( 'label' ) . wfMsg( 'colon-separator' ) .
+			), parent::getMessage( 'label' ) . wfMsg( 'colon-separator' ) ) .
 			Html::element( 'input', array(
 				'name' => 'wpCaptchaWord',
 				'id'   => 'wpCaptchaWord',

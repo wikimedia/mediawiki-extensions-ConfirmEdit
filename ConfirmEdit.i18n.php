@@ -447,6 +447,7 @@ $messages['be'] = array(
 $messages['be-tarask'] = array(
 	'captcha-edit' => 'Каб рэдагаваць гэтую старонку, калі ласка, знайдзіце простую суму і ўвядзіце адказ у поле ([[Special:Captcha/help|падрабязнасьці]]):',
 	'captcha-desc' => 'Дадае мэтад CAPTCHA для абароны супраць спаму і падбору пароляў',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Вашае рэдагаваньне ўтрымлівае новыя вонкавыя спасылкі.
 У мэтах абароны ад аўтаматычнага спаму, калі ласка, знайдзіце простую суму і ўвядзіце адказ у поле ([[Special:Captcha/help|падрабязнасьці]]):',
 	'captcha-badlogin' => 'У мэтах абароны ад аўтаматычнага ўзлому пароляў, калі ласка, знайдзіце простую суму і ўвядзіце адказ у поле ([[Special:Captcha/help|дадатковая інфармацыя]]):',
@@ -513,6 +514,7 @@ $messages['bg'] = array(
 $messages['bn'] = array(
 	'captcha-edit' => 'এই নিবন্ধটি সম্পাদনা করতে দয়া করে নিচের সহজ যোগটি সমাধান করুন এবং ফলাফলটি বাক্সটিতে প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
 	'captcha-desc' => 'স্প্যাম এবং পাসওয়ার্ড অনুমান প্রতিরোধে ক্যাপচা প্রযুক্তি ব্যবহার',
+	'captcha-label' => 'ক্যাপচা',
 	'captcha-addurl' => 'আপনার সম্পাদনায় নতুন বহিঃসংযোগ বিদ্যমান। স্বয়ংক্রিয় স্প্যামের বিরুদ্ধে সুরক্ষার খাতিরে অনুগ্রহ নিচের যোগটি সমাহদান করুন এবং উত্তরটি বাক্সে প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
 	'captcha-badlogin' => 'স্বয়ংক্রিয় শব্দচাবি ক্র‌্যাকিং-এর বিরুদ্ধে সুরক্ষার খাতিরে অনুগ্রহ করে নিচের যোগটি সমাধান করুন এবং উত্তরটি বাক্সে প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
 	'captcha-createaccount' => 'স্বয়ংক্রিয় অ্যাকাউন্ট সৃষ্টি রোধ করার খাতিরে অনুগ্রহ করে নিচের যোগটি সমাধান করুন এবং উত্তরটি বাক্সে প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
@@ -538,7 +540,7 @@ $messages['bn'] = array(
 	'right-skipcaptcha' => 'ক্যাপচাতে না গিয়ে ক্যাপচা ট্রিগারিং এর কাজ করুন',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author BrokenArrow
  * @author Fulup
  * @author VIGNERON
@@ -547,6 +549,7 @@ $messages['bn'] = array(
 $messages['br'] = array(
 	'captcha-edit' => "A-raok gellout kemmañ ar bajenn-mañ e c'houlenner ouzhoc'h respont d'ar jedadenn eeun a-is ha lakaat an disoc'h er vaezienn ([[Special:Captcha/help|Petra eo se?]])",
 	'captcha-desc' => 'Pourchas a ra teknikoù CAPTCHA evit en em wareziñ diouzh ar strob hag an diskuliañ gerioù-tremen',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Liammoù diavaez nevez zo bet ouzhpennet ganeoc'h. A-benn talañ ouzh ar strob emgefre skrivit disoc'h ar jedadennig eeun-mañ er stern : <br />([[Special:Captcha/help|Petra eo se?]])",
 	'captcha-badlogin' => "A-benn talañ ouzh preizhadur emgefre ar gerioù-tremen gant ar botoù e c'houlenner ouzhoc'h jediñ an tamm oberiadenn ha skrivañ an disoc'h anezhi er vaezienn a-is ([[Special:Captcha/help|Petra eo se ?]]):",
 	'captcha-createaccount' => "A-benn hor skoazellañ da dalañ ouzh ar c'hrouiñ kontoù emgefre, skrivit ar gerioù a zeu war wel er stern-mañ evit enrollañ ho kont : <br />([[Special:Captcha/help|Petra eo se?]])",
@@ -782,6 +785,7 @@ Tryk på 'tilbage'-knappen i din browser for at returnere til redigeringssiden."
 $messages['de'] = array(
 	'captcha-edit' => 'Zur Bearbeitung der Seite löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'captcha-desc' => 'Ermöglicht verschiedene CAPTCHA-Techniken zum Schutz vor Spam und dem Erraten von Passwörtern',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Deine Bearbeitung enthält neue externe Links.
 Zum Schutz vor automatisiertem Spamming löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'captcha-badlogin' => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]]:',
@@ -882,6 +886,7 @@ Browser xo de goceke 'back' rê klik bike şo pela editorî.",
 $messages['dsb'] = array(
 	'captcha-edit' => 'Aby wobźěłował toś ten bok, rozwěž pšosym slědujucy jadnory liceński nadawk a zapódaj wuslědk do kašćika ([[Special:Captcha/help|Dalšne info]]):',
 	'captcha-desc' => 'Staja techniki CAPTCHA za šćit pśeśiwo spamoju a wugódanjoju gronidłow k dispoziciji',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Twója změna wopśimujo nowe eksterne wótkaze.
 Za šćit pśeśiwo zawtomatizěrowanemu spamoju, rozwěž pšosym slědujucy jadnory liceński nadawk a zapódaj wuslědk do kašćika ([[Special:Captcha/help|dalšne info]]):',
 	'captcha-badlogin' => 'Za šćit pśeśiwo zawtomatizěrowanemu wuzgónjowanjeju gronidła, rozwěž pšosym slědujucy jadnory liceński nadawk a zapódaj wuslědk do kašćika ([[Special:Captcha/help|dalšne info]]):',
@@ -1033,7 +1038,8 @@ Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 	'right-skipcaptcha' => "Faru ''captcha''-spronantaj agoj sen farante la ''captcha''-on",
 );
 
-/** Spanish (Español)
+/** Spanish (español)
+ * @author Armando-Martin
  * @author Crazymadlover
  * @author Drini
  * @author Icvav
@@ -1047,6 +1053,7 @@ Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 $messages['es'] = array(
 	'captcha-edit' => 'Para editar este artículo, por favor resuelve la sencilla suma que aparece abajo e introduce la solución en la caja ([[Special:Captcha/help|más información]]):',
 	'captcha-desc' => 'Provee técnicas CAPTCHA para proteger contra spam y adivinación de contraseña.',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Tu edición incluye nuevos enlaces externos.
 Para ayudar a proteger contra el spam automatizado, por favor resuelve la sencilla suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
 	'captcha-badlogin' => 'Para ayudar a protegernos de la creación automática de cuentas, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
@@ -1401,6 +1408,7 @@ $messages['grc'] = array(
 $messages['gsw'] = array(
 	'captcha-edit' => 'Zum d Syte bearbeite lees die Rächenufgab un trag s Ergebnis in s Fäld unten yy. [[Special:Captcha/help|(Frogen oder Probläm?)]]',
 	'captcha-desc' => 'Stellt CAPTCHA-Tächnike zum Schutz vor Spam un em Rote vu Passwerter z Verfiegig',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'In Dyynere Bearbeitig het s neiji externi Link.
 Zum Schutz vor automatisiertem Spamming lees die Rächenufgab un trag s Ergebnis in s Fäld unten yy. Druck drno nomol uf „Syte spychere“. [[Special:Captcha/help|(Frogen oder Probläm?)]]',
 	'captcha-badlogin' => 'Zum Schutz vor ere Kompromittierig vu Dyynem Benutzerkonto lees die Rächenufgab un trag s Ergebnis in s Fäld unten yy [[Special:Captcha/help|(Frogen oder Probläm?)]]:',
@@ -1584,6 +1592,7 @@ Pritisnite u svom pregledniku 'nazad' kako bi se vratili na uređivač stranice.
 $messages['hsb'] = array(
 	'captcha-edit' => 'Zo by stronu wobdźěłał, rozrisaj prošu slědowacy ličenski nadawk a zapodaj wuslědk do kašćika ([[Special:Captcha/help|Dalše informacije]]):',
 	'captcha-desc' => 'Staja CAPTCHA-techniki za škit přećiwo spamej a zhódowanju hesłow k dispoziciji',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo awtomatizowanemu spamej dyrbiš slědowacy nadawk wuličić a wuslědk do kašćika [[Special:Captcha/help|(dalše informacije)]] zapisować.',
 	'captcha-badlogin' => 'Zo by so awtomatiskemu zadobywanju do hesłow zadźěwało, dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować. ([[Special:Captcha/help|dalše informacije]])',
 	'captcha-createaccount' => 'Jako škitna naprawa přećiwo awtomatiskemu wutworjenju wužiwarskich kontow dyrbiš slědowacy nadawk wuličeć a wuslědk do kašćika zapisować  ([[Special:Captcha/help|dalše informacije]]):',
@@ -1799,7 +1808,7 @@ Notaðu „til-baka“-hnapp vafrans til að breyta síðunni.',
 	'right-skipcaptcha' => 'Geta gert aðgerðir án þess að nota kæfuvörn',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author BrokenArrow
  * @author Darth Kule
@@ -1808,6 +1817,7 @@ $messages['it'] = array(
 	'captcha-edit' => 'Per modificare la pagina è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella
 ([[Special:Captcha/help|maggiori informazioni]]):',
 	'captcha-desc' => "Fornisce tecniche CAPTCHA per la protezione contro lo spam e l'individuazione delle password",
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "La modifica richiesta aggiunge dei nuovi collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|maggiori informazioni]]):",
 	'captcha-badlogin' => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|maggiori informazioni]]):',
 	'captcha-createaccount' => 'Come misura precauzionale contro i tentativi di creazione automatica degli account, per registrarsi è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|maggiori informazioni]]):',
@@ -2080,7 +2090,8 @@ $messages['km'] = array(
  */
 $messages['ko'] = array(
 	'captcha-edit' => '글을 편집하기 위해서는, 아래의 간단한 덧셈 값을 입력상자에 적어 주세요([[Special:Captcha/help|자세한 정보]]):',
-	'captcha-desc' => '스팸과 비밀번호 탈취를 방지하기 위한 캡차 기능을 제공',
+	'captcha-desc' => '스팸과 비밀번호 탈취를 방지하기 위한 CAPTCHA(캡차) 기능을 제공',
+	'captcha-label' => 'CAPTCHA(캡차)',
 	'captcha-addurl' => '편집 내용에 다른 웹 사이트 링크가 포함되어 있습니다. 자동 스팸을 막기 위해, 아래의 간단한 계산 값을 입력상자에 적어 주세요([[Special:Captcha/help|자세한 정보]]):',
 	'captcha-badlogin' => '계정 비밀번호 해킹을 막기 위해, 아래의 간단한 계산 값을 입력상자에 적어 주세요. ([[Special:Captcha/help|자세한 정보]]):',
 	'captcha-createaccount' => '자동 가입을 막기 위해, 아래 문제의 답을 적어 주세요. ([[Special:Captcha/help|관련 도움말]]):',
@@ -2089,7 +2100,7 @@ $messages['ko'] = array(
 	'captcha-sendemail' => '자동화된 스팸을 방지하기 위해, 아래의 간단한 계산 값을 입력상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
 	'captcha-sendemail-fail' => '입력값이 잘못되었거나 없습니다.',
 	'captcha-disabledinapi' => '이 동작은 캡차를 거쳐야 하기 때문에 API로 이 작업을 수행할 수 없습니다.',
-	'captchahelp-title' => 'Captcha 도움말',
+	'captchahelp-title' => 'CAPTCHA(캡차) 도움말',
 	'captchahelp-cookies-needed' => '정상적으로 작동하려면 웹 브라우저의 쿠키 사용이 활성화되어있어야 합니다.',
 	'captchahelp-text' => '이 위키와 같이 사람들의 공개적인 참여가 가능한 웹 사이트에서는 자동 프로그램이 스팸을 뿌리는 경우가 있습니다. 물론 이러한 스팸은 제거할 수는 있지만 번거로운 작업이 늘어납니다.
 
@@ -2210,6 +2221,7 @@ Dréckt op den 'Zréck' Knäppche vun ärem Browser fir an d'Beaarbechtungsfëns
 $messages['li'] = array(
 	'captcha-edit' => "Geer wil dees pazjena bewerke. Veur estebleef 't antjwaord op de óngerstäönde einvawdife som in 't inveurvenster in ([[Special:Captcha/help|mieë informatie]]):",
 	'captcha-desc' => "Bied CAPTCHA-technieke óm besjörming te beje taenge spam en 't raoje van wachweurd.",
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Uw bewerking bevat nieuwe externe links (URL's). Voer ter bescherming tegen geautomatiseerde spam alstublieft het antwoord op de onderstaande eenvoudige som in in het invoerveld ([[Special:Captcha/help|meer informatie]]):",
 	'captcha-badlogin' => 'Los alstublieft de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount' => 'Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
@@ -2287,13 +2299,14 @@ $messages['mg'] = array(
 	'right-skipcaptcha' => 'Manao tao mampisy ny captcha fa tsy mila mameno azy',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
 $messages['mk'] = array(
 	'captcha-edit' => 'За да ја уредите оваа страница потребно е да го најдете решението на едноставната задача поставена подолу и одговорот да го внесете во соодветното поле за одговор([[Special:Captcha/help|повеќе информации]]):',
 	'captcha-desc' => 'Овозможува техники од CAPTCHA за заштита од спам и погодување на лозинки',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Вашето уредување содржи нови надворешни врски.
 За да ни помогнете да се заштитиме од автоматизиран спам, решете ја простата задача подолу и впишете го бројот во полето ([[Special:Captcha/help|повеќе инфо]]):',
 	'captcha-badlogin' => 'За да ни помогнете да се заштитиме од автоматизирано пробивање на лозинки, решете ја простата задача подолу и впишете го решението во полето
@@ -2581,6 +2594,7 @@ $messages['nl'] = array(
 	'captcha-edit' => 'U wilt deze pagina bewerken.
 Voer het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-desc' => 'Biedt CAPTCHA-technieken om bescherming te bieden tegen spam en het raden van wachtwoorden',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Uw bewerking bevat nieuwe externe verwijzingen (URL's).
 Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in in het invoerveld ([[Special:Captcha/help|meer informatie]]):",
 	'captcha-badlogin' => 'Los de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
@@ -2779,6 +2793,7 @@ $messages['pms'] = array(
 	'captcha-edit' => "Për fe-ie dle modìfiche ansima a st'artìcol-sì, për piasì ch'a fasa ël total ambelessì sota
 e ch'a buta l'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-desc' => "A dà dle técniche CAPTCHA për protege contra la rumenta e ij tentativ d'andviné la ciav",
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Soa modìfica a la gionta dj'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-badlogin' => "Për giutene a vardesse da 'nt ij programa ch'a fan ciav fàosse n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-createaccount' => "Për giutene a vardesse da ij programa ch'a deurbo dij cont n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota
@@ -3698,6 +3713,7 @@ Struca el boton \"Indrìo\" del to browser par tornar a la pagina de modifica.",
 $messages['vi'] = array(
 	'captcha-edit' => 'Để sửa đổi trang này, xin hãy giải phép cộng đơn giản dưới đây và gõ câu trả lời vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'captcha-desc' => 'Chống spam và sự đoán mật khẩu dùng CAPTCHA',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Sửa đổi của bạn có chứa các liên kết ra bên ngoài. Để giúp tránh spam tự động, xin hãy giải phép toán đơn giản ở dưới và gõ kết quả vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'captcha-badlogin' => 'Để giúp tránh hành động bẻ mật khẩu tự động, xin hãy giải phép cộng
 đơn giản ở dưới và gõ kết quả vào ô ([[Special:Captcha/help|thông tin thêm]]):',

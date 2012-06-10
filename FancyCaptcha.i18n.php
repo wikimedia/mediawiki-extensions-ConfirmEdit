@@ -686,7 +686,7 @@ $messages['it'] = array(
  * @author Shirayuki
  */
 $messages['ja'] = array(
-	'fancycaptcha-desc' => 'Confirm Edit 用の装飾的な CAPTCHA ジェネレータ',
+	'fancycaptcha-desc' => 'Confirm Edit 用の装飾的な CAPTCHA ジェネレーター',
 	'fancycaptcha-addurl' => 'あなたの編集で新たな外部リンクが追加されています。
 自動化スクリプトによるスパム行為防止のため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
@@ -946,6 +946,13 @@ $messages['ms'] = array(
 	'fancycaptcha-create' => 'Untuk mencipta laman ini, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 	'fancycaptcha-edit' => 'Untuk menyunting laman ini, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 	'fancycaptcha-sendemail' => 'Untuk membanteras kegiatan spam secara automatik, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+);
+
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'fancycaptcha-createaccount' => "Bħala miżura ta' prekawzjoni kontra l-ħolqien awtomatiku tal-kontijiet, jekk jogħġbok daħħal fil-kaxxa l-ittri li jidhru hawn taħt ([[Special:Captcha/help|aktar informazzjoni]]):",
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -1458,6 +1465,19 @@ $messages['vo'] = array(
 $messages['vro'] = array(
 	'fancycaptcha-badlogin' => 'Salasõna automaatsõ vällänuhkmisõ vasta kirodaq pildi päält sõnaq alanolõvahe kasti
 ([[Special:Captcha/help|Abiteedüs]]):',
+);
+
+/** Walloon (walon)
+ * @author Srtxg
+ */
+$messages['wa'] = array(
+	'fancycaptcha-addurl' => "Dins vos candjmints i gn a des dfoûtrinnès hårdêyes (URL).
+Po s' mete a houte des robots di spam, nos vs dimandans d' acertiner ki vos estoz bén ene djin, po çoula tapez les mots k' aparexhèt chal pa dzo ([[Special:Captcha/help|pus di racsegnes]]):",
+	'fancycaptcha-badlogin' => "Po s' mete a houte des des robots ki sayèt d' adviner les screts, nos  vs dimandans d' acertiner ki vos estoz bén ene djin, po çoula tapez les mots k' aperexhèt chal pa dzo ([[Special:Captcha/help|pus di racsegnes]]):",
+	'fancycaptcha-createaccount' => "Po s' mete a houte des des robots k' ahivèt des contes otomaticmint, nos  vs dimandans d' acertiner ki vos estoz bén ene djin, po çoula tapez les mots k' aparexhèt chal pa dzi ([[Special:Captcha/help|pus di racsegnes]]):",
+	'fancycaptcha-create' => "Por vos poleur ahiver l' pådje, vos dvoz taper les mots k' aparexhèt e l' boesse chal pa dzo ([[Special:Captcha/help|pus di racsegnes]]):",
+	'fancycaptcha-edit' => "Po candjî cisse pådje ci, vos dvoz taper les mots k' aparexhèt e l' boesse chal pa dzo ([[Special:Captcha/help|pus di racsegnes]]):",
+	'fancycaptcha-sendemail' => "Po s' mete a houte des robots di spam, nos vs dimandans d' acertiner ki vos estoz bén ene djin, po çoula tapez les mots k' aparexhèt chal pa dzo ([[Special:Captcha/help|pus di racsegnes]]):",
 );
 
 /** Yiddish (ייִדיש)

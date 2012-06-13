@@ -1131,17 +1131,18 @@ $messages['rm'] = array(
 	'fancycaptcha-createaccount' => "Per impedir la creaziun automatica da contos d'utilisader, endatescha per plaschair ils bustabs che vegnan mussads sutvart ([[Special:Captcha/help|dapli infos]]):",
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Firilacroco
  * @author Mihai
+ * @author Minisarm
  */
 $messages['ro'] = array(
 	'fancycaptcha-addurl' => 'Modificarea dumneavoastră include legături externe noi.
 Pentru a împiedica roboții de spam, vă rugăm să introduceți cuvintele care apar mai jos în căsuță ([[Special:Captcha/help|mai multe detalii]]):',
 	'fancycaptcha-badlogin' => 'Pentru a împiedica spargerea automată a parolelor, vă rugăm să introduceți cuvintele care apar mai jos în căsuță ([[Special:Captcha/help|mai multe detalii]]):',
 	'fancycaptcha-createaccount' => 'Pentru a împiedica crearea automată de conturi, vă rugăm să introduceți cuvintele care apar mai jos în căsuță ([[Special:Captcha/help|mai multe detalii]]):',
-	'fancycaptcha-create' => 'Pentru a crea pagina, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
-	'fancycaptcha-edit' => 'Pentru a modifica această pagină, te rog să introduci în cutie cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
+	'fancycaptcha-create' => 'Pentru a crea pagina, vă rugăm să introduceți în casetă cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
+	'fancycaptcha-edit' => 'Pentru a modifica această pagină, vă rugăm să introduceți în casetă cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
 	'fancycaptcha-sendemail' => 'Pentru a împiedica roboții de spam, vă rugăm să introduceți cuvintele care apar mai jos în căsuță ([[Special:Captcha/help|mai multe detalii]]):',
 );
 

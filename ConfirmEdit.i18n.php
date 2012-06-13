@@ -2959,7 +2959,7 @@ $messages['qu'] = array(
 	'captchahelp-title' => 'Captcha nisqamanta yanapay',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author BrokenArrow
  * @author Firilacroco
  * @author KlaudiuMihaila
@@ -2979,14 +2979,16 @@ $messages['ro'] = array(
 	'captcha-disabledinapi' => 'Această acțiune necesită rezolvarea unui captcha, deci nu poate fi efectuată prin API.',
 	'captchahelp-title' => 'Despre „Captcha”',
 	'captchahelp-cookies-needed' => 'Trebuie ca browserul dumneavoastră să accepte cookie-uri pentru ca aceasta să funcționeze.',
-	'captchahelp-text' => 'Siturile web care acceptă postări din partea publicului, precum acest wiki, sunt de obicei abuzate de persoane care folosesc unelte automate pentru a introduce legături către multe alte situri. Deși aceste legături de spam pot fi îndepărtate, acest lucru reprezintă o muncă inconvenientă.
+	'captchahelp-text' => 'Siturile web care acceptă contribuții din partea publicului, precum acest wiki, sunt de obicei victime ale persoanelor care folosesc unelte automate pentru a introduce legături către multe alte situri. 
+Deși aceste legături de spam pot fi îndepărtate, acest lucru reprezintă o bătaie de cap semnificativă.
 
-Uneori, mai ales la adăugarea de legături web noi într-o pagină, situl wiki vă poate arăta o imagine cu un text colorat sau distorsionat și veți fi rugat să introduceți cuvintele indicate. Deoarece aceasta este o sarcină greu de automatizat, ea permite majorității persoanelor reale să posteze și va opri majoritatea atacatorilor.
+Uneori, mai ales la adăugarea de noi legături web într-o pagină, situl wiki vă poate arăta o imagine cu un text colorat sau distorsionat și veți fi rugat să introduceți cuvintele indicate.
+Întrucât rezolvarea acestei cerințe este dificil de automatizat, ea permite majorității persoanelor reale să-și trimită contribuțiile și va opri majoritatea atacatorilor.
 
-Din nefericire, această metodă îi poate deranja pe utilizatorii cu probleme vizuale sau care folosesc browsere bazate pe text sau sunet. În acest moment nu avem o alternativă audio disponibilă.
-Vă rugăm, contactați [[{{MediaWiki:Grouppage-sysop}}|administratorii sitului]] pentru asistență dacă metoda vă oprește de la a face postări legitime.
+Din nefericire, această metodă îi poate deranja pe utilizatorii cu probleme vizuale sau care folosesc navigatoare bazate pe text sau sunet. În acest moment nu avem o alternativă audio disponibilă.
+În cazul în care această practică vă împiedică în mod neașteptat să faceți contribuții legitime, vă rugăm să contactați [[{{MediaWiki:Grouppage-sysop}}|administratorii sitului]].
 
-Apasă butonul „Înapoi” al browserului pentru a te reîntoarce la pagina de editare.',
+Apăsați butonul „Înapoi” al navigatorului pentru a vă reîntoarce la pagina de editare.',
 	'captcha-addurl-whitelist' => ' #<!-- lăsați această linie așa cum este --> <pre>
 # Sintaxa este așa cum urmează:
 #   * Toate liniile care încep cu „#” sunt considerate comentarii

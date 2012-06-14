@@ -306,7 +306,7 @@ $messages['as'] = array(
 	'right-skipcaptcha' => 'CAPTCHAৰ মাজেৰে নোযোৱাকৈ CAPTCHA সক্ৰিয় কৰা কাম কৰক',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -340,7 +340,7 @@ Calca nel botón 'atrás' del to navegador pa volver a la páxina d'edición.",
 	'right-skipcaptcha' => 'Facer les acciones que requieren captcha ensin tener que lu introducir',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Vugar 1981
  */
 $messages['az'] = array(
@@ -422,7 +422,7 @@ $messages['bcl'] = array(
 	'captchahelp-title' => 'Tabang sa Captcha',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Yury Tarasievich
  * @author Хомелка
  */
@@ -480,7 +480,7 @@ $messages['be-tarask'] = array(
 	'right-skipcaptcha' => 'выкананьне дзеяньняў без праверкі CAPTCHA, дзе яна патрабуецца',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  * @author Spiritia
  */
@@ -579,7 +579,7 @@ Pouezit war bouton 'kent' ho merdeer evit distreiñ d'ar bajenn gemmañ.",
 	'right-skipcaptcha' => 'Lañsañ a ra an oberoù captcha hep bezañ rediet da dremen drezañ',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author BrokenArrow
  * @author CERminator
  */
@@ -618,7 +618,7 @@ Kliknite 'nazad' ('back') dugme vašeg preglednika da se vratite na polje za uno
 	'right-skipcaptcha' => 'Korištenje akcija nakon captcha bez potrebe prolaska kroz captcha proces',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author El libre
  * @author Paucabot
  * @author SMP
@@ -742,7 +742,7 @@ Gwasgwch botwm 'nôl' eich porwr er mwyn dychwelyd at y dudalen golygu.",
 	'right-skipcaptcha' => "Gwneud rhyw weithred, sy'n arfer deffro meddalwedd y captcha, heb ei ddeffro.",
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Aputtu
  * @author Byrial
  * @author Peter Alberti
@@ -920,7 +920,7 @@ Klikni na tłocašk "Slědk" we swójom wobglědowaku, aby wróśił k bokowemu 
 	'right-skipcaptcha' => 'Akcije wugbaś, kótarež zapušćiju captcha, mimo až se nadawk captcha rozwěžo.',
 );
 
-/** Ewe (Eʋegbe)
+/** Ewe (eʋegbe)
  * @author Natsubee
  */
 $messages['ee'] = array(
@@ -1085,7 +1085,7 @@ Presione el botón 'atrás' en su navegador para retornar al editor de página."
 	'right-skipcaptcha' => 'Realiza acciones que despliegan un captcha sin tener que confirmar el captcha',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author BrokenArrow
  * @author Jaan513
  * @author Pikne
@@ -1121,7 +1121,7 @@ Konto registreerimise lehele või redigeerimisaknasse tagasi jõudmiseks klõpsa
 	'right-skipcaptcha' => 'Sooritada robotilõksu vallapäästvaid toiminguid testi läbimata',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author BrokenArrow
  * @author Kobazulo
@@ -1183,7 +1183,7 @@ $messages['fa'] = array(
 	'right-skipcaptcha' => 'انجام کارهایی که CAPTCHA را فعال می‌کنند بدون نیاز به گذر از CAPTCHA',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Agony
  * @author Centerlink
  * @author Crt
@@ -1220,7 +1220,7 @@ Voit palata muokkaustilaan selaimen paluutoiminnolla.',
 	'right-skipcaptcha' => 'Suorittaa ilman captcha-tarkistusta toimintoja, jotka normaalisti vaatisivat tarkistuksen läpikäyntiä',
 );
 
-/** Faroese (Føroyskt)
+/** Faroese (føroyskt)
  * @author EileenSanda
  * @author Spacebirdy
  */
@@ -1281,7 +1281,7 @@ Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la p
 	'right-skipcaptcha' => 'Réaliser des actions qui déclenchent un captcha sans avoir à passer celui-ci',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -1317,7 +1317,7 @@ Clicâd sur lo boton « Devant » de voutron navigator por tornar a la bouèta d
 	'right-skipcaptcha' => 'Rèalisar des accions que dècllenchont un captch·a sen avêr a passar ceti',
 );
 
-/** Friulian (Furlan)
+/** Friulian (furlan)
  * @author Klenje
  */
 $messages['fur'] = array(
@@ -1552,7 +1552,7 @@ $messages['hi'] = array(
 	'right-skipcaptcha' => 'Captcha में जाये बिना Captcha का इस्तेमाल करने के लिये मजबूर करें',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Dnik
  * @author Ex13
@@ -1639,7 +1639,7 @@ Pou ede nou pwoteje sistèm an kont pouryèl, tanpri, fè ti adisyon fasil sa ep
 	'captcha-createaccount' => 'Pou ede nou lite kont kreyasyon kont otomatik yo, souple rezoud ti adisyon sa epi mete nan bwat an repons ou an ([[Special:Captcha/help|konnen plis sou fonksyon sa]]):',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Glanthor Reviol
  */
@@ -1784,7 +1784,7 @@ Peslen ti 'agsubli' a buton dita pagbasabasam (browser) ti agsubli idiay panid t
 	'right-skipcaptcha' => 'Pakabaelan ti agkalbit ti CAPTCHA kadagiti aramid a saan a mapan ti CAPTCHA.',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author S.Örvarr.S
  * @author Snævar
  */
@@ -1890,7 +1890,7 @@ $messages['ja'] = array(
 	'right-skipcaptcha' => 'CAPTCHAが必要な場面でCAPTCHAをスキップして操作を実行',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  * @author Ælsån
  */
@@ -2265,7 +2265,7 @@ $messages['lo'] = array(
 	'captcha-create' => 'ກະລຸນາ ແກ້ເລກບວກງ່າຍໆລຸ່ມນີ້ ແລະ ພິມຜົນບວກໃສ່ໃນກັບ ເພື່ອ ສ້າງໜ້ານີ້ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມເຕີມ]]):',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Garas
  * @author Homo
@@ -2278,7 +2278,7 @@ $messages['lt'] = array(
 	'captchahelp-cookies-needed' => 'Jums reikia būti įjungus sausainėlius savo naršyklėje kad tai veiktu',
 );
 
-/** Latvian (Latviešu)
+/** Latvian (latviešu)
  * @author BrokenArrow
  * @author Marozols
  * @author Yyy
@@ -2385,7 +2385,7 @@ $messages['ml'] = array(
 	'right-skipcaptcha' => 'കാപ്ച ഉപയോഗിക്കേണ്ട പ്രവൃത്തികൾ കാപ്ചയിലൂടെ കടന്നു പോകാതെ തന്നെ ചെയ്യാൻ കഴിയുക',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -2637,7 +2637,7 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
 	'right-skipcaptcha' => 'Captchahandelingen uitvoeren zonder captcha te hoeven oplossen',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Eirik
  * @author Frokor
  * @author Harald Khan
@@ -2671,7 +2671,7 @@ Trykk på «attende»-knappen for å kome tilbake til endringssida.',
 	'right-skipcaptcha' => 'Utføre handlingar som normalt krever «captcha»-stadfesting utan å bruke «captcha»',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -2876,7 +2876,7 @@ $messages['ps'] = array(
 	'captchahelp-cookies-needed' => 'ددې کړنې د ترسره کېدلو لپاره تاسو ته پکار ده چې د خپل کتنمل (browser) کوکيز (cookies) چارن کړی.',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Hamilton Abreu
  * @author Malafaya
@@ -2914,7 +2914,7 @@ Clique o botão 'voltar' do seu browser para voltar à página de edição.",
 	'right-skipcaptcha' => "Executar acções despoletadoras do CAPTCHA' sem ter de passar pelo CAPTCHA",
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  * @author Jesielt
@@ -2997,7 +2997,7 @@ Apăsați butonul „Înapoi” al navigatorului pentru a vă reîntoarce la pag
 	'right-skipcaptcha' => 'Efectuează acțiuni care necesită completarea unui cod CAPTCHA fără a fi nevoie să facă acest lucru',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  * @author Reder
  */
@@ -3020,7 +3020,7 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a do
  #</pre> <!-- leave this line exactly as it is -->",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ahonc
  * @author Aleksandrit
  * @author Kalan
@@ -3092,7 +3092,7 @@ $messages['rue'] = array(
 	'right-skipcaptcha' => 'Выконованя дїй споєных з CAPTCHA без потребы їх рїшіня',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -3130,7 +3130,7 @@ $messages['sah'] = array(
 	'right-skipcaptcha' => 'CAPTCHA-бэрэбиэркэни ааһыахтаах дьайыылары CAPTCHA-та суох толоруу',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Melos
  * @author Santu
  */
@@ -3207,7 +3207,7 @@ $messages['si'] = array(
 	'right-skipcaptcha' => 'captcha පරික්ෂා කීරීම සිදුකිරීමෙන් වැලකෙමින් captcha පූරනකාරක ක්‍රියාවලීන් සිදුකරන්න',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -3239,7 +3239,7 @@ Stlačením tlačidla „späť“ vo vašom prehliadači sa vrátite do editora
 	'right-skipcaptcha' => 'Vykonávať činnosti spúšťajúce captcha bez toho, aby bolo potrebné vyriešiť captcha',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author BrokenArrow
  * @author Dbc334
  */
@@ -3276,7 +3276,7 @@ Za vrnitev v urejevalnik izberite gumb »nazaj« v vašem brskalniku.',
 	'right-skipcaptcha' => 'Izvaja dejanja, ki sprožijo preverjanje captcha, brez da bi moral opraviti preverjanje',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author BrokenArrow
  * @author Dori
  * @author Mikullovci11
@@ -3311,7 +3311,7 @@ Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e
 	'right-skipcaptcha' => 'Kryen veprime CAPTCHA-triggering pa pasur nevojë të shkojë nëpërmjet CAPTCHA',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  */
@@ -3331,7 +3331,7 @@ $messages['sr-ec'] = array(
 	'right-skipcaptcha' => 'прескакање радњи које захтевају унос потврдног кода',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -3405,7 +3405,7 @@ Hit the 'back' button in your browser to return to the page editor.",
 	'right-skipcaptcha' => 'Ngalakonan pamicu captcha tanpa ngaliwatan Captcha',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Ainali
  * @author Boivie
  * @author Lejonel
@@ -3493,7 +3493,7 @@ $messages['te'] = array(
 	'right-skipcaptcha' => 'ఆమకవేప ద్వారా పోకుండానే దాని ట్రిగ్గరు చర్యలను అమలు చెయ్యి',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -3520,7 +3520,7 @@ $messages['tg-cyrl'] = array(
   #</pre> <!-- ин сатрро ҳамон гуна, ки ҳаст раҳо кунед-->',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -3652,7 +3652,7 @@ Sayfa düzenleyiciye dönmek için tarayıcınızın 'geri' tuşuna basınız.",
 	'right-skipcaptcha' => "Captcha ile tetiklenen hareketleri, captcha'yı geçme zorunluluğu olmadan yap",
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Ahonc
  * @author Alex Khimich
  * @author NickK
@@ -3690,7 +3690,7 @@ $messages['uk'] = array(
 	'right-skipcaptcha' => 'Виконання дій, що вимагають CAPTCHA-перевірки, без проходження CAPTCHA',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -3863,7 +3863,7 @@ $messages['yue'] = array(
 	'right-skipcaptcha' => '執行captcha引發嘅動作時唔需要經過captcha',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Bencmq
  * @author Hzy980512
  * @author Liangent
@@ -3897,7 +3897,7 @@ $messages['zh-hans'] = array(
 	'right-skipcaptcha' => '绕过验证码的验证',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Horacewai2
  * @author Hydra
  * @author Liangent

@@ -140,7 +140,7 @@ $messages['be-tarask'] = array(
 Націсьніце кнопку «назад» у Вашым браўзэры, каб вярнуцца да рэдагаваньня старонкі.',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -161,7 +161,7 @@ Kit e darempred gant [[{{MediaWiki:Grouppage-sysop}}|merourien al lec'hienn]] ev
 Pouezit war bouton 'kent' ho merdeer evit distreiñ d'ar bajenn gemmañ.",
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -182,7 +182,7 @@ Molimo Vas da kontaktirate [[{{MediaWiki:Grouppage-sysop}}|administratore strani
 Kliknite 'nazad' ('back') dugme vašeg preglednika da se vratite na polje za unos teksta.",
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Paucabot
  * @author Toniher
  */
@@ -192,7 +192,7 @@ Per ajudar a protegir-se contra la brossa automàtica, responeu la pregunta que 
 	'questycaptcha-create' => 'Per crear la pàgina, per favor responeu la pregunta que apareix a continuació ([[Special:Captcha/help|més informació]]):',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Mormegil
  */
 $messages['cs'] = array(
@@ -308,7 +308,7 @@ Bonvolu kontakti la [[{{MediaWiki:Grouppage-sysop}}|administrantojn de la retejo
 Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Pertile
  */
@@ -331,7 +331,7 @@ Por favor contacta a los [[{{MediaWiki:Grouppage-sysop}}|administradores del sit
 Haz click en el botón 'atrás' en tu navegador para regresar al editor de página.",
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Pikne
  */
 $messages['et'] = array(
@@ -352,7 +352,7 @@ Kui sul tekib raskusi muudatuste tegemisel, võta palun ühendust selle võrguko
 Redigeerimislehele naasmiseks klõpsa võrgulehitseja ''tagasi''-nuppu.",
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author Kobazulo
  */
 $messages['eu'] = array(
@@ -360,7 +360,7 @@ $messages['eu'] = array(
 	'questycaptcha-edit' => 'Orrialde hau aldatzeko, behean agertzen den galdera erantzun ezazu mesedez ([[Special:Captcha/help|informazio gehiago]]):',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  * @author Nike
  */
@@ -382,7 +382,7 @@ Ota yhteyttä [[{{MediaWiki:Grouppage-sysop}}|ylläpitäjiin]] saadaksesi avustu
 Napsauta selaimesi \'takaisin\'-painiketta palataksesi sivumuokkaimeen.',
 );
 
-/** French (Français)
+/** French (français)
  * @author IAlex
  * @author Verdy p
  */
@@ -496,7 +496,7 @@ Prošu staj so z [[{{MediaWiki:Grouppage-sysop}}|administratorami sydła]] z pro
 Klikń na tłócatko "Wróćo" w swojim wobhladowaku, zo by so k wobdźěłowanskemu woknu wróćił.',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Glanthor Reviol
  */
 $messages['hu'] = array(
@@ -517,7 +517,7 @@ Ha ez nem várt módon akadályoz a hasznos közreműködéseidben, segítségé
 Használd a böngésződ „vissza” gombját a szöveg szerkesztéséhez való visszalépéshez.',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -591,7 +591,7 @@ Pangngaasi a kontaken ti [[{{MediaWiki:Grouppage-sysop}}|administrador ti pagsaa
 Peslen ti 'agsubli' a buton dita pagbasabasam (browser) ti agsubli idiay panid ti pinagurnos.",
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Darth Kule
  */
@@ -707,7 +707,7 @@ Kontaktéiert w.e.g. d'[[{{MediaWiki:Grouppage-sysop}}|Administrateure vun dëse
 Dréckt op den 'Zréck' Knäppche vun ärem Browser fir an d'Beaarbechtungsfënster zréckzekommen.",
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -805,7 +805,7 @@ Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als di
 Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Gunnernett
  */
 $messages['nn'] = array(
@@ -816,7 +816,7 @@ Som ei hjelp til å unngå automatisert spam, ver venleg og skiv inn spørsmåle
 	'questycaptcha-edit' => 'For å endra sida, ver venleg og svar på spørsmålet som er synt nedanfor ([[Special:Captcha/help|meir informasjon]]):',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -838,7 +838,7 @@ Contactatz [[{{MediaWiki:Grouppage-sysop}}|los administrators del site]] s'aquò
 Clicatz sul boton « Precedent » de vòstre navigador per tornar a la pagina de modificacion.",
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Sp5uhe
  */
 $messages['pl'] = array(
@@ -883,7 +883,7 @@ Për piasì contata j'[[{{MediaWiki:Grouppage-sysop}}|aministrador dël sit]] p�
 Ch'a-i bata ansima al boton 'andré' ant sò navigator për torné andré a l'editor dla pàgina.",
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Crazymadlover
  * @author Giro720
  * @author Hamilton Abreu
@@ -907,7 +907,7 @@ Por favor, contacte os [[{{MediaWiki:Grouppage-sysop}}|administradores]] para as
 Clique o botão 'voltar' do seu browser para voltar à página de edição.",
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author 555
  * @author Eduardo.mps
  * @author Giro720
@@ -952,7 +952,7 @@ Uneori, mai ales la adăugarea de noi legături web într-o pagină, situl wiki 
 Apăsați butonul „Înapoi” al navigatorului pentru a vă reîntoarce la pagina de editare.',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -974,7 +974,7 @@ Pe piacere condatte le [[{{MediaWiki:Grouppage-sysop}}|amministrature d'u site]]
 Cazze 'u buttone 'rrete' jndr'à 'u browser tue pe turnà 'a pàgene d'u cangiamende.",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -996,7 +996,7 @@ $messages['ru'] = array(
 Нажмите в вашем браузере кнопку «назад», чтобы вернуться к странице редактирования.',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -1022,7 +1022,7 @@ Kontaktujte prosím [[{{MediaWiki:Grouppage-sysop}}|správcov lokality]] ak potr
 Späť na úpravu stránky sa vrátite kliknutím na tlačidlo „Späť“ vo vašom prehliadači.',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -1044,19 +1044,19 @@ Ker je to opravilo težko avtomatizirati, bo s tem večini ljudi prispevanje dov
 Za vrnitev v urejevalnik izberite gumb »nazaj« v vašem brskalniku.',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
 	'questycaptcha-desc' => 'Стварач сликовног кода за потврду уређивања',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+/** Serbian (Latin script) (‪srpski (latinica)‬) */
 $messages['sr-el'] = array(
 	'questycaptcha-desc' => 'Stvarač slikovnog koda za potvrdu uređivanja',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  */
 $messages['sv'] = array(
@@ -1145,7 +1145,7 @@ Bu durumun sizi normal katkılarınızı yapmaktan olağandışı bir şekilde a
 Sayfa editörüne dönmek için tarayıcınızın 'geri' düğmesine tıklayın.",
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Diemon.ukr
  */
 $messages['uk'] = array(
@@ -1195,7 +1195,7 @@ $messages['yi'] = array(
 	'questycaptcha-create' => 'צו שאַפֿן דעם בלאַט, ביטע ענטפֿערט די פֿראַגע אונטן  ([[Special:Captcha/help|מער אינפֿארמאַציע]]):',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文（简体）‬) */
 $messages['zh-hans'] = array(
 	'questycaptcha-addurl' => '您的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请回答以下的问题（[[Special:Captcha/help|相关资讯]]）：',
 	'questycaptcha-badlogin' => '为防止不当程式破解密码，请回答以下的问题（[[Special:Captcha/help|相关资讯]]）：',
@@ -1205,7 +1205,7 @@ $messages['zh-hans'] = array(
 	'questycaptcha-sendemail' => '为防止不当程式破解密码，请回答下列问题（[[Special:Captcha/help|相关资讯]]）：',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Horacewai2
  * @author Waihorace
  */

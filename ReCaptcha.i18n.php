@@ -41,7 +41,7 @@ $messages['ar'] = array(
 	'recaptcha-create' => 'للمساعدة في الحماية ضد الإنشاء الآلي للصفحات، يرجى كتابة الكلمتين اللتين تراهما في المربع أدناه :',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -66,7 +66,7 @@ $messages['be-tarask'] = array(
 	'recaptcha-create' => 'Для абароны супраць аўтаматычнага стварэньня старонак, калі ласка, увядзіце два словы, якія Вы бачыце ў полі ніжэй:',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -78,7 +78,7 @@ $messages['br'] = array(
 	'recaptcha-create' => "Da sikour en em wareziñ diouzh ar c'hrouiñ pajennoù emgefre, merkit an daou c'her a welit er voest dindan :",
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -90,7 +90,7 @@ $messages['bs'] = array(
 	'recaptcha-create' => 'Da bismo pomogli protiv automatiziranog pravljenja stranica, molimo upišite dvije riječi koje vidite u kutiju ispod:',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Jkjk
  * @author Mormegil
  */
@@ -144,7 +144,7 @@ $messages['dsb'] = array(
 	'recaptcha-createaccount-fail' => 'Wopacne abo felujuce wótegrono reCAPTCHA.',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Fitoschido
  */
 $messages['es'] = array(
@@ -156,7 +156,7 @@ $messages['es'] = array(
 	'recaptcha-create' => 'Para protegernos de la creación automática de páginas, escribe las dos palabras que ves en el cuadro de abajo:',
 );
 
-/** French (Français)
+/** French (français)
  * @author Urhixidur
  */
 $messages['fr'] = array(
@@ -215,7 +215,7 @@ $messages['hsb'] = array(
 	'recaptcha-create' => 'Za škit přećiwo awtomatiskemu wutworjenju strony, prošu zapisaj tej wobě słowje, kotrejž w slědowacym polu widźiš:',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -239,7 +239,7 @@ $messages['id'] = array(
 	'recaptcha-create' => 'Untuk membantu pelindungan terhadap pembuatan halaman otomatis, silakan ketik dua kata yang Anda lihat dalam kotak di bawah ini:',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Nemo bis
  */
 $messages['it'] = array(
@@ -300,7 +300,7 @@ $messages['lb'] = array(
 	'recaptcha-create' => "Fir ze hëllefe eis géint d'automatiséiert Uleeë vu Säiten ze schützen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner an:",
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -349,7 +349,7 @@ $messages['nl'] = array(
 	'recaptcha-create' => "Om het automatisch aanmaken van pagina's tegen te gaan moet u de twee woorden die u ziet invoeren:",
 );
 
-/** Polish (Polski) */
+/** Polish (polski) */
 $messages['pl'] = array(
 	'recaptcha-edit' => 'Aby uchronić nas przed robotami, proszę wpisać dwa widoczne słowa w poniższym polu:',
 	'recaptcha-addurl' => 'Twoja edycja zawiera linki zewnętrzne. Aby uchronić nas przed robotami, proszę wpisać dwa widoczne słowa w poniższym polu:',
@@ -372,7 +372,7 @@ $messages['pms'] = array(
 	'recaptcha-create' => "Për giuté a protege contra la creassion automatisà ëd pàgine, për piasì ch'a scriv le doe paròle ch'a s-ciàira ant la casela sì-sota:",
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
@@ -384,7 +384,7 @@ $messages['pt'] = array(
 	'recaptcha-create' => 'Para proteger-nos da criação automática de páginas, por favor escreva  as duas palavras visíveis abaixo:',
 );
 
-/** Brazilian Portuguese (Português do Brasil) */
+/** Brazilian Portuguese (português do Brasil) */
 $messages['pt-br'] = array(
 	'recaptcha-edit' => 'Para ajudar a prevenir contra vandalismos, por favor digite as duas palavras que você vê na caixa abaixo:',
 	'recaptcha-addurl' => 'A sua edição inclui ligações externas. Para ajudar a prevenir contra vandalismos, por favor digite as duas palavras que você vê na caixa abaixo:',
@@ -394,7 +394,7 @@ $messages['pt-br'] = array(
 	'recaptcha-create' => 'Para ajudar a prevenir contra criação automatizada de páginas, por favor digite as duas palavras que você vê na caixa abaixo:',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -406,19 +406,19 @@ $messages['ru'] = array(
 	'recaptcha-create' => 'В целях защиты от автоматического создания страниц, пожалуйста, введите два слова, которые вы видите ниже:',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
 	'recaptcha-desc' => 'Модул reCAPTCHA за потврду уређивања',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+/** Serbian (Latin script) (‪srpski (latinica)‬) */
 $messages['sr-el'] = array(
 	'recaptcha-desc' => 'Modul reCAPTCHA za potvrdu uređivanja',
 );
 
-/** Swedish (Svenska) */
+/** Swedish (svenska) */
 $messages['sv'] = array(
 	'recaptcha-edit' => 'Den här sidan skyddas mot spam-robotar, bevisa att du är en människa genom att skriva de två orden du ser i boxen nedan:',
 	'recaptcha-addurl' => 'Din förändring av sidan innehåller nya externa länkar, vilket är typiskt för spam. Bevisa att du är en människa genom att skriva de två orden du ser i boxen nedan:',
@@ -452,7 +452,7 @@ $messages['tl'] = array(
 	'recaptcha-create' => 'Upang makatulong sa pagprutekta laban sa kusang paglikha ng pahina, paki imakinilya ang dalawang mga salitang nakikita mo sa loob ng kahong nasa ibaba:',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Тест
  */
 $messages['uk'] = array(
@@ -469,7 +469,7 @@ $messages['vi'] = array(
 	'recaptcha-create' => 'Để giúp tránh việc tạo trang tự động, xin hãy gõ hai từ mà bạn nhìn vào ô dưới đây:',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Hydra
  * @author Hzy980512
  * @author Onecountry
@@ -483,7 +483,7 @@ $messages['zh-hans'] = array(
 	'recaptcha-create' => '为了避免垃圾用户自动创建页面，请键入下面框中的两个单词：',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文（繁體）‬) */
 $messages['zh-hant'] = array(
 	'recaptcha-edit' => '要幫助保護免受垃圾郵件自動的編輯，請鍵入您在下面的框中看到這兩個詞：',
 	'recaptcha-addurl' => '您的編輯包含新的外部鏈接。為了幫助防止自動垃圾郵件，請鍵入您在下面的框中看到這兩個詞：',

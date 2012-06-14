@@ -126,7 +126,7 @@ $messages['as'] = array(
 	'fancycaptcha-sendemail' => 'স্বয়ংক্ৰিয় স্পেমিঙৰ পৰা বাচিবলৈ অনুগ্ৰহ কৰি তলৰ বাকছটোৰ তলত ওলোৱা আখৰকেইটা লিখক ([[Special:Captcha/help|অধিক তথ্য]]):',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -178,7 +178,7 @@ $messages['be-tarask'] = array(
 	'fancycaptcha-sendemail' => 'У мэтах абароны супраць аўтаматычнага спаму, калі ласка, увядзіце словы паказаныя ніжэй у полі ([[Special:Captcha/help|дадатковая інфармацыя]]):',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
  */
@@ -205,7 +205,7 @@ $messages['bn'] = array(
 	'fancycaptcha-sendemail' => 'স্বয়ংক্রিয় স্প্যামিং এর বিরুদ্ধে সুরক্ষার খাতিরে অনুগ্রহ করে নিচের বাক্সে দেখানো শব্দগুলি প্রবেশ করান ([[Special:Captcha/help|আরও তথ্য]]):',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -218,7 +218,7 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
 	'fancycaptcha-sendemail' => "Evit hor skoazellañ da zizarbenn ar strob emgefre, adskrivit ar gerioù a welit er voest dindan ([[Special:Captcha/help|gouzout hiroc'h]]):",
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -231,7 +231,7 @@ Da bi se zaštitili od automatskog spama, molimo da unesete riječi koje su prik
 	'fancycaptcha-sendemail' => 'Da bi pomogli u sprječavanju protiv automatskog spamovanja, molimo Vas da unesete riječi koje su prikazane ispod u kutiji ([[Special:Captcha/help|više informacija]]):',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Davidpar
  * @author SMP
  * @author Ssola
@@ -250,14 +250,14 @@ $messages['cdo'] = array(
 	'fancycaptcha-badlogin' => 'Ôi-lāu huòng-cī tiàng-sê̤ṳ cê̤ṳ-dông puái-gāi mĭk-mā, chiāng nṳ̄ sṳ̆-ĭk â-dā̤ bēng-bēng diē-lié gì sṳ̀ ([[Special:Captcha/help|gáing sâ̤ séng-sék]]):',
 );
 
-/** Sorani (کوردی)
+/** Sorani Kurdish (کوردی)
  * @author Asoxor
  */
 $messages['ckb'] = array(
 	'fancycaptcha-createaccount' => 'بۆ یارمەتیدانی بەرگری لە دروستکردنی خۆکاری ھەژمار، تکایە ئەو وشانە لە خوارەوەدا دیارن لە بۆکسەکەدا بنووسە ([[Special:Captcha/help|زانیاریی زۆرتر]]):',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Mormegil
  */
 $messages['cs'] = array(
@@ -290,7 +290,7 @@ Er mwyn ceisio rhwystro peiriannau spam, byddwch gystal â theipio'r geiriau a w
 	'fancycaptcha-sendemail' => "Er mwyn cyfrannu at ddiogelu rhag sbamio awtomatig, byddwch gystal â gwneud y swm isod ac ysgrifennu'r ateb yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Peter Alberti
  */
 $messages['da'] = array(
@@ -391,7 +391,7 @@ Por preventi aŭtomatan spamon, bonvolu enigi la jenajn vortojn en la skatolo ([
 	'fancycaptcha-sendemail' => 'Por helpi protekti kontraŭ aŭtomata spamado, bonvolu enigi la jenajn vortojn de la skatolo ([[Special:Captcha/help|plua informo]]):',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Icvav
  * @author Pertile
  * @author Sanbec
@@ -405,7 +405,7 @@ $messages['es'] = array(
 	'fancycaptcha-sendemail' => 'Para protegernos contra el spam automatizado por favor ingrese las palabras que aparecen en el siguiente cuadro ([[Special:Captcha/help|más información]]):',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Pikne
  */
 $messages['et'] = array(
@@ -419,7 +419,7 @@ Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaad
 	'fancycaptcha-sendemail' => 'Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaadistatud rämpsmuudatuste vastu ([[Special:Captcha/help|lisateave]]):',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  */
 $messages['eu'] = array(
@@ -448,7 +448,7 @@ $messages['fa'] = array(
 	'fancycaptcha-sendemail' => 'برای کمک به محافظت در برابر هرزه‌نگاری خودکار، لطفاً واژه‌هایی را که در جعبهٔ زیر نمایش داده می‌شوند وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  * @author Nike
  */
@@ -461,7 +461,7 @@ $messages['fi'] = array(
 	'fancycaptcha-sendemail' => 'Automatisoidun roskapostin lähettämisen vaikeuttamiseksi kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):',
 );
 
-/** Faroese (Føroyskt)
+/** Faroese (føroyskt)
  * @author Spacebirdy
  */
 $messages['fo'] = array(
@@ -469,7 +469,7 @@ $messages['fo'] = array(
 	'fancycaptcha-createaccount' => 'Sum ein vernd ímóti sjálvvirknum konto gerð, er neyðugt hjá tær at skriva inn tey orð, sum koma fyri á myndini fyri at stovna eina kontu: <br />([[Special:Captcha/help|Hvat er hetta?]]):',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author IAlex
  * @author Sherbrooke
@@ -486,7 +486,7 @@ Pour vérifier qu’il ne s’agit pas de pourriels automatisés, veuillez entre
 	'fancycaptcha-sendemail' => 'Afin de nous aider à prévenir le spam automatique, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -583,7 +583,7 @@ $messages['hi'] = array(
 	'fancycaptcha-edit' => 'यह पृष्ठ बदलने के लिये, नीचे दिखने वाले अक्षर टेक्स्ट बक्सेमें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -611,7 +611,7 @@ $messages['hsb'] = array(
 	'fancycaptcha-sendemail' => 'Za škit přećiwo awtomatiskemu spamowanju, zapodaj prošu słowa, kotrež so deleka w kašćiku jewi ([[Special:Captcha/help|dalše informacije]]):',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Adam78
  * @author Dorgan
  * @author Glanthor Reviol
@@ -625,7 +625,7 @@ $messages['hu'] = array(
 	'fancycaptcha-sendemail' => 'Hogy segíts az automatikus spammelés elleni védekezésben, kérünk írd be az alábbi szavakat a szövegdobozba ([[Special:Captcha/help|segítség]]):',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -665,7 +665,7 @@ Tapno  masalakniban kadagiti automatiko a spam, pangaasim nga ikabil ti balikas 
 	'fancycaptcha-sendemail' => 'Tapno  makasalaknib kadagiti automatiko a pinagspam, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author BrokenArrow
  * @author Darth Kule
@@ -696,7 +696,7 @@ $messages['ja'] = array(
 	'fancycaptcha-sendemail' => 'ロボットによるスパムを防ぐため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  */
 $messages['jut'] = array(
@@ -893,7 +893,7 @@ $messages['lo'] = array(
 	'fancycaptcha-edit' => 'ກະລຸນາ ພິມຄຳສັບຂ້າງລຸ່ມນີ້ ໃສ່ໃນກັບ ເພື່ອ ດັດແກ້ໜ້ານີ້ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມຕື່ມ]]):',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -1009,7 +1009,7 @@ Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming t
 	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen geautomatiseerde spam ([[Special:Captcha/help|meer informatie]]):',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -1022,7 +1022,7 @@ For å hjelpa oss med å unngå automatisert spam, ver venleg og skriv inn orda 
 	'fancycaptcha-edit' => 'For å endra denne sida, ver venleg og skriv inn orda som kjem til syne i boksen nedanfor ([[Special:Captcha/help|meir informasjon]]):',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -1048,7 +1048,7 @@ $messages['or'] = array(
 	'fancycaptcha-sendemail' => 'ଆପେଆପେ ହେଉଥିବା ସ୍ପାମକୁ ରୋକିବା ନିମନ୍ତେ ଦୟାକରି ଏହି ଘରଭିତରେ ଥିବା ଶବ୍ଦସବୁକୁ ତାହା ତଳେ ଥିବା ବାକ୍ସରେ ଟାଇପ କରନ୍ତୁ । ([[Special:Captcha/help|ଅଧିକ ସୂଚନା]]):',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Sp5uhe
  */
 $messages['pl'] = array(
@@ -1096,7 +1096,7 @@ $messages['ps'] = array(
 ([[Special:Captcha/help|نور مالومات]]):',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  * @author Malafaya
  */
@@ -1111,7 +1111,7 @@ Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa ab
 	'fancycaptcha-sendemail' => "Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa as palavras que aparecem abaixo ([[Special:Captcha/help|mais informações]]):",
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  */
@@ -1124,7 +1124,7 @@ $messages['pt-br'] = array(
 	'fancycaptcha-sendemail' => "Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa as palavras que aparecem abaixo ([[Special:Captcha/help|mais informações]]):",
 );
 
-/** Romansh (Rumantsch)
+/** Romansh (rumantsch)
  * @author Kazu89
  */
 $messages['rm'] = array(
@@ -1146,7 +1146,7 @@ Pentru a împiedica roboții de spam, vă rugăm să introduceți cuvintele care
 	'fancycaptcha-sendemail' => 'Pentru a împiedica roboții de spam, vă rugăm să introduceți cuvintele care apar mai jos în căsuță ([[Special:Captcha/help|mai multe detalii]]):',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -1159,7 +1159,7 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere mitte le parole 
 	'fancycaptcha-sendemail' => "Pe aiutà a proteggere condre a spam automatece, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Dim Grits
  * @author Lockal
  * @author Александр Сигачёв
@@ -1186,7 +1186,7 @@ $messages['rue'] = array(
 	'fancycaptcha-sendemail' => 'В рамках охороны перед автоматічным спамом мусите описати текст з наступного образку. ([[Special:Captcha/help|Што тото значіть?]]):',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -1212,7 +1212,7 @@ $messages['si'] = array(
 	'fancycaptcha-sendemail' => 'ස්වයංක්‍රීය ස්පෑම් කිරීම්වලින් ආරක්ෂා කිරීම සඳහා උදව් වීමට පහත කොටුවේ පෙන්වන වචන ඇතුළත් කරන්න ([[Special:Captcha/help|more info]]):',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -1224,7 +1224,7 @@ $messages['sk'] = array(
 	'fancycaptcha-sendemail' => 'Ako ochranu proti automatizovanému spamu, prosím zadajte slová z nasledujúceho obrázka do poľa pre odpoveď ([[Special:Captcha/help|ďalšie informácie]]):',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -1237,7 +1237,7 @@ Zaradi zaščite pred samodejnim smetjem prosimo, da vnesete spodnje besede v po
 	'fancycaptcha-sendemail' => 'Zaradi zaščite pred samodejnim smetenjem prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Dori
  * @author Olsi
  */
@@ -1250,7 +1250,7 @@ $messages['sq'] = array(
 	'fancycaptcha-sendemail' => "Për t'u mbrojtur nga metoda automatike e gjetjes së fjalëkalimeve ju kërkojmë të vendosni fjalët e figurës në kuti ([[Special:Captcha/help|më shumë informacion]]):",
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Жељко Тодоровић
@@ -1267,7 +1267,7 @@ $messages['sr-ec'] = array(
 	'fancycaptcha-sendemail' => 'У циљу заштите од непожељних порука, унесите речи са слике у поље испод ([[Special:Captcha/help|више информација]]):',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -1303,7 +1303,7 @@ $messages['su'] = array(
 	'fancycaptcha-edit' => 'Éditan Anjeun ngeusikeun tumbu kaluar nu anyar. Pikeun panangtayungan ka spam otomatis, mangga asukkeun kecap di handapeun ieu ka kotak anu disadiakeun ([[Special:Captcha/help|salengkeupna]]):',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Ainali
  */
 $messages['sv'] = array(
@@ -1336,7 +1336,7 @@ $messages['te'] = array(
 ([[Special:Captcha/help|మరింత సమాచారం]]):',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1347,7 +1347,7 @@ $messages['tg-cyrl'] = array(
 	'fancycaptcha-edit' => 'Барои вироиши ин саҳифа, вожаеро ки дар тасвир мебинед, ворид кунед ([[Special:Captcha/help|иттилооти бештар]]):',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -1406,7 +1406,7 @@ Otomatik spamdan korunmak için, lütfen aşağıdaki sözcükleri kutunun için
 	'fancycaptcha-sendemail' => 'Otomatik spamlerden korunmaya yardımcı olmak için, lütfen aşağıda görünen sözcükleri kutuya yazın ([[Special:Captcha/help|daha fazla bilgi]]):',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Ahonc
  * @author Dim Grits
  * @author Ytsukeng Fyvaprol
@@ -1422,7 +1422,7 @@ $messages['uk'] = array(
 	'fancycaptcha-sendemail' => 'Для захисту від автоматичного спаму, будь ласка, введіть слова, які показані нижче в полі ([[Special:Captcha/help|more info]]):',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -1506,7 +1506,7 @@ $messages['yue'] = array(
 	'fancycaptcha-edit' => '要編輯呢一版，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Bencmq
  */
 $messages['zh-hans'] = array(
@@ -1518,7 +1518,7 @@ $messages['zh-hans'] = array(
 	'fancycaptcha-sendemail' => '为防止不当程式进行破坏，请输入以下的文字（[[Special:Captcha/help|相关资讯]]）：',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Horacewai2
  * @author Waihorace
  */

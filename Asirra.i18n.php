@@ -73,7 +73,7 @@ $messages['de-formal'] = array(
 	'asirra-failed' => 'Bitte wählen Sie nur die Fotos mit Katzen aus.',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  */
 $messages['es'] = array(
@@ -88,7 +88,7 @@ $messages['es'] = array(
 	'asirra-failed' => 'Identifique todas las imágenes de gatos',
 );
 
-/** French (Français)
+/** French (français)
  * @author Gomoko
  * @author Seb35
  */
@@ -134,7 +134,7 @@ $messages['hsb'] = array(
 	'asirra-failed' => 'Prošu identifikuj wšě wobrazy z kóčkami',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -183,7 +183,7 @@ $messages['lb'] = array(
 	'asirra-failed' => 'Identifizéiert w.e.g. all Biller wou Kazen drop sinn',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -228,7 +228,7 @@ $messages['nl'] = array(
 	'asirra-failed' => 'Identificeer alle afbeeldingen van katten.',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author BeginaFelicysym
  */
 $messages['pl'] = array(
@@ -259,7 +259,7 @@ $messages['pms'] = array(
 	'asirra-failed' => 'Për piasì identìfica tute le figure ëd gat',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
@@ -289,7 +289,7 @@ Po s' mete a houte des des robots di spam, nos  vs dimandans d' acertiner ki vos
 	'asirra-failed' => 'Idintifyî totes les imådjes avou des tchets',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Hzy980512
  */
 $messages['zh-hans'] = array(

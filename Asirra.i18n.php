@@ -22,6 +22,13 @@ $messages['en'] = array(
 	'asirra-failed' => 'Please identify all cat images',
 );
 
+/** Message documentation (Message documentation)
+ * @author Beta16
+ */
+$messages['qqq'] = array(
+	'asirra-desc' => '{{desc}}',
+);
+
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
@@ -140,6 +147,21 @@ $messages['ia'] = array(
 	'asirra-create' => 'Pro adjutar a proteger nos contra le creation automatisate de paginas, per favor selige solmente le photos de cattos in le quadro sequente:',
 	'asirra-nojs' => "'''Per favor activa JavaScript e resubmitte le pagina.'''",
 	'asirra-failed' => 'Per favor identifica tote le imagines de cattos',
+);
+
+/** Italian (italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'asirra-desc' => 'Modulo ASIRRA per ConfirmEdit',
+	'asirra-edit' => 'Per aiutarci a proteggerci dalle modifiche automatiche che aggiungono spam, seleziona solo le foto di gatti nel riquadro sottostante:',
+	'asirra-addurl' => 'La tua modifica aggiunge qualche nuovo collegamento esterno. Per aiutarci a proteggerci dallo spam automatico, seleziona solo le foto di gatti nel riquadro sottostante:',
+	'asirra-badpass' => 'Per aiutarci a proteggerci dalla forzatura automatica delle password, seleziona solo le foto di gatti nel riquadro sottostante:',
+	'asirra-createaccount' => 'Per aiutarci a proteggerci dalla creazione automatica di nuovi accessi, seleziona solo le foto di gatti nel riquadro sottostante:',
+	'asirra-createaccount-fail' => 'Identifica correttamente i gatti.',
+	'asirra-create' => 'Per aiutarci a proteggerci dalla creazione automatica di pagine, seleziona solo le foto di gatti nel riquadro sottostante:',
+	'asirra-nojs' => "'''Attiva JavaScript ed invia di nuovo la pagina.'''",
+	'asirra-failed' => 'Identifica tutte le immagini di gatti',
 );
 
 /** Japanese (日本語)

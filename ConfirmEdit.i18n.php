@@ -1487,6 +1487,7 @@ $messages['gu'] = array(
 $messages['he'] = array(
 	'captcha-edit' => 'כדי לערוך את הדף, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'captcha-desc' => 'מתן טכניקות CAPTCHA להגנה נגד זיבול וניחוש ססמאות',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'עריכתכם כוללת קישורים חיצוניים חדשים. כהגנה מפני ספאם אוטומטי, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'captcha-badlogin' => 'כהגנה מפני פריצת סיסמאות אוטומטית, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'captcha-createaccount' => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
@@ -3023,12 +3024,14 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a do
 /** Russian (русский)
  * @author Ahonc
  * @author Aleksandrit
+ * @author Amire80
  * @author Kalan
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'captcha-edit' => 'Чтобы отредактировать эту страницу, пожалуйста, решите простой пример и введите ответ в текстовое поле ([[Special:Captcha/help|подробнее]]):',
 	'captcha-desc' => 'Предоставляет методы CAPTCHA для защиты от спама и подбора пароля',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Вы добавили ссылку на внешний сайт;
 в целях защиты от автоматического спама, введите буквы изображённые на картинке:<br />
 ([[Special:Captcha/help|Что это такое?]])',

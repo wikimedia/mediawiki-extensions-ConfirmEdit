@@ -313,6 +313,7 @@ $messages['as'] = array(
 $messages['ast'] = array(
 	'captcha-edit' => "Pa editar esta páxina, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
 	'captcha-desc' => "Ufre téuniques de CAPTCHA pa protexese escontra'l spam y descubrimientu de contraseñes",
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "La to edición inclúi nuevos enllaces esternos. P'aidar a protexer escontra'l spam automatizáu, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
 	'captcha-badlogin' => "P'aidar a protexer escontra'l descifráu automáticu de claves, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
 	'captcha-createaccount' => "P'aidar a protexer escontra la creación automática de cuentes, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",

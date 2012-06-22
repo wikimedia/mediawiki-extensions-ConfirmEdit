@@ -2180,6 +2180,14 @@ Jetz kanns De met Dingem Brauser singem „Zeröck“-Knopp wigger maache, wo De
 	'right-skipcaptcha' => 'De Opforderung fum Kaptscha överjonn',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Chorobek
+ */
+$messages['ky'] = array(
+	'captcha-edit' => 'Бул баракты оңдош үчүн бул жөнөкөй эсепти чыгарып, жообун көзөнөккө жазыңыз  ([[Special:Captcha/help|more info]]):',
+	'captcha-desc' => 'Сырсөздү жандыруудан жана керексиз маалыматтардан (спам) коргонуу максатында CAPTCHA ыкмасы колдонулат',
+);
+
 /** Latin (Latina)
  * @author UV
  */

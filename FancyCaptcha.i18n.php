@@ -841,6 +841,13 @@ bes esu joot, donn di Wööter enjävve, di en däm Käßje heh dronger shtonn.
 ([[Special:Captcha/help|Mieh Enfommazjuhne]])',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Chorobek
+ */
+$messages['ky'] = array(
+	'fancycaptcha-sendemail' => 'Автоматташтырылган спамдан коргонууга жардам катары бул сөздөрдү төмөндөгү көзөнөккө киргизиңиз ([[Special:Captcha/help|more info]]):',
+);
+
 /** Latin (Latina)
  * @author SPQRobin
  */

@@ -2286,6 +2286,7 @@ $messages['lo'] = array(
  */
 $messages['lt'] = array(
 	'captcha-edit' => 'Kad redaguotumėte šį straipsnį, apskaičiuokite šią paprastą sumą ir įveskite atsakymą į laukelį ([[Special:Captcha/help|daugiau informacijos]]):',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-createaccount-fail' => 'Blogas arba nerastas patvirtinimo kodas.',
 	'captchahelp-title' => 'CAPTCHA pagalba',
 	'captchahelp-cookies-needed' => 'Jums reikia būti įjungus sausainėlius savo naršyklėje kad tai veiktu',
@@ -3925,6 +3926,7 @@ $messages['zh-hans'] = array(
 $messages['zh-hant'] = array(
 	'captcha-edit' => '要編輯這篇文章，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
 	'captcha-desc' => '通過驗證碼技術來阻止垃圾郵件和密碼猜解',
+	'captcha-label' => '驗證碼',
 	'captcha-addurl' => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
 	'captcha-badlogin' => '為了防止程式自動破解密碼，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
 	'captcha-createaccount' => '為了防止程式自動註冊，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',

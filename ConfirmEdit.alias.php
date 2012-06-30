@@ -43,7 +43,7 @@ $specialPageAliases['fi'] = array(
 	'Captcha' => array( 'Ihmiskäyttäjävarmistus' ),
 );
 
-/** Galician (Galego) */
+/** Galician (galego) */
 $specialPageAliases['gl'] = array(
 	'Captcha' => array( 'Captcha' ),
 );

@@ -115,7 +115,7 @@ $messages['ba'] = array(
 Мөхәррирләүгә кире ҡайтыу өсөн, браузерығыҙҙа кире ҡайтыу төймәһенә баҫығыҙ.',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -260,7 +260,7 @@ Sollte Sie dieses Verfahren beim Vornehmen erwünschter Bearbeitungen behindern,
 Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -406,7 +406,7 @@ Veuillez contacter [[{{MediaWiki:Grouppage-sysop}}|les administrateurs du site]]
 Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la page de modification.',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -475,7 +475,7 @@ $messages['he'] = array(
 לחצו על הכפתור 'Back' בדפדפן שלכם כדי לחזור לדף העריכה.",
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(

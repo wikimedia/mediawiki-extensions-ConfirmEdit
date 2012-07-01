@@ -53,7 +53,7 @@ $messages['ast'] = array(
 	'recaptcha-create' => "P'ayudar a protexenos escontra la creación de páxines automática, escribi les dos pallabres que se ven na caxella d'abaxo:",
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -137,7 +137,7 @@ $messages['de-formal'] = array(
 	'recaptcha-createaccount' => 'Zum Schutz gegen die automatisierte Erstellung von Benutzerkonten bitten wir Sie, die folgenden beiden Wörter in das untenstehende Feld einzugeben:',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -168,7 +168,7 @@ $messages['fr'] = array(
 	'recaptcha-create' => "Pour nous protéger des créations automatiques de pages, merci d'écrire les deux mots visibles dans le cadre qui suit:",
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -203,7 +203,7 @@ $messages['he'] = array(
 	'recaptcha-create' => 'אינכם משתמש רשום.כהגנה מפני ספאם אוטומטי, אנא הקלידו את שתי המילים שלהלן. תודה.',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(

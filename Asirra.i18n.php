@@ -29,7 +29,7 @@ $messages['qqq'] = array(
 	'asirra-desc' => '{{desc}}',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -104,7 +104,7 @@ $messages['fr'] = array(
 	'asirra-failed' => 'Veuillez identifier toutes les images de chat',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -119,7 +119,7 @@ $messages['gl'] = array(
 	'asirra-failed' => 'Identifique todas as fotos de gatos',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(

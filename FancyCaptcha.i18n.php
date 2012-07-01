@@ -64,7 +64,7 @@ $messages['am'] = array(
 	'fancycaptcha-createaccount' => 'ያልተፈለገ የመኪናነት አባልነት ለመከላከል፥ አባል ለመሆን በዚህ ምስል የታዩት እንግሊዝኛ ቃላት ወይም ቁጥር መልስ በትክክል መጻፍ ግዴታ ነው። ([[Special:Captcha/help|ይህ ምንድነው?]]) (To help protect against automated spam, you must type in the words or correct number answer exactly as seen beneath here before registering your account:)<br />',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -163,7 +163,7 @@ $messages['bcc'] = array(
 	'fancycaptcha-edit' => 'په اصلاح کتن ای صفحه، لطفا کلماتی که ته جهلگی جعبه ظاهراند واردش کنیت ([[Special:Captcha/help|گیشتر اطلاعات]]):',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -270,7 +270,7 @@ $messages['cs'] = array(
 	'fancycaptcha-sendemail' => 'V rámci ochrany proti automatickému spamování musíte opsat níže zobrazená slova ([[Special:Captcha/help|více informací]]):',
 );
 
-/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -346,7 +346,7 @@ Qe otomatik spamî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan 
 ([[Special:Captcha/help|enformasyonê bînî]]):',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -512,7 +512,7 @@ $messages['ga'] = array(
 	'fancycaptcha-createaccount' => 'Mar chosaint in éadan cuntais a chruthaítear go huathoibríoch, ionchuir na focail a thaispeántar san íomhá seo thíos: <br />([[Special:Captcha/help|tuilleadh eolais]])',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  * @author Xosé
  */
@@ -599,7 +599,7 @@ slova koja vidite na slici dolje: <br />([[Special:Captcha/help|Pomoć]])',
 	'fancycaptcha-sendemail' => 'Da bi ste nam pomogli protiv automatskog spama, molimo unesite riječi koje su prikazane ispod u okvir ([[Special:Captcha/help|više informacija]]):',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -1181,7 +1181,7 @@ $messages['ru'] = array(
 	'fancycaptcha-sendemail' => 'В целях защиты от автоматического спама, пожалуйста, введите показанные ниже слова ([[Special:Captcha/help|подробнее]]):',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

@@ -1154,11 +1154,13 @@ Zure nabigatzaileko 'atzera' lotura erabili aldaketen orrialdera itzultzeko.",
  * @author Ebraminio
  * @author Huji
  * @author Mjbmr
+ * @author Reza1615
  * @author Wayiran
  */
 $messages['fa'] = array(
 	'captcha-edit' => 'برای ویرایش این مقاله، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'captcha-desc' => 'روش‌های مبتنی بر CAPTCHA برای مقابله با هرزنگاری و کشف گذرواژه فراهم می‌کند',
+	'captcha-label' => 'حرف بزرگ',
 	'captcha-addurl' => 'ویرایش شما شامل پیوندهای تازه‌ای به بیرون است. برای کمک به جلوگیری از ارسال خودکار هرزنامه‌ها، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'captcha-badlogin' => 'برای کمک به جلوگیری از سرقت خودکار کلمه عبور، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'captcha-createaccount' => 'برای جلوگیری از ایجاد خودکار حساب کاربری، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
@@ -1456,6 +1458,7 @@ Ins Bearbeitigsfänschter chunnt mer derno eifach wider mit em „Zruck“-Chnop
 $messages['gu'] = array(
 	'captcha-edit' => 'આ લેખમાં ફેરફાર કરવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો ([[Special:Captcha/help|more info]]):',
 	'captcha-desc' => '',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'તમે કરેલા ફેરફારોમાં નવી બાહ્ય કડીઓ સામેલ છે. સ્વચાલિત સ્પેમ/સ્પામ(spam) થી બચવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો
 ([[Special:Captcha/help|more info]]):',
 	'captcha-badlogin' => 'આપોઆપ થતી ગુપ્તસંજ્ઞાની ચોરી (password cracking)થી બચાવવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો ([[Special:Captcha/help|more info]]):',

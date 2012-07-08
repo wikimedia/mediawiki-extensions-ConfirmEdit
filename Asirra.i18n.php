@@ -273,6 +273,21 @@ $messages['pt'] = array(
 	'asirra-nojs' => "'''Possibilite o uso de JavaScript e reenvie a página, por favor.'''",
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'asirra-desc' => 'Modyul ng Asirra para sa ConfirmEdit',
+	'asirra-edit' => 'Upang makatulong sa pagprutekta laban sa kusang basurang pamamatnugot, paki piliin iyong mga litrato lamang ng pusa na nasa loob ng kahong nasa ibaba:',
+	'asirra-addurl' => 'Ang pagbabago mo ay nagsasama ng bagong panlabas na mga kawing.  Upang makatulong sa pagprutekta laban sa kusang paglusob ng basurang-liham, paki piliin  iyong mga litrato lamang ng pusa na nasa loob ng kahong nasa ibaba:',
+	'asirra-badpass' => 'Upang makatulong sa pagprutekta laban sa kusang pag-alam ng hudyat, paki piliin lamang iyong mga litrato ng pusa na nasa loob ng kahong nasa ibaba:',
+	'asirra-createaccount' => 'Upang makatulong sa pagprutekta laban sa kusang paglikha ng akawnt, paki piliin lamang iyong mga litrato ng pusa na nasa loob ng kahong nasa ibaba:',
+	'asirra-createaccount-fail' => 'Paki kilalanin ng tama ang mga pusa.',
+	'asirra-create' => 'Upang makatulong sa pagprutekta laban sa kusang paglikha ng pahina, paki piliin lamang iyong mga litrato ng pusa na nasa loob ng kahong nasa ibaba:',
+	'asirra-nojs' => "'''Paki paganahin ang JavaScript at muling ipasa ang pahina.'''",
+	'asirra-failed' => 'Paki kilalanin ang lahat ng mga imahe ng pusa',
+);
+
 /** Walloon (walon)
  * @author Srtxg
  */

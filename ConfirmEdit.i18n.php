@@ -2611,7 +2611,11 @@ Voer t antwoord van disse eenvoudige rekensomme in bie t invoervienster
 	'captchahelp-cookies-needed' => 'Je mutten scheumbestaanden (cookies) an hebben staon um disse funksie te gebruken.',
 	'captchahelp-text' => "Websteeën waor iederene an kan biedragen, zo as disse {{SITENAME}}-wiki, wörden vake misbruukt deurdat der ongewunste verwiezingen op ezet wörden. Op disse wiki kunnen zokken bewarkingen makkelik weerummezet wörden, mer t nimp wel tied in beslag die aanders gebruukt kan wörden.
 
-Soms a'j nieje verwiezingen bie n pagina derop zetten, wö'j evreugen um iets over te tikken of in te vullen. Dit zörgt derveur dat der gien ongewunste verwiezingen eplaotst wörden, umdat dit allenig deur meensen edaon kan wörden en niet deur botgebrukers.
+Soms a'j nieje verwiezingen bie n pagina derop zetten, wö'j evreugen um iets over te tikken of in te vullen. Dit zörgt derveur dat der gien ongewunste verwiezingen eplaotst wörden, umdat dit allinnig deur meensen edaon kan wörden en niet deur botgebrukers.
+
+Spietig genog levert disse bevestiging veur gebrukers mit n visuele beparking of n tekst- of spraakebaseerden webkieker problemen op.
+Op t moment is der gien alternatief mit geluud beschikbaor.
+Vraag um hulpe van de [[{{MediaWiki:Grouppage-sysop}}|websteebeheerders]] as dit proses joe in de weg steet n nuttige biedrage te leveren.
 
 (Klik op de knoppe 'terug' in joew webkieker, um weerumme te gaon naor t tekstbewarkingscharm.)",
 	'captcha-addurl-whitelist' => ' #<!-- laot disse regel zo as t is --> <pre>

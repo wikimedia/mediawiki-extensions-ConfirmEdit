@@ -172,6 +172,16 @@ $messages['ja'] = array(
 	'asirra-nojs' => "'''JavaScript を有効にしてページを再読込してください。'''",
 );
 
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'asirra-desc' => 'Et Zohsazprojramm <i lang="en">Asirra</i> för et Zohsazprojramm <i lang="en">ConfirmEdit</i>.',
+	'asirra-edit' => 'Heh dat Wiki well sesch jääje <i lang="en">SPAM</i> schöze. Dröm moß mer beim Ändere noch en Prööfong aflääje, dat mer ene Minsch un kei Projramm es. Söhk bloß de Katzebelder em Kaßte us:',
+	'asirra-addurl' => 'Heh dat Wiki well sesch jääje <i lang="en">SPAM</i> schöze. Dröm moß mer, wam_mer lengks noh ußerhallef enfööje well, noch en Prööfong aflääje, dat mer ene Minsch un kei Projramm es. Söhk bloß de Katzebelder em Kaßte us:',
+	'asirra-badpass' => 'Heh dat Wiki well sesch jääje et automattesche Paßwoot_Knacke schöze. Dröm moß mer heh nor_en Prööfong aflääje, dat mer ene Minsch un kei Projramm es. Söhk bloß de Katzebelder em Kaßte us:',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

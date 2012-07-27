@@ -124,10 +124,13 @@ def gen_subdir(basedir, md5hash, levels):
 			os.mkdir(fulldir)
 	return subdir
 
-def try_pick_word(words, blacklist, verbose, min_length, max_length):
-	word1 = words[random.randint(0,len(words)-1)]
-	word2 = words[random.randint(0,len(words)-1)]
-	word = word1+word2
+def try_pick_word(words, blacklist, verbose, nwords, min_length, max_length):
+	word = words[random.randint(0,len(words)-1)]
+	while nwords > 1:
+		word2 = words[random.randint(0,len(words)-1)]
+		word = word+word2
+		nwords = nwords - 1
+
 	if verbose:
 		print "word is %s" % word
 
@@ -153,9 +156,9 @@ def try_pick_word(words, blacklist, verbose, min_length, max_length):
 			return None
 	return word
 
-def pick_word(words, blacklist, verbose, min_length, max_length):
+def pick_word(words, blacklist, verbose, nwords, min_length, max_length):
 	for x in range(1000): # If we can't find a valid combination in 1000 tries, just give up
-		word = try_pick_word(words, blacklist, verbose, min_length, max_length)
+		word = try_pick_word(words, blacklist, verbose, nwords, min_length, max_length)
 		if word:
 			return word
 	sys.exit("Unable to find valid word combinations")
@@ -182,6 +185,7 @@ if __name__ == '__main__':
 	parser.add_option("--fill", help="Fill the output directory to contain N files, overrides count, cannot be used with --dirs", metavar="N", type='int')
 	parser.add_option("--dirs", help="Put the images into subdirectories N levels deep - $wgCaptchaDirectoryLevels", metavar="N", type='int')
 	parser.add_option("--verbose", "-v", help="Show debugging information", action='store_true')
+	parser.add_option("--number-words", help="Number of words from the wordlist which make a captcha challenge (default 2)", type='int', default=2)
 	parser.add_option("--min-length", help="Minimum length for a captcha challenge", type='int', default=1)
 	parser.add_option("--max-length", help="Maximum length for a captcha challenge", type='int', default=-1)
 	
@@ -225,7 +229,7 @@ if __name__ == '__main__':
 		blacklist = []
 	
 	for i in range(count):
-		word = pick_word(words, blacklist, verbose, opts.min_length, opts.max_length)
+		word = pick_word(words, blacklist, verbose, opts.number_words, opts.min_length, opts.max_length)
 		salt = "%08x" % random.randrange(2**32)
 		# 64 bits of hash is plenty for this purpose
 		md5hash = hashlib.md5(key+salt+word+key+salt).hexdigest()[:16]

@@ -125,11 +125,17 @@ def gen_subdir(basedir, md5hash, levels):
 	return subdir
 
 def try_pick_word(words, blacklist, verbose, nwords, min_length, max_length):
-	word = words[random.randint(0,len(words)-1)]
-	while nwords > 1:
-		word2 = words[random.randint(0,len(words)-1)]
-		word = word+word2
-		nwords = nwords - 1
+	if words is not None:
+		word = words[random.randint(0,len(words)-1)]
+		while nwords > 1:
+			word2 = words[random.randint(0,len(words)-1)]
+			word = word + word2
+			nwords = nwords - 1
+	else:
+		word = ''
+		max_length = max_length if max_length > 0 else 10
+		for i in range(0, random.randint(min_length, max_length)):
+			word = word + chr(97 + random.randint(0,25))
 
 	if verbose:
 		print "word is %s" % word
@@ -176,6 +182,7 @@ if __name__ == '__main__':
 	"""
 	parser = OptionParser()
 	parser.add_option("--wordlist", help="A list of words (required)", metavar="WORDS.txt")
+	parser.add_option("--random", help="Use random charcters instead of a wordlist", action="store_true")
 	parser.add_option("--key", help="The passphrase set as $wgCaptchaSecret (required)", metavar="KEY")
 	parser.add_option("--output", help="The directory to put the images in - $wgCaptchaDirectory (required)", metavar="DIR")
 	parser.add_option("--font", help="The font to use (required)", metavar="FONT.ttf")
@@ -193,6 +200,8 @@ if __name__ == '__main__':
 
 	if opts.wordlist:
 		wordlist = opts.wordlist
+	elif opts.random:
+		wordlist = None
 	else:
 		sys.exit("Need to specify a wordlist")
 	if opts.key:
@@ -217,11 +226,13 @@ if __name__ == '__main__':
 
 	if fill:
 		count = max(0, fill - len(os.listdir(output)))
-	
-	words = read_wordlist(wordlist)
-	words = [x for x in words
-		if len(x) in (4,5) and x[0] != "f"
-		and x[0] != x[1] and x[-1] != x[-2]]
+
+	words = None
+	if wordlist:
+		words = read_wordlist(wordlist)
+		words = [x for x in words
+			if len(x) in (4,5) and x[0] != "f"
+			and x[0] != x[1] and x[-1] != x[-2]]
 	
 	if blacklistfile:
 		blacklist = read_wordlist(blacklistfile)

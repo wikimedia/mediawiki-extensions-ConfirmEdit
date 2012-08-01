@@ -2605,22 +2605,22 @@ Mit den „Trüch“-Knopp vun dien Browser kummst du trüch na dat Ännerfinste
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'captcha-edit' => "Um disse pagina te bewarken, mö'j eers t antwoord op disse eenvoudige somme invullen ([[Special:Captcha/help|meer informasie]]):",
-	'captcha-desc' => 'Eenvoudige invoering van captcha',
+	'captcha-edit' => "Um disse zied te bewarken, mu'j eerst t antwoord op disse eenvoudige somme invullen ([[Special:Captcha/help|meer informasie]]):",
+	'captcha-desc' => 'Biejt CAPTCHA-technieken um bescharming te biejen tegen moekpost en t raojen van wachtwoorden',
 	'captcha-addurl' => 'Joew bewarking bevat nieje uutgaonde verwiezingen.
 Voer ter de bescharming tegen ongewunste reklame de somme in die hieronder steet:<br />
 ([[Special:Captcha/help|Hulpe?]])',
 	'captcha-badlogin' => 'Los disse eenvoudige rekensomme op en voer t antwoord in bie t invoervienster in ter bescharming tegen t automaties kraken van wachtwoorden ([[Special:Captcha/help|meer informasie]]):',
 	'captcha-createaccount' => 'Voer ter bescharming tegen automatiese ongewunste reklame t antwoord op disse eenvoudige rekensomme in bie invoervienster ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount-fail' => 'Verkeerde of ontbrekende bevestigingskode.',
-	'captcha-create' => 'Je bin n nieje pagina an t maken.
+	'captcha-create' => 'Je bin n nieje zied an t maken.
 Voer t antwoord van disse eenvoudige rekensomme in bie t invoervienster
 ([[Special:Captcha/help|meer informasie]]).',
 	'captchahelp-title' => 'Lettertoetshulpe',
 	'captchahelp-cookies-needed' => 'Je mutten scheumbestaanden (cookies) an hebben staon um disse funksie te gebruken.',
 	'captchahelp-text' => "Websteeën waor iederene an kan biedragen, zo as disse {{SITENAME}}-wiki, wörden vake misbruukt deurdat der ongewunste verwiezingen op ezet wörden. Op disse wiki kunnen zokken bewarkingen makkelik weerummezet wörden, mer t nimp wel tied in beslag die aanders gebruukt kan wörden.
 
-Soms a'j nieje verwiezingen bie n pagina derop zetten, wö'j evreugen um iets over te tikken of in te vullen. Dit zörgt derveur dat der gien ongewunste verwiezingen eplaotst wörden, umdat dit allinnig deur meensen edaon kan wörden en niet deur botgebrukers.
+Soms a'j nieje verwiezingen bie n zied derop zetten, wö'j evreugen um iets over te tikken of in te vullen. Dit zörgt derveur dat der gien ongewunste verwiezingen eplaotst wörden, umdat dit allinnig deur meensen edaon kan wörden en niet deur botgebrukers.
 
 Spietig genog levert disse bevestiging veur gebrukers mit n visuele beparking of n tekst- of spraakebaseerden webkieker problemen op.
 Op t moment is der gien alternatief mit geluud beschikbaor.
@@ -2921,6 +2921,7 @@ $messages['ps'] = array(
 $messages['pt'] = array(
 	'captcha-edit' => 'Para editar esta página, por favor, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
 	'captcha-desc' => 'Fornece técnicas CAPTCHA para protecção contra spam e tentativas de adivinhar a palavra-chave',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "A sua edição introduziu links externos novos.
 Como prevenção contra sistemas automatizados de inserção de ''spam'', resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):",
 	'captcha-badlogin' => 'Como prevenção com sistemas automatizados de descoberta de palavras-chave, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
@@ -2948,7 +2949,7 @@ Clique o botão 'voltar' do seu browser para voltar à página de edição.",
 #  * Tudo desde um símbolo de cardinal (#) até ao fim da linha é um comentário
 #  * Qualquer linha que não esteja em branco é um fragmento de expressão regular (regex) que será comparado com o servidor das URLs
  #</pre> <!-- deixe esta linha exactamente como está -->',
-	'right-skipcaptcha' => "Executar acções despoletadoras do CAPTCHA' sem ter de passar pelo CAPTCHA",
+	'right-skipcaptcha' => 'Executar operações desencadeadoras do CAPTCHA sem ter que passar pelo CAPTCHA',
 );
 
 /** Brazilian Portuguese (português do Brasil)
@@ -3130,6 +3131,13 @@ $messages['rue'] = array(
 #  * Каждый непорожнїй рядок є фраґмент реґуларного выразу, котры ся аплікує лем на назву госта в URL
  #</pre> <!-- зохабте тот рядок точно так як є -->',
 	'right-skipcaptcha' => 'Выконованя дїй споєных з CAPTCHA без потребы їх рїшіня',
+);
+
+/** Sanskrit (संस्कृतम्)
+ * @author Shubha
+ */
+$messages['sa'] = array(
+	'captcha-edit' => 'इदं पृष्ठं सम्पादयितुं कृपया अधः दत्तायाः गणितसमस्यायाः उत्तरं कोष्टके लिख्यताम् ([[Special:Captcha/help|अधिकविवरणाय]]):',
 );
 
 /** Sakha (саха тыла)

@@ -520,11 +520,11 @@ $messages['gl'] = array(
 	'fancycaptcha-desc' => 'Xerador de imaxes CAPTCHA para Confirm Edit',
 	'fancycaptcha-addurl' => 'A súa edición inclúe ligazóns externas novas.
 Para contribuír na protección contra o spam automatizado, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-badlogin' => 'Para contribuír a que non se descubran os contrasinais por medios automáticos, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-createaccount' => 'Para contribuír contra a creación automatizada de contas, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-badlogin' => 'Para contribuír a que non se descubran os contrasinais por medios automáticos, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-createaccount' => 'Para contribuír contra a creación automatizada de contas, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-create' => 'Para crear a páxina, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-edit' => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-sendemail' => 'Para contribuír na protección contra o spam automatizado, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-sendemail' => 'Para contribuír na protección contra o spam automatizado, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
 );
 
 /** Swiss German (Alemannisch)
@@ -573,14 +573,15 @@ $messages['he'] = array(
 
 /** Hindi (हिन्दी)
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'fancycaptcha-addurl' => 'आपके बदलावोंमें नयी बाहरी कड़ीयाँ हैं।
-अपनेआप होनेवाले संपादनोंसे बचाव के लिये, नीचे दिखनेवाले शब्द दिये हुए बक्सेमें भरें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
-	'fancycaptcha-badlogin' => 'अपनेआप होनेवाले कूटशब्द की चोरी से बचाव के लिये, नीचे दिखनेवाले शब्द दिये हुए बक्सेमें भरें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
-	'fancycaptcha-createaccount' => 'अपनेआप होने वाले सदस्य पंजिकरण से बचाव के लिये, नीचे दिखनेवाले शब्द दिये हुए बक्सेमें भरें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
-	'fancycaptcha-create' => 'यह पृष्ठ बनाने के लिये, नीचे दिखने वाले अक्षर टेक्स्ट बक्सेमें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
-	'fancycaptcha-edit' => 'यह पृष्ठ बदलने के लिये, नीचे दिखने वाले अक्षर टेक्स्ट बक्सेमें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
+	'fancycaptcha-addurl' => 'आपके सम्पादन में नई बाहरी कड़ियाँ हैं।
+स्वचालित स्पॅम से बचाव में सहायता के लिये नीचे दिये हुए शब्द बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):',
+	'fancycaptcha-badlogin' => 'स्वचालित कूटशब्द चोरी से बचाव में सहायता के लिये नीचे दिये हुए शब्द बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):',
+	'fancycaptcha-createaccount' => 'स्वचालित सदस्य पंजीकरण से बचाव में सहायता के लिये नीचे दिये शब्द बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):',
+	'fancycaptcha-create' => 'यह पृष्ठ बनाने के लिये कृपया नीचे दिये शब्द बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):',
+	'fancycaptcha-edit' => 'यह पृष्ठ बदलने के लिये, नीचे दिखने वाले अक्षर टेक्स्ट बक्सेमें लिखें ([[Special:Captcha/help|अधिक जानकारी]]):',
 );
 
 /** Croatian (hrvatski)
@@ -1392,6 +1393,7 @@ $messages['tk'] = array(
  * @author AnakngAraw
  */
 $messages['tl'] = array(
+	'fancycaptcha-desc' => 'Kaakit-akit na panlikha ng CAPTCHA para sa Pagtiyak ng Pagbago',
 	'fancycaptcha-addurl' => "Kabilang sa ginawa mong pagbabago ang bagong panlabas na mga kawing.
 Upang makatulong sa pagsasanggalang laban sa kusang pinapadalang mga \"manlulusob\" (''spam''), pakilagay lamang ang mga salitang lumitaw sa ibaba papasok sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):",
 	'fancycaptcha-badlogin' => 'Upang makatulong sa pagsasanggalang laban sa mga kusang paglutas ng hudyat, pakilagay lamang ang mga salitang lumitaw sa ibaba patungo sa loob ng kahon ([[Special:Captcha/help|mas marami pang kabatiran]]):',

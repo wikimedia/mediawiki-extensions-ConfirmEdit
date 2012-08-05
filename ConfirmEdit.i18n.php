@@ -3672,14 +3672,16 @@ Pindutin ang pindutang 'bumalik' sa iyong pantingin-tingin upang makabalik sa pa
 );
 
 /** Turkish (Türkçe)
+ * @author Emperyan
  * @author Joseph
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
 	'captcha-edit' => 'Bu sayfayı değiştirebilmek için lütfen aşağıdaki basit soruyu cevaplayın ve cevabı kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
-	'captcha-desc' => 'Basit captcha uygulaması',
+	'captcha-desc' => 'Spam ve parola tahminine karşı korunmak için "Güvenlik Kodu" (CAPTCHA) tekniği sağlar.',
+	'captcha-label' => 'Güvenlik Kodu',
 	'captcha-addurl' => 'Değişikliğiniz yeni dış bağlantılar içeriyor.
-Otomatik spamdan korunmak için, lütfen aşağıdaki basit soruyu cevaplayın ve cevabı kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
+Otomatik spamdan korunmak için lütfen aşağıdaki basit soruyu yanıtlayın ve yanıtı kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgi]]):',
 	'captcha-badlogin' => 'Otomatik parola çözülmesinden korunmak için, lütfen aşağıdaki basit soruyu cevaplayın ve kutunın içinde cevabı yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
 	'captcha-createaccount' => 'Otomatik spama karşı bir koruma olarak, hesabınızı kaydetmek için bu resimde gözüken kelimeleri tuşlamanız gerekmektedir ([[Special:Captcha/help|Bu nedir?]]):',
 	'captcha-createaccount-fail' => 'Hatalı ya da eksik onay kodu.',
@@ -3687,7 +3689,7 @@ Otomatik spamdan korunmak için, lütfen aşağıdaki basit soruyu cevaplayın v
 	'captcha-sendemail' => 'Otomatik spamlere karşı korunmaya yardımcı olmak için, lütfen aşağıdaki basit işlemi çözün ve cevabı kutuya yazın ([[Special:Captcha/help|daha fazla bilgi]]):',
 	'captcha-sendemail-fail' => 'Yanlış veya eksik onay kodu.',
 	'captcha-disabledinapi' => 'Bu eylem captcha gerektiriyor, dolayısıyla API aracılığıyla yapılamaz.',
-	'captchahelp-title' => 'Captcha yardımı',
+	'captchahelp-title' => 'Güvenlik kodu yardımı',
 	'captchahelp-cookies-needed' => 'Bunun çalışabilmesi için tarayıcınızın çerezleri kabul edilmesi gerekiyor.',
 	'captchahelp-text' => "Bu viki gibi, dışarıdan katılıma izin veren web siteleri, pek çok siteye bağlantılar yaratan otomatik araçlarını çalıştıran ''spam''cilerin saldırılarına sıklıkla maruz kalırlar. Bu spam nitelikli bağlantılar silinebilir, fakat bu temizlik önemli bir sıkıntı yaratacaktır.
 

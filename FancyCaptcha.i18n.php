@@ -1404,13 +1404,14 @@ Upang makatulong sa pagsasanggalang laban sa kusang pinapadalang mga \"manluluso
 );
 
 /** Turkish (Türkçe)
+ * @author Emperyan
  * @author Joseph
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
 	'fancycaptcha-addurl' => 'Değişikliğiniz yeni dış bağlantılar içeriyor.
 Otomatik spamdan korunmak için, lütfen aşağıdaki sözcükleri kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
-	'fancycaptcha-badlogin' => 'Otomatik parola çözülmesinden korunmak için, lütfen aşağıdaki sözcükleri kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):',
+	'fancycaptcha-badlogin' => 'Otomatik parola kırma yöntemine karşı korunmak için lütfen aşağıdaki sözcükleri kutunun içine yazınız ([[Special:Captcha/help|ayrıntılı bilgi]]):',
 	'fancycaptcha-createaccount' => 'Otomatik hesap oluşturmaya karşı korumaya yardım etmek için, lütfen aşağıdaki kutuda görünen kelimeleri girin ([[Special:Captcha/help|daha fazla bilgi]]):',
 	'fancycaptcha-create' => 'Sayfayı oluşturmak için, lütfen aşağıdaki kutuda görünen kelimeleri girin ([[Special:Captcha/help|daha fazla bilgi]]):',
 	'fancycaptcha-edit' => 'Bu sayfayı değiştirmek için, lütfen aşağıdaki kutuda görünen kelimeleri girin ([[Special:Captcha/help|daha fazla bilgi]]):',

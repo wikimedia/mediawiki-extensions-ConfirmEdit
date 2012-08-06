@@ -1105,6 +1105,7 @@ $messages['th'] = array(
  * @author AnakngAraw
  */
 $messages['tl'] = array(
+	'questycaptcha-desc' => 'Kaakit-akit na panlikha ng CAPTCHA na Questy para sa Pagtiyak ng Pagbago',
 	'questycaptcha-addurl' => 'Kasali sa pagbago mo ang bagong panglabas na mga kawing.
 Upang makatulong sa pagsanggalang laban sa kusang panglulusob, pakisagot ang tanong na nakalitaw sa ibaba ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-badlogin' => 'Upang makatulong sa pagsasanggalang laban sa mga kusang paglutas ng hudyat, pakisagot lamang ang tanong na nakalitaw sa ibaba ([[Special:Captcha/help|marami pang kabatiran]]):',

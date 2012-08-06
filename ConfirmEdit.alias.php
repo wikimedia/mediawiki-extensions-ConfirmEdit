@@ -88,6 +88,11 @@ $specialPageAliases['sr-ec'] = array(
 	'Captcha' => array( 'Потврдни_код' ),
 );
 
+/** Turkish (Türkçe) */
+$specialPageAliases['tr'] = array(
+	'Captcha' => array( 'GüvenlikKodu' ),
+);
+
 /** Cantonese (粵語) */
 $specialPageAliases['yue'] = array(
 	'Captcha' => array( '驗證碼' ),

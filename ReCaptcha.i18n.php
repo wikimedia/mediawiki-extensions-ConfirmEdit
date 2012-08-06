@@ -444,6 +444,7 @@ $messages['sw'] = array(
  * @author AnakngAraw
  */
 $messages['tl'] = array(
+	'recaptcha-desc' => 'Modulo ng reCAPTCHA para sa Pagtiyak ng Pagbago',
 	'recaptcha-edit' => 'Upang makatulong sa pagprutekta laban sa kusang basurang pamamatnugot, paki imakinilya ang dalawang mga salitang nakikita mo sa loob ng kahong nasa ibaba:',
 	'recaptcha-addurl' => 'Ang pagbabago mo ay nagsasama ng bagong panlabas na mga kawing.  Upang makatulong sa pagprutekta laban sa kusang paglusob ng basurang-liham, paki imakinilya ang dalawang mga salitang nakikita sa loob ng kahong nasa ibaba:',
 	'recaptcha-badpass' => 'Upang makatulong sa pagsasanggalang laban sa kusang panghuhula ng hudyat, paki imakinilya ang dalawang mga salitang nakikita mo sa loob ng kahong nasa ibaba:',

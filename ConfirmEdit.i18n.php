@@ -1244,6 +1244,9 @@ Voit palata muokkaustilaan selaimen paluutoiminnolla.',
  * @author Spacebirdy
  */
 $messages['fo'] = array(
+	'captcha-edit' => 'Fyri at rætta hesa síðu, vinarliga  loys tað einfalda roknistykki niðanfyri og skriva svarið í teigin ([[Special:Captcha/help|meira kunning]]):',
+	'captcha-desc' => 'Gevur CAPTCHA teknikkir fyri at verja ímóti spamming og ímóti giting av loyniorði',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-createaccount' => 'Sum ein vernd ímóti sjálvvirknum spam, er neyðugt hjá tær at skriva inn tey orð, sum koma fyri á myndini fyri at stovna eina kontu: <br />([[Special:Captcha/help|Hvat er hetta?]])',
 	'captcha-createaccount-fail' => 'Skeiv ella manglandi váttanar loyniorð.',
 	'captcha-create' => 'Fyri at upprætta síðuna, vinarliga loys tað einfalda roknistykki niðanfyri og skriva svarið í teigin ([[Special:Captcha/help|meira kunning]]):',
@@ -1662,11 +1665,13 @@ Pou ede nou pwoteje sistèm an kont pouryèl, tanpri, fè ti adisyon fasil sa ep
 
 /** Hungarian (magyar)
  * @author Dani
+ * @author Dj
  * @author Glanthor Reviol
  */
 $messages['hu'] = array(
 	'captcha-edit' => 'A lap szerkesztéséhez meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű összeadás eredményét ([[Special:Captcha/help|segítség]]):',
 	'captcha-desc' => 'CAPTCHA-technológiák a spamek és a jelszókitalálási technikák ellen',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Szerkesztésed új külső linket tartalmaz. A reklámokat elhelyező robotok kiszűrése érdekében meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi matematikai művelet eredményét. ([[Special:Captcha/help|segítség]])',
 	'captcha-badlogin' => 'Az automatikus jelszófeltörés kiszűrése érdekében meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű számtani művelet eredményét ([[Special:Captcha/help|segítség]]):',
 	'captcha-createaccount' => 'A felhasználói fiókok automatizált létrehozásának kiszűrése érdekében meg kell, hogy kérjünk, írd be a lenti dobozba az alábbi egyszerű számtani művelet eredményét. ([[Special:Captcha/help|segítség]])',
@@ -1813,15 +1818,14 @@ Peslen ti 'agsubli' a buton dita pagbasabasam (browser) ti agsubli idiay panid t
  * @author Snævar
  */
 $messages['is'] = array(
-	'captcha-edit' => 'Til að breyta þessari síðu, gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í
-kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
+	'captcha-edit' => 'Til að breyta þessari síðu, vinsamlegast finndu summuna að neðan og skrifaðu svarið í
+reitinn ([[Special:Captcha/help|frekari upplýsinngar]]):',
 	'captcha-addurl' => 'Breyting þín felur í sér viðbætta ytri tengla. Til að hjálpa okkur að verjast sjálfvirku
-auglýsingarusli gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
-	'captcha-badlogin' => 'Til að hjálpa okkur að verjast sjálfvirku leyniorðaárásum, gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í
-kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
-	'captcha-createaccount' => 'Til að hjálpa okkur að verjast sjálfvirkri gerð aðganga gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
+auglýsingarusli, vinsamlegast finndu summuna að neðan og skrifaðu svarið í reitinn ([[Special:Captcha/help|frekari upplýsinngar]]):',
+	'captcha-badlogin' => 'Til að hjálpa okkur að verjast sjálfvirku leyniorðaárásum, vinsamlegast finndu summuna að neðan og skrifaðu svarið í reitinn ([[Special:Captcha/help|frekari upplýsinngar]]):',
+	'captcha-createaccount' => 'Til að hjálpa okkur að verjast sjálfvirkri stofnun aðganga, vinsamlegast finndu summuna að neðan og skrifaðu svarið í reitinn ([[Special:Captcha/help|frekari upplýsinngar]]):',
 	'captcha-createaccount-fail' => 'Staðfestingarkóðinn var rangur eða ekki til staðar.',
-	'captcha-create' => 'Til að búa síðuna til, gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
+	'captcha-create' => 'Til að búa síðuna til, vinsamlegast finndu summuna að neðan og skrifaðu svarið í reitinn ([[Special:Captcha/help|frekari upplýsinngar]]):',
 	'captcha-sendemail' => 'Til að hjálpa okkur að verjast sjálfvirkri gerð aðganga gjörðu svo vel og finndu summuna að neðan og skrifaðu svarið í kassann ([[Special:Captcha/help|frekari upplýsinngar]]):',
 	'captcha-sendemail-fail' => 'Staðfestingarkóðinn var rangur eða ekki til staðar.',
 	'captcha-disabledinapi' => 'Þessi aðgerð þarfnast kæfuvarnar og því er ekki hægt að framkvæma hana í gegnum API.',
@@ -3049,6 +3053,7 @@ Apăsați butonul „Înapoi” al navigatorului pentru a vă reîntoarce la pag
  */
 $messages['roa-tara'] = array(
 	'captcha-edit' => "Pe cangià sta pàgene, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "'U cangiamende tue inglude de le collegaminde esterne.
 Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a domande ca combare sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
 	'captcha-badlogin' => "Pe aiutà a proteggere da le futteminde de passuord automateche, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
@@ -3146,7 +3151,22 @@ $messages['rue'] = array(
  */
 $messages['sa'] = array(
 	'captcha-edit' => 'इदं पृष्ठं सम्पादयितुं कृपया अधः दत्तायाः गणितसमस्यायाः उत्तरं कोष्टके लिख्यताम् ([[Special:Captcha/help|अधिकविवरणाय]]):',
+	'captcha-desc' => 'अनिष्टसन्देशानां कूटशब्दस्य ऊहनं च निवारयितुं क्याप्चा(CAPTCHA)तन्त्रांशः उपलभ्यते',
+	'captcha-label' => 'क्याप्चा(CAPTCHA)तन्त्रांशः',
+	'captcha-addurl' => 'भवतः सम्पादने नूतनबाह्यानुबन्धाः अन्तर्भूताः ।
+स्वचालितानिष्टसन्देशेभ्यः रक्षणस्य साहाय्यार्थं कृपया अधः दत्तायाः गणितसमस्यायाः उत्तरं मञ्जूषायां लिखतु
+([[Special:Captcha/help|more info]]) :',
+	'captcha-badlogin' => 'स्वचालिताभ्यः कूटशब्दभेदनेभ्यः रक्षणस्य साहाय्यार्थं कृपया अधः दत्तायाः गणितसमस्यायाः उत्तरं मञ्जूषायां लिखतु
+([[Special:Captcha/help|more info]]) :',
+	'captcha-createaccount' => 'स्वचालिताभ्यः लेखासर्जनेभ्यः रक्षणस्य साहाय्यार्थं कृपया अधः दत्तायाः गणितसमस्यायाः उत्तरं मञ्जूषायां लिखतु
+([[Special:Captcha/help|more info]]) :',
+	'captcha-createaccount-fail' => 'दृढीकरणकूटशब्दः दोषयुक्तः अथवा नष्टः ।',
+	'captcha-create' => 'इदं पृष्ठं स्रष्टुं, कृपया अधः दत्तायाः गणितसमस्यायाः उत्तरं कोष्टके लिख्यताम् ([[Special:Captcha/help|अधिकविवरणाय]]):',
+	'captcha-sendemail' => 'स्वचालिताभ्यः अनिष्टसन्देशेभ्यः रक्षणस्य साहाय्यार्थं कृपया अधः दत्तायाः गणितसमस्यायाः उत्तरं मञ्जूषायां लिखतु
+([[Special:Captcha/help|more info]]) :',
 	'captcha-sendemail-fail' => 'दृढीकरणकूटशब्दः दोषयुक्तः अथवा नष्टः ।',
+	'captcha-disabledinapi' => 'अस्य कार्यस्य निमित्तं क्याप्चातन्त्रांशः अपेक्षितः, अतः इदम् ए पि ऐ द्वारा कर्तुं न शक्यते ।',
+	'captchahelp-title' => 'क्याप्चासाहाय्यम्',
 	'captchahelp-cookies-needed' => 'अस्य कार्यस्य सम्पादनाय भवतां विचरके कुकीस् इत्येतत् सक्रियं स्यात् ।',
 );
 
@@ -3513,6 +3533,7 @@ Tryck på bakåtknappen i din webbläsare för att gå tillbaks till sidredigeri
 
 /** Tamil (தமிழ்)
  * @author Balajijagadesh
+ * @author Karthi.dr
  * @author Shanmugamp7
  * @author செல்வா
  */
@@ -3522,6 +3543,16 @@ $messages['ta'] = array(
 	'captcha-sendemail-fail' => 'தவறான அல்லது குறையுடைய உறுதிப்படுத்தல் குறியீடு.',
 	'captcha-disabledinapi' => 'இச்செயற்பாட்டிற்கு காப்சா (நெளியெழுத்து) தேவை, ஆகவே இதனை ஏபிஐ (API) வழியாக செய்ய முடியாது.',
 	'captchahelp-title' => 'CAPTCHA உதவி',
+	'captchahelp-cookies-needed' => 'உங்கள் உலாவியில்  நினைவிகளைச் செயல்படுத்தினால் தான் இது வேலை செய்யும்.',
+	'captchahelp-text' => 'பொதுமக்கள் பங்களிப்பைப் பெறும் இது போன்ற இணையத்தளங்கள் பல நேரங்களில் விசமிகளால் தவறாகப் பயன்படுத்தப்படுகின்றன. விசமிகள் தானியங்கி மூலம் தங்கள் இணைப்புகளைப் பதிவேற்றுகின்றனர். இவற்றை நீக்க முடியுமென்றாலும் இது ஒரு  முக்கியமான தொல்லையே.
+
+எனவே, சில நேரங்களில் விக்கியில் புதிய இணைய இணைப்பை நீங்கள் சேர்க்கும் போது உங்களுக்குக் காட்டப்படும் சற்று கோணலான அல்லது பல்வண்ண எண்ணெழுத்துப் படத்தை நீங்கள் சரியாகத் தட்டச்சு செய்ய வேண்டியிருக்கும். 
+
+பார்வைக் குறைபாடு உடையோர், முதியோர் மற்றும் வெறும் வார்த்தைகள் அல்லது ஒலி அடிப்படையிலான உலாவிகளைப் பயன்படுத்துவோருக்கு இது துரதிஷ்டவசமாகத் தொல்லையளிக்கக் கூடும். 
+
+இச்சமயத்தில் எழுத்துகளுக்கான ஒலி மாற்று எங்களிடம் இல்லை. உங்களுக்கு ஏதேனும் உதவி தேவைப்பட்டால் [[{{MediaWiki:Grouppage-sysop}}|site administrators]] ஐத் தொடர்பு கொள்ளவும். 
+
+தொகுத்தல் பக்கத்திற்குச் செல்ல உங்கள் உலாவியில் “பின்செல்” பொத்தானை அழுத்தவும்.',
 );
 
 /** Telugu (తెలుగు)

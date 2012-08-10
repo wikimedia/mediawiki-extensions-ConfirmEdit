@@ -666,6 +666,19 @@ Tapno  masalakniban kadagiti automatiko a spam, pangaasim nga ikabil ti balikas 
 	'fancycaptcha-sendemail' => 'Tapno  makasalaknib kadagiti automatiko a pinagspam, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):',
 );
 
+/** Icelandic (íslenska)
+ * @author Snævar
+ */
+$messages['is'] = array(
+	'fancycaptcha-addurl' => 'Breytingin þín inniheldur viðbætta ytri tengla.
+Til þess að hjálpa okkur verjast sjálfvirku auglýsingarusli, vinsamlegast sláðu inn orðin sem birtast hér fyrir neðan í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):',
+	'fancycaptcha-badlogin' => 'Til þess að hjálpa okkur að verjast gegn sjálfvirkum leyniorðaárásum, vinsamlegast sláðu inn orðin sem birtast hér fyrir neðan í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):',
+	'fancycaptcha-createaccount' => 'Til þess að hjálpa okkur að verjast sjálfverkri stofnun aðganga, vinsamlegast sláðu inn orðin sem birtast hér fyrir neðan í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):',
+	'fancycaptcha-create' => 'Til þess að búa til þessa síðu, vinsamlegast sláðu inn orðin sem birtast hér fyrir neðan í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):',
+	'fancycaptcha-edit' => 'Til þess að breyta þessari síðu, vinsamlegast sláðu inn orðin að neðan í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):',
+	'fancycaptcha-sendemail' => 'Til þess að hjálpa okkur að verjast sjálfvirkum auglýsingapósti, vinsamlegast sláðu inn orðin hér fyrir neðan í reitinn ([[Special:Captcha/help|frekari upplýsinngar]]):',
+);
+
 /** Italian (italiano)
  * @author Beta16
  * @author BrokenArrow
@@ -1329,6 +1342,13 @@ skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information
 ([[Special:Captcha/help|mer information]]):',
 	'fancycaptcha-sendemail' => 'För att skydda wikin mot automatiserad lösenordknäckning måste du skriva
 orden som visas härunder i rutan ([[Special:Captcha/help|mer information]]):',
+);
+
+/** Tamil (தமிழ்)
+ * @author Shanmugamp7
+ */
+$messages['ta'] = array(
+	'fancycaptcha-createaccount' => 'தானியங்கியாக கணக்கு உருவாக்குவதிலிருந்து பாதுகாக்க உதவ, தயவுசெய்து கீழே தெரியும் வார்த்தைகளை பெட்டியில் உள்ளிடவும் ([[Special:Captcha/help|மேலும் விவரங்களுக்கு]]):',
 );
 
 /** Telugu (తెలుగు)

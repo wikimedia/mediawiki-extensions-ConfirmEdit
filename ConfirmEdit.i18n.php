@@ -84,7 +84,7 @@ See also
 	'right-skipcaptcha' => '{{doc-right|skipcaptcha}}',
 );
 
-/** Ṫuroyo (Ṫuroyo)
+/** Turoyo (Ṫuroyo)
  * @author Ariyo
  */
 $messages['tru'] = array(
@@ -1544,16 +1544,20 @@ $messages['he'] = array(
  * @author Ansumang
  * @author Kaustubh
  * @author Shyam
+ * @author Siddhartha Ghai
  * @author आलोक
  */
 $messages['hi'] = array(
-	'captcha-edit' => 'यह पन्ना संपादित करने के लिये, नीचे दिये हुए आसान राशि का जवाब दिये हुए टेक्स्टबॉक्समें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
+	'captcha-edit' => 'यह पन्ना संपादित करने के लिये नीचे दिये हुए आसान गणित प्रश्न का उत्तर बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):',
 	'captcha-desc' => 'आसानसे कॅपचा (captcha) का इस्तेमाल',
-	'captcha-addurl' => 'आपके बदलावोंमें नई बाह्यकड़ियां हैं। अपने आप होने वाले स्पॅमसे बचने के लिये, नीचे दिये हुए आसान राशि का जवाब दिये हुए टेक्स्टबॉक्समें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
-	'captcha-badlogin' => 'अपने आप होनेवाले कूटशब्द के भेद से बचने के लिये, नीचे दिये हुए आसान राशि का जवाब दिये हुए टेक्स्टबॉक्समें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
-	'captcha-createaccount' => 'अपने आप होने वाले सदस्य पंजीकरण से बचने के लिये, नीचे दिये हुए आसान राशि का जवाब दिये हुए टेक्स्टबॉक्समें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
+	'captcha-addurl' => 'आपके सम्पादन में नई बाहरी कड़ियाँ हैं।
+स्वचालित स्पॅम से बचाव में सहायता के लिये नीचे दिये हुए आसान गणित प्रश्न का उत्तर बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):',
+	'captcha-badlogin' => 'स्वचालित कूटशब्द भेद से बचाव में सहायता के लिये नीचे दिये हुए आसान गणित प्रश्न का उत्तर बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):',
+	'captcha-createaccount' => 'स्वचालित सदस्य पंजीकरण से बचाव में सहायता के लिये नीचे दिये हुए आसान गणित प्रश्न का उत्तर बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):',
 	'captcha-createaccount-fail' => 'गलत या खाली सहमती कोड।',
-	'captcha-create' => 'यह पन्ना बनाने के लिये, नीचे दिये हुए आसान राशि का जवाब दिये हुए टेक्स्टबॉक्समें लिखें ([[Special:Captcha/help|अधिक ज़ानकारी]]):',
+	'captcha-create' => 'यह पन्ना बनाने के लिये, नीचे दिये आसान गणित प्रश्न का उत्तर बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):',
+	'captcha-sendemail' => 'स्वचालित स्पैमिंग से बचाव के लिये कृपया नीचे दिये गणित प्रश्न का उत्तर बक्से में लिखें
+([[Special:Captcha/help|अधिक जानकारी]]):',
 	'captcha-sendemail-fail' => 'गलत या लापता पुष्टिकरण कोड ।',
 	'captchahelp-title' => 'कॅप्टचा सहायता',
 	'captchahelp-cookies-needed' => 'यह कार्य करने के लिये आपने कूकीज (cookies) एनेबल किया होना आवश्यक हैं।',
@@ -3498,6 +3502,7 @@ $messages['sv'] = array(
 	'captcha-edit' => 'För att redigera den här sidan måste du först skriva svaret på följande
 räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
 	'captcha-desc' => 'Ger CAPTCHA tekniker för att skydda mot skräppost och lösenordsgissning',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Din ändring lägger till nya externa länkar i texten. För att skydda wikin mot
 automatisk spam måste du skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
 	'captcha-badlogin' => 'För att skydda mot wikin mot automatiserad lösenordsknäckning måste du skriva

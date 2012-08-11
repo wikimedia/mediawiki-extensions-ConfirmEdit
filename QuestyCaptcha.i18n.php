@@ -639,7 +639,7 @@ $messages['ja'] = array(
  */
 $messages['ko'] = array(
 	'questycaptcha-desc' => '편집 확인에 대한 탐구적인 CAPCHA(캡차) 생성기',
-	'questycaptcha-badlogin' => '자동화된 비밀번호 깨기를 방지하기 위해 아래애 보이는 질문에 대답해주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'questycaptcha-badlogin' => '자동화된 비밀번호 깨기를 방지하기 위해, 아래애 보이는 질문에 대답해주세요 ([[Special:Captcha/help|자세한 정보]]):',
 );
 
 /** Colognian (Ripoarisch)

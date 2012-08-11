@@ -820,11 +820,11 @@ $messages['ko'] = array(
 	'fancycaptcha-desc' => '편집 확인에 대한 공상 CAPTCHA(캡차) 생성기',
 	'fancycaptcha-addurl' => '편집이 새로운 외부 링크를 포함하고 있습니다.
 자동화된 스팸을 막기 위해 아래 상자의 단어를 적어주세요. ([[Special:Captcha/help|더 많은 정보]])',
-	'fancycaptcha-badlogin' => '자동화된 암호깨기를 막기 위해서, 아래 상자에 있는 단어를 입력해 주시기 바랍니다. ([[Special:Captcha/help|추가 도움말]]):',
-	'fancycaptcha-createaccount' => '자동화된 계정 생성을 막기 위해서, 아래 상자에 있는 단어를 입력해 주시기 바랍니다. ([[Special:Captcha/help|추가 도움말]]):',
-	'fancycaptcha-create' => '이 문서를 생성하시려면, 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
-	'fancycaptcha-edit' => '이 문서를 편집하시려면, 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
-	'fancycaptcha-sendemail' => '자동화된 스팸을 방지하기 위해, 아래 상자에 있는 단어를 입력해 주시기 바랍니다. ([[Special:Captcha/help|추가 도움말]]):',
+	'fancycaptcha-badlogin' => '자동화된 비밀번호 깨기를 막기 위해서, 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'fancycaptcha-createaccount' => '자동화된 계정 만들기를 막기 위해서, 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'fancycaptcha-create' => '이 문서를 만드려면, 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'fancycaptcha-edit' => '이 문서를 편집하려면, 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'fancycaptcha-sendemail' => '자동화된 스팸을 방지하기 위해, 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
 );
 
 /** Karachay-Balkar (къарачай-малкъар)

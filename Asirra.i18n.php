@@ -176,10 +176,15 @@ $messages['ja'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'asirra-desc' => 'Et Zohsazprojramm <i lang="en">Asirra</i> för et Zohsazprojramm <i lang="en">ConfirmEdit</i>.',
+	'asirra-desc' => 'Dä Zohsaz <i lang="en">Asirra</i> för et Zohsazprojramm <i lang="en">ConfirmEdit</i>.',
 	'asirra-edit' => 'Heh dat Wiki well sesch jääje <i lang="en">SPAM</i> schöze. Dröm moß mer beim Ändere noch en Prööfong aflääje, dat mer ene Minsch un kei Projramm es. Söhk bloß de Katzebelder em Kaßte us:',
 	'asirra-addurl' => 'Heh dat Wiki well sesch jääje <i lang="en">SPAM</i> schöze. Dröm moß mer, wam_mer lengks noh ußerhallef enfööje well, noch en Prööfong aflääje, dat mer ene Minsch un kei Projramm es. Söhk bloß de Katzebelder em Kaßte us:',
 	'asirra-badpass' => 'Heh dat Wiki well sesch jääje et automattesche Paßwoot_Knacke schöze. Dröm moß mer heh nor_en Prööfong aflääje, dat mer ene Minsch un kei Projramm es. Söhk bloß de Katzebelder em Kaßte us:',
+	'asirra-createaccount' => 'Heh dat Wiki well sesch jääje automattesch aanjelaate „Metmaacher“ schöze. Dröm moß mer heh nor_en Prööfong aflääje, dat mer ene Minsch un kei Projramm es. Söhk bloß de Katzebelder em Kaßte us:',
+	'asirra-createaccount-fail' => 'Bes esu jood un don de Kazebelder ußwähle.',
+	'asirra-create' => 'Heh dat Wiki well sesch jääje automattesch neu aanjelaate Sigge schöze. Dröm moß mer heh nor_en Prööfong aflääje, dat mer ene Minsch un kei Projramm es. Söhk bloß de Katzebelder em Kaßte us:',
+	'asirra-nojs' => "'''Bes esu jood un donn JavaSkrep en Dingem Brauser aanschallde un scheck heh di Sigg norr_ens af.'''",
+	'asirra-failed' => 'Bes esu jood un don all de Kazebelder ußwähle.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -281,6 +286,21 @@ $messages['pt'] = array(
 	'asirra-createaccount-fail' => 'Identifique correctamente os gatos, por favor.',
 	'asirra-create' => 'Como prevenção contra sistemas automatizados de criação de páginas, seleccione só as fotografias de gatos na caixa abaixo:',
 	'asirra-nojs' => "'''Possibilite o uso de JavaScript e reenvie a página, por favor.'''",
+);
+
+/** Russian (русский)
+ * @author DCamer
+ */
+$messages['ru'] = array(
+	'asirra-desc' => 'Модуль Asirra для ConfirmEdit',
+	'asirra-edit' => 'В целях защиты от автоматического спама в правках, пожалуйста, выберите фотографии кота, которые вы видите ниже:',
+	'asirra-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от автоматического спама, пожалуйста, выберите фотографии кота, которые вы видите ниже:',
+	'asirra-badpass' => 'В целях защиты от автоматического подбора пароля, пожалуйста, выберите фотографии кота, которые вы видите ниже:',
+	'asirra-createaccount' => 'В целях защиты от автоматического создания учётных записей, пожалуйста, выберите фотографии кота, которые вы видите ниже:',
+	'asirra-createaccount-fail' => 'Пожалуйста правильно идентифицируйте котов.',
+	'asirra-create' => 'В целях защиты от автоматического создания страниц, пожалуйста, выберите фотографии кота, которые вы видите ниже:',
+	'asirra-nojs' => "'''Пожалуйста, включите JavaScript и обновите страницу.'''",
+	'asirra-failed' => 'Пожалуйста, идентифицируйте все фотографии кота',
 );
 
 /** Tagalog (Tagalog)

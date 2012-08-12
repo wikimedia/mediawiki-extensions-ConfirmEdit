@@ -98,7 +98,8 @@ $messages['tru'] = array(
  */
 $messages['af'] = array(
 	'captcha-edit' => 'U wysiging bevat nuwe webskakels. Neem kennis dat blote reklame van u werf, produk of besigheid as vandalisme beskou kan word. As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik: <br />([[Special:Captcha/help|Wat is hierdie?]])',
-	'captcha-desc' => 'Eenvoudige implementasie van captcha',
+	'captcha-desc' => 'Implementeer CAPTCHA-tegnieke om beskerming teen spam en die raai van wagwoorde te bied',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'U wysiging bevat nuwe webskakels.
 As beskerming teen outomatiese gemorsbydraes, sal u die woorde wat onder verskyn in die prentjie moet intik ([[Special:Captcha/help|Wat is hierdie?]]):',
 	'captcha-badlogin' => 'Los asseblief die onderstaande eenvoudige som op en voer die antwoord in die blokkie in ter beskerming teen die outomatiese kraak van wagwoorde ([[Special:Captcha/help|meer inligting]]):',
@@ -1956,11 +1957,13 @@ Tryk på 'tilbage'-knappen i din browser for at returnere til redigeringssiden."
 
 /** Javanese (Basa Jawa)
  * @author Meursault2004
+ * @author NoiX180
  * @author Pras
  */
 $messages['jv'] = array(
 	'captcha-edit' => 'Kanggo nyunting kaca iki, mangga pecahna tambah-tambahan ing ngisor iki lan lebokna wangsulané ing kothak cedaké ([[Special:Captcha/help|info sabanjuré]]):',
-	'captcha-desc' => 'Implementasi prasaja captcha',
+	'captcha-desc' => 'Nyadhiyakaké tèhnik CAPTCHA kanggo njaga saka spam lan pambedhèk sandhi',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Suntingan panjenengan iku nyertakaké pranala jaba anyar.
 Kanggo ngéwangi ngreksa lawan ''spam'' otomatis, tulung pecahna itung-itungan ing ngisor iki lan lebokna kasilna sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):",
 	'captcha-badlogin' => 'Kanggo ngreksa lawan parengkahan kunci sandhi otomatis, tulung lebokna tembung utawa kasil itung-itungan gampang ing ngisor sajroning kothak sing wis sumedya ([[Special:Captcha/help|info sabanjuré]]):',
@@ -2530,6 +2533,17 @@ Sila tekan butang 'back' di pelayar web anda untuk kembali ke laman suntingan.",
 #  * Ungkapan nalar dibaca daripada setiap baris dan dipadankan dengan nama hos sahaja
   #</pre> <!-- jangan ubah baris ini -->',
 	'right-skipcaptcha' => 'Melepasi pemeriksaan CAPTCHA',
+);
+
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'captcha-edit' => "Sabiex timmodifika din il-paġna, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
+	'captcha-desc' => "Tipprovidi tekniki tal-CAPTCHA sabiex tipproteġi kontra spam u l-għarfien ta' passwords",
+	'captcha-label' => 'CAPTCHA',
+	'captcha-addurl' => "Il-modifika tiegħek tinkludi ħoloq esterni ġodda.
+Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
 );
 
 /** Nahuatl (Nāhuatl)
@@ -3552,10 +3566,17 @@ $messages['sw'] = array(
  * @author Karthi.dr
  * @author Shanmugamp7
  * @author செல்வா
+ * @author மதனாஹரன்
  */
 $messages['ta'] = array(
+	'captcha-edit' => 'இப்பக்கத்தைத் தொகுப்பதற்குத் தயவு செய்து கீழேயுள்ள எளிய கூட்டலைத் தீர்த்துப் பெட்டியினுள் விடையை உள்ளிடவும் ([[Special:Captcha/help|கூடிய தகவல்]]):',
 	'captcha-label' => 'காப்ச்சா',
+	'captcha-addurl' => 'உங்கள் தொகுப்பானது புதிய வெளியிணைப்புகளைக் கொண்டுள்ளது.
+தானியங்கு எரிதத்திலிருந்து பாதுகாக்க உதவுவதற்காகத் தயவு செய்து கீழேயுள்ள எளிய கூட்டலைத் தீர்த்துப் பெட்டியில் விடையை உள்ளிடவும் ([[Special:Captcha/help|கூடிய தகவல்]]):',
+	'captcha-badlogin' => 'தானியங்கு கடவுச் சொல் உடைத்தலிலிருந்து பாதுகாக்க உதவுவதற்காகத் தயவு செய்து கீழேயுள்ள எளிய கூட்டலைத் தீர்த்துப் பெட்டியினுள் விடையை உள்ளிடவும் ([[Special:Captcha/help|கூடிய தகவல்]]):',
+	'captcha-createaccount' => 'தானியங்கு கணக்கு உருவாக்கத்திலிருந்து பாதுகாக்க உதவுவதற்காகத் தயவு செய்து கீழேயுள்ள எளிய கூட்டலைத் தீர்த்து விடையைப் பெட்டியினுள் உள்ளிடவும் ([[Special:Captcha/help|கூடிய தகவல்]]):',
 	'captcha-createaccount-fail' => 'தவறான அல்லது குறையுடைய உறுதிப்படுத்தல் குறியீடு.',
+	'captcha-create' => 'பக்கத்தை உருவாக்குவதற்குத் தயவு செய்து கீழேயுள்ள எளிய கூட்டலைத் தீர்த்துப் பெட்டியினுள் விடையை உள்ளிடவும் ([[Special:Captcha/help|கூடிய தகவல்]]):',
 	'captcha-sendemail-fail' => 'தவறான அல்லது குறையுடைய உறுதிப்படுத்தல் குறியீடு.',
 	'captcha-disabledinapi' => 'இச்செயற்பாட்டிற்கு காப்சா (நெளியெழுத்து) தேவை, ஆகவே இதனை ஏபிஐ (API) வழியாக செய்ய முடியாது.',
 	'captchahelp-title' => 'CAPTCHA உதவி',

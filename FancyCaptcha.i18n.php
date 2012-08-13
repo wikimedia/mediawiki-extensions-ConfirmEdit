@@ -1208,6 +1208,23 @@ $messages['rue'] = array(
 	'fancycaptcha-sendemail' => 'В рамках охороны перед автоматічным спамом мусите описати текст з наступного образку. ([[Special:Captcha/help|Што тото значіть?]]):',
 );
 
+/** Sanskrit (संस्कृतम्)
+ * @author Shubha
+ */
+$messages['sa'] = array(
+	'fancycaptcha-addurl' => 'भवतः सम्पादने नूतनबाह्यानुबन्धाः अन्तर्भूताः ।
+स्वचालितानिष्टसन्देशेभ्यः रक्षणस्य साहाय्यार्थं कृपया अधः मञ्जूषायां दृश्यमानानि पदानि लिखतु
+([[Special:Captcha/help|more info]]) :',
+	'fancycaptcha-badlogin' => 'स्वचालिताभ्यः कूटशब्दभेदनेभ्यः रक्षणस्य साहाय्यार्थं कृपया अधः मञ्जूषायां दृश्यमानानि पदानि लिखतु
+([[Special:Captcha/help|more info]]) :',
+	'fancycaptcha-createaccount' => 'स्वचालिताभ्यः लेखासर्जनेभ्यः रक्षणस्य साहाय्यार्थं कृपया अधः मञ्जूषायां दृश्यमानानि पदानि लिखतु
+([[Special:Captcha/help|more info]]) :',
+	'fancycaptcha-create' => 'पृष्ठस्य सर्जनाय, अधः मञ्जूषायां दृश्यमानानि पदानि लिखतु ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-edit' => 'अस्य पृष्ठस्य सम्पादनाय, अधः मञ्जूषायां दृश्यमानानि पदानि लिखतु ([[Special:Captcha/help|अधिक जानकारी]]):',
+	'fancycaptcha-sendemail' => 'स्वचालिताभ्यः अनिष्टसन्देशेभ्यः रक्षणस्य साहाय्यार्थं कृपया अधः मञ्जूषायां दृश्यमानानि पदानि लिखतु
+([[Special:Captcha/help|more info]]) :',
+);
+
 /** Sakha (саха тыла)
  * @author HalanTul
  */
@@ -1346,9 +1363,13 @@ orden som visas härunder i rutan ([[Special:Captcha/help|mer information]]):',
 
 /** Tamil (தமிழ்)
  * @author Shanmugamp7
+ * @author மதனாஹரன்
  */
 $messages['ta'] = array(
+	'fancycaptcha-badlogin' => 'தானியங்கு கடவுச் சொல் உடைத்தலிலிருந்து பாதுகாக்க உதவுவதற்காகத் தயவு செய்து கீழேயுள்ள பெட்டியில் தோன்றும் சொற்களை உள்ளிடவும் ([[Special:Captcha/help|கூடிய தகவல்]]):',
 	'fancycaptcha-createaccount' => 'தானியங்கியாக கணக்கு உருவாக்குவதிலிருந்து பாதுகாக்க உதவ, தயவுசெய்து கீழே தெரியும் வார்த்தைகளை பெட்டியில் உள்ளிடவும் ([[Special:Captcha/help|மேலும் விவரங்களுக்கு]]):',
+	'fancycaptcha-create' => 'பக்கத்தை உருவாக்குவதற்காக, தயவு செய்து கீழே பெட்டியில் தோன்றுகின்ற சொற்களை உள்ளிடுங்கள் ([[Special:Captcha/help|கூடிய தகவல்]]):',
+	'fancycaptcha-edit' => 'இப்பக்கத்தைத் தொகுப்பதற்குத் தயவு செய்து கீழேயுள்ள பெட்டியில் தோன்றும் சொற்களை உள்ளிடவும் ([[Special:Captcha/help|கூடிய தகவல்]]):',
 );
 
 /** Telugu (తెలుగు)

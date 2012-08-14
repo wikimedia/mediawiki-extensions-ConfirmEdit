@@ -2546,6 +2546,13 @@ $messages['mt'] = array(
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Il-modifika tiegħek tinkludi ħoloq esterni ġodda.
 Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
+	'captcha-createaccount-fail' => "Kodiċi ta' konferma ħażin jew nieqes.",
+	'captcha-create' => "Sabiex toħloq din il-paġna, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
+	'captcha-sendemail' => "Bħala prekawzjoni kontra l-''ispam'' awtomatiku, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
+	'captcha-sendemail-fail' => "Kodiċi ta' konferma ħażin jew nieqes.",
+	'captcha-disabledinapi' => 'Din l-azzjoni għandha bżonn il-captcha, għalhekk ma tistax issir permezz tal-API.',
+	'captchahelp-title' => "X'inhi l-captcha?",
+	'captchahelp-cookies-needed' => "Irid ikollok il-''cookies'' attivati sabiex tkompli",
 );
 
 /** Nahuatl (Nāhuatl)

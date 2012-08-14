@@ -973,7 +973,10 @@ $messages['ms'] = array(
  * @author Chrisportelli
  */
 $messages['mt'] = array(
+	'fancycaptcha-addurl' => "Il-modifika tiegħek tinkludi ħoloq esterni ġodda.
+Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
 	'fancycaptcha-createaccount' => "Bħala miżura ta' prekawzjoni kontra l-ħolqien awtomatiku tal-kontijiet, jekk jogħġbok daħħal fil-kaxxa l-ittri li jidhru hawn taħt ([[Special:Captcha/help|aktar informazzjoni]]):",
+	'fancycaptcha-edit' => 'Sabiex timmodifika din il-paġna, jekk jogħġbok żid il-kelmiet li jidhur taħt din il-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):',
 );
 
 /** Norwegian Bokmål (‪norsk (bokmål)‬)

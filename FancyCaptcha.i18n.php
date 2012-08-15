@@ -1034,6 +1034,14 @@ Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming t
 	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen geautomatiseerde spam ([[Special:Captcha/help|meer informatie]]):',
 );
 
+/** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'fancycaptcha-addurl' => 'Je bewerking bevat nieuwe externe verwijzingen.
+Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
+);
+
 /** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Njardarlogar

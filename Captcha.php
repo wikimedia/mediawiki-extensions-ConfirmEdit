@@ -70,10 +70,10 @@ class SimpleCaptcha {
 	 */
 	function getMessage( $action ) {
 		$name = 'captcha-' . $action;
-		$text = wfMsg( $name );
+		$text = wfMessage( $name )->text();
 		# Obtain a more tailored message, if possible, otherwise, fall back to
 		# the default for edits
-		return wfEmptyMsg( $name, $text ) ? wfMsg( 'captcha-edit' ) : $text;
+		return wfMessage( $name, $text )->isDisabled() ? wfMessage( 'captcha-edit' )->text() : $text;
 	}
 
 	/**
@@ -156,7 +156,8 @@ class SimpleCaptcha {
 			if ( !$count ) {
 				$wgMemc->add( $key, 0, $wgCaptchaBadLoginExpiration );
 			}
-			$count = $wgMemc->incr( $key );
+
+			$wgMemc->incr( $key );
 		}
 		return true;
 	}
@@ -236,9 +237,10 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * @param EditPage $editPage
-	 * @param string $newtext
-	 * @param string $section
+	 * @param $editPage EditPage
+	 * @param $newtext string
+	 * @param $section string
+	 * @param $merged bool
 	 * @return bool true if the captcha should run
 	 */
 	function shouldCheck( &$editPage, $newtext, $section, $merged = false ) {
@@ -354,9 +356,9 @@ class SimpleCaptcha {
 	 */
 	function filterLink( $url ) {
 		global $wgCaptchaWhitelist;
-		$source = wfMsgForContent( 'captcha-addurl-whitelist' );
+		$source = wfMessage( 'captcha-addurl-whitelist' )->inContentLanguage()->text();
 
-		$whitelist = wfEmptyMsg( 'captcha-addurl-whitelist', $source )
+		$whitelist = wfMessage( 'captcha-addurl-whitelist', $source )->isDisabled()
 			? false
 			: $this->buildRegexes( explode( "\n", $source ) );
 
@@ -433,6 +435,10 @@ class SimpleCaptcha {
 
 	/**
 	 * Backend function for confirmEdit() and confirmEditAPI()
+	 * @param $editPage EditPage
+	 * @param $newtext string
+	 * @param $section
+	 * @param $merged bool
 	 * @return bool false if the CAPTCHA is rejected, true otherwise
 	 */
 	private function doConfirmEdit( $editPage, $newtext, $section, $merged = false ) {
@@ -476,6 +482,7 @@ class SimpleCaptcha {
 	 * A more efficient edit filter callback based on the text after section merging
 	 * @param EditPage $editPage
 	 * @param string $newtext
+	 * @return bool
 	 */
 	function confirmEditMerged( $editPage, $newtext ) {
 		return $this->confirmEdit( $editPage, $newtext, false, true );
@@ -508,7 +515,7 @@ class SimpleCaptcha {
 
 			$this->trigger = "new account '" . $u->getName() . "'";
 			if ( !$this->passCaptcha() ) {
-				$message = wfMsg( 'captcha-createaccount-fail' );
+				$message = wfMessage( 'captcha-createaccount-fail' )->text();
 				return false;
 			}
 		}
@@ -517,8 +524,9 @@ class SimpleCaptcha {
 
 	/**
 	 * Hook for user login form submissions.
-	 * @param User $u
-	 * @param string $message
+	 * @param $u User
+	 * @param $pass
+	 * @param $retval
 	 * @return bool true to continue, false to abort user creation
 	 */
 	function confirmUserLogin( $u, $pass, &$retval ) {
@@ -558,12 +566,12 @@ class SimpleCaptcha {
 			if ( defined( 'MW_API' ) ) {
 				# API mode
 				# Asking for captchas in the API is really silly
-				$error = wfMsg( 'captcha-disabledinapi' );
+				$error = wfMessage( 'captcha-disabledinapi' )->text();
 				return false;
 			}
 			$this->trigger = "{$wgUser->getName()} sending email";
 			if ( !$this->passCaptcha() ) {
-				$error = wfMsg( 'captcha-sendemail-fail' );
+				$error = wfMessage( 'captcha-sendemail-fail' )->text();
 				return false;
 			}
 		}
@@ -694,7 +702,8 @@ class SimpleCaptcha {
 
 	/**
 	 * Extract a list of all recognized HTTP links in the text.
-	 * @param string $text
+	 * @param $editpage EditPage
+	 * @param $text string
 	 * @return array of strings
 	 */
 	function findLinks( &$editpage, $text ) {
@@ -712,10 +721,10 @@ class SimpleCaptcha {
 	 */
 	function showHelp() {
 		global $wgOut;
-		$wgOut->setPageTitle( wfMsg( 'captchahelp-title' ) );
-		$wgOut->addWikiText( wfMsg( 'captchahelp-text' ) );
+		$wgOut->setPageTitle( wfMessage( 'captchahelp-title' )->text() );
+		$wgOut->addWikiMsg( 'captchahelp-text' );
 		if ( CaptchaStore::get()->cookiesNeeded() ) {
-			$wgOut->addWikiText( wfMsg( 'captchahelp-cookies-needed' ) );
+			$wgOut->addWikiMsg( 'captchahelp-cookies-needed' );
 		}
 	}
 }

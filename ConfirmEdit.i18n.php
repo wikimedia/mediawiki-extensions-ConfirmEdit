@@ -2800,10 +2800,12 @@ Clicatz sul boton « Precedent » de vòstre navigador per tornar a la pagina de
 
 /** Oriya (ଓଡ଼ିଆ)
  * @author Psubhashish
+ * @author Shisir 1945
  */
 $messages['or'] = array(
 	'captcha-edit' => 'ଏହି ପୃଷ୍ଠାଟିକୁ ବଦଳାଇବା ନିମନ୍ତେ, ତଳେ ଥିବା ସହଜ ଅଙ୍କଟିର ସମାଧାନ କରନ୍ତୁ ଓ ଘରଟିରେ ଫଳାଫଳ ଦିଅନ୍ତୁ ([[Special:Captcha/help|ଅଧିକ ଜାଣନ୍ତୁ]]):',
 	'captcha-desc' => 'CAPTCHA କାରିଗରି ଉପାୟରେ ସ୍ପାମ ଓ ପାସବାର୍ଡ଼ ରକ୍ଷା କରିଥାଏ ।',
+	'captcha-label' => 'କାପ୍‌ଚା',
 	'captcha-addurl' => 'ଆପଣଙ୍କ ସମ୍ପାଦନାରେ ନୂଆ ବାହାର ଲିଙ୍କ ରହିଛି ।
 ଆପେଆପେ ହେଉଥିବା ସ୍ପାମର ପ୍ରତିରୋଧ କରିବା ନିମନ୍ତେ ତଳେ ଥିବା ଗଣିତର ସମାଧାନ କରନ୍ତୁ ଓ ତଳେ ଥିବା ଘରେ ଉତ୍ତର ଦିଅନ୍ତୁ ([[Special:Captcha/help|ଅଧିକ ବିବରଣୀ]]):',
 	'captcha-badlogin' => 'ଆପେଆପେ ହେଉଥିବା ପାସବାର୍ଡ଼ ଚୋରାଇବାକୁ ପ୍ରତିରୋଧ କରିବା ନିମନ୍ତେ ତଳେ ଥିବା ସରଳ ଗଣିତର ସମାଧାନ କରନ୍ତୁ ([[Special:Captcha/help|ଅଧିକ ସୂଚନା]]):',
@@ -3218,6 +3220,11 @@ $messages['sa'] = array(
 	'captcha-disabledinapi' => 'अस्य कार्यस्य निमित्तं क्याप्चातन्त्रांशः अपेक्षितः, अतः इदम् ए पि ऐ द्वारा कर्तुं न शक्यते ।',
 	'captchahelp-title' => 'क्याप्चासाहाय्यम्',
 	'captchahelp-cookies-needed' => 'अस्य कार्यस्य सम्पादनाय भवतां विचरके कुकीस् इत्येतत् सक्रियं स्यात् ।',
+	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
+# अस्य प्रारूपम् एवमस्ति:
+#  * "#" इत्यनेन आरभ्यमाणाः सर्वाः टिप्पण्यः ।
+#  * सर्वा पङ्क्तिः regex fragment विद्यते याः सार्वसङ्केते विद्यमानैः होस्ट्-नामकैः सह संयोजयति
+   #</pre> <!-- leave this line exactly as it is -->',
 	'right-skipcaptcha' => 'क्याप्चातन्त्रांशस्य प्रवेशं विना क्याप्चा-उद्दीपककार्याणि क्रियन्ताम्',
 );
 

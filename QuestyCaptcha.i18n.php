@@ -760,6 +760,28 @@ Sila hubungi [[{{MediaWiki:Grouppage-sysop}}|pentadbir laman]] untuk mendapatkan
 Klik butang '←' untuk kembali ke editor laman.",
 );
 
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'questycaptcha-addurl' => 'Il-modifika tiegħek tinkludi ħoloq esterni ġodda.
+Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok irrispondi l-mistoqsija li tidher hawn taħt ([[Special:Captcha/help|aktar informazzjoni]]):',
+	'questycaptcha-badlogin' => 'Bħala prekawzjoni kontra l-infurzar awtomatiku tal-password, jekk jogħġbok irrispondi l-mistoqsija li tidher hawn taħt ([[Special:Captcha/help|aktar informazzjoni]]):',
+	'questycaptcha-createaccount' => "Bħala miżura ta' prekawzjoni kontra l-ħolqien awtomatiku tal-kontijiet, jekk jogħġbok irrispondi l-mistoqsija li tidher hawn taħt ([[Special:Captcha/help|aktar informazzjoni]]):",
+	'questycaptcha-create' => 'Sabiex toħloq din il-paġna, jekk jogħġbok irrispondi l-mistoqsija li tidher hawn taħt ([[Special:Captcha/help|aktar informazzjoni]]):',
+	'questycaptcha-edit' => 'Sabiex timmodifika din il-paġna, jekk jogħġbok irrispondi l-mistoqsija li tidher hawn taħt ([[Special:Captcha/help|aktar informazzjoni]]):',
+	'questycaptcha-sendemail' => 'Bħala prekawzjoni kontra l-ispam awtomatiku, jekk jogħġbok irrispondi l-mistoqsija li tidher hawn taħt ([[Special:Captcha/help|aktar informazzjoni]]):',
+	'questycaptchahelp-text' => "Siti elettroniċi li jaċċettaw kontribuzzjonijiet mill-pubbliku, bħal din il-wiki, huma ħafna drabi abbużati minn ''spammers'' li jużaw għodda awtomatiċi sabiex idaħħlu ħoloq lejn ħafna siti.
+Waqt li dawn il-ħoloq ta' spam jistgħu jitneħħew, dan huwa xorta waħda xogħol għalxejn.
+
+Xi drabi, speċjalment meta żżid ħoloq esterni ġodda f'paġna, il-paġna wiki tista' tistaqsik biex tirrispondi mistoqsija.
+Minħabba li din hija azzjoni li diffiċli li tiġi replikata min-naħa ta' kompjuter, dan il-mekkaniżmu jippermetti lil (kważi) kull utent li jeżisti li jagħmel il-kontribuzzjonijiet tiegħu waqt li ħafna ''spammers'' u attakki awtomatiċi jiġu mwaqqfa.
+
+Jekk jogħġbok ikkuntatja lill-[[{{MediaWiki:Grouppage-sysop}}|amministraturi tas-sit]] għall-għajnuna fuq jekk din il-proċedura hix qed tipprevjeni milli tagħmel kontribuzzjonijiet leġittimi.
+
+Iklikkja fuq il-buttuna 'lura' tal-browżer tiegħek sabiex tirritorna għall-editur ta-paġna.",
+);
+
 /** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  * @author Simny

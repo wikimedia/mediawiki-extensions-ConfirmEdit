@@ -2546,6 +2546,8 @@ $messages['mt'] = array(
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Il-modifika tiegħek tinkludi ħoloq esterni ġodda.
 Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
+	'captcha-badlogin' => "Bħala prekawzjoni kontra l-infurzar awtomatiku tal-password, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
+	'captcha-createaccount' => "Bħala miżura ta' prekawzjoni kontra l-ħolqien awtomatiku tal-kontijiet, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
 	'captcha-createaccount-fail' => "Kodiċi ta' konferma ħażin jew nieqes.",
 	'captcha-create' => "Sabiex toħloq din il-paġna, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
 	'captcha-sendemail' => "Bħala prekawzjoni kontra l-''ispam'' awtomatiku, jekk jogħġbok solvi din is-somma sempliċi t'hawn taħt u daħħal ir-risposta fil-kaxxa ([[Special:Captcha/help|aktar informazzjoni]]):",
@@ -2553,6 +2555,12 @@ Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok solvi din is-somma se
 	'captcha-disabledinapi' => 'Din l-azzjoni għandha bżonn il-captcha, għalhekk ma tistax issir permezz tal-API.',
 	'captchahelp-title' => "X'inhi l-captcha?",
 	'captchahelp-cookies-needed' => "Irid ikollok il-''cookies'' attivati sabiex tkompli",
+	'captcha-addurl-whitelist' => " #<!-- ħalli din il-linja kif inhi --> <pre>
+# Is-sintassi hi din li jmiss:
+#   * Kull ħaġa wara l-karattru \"#\" huwa kumment, sat-tmiem tal-linja
+#   * Kull linja li mhijiex vojta huma frammeti ta' espressjonijiet regolari (''regex'') li japplikaw biss għall-isem tal-ospitu fil-URLs
+ #</pre> <!-- ħalli din il-linja kif inhi -->",
+	'right-skipcaptcha' => "Jagħmel l-azzjonijiet li jattivaw il-CAPTCHA mingħajr m'għandu bżonn jgħaddi mill-CAPTCHA",
 );
 
 /** Nahuatl (Nāhuatl)
@@ -3220,6 +3228,14 @@ $messages['sa'] = array(
 	'captcha-disabledinapi' => 'अस्य कार्यस्य निमित्तं क्याप्चातन्त्रांशः अपेक्षितः, अतः इदम् ए पि ऐ द्वारा कर्तुं न शक्यते ।',
 	'captchahelp-title' => 'क्याप्चासाहाय्यम्',
 	'captchahelp-cookies-needed' => 'अस्य कार्यस्य सम्पादनाय भवतां विचरके कुकीस् इत्येतत् सक्रियं स्यात् ।',
+	'captchahelp-text' => "वीकिसदृशानि जालक्षेत्राणि यत्र सार्वजनिकानां लेखाः अङ्गीक्रियन्ते तानि स्वचालितोपकरणैः बहुक्षेत्रेभ्यः सम्पर्कप्रेषकैः अनिष्टसन्देशप्रेषकैः निन्द्यन्ते ।
+एते अनिष्टसन्देशाः निष्कासयितुं शक्याः, तथापि इदं कार्यं शिरोवेदनायै ।
+कदाचित्, पृष्ठाय नूतनजालानुबन्धानां योजनावसरे, वीक्या वर्णयुक्तचित्रम् अव्यवस्थितं पाठं वा दर्शयित्वा शब्दलेखनाय सूचयेत् ।
+इदं कार्यं स्वचालितरूपेण कर्तुं न शक्यते, मानवैः एव करणीयम् इत्यतः अनिष्टसन्देशप्रेषकाः यन्त्रचालितकार्याणि अवरुद्धानि भवन्ति ।
+दुरदृष्टवशात् एतेन परिमितसंस्करणयुक्तानां योजकानां क्लेशः भवेत् अथवा पाठाधारितानां भाषणाधारितानां जालगवेषकप्रयोक्तॄणामपि कष्टाय भवेत् ।
+सम्प्रति श्रव्यविकल्पः अस्मत्सविधे न उपलभ्यते ।
+योग्यलेखानाम् उत्पूरणे अनिरीक्षितक्लेशाः यदि भवन्ति तर्हि साहाय्यार्थम् एतेषां साहाय्यं प्राप्नुवन्तु  [[{{MediaWiki:Grouppage-sysop}}|क्षेत्रनिर्वाहकाः]] ।
+पृष्ठसम्पादकं प्रति गमनाय भवतः जालगवेषके 'पूर्वतनम्' इत्येतं पिञ्जं नुदतु ।",
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
 # अस्य प्रारूपम् एवमस्ति:
 #  * "#" इत्यनेन आरभ्यमाणाः सर्वाः टिप्पण्यः ।

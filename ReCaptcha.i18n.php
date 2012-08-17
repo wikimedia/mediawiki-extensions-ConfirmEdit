@@ -325,6 +325,18 @@ $messages['ms'] = array(
 	'recaptcha-create' => 'Untuk membanteras kegiatan mencipta laman secara automatik, sila taipkan dua perkataan yang anda lihat dalam petak di bawah:',
 );
 
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'recaptcha-edit' => "Sabiex tgħinna nipproteġu kontra l-modifiki li jżidu spam, jekk jogħġbok ikteb iż-żewġ kelmiet li tara fil-kaxxa t'hawn taħt:",
+	'recaptcha-addurl' => "Il-modifika tiegħek tinkludi ħoloq esterni ġodda. Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok ikteb iż-żewġ kelmiet li tara fil-kaxxa t'hawn taħt:",
+	'recaptcha-badpass' => "Sabiex tgħinna nipproteġu kontra l-infurzar awtomatiku tal-passwords, jekk jogħġbok ikteb iż-żewġ kelmiet li tara fil-kaxxa t'hawn taħt:",
+	'recaptcha-createaccount' => "Sabiex tgħinna nipproteġu kontra l-ħolqien awtomatiku ta' kontijiet ġodda, jekk jogħġbok ikteb iż-żewġ kelmiet li tara fil-kaxxa t'hawn taħt:",
+	'recaptcha-createaccount-fail' => 'Tweġiba reCAPTCHA ħażina jew nieqsa.',
+	'recaptcha-create' => "Sabiex tgħinna nipproteġu kontra l-ħolqien awtomatiku ta' paġni, jekk jogħġbok ikteb iż-żewġ kelmiet li tara fil-kaxxa t'hawn taħt:",
+);
+
 /** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Event
  */

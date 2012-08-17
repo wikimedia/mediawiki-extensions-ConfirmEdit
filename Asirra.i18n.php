@@ -213,6 +213,21 @@ $messages['mk'] = array(
 	'asirra-failed' => 'Изберете ги сликите што имаат мачка',
 );
 
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'asirra-desc' => 'Modulu ASIRRA għal ConfirmEdit',
+	'asirra-edit' => "Sabiex tgħinna nipproteġu kontra l-modifiki li jżidu spam, jekk jogħġbok agħżel ir-ritratti tal-qtates fil-kaxxa t'hawn taħt:",
+	'asirra-addurl' => "Il-modifika tiegħek tinkludi ħoloq esterni ġodda. Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok agħżel ir-ritratti tal-qtates fil-kaxxa t'hawn taħt:",
+	'asirra-badpass' => "Sabiex tgħinna nipproteġu kontra l-infurzar awtomatiku tal-passwords, jekk jogħġbok agħżel ir-ritratti tal-qtates fil-kaxxa t'hawn taħt:",
+	'asirra-createaccount' => "Sabiex tgħinna nipproteġu kontra l-ħolqien awtomatiku ta' kontijiet ġodda, jekk jogħġbok agħżel ir-ritratti tal-qtates fil-kaxxa t'hawn taħt:",
+	'asirra-createaccount-fail' => 'Sib il-qtates.',
+	'asirra-create' => "Sabiex tgħinna nipproteġu kontra l-ħolqien awtomatiku ta' paġni, jekk jogħġbok agħżel ir-ritratti tal-qtates fil-kaxxa t'hawn taħt:",
+	'asirra-nojs' => "'''Jekk jogħġbok attiva l-JavaScript u erġa' ibgħat din il-paġna.'''",
+	'asirra-failed' => 'Sib l-istampi kollha tal-qtates',
+);
+
 /** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Event
  */

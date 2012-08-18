@@ -75,11 +75,11 @@ class ReCaptcha extends SimpleCaptcha {
 	 */
 	function getMessage( $action ) {
 		$name = 'recaptcha-' . $action;
-		$text = wfMsg( $name );
+		$text = wfMessage( $name )->text();
 
 		# Obtain a more tailored message, if possible, otherwise, fall back to
 		# the default for edits
-		return wfEmptyMsg( $name, $text ) ? wfMsg( 'recaptcha-edit' ) : $text;
+		return wfMessage( $name, $text )->isDisabled() ? wfMessage( 'recaptcha-edit' )->text() : $text;
 	}
 
 	public function APIGetAllowedParams( &$module, &$params ) {

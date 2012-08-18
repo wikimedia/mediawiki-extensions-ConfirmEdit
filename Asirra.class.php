@@ -10,12 +10,12 @@ class Asirra extends SimpleCaptcha {
 	// As we don't have to store anything but some other things to do,
 	// we're going to replace that constructor completely.
 	function __construct() {
-		global $wgExtensionAssetsPath, $wgAsirraScriptPath;
+		global $wgExtensionAssetsPath;
 		$this->asirra_localpath = "$wgExtensionAssetsPath/ConfirmEdit";
 	}
 
 	function getForm() {
-		global $wgAsirraEnlargedPosition, $wgAsirraCellsPerRow, $wgOut, $wgLang;
+		global $wgOut;
 
 		$wgOut->addModules( 'ext.confirmedit.asirra' );
 		$js = Html::linkedScript( $this->asirra_clientscript );

@@ -71,7 +71,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			'<p>' .
 			Html::element( 'label', array(
 				'for' => 'wpCaptchaWord',
-			), parent::getMessage( 'label' ) . wfMsg( 'colon-separator' ) ) .
+			), parent::getMessage( 'label' ) . wfMessage( 'colon-separator' )->text() ) .
 			Html::element( 'input', array(
 				'name' => 'wpCaptchaWord',
 				'id'   => 'wpCaptchaWord',
@@ -161,6 +161,7 @@ class FancyCaptcha extends SimpleCaptcha {
 
 	/**
 	 * Count the number of files in a directory.
+	 * @param $dirname
 	 * @return int
 	 */
 	function countFiles( $dirname ) {
@@ -232,10 +233,10 @@ class FancyCaptcha extends SimpleCaptcha {
 	 */
 	function getMessage( $action ) {
 		$name = 'fancycaptcha-' . $action;
-		$text = wfMsg( $name );
+		$text = wfMessage( $name )->text();
 		# Obtain a more tailored message, if possible, otherwise, fall back to
 		# the default for edits
-		return wfEmptyMsg( $name, $text ) ? wfMsg( 'fancycaptcha-edit' ) : $text;
+		return wfMessage( $name, $text )->isDisabled() ? wfMessage( 'fancycaptcha-edit' )->text() : $text;
 	}
 
 	/**

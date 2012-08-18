@@ -59,8 +59,6 @@ class HTMLCaptchaField extends HTMLFormField {
 		if ( $data === false ) {
 			return true;
 		}
-
-
 	}
 
 	/**

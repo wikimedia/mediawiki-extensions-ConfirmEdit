@@ -132,7 +132,11 @@ class FancyCaptcha extends SimpleCaptcha {
 		if ( !is_dir( $directory ) ) {
 			return false;
 		}
-		$n = mt_rand( 0, $this->countFiles( $directory ) - 1 );
+		$dirCount = $this->countFiles( $directory );
+		if ( $dirCount === 0 ) {
+			return false;
+		}
+		$n = mt_rand( 0, $dirCount - 1 );
 		$dir = opendir( $directory );
 
 		$count = 0;

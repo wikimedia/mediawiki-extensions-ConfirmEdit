@@ -1,7 +1,6 @@
 <?php
 
 class SimpleCaptcha {
-
 	function getCaptcha() {
 		$a = mt_rand( 0, 100 );
 		$b = mt_rand( 0, 10 );
@@ -65,7 +64,7 @@ class SimpleCaptcha {
 	 * Show a message asking the user to enter a captcha on edit
 	 * The result will be treated as wiki text
 	 *
-	 * @param $action Action being performed
+	 * @param $action string Action being performed
 	 * @return string
 	 */
 	function getMessage( $action ) {
@@ -182,8 +181,7 @@ class SimpleCaptcha {
 		if ( $wgCaptchaWhitelistIP ) {
 			global $wgRequest;
 
-			// Compat: WebRequest::getIP is only available since MW 1.19.
-			$ip = method_exists( $wgRequest, 'getIP' ) ? $wgRequest->getIP() : wfGetIP();
+			$ip = $wgRequest->getIP();
 
 			foreach ( $wgCaptchaWhitelistIP as $range ) {
 				if ( IP::isInRange( $ip, $range ) ) {
@@ -201,8 +199,7 @@ class SimpleCaptcha {
 	 */
 	function badLoginKey() {
 		global $wgRequest;
-		// Compat: WebRequest::getIP is only available since MW 1.19.
-		$ip = method_exists( $wgRequest, 'getIP' ) ? $wgRequest->getIP() : wfGetIP();
+		$ip = $wgRequest->getIP();
 		return wfMemcKey( 'captcha', 'badlogin', 'ip', $ip );
 	}
 
@@ -350,7 +347,7 @@ class SimpleCaptcha {
 
 	/**
 	 * Filter callback function for URL whitelisting
-	 * @param string url to check
+	 * @param $url string to check
 	 * @return bool true if unknown, false if whitelisted
 	 * @access private
 	 */
@@ -370,7 +367,7 @@ class SimpleCaptcha {
 
 	/**
 	 * Build regex from whitelist
-	 * @param string lines from [[MediaWiki:Captcha-addurl-whitelist]]
+	 * @param $lines string from [[MediaWiki:Captcha-addurl-whitelist]]
 	 * @return string Regex or bool false if whitelist is empty
 	 * @access private
 	 */
@@ -594,7 +591,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * @param $module ApiBae
+	 * @param $module ApiBase
 	 * @param $desc array
 	 * @return bool
 	 */

@@ -20,7 +20,6 @@
  * @class
  */
 class HTMLCaptchaField extends HTMLFormField {
-
 	/**
 	 * @var Captcha
 	 */

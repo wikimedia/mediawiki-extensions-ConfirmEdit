@@ -183,17 +183,8 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		$info = $this->retrieveCaptcha();
 		if ( $info ) {
-			/*
-			// Be a little less restrictive for now; in at least some circumstances,
-			// Konqueror tries to reload the image even if you haven't navigated
-			// away from the page.
-			if( $info['viewed'] ) {
-				wfHttpError( 403, 'Access Forbidden', "Can't view captcha image a second time." );
-				return false;
-			}
-			*/
-
-			$info['viewed'] = wfTimestamp();
+			$timestamp = new MWTimestamp();
+			$info['viewed'] = $timestamp->getTimestamp();
 			$this->storeCaptcha( $info );
 
 			$salt = $info['salt'];
@@ -204,7 +195,7 @@ class FancyCaptcha extends SimpleCaptcha {
 				global $IP;
 				require_once "$IP/includes/StreamFile.php";
 				header( "Cache-Control: private, s-maxage=0, max-age=3600" );
-				wfStreamFile( $file );
+				StreamFile::stream( $file );
 				return true;
 			}
 		}
@@ -228,7 +219,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * Show a message asking the user to enter a captcha on edit
 	 * The result will be treated as wiki text
 	 *
-	 * @param $action Action being performed
+	 * @param $action string Action being performed
 	 * @return string
 	 */
 	function getMessage( $action ) {

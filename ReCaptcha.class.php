@@ -36,8 +36,7 @@ class ReCaptcha extends SimpleCaptcha {
 			return false;
 		}
 
-		// Compat: WebRequest::getIP is only available since MW 1.19.
-		$ip = method_exists( $wgRequest, 'getIP' ) ? $wgRequest->getIP() : wfGetIP();
+		$ip = $wgRequest->getIP();
 
 		$recaptcha_response = recaptcha_check_answer(
 			$wgReCaptchaPrivateKey,
@@ -70,7 +69,7 @@ class ReCaptcha extends SimpleCaptcha {
 	 * Show a message asking the user to enter a captcha on edit
 	 * The result will be treated as wiki text
 	 *
-	 * @param $action Action being performed
+	 * @param $action string Action being performed
 	 * @return string
 	 */
 	function getMessage( $action ) {

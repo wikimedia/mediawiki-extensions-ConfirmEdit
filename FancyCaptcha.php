@@ -29,7 +29,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
-require_once dirname( __FILE__ ) . '/ConfirmEdit.php';
+$dir = __DIR__;
+require_once $dir . '/ConfirmEdit.php';
 $wgCaptchaClass = 'FancyCaptcha';
 
 global $wgCaptchaDirectory;
@@ -49,5 +50,5 @@ $wgCaptchaSecret = "CHANGE_THIS_SECRET!";
  */
 $wgCaptchaDeleteOnSolve = false;
 
-$wgExtensionMessagesFiles['FancyCaptcha'] = dirname( __FILE__ ) . '/FancyCaptcha.i18n.php';
-$wgAutoloadClasses['FancyCaptcha'] = dirname( __FILE__ ) . '/FancyCaptcha.class.php';
+$wgExtensionMessagesFiles['FancyCaptcha'] = $dir . '/FancyCaptcha.i18n.php';
+$wgAutoloadClasses['FancyCaptcha'] = $dir . '/FancyCaptcha.class.php';

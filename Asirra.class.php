@@ -29,6 +29,14 @@ JAVASCRIPT
 		return $js;
 	}
 
+	function getMessage( $action ) {
+		$name = 'asirra-' . $action;
+		$text = wfMessage( $name )->text();
+		# Obtain a more tailored message, if possible, otherwise, fall
+		# back to the default for edits
+		return wfMessage( $name, $text )->isDisabled() ? wfMessage( 'asirra-edit' )->text() : $text;
+	}
+
 	function passCaptcha() {
 		global $wgRequest;
 

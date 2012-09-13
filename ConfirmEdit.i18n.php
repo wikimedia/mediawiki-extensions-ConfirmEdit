@@ -1590,6 +1590,7 @@ $messages['hi'] = array(
  * @author Dnik
  * @author Ex13
  * @author Herr Mlinka
+ * @author Roberta F.
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -1617,9 +1618,9 @@ Molimo obratite se [[{{MediaWiki:Grouppage-sysop}}|administratorima]] za pomoć,
 
 Pritisnite u svom pregledniku 'nazad' kako bi se vratili na uređivač stranice.",
 	'captcha-addurl-whitelist' => ' #<!-- leave this line exactly as it is --> <pre>
-# Rabi se slijedeća sintaksa:
+# Rabi se sljedeća sintaksa:
 #   * Sve od "#" znaka do kraja linije je komentar
-#   * Svaki neprazni redak je regularni izraz (regex) koji odgovara poslužitelju unutar URL-a
+#   * Svaki je neprazni redak regularni izraz (regex) koji odgovara poslužitelju unutar URL-a
   #</pre> <!-- leave this line exactly as it is -->',
 	'right-skipcaptcha' => 'Izvođenje akcija koje pokreću captcha bez prolaženja kroz captcha sustav',
 );

@@ -73,6 +73,13 @@ $messages['de-formal'] = array(
 	'asirra-failed' => 'Bitte wählen Sie nur die Fotos mit Katzen aus.',
 );
 
+/** Zazaki (Zazaki)
+ * @author Erdemaslancan
+ */
+$messages['diq'] = array(
+	'asirra-desc' => 'Qandê Asirra modulê RaştkerdenVurnen',
+);
+
 /** Spanish (español)
  * @author Armando-Martin
  */

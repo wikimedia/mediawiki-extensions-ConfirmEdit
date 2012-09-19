@@ -806,12 +806,12 @@ $messages['de'] = array(
 	'captcha-desc' => 'Ermöglicht verschiedene CAPTCHA-Techniken zum Schutz vor Spam und dem Erraten von Passwörtern',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Deine Bearbeitung enthält neue externe Links.
-Zum Schutz vor automatisiertem Spamming löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen oder Probleme?)]].',
-	'captcha-badlogin' => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]]:',
-	'captcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
+Um das Wiki vor automatisiertem Spam zu schützen, bitten wir dich die untenstehende einfache Rechenaufgabe zu lösen und deine Antwort in das Feld einzugeben, damit deine Bearbeitung gespeichert werden kann ([[Special:Captcha/help|mehr Informationen …]]):',
+	'captcha-badlogin' => 'Um das Wiki vor der automatisierten Kompromittierung der Benutzerkonten zu schützen, bitten wir dich die untenstehende einfache Rechenaufgabe zu lösen und deine Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):',
+	'captcha-createaccount' => 'Um das Wiki vor der automatisierten Erstellung von Benutzerkonten zu schützen, bitten wir dich die untenstehende einfache Rechenaufgabe zu lösen und deine Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):',
 	'captcha-createaccount-fail' => 'Falscher oder fehlender Bestätigungscode.',
 	'captcha-create' => 'Zur Erstellung der Seite löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
-	'captcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, löse bitte die einfache Rechenaufgabe und gib die Antwort unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
+	'captcha-sendemail' => 'Um das Wiki vor automatisiertem Spam zu schützen, bitten wir dich die untenstehende einfache Rechenaufgabe zu lösen und deine Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):',
 	'captcha-sendemail-fail' => 'Falscher oder fehlender Bestätigungscode.',
 	'captcha-disabledinapi' => 'Diese Aktion benötigt ein CAPTCHA. Sie kann nicht über die API ausgeführt werden.',
 	'captchahelp-title' => 'CAPTCHA-Hilfe',
@@ -836,18 +836,18 @@ Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
  * @author Imre
+ * @author Kghbln
  * @author Raimond Spekking
  * @author The Evil IP address
  */
 $messages['de-formal'] = array(
 	'captcha-edit' => 'Zur Bearbeitung der Seite lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'captcha-addurl' => 'Ihre Bearbeitung enthält neue externe Links.
-Zum Schutz vor automatisiertem Spamming lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein.
-Klicken Sie dann erneut auf „Seite speichern“ [[Special:Captcha/help|(Fragen oder Probleme?)]].',
-	'captcha-badlogin' => 'Zum Schutz vor einer Kompromittierung Ihres Benutzerkontos lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]]:',
-	'captcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
+Um das Wiki vor automatisiertem Spam zu schützen, bitten wir Sie die untenstehende einfache Rechenaufgabe zu lösen und Ihre Antwort in das Feld einzugeben, damit Ihre Bearbeitung gespeichert werden kann ([[Special:Captcha/help|mehr Informationen …]]):',
+	'captcha-badlogin' => 'Um das Wiki vor der automatisierten Kompromittierung der Benutzerkonten zu schützen, bitten wir Sie die untenstehende einfache Rechenaufgabe zu lösen und Ihre Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):',
+	'captcha-createaccount' => 'Um das Wiki vor der automatisierten Erstellung von Benutzerkonten zu schützen, bitten wir Sie die untenstehende einfache Rechenaufgabe zu lösen und Ihre Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):',
 	'captcha-create' => 'Zur Erstellung der Seite lösen Sie die nachfolgende Rechenaufgabe und tragen Sie das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
-	'captcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, lösen Sie bitte die einfache Rechenaufgabe und geben Sie die Antwort unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
+	'captcha-sendemail' => 'Um das Wiki vor automatisiertem Spam zu schützen, bitten wir Sie die untenstehende einfache Rechenaufgabe zu lösen und Ihre Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):',
 	'captchahelp-text' => 'Internetangebote, die für Beiträge von praktisch jedem offen sind — so wie dieses Wiki — werden oft von Spammern missbraucht, die ihre Links automatisch auf vielen Webseiten platzieren. Diese Spam-Links können wieder entfernt werden, sie sind aber ein erhebliches Ärgernis.
 
 In manchen Fällen, insbesondere beim Hinzufügen von neuen Weblinks zu einer Seite, kann es vorkommen, dass dieses Wiki ein Bild mit einem farbigen und verzerrten Text anzeigt und dazu auffordert, die angezeigten Wörter einzutippen.

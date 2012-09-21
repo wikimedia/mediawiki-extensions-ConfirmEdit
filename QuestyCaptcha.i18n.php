@@ -619,7 +619,7 @@ Fare clic sul pulsante 'indietro' del browser per tornare alla pagina di modific
 $messages['ja'] = array(
 	'questycaptcha-desc' => 'Confirm Edit 用の質問形式 CAPTCHA ジェネレーター',
 	'questycaptcha-addurl' => 'あなたの編集では新たな外部リンクが追加されています。自動で実行されるスパム行為防止のため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
-	'questycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
+	'questycaptcha-badlogin' => '自動化されたパスワードクラック攻撃から保護するため、下記の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-createaccount' => '自動化されたアカウント作成を防止するため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-create' => 'ページを作成するには以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-edit' => 'このページを編集するには以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
@@ -639,6 +639,8 @@ $messages['ja'] = array(
  */
 $messages['ko'] = array(
 	'questycaptcha-desc' => '편집 확인에 대한 탐구적인 CAPCHA(캡차) 생성기',
+	'questycaptcha-addurl' => '편집에 새로운 바깥 링크가 포함되어 있습니다.
+자동화된 스팸을 막기 위해 아래 질문에 답해주세요 ([[Special:Captcha/help|더 많은 정보]]):',
 	'questycaptcha-badlogin' => '자동화된 비밀번호 깨기를 방지하기 위해, 아래애 보이는 질문에 대답해주세요 ([[Special:Captcha/help|자세한 정보]]):',
 );
 

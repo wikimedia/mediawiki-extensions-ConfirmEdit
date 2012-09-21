@@ -703,12 +703,12 @@ $messages['it'] = array(
 $messages['ja'] = array(
 	'fancycaptcha-desc' => 'Confirm Edit 用の装飾的な CAPTCHA ジェネレーター',
 	'fancycaptcha-addurl' => 'あなたの編集で新たな外部リンクが追加されています。
-自動化スクリプトによるスパム行為防止のため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-badlogin' => '自動化スクリプトによるパスワードクラック攻撃を防止するため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-createaccount' => '自動化されたアカウント作成を防止するため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-create' => 'ページを作成するには以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-edit' => 'このページを編集するには以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-sendemail' => 'ロボットによるスパムを防ぐため、以下のボックスに表示される確認用の文字列を入力してください ([[Special:Captcha/help|詳細]]):',
+ロボットによるスパムを防止するため、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-badlogin' => '自動化されたパスワードクラック攻撃を防止するため、以下の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-createaccount' => 'アカウントの自動作成を防止するため、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-create' => 'ページを作成するには、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-edit' => 'このページを編集するには、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-sendemail' => 'ロボットによるスパムを防ぐため、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
 );
 
 /** Jutish (jysk)
@@ -819,8 +819,8 @@ $messages['km'] = array(
  */
 $messages['ko'] = array(
 	'fancycaptcha-desc' => '편집 확인에 대한 공상 CAPTCHA(캡차) 생성기',
-	'fancycaptcha-addurl' => '편집이 새로운 외부 링크를 포함하고 있습니다.
-자동화된 스팸을 막기 위해 아래 상자의 단어를 적어주세요. ([[Special:Captcha/help|더 많은 정보]])',
+	'fancycaptcha-addurl' => '편집에 새로운 바깥 링크가 포함되어 있습니다.
+자동화된 스팸을 막기 위해 아래 상자의 단어를 적어주세요 ([[Special:Captcha/help|더 많은 정보]]):',
 	'fancycaptcha-badlogin' => '자동화된 비밀번호 깨기를 막기 위해서, 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
 	'fancycaptcha-createaccount' => '자동화된 계정 만들기를 막기 위해서, 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
 	'fancycaptcha-create' => '이 문서를 만드려면, 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',

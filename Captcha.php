@@ -315,8 +315,8 @@ class SimpleCaptcha {
 
 		global $wgCaptchaRegexes;
 		if ( $wgCaptchaRegexes ) {
-			// Custom regex checks
-			$oldtext = $this->loadText( $editPage, $section );
+			// Custom regex checks. Reuse $oldtext if set above.
+			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $editPage, $section );
 
 			foreach ( $wgCaptchaRegexes as $regex ) {
 				$newMatches = array();
@@ -683,7 +683,7 @@ class SimpleCaptcha {
 	 * @access private
 	 */
 	function loadText( $editPage, $section ) {
-		$rev = Revision::newFromTitle( $editPage->mTitle );
+		$rev = Revision::newFromTitle( $editPage->mTitle, false, Revision::READ_LATEST );
 		if ( is_null( $rev ) ) {
 			return "";
 		} else {

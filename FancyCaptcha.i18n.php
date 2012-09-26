@@ -704,11 +704,11 @@ $messages['ja'] = array(
 	'fancycaptcha-desc' => 'Confirm Edit 用の装飾的な CAPTCHA ジェネレーター',
 	'fancycaptcha-addurl' => 'あなたの編集で新たな外部リンクが追加されています。
 ロボットによるスパムを防止するため、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-badlogin' => '自動化されたパスワードクラック攻撃を防止するため、以下の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-createaccount' => 'アカウントの自動作成を防止するため、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-badlogin' => '自動でのパスワードクラック攻撃を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-createaccount' => 'アカウントの自動登録を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-create' => 'ページを作成するには、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-edit' => 'このページを編集するには、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-sendemail' => 'ロボットによるスパムを防ぐため、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-sendemail' => '自動でのスパム攻撃を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 );
 
 /** Jutish (jysk)

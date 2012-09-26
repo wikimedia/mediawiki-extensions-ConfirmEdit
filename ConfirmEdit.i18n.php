@@ -1904,8 +1904,8 @@ $messages['ja'] = array(
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'あなたは新しい外部リンクを追加しようとしています。
 ロボットによるスパムからウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
-	'captcha-badlogin' => '自動化されたパスワードクラック攻撃からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'captcha-createaccount' => 'アカウントの自動作成からこのウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
+	'captcha-badlogin' => '自動でのパスワードクラック攻撃からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'captcha-createaccount' => 'アカウントの自動登録からこのウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
 	'captcha-createaccount-fail' => '確認コードの入力がないか、間違っています。',
 	'captcha-create' => 'ページを新規作成するには、下記の簡単な数式を計算し、欄に答えを入力してください。([[Special:Captcha/help|ヘルプ]])',
 	'captcha-sendemail' => 'ロボットによるスパムからこのウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|詳細]]):',

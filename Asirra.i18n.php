@@ -23,10 +23,31 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author 2nd-player
  * @author Beta16
  */
 $messages['qqq'] = array(
 	'asirra-desc' => '{{desc}}',
+	'asirra-edit' => 'See also
+*{{msg-mw|Captcha-edit}}
+*{{msg-mw|Questycaptcha-edit}}
+*{{msg-mw|Fancycaptcha-edit}}
+*{{msg-mw|Recaptcha-edit}}',
+	'asirra-addurl' => 'See also
+*{{msg-mw|Captcha-addurl}}
+*{{msg-mw|Questycaptcha-addurl}}
+*{{msg-mw|Fancycaptcha-addurl}}
+*{{msg-mw|Recaptcha-addurl}}',
+	'asirra-badpass' => 'See also
+*{{msg-mw|Captcha-badlogin}}
+*{{msg-mw|Questycaptcha-badlogin}}
+*{{msg-mw|Fancycaptcha-badlogin}}
+*{{msg-mw|Recaptcha-badpass}}',
+	'asirra-createaccount' => 'See also
+*{{msg-mw|Captcha-createaccount}}
+*{{msg-mw|Questycaptcha-createaccount}}
+*{{msg-mw|Fancycaptcha-createaccount}}
+*{{msg-mw|Recaptcha-createaccount}}',
 );
 
 /** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
@@ -172,10 +193,16 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author 2nd-player
  * @author Shirayuki
  */
 $messages['ja'] = array(
 	'asirra-desc' => 'ConfirmEdit 用 Asirra モジュール',
+	'asirra-edit' => '自動編集スパムを防ぐため、猫が写っている画像を以下から選択してください:',
+	'asirra-addurl' => 'あなたの編集は新しい外部リンクを含んでいます。自動スパムからの保護のため、下の画像の中から猫が写っているものを選んでください：',
+	'asirra-badpass' => '自動でのパスワードクラック攻撃を防ぐため、猫が写っている画像を以下から選択してください:',
+	'asirra-createaccount' => 'アカウントの自動登録を防ぐため、猫が写っている画像を以下から選択してください:',
+	'asirra-create' => '自動でのページ作成を防ぐため、猫が写っている画像を以下から選択してください:',
 	'asirra-nojs' => "'''JavaScript を有効にしてページを再読込してください。'''",
 );
 
@@ -369,5 +396,18 @@ $messages['zh-hans'] = array(
 	'asirra-create' => '为了防止自动程序创建页面，请在下面的方框中选出猫的图片：',
 	'asirra-nojs' => "'''请启动JavaScript后再提交页面。'''",
 	'asirra-failed' => '请选出所有猫的图片',
+);
+
+/** Traditional Chinese (中文（繁體）‎) */
+$messages['zh-hant'] = array(
+	'asirra-desc' => 'ConfirmEdit的Asirra模塊',
+	'asirra-edit' => '為了防止垃圾編輯攻擊，請在下面的方框中選出貓的圖片：',
+	'asirra-addurl' => '您的編輯包含新的外部鏈接。為了幫助防止自動垃圾郵件，請在下面的方框中選出貓的圖片：',
+	'asirra-badpass' => '為防止自動程序破解密碼，請在下面的方框中選出貓的圖片：',
+	'asirra-createaccount' => '為了防止自動程序創建帳戶，請在下面的方框中選出貓的圖片：',
+	'asirra-createaccount-fail' => '請正確辨認出貓的圖片。',
+	'asirra-create' => '為了防止自動程序創建頁面，請在下面的方框中選出貓的圖片：',
+	'asirra-nojs' => "'''請啟動JavaScript後再提交頁面。'''",
+	'asirra-failed' => '請選出所有貓的圖片',
 );
 

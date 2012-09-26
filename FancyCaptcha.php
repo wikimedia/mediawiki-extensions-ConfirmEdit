@@ -33,6 +33,12 @@ $dir = __DIR__;
 require_once $dir . '/ConfirmEdit.php';
 $wgCaptchaClass = 'FancyCaptcha';
 
+/**
+ * The name of a file backend ($wgFileBackends) to be used for storing files.
+ * Defaults to FSFileBackend using $wgCaptchaDirectory as a base path.
+ */
+$wgCaptchaFileBackend = '';
+
 global $wgCaptchaDirectory;
 $wgCaptchaDirectory = "$wgUploadDirectory/captcha"; // bad default :D
 

@@ -618,10 +618,11 @@ Fare clic sul pulsante 'indietro' del browser per tornare alla pagina di modific
  */
 $messages['ja'] = array(
 	'questycaptcha-desc' => 'Confirm Edit 用の質問形式 CAPTCHA ジェネレーター',
-	'questycaptcha-addurl' => 'あなたの編集では新たな外部リンクが追加されています。自動で実行されるスパム行為防止のため、以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
+	'questycaptcha-addurl' => 'あなたは新しい外部リンクを追加しようとしています。
+自動でのスパム攻撃を防ぐため、下記の確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-badlogin' => '自動でのパスワードクラック攻撃を防ぐため、下記の確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-createaccount' => 'アカウントの自動登録を防ぐため、下記の確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
-	'questycaptcha-create' => 'ページを作成するには以下に表示される確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
+	'questycaptcha-create' => 'ページを新規作成するには、下記の確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-edit' => 'このページを編集するには、下記の確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptcha-sendemail' => '自動でのスパム攻撃を防ぐため、下記の確認用の質問に回答してください ([[Special:Captcha/help|詳細]]):',
 	'questycaptchahelp-text' => '一般からの投稿を受け付けるこのウィキのようなウェブサイトは、自動投稿ツールを使って多くのサイトにリンクを張ってまわるスパマーにより荒らされがちです。このようなスパムは除去できるものの、その作業は大変に面倒なものです。

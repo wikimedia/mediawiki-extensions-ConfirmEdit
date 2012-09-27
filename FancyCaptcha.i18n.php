@@ -702,12 +702,12 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'fancycaptcha-desc' => 'Confirm Edit 用の装飾的な CAPTCHA ジェネレーター',
-	'fancycaptcha-addurl' => 'あなたの編集で新たな外部リンクが追加されています。
-ロボットによるスパムを防止するため、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-addurl' => 'あなたは新しい外部リンクを追加しようとしています。
+自動でのスパム攻撃を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-badlogin' => '自動でのパスワードクラック攻撃を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-createaccount' => 'アカウントの自動登録を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-create' => 'ページを作成するには、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-edit' => 'このページを編集するには、下記の確認用の文字列を入力欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-create' => 'ページを新規作成するには、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-edit' => 'このページを編集するには、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-sendemail' => '自動でのスパム攻撃を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 );
 
@@ -1129,8 +1129,8 @@ $messages['pnb'] = array(
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
-	'fancycaptcha-create' => 'ددې لپاره چې يو مخ جوړ شي، مهرباني وکړی لاندې ورکړ شوي توري څنګه چې تاسو ته ښکاري هماغسې کټ مټ په لانديني چوکاټ کې وليکی
-([[Special:Captcha/help|نور مالومات]]):',
+	'fancycaptcha-create' => 'ددې مخ د جوړلو لپاره، لطفاً ورکړل شوي توري څنګه چې تاسو ته ښکاري هماغسې کټ مټ په لانديني چوکاټ کې وليکی ([[Special:Captcha/help|نور مالومات]]):',
+	'fancycaptcha-edit' => 'ددې مخ د سمولو لپاره، لطفاً ورکړل شوي توري څنګه چې تاسې ته ښکاري هماغسې کټ مټ په لانديني چوکاټ کې وليکی ([[Special:Captcha/help|نور مالومات]]):',
 );
 
 /** Portuguese (português)

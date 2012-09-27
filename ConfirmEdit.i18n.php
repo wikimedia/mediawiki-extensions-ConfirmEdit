@@ -869,14 +869,16 @@ $messages['diq'] = array(
 	'captcha-edit' => 'Qe ena pel vurnayîşî, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'captcha-desc' => 'Rehat CAPTCHA teknoloci u  dezgina parola-ezayan',
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => 'Vurnayîşanê tu de linkanê harîcîyê newe esto.
-Qe otomatik spamî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
-	'captcha-badlogin' => 'Qe otomatik parola crack kerdişî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
-	'captcha-createaccount' => 'Qe otomatik hesab viraştişî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
+	'captcha-addurl' => 'Vurnayışa şıma gray teberiya newi muhtewa kena.
+Otomatik spamî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|malumato detayın]]):',
+	'captcha-badlogin' => 'Otomatik spam ra pawıtışi, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse 
+([[Special:Captcha/help|malumato detayın]]):',
+	'captcha-createaccount' => 'Otomatik spam ra pawıtışi, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse 
+([[Special:Captcha/help|malumato detayın]]):',
 	'captcha-createaccount-fail' => 'Kodê testiqî vin biyo ya zi raşt niyo.',
 	'captcha-create' => 'Qe pel viraştîşî, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
-	'captcha-sendemail' => 'Qe otomatik spam ra pawitîşi, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse 
-([[Special:Captcha/help|enformasyonê bînî]]):',
+	'captcha-sendemail' => 'Otomatik spam ra pawıtışi, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse 
+([[Special:Captcha/help|malumato detayın]]):',
 	'captcha-sendemail-fail' => 'Kodê testiqî vin biyo ya zi raşt niyo.',
 	'captcha-disabledinapi' => 'Ena hereket de captcha lazim o, aye ra ser API ra ena hereket nibena.',
 	'captchahelp-title' => 'Yardimê captchayî',
@@ -1899,19 +1901,19 @@ Fare clic sul pulsante 'back' del browser per tornare alla pagina di modifica.",
  * @author Whym
  */
 $messages['ja'] = array(
-	'captcha-edit' => 'このページを編集するには、下記の簡単な数式を計算し、欄に答えを入力してください([[Special:Captcha/help|ヘルプ]])：',
-	'captcha-desc' => 'スパムやパスワード推定の攻撃を防ぐためのCAPTCHA技術を提供する',
+	'captcha-edit' => 'このページを編集するには、下記の簡単な数式を計算してその答えを欄に入力してください([[Special:Captcha/help|ヘルプ]]):',
+	'captcha-desc' => 'スパム攻撃やパスワード推定攻撃を防ぐための CAPTCHA 技術を提供する',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'あなたは新しい外部リンクを追加しようとしています。
-ロボットによるスパムからウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
+自動でのスパム攻撃を防ぐため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
 	'captcha-badlogin' => '自動でのパスワードクラック攻撃からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'captcha-createaccount' => 'アカウントの自動登録からこのウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
-	'captcha-createaccount-fail' => '確認コードの入力がないか、間違っています。',
-	'captcha-create' => 'ページを新規作成するには、下記の簡単な数式を計算し、欄に答えを入力してください。([[Special:Captcha/help|ヘルプ]])',
-	'captcha-sendemail' => 'ロボットによるスパムからこのウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'captcha-sendemail-fail' => '確認コードが間違っているか入力されていません。',
-	'captcha-disabledinapi' => 'この操作はキャプチャを必要としているため、APIによって実行することができません。',
-	'captchahelp-title' => 'CAPTCHA(画像認証)ヘルプ',
+	'captcha-createaccount' => 'アカウントの自動登録からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
+	'captcha-createaccount-fail' => '確認コードが正しくない、または入力されていません。',
+	'captcha-create' => 'ページを新規作成するには、下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
+	'captcha-sendemail' => '自動でのスパム攻撃からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'captcha-sendemail-fail' => '確認コードが正しくない、または入力されていません。',
+	'captcha-disabledinapi' => 'この操作には CAPTCHA 認証が必要なため、API では実行できません。',
+	'captchahelp-title' => 'CAPTCHA (画像認証) ヘルプ',
 	'captchahelp-cookies-needed' => 'ブラウザーの Cookie を有効にする必要があります。',
 	'captchahelp-text' => '一般からの投稿を受け付けるこのウィキのようなウェブサイトは、自動投稿ツールを使って多くのサイトにリンクを張ってまわるスパマーにより荒らされがちです。
 このようなスパムは除去できるものの、その作業は大変に面倒なものです。

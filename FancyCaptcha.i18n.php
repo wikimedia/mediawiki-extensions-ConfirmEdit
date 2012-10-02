@@ -163,7 +163,7 @@ $messages['bcc'] = array(
 	'fancycaptcha-edit' => 'په اصلاح کتن ای صفحه، لطفا کلماتی که ته جهلگی جعبه ظاهراند واردش کنیت ([[Special:Captcha/help|گیشتر اطلاعات]]):',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -317,7 +317,7 @@ Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten 
 	'fancycaptcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, gib bitte die Wörter unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Imre
  * @author MichaelFrey
  * @author Umherirrender
@@ -756,7 +756,7 @@ $messages['kaa'] = array(
 ko'rsetilgen so'zlerdi kiritin'([[{{ns:special}}:Captcha/help|ko'birek mag'lıwmat]]):",
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'fancycaptcha-addurl' => 'تٷزەتۋٸڭٸزدە جاڭا سىرتقى سٸلتەمەلەر بار ەكەن. ٶزدٸك تٷردە «سپام» جاسالۋىنان قورعانۋ ٷشٸن,
 تٶمەندەگٸ كٶرسەتٸلگەن سٶزدەردٸ اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
@@ -770,7 +770,7 @@ $messages['kk-arab'] = array(
 تٶمەندەگٸ كٶرسەتٸلگەن سٶزدەردٸ اۋماققا ەنگٸزٸڭٸز ([[{{ns:special}}:Captcha/help|كٶبٸرەك اقپارات]]):',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'fancycaptcha-addurl' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
@@ -784,7 +784,7 @@ $messages['kk-cyrl'] = array(
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):',
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'fancycaptcha-addurl' => 'Tüzetwiñizde jaña sırtqı siltemeler bar eken. Özdik türde «spam» jasalwınan qorğanw üşin,
 tömendegi körsetilgen sözderdi awmaqqa engiziñiz ([[{{ns:special}}:Captcha/help|köbirek aqparat]]):',
@@ -983,7 +983,7 @@ Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok solvi din is-somma se
 	'fancycaptcha-sendemail' => 'Bħala prekawzjoni kontra l-ispam awtomatiku, jekk jogħġbok daħħal fil-kaxxa l-ittri li jidhru hawn taħt ([[Special:Captcha/help|aktar informazzjoni]]):',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Harald Khan
  * @author Laaknor
  * @author Njardarlogar
@@ -1038,7 +1038,7 @@ Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming t
 	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen geautomatiseerde spam ([[Special:Captcha/help|meer informatie]]):',
 );
 
-/** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
  * @author Siebrand
  */
 $messages['nl-informal'] = array(
@@ -1046,7 +1046,7 @@ $messages['nl-informal'] = array(
 Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -1305,7 +1305,7 @@ $messages['sq'] = array(
 	'fancycaptcha-sendemail' => "Për t'u mbrojtur nga metoda automatike e gjetjes së fjalëkalimeve ju kërkojmë të vendosni fjalët e figurës në kuti ([[Special:Captcha/help|më shumë informacion]]):",
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Millosh
  * @author Rancher
  * @author Жељко Тодоровић
@@ -1322,7 +1322,7 @@ $messages['sr-ec'] = array(
 	'fancycaptcha-sendemail' => 'У циљу заштите од непожељних порука, унесите речи са слике у поље испод ([[Special:Captcha/help|више информација]]):',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -1574,7 +1574,7 @@ $messages['yue'] = array(
 	'fancycaptcha-edit' => '要編輯呢一版，請響下面個盒度輸入下面嘅文字 ([[Special:Captcha/help|更多資訊]]):',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Bencmq
  */
 $messages['zh-hans'] = array(
@@ -1586,7 +1586,7 @@ $messages['zh-hans'] = array(
 	'fancycaptcha-sendemail' => '为防止不当程式进行破坏，请输入以下的文字（[[Special:Captcha/help|相关资讯]]）：',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Horacewai2
  * @author Waihorace
  */

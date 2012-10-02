@@ -115,7 +115,7 @@ $messages['ba'] = array(
 Мөхәррирләүгә кире ҡайтыу өсөн, браузерығыҙҙа кире ҡайтыу төймәһенә баҫығыҙ.',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -238,7 +238,7 @@ Sollte dich dieses Verfahren beim Vornehmen erwünschter Bearbeitungen behindern
 Die Schaltfläche „Zurück“ des Browsers führt zurück zum vorherigen Bearbeitungsfenster.',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Imre
  * @author Umherirrender
  */
@@ -785,7 +785,7 @@ Jekk jogħġbok ikkuntatja lill-[[{{MediaWiki:Grouppage-sysop}}|amministraturi t
 Iklikkja fuq il-buttuna 'lura' tal-browżer tiegħek sabiex tirritorna għall-editur ta-paġna.",
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  * @author Simny
  */
@@ -830,7 +830,7 @@ Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als di
 Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Gunnernett
  */
 $messages['nn'] = array(
@@ -1069,14 +1069,14 @@ Ker je to opravilo težko avtomatizirati, bo s tem večini ljudi prispevanje dov
 Za vrnitev v urejevalnik izberite gumb »nazaj« v vašem brskalniku.',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
 	'questycaptcha-desc' => 'Стварач сликовног кода за потврду уређивања',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬) */
+/** Serbian (Latin script) (srpski (latinica)‎) */
 $messages['sr-el'] = array(
 	'questycaptcha-desc' => 'Stvarač slikovnog koda za potvrdu uređivanja',
 );
@@ -1221,7 +1221,7 @@ $messages['yi'] = array(
 	'questycaptcha-create' => 'צו שאַפֿן דעם בלאַט, ביטע ענטפֿערט די פֿראַגע אונטן  ([[Special:Captcha/help|מער אינפֿארמאַציע]]):',
 );
 
-/** Simplified Chinese (‪中文（简体）‬) */
+/** Simplified Chinese (中文（简体）‎) */
 $messages['zh-hans'] = array(
 	'questycaptcha-addurl' => '您的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请回答以下的问题（[[Special:Captcha/help|相关资讯]]）：',
 	'questycaptcha-badlogin' => '为防止不当程式破解密码，请回答以下的问题（[[Special:Captcha/help|相关资讯]]）：',
@@ -1231,7 +1231,7 @@ $messages['zh-hans'] = array(
 	'questycaptcha-sendemail' => '为防止不当程式破解密码，请回答下列问题（[[Special:Captcha/help|相关资讯]]）：',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Horacewai2
  * @author Waihorace
  */

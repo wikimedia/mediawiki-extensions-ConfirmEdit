@@ -50,7 +50,7 @@ $messages['qqq'] = array(
 *{{msg-mw|Recaptcha-createaccount}}',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -82,7 +82,7 @@ $messages['de'] = array(
 	'asirra-failed' => 'Bitte wähle nur die Fotos mit Katzen aus.',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Kghbln
  */
 $messages['de-formal'] = array(
@@ -264,7 +264,7 @@ $messages['mt'] = array(
 	'asirra-failed' => 'Sib l-istampi kollha tal-qtates',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Event
  */
 $messages['nb'] = array(
@@ -385,7 +385,7 @@ Po s' mete a houte des des robots di spam, nos  vs dimandans d' acertiner ki vos
 	'asirra-failed' => 'Idintifyî totes les imådjes avou des tchets',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Hzy980512
  */
 $messages['zh-hans'] = array(

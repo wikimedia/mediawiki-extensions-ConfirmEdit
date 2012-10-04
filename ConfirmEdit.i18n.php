@@ -2698,9 +2698,9 @@ Voer het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[S
 	'captcha-desc' => 'Biedt CAPTCHA-technieken om bescherming te bieden tegen spam en het raden van wachtwoorden',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Uw bewerking bevat nieuwe externe verwijzingen (URL's).
-Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in in het invoerveld ([[Special:Captcha/help|meer informatie]]):",
+Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in in het invoerveld om uw bewerking op te slaan ([[Special:Captcha/help|meer informatie]]):",
 	'captcha-badlogin' => 'Los de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
-	'captcha-createaccount' => 'Voer ter bescherming tegen het geautomatiseerd gebruikers aanmaken het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
+	'captcha-createaccount' => 'Voer ter bescherming tegen het geautomatiseerd gebruikers aanmaken, het antwoord op de onderstaande eenvoudige som in in het invoervenster ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount-fail' => 'De bevestigingscode ontbreekt of is onjuist.',
 	'captcha-create' => 'U wilt een nieuwe pagina aanmaken.
 Voer het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',

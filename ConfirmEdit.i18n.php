@@ -3584,6 +3584,7 @@ Hit the 'back' button in your browser to return to the page editor.",
  * @author Lejonel
  * @author M.M.S.
  * @author MagnusA
+ * @author Martinwiss
  * @author Per
  */
 $messages['sv'] = array(
@@ -3591,16 +3592,13 @@ $messages['sv'] = array(
 räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
 	'captcha-desc' => 'Ger CAPTCHA tekniker för att skydda mot skräppost och lösenordsgissning',
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => 'Din ändring lägger till nya externa länkar i texten. För att skydda wikin mot
-automatisk spam måste du skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
-	'captcha-badlogin' => 'För att skydda mot wikin mot automatiserad lösenordsknäckning måste du skriva
-svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
-	'captcha-createaccount' => 'För att skydda wikin mot automatiskt skapade användarkonton måste du
-skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
+	'captcha-addurl' => 'Din ändring innebär nya externa länkar i texten. För att skydda wikin mot automatisk spam måste du skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
+	'captcha-badlogin' => 'För att skydda mot wikin mot försök att knäcka lösenord på automatisk väg, måste du skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
+	'captcha-createaccount' => 'För att skydda wikin mot automatiskt skapade användarkonton, måste du skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
 	'captcha-createaccount-fail' => 'Bekräftelsekoden är felaktig eller saknas.',
 	'captcha-create' => 'För att skapa den här sidan måste du skriva svaret på följande räkneuppgift
 i rutan ([[Special:Captcha/help|mer information]]):',
-	'captcha-sendemail' => 'Lös den enkla matematiska uppgiften i rutan nedan, för att hjälpa oss att skydda mot automatisk spamning ([[Special:Captcha/help|mer information]]):',
+	'captcha-sendemail' => 'För att skydda wikin mot automatiska skräpinlägg, ber vi dig att lösa den enkla matematiska ekvationen här nedanför och skriva in svaret i rutan ([[Special:Captcha/help|mer information]]):',
 	'captcha-sendemail-fail' => 'Felaktig eller saknad bekräftelsekod.',
 	'captcha-disabledinapi' => 'Denna åtgärd kräver en captcha, så den kan inte utföras genom APIet.',
 	'captchahelp-title' => 'Captchahjälp',

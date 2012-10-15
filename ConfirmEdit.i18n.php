@@ -437,10 +437,12 @@ $messages['bcl'] = array(
 /** Belarusian (беларуская)
  * @author Yury Tarasievich
  * @author Хомелка
+ * @author Чаховіч Уладзіслаў
  */
 $messages['be'] = array(
 	'captcha-edit' => 'Для змянення гэтай старонцы, калі ласка, вырашыце простую суму ніжэй і ўвядзіце адказ у поле ([[Special:Captcha/help|more info]]):',
 	'captcha-desc' => 'Вырашэнне простай каптчы',
+	'captcha-label' => 'CAPTCHA',
 	'captcha-create' => 'Каб стварыць старонку, развяжыце простае ўраўненне, што ніжэй, і ўпішыце адказ у адпаведнае поле ([[Special:Captcha/help|больш падрабязна]]):',
 	'captchahelp-title' => 'Даведка Капчы',
 	'captchahelp-cookies-needed' => 'Каб гэтая магчымасць працавала, належыць дазволіць у браўзеры апрацоўку квіткоў ("кукі").',

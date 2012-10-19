@@ -291,6 +291,7 @@ Er mwyn ceisio rhwystro peiriannau spam, byddwch gystal â theipio'r geiriau a w
 );
 
 /** Danish (dansk)
+ * @author Kaare
  * @author Peter Alberti
  */
 $messages['da'] = array(
@@ -299,6 +300,7 @@ $messages['da'] = array(
 	'fancycaptcha-createaccount' => 'For at beskytte mod automatisk oprettelse af brugernavne, der bruges til spam, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'fancycaptcha-create' => 'For at oprette en ny side, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'fancycaptcha-edit' => 'For at redigere denne side, indtast da venligst ordene, der står i feltet nedenfor ([[Special:Captcha/help|mere information]]):',
+	'fancycaptcha-sendemail' => 'For at beskytte mod automatisk spamning bedes du skrive ordene herunder i boksen ([[Special:Captcha/help|more info]]):',
 );
 
 /** German (Deutsch)

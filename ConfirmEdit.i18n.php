@@ -2188,15 +2188,15 @@ $messages['ksh'] = array(
 	'captcha-label' => '<span style="text-transform:uppercase">Kaptscha</span>',
 	'captcha-addurl' => 'Do häß neu Lingks op frembde Websigge dobei jedonn.
 Mer schöze uns Wiki jäje automatesche SPAM, dröm
-don di Zahle onge zosamme zälle un don de Antwoot
-en dat Käßje endraare. (Verklierung)',
+don di Zahle onge zosamme träcke un don de Antwoot
+en dat Käßje endraare. ([[Special:Captcha/help|Verklierung]])',
 	'captcha-badlogin' => 'Mer schöze Metmaacher en unsem Wiki jäje automatesche
 Paßwoot-Knackerei, dröm don di Zahle onge zosamme zälle,
-un de Antwoot en dat Käßje endraare. (Verklierung)',
+un de Antwoot en dat Käßje endraare.  ([[Special:Captcha/help|Verklierung]])',
 	'captcha-createaccount' => 'Mer schöze uns Wiki dojäje, dat mer en Masse automatesch
 Metmaacher aanmeldt. Dröm beß esu joot un
 don di Zahle onge zosamme zälle un don de Antwoot
-en dat Käßje endraare. (Verklierung)',
+en dat Käßje endraare. ([[Special:Captcha/help|Verklierung]])',
 	'captcha-createaccount-fail' => 'De Bestätijungszahl fählt udder es verkeeht.',
 	'captcha-create' => 'Öm di Sigg neu aanzelääje, don di Zahle onge zosamme zälle,
 un don de Antwoot en dat Käßje endraare. (Verklierung)',

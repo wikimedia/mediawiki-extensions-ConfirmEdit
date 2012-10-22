@@ -3009,6 +3009,7 @@ $messages['ps'] = array(
 
 /** Portuguese (português)
  * @author Hamilton Abreu
+ * @author Helder.wiki
  * @author Malafaya
  * @author 555
  */
@@ -3019,7 +3020,7 @@ $messages['pt'] = array(
 	'captcha-addurl' => "A sua edição introduziu links externos novos.
 Como prevenção contra sistemas automatizados de inserção de ''spam'', resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):", # Fuzzy
 	'captcha-badlogin' => 'Como prevenção com sistemas automatizados de descoberta de palavras-chave, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):', # Fuzzy
-	'captcha-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):', # Fuzzy
+	'captcha-createaccount' => 'Para proteger a wiki contra sistemas automatizados de criação de contas, solicitamos que resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
 	'captcha-createaccount-fail' => 'Código incorreto ou não preenchido.',
 	'captcha-create' => 'Para criar a página, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
 	'captcha-sendemail' => "Como prevenção contra sistemas automatizados de inserção de ''spam'', resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):", # Fuzzy
@@ -3049,6 +3050,7 @@ Clique o botão 'voltar' do seu browser para voltar à página de edição.",
 /** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
+ * @author Helder.wiki
  * @author Jesielt
  */
 $messages['pt-br'] = array(
@@ -3057,7 +3059,7 @@ $messages['pt-br'] = array(
 	'captcha-addurl' => 'Sua edição inclui novas ligações externas.
 Para prevenção contra sistemas automatizados que inserem spam, será necessário que você resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])', # Fuzzy
 	'captcha-badlogin' => 'Como prevenção contra sistemas automatizados de pesquisa e descoberta de senhas, será necessário que você resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])', # Fuzzy
-	'captcha-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, por favor resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|O que é isto?]]):', # Fuzzy
+	'captcha-createaccount' => 'Para proteger a wiki contra sistemas automatizados de criação de contas, solicitamos que resolva a soma simples apresentada abaixo e introduza a resposta no respectivo campo  ([[Special:Captcha/help|mais informações]]):',
 	'captcha-createaccount-fail' => 'Código de confirmação incorreto ou não preenchido.',
 	'captcha-create' => 'Para criar a página, por favor resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])',
 	'captcha-sendemail' => "Para ajudar a prevenir o ''spam'' automatizado, por favor, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):", # Fuzzy

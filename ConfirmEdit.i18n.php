@@ -3140,8 +3140,8 @@ Apăsați butonul „Înapoi” al navigatorului pentru a vă reîntoarce la pag
 $messages['roa-tara'] = array(
 	'captcha-edit' => "Pe cangià sta pàgene, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => "'U cangiamende tue inglude de le collegaminde esterne.
-Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a domande ca combare sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):", # Fuzzy
+	'captcha-addurl' => "'U cangiamende tune 'nglude de le collegaminde de fore.
+Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a domande ca combare sotte jndr'à sckatole ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
 	'captcha-badlogin' => "Pe aiutà a proteggere da le futteminde de passuord automateche, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):", # Fuzzy
 	'captcha-createaccount-fail' => 'Codece de conferme non corrette o mangande.',
 	'captcha-create' => "Pe ccrejà sta pàgene, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",

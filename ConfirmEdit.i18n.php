@@ -3427,12 +3427,12 @@ $messages['sl'] = array(
 	'captcha-desc' => 'Nudi pristope CAPTCHA za zaščito proti smetju in ugibanju gesel',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Vaše urejanje vključuje nove zunanje povezave.
-Zaradi zaščite pred samodejno navlako boste morali vpisati besede, ki se pojavijo v okencu ([[Special:Captcha/help|več informacij]]):', # Fuzzy
-	'captcha-badlogin' => 'Zaradi zaščite pred samodejnim ugotavljanjem gesel prosimo, da rešite preprost seštevek spodaj in vnesete odgovor v okence ([[Special:Captcha/help|več informacij]]):', # Fuzzy
-	'captcha-createaccount' => 'Zaradi zaščite pred samodejnim ustvarjanjem računov prosimo, da spodaj rešite preprost seštevek in vnesete odgovor v okence ([[Special:Captcha/help|več informacij]]):', # Fuzzy
+Da zaščitimo wiki pred samodejno navlako, vas prijazno prosimo, da spodaj rešite preprosto vsoto in odgovor vnesete v polje, če želite shraniti svoje urejanje ([[Special:Captcha/help|več informacij]]):',
+	'captcha-badlogin' => 'Da zaščitimo wiki pred samodejnim ugotavljanjem gesel, vas prijazno prosimo, da spodaj rešite preprosto vsoto in odgovor vnesete v polje ([[Special:Captcha/help|več informacij]]):',
+	'captcha-createaccount' => 'Da zaščitimo wiki pred samodejnim ustvarjanjem računov, vas prijazno prosimo, da spodaj rešite preprosto vsoto in odgovor vnesete v polje ([[Special:Captcha/help|več informacij]]):',
 	'captcha-createaccount-fail' => 'Napačna ali manjkajoča potrditvena koda.',
 	'captcha-create' => 'Če želite ustvariti stran, prosimo izračunajte preprost seštevek spodaj in odgovor vpišite v polje ([[Special:Captcha/help|več informacij]]):',
-	'captcha-sendemail' => 'Zaradi zaščite pred samodejnim smetenjem, prosimo rešite preprost seštevek spodaj in vnesite odgovor v okence ([[Special:Captcha/help|več informacij]]):', # Fuzzy
+	'captcha-sendemail' => 'Da zaščitimo wiki pred samodejnim smetenjem, vas prijazno prosimo, da spodaj rešite preprosto vsoto in odgovor vnesete v polje ([[Special:Captcha/help|več informacij]]):',
 	'captcha-sendemail-fail' => 'Napačna ali manjkajoča potrditvena koda.',
 	'captcha-disabledinapi' => 'To dejanje zahteva preverjanje captcha, zato ga ni mogoče izvesti preko API.',
 	'captchahelp-title' => 'Pomoč za captcha',

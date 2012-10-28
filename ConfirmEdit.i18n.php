@@ -1795,15 +1795,15 @@ $messages['ilo'] = array(
 	'captcha-edit' => 'Tapno maurnos daytoy a panid, pangaasim a sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay a pakaammo]]):',
 	'captcha-desc' => 'Ikkan na kadagiti CAPTCHA a pamay-ay tapno masalakniban kadagiti spam ken agpugpugto ti kontrasenias',
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => 'Ti inurnos mo ket adda nagyan na a panilpo iti ruar.
-Tapno  maasalakniban kadagiti automatiko a spam, pangaasim na sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
-	'captcha-badlogin' => 'Tapno  makasalaknib kadagiti automatiko a pinagsulbar ti kontrasenias, pangaasim a sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
-	'captcha-createaccount' => 'Tapno  masalakniban kadagiti automatiko a pinagaramid ti pakabilangan, pangaasim a sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
-	'captcha-createaccount-fail' => 'Saan a husto wenno awan ti pasingkedan a kodigo.',
-	'captcha-create' => 'Tapno maramid ti panid, pangaasim a sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay a pakaammo]]):',
-	'captcha-sendemail' => 'Tapno  makasalaknib kadagiti automatiko a pinagspam, pangaasim a sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat mo dita kahon ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
-	'captcha-sendemail-fail' => 'Saan a husto wenno awan ti pasingkedan a kodigo.',
-	'captcha-disabledinapi' => 'Daytoy nga aramid ket masapul na ti captcha, saan a mabalin a maaramid idiay API.',
+	'captcha-addurl' => 'Ti inurnosmo ket nangiraman kadagiti baro a panilpo.
+Tapno  masalakniban ti wiki kadagiti automatiko a spam, agpangpanga-asi kami kaniam a sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat dita kahon tapno maidulin ti inurnosmo ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'captcha-badlogin' => 'Tapno makasalakniban ti wiki kadagiti automatiko a panagsulbar ti kontrasenias, agpangpangnga-asi kami kaniam a sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat dita kahon ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'captcha-createaccount' => 'Tapno masalakniban ti wiki kadagiti automatiko a panagaramid ti pakabilangan, agpangpanga-asi kami kaniam a sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat dita kahon ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'captcha-createaccount-fail' => 'Saan a husto wenno awan ti panagpasingked a kodigo.',
+	'captcha-create' => 'Tapno maramid ti panid, pangaasim a sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat dita kahon ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'captcha-sendemail' => 'Tapno makasalaknib ti wiki kadagiti automatiko a panagspam, agpangpangnga-asi kami kaniam a sulbaren ti nalaka a dagup dita baba ken ikabil ti sungbat dita kahon ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'captcha-sendemail-fail' => 'Saan a husto wenno awan ti panagpasingked a kodigo.',
+	'captcha-disabledinapi' => 'Daytoy nga aramid ket nasken ti captcha, saan a mabalin a maaramid idiay API.',
 	'captchahelp-title' => 'Tulong ti CAPTCHA',
 	'captchahelp-cookies-needed' => 'Masapul nga adda galietas ti pagbasabasam tapno mabalin daytoy.',
 	'captchahelp-text' => "Dagiti sapot a pagsaadan nga agaw-awat kadagiti maipablaak iti publiko, kasla daytoy a wiki, ket kanayon nga inabuso dagiti spammers nga agus-usar ti automatiko a ramramit ti pinagipablaak da kadagiti kukua da a panilpo ti adu a pagsasaadan.
@@ -1814,9 +1814,9 @@ Yantangay daytoy ket obra a narigat a ma-automatiko, agpalubos kadagiti agpayso 
 
 Daksangasat a padaksan na dagiti agar-aramat a marigatan nga agkita wenno agus-usar ti naibasta ti teksto wenno naibasta ti bitla a pagbasabasa.
 Awan pay tatta ti mangeg a pagpilian a mabalin a gun-oden.
-Pangngaasi a kontaken ti [[{{MediaWiki:Grouppage-sysop}}|administrador ti pagsaadan]] para iti pannulong no daytoy ket saan a napadpadaanan a pawilan na ti agpayso a pinagbaplaak mo.
+Pangngaasi a kontaken ti [[{{MediaWiki:Grouppage-sysop}}|administrador ti pagsaadan]] para iti tulong no daytoy ket saan a napadpadaanan a mangpawil ti lehitimado a panagtiynaymo.
 
-Peslen ti 'agsubli' a buton dita pagbasabasam (browser) ti agsubli idiay panid ti pinagurnos.",
+Peslen ti 'agsubli' a buton dita pagbasabasam (browser) ti agsubli idiay panid ti panag-urnos.",
 	'captcha-addurl-whitelist' => ' #<!-- baybayam nga kasta daytoy nga linia --> <pre>
 # Dagiti sumaganad a gramatika:
 #   * Amin-amin a naggapu iti "#" a kabalinan inggana ti kalpasan ti linia ket komentario

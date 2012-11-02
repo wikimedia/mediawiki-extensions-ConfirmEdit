@@ -4086,12 +4086,13 @@ $messages['yue'] = array(
  * @author Liangent
  * @author PhiLiP
  * @author Xiaomingyan
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'captcha-edit' => '要编辑这篇文章，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:',
 	'captcha-desc' => '通过验证码技术来阻止垃圾邮件和密码猜解',
 	'captcha-label' => '验证码',
-	'captcha-addurl' => '你编辑的内容中含有一个新的外部链接；为了免受自动垃圾程序的侵扰，请答出一个简单的加法，然后在框内输入（[[Special:Captcha/help|更多信息]]）:', # Fuzzy
+	'captcha-addurl' => '您编辑的内容中含有一个新的外部链接；为了免受自动垃圾程序的侵扰，请答出一个简单的加法，并在下面的框内输入答案才能保存您的编辑（[[Special:Captcha/help|更多信息]]）:',
 	'captcha-badlogin' => '为了防止程式自动破解密码，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:', # Fuzzy
 	'captcha-createaccount' => '为了防止程式自动注册，请答出一个简单的加法，然後在框内输入 （[[Special:Captcha/help|更多资料]]）:', # Fuzzy
 	'captcha-createaccount-fail' => '验证码错误或丢失。',

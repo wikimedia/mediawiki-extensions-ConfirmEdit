@@ -2762,11 +2762,14 @@ Klik op de knop 'terug' in je browser om terug te gaan naar het tekstbewerkingss
 $messages['nn'] = array(
 	'captcha-edit' => 'For å endre denne sida, ver venleg og løys det enkle reknestykket nedanfor og skriv svaret i ruta ([[Special:Captcha/help|meir informasjon]]):',
 	'captcha-desc' => 'Enkel implementering av captcha-system.', # Fuzzy
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Endringa di inkluderer nye lenkjer; som eit vern mot automatisert reklame (spam) er du nøydd til skrive inn orda i dette bildet: <br />([[Special:Captcha/help|Kva er dette?]])', # Fuzzy
 	'captcha-badlogin' => 'For å sikra oss mot automatisk passordtjuveri, ver venleg og skriv inn svaret på det enkle reknestykket i boksen nedanfor ([[Special:Captcha/help|meir informasjon]]):', # Fuzzy
-	'captcha-createaccount' => 'For å verne Wikipedia mot reklame (spam) må du skrive inn orda i biletet for å registrere ein konto. <br />([[Special:Captcha/help|Kva er dette?]])', # Fuzzy
+	'captcha-createaccount' => 'For å verna wikien mot automatisk kontooppretting, bed me deg om at du løyser det enkle reknestykket under og skriv inn svaret i boksen ([[Special:Captcha/help|meir info]]):',
 	'captcha-createaccount-fail' => 'Feil eller manglande godkjenningskode.',
 	'captcha-create' => 'For å opprette denne sida, ver venleg og løys det enkle reknestykket nedanfor og skriv svaret i ruta ([[Special:Captcha/help|Kva er dette?]]):',
+	'captcha-sendemail-fail' => 'Rang eller manglande stadfestingskode.',
+	'captcha-disabledinapi' => 'Handlinga krev ein captcha og kan difor ikkje utførast gjennom API-en.',
 	'captchahelp-title' => 'Captcha-hjelp',
 	'captchahelp-cookies-needed' => 'Du må ha informasjonskapslar aktivert i nettlesaren din for at dette skal verke.',
 	'captchahelp-text' => 'Internettsider som kan verte endra av alle, som denne wikien, vert ofte misbrukte av reklameinnleggjarar (spammarar) som nyttar bottar til å poste mange lenkjer om gongen.

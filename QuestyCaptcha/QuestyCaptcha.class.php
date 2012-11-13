@@ -13,7 +13,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 	/** Validate a captcha response */
 	function keyMatch( $answer, $info ) {
 		if ( is_array( $info['answer'] ) ) {
-			return in_array( strtolower( $answer ), $info['answer'] );
+			return in_array( strtolower( $answer ), array_map( 'strtolower', $info['answer'] ) );
 		} else {
 			return strtolower( $answer ) == strtolower( $info['answer'] );
 		}

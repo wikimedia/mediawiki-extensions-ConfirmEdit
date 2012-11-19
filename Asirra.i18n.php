@@ -275,6 +275,7 @@ $messages['nb'] = array(
 	'asirra-createaccount-fail' => 'Vennligst angi hva som er katter.',
 	'asirra-create' => 'Som beskyttelse mot automatisk opprettelse av sider, vennligst velg kun kattebildene i boksen under:',
 	'asirra-nojs' => "'''Vennligst åpne for JavaScript og lagre siden en gang til.'''",
+	'asirra-failed' => 'Vennligst merk alle kattebilder',
 );
 
 /** Dutch (Nederlands)

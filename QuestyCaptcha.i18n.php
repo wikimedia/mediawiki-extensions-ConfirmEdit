@@ -786,14 +786,15 @@ Iklikkja fuq il-buttuna 'lura' tal-browżer tiegħek sabiex tirritorna għall-ed
 );
 
 /** Norwegian Bokmål (norsk (bokmål)‎)
+ * @author Helland
  * @author Nghtwlkr
  * @author Simny
  */
 $messages['nb'] = array(
 	'questycaptcha-addurl' => 'Din endring inneholder nye eksterne lenker.
-For å beskytte mot autmatisert spam, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
+For å beskytte mot automatisert spam, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
 	'questycaptcha-badlogin' => 'For å hindre passordtyveri, vær vennlig og svar på spørsmålet under ([[Special:Captcha/help|mer informasjon]]):',
-	'questycaptcha-createaccount' => 'For å beskytte mot autmatisert spam, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
+	'questycaptcha-createaccount' => 'For å beskytte mot automatisert spam, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
 	'questycaptcha-create' => 'For å opprette siden, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
 	'questycaptcha-edit' => 'For å endre denne siden, vennligst svar på spørsmålet som vises under ([[Special:Captcha/help|mer informasjon]]):',
 	'questycaptcha-sendemail' => 'For å beskytte mot automatisert søppelpost, svar på spørsmålet som vises nedenfor ([[Special:Captcha/help|mer info]]):',

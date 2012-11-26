@@ -723,7 +723,8 @@ $messages['cy'] = array(
 	'captcha-edit' => "Er mwyn gallu golygu'r dudalen, gwnewch y swm isod a gosodwch y canlyniad yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'captcha-desc' => 'Yn gweithredu technegau CAPTCHA i arbed rhag sbam a dyfalu cyfrineiriau',
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => 'Mae eich golygiad yn cynnwys cysylltiadau URL newydd. Er mwyn profi nad ydych yn beiriant sbam, byddwch gystal â theipio cyfanswm y swm canlynol yn y blwch isod ([[Special:Captcha/help|mwy o wybodaeth]]):', # Fuzzy
+	'captcha-addurl' => 'Mae eich golygiad yn cynnwys cysylltiadau allanol newydd. 
+Er mwyn gwarchod y wici rhag peiriant sbam, byddwch gystal â theipio cyfanswm y swm canlynol yn y blwch isod i roi eich golygiad ar gadw ([[Special:Captcha/help|mwy o wybodaeth]]):',
 	'captcha-badlogin' => 'Er mwyn ceisio rhwystro peiriannau datrys cyfrineiriau, byddwch gystal â gwneud y swm isod a gosod yr ateb yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):', # Fuzzy
 	'captcha-createaccount' => "Teipiwch cyfanswm y swm canlynol yn y blwch isod, os gwelwch yn dda. Mae'r nodwedd hon yn rhwystro rhaglenni sbam rhag creu cyfrifon i'w hunain ([[Special:Captcha/help|Mwy o wybodaeth]]):", # Fuzzy
 	'captcha-createaccount-fail' => "Côd cadarnhau ar goll neu'n anghywir.",
@@ -2927,14 +2928,14 @@ $messages['pms'] = array(
 e ch'a buta l'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-desc' => "A dà dle técniche CAPTCHA për protege contra la rumenta e ij tentativ d'andviné la ciav",
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => "Soa modìfica a la gionta dj'anliure esterne. Për giutene a vardesse da la reclam aotomatisà, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):", # Fuzzy
-	'captcha-badlogin' => "Për giutene a vardesse da 'nt ij programa ch'a fan ciav fàosse n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):", # Fuzzy
-	'captcha-createaccount' => "Për giutene a vardesse da ij programa ch'a deurbo dij cont n'aotomàtich, për piasì ch'a fasa ël total ambelessì sota
-e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):", # Fuzzy
+	'captcha-addurl' => "Soa modìfica a la gionta dj'anliure esterne. Për vardé la wiki da la reclam aotomatisà, i-j ciamoma për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt për salvé soa modìfica ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captcha-badlogin' => "Për vardé la wiki da ij programa ch'a fan ciav fàusse n'automàtich, i-j ciamoma për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captcha-createaccount' => "Për vardé la wiki da ij programa ch'a deurbo dij cont n'automàtich, i-j ciamoma për piasì ch'a fasa ël total ambelessì sota
+e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-createaccount-fail' => "Ël còdes ëd verìfica ò ch'a manca d'autut ò ch'a l'é pa bon.",
 	'captcha-create' => "Për creé d'amblé sta pàgina-sì, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà<br />
 ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
-	'captcha-sendemail' => "Për giuté a protegi contra la rumenta automàtica, për piasì ch'a fasa l'adission sempia sì-sota e ch'a buta l'arspòsta ant la casela ([[Special:Captcha/help|për savèjne ëd pi]]):", # Fuzzy
+	'captcha-sendemail' => "Për protegi la wiki contra la rumenta automàtica, i-j ciamoma për piasì ch'a fasa l'adission sempia sì-sota e ch'a buta l'arspòsta ant la casela ([[Special:Captcha/help|për savèjne ëd pi]]):",
 	'captcha-sendemail-fail' => "Ël còdes ëd verìfica ò ch'a manca d'autut ò ch'a l'é pa bon.",
 	'captcha-disabledinapi' => "St'assion-sì a ciama na captcha, parèj a peul pa esse fàita con na API.",
 	'captchahelp-title' => 'Còs é-lo mai ës captcha?',

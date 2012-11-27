@@ -2928,9 +2928,9 @@ $messages['pms'] = array(
 e ch'a buta l'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-desc' => "A dà dle técniche CAPTCHA për protege contra la rumenta e ij tentativ d'andviné la ciav",
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => "Soa modìfica a la gionta dj'anliure esterne. Për vardé la wiki da la reclam aotomatisà, i-j ciamoma për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt për salvé soa modìfica ([[Special:Captcha/help|për savejne dë pì]]):",
-	'captcha-badlogin' => "Për vardé la wiki da ij programa ch'a fan ciav fàusse n'automàtich, i-j ciamoma për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
-	'captcha-createaccount' => "Për vardé la wiki da ij programa ch'a deurbo dij cont n'automàtich, i-j ciamoma për piasì ch'a fasa ël total ambelessì sota
+	'captcha-addurl' => "Soa modìfica a la gionta dj'anliure esterne. Për goerné la wiki da j'areclam aotomatisà, i-j ciamoma për piasì ch'a fasa ël total ambelessì-sota e ch'a buta l'arzultà ant ël quadrèt për salvé soa modìfica ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captcha-badlogin' => "Për goerné la wiki da ij programa ch'a fan ciav fàusse n'automàtich, i-j ciamoma për piasì ch'a fasa ël total ambelessì-sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
+	'captcha-createaccount' => "Për goerné la wiki da ij programa ch'a deurbo dij cont n'automàtich, i-j ciamoma për piasì ch'a fasa ël total ambelessì-sota
 e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-createaccount-fail' => "Ël còdes ëd verìfica ò ch'a manca d'autut ò ch'a l'é pa bon.",
 	'captcha-create' => "Për creé d'amblé sta pàgina-sì, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà<br />

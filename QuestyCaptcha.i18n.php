@@ -384,6 +384,7 @@ Napsauta selaimesi \'takaisin\'-painiketta palataksesi sivumuokkaimeen.',
 
 /** French (français)
  * @author IAlex
+ * @author Nicolas NALLET
  * @author Verdy p
  */
 $messages['fr'] = array(
@@ -393,7 +394,7 @@ Pour nous aider dans la protection contre le pourriel automatisé, veuillez rép
 	'questycaptcha-badlogin' => 'Afin de nous aider à prévenir le cassage des mots de passe par des automates, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-createaccount' => 'Afin de nous aider à lutter contre les créations automatiques de comptes, veuillez répondre à la question qui apparaît ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-create' => 'Pour créer la page, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
-	'questycaptcha-edit' => 'Pour modifier cette page, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+	'questycaptcha-edit' => 'Pour créer, modifier ou publier cette page, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-sendemail' => 'Afin de nous aider à prévenir le spam automatique, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptchahelp-text' => 'Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de polluposteurs qui utilisent des outils automatisés pour placer de nombreux liens vers leurs sites.
 Même si cette pollution peut être effacée, elle n’en reste pas moins irritante.

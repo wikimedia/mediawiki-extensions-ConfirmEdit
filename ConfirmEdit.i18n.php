@@ -1267,6 +1267,7 @@ $messages['fo'] = array(
  * @author Grondin
  * @author IAlex
  * @author Meithal
+ * @author Nicolas NALLET
  * @author PieRRoMaN
  * @author Seb35
  * @author Sherbrooke
@@ -1277,7 +1278,7 @@ $messages['fo'] = array(
  * @author Zetud
  */
 $messages['fr'] = array(
-	'captcha-edit' => 'Pour modifier cette page, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-edit' => 'Pour créer, modifier ou publier cette page, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-desc' => 'Offre des techniques CAPTCHA pour protéger contre le pollupostage et la découverte des mots de passe par essais multiples',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Votre modification inclut de nouveaux liens externes.
@@ -1707,6 +1708,14 @@ Ha a captcha megoldása helyett inkább visszatérnél a szöveg szerkesztéséh
 #  * Minden nem üres sor egy reguláris kifejezés darabja, amely csak az URL-ekben található kiszolgálókra keres
   #</pre> <!-- ezt a sort hagyd pontosan így -->',
 	'right-skipcaptcha' => 'captcha átugrása',
+);
+
+/** Armenian (Հայերեն)
+ * @author Vadgt
+ */
+$messages['hy'] = array(
+	'captcha-label' => 'Անվտանգության կոդ',
+	'captchahelp-title' => 'Անվտանգության կոդի օգնություն',
 );
 
 /** Interlingua (interlingua)

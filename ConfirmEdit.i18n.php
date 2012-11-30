@@ -1210,6 +1210,7 @@ $messages['fa'] = array(
  * @author Centerlink
  * @author Crt
  * @author Linnea
+ * @author Nedergard
  * @author Nike
  * @author Varusmies
  */
@@ -1217,9 +1218,10 @@ $messages['fi'] = array(
 	'captcha-edit' => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-desc' => 'Tarjoaa CAPTCHA-tekniikoita suojaamaan mainoslinkkejä ja salasana-arvailua vastaan.',
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille. Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):', # Fuzzy
-	'captcha-badlogin' => 'Salasananmurtajasovellusten takia, ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):', # Fuzzy
-	'captcha-createaccount' => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):', # Fuzzy
+	'captcha-addurl' => 'Muokkauksesi sisältää uusia linkkejä muille sivuille.
+Automatisoitujen roskamuokkausten välttämiseksi ratkaise alla oleva summa ja kirjoita vastauksesi kenttään, jotta voisit tallentaa muokkauksesi ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-badlogin' => 'Automatisoidun salasanan murtamisen estämiseksi ratkaise alla oleva summa ja kirjoita vastaus kenttään ([[Special:Captcha/help|lisätietoja]]):',
+	'captcha-createaccount' => 'Automaattisen käyttäjätunnusten luonnin estämiseksi ratkaise alla oleva summa ja kirjoita se kenttään ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-createaccount-fail' => 'Väärä tai puuttuva varmistuskoodi.',
 	'captcha-create' => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-sendemail' => 'Jotta auttaisit suojautumaan automaattiselta roskapostitukselta, ratkaise alla oleva yksinkertainen yhteenlasku ja kirjoita vastaus laatikkoon ([[Special:Captcha/help|lisätietoja]]):', # Fuzzy

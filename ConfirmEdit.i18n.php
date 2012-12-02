@@ -2239,6 +2239,14 @@ Jetz kanns De met Dingem Brauser singem „Zeröck“-Knopp wigger maache, wo De
 	'right-skipcaptcha' => 'De Opforderung fum Kaptscha överjonn',
 );
 
+/** Cornish (kernowek)
+ * @author Kernoweger
+ */
+$messages['kw'] = array(
+	'captcha-createaccount-fail' => 'Coden afydhya camm po gwag.',
+	'captcha-sendemail-fail' => 'Coden afydhya camm po gwag.',
+);
+
 /** Kirghiz (Кыргызча)
  * @author Chorobek
  */

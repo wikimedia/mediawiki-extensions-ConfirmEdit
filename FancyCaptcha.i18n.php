@@ -865,6 +865,13 @@ bes esu joot, donn di Wööter enjävve, di en däm Käßje heh dronger shtonn.
 ([[Special:Captcha/help|Mieh Enfommazjuhne]])',
 );
 
+/** Cornish (kernowek)
+ * @author Kernoweger
+ */
+$messages['kw'] = array(
+	'fancycaptcha-createaccount' => "Rag gwitha rag formya acontow awtomategys, gwrewgh entra an geryow usy ow tisqwedhes a-woles y'n gist ([[Special:Captcha/help|moy kedhlow]]):",
+);
+
 /** Kirghiz (Кыргызча)
  * @author Chorobek
  */

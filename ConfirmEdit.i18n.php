@@ -1280,7 +1280,7 @@ $messages['fo'] = array(
  * @author Zetud
  */
 $messages['fr'] = array(
-	'captcha-edit' => 'Pour créer, modifier ou publier cette page, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
+	'captcha-edit' => 'Pour modifier cette page, veuillez calculer l’opération simple ci-dessous, inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]), puis cliquer sur le bouton "Publier" en bas de page" :',
 	'captcha-desc' => 'Offre des techniques CAPTCHA pour protéger contre le pollupostage et la découverte des mots de passe par essais multiples',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Votre modification inclut de nouveaux liens externes.

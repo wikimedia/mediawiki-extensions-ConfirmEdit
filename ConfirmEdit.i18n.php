@@ -350,6 +350,13 @@ $messages['az'] = array(
 	'captchahelp-title' => 'CAPTCHA kömək',
 );
 
+/** South Azerbaijani (تورکجه)
+ * @author Amir a57
+ */
+$messages['azb'] = array(
+	'captchahelp-title' => 'Captcha کؤمک',
+);
+
 /** Bashkir (башҡортса)
  * @author Assele
  * @author ҒатаУлла

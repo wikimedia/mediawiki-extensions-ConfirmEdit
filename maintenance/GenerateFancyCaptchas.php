@@ -87,7 +87,7 @@ class GenerateFancyCaptchas extends Maintenance {
 
 			$this->output( "Generating $countGen new captchas...\n" );
 			$retVal = 1;
-			wfShellExec( $cmd, $retVal );
+			wfShellExec( $cmd, $retVal, array(), array( 'time' => 0 ) );
 			if ( $retVal != 0 ) {
 				wfRecursiveRemoveDir( $tmpDir );
 				$this->error( "Could not run generation script.\n", 1 );

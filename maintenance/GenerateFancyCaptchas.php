@@ -105,9 +105,11 @@ class GenerateFancyCaptchas extends Maintenance {
 					continue;
 				}
 				list( $salt, $hash ) = $instance->hashFromImageName( $fileInfo->getBasename() );
+				$dest = $instance->imagePath( $salt, $hash );
+				$backend->prepare( array( 'dir' => dirname( $dest ) ) );
 				$status = $backend->quickStore( array(
 					'src' => $fileInfo->getPathname(),
-					'dst' => $instance->imagePath( $salt, $hash )
+					'dst' => $dest
 				) );
 				if ( !$status->isOK() ) {
 					$this->error( "Could not save file '{$fileInfo->getPathname()}'.\n" );

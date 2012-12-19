@@ -50,6 +50,7 @@ Hit the 'back' button in your browser to return to the page editor.",
  * @author Meithal
  * @author Meno25
  * @author Purodha
+ * @author Shirayuki
  * @author Siebrand
  * @author The Evil IP address
  * @author Toliño
@@ -60,7 +61,7 @@ $messages['qqq'] = array(
 See also
 *{{msg-mw|Questycaptcha-edit}}
 *{{msg-mw|Fancycaptcha-edit}}',
-	'captcha-desc' => '{{desc}}',
+	'captcha-desc' => '{{desc|name=Confirm Edit|url=http://www.mediawiki.org/wiki/Extension:ConfirmEdit}}',
 	'captcha-label' => 'Label field for input field shown in forms',
 	'captcha-addurl' => 'The explanation of CAPTCHA shown to users trying to add new external links.
 See also

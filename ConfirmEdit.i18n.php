@@ -3082,17 +3082,19 @@ Clique o botão 'voltar' do seu browser para voltar à página de edição.",
  * @author Giro720
  * @author Helder.wiki
  * @author Jesielt
+ * @author 555
  */
 $messages['pt-br'] = array(
 	'captcha-edit' => 'Para editar esta página será necessário que você resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])',
 	'captcha-desc' => 'Fornece técnicas captcha para proteção contra spam e tentativas de obtenção de senhas',
-	'captcha-addurl' => 'Sua edição inclui novas ligações externas.
-Para prevenção contra sistemas automatizados que inserem spam, será necessário que você resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])', # Fuzzy
-	'captcha-badlogin' => 'Como prevenção contra sistemas automatizados de pesquisa e descoberta de senhas, será necessário que você resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])', # Fuzzy
+	'captcha-label' => 'CAPTCHA',
+	'captcha-addurl' => 'Sua edição inclui novos links externos.
+Como prevenção contra sistemas automatizados que inserem spam, será necessário resolver a simples soma abaixo e inserir sua resposta no respectivo campo ([[Special:Captcha/help|detalhes]])',
+	'captcha-badlogin' => 'Como prevenção contra sistemas automatizados de pesquisa e descoberta de senhas, será necessário resolver a simples soma abaixo e inserir sua resposta no respectivo campo ([[Special:Captcha/help|detalhes]])',
 	'captcha-createaccount' => 'Para proteger a wiki contra sistemas automatizados de criação de contas, solicitamos que resolva a soma simples apresentada abaixo e introduza a resposta no respectivo campo  ([[Special:Captcha/help|mais informações]]):',
 	'captcha-createaccount-fail' => 'Código de confirmação incorreto ou não preenchido.',
 	'captcha-create' => 'Para criar a página, por favor resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])',
-	'captcha-sendemail' => "Para ajudar a prevenir o ''spam'' automatizado, por favor, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):", # Fuzzy
+	'captcha-sendemail' => 'Como proteção ao wiki contra spam automatizado, será necessário resolver a simples soma abaixo e inserir sua resposta no respectivo campo ([[Special:Captcha/help|detalhes]]):',
 	'captcha-sendemail-fail' => 'Código de confirmação incorreto ou não preenchido.',
 	'captcha-disabledinapi' => 'Esta operação necessita de captcha, por isso não pode ser realizada através da API.',
 	'captchahelp-title' => 'Ajuda com o Captcha',

@@ -1038,7 +1038,7 @@ $messages['eo'] = array(
 	'captcha-desc' => 'Disponigas ilojn de Captcha por kontraŭigi spamaĵojn kaj pasvorto-divenadon',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Via redakto entenas novajn eksterajn ligilojn.
-Por malhelpi aŭtomatan spamadon, bonvolu solvi la simplan problemon sube kaj entajpu la respondon en la kesto ([[Special:Captcha/help|pli da informo]]):', # Fuzzy
+Por protekti la vikion kontraux aŭtomata spamado, bonvolu solvi la simplan problemon sube kaj entajpu la respondon en la kesto por konservi vian redakton ([[Special:Captcha/help|pli da informo]]):',
 	'captcha-badlogin' => 'Helpi protekti kontraŭ aŭtomata divenado de pasvortoj, bonvolu solvi la simplan sumon kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):', # Fuzzy
 	'captcha-createaccount' => 'Helpi protekti kontraŭ aŭtomata konto-kreado, bonvolu solvi la simplan sumon suben
 kaj enigi la respondon en la skatolo ([[Special:Captcha/help|plua informo]]):', # Fuzzy
@@ -2764,7 +2764,7 @@ Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingss
  */
 $messages['nl-informal'] = array(
 	'captcha-addurl' => "Je bewerking bevat nieuwe externe verwijzingen (URL's).
-Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in in het invoerveld ([[Special:Captcha/help|meer informatie]]):", # Fuzzy
+Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in in het invoerveld om je bewerking op te slaan ([[Special:Captcha/help|meer informatie]]):",
 	'captchahelp-cookies-needed' => 'Je moet in je browser cookies ingeschakeld te hebben om dit te laten werken.',
 	'captchahelp-text' => "Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma's automatisch verwijzigen op zetten naar vele websites.
 Hoewel deze externe verwijzingen weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
@@ -2910,13 +2910,15 @@ $messages['pdc'] = array(
  * @author BeginaFelicysym
  * @author Derbeth
  * @author Leinad
+ * @author Matma Rex
  * @author Sp5uhe
  */
 $messages['pl'] = array(
 	'captcha-edit' => 'Możesz edytować tę stronę, jednak najpierw musisz rozwiązać poniższe proste działanie matematyczne i wpisać wynik do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 	'captcha-desc' => 'Dodaje CAPTCHA – zabezpieczenie przed spamującymi automatami oraz odgadywaniem haseł',
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => 'Dodałeś nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem musisz wykonać proste działanie matematyczne i wpisać wynik w pole obok ([[Special:Captcha/help|więcej informacji]]):', # Fuzzy
+	'captcha-addurl' => 'Twoje zmiany zawierają nowe linki zewnętrzne.
+Ze względu na ochronę przed zautomatyzowanym spamem prosimy o wykonanie prostego działania matematycznego i wpisanie wyniku w pole obok, zanim twoja edycja zostanie zapisana ([[Special:Captcha/help|więcej informacji]]):',
 	'captcha-badlogin' => 'Zabezpieczenie przed automatycznym łamaniem hasełm, wpisz w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]):',
 	'captcha-createaccount' => 'Zabezpieczenie przed automatycznym tworzeniem konta - wpisz w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]):',
 	'captcha-createaccount-fail' => 'Nieprawidłowy kod lub brak kodu potwierdzającego.',

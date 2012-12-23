@@ -24,9 +24,10 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author 2nd-player
  * @author Beta16
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'asirra-desc' => '{{desc}}',
+	'asirra-desc' => '{{desc|name=Asirra|url=http://www.mediawiki.org/wiki/Extension:Asirra}}',
 	'asirra-edit' => 'See also
 *{{msg-mw|Captcha-edit}}
 *{{msg-mw|Questycaptcha-edit}}

@@ -3197,6 +3197,7 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a do
  * @author Amire80
  * @author Ignatus
  * @author Kalan
+ * @author Ole Yves
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -3205,7 +3206,7 @@ $messages['ru'] = array(
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Вы добавляете новые ссылки на внешние сайты.
 В целях защиты от автоматического спама необходимо произвести следующее простое вычисление и записать ответ в поле рядом, чтобы правка была сохранена ([[Special:Captcha/help|подробнее]]):',
-	'captcha-badlogin' => 'В целях защиты от автоматического взлома пароля, пожалуйста, выполните следующее простое арифметическое действие и введите ответ в текстовое поле ниже ([[Special:Captcha/help|подробнее]]):', # Fuzzy
+	'captcha-badlogin' => 'В целях защиты вики-проекта от автоматического взлома пароля, пожалуйста, решите простой пример и введите ответ в текстовое поле ниже ([[Special:Captcha/help|подробнее]]):',
 	'captcha-createaccount' => 'Для защиты от автоматической спам-регистрации необходимо выполнить следующее простое вычисление и записать ответ в поле рядом ([[Special:Captcha/help|подробнее]]):',
 	'captcha-createaccount-fail' => 'Контрольная комбинация неверна или не введена.',
 	'captcha-create' => 'Чтобы создать страницу, решите простой пример и введите ответ в текстовое поле ([[Special:Captcha/help|что это?]]):',
@@ -4163,7 +4164,7 @@ $messages['zh-hant'] = array(
 	'captcha-edit' => '要編輯這篇文章，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
 	'captcha-desc' => '通過驗證碼技術來阻止垃圾郵件和密碼猜解',
 	'captcha-label' => '驗證碼',
-	'captcha-addurl' => '你編輯的內容中含有一個新的URL連結；為了免受自動垃圾程式的侵擾，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:', # Fuzzy
+	'captcha-addurl' => '你編輯的內容中含有一個新的外部連結；為了免受自動垃圾程式的侵擾，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
 	'captcha-badlogin' => '為了防止程式自動破解密碼，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:', # Fuzzy
 	'captcha-createaccount' => '為了防止程式自動註冊，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:', # Fuzzy
 	'captcha-createaccount-fail' => '驗證碼錯誤或遺失。',

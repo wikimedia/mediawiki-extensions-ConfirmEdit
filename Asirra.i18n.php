@@ -356,6 +356,13 @@ $messages['ru'] = array(
 	'asirra-failed' => 'Пожалуйста, идентифицируйте все фотографии кота',
 );
 
+/** Swedish (svenska)
+ * @author WikiPhoenix
+ */
+$messages['sv'] = array(
+	'asirra-failed' => 'Var god identifiera alla kattbilder',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */

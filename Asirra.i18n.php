@@ -116,6 +116,21 @@ $messages['es'] = array(
 	'asirra-failed' => 'Identifique todas las imágenes de gatos',
 );
 
+/** Finnish (suomi)
+ * @author VezonThunder
+ */
+$messages['fi'] = array(
+	'asirra-desc' => 'Asirra-moduuli muokkauksen varmennukseen',
+	'asirra-edit' => 'Suojana automaattisia roskamuokkauksia vastaan sinun on valittava kissan kuvat laatikosta alla:',
+	'asirra-addurl' => 'Muokkauksesi sisältää uusia ulkoisia linkkejä. Suojana automaattista roskapostia vastaan sinun on valittava kissan kuvat laatikosta alla:',
+	'asirra-badpass' => 'Suojana automaattisia salasanamurtoja vastaan sinun on valittava kissan kuvat laatikosta alla:',
+	'asirra-createaccount' => 'Suojana automaattista tunnusten luontia vastaan sinun on valittava kissan kuvat laatikosta alla:',
+	'asirra-createaccount-fail' => 'Tunnista kissat.',
+	'asirra-create' => 'Suojana automaattista sivujen luontia vastaan sinun on valittava kissan kuvat laatikosta alla:',
+	'asirra-nojs' => "'''Salli JavaScript ja lähetä uudelleen.'''",
+	'asirra-failed' => 'Tunnista kaikki kissan kuvat',
+);
+
 /** French (français)
  * @author Gomoko
  * @author Nicolas NALLET

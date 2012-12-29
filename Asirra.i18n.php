@@ -265,6 +265,13 @@ $messages['mk'] = array(
 	'asirra-failed' => 'Изберете ги сликите што имаат мачка',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'asirra-nojs' => "'''Sila hidupkan JavaScript dan hantar semula halaman ini.'''",
+);
+
 /** Maltese (Malti)
  * @author Chrisportelli
  */

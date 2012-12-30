@@ -194,13 +194,14 @@ Punche o botón 'enta zaga' d'o suyo navegador ta tornar ta l'editor de pachinas
  * @author Mido
  * @author OsamaK
  * @author Samer
+ * @author Zanatos
  */
 $messages['ar'] = array(
 	'captcha-edit' => 'لتعديل هذه الصفحة، من فضلك قم بحل المسألة الرياضية البسيطة بالأسفل وأدخل الإجابة في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):',
 	'captcha-desc' => 'يوفر تقنيات كابتشا للحماية ضد السبام وتخمين كلمات السر',
 	'captcha-label' => 'كابتشا',
-	'captcha-addurl' => 'تعديلك يحتوي على وصلات خارجية جديدة.
-للمساعدة في الحماية من السبام الأوتوماتيكي، من فضلك حل عملية الجمع بالأسفل وأدخل الإجابة في الصندوق  ([[Special:Captcha/help|مزيد من المعلومات]]):', # Fuzzy
+	'captcha-addurl' => 'تحرير الخاص بك يتضمن وصلات خارجية جديدة.
+لحماية الويكي ضد البريد المزعج الآلي، نرجو منك حل مجموع البسيطة أدناه وأدخل الإجابة في المربع توفيرا لتحرير الخاص بك ([[خاص: Captcha/help|more من المعلومات]]):', # Fuzzy
 	'captcha-badlogin' => 'للمساعدة في الحماية ضد سرقة كلمات السر، من فضلك حل عملية الجمع البسيطة بالأسفل وأدخل الحل في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):', # Fuzzy
 	'captcha-createaccount' => 'كحماية ضد إنشاء الحسابات الأوتوماتيكي، من فضلك حل العملية الحسابية بالأسفل وأدخل الإجابة في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):', # Fuzzy
 	'captcha-createaccount-fail' => 'كود تأكيد غير صحيح أو مفقود.',

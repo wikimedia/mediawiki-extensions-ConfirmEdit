@@ -374,6 +374,17 @@ $messages['nl'] = array(
 	'recaptcha-create' => "Om het automatisch aanmaken van pagina's tegen te gaan moet u de twee woorden die u ziet invoeren:",
 );
 
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'recaptcha-edit' => 'Voer ter bescherming tegen geautomatiseerde spam de twee woorden die je ziet in het invoervenster in:',
+	'recaptcha-addurl' => 'Je bewerking bevat nieuwe externe verwijzingen. Voer ter bescherming tegen geautomatiseerde spam de twee woorden die je ziet in het invoervenster in:',
+	'recaptcha-badpass' => 'Voer ter bescherming tegen het automatisch kraken van wachtwoorden de twee woorden die je ziet in het invoervenster in:',
+	'recaptcha-createaccount' => 'Om het automatisch aanmaken van gebruikers tegen te gaan moet je de twee woorden die je ziet invoeren:',
+	'recaptcha-create' => "Om het automatisch aanmaken van pagina's tegen te gaan moet je de twee woorden die je ziet invoeren:",
+);
+
 /** Polish (polski)
  */
 $messages['pl'] = array(
@@ -431,6 +442,13 @@ $messages['ru'] = array(
 	'recaptcha-createaccount' => 'В целях защиты от автоматического создания учётных записей, пожалуйста, введите два слова, которые вы видите ниже:',
 	'recaptcha-createaccount-fail' => 'Ответ reCAPTCHA неправильный или отсутствует.',
 	'recaptcha-create' => 'В целях защиты от автоматического создания страниц, пожалуйста, введите два слова, которые вы видите ниже:',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'recaptcha-createaccount-fail' => 'වැරදි හෝ දක්නට නොමැති reCAPTCHA පිළිතුර.',
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)

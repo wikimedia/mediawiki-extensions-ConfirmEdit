@@ -821,15 +821,32 @@ Beantwoord de onderstaande vraag als bescherming tegen automatische spam ([[Spec
 	'questycaptcha-create' => 'Beantwoord de onderstaande vraag om de pagina aan te maken ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptcha-edit' => 'Beantwoord de onderstaande vraag om deze pagina te bewerken ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptcha-sendemail' => 'Beantwoord de onderstaande vraag als bescherming tegen geautomatiseerde spam ([[Special:Captcha/help|meer informatie]]):',
-	'questycaptchahelp-text' => "Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma's automatisch verwijzigen op zetten naar vele websites.
+	'questycaptchahelp-text' => 'Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma\'s automatisch koppelingen op zetten naar vele websites.
 Hoewel deze externe verwijzingen weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
 
-Soms, en in het bijzonder bij het toevoegen van externe verwijzingen op pagina's, vraag de wiki u een vraag te beantwoorden.
+Soms, en in het bijzonder bij het toevoegen van externe verwijzingen op pagina\'s, vraag de wiki u een vraag te beantwoorden.
 Omdat dit proces lastig te automatiseren is, zijn vrijwel alleen mensen in staat dit proces succesvol te doorlopen en worden hiermee spammers en andere geautomatiseerde aanvallen geweerd.
 
 Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als dit proces u verhindert een nuttige bijdrage te leveren.
 
-Klik op de knop 'terug' in uw browser om terug te gaan naar het tekstbewerkingsscherm.",
+Klik op de knop "terug" in uw browser om terug te gaan naar het tekstbewerkingsscherm.',
+);
+
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'questycaptcha-addurl' => 'Je bewerking bevat nieuwe externe verwijzingen.
+Beantwoord de onderstaande vraag als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
+	'questycaptchahelp-text' => 'Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma\'s automatisch koppelingen op zetten naar vele websites.
+Hoewel deze externe verwijzingen weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
+
+Soms, en in het bijzonder bij het toevoegen van externe verwijzingen op pagina\'s, vraag de wiki je een vraag te beantwoorden.
+Omdat dit proces lastig te automatiseren is, zijn vrijwel alleen mensen in staat dit proces succesvol te doorlopen en worden hiermee spammers en andere geautomatiseerde aanvallen geweerd.
+
+Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als dit proces je verhindert een nuttige bijdrage te leveren.
+
+Klik op de knop "terug" in je browser om terug te gaan naar het tekstbewerkingsscherm.',
 );
 
 /** Norwegian Nynorsk (norsk (nynorsk)‎)
@@ -1069,6 +1086,13 @@ Ker je to opravilo težko avtomatizirati, bo s tem večini ljudi prispevanje dov
 Če vam to nepričakovano preprečuje legitimno prispevanje, prosimo, da se obrnete na [[{{MediaWiki:Grouppage-sysop}}|administratorje spletišča]].
 
 Za vrnitev v urejevalnik izberite gumb »nazaj« v vašem brskalniku.',
+);
+
+/** Somali (Soomaaliga)
+ * @author Abshirdheere
+ */
+$messages['so'] = array(
+	'questycaptcha-createaccount' => "Si aad u caawiso dhowritaanka in la iska samaysto Akoon,Fadlan ka jawaan su'aalahaan hoos ku qoran ([[Special:Captcha/help|Macluumaad dheeraad ah]]):",
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)

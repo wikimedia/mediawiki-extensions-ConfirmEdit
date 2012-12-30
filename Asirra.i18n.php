@@ -318,6 +318,13 @@ $messages['nl'] = array(
 	'asirra-failed' => 'Identificeer alle afbeeldingen van katten.',
 );
 
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'asirra-addurl' => "Je bewerking bevat nieuwe externe verwijzingen. Selecteer de foto's van katten in het vak hieronder om te helpen beschermen tegen geautomatiseerde spam:",
+);
+
 /** Polish (polski)
  * @author BeginaFelicysym
  */

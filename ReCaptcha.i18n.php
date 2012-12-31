@@ -367,7 +367,7 @@ $messages['nb'] = array(
  */
 $messages['nl'] = array(
 	'recaptcha-edit' => 'Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
-	'recaptcha-addurl' => 'Uw bewerking bevat nieuwe externe verwijzingen. Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
+	'recaptcha-addurl' => 'Uw bewerking bevat nieuwe externe koppelingen. Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
 	'recaptcha-badpass' => 'Voer ter bescherming tegen het automatisch kraken van wachtwoorden de twee woorden die u ziet in het invoervenster in:',
 	'recaptcha-createaccount' => 'Om het automatisch aanmaken van gebruikers tegen te gaan moet u de twee woorden die u ziet invoeren:',
 	'recaptcha-createaccount-fail' => 'Het reCAPTCHA-antwoord is onjuist of niet ingevoerd.',
@@ -379,7 +379,7 @@ $messages['nl'] = array(
  */
 $messages['nl-informal'] = array(
 	'recaptcha-edit' => 'Voer ter bescherming tegen geautomatiseerde spam de twee woorden die je ziet in het invoervenster in:',
-	'recaptcha-addurl' => 'Je bewerking bevat nieuwe externe verwijzingen. Voer ter bescherming tegen geautomatiseerde spam de twee woorden die je ziet in het invoervenster in:',
+	'recaptcha-addurl' => 'Je bewerking bevat nieuwe externe koppelingen. Voer ter bescherming tegen geautomatiseerde spam de twee woorden die je ziet in het invoervenster in:',
 	'recaptcha-badpass' => 'Voer ter bescherming tegen het automatisch kraken van wachtwoorden de twee woorden die je ziet in het invoervenster in:',
 	'recaptcha-createaccount' => 'Om het automatisch aanmaken van gebruikers tegen te gaan moet je de twee woorden die je ziet invoeren:',
 	'recaptcha-create' => "Om het automatisch aanmaken van pagina's tegen te gaan moet je de twee woorden die je ziet invoeren:",

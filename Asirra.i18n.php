@@ -67,6 +67,13 @@ $messages['be-tarask'] = array(
 	'asirra-failed' => 'Калі ласка, вызначце ўсе выявы з катамі',
 );
 
+/** Czech (česky)
+ * @author Vks
+ */
+$messages['cs'] = array(
+	'asirra-createaccount-fail' => 'Prosíme, správně identifikujte kočky.',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  */
@@ -269,7 +276,15 @@ $messages['mk'] = array(
  * @author Anakmalaysia
  */
 $messages['ms'] = array(
+	'asirra-desc' => 'Modul Asirra untuk ConfirmEdit',
+	'asirra-edit' => 'Untuk mencegah suntingan spam automatik, sila pilih gambar-gambar kucing sahaja dalam petak di bawah:',
+	'asirra-addurl' => 'Suntingan anda mengandungi pautan luar yang baru. Untuk mencegah spam janaan automatik, sila pilih gambar-gambar kucing sahaja dalam petak di bawah:',
+	'asirra-badpass' => 'Untuk mencegah pemecahan kata laluan automatik, sila pilih gambar-gambar kucing sahaja dalam petak di bawah:',
+	'asirra-createaccount' => 'Untuk mencegah pembukaan akaun automatik, sila pilih gambar-gambar kucing sahaja dalam petak di bawah:',
+	'asirra-createaccount-fail' => 'Sila kenal pasti kucing-kucing dengan betul.',
+	'asirra-create' => 'Untuk mencegah pembukaan halaman automatik, sila pilih gambar-gambar kucing sahaja dalam petak di bawah:',
 	'asirra-nojs' => "'''Sila hidupkan JavaScript dan hantar semula halaman ini.'''",
+	'asirra-failed' => 'Sila kenal pasti semua gambar kucing',
 );
 
 /** Maltese (Malti)
@@ -309,7 +324,7 @@ $messages['nb'] = array(
 $messages['nl'] = array(
 	'asirra-desc' => 'Asirra-module voor ConfirmEdit',
 	'asirra-edit' => 'Kies ter bescherming tegen geautomatiseerde spam de afbeeldingen met een poes in het onderstaande venster:',
-	'asirra-addurl' => "Uw bewerking bevat nieuwe externe verwijzingen. Selecteer de foto's van katten in het vak hieronder om te helpen beschermen tegen geautomatiseerde spam:",
+	'asirra-addurl' => "Uw bewerking bevat nieuwe externe koppelingen. Selecteer de foto's van katten in het vak hieronder om te helpen beschermen tegen geautomatiseerde spam:",
 	'asirra-badpass' => 'Kies ter bescherming tegen het automatisch kraken van wachtwoorden de afbeeldingen met een poes in het onderstaande venster:',
 	'asirra-createaccount' => 'Kies om het automatisch aanmaken van gebruikers tegen te gaan de afbeeldingen met een poes in het onderstaande venster:',
 	'asirra-createaccount-fail' => 'Identificeer de katten juist.',
@@ -322,7 +337,7 @@ $messages['nl'] = array(
  * @author Siebrand
  */
 $messages['nl-informal'] = array(
-	'asirra-addurl' => "Je bewerking bevat nieuwe externe verwijzingen. Selecteer de foto's van katten in het vak hieronder om te helpen beschermen tegen geautomatiseerde spam:",
+	'asirra-addurl' => "Je bewerking bevat nieuwe externe koppelingen. Selecteer de foto's van katten in het vak hieronder om te helpen beschermen tegen geautomatiseerde spam:",
 );
 
 /** Polish (polski)
@@ -383,6 +398,14 @@ $messages['ru'] = array(
 	'asirra-create' => 'В целях защиты от автоматического создания страниц, пожалуйста, выберите фотографии кота, которые вы видите ниже:',
 	'asirra-nojs' => "'''Пожалуйста, включите JavaScript и обновите страницу.'''",
 	'asirra-failed' => 'Пожалуйста, идентифицируйте все фотографии кота',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'asirra-desc' => 'ConfirmEdit සඳහා Asirra මොඩියුලය',
+	'asirra-failed' => 'කරුණාකර සියලුම cat පින්තූරයන් හඳුනාගන්න',
 );
 
 /** Swedish (svenska)

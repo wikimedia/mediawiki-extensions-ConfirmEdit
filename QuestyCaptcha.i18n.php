@@ -814,7 +814,7 @@ Klikk på 'tilbake'-knappen i nettleseren din for å gå tilbake til sideeditore
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'questycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe verwijzingen.
+	'questycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe koppelingen.
 Beantwoord de onderstaande vraag als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptcha-badlogin' => 'Beantwoord de onderstaande vraag als bescherming tegen geautomatiseerde wachtwoordaanvallen ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptcha-createaccount' => 'Beantwoord de onderstaande vraag als bescherming tegen het geautomatiseerd aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
@@ -822,9 +822,9 @@ Beantwoord de onderstaande vraag als bescherming tegen automatische spam ([[Spec
 	'questycaptcha-edit' => 'Beantwoord de onderstaande vraag om deze pagina te bewerken ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptcha-sendemail' => 'Beantwoord de onderstaande vraag als bescherming tegen geautomatiseerde spam ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptchahelp-text' => 'Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma\'s automatisch koppelingen op zetten naar vele websites.
-Hoewel deze externe verwijzingen weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
+Hoewel deze externe koppelingen weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
 
-Soms, en in het bijzonder bij het toevoegen van externe verwijzingen op pagina\'s, vraag de wiki u een vraag te beantwoorden.
+Soms, en in het bijzonder bij het toevoegen van externe koppelingen op pagina\'s, vraag de wiki u een vraag te beantwoorden.
 Omdat dit proces lastig te automatiseren is, zijn vrijwel alleen mensen in staat dit proces succesvol te doorlopen en worden hiermee spammers en andere geautomatiseerde aanvallen geweerd.
 
 Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als dit proces u verhindert een nuttige bijdrage te leveren.
@@ -836,12 +836,12 @@ Klik op de knop "terug" in uw browser om terug te gaan naar het tekstbewerkingss
  * @author Siebrand
  */
 $messages['nl-informal'] = array(
-	'questycaptcha-addurl' => 'Je bewerking bevat nieuwe externe verwijzingen.
+	'questycaptcha-addurl' => 'Je bewerking bevat nieuwe externe koppelingen.
 Beantwoord de onderstaande vraag als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptchahelp-text' => 'Websites die vrij te bewerken zijn, zoals deze wiki, worden vaak misbruikt door spammers die er met hun programma\'s automatisch koppelingen op zetten naar vele websites.
-Hoewel deze externe verwijzingen weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
+Hoewel deze externe koppelingen weer verwijderd kunnen worden, leveren ze wel veel hinder en administratief werk op.
 
-Soms, en in het bijzonder bij het toevoegen van externe verwijzingen op pagina\'s, vraag de wiki je een vraag te beantwoorden.
+Soms, en in het bijzonder bij het toevoegen van externe koppelingen op pagina\'s, vraag de wiki je een vraag te beantwoorden.
 Omdat dit proces lastig te automatiseren is, zijn vrijwel alleen mensen in staat dit proces succesvol te doorlopen en worden hiermee spammers en andere geautomatiseerde aanvallen geweerd.
 
 Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als dit proces je verhindert een nuttige bijdrage te leveren.

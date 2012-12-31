@@ -1046,7 +1046,7 @@ Um dit projekt te bescharmen tegen ongewunst reklame, mö'j t woord dat hieronde
  */
 $messages['nl'] = array(
 	'fancycaptcha-desc' => "Generator voor opgedirkte captcha's voor ConfirmEdit",
-	'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe verwijzingen.
+	'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe koppelingen.
 Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-badlogin' => 'Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen geautomatiseerde wachtwoordaanvallen ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-createaccount' => 'Voer de woorden die hieronder verschijnen in het invoerveld in ter bescherming tegen het geautomatiseerd aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
@@ -1059,7 +1059,7 @@ Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming t
  * @author Siebrand
  */
 $messages['nl-informal'] = array(
-	'fancycaptcha-addurl' => 'Je bewerking bevat nieuwe externe verwijzingen.
+	'fancycaptcha-addurl' => 'Je bewerking bevat nieuwe externe koppelingen.
 Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 );
 

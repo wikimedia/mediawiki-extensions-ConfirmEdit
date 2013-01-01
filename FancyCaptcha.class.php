@@ -159,7 +159,7 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		$key  = "fancycaptcha:dirlist:{$backend->getWikiId()}:" . sha1( $directory );
 		$dirs = $wgMemc->get( $key ); // check cache
-		if ( !is_array( $dirs ) ) { // cache miss
+		if ( !is_array( $dirs ) || !count( $dirs ) ) { // cache miss
 			$dirs = array(); // subdirs actually present...
 			foreach ( $backend->getTopDirectoryList( array( 'dir' => $directory ) ) as $entry ) {
 				if ( ctype_xdigit( $entry ) && strlen( $entry ) == 1 ) {
@@ -167,7 +167,9 @@ class FancyCaptcha extends SimpleCaptcha {
 				}
 			}
 			wfDebug( "Cache miss for $directory subdirectory listing.\n" );
-			$wgMemc->set( $key, $dirs, 86400 );
+			if ( count( $dirs ) ) {
+				$wgMemc->set( $key, $dirs, 86400 );
+			}
 		}
 
 		if ( !count( $dirs ) ) {
@@ -204,7 +206,7 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		$key   = "fancycaptcha:filelist:{$backend->getWikiId()}:" . sha1( $directory );
 		$files = $wgMemc->get( $key ); // check cache
-		if ( !is_array( $files ) ) { // cache miss
+		if ( !is_array( $files ) || !count( $files ) ) { // cache miss
 			$files = array(); // captcha files
 			foreach ( $backend->getTopFileList( array( 'dir' => $directory ) ) as $entry ) {
 				$files[] = $entry;
@@ -213,7 +215,9 @@ class FancyCaptcha extends SimpleCaptcha {
 					break;
 				}
 			}
-			$wgMemc->set( $key, $files, 86400 );
+			if ( count( $files ) ) {
+				$wgMemc->set( $key, $files, 86400 );
+			}
 			wfDebug( "Cache miss for $directory captcha listing.\n" );
 		}
 

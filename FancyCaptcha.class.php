@@ -106,8 +106,6 @@ class FancyCaptcha extends SimpleCaptcha {
 		return "<p>" .
 			Html::element( 'img', array(
 				'src'    => $title->getLocalUrl( 'wpCaptchaId=' . urlencode( $index ) ),
-				'width'  => $info['width'],
-				'height' => $info['height'],
 				'alt'    => '' ) ) .
 			"</p>\n" .
 			Html::element( 'input', array(
@@ -262,19 +260,15 @@ class FancyCaptcha extends SimpleCaptcha {
 						continue; // could not acquire (skip it to avoid race conditions)
 					}
 				}
-				$fsFile = $backend->getLocalReference( array( 'src' => "$directory/$entry" ) );
-				if ( !$fsFile || !$fsFile->exists() ) {
+				if ( !$backend->fileExists( array( 'src' => "$directory/$entry" ) ) ) {
 					if ( ++$misses >= 5 ) { // too many files in the listing don't exist
 						break; // listing cache too stale? break out so it will be cleared
 					}
 					continue; // try next file
 				}
-				$size = getimagesize( $fsFile->getPath() );
 				return array(
 					'salt'   => $matches[1],
 					'hash'   => $matches[2],
-					'width'  => $size[0],
-					'height' => $size[1],
 					'viewed' => false,
 				);
 			}

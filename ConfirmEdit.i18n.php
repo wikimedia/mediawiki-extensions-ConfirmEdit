@@ -33,7 +33,7 @@ Unfortunately this may inconvenience users with limited vision or using text-bas
 At the moment we do not have an audio alternative available.
 Please contact the  [[{{MediaWiki:Grouppage-sysop}}|site administrators]] for assistance if this is unexpectedly preventing you from making legitimate actions.
 
-Hit the 'back' button in your browser to return to the page editor.",
+Hit the \"back\" button in your browser to return to the page editor.",
 	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
 # Syntax is as follows:
 #   * Everything from a "#" character to the end of the line is a comment

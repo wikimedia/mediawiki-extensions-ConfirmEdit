@@ -19,7 +19,7 @@ To help protect against automated spam, please answer the question that appears 
 	'questycaptcha-create' => 'To create the page, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-edit' => 'To edit this page, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-sendemail' => 'To help protect against automated spamming, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
-	'questycaptchahelp-text' => "Web sites that accept contributions from the public, like this wiki, are often abused by spammers who use automated tools to add their links to many sites.
+	'questycaptchahelp-text' => 'Web sites that accept contributions from the public, like this wiki, are often abused by spammers who use automated tools to add their links to many sites.
 While these spam links can be removed, they are a significant nuisance.
 
 Sometimes, especially when adding new web links to a page, the wiki may ask you to answer a question.
@@ -27,7 +27,7 @@ Since this is a task that is hard to automate, it will allow most real humans to
 
 Please contact the [[{{MediaWiki:Grouppage-sysop}}|site administrators]] for assistance if this is unexpectedly preventing you from making legitimate contributions.
 
-Click the 'back' button in your browser to return to the page editor.",
+Click the "back" button in your browser to return to the page editor.',
 );
 
 /** Message documentation (Message documentation)

@@ -4159,6 +4159,7 @@ $messages['zh-hans'] = array(
  * @author Hydra
  * @author Liangent
  * @author Mark85296341
+ * @author Simon Shek
  * @author Waihorace
  */
 $messages['zh-hant'] = array(
@@ -4166,11 +4167,11 @@ $messages['zh-hant'] = array(
 	'captcha-desc' => '通過驗證碼技術來阻止垃圾郵件和密碼猜解',
 	'captcha-label' => '驗證碼',
 	'captcha-addurl' => '你編輯的內容中含有一個新的外部連結；為了免受自動垃圾程式的侵擾，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
-	'captcha-badlogin' => '為了防止程式自動破解密碼，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:', # Fuzzy
-	'captcha-createaccount' => '為了防止程式自動註冊，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:', # Fuzzy
+	'captcha-badlogin' => '為防止程式自動破解密碼，請答出一條簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
+	'captcha-createaccount' => '為防止程式自動註冊，請答出一條簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
 	'captcha-createaccount-fail' => '驗證碼錯誤或遺失。',
 	'captcha-create' => '要建立頁面，請答出一個簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
-	'captcha-sendemail' => '為了防止程式進行破壞，請答出一個簡單的計算，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:', # Fuzzy
+	'captcha-sendemail' => '為防止程式進行破壞，請答出一條簡單的加法，然後在框內輸入 （[[Special:Captcha/help|更多資料]]）:',
 	'captcha-sendemail-fail' => '驗證碼錯誤或遺失。',
 	'captcha-disabledinapi' => '這個要求需要經過Captcha驗證，故無法透過API使用。',
 	'captchahelp-title' => 'Captcha 說明',

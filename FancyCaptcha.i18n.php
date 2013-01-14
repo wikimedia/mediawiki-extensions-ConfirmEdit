@@ -25,9 +25,11 @@ To help protect against automated spam, please enter the words that appear below
  * @author Fryed-peach
  * @author Hamilton Abreu
  * @author Purodha
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'fancycaptcha-desc' => '{{desc}}',
+	'fancycaptcha-desc' => '{{Optional}}
+{{desc}}',
 	'fancycaptcha-addurl' => 'See also
 *{{msg-mw|captcha-addurl}}
 *{{msg-mw|Questycaptcha-addurl}}',

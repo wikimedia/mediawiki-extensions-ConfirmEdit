@@ -33,9 +33,11 @@ Click the "back" button in your browser to return to the page editor.',
 /** Message documentation (Message documentation)
  * @author Fryed-peach
  * @author Hamilton Abreu
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'questycaptcha-desc' => '{{desc}}',
+	'questycaptcha-desc' => '{{Optional}}
+{{desc}}',
 	'questycaptcha-addurl' => 'See also
 *{{msg-mw|captcha-addurl}}
 *{{msg-mw|Fancycaptcha-addurl}}',

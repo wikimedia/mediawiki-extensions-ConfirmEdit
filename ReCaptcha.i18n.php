@@ -19,10 +19,12 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Shirayuki
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'recaptcha-desc' => '{{desc}}',
+	'recaptcha-desc' => '{{Optional}}
+{{desc}}',
 );
 
 /** Arabic (العربية)

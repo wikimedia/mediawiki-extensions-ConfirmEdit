@@ -89,30 +89,40 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * Insert the captcha prompt into the edit form.
 	 */
 	function getForm() {
-		$info = $this->pickImage();
-		if ( !$info ) {
-			throw new MWException( "Ran out of captcha images" );
-		}
+		global $wgOut, $wgExtensionAssetsPath, $wgEnableAPI;
 
-		// Generate a random key for use of this captcha image in this session.
-		// This is needed so multiple edits in separate tabs or windows can
-		// go through without extra pain.
-		$index = $this->storeCaptcha( $info );
-
-		wfDebug( "Captcha id $index using hash ${info['hash']}, salt ${info['salt']}.\n" );
+		// Uses addModuleStyles so it is loaded when JS is disabled.
+		$wgOut->addModuleStyles( 'ext.confirmEdit.fancyCaptcha.styles' );
 
 		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
+		$index = $this->getCaptchaIndex();
 
-		return "<p>" .
+		if ( $wgEnableAPI ) {
+			$reloadText = wfMessage( 'fancycaptcha-reload-text' )->text();
+
+			// Loaded only if JS is enabled
+			$wgOut->addModules( 'ext.confirmEdit.fancyCaptcha' );
+
+			$captchaReload = "<span class='confirmedit-captcha-reload fancycaptcha-reload'>" .
 			Html::element( 'img', array(
+				'class'  => 'fancycaptcha-reload-button',
+				'src'    => $wgExtensionAssetsPath . '/ConfirmEdit/images/fancycaptcha-reload-icon.png',
+				'alt'    => wfMessage( 'fancycaptcha-reload-button' )->text(),
+				'title'  => $reloadText ) ) .
+			Html::rawElement( 'small', array(
+				'class'  => 'fancycaptcha-reload-text' ),
+				$reloadText ) .
+			"</span>\n";
+		} else {
+			$captchaReload = '';
+		}
+
+		return "<div class='fancycaptcha-wrapper'><div class='fancycaptcha-image-container'>" .
+			Html::element( 'img', array(
+				'class'  => 'fancycaptcha-image',
 				'src'    => $title->getLocalUrl( 'wpCaptchaId=' . urlencode( $index ) ),
 				'alt'    => '' ) ) .
-			"</p>\n" .
-			Html::element( 'input', array(
-				'type'  => 'hidden',
-				'name'  => 'wpCaptchaId',
-				'id'    => 'wpCaptchaId',
-				'value' => $index ) ) .
+			"</div>\n" .
 			'<p>' .
 			Html::element( 'label', array(
 				'for' => 'wpCaptchaWord',
@@ -125,7 +135,32 @@ class FancyCaptcha extends SimpleCaptcha {
 				'autocapitalize' => 'off',
 				'required' => 'required',
 				'tabindex' => 1 ) ) . // tab in before the edit textarea
-			"</p>\n";
+			$captchaReload .
+			Html::element( 'input', array(
+				'type'  => 'hidden',
+				'name'  => 'wpCaptchaId',
+				'id'    => 'wpCaptchaId',
+				'value' => $index ) ) .
+			"</p>\n" .
+			"</div>\n";;
+	}
+
+	/**
+	 * Get captcha index key
+	 * @return string captcha ID key
+	 */
+	function getCaptchaIndex() {
+		$info = $this->pickImage();
+		if ( !$info ) {
+			throw new MWException( "Ran out of captcha images" );
+		}
+
+		// Generate a random key for use of this captcha image in this session.
+		// This is needed so multiple edits in separate tabs or windows can
+		// go through without extra pain.
+		$index = $this->storeCaptcha( $info );
+
+		return $index;
 	}
 
 	/**

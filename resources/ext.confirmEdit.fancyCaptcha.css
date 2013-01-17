@@ -1,0 +1,38 @@
+.fancycaptcha-wrapper {
+	display: table;
+	background-color: #FFF;
+}
+
+/* Prevents the size of the container from changing, affecting page
+layout, for normal CAPTCHA sizes. */
+.fancycaptcha-image-container {
+	min-height: 95px;
+}
+
+.fancycaptcha-reload {
+	padding: 0 5px;
+}
+
+.client-nojs .fancycaptcha-reload {
+	display: none;
+}
+
+.fancycaptcha-reload-button {
+	padding: 5px;
+}
+
+.fancycaptcha-reload-button:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.fancycaptcha-reload-text {
+	color: #0645AD;
+	display: inline !important;
+}
+
+.fancycaptcha-reload-text:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	cursor: hand;
+}

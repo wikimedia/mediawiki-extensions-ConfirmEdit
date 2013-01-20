@@ -1311,6 +1311,13 @@ Zaradi zaščite pred samodejnim smetjem prosimo, da vnesete spodnje besede v po
 	'fancycaptcha-sendemail' => 'Zaradi zaščite pred samodejnim smetenjem prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
 );
 
+/** Somali (Soomaaliga)
+ * @author Abshirdheere
+ */
+$messages['so'] = array(
+	'fancycaptcha-createaccount' => 'Si aad u caawiso dhowritaanka in la iska samaysto Akoon,Fadlan meelaha banaan buux buuxi ee hoostaan ah ([[Special:Captcha/help|Macluumaad dheeraad ah]]):',
+);
+
 /** Albanian (shqip)
  * @author Dori
  * @author Olsi

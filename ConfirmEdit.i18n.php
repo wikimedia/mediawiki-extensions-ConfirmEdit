@@ -2165,21 +2165,21 @@ $messages['km'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'captcha-edit' => '글을 편집하기 위해서는, 아래의 간단한 덧셈 값을 입력상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'captcha-edit' => '글을 편집하려면 아래의 간단한 덧셈 값을 입력 상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
 	'captcha-desc' => '스팸과 비밀번호 탈취를 방지하기 위한 CAPTCHA(캡차) 기능을 제공',
 	'captcha-label' => 'CAPTCHA(캡차)',
 	'captcha-addurl' => '편집에 새로운 바깥 링크가 포함되어 있습니다.
-자동화된 스팸으로부터 위키를 보호하기 위해, 편집을 저장하려면 아래의 간단한 계산 값을 입력상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
-	'captcha-badlogin' => '자동화된 계정 비밀번호 해킹으로부터 위키를 보호하기 위해, 아래의 간단한 계산 값을 입력 상자에 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
-	'captcha-createaccount' => '자동화된 계정 가입으로부터 위키를 보호하기 위해, 아래의 간단한 계산 값을 입력상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
+자동화된 스팸으로부터 위키를 보호하기 위해, 편집을 저장하려면 아래의 간단한 계산 값을 입력 상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'captcha-badlogin' => '자동화된 비밀번호 깨기로부터 위키를 보호하기 위해, 아래의 간단한 계산 값을 입력 상자에 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'captcha-createaccount' => '자동화된 계정 만들기로부터 위키를 보호하기 위해, 아래의 간단한 계산 값을 입력 상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
 	'captcha-createaccount-fail' => '입력값이 잘못되었거나 없습니다.',
-	'captcha-create' => '문서를 만들기 위해서는, 아래의 간단한 계산 값을 입력상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
-	'captcha-sendemail' => '자동화된 스팸으로부터 위키를 보호하기 위해, 아래의 간단한 계산 값을 입력상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'captcha-create' => '문서를 만드려면 아래의 간단한 계산 값을 입력 상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'captcha-sendemail' => '자동화된 스팸으로부터 위키를 보호하기 위해, 아래의 간단한 계산 값을 입력 상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
 	'captcha-sendemail-fail' => '입력값이 잘못되었거나 없습니다.',
 	'captcha-disabledinapi' => '이 동작은 캡차를 거쳐야 하기 때문에 API로 이 작업을 수행할 수 없습니다.',
 	'captchahelp-title' => 'CAPTCHA(캡차) 도움말',
 	'captchahelp-cookies-needed' => '정상적으로 작동하려면 웹 브라우저의 쿠키 사용이 활성화되어 있어야 합니다.',
-	'captchahelp-text' => "이 위키와 같이 사람의 공개적인 참여가 가능한 웹 사이트에서는 자동 프로그램이 스팸을 뿌리는 경우가 있습니다.
+	'captchahelp-text' => '이 위키와 같이 사람의 공개적인 참여가 가능한 웹 사이트에서는 자동 프로그램이 스팸을 뿌리는 경우가 있습니다.
 물론 이러한 스팸은 제거할 수는 있지만 번거로운 작업이 늘어납니다.
 
 이러한 스팸을 방지하기 위해서, 이 위키의 문서에 웹 사이트 주소를 추가하는 등의 행동을 할 경우에는 비틀린 글자가 들어있는 그림을 보여주고 그 그림의 글자를 입력해 달라고 하는 경우가 있습니다.
@@ -2187,9 +2187,9 @@ $messages['ko'] = array(
 
 웹 브라우저에서 그림을 완벽하게 표시할 수 없거나, 그림이 나오지 않는 텍스트 방식이나 음성 합성 방식 웹 브라우저를 사용하는 경우에는 이러한 입력이 불가능합니다.
 아직까지는 이런 경우에 대한 대안이 없습니다.
-이 경우 [[{{MediaWiki:Grouppage-sysop}}|사이트 관리자]]에게 도움을 요청해 주세요.
+예기치않게 정당한 행동을 하지 못하도록 막는다면 [[{{MediaWiki:Grouppage-sysop}}|사이트 관리자]]에게 도움을 요청해 주세요.
 
-이전 화면으로 돌아가려면 웹 브라우저의 '뒤로' 버튼을 눌러 주세요.",
+이전 화면으로 돌아가려면 웹 브라우저의 "뒤로" 버튼을 누르세요.',
 	'captcha-addurl-whitelist' => ' #<!-- 이 줄은 그대로 두십시오 --> <pre>
 # 문법은 다음과 같습니다:
 #  * "#"로 시작하는 줄은 주석입니다.
@@ -3954,14 +3954,14 @@ $messages['uk'] = array(
 $messages['vec'] = array(
 	'captcha-edit' => 'Par modificar la pagina te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela
 ([[Special:Captcha/help|magiori informazion]]):',
-	'captcha-desc' => 'Senplice inplementazion de un Captcha', # Fuzzy
+	'captcha-desc' => "Fornise teniche CAPTCHA pa' ła protesion contro el spam e l'individuasion de łe password",
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => "La modifica richiesta la zonta dei colegamenti foresti novi a la pagina; come misura precauzional contro l'inserimento automatico de spam, te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):", # Fuzzy
-	'captcha-badlogin' => 'Come misura precauzional contro i tentativi de forzatura automatica de la password, te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):', # Fuzzy
-	'captcha-createaccount' => 'Come misura precauzional contro i tentativi de creazion automatica dei account, par registrarse te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):', # Fuzzy
+	'captcha-addurl' => "Ła modifega dimandà xonta de i novi ligamenti foresti a ła pàjina; come mixura precausionałe contro 'l inserimento automatego de spam, se prega de risolvare el senplise calcoło prexentà de seguito e inserir el rexultà inte ła caxeła ([[Special:Captcha/help|come funsiona?]]):",
+	'captcha-badlogin' => 'Come misura precausionałe contro i tentativi de forzadura automatega de ła password, se prega de risolvare el senplise calcoło prexentà de seguito e inserir el rexultà inte ła caxeła ([[Special:Captcha/help|come funsiona?]]):',
+	'captcha-createaccount' => 'Come mixura precausionałe contro i tentativi de creasion automatega de i account, se prega de risolvare el senplise calcoło prexentà de seguito e inserir el rexultà inte ła caxeła ([[Special:Captcha/help|come funsiona?]]):',
 	'captcha-createaccount-fail' => 'Codice de verifica sbaglià o mancante.',
 	'captcha-create' => 'Per crear la pagina te ghè da risòlvar sto senplice calcolo presentà de seguito e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):',
-	'captcha-sendemail' => 'Come misura precauzional contro i tentativi de forzatura automatica de la password, te ghè da risòlvar sto senplice calcolo e inserir el risultato ne la casela ([[Special:Captcha/help|magiori informazion]]):', # Fuzzy
+	'captcha-sendemail' => 'Come mixura precausionałe contro i mesaji de spam automatesi, se prega de risolvare el senplise calcoło prexentà de seguito e inserir el rexultà inte ła caxeła ([[Special:Captcha/help|come funsiona?]]):',
 	'captcha-sendemail-fail' => 'Codice de verifica sbaglià o mancante.',
 	'captcha-disabledinapi' => 'Sta azion la richiede un captcha, quindi no se pole farla tramite API.',
 	'captchahelp-title' => "Coss'èlo sto captcha?",

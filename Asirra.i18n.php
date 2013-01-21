@@ -231,6 +231,21 @@ $messages['ja'] = array(
 	'asirra-failed' => '猫が写っている画像をすべて選択してください',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'asirra-desc' => 'ConfirmEdit에 대한 Asirra 모듈',
+	'asirra-edit' => '자동화된 편집 스팸으로부터 보호하기 위해, 아래 상자에 있는 고양이 사진을 선택하세요:',
+	'asirra-addurl' => '편집에 새로운 바깥 링크가 포함되어 있습니다. 자동화된 스팸으로부터 보호하기 위해, 아래 상자에 있는 고양이 사진을 선택하세요:',
+	'asirra-badpass' => '비밀번호 깨기로부터 보호하기 위해, 아래 상자에 있는 고양이 사진을 선택하세요:',
+	'asirra-createaccount' => '자동화된 계정 만들기로부터 보호하기 위해, 아래 상자에 있는 고양이 사진을 선택하세요:',
+	'asirra-createaccount-fail' => '고양이를 올바르게 선택하세요.',
+	'asirra-create' => '자동화된 문서 만들기로부터 보호하기 위해, 아래 상자에 있는 고양이 사진을 선택하세요:',
+	'asirra-nojs' => "'''자바스크립트를 활성화하고 문서를 다시 제출하세요.'''",
+	'asirra-failed' => '고양이 그림을 모두 선택하세요',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */

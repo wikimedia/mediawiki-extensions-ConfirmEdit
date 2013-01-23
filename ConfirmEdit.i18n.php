@@ -2824,6 +2824,7 @@ Trykk på «attende»-knappen for å kome tilbake til endringssida.',
 $messages['oc'] = array(
 	'captcha-edit' => "Per modificar aquesta pagina, vos cal efectuar lo calcul çaijós e n'inscriure lo resultat dins lo camp ([[Special:Captcha/help|Mai d’entresenhas]]) :",
 	'captcha-desc' => 'Implementacion captcha simpla', # Fuzzy
+	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, vos cal picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu'es aquò?]])", # Fuzzy
 	'captcha-badlogin' => "Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxte çaijós dins la bóstia de tèxte plaçada al dejós d'aqueste. ([[Special:Captcha/help|Mai d’entresenhas]])", # Fuzzy
 	'captcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, entratz lo resultat de l’addicion dins la bóstia çaijós:<br />

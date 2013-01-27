@@ -2688,7 +2688,7 @@ Mit den „Trüch“-Knopp vun dien Browser kummst du trüch na dat Ännerfinste
 	'right-skipcaptcha' => 'Överspringen vun Captchas',
 );
 
-/** Nedersaksisch (Nedersaksisch)
+/** Nedersaksies (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(

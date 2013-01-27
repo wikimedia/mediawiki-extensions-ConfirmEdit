@@ -1029,7 +1029,7 @@ As Schutz gegen automaatsch Spam, geev disse Bookstavenreeg in dat Feld ünnen i
 	'fancycaptcha-edit' => 'Disse Sied to ännern, geev disse Bookstavenreeg in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
 );
 
-/** Nedersaksisch (Nedersaksisch)
+/** Nedersaksies (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(

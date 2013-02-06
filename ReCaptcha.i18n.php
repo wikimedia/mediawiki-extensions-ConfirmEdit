@@ -440,6 +440,13 @@ $messages['pt-br'] = array(
 	'recaptcha-create' => 'Para ajudar a prevenir contra criação automatizada de páginas, por favor digite as duas palavras que você vê na caixa abaixo:',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'recaptcha-createaccount-fail' => 'Resposte reCAPTCHA ingorrette o mangande.',
+);
+
 /** Russian (русский)
  * @author Александр Сигачёв
  */

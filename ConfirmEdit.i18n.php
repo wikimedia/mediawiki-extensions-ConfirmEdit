@@ -734,11 +734,11 @@ $messages['cy'] = array(
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Mae eich golygiad yn cynnwys cysylltiadau allanol newydd. 
 Er mwyn gwarchod y wici rhag peiriant sbam, byddwch gystal â theipio cyfanswm y swm canlynol yn y blwch isod i roi eich golygiad ar gadw ([[Special:Captcha/help|mwy o wybodaeth]]):',
-	'captcha-badlogin' => 'Er mwyn ceisio rhwystro peiriannau datrys cyfrineiriau, byddwch gystal â gwneud y swm isod a gosod yr ateb yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):', # Fuzzy
-	'captcha-createaccount' => "Teipiwch cyfanswm y swm canlynol yn y blwch isod, os gwelwch yn dda. Mae'r nodwedd hon yn rhwystro rhaglenni sbam rhag creu cyfrifon i'w hunain ([[Special:Captcha/help|Mwy o wybodaeth]]):", # Fuzzy
+	'captcha-badlogin' => 'Er mwyn arbed y wici rhag peiriannau datrys cyfrineiriau, byddwch gystal â gwneud y swm syml isod a gosod yr ateb yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):',
+	'captcha-createaccount' => 'Er mwyn arbed y wici rhag peiriannau dechrau cyfrifon, byddwch gystal â gwneud y swm syml isod a gosod yr ateb yn y blwch ([[Special:Captcha/help|mwy o wybodaeth]]):',
 	'captcha-createaccount-fail' => "Côd cadarnhau ar goll neu'n anghywir.",
 	'captcha-create' => "Er mwyn gallu creu'r dudalen, gwnewch y swm isod a gosodwch y canlyniad yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
-	'captcha-sendemail' => 'Er mwyn cyfrannu at ddiogelu rhag sbamio awtomatig, byddwch gystal â gwneud y swm syml isod ac ysgrifennwch yr ateb yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):', # Fuzzy
+	'captcha-sendemail' => "Er mwyn arbed y wici rhag sbamio awtomatig, byddwch gystal â gwneud y swm syml isod ac ysgrifennu'r ateb yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'captcha-sendemail-fail' => 'Y cod cadarnhau yn anghywir neu yn eisiau.',
 	'captcha-disabledinapi' => 'Mae angen "captcha" i gyflawni\'r weithred hon, felly nid oes modd ei gyflawni trwy\'r API.',
 	'captchahelp-title' => 'Cymorth "captcha"',

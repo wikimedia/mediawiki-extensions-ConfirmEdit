@@ -2166,7 +2166,7 @@ $messages['km'] = array(
  */
 $messages['ko'] = array(
 	'captcha-edit' => '글을 편집하려면 아래의 간단한 덧셈 값을 입력 상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',
-	'captcha-desc' => '스팸과 비밀번호 탈취를 방지하기 위한 CAPTCHA(캡차) 기능을 제공',
+	'captcha-desc' => '스팸과 비밀번호 탈취를 방지하기 위한 CAPTCHA(캡차) 기술을 제공합니다',
 	'captcha-label' => 'CAPTCHA(캡차)',
 	'captcha-addurl' => '편집에 새로운 바깥 링크가 포함되어 있습니다.
 자동화된 스팸으로부터 위키를 보호하기 위해, 편집을 저장하려면 아래의 간단한 계산 값을 입력 상자에 적어 주세요 ([[Special:Captcha/help|자세한 정보]]):',

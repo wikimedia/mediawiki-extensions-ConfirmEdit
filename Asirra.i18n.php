@@ -400,6 +400,13 @@ $messages['pt'] = array(
 	'asirra-nojs' => "'''Possibilite o uso de JavaScript e reenvie a página, por favor.'''",
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'asirra-desc' => 'Module Asirra pe confermà le cangiaminde',
+);
+
 /** Russian (русский)
  * @author DCamer
  */

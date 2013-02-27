@@ -3194,6 +3194,7 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a do
 #   * Ogneccose da 'nu carattere \"#\" 'mbonde a fine d'a linèe jè 'nu commende
 #   * Ogne linèe chiene jè 'nu frammende de regex 'u quale addà sulamende combrondarse cu le host jndr'à l'URL
  #</pre> <!-- leave this line exactly as it is -->",
+	'right-skipcaptcha' => "Comblete le aziune CAPTCHA senze ca a scè ausanne 'u CAPTCHA",
 );
 
 /** Russian (русский)

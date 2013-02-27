@@ -140,7 +140,7 @@ $wgCaptchaSessionExpiration = 30 * 60;
 $wgCaptchaBadLoginExpiration = 5 * 60;
 
 /**
- * Allow users who have confirmed their e-mail addresses to post
+ * Allow users who have confirmed their email addresses to post
  * URL links without being harassed by the captcha.
  */
 $ceAllowConfirmedEmail = false;

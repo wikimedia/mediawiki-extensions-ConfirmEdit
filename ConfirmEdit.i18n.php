@@ -3182,6 +3182,7 @@ $messages['roa-tara'] = array(
 	'captcha-addurl' => "'U cangiamende tune 'nglude de le collegaminde de fore.
 Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a domande ca combare sotte jndr'à sckatole ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
 	'captcha-badlogin' => "Pe proteggere sta uicchi da le futteminde de passuord automateche, nuje te cercame gendilmende de fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
+	'captcha-createaccount' => "Pe proteggere sta uicchi da 'a ccrejazione automateche de le cunde, nuje te cercame gendilmende de fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
 	'captcha-createaccount-fail' => 'Codece de conferme non corrette o mangande.',
 	'captcha-create' => "Pe ccrejà sta pàgene, pe piacere fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",
 	'captcha-sendemail' => "Pe proteggere sta uicchi da 'a munnezze automateche, nuje te cercame gendilmende de fa sta somma facile facile aqquà sotte e mitte 'a resposte jndr'à sckatele ([[Special:Captcha/help|maggiore 'mbormaziune]]):",

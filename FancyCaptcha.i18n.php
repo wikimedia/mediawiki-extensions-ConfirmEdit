@@ -134,11 +134,11 @@ $messages['as'] = array(
  */
 $messages['ast'] = array(
 	'fancycaptcha-addurl' => "La to edición inclúi nuevos enllaces esternos. P'aidar a protexer escontra'l spam automatizáu, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
-	'fancycaptcha-badlogin' => "P'aidar a protexer escontra'l descifráu automáticu de claves, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
-	'fancycaptcha-createaccount' => "P'aidar a protexer escontra la creación automática de cuentes, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
+	'fancycaptcha-badlogin' => "P'ayudar a protexer escontra'l descifráu automáticu de claves, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
+	'fancycaptcha-createaccount' => "P'ayudar a protexer escontra la creación automática de cuentes, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
 	'fancycaptcha-create' => "Pa crear la páxina, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
 	'fancycaptcha-edit' => "Pa editar la páxina, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
-	'fancycaptcha-sendemail' => "P'aidar a protexer escontra'l corréu puxarra automáticu, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
+	'fancycaptcha-sendemail' => "P'ayudar a protexer escontra'l corréu puxarra automáticu, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
 );
 
 /** Bashkir (башҡортса)

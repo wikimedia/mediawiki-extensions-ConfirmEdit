@@ -96,6 +96,27 @@ $messages['ar'] = array(
 إذا كنت تحرر صفحة معينة: اضغط زر 'العودة' في متصفحك للعودة إلى التحرير.",
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'questycaptcha-addurl' => "La to edición inclúi nuevos enllaces esternos. P'aidar a protexer escontra'l spam automatizáu, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
+	'questycaptcha-badlogin' => "P'ayudar a protexer escontra'l descifráu automáticu de claves, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
+	'questycaptcha-createaccount' => "P'ayudar a protexer escontra la creación automática de cuentes, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
+	'questycaptcha-create' => "Pa crear la páxina, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
+	'questycaptcha-edit' => "Pa editar la páxina, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
+	'questycaptcha-sendemail' => "P'ayudar a protexer escontra'l corréu puxarra automáticu, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
+	'questycaptchahelp-text' => "Los sitios web qu'aceuten collaboración del públicu, como esta wiki, sufren de vezu l'abusu de «spammers» qu'usen ferramientes automátiques p'amestar los sos enllaces en munchos sitios.
+Mentanto qu'esos enllaces puen desaniciase, suponen una bultable molestia.
+
+Dacuando, especialmente al amestar enllaces nuevos a una páxina, la wiki pue pidi-y que conteste una entruga.
+Como esta ye una xera difícil d'automatizar, permitirá que la mayor parte de persones faiga collaboraciones mentanto torga a la mayor parte de «spammers» y otros atacantes robotizaos .
+
+Por favor, pongase'n contautu colos [[{{MediaWiki:Grouppage-sysop}}|alministradores del sitiu]] pa pidir ayuda si esto ta torgando-y de mou inesperáu facer collaboraciones llexítimes.
+
+Calque nel botón «atrás» del navegador pa volver al editor de páxines.",
+);
+
 /** Bashkir (башҡортса)
  * @author Assele
  */

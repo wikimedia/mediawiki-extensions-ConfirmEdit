@@ -23,11 +23,6 @@ $specialPageAliases['arz'] = array(
 	'Captcha' => array( 'كابتشا' ),
 );
 
-/** German (Deutsch) */
-$specialPageAliases['de'] = array(
-	'Captcha' => array( 'Bearbeitung_bestätigen' ),
-);
-
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
 	'Captcha' => array( 'Qodaİtimadi' ),

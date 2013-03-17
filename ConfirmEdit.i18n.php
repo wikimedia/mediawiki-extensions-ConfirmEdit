@@ -3190,6 +3190,16 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a do
 	'captcha-disabledinapi' => "St'azione ave abbesogne de 'nu captcha, accussì non g'è possibbele eseguirle cu le API.",
 	'captchahelp-title' => 'Aijute pu captcha',
 	'captchahelp-cookies-needed' => "Tu è abbesogne de avè le cookie abbilitate jndr'à 'u browser tune pe sta fatìe.",
+	'captchahelp-text' => "Le site web ca accettane messàgge da 'u pubbleche, le piace sta uicchi, assaije vote purcé abbusane de spam a ce ause struminde automatece pe mannà le lore collegaminde a 'nu sacche de site.
+Mendre ca ste collegaminde de spam se ponne luà, lore comungue sò 'nu sckassamende de palle.
+
+Certe vote, specialmende quanne aggiunge collegaminde nuève sus a a'na pàgene, 'a uicchi te pò fà vedè 'n'immaggine de teste colorate o sciummate e te cerche de scrivere le parole ca vedite.
+Quiste jè 'nu combite difficile da automatizzà, ce sò le umane a scettà merde invece de le attacche robbot riuscime a bloccà cchiù facilmende.
+
+Sfortunatamende stu fatte pò da inconveniende a le utinde cu visiune limitate o ca ausane le browser de sole teste o ca parlane. Jndr'à stu mumende non ge tenime 'n'alternative audie.
+Pe piacere condatte le [[{{MediaWiki:Grouppage-sysop}}|amministrature d'u site]] pe assistenze ce quiste jè condre a le leggittime aziune tune.
+
+Cazze 'u buttonne \"rrete\" (back) sus a 'u browser tune pe turnà a 'u cangiamende d'a pàgene.",
 	'captcha-addurl-whitelist' => " #<!-- leave this line exactly as it is --> <pre>
 # 'A sindasse jè a cumme segue:
 #   * Ogneccose da 'nu carattere \"#\" 'mbonde a fine d'a linèe jè 'nu commende

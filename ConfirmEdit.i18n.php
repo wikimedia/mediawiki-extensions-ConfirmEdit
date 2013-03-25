@@ -58,28 +58,31 @@ Hit the \"back\" button in your browser to return to the page editor.",
  */
 $messages['qqq'] = array(
 	'captcha-edit' => 'This message will be shown when editing if the wiki requires solving a captcha for editing.
-See also
-*{{msg-mw|Questycaptcha-edit}}
-*{{msg-mw|Fancycaptcha-edit}}',
+{{Related|ConfirmEdit-edit}}',
 	'captcha-desc' => '{{desc|name=Confirm Edit|url=http://www.mediawiki.org/wiki/Extension:ConfirmEdit}}',
 	'captcha-label' => 'Label field for input field shown in forms',
 	'captcha-addurl' => 'The explanation of CAPTCHA shown to users trying to add new external links.
-See also
-*{{msg-mw|Questycaptcha-addurl}}
-*{{msg-mw|Fancycaptcha-addurl}}',
+{{Related|ConfirmEdit-addurl}}',
 	'captcha-badlogin' => 'The explanation of CAPTCHA shown to users failed three times to type in correct password.
-See also
-*{{msg-mw|Questycaptcha-badlogin}}
-*{{msg-mw|Fancycaptcha-badlogin}}',
+{{Related|ConfirmEdit-badlogin}}',
 	'captcha-createaccount' => 'The explanation of CAPTCHA shown to users trying to create a new account.
-See also
-*{{msg-mw|Questycaptcha-createaccount}}
-*{{msg-mw|Fancycaptcha-createaccount}}',
+{{Related|ConfirmEdit-createaccount}}',
+	'captcha-createaccount-fail' => 'Used as failure message.
+{{Related|ConfirmEdit-createaccount-fail}}',
 	'captcha-create' => 'This message will be shown when creating a page if the wiki requires solving a captcha for that.
-See also
-*{{msg-mw|Questycaptcha-create}}
-*{{msg-mw|Fancycaptcha-create}}',
+{{Related|ConfirmEdit-create}}',
+	'captcha-sendemail' => 'Used as footer text.
+{{Related|ConfirmEdit-sendemail}}',
+	'captcha-sendemail-fail' => 'Used as failure message.
+
+See also:
+* {{msg-mw|Captcha-createaccount-fail}}',
+	'captcha-disabledinapi' => 'Used as error message when in the API mode.',
 	'captchahelp-title' => 'The page title of [[Special:Captcha/help]]',
+	'captchahelp-cookies-needed' => 'The page title for this message is {{msg-mw|Captchahelp-title}}.
+
+This message follows the following help message:
+* {{msg-mw|Captchahelp-text}}.',
 	'captchahelp-text' => 'This is the help text shown on [[Special:Captcha/help]].',
 	'captcha-addurl-whitelist' => "See also: [[MediaWiki:Spam-blacklist]] and [[MediaWiki:Spam-whitelist]]. Leave all the wiki markup, including the spaces, as is. You can translate the text, including 'Leave this line exactly as it is'. The first line of this messages has one (1) leading space.",
 	'right-skipcaptcha' => '{{doc-right|skipcaptcha}}',
@@ -1922,7 +1925,7 @@ Fare clic sul pulsante \"indietro\" del browser per tornare alla pagina di modif
  * @author Whym
  */
 $messages['ja'] = array(
-	'captcha-edit' => 'このページを編集するには、下記の簡単な数式を計算してその答えを欄に入力してください([[Special:Captcha/help|ヘルプ]]):',
+	'captcha-edit' => 'このページを編集するには、下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
 	'captcha-desc' => 'スパム攻撃やパスワード推定攻撃を防ぐための CAPTCHA 技術を提供する',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'あなたは新しい外部リンクを追加しようとしています。

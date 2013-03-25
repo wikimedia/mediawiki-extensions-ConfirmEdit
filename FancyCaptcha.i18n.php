@@ -30,21 +30,12 @@ To help protect against automated spam, please enter the words that appear below
 $messages['qqq'] = array(
 	'fancycaptcha-desc' => '{{Optional}}
 {{desc}}',
-	'fancycaptcha-addurl' => 'See also
-*{{msg-mw|captcha-addurl}}
-*{{msg-mw|Questycaptcha-addurl}}',
-	'fancycaptcha-badlogin' => 'See also
-*{{msg-mw|captcha-badlogin}}
-*{{msg-mw|Questycaptcha-badlogin}}',
-	'fancycaptcha-createaccount' => 'See also
-*{{msg-mw|captcha-createaccount}}
-*{{msg-mw|Questycaptcha-createaccount}}',
-	'fancycaptcha-create' => 'See also
-*{{msg-mw|Captcha-create}}
-*{{msg-mw|Questycaptcha-create}}',
-	'fancycaptcha-edit' => 'See also
-*{{msg-mw|Captcha-edit}}
-*{{msg-mw|Questycaptcha-edit}}',
+	'fancycaptcha-addurl' => '{{Related|ConfirmEdit-addurl}}',
+	'fancycaptcha-badlogin' => '{{Related|ConfirmEdit-badlogin}}',
+	'fancycaptcha-createaccount' => '{{Related|ConfirmEdit-createaccount}}',
+	'fancycaptcha-create' => '{{Related|ConfirmEdit-create}}',
+	'fancycaptcha-edit' => '{{Related|ConfirmEdit-edit}}',
+	'fancycaptcha-sendemail' => '{{Related|ConfirmEdit-sendemail}}',
 );
 
 /** Gheg Albanian (Gegë)

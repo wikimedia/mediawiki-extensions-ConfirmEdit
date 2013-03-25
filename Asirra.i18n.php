@@ -28,26 +28,15 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'asirra-desc' => '{{desc|name=Asirra|url=http://www.mediawiki.org/wiki/Extension:Asirra}}',
-	'asirra-edit' => 'See also
-*{{msg-mw|Captcha-edit}}
-*{{msg-mw|Questycaptcha-edit}}
-*{{msg-mw|Fancycaptcha-edit}}
-*{{msg-mw|Recaptcha-edit}}',
-	'asirra-addurl' => 'See also
-*{{msg-mw|Captcha-addurl}}
-*{{msg-mw|Questycaptcha-addurl}}
-*{{msg-mw|Fancycaptcha-addurl}}
-*{{msg-mw|Recaptcha-addurl}}',
-	'asirra-badpass' => 'See also
-*{{msg-mw|Captcha-badlogin}}
-*{{msg-mw|Questycaptcha-badlogin}}
-*{{msg-mw|Fancycaptcha-badlogin}}
-*{{msg-mw|Recaptcha-badpass}}',
-	'asirra-createaccount' => 'See also
-*{{msg-mw|Captcha-createaccount}}
-*{{msg-mw|Questycaptcha-createaccount}}
-*{{msg-mw|Fancycaptcha-createaccount}}
-*{{msg-mw|Recaptcha-createaccount}}',
+	'asirra-edit' => '{{Related|ConfirmEdit-edit}}',
+	'asirra-addurl' => '{{Related|ConfirmEdit-addurl}}',
+	'asirra-badpass' => '{{Related|ConfirmEdit-badlogin}}',
+	'asirra-createaccount' => '{{Related|ConfirmEdit-createaccount}}',
+	'asirra-createaccount-fail' => 'Used as failure message in JavaScript code.
+{{Related|ConfirmEdit-createaccount-fail}}',
+	'asirra-create' => '{{Related|ConfirmEdit-create}}',
+	'asirra-nojs' => 'Used in HTML <code><nowiki><noscript></nowiki></code> tag.',
+	'asirra-failed' => 'Used as alert message in JavaScript code.',
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)

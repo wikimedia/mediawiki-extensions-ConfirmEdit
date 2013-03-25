@@ -25,6 +25,12 @@ $messages['en'] = array(
 $messages['qqq'] = array(
 	'recaptcha-desc' => '{{Optional}}
 {{desc}}',
+	'recaptcha-edit' => '{{Related|ConfirmEdit-edit}}',
+	'recaptcha-addurl' => '{{Related|ConfirmEdit-addurl}}',
+	'recaptcha-badpass' => '{{Related|ConfirmEdit-badlogin}}',
+	'recaptcha-createaccount' => '{{Related|ConfirmEdit-createaccount}}',
+	'recaptcha-createaccount-fail' => '{{Related|ConfirmEdit-createaccount-fail}}',
+	'recaptcha-create' => '{{Related|ConfirmEdit-create}}',
 );
 
 /** Arabic (العربية)

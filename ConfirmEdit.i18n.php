@@ -1423,7 +1423,7 @@ Para contribuír na protección contra as ferramentas de publicación automátic
 	'captcha-sendemail' => 'Para contribuír na protección contra as ferramentas de publicación automática de ligazóns publicitarias, resolva a suma que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-sendemail-fail' => 'Falta o código de confirmación ou é incorrecto.',
 	'captcha-disabledinapi' => 'Esta acción necesita o captcha, polo que non se pode realizar a través da API.',
-	'captchahelp-title' => 'Axuda acerca do captcha',
+	'captchahelp-title' => 'Axuda acerca do CAPTCHA',
 	'captchahelp-cookies-needed' => 'Necesita ter as cookies habilitadas no seu navegador para que funcione.',
 	'captchahelp-text' => 'Os sitios web que aceptan publicar as contribucións dos usuarios, coma este wiki, sofren, con frecuencia, o abuso por parte de spammers que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias, nunha chea de páxinas, en pouco tempo.
 Mentres as devanditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo.

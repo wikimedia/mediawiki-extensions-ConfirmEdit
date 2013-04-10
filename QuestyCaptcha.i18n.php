@@ -228,6 +228,7 @@ Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko
 );
 
 /** German (Deutsch)
+ * @author Geitost
  * @author Kghbln
  * @author Pill
  * @author Umherirrender
@@ -240,7 +241,7 @@ Zum Schutz vor automatisiertem Spam, beantworte bitte die untenstehende Frage, u
 	'questycaptcha-createaccount' => 'Zum Schutz vor einer automatisierten Anlage von Benutzerkonten ist es erforderlich, die folgende Frage zu beantworten ([[Special:Captcha/help|weitere Informationen]]):',
 	'questycaptcha-create' => 'Bitte beantworte die folgende Frage, um diese Seite erstellen zu können ([[Special:Captcha/help|weitere Informationen]]):',
 	'questycaptcha-edit' => 'Bitte beantworte die folgende Frage, um diese Seite speichern zu können ([[Special:Captcha/help|weitere Informationen]]):',
-	'questycaptcha-sendemail' => 'Zum Schutz vor automatisiertem Spam, beantworte bitte die untenstehende Frage, um die E-Mail-Nachricht senden zu können ([[Special:Captcha/help|weitere Informationen]]):',
+	'questycaptcha-sendemail' => 'Zum Schutz vor automatisiertem Spam bitte die untenstehende Frage beantworten ([[Special:Captcha/help|weitere Informationen]]):',
 	'questycaptchahelp-text' => 'Internetangebote, die — wie dieses Wiki — für Beiträge von praktisch jedem offen sind, werden häufig von Spammern missbraucht, welche versuchen, mithilfe entsprechender Werkzeuge ihre Links automatisch auf vielen Webseiten zu platzieren.
 Zwar können derartige Spam-Links wieder entfernt werden, doch stellen sie trotzdem ein erhebliches Ärgernis dar.
 

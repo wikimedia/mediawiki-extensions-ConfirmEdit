@@ -227,6 +227,19 @@ Pokud vám to brání v užitečných příspěvcích a potřebujete pomoc, kont
 Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko „zpět“.',
 );
 
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'questycaptcha-addurl' => 'Mae eich golygiad yn cynnwys o leiaf un cyswllt allanol newydd.
+Er mwyn ceisio rhwystro peiriannau sbam, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
+	'questycaptcha-badlogin' => 'Er mwyn ceisio rhwystro peiriannau datrys cyfrineiriau, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
+	'questycaptcha-createaccount' => 'Er mwyn ceisio rhwystro peiriannau creu cyfrifon, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
+	'questycaptcha-create' => "Er mwyn dechrau'r dudalen, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+	'questycaptcha-edit' => "Er mwyn golygu'r dudalen, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+	'questycaptcha-sendemail' => 'Er mwyn cyfrannu at ddiogelu rhag sbamio awtomatig, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
+);
+
 /** German (Deutsch)
  * @author Geitost
  * @author Kghbln

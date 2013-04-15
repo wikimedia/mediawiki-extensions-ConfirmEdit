@@ -1126,6 +1126,7 @@ Presione el botón 'atrás' en su navegador para retornar al editor de página."
 $messages['et'] = array(
 	'captcha-edit' => 'Selle lehekülje muutmiseks lahenda palun lihtne tehe ja sisesta vastus kasti ([[Special:Captcha/help|lisateave]]).',
 	'captcha-desc' => 'Pakub robotilõksu abil kaitset rämpspostituste ja paroolide äraarvamise vastu.',
+	'captcha-label' => 'Robotilõks',
 	'captcha-addurl' => 'Sinu muudatus sisaldab uusi välislinke.
 Palun lahenda allpool lihtne tehe ja sisesta vastus kasti, et saaksid muudatuse salvestada. Abinõu on viki kaitseks automaadistatud rämpsmuudatuste eest ([[Special:Captcha/help|lisateave]]):',
 	'captcha-badlogin' => 'Palun lahenda allpool lihtne tehe ja sisesta vastus kasti. Abinõu on viki kaitseks automaatsete parooliäraarvajate eest ([[Special:Captcha/help|lisateave]]):',

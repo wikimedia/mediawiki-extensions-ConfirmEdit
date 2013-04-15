@@ -276,7 +276,7 @@ $messages['cu'] = array(
  */
 $messages['cy'] = array(
 	'fancycaptcha-addurl' => "Mae eich golygiad yn cynnwys cyswllt allanol newydd.
-Er mwyn ceisio rhwystro peiriannau spam, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+Er mwyn ceisio rhwystro peiriannau sbam, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'fancycaptcha-badlogin' => "Er mwyn ceisio rhwystro peiriannau datrys cyfrineiriau, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'fancycaptcha-createaccount' => "Er mwyn ceisio rhwystro peiriannau creu cyfrifon, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'fancycaptcha-create' => "Er mwyn creu'r dudalen, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
@@ -481,7 +481,7 @@ Pour vérifier qu’il ne s’agit pas de pourriels automatisés, veuillez entre
 	'fancycaptcha-badlogin' => 'Afin de nous aider à prévenir le cassage des mots de passe par des automates, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'fancycaptcha-createaccount' => 'Afin de nous aider à lutter contre les créations automatiques de comptes, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'fancycaptcha-create' => 'Pour créer la page, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :',
-	'fancycaptcha-edit' => "Pour modifier cette page, veuillez saisir les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d'information]]):",
+	'fancycaptcha-edit' => 'Pour modifier cette page, veuillez saisir les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’information]]) :',
 	'fancycaptcha-sendemail' => 'Afin de nous aider à prévenir le pollupostage automatisé, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 );
 

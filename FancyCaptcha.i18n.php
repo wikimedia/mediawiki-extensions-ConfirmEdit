@@ -19,6 +19,8 @@ To help protect against automated spam, please enter the words that appear below
 	'fancycaptcha-create'        => 'To create the page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-edit'          => 'To edit this page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-sendemail'     => 'To help protect against automated spamming, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-reload-button' => 'Refresh',
+	'fancycaptcha-reload-text'   => 'Refresh',
 );
 
 /** Message documentation (Message documentation)
@@ -36,6 +38,8 @@ $messages['qqq'] = array(
 	'fancycaptcha-create' => '{{Related|ConfirmEdit-create}}',
 	'fancycaptcha-edit' => '{{Related|ConfirmEdit-edit}}',
 	'fancycaptcha-sendemail' => '{{Related|ConfirmEdit-sendemail}}',
+	'fancycaptcha-reload-button' => 'Alternative (alt) text for reload button to get a new FancyCaptcha image.',
+	'fancycaptcha-reload-text' => 'Prompts a click to get a new FancyCaptcha image.  Used as regular element text and title text of button',
 );
 
 /** Gheg Albanian (Gegë)

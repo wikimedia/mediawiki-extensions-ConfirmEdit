@@ -40,11 +40,10 @@ class MathCaptcha extends SimpleCaptcha {
 	/** Fetch the math */
 	function fetchMath( $sum ) {
 		if ( MWInit::classExists( 'MathRenderer' ) ) {
-			$math = new MathRenderer( $sum );
+			$math = MathRenderer::getRenderer( $sum, array(), MW_MATH_PNG );
 		} else {
 			throw new MWException( 'MathCaptcha requires the Math extension for MediaWiki versions 1.18 and above.' );
 		}
-		$math->setOutputMode( MW_MATH_PNG );
 		$html = $math->render();
 		return preg_replace( '/alt=".*?"/', '', $html );
 	}

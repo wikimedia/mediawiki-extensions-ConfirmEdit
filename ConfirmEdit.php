@@ -40,7 +40,7 @@ $wgExtensionCredits['antispam'][] = array(
 	'name' => 'ConfirmEdit',
 	'author' => array( 'Brion Vibber', '...' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ConfirmEdit',
-	'version' => '1.1',
+	'version' => '1.2',
 	'descriptionmsg' => 'captcha-desc',
 );
 

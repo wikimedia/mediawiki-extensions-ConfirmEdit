@@ -38,8 +38,16 @@ $messages['qqq'] = array(
 	'fancycaptcha-create' => '{{Related|ConfirmEdit-create}}',
 	'fancycaptcha-edit' => '{{Related|ConfirmEdit-edit}}',
 	'fancycaptcha-sendemail' => '{{Related|ConfirmEdit-sendemail}}',
-	'fancycaptcha-reload-button' => 'Alternative (alt) text for reload button to get a new FancyCaptcha image.',
-	'fancycaptcha-reload-text' => 'Prompts a click to get a new FancyCaptcha image.  Used as regular element text and title text of button',
+	'fancycaptcha-reload-button' => 'Alternative (alt) text for reload button to get a new FancyCaptcha image.
+
+The title attribute for the reload button is {{msg-mw|Fancycaptcha-reload-text}}.
+{{Identical|Refresh}}',
+	'fancycaptcha-reload-text' => 'Prompts a click to get a new FancyCaptcha image.
+
+Used as <code>title</code> attribute for an image.
+
+The <code>alt</code> attribute for the image is {{msg-mw|Fancycaptcha-reload-button}}.
+{{Identical|Refresh}}',
 );
 
 /** Gheg Albanian (Gegë)
@@ -316,6 +324,8 @@ Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten 
 	'fancycaptcha-create' => 'Zur Erstellung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'fancycaptcha-edit' => 'Zur Bearbeitung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'fancycaptcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, gib bitte die Wörter unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
+	'fancycaptcha-reload-button' => 'Aktualisieren',
+	'fancycaptcha-reload-text' => 'Aktualisieren',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -474,6 +484,7 @@ $messages['fo'] = array(
  * @author Crochet.david
  * @author Gomoko
  * @author IAlex
+ * @author Metroitendo
  * @author Sherbrooke
  * @author Urhixidur
  * @author Verdy p
@@ -487,6 +498,8 @@ Pour vérifier qu’il ne s’agit pas de pourriels automatisés, veuillez entre
 	'fancycaptcha-create' => 'Pour créer la page, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :',
 	'fancycaptcha-edit' => 'Pour modifier cette page, veuillez saisir les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’information]]) :',
 	'fancycaptcha-sendemail' => 'Afin de nous aider à prévenir le pollupostage automatisé, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+	'fancycaptcha-reload-button' => 'Actualiser',
+	'fancycaptcha-reload-text' => 'Actualiser',
 );
 
 /** Franco-Provençal (arpetan)
@@ -529,6 +542,8 @@ Para contribuír na protección contra o spam automatizado, introduza as palabra
 	'fancycaptcha-create' => 'Para crear a páxina, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-edit' => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-sendemail' => 'Para contribuír na protección contra o spam automatizado, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-reload-button' => 'Refrescar',
+	'fancycaptcha-reload-text' => 'Refrescar',
 );
 
 /** Swiss German (Alemannisch)
@@ -712,6 +727,8 @@ $messages['ja'] = array(
 	'fancycaptcha-create' => 'ページを新規作成するには、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-edit' => 'このページを編集するには、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-sendemail' => '自動でのスパム攻撃を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-reload-button' => '更新',
+	'fancycaptcha-reload-text' => '更新',
 );
 
 /** Jutish (jysk)
@@ -1208,6 +1225,8 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere mitte le parole 
 	'fancycaptcha-create' => 'Pe ccrejà sta pàgene, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-edit' => 'Pe cangià sta pàgene, pe piacere mitte le parole combare aqquà sotte ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-sendemail' => "Pe aiutà a proteggere condre a spam automatece, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
+	'fancycaptcha-reload-button' => 'Aggiorne',
+	'fancycaptcha-reload-text' => 'Aggiorne',
 );
 
 /** Russian (русский)

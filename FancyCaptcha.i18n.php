@@ -142,6 +142,8 @@ $messages['ast'] = array(
 	'fancycaptcha-create' => "Pa crear la páxina, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
 	'fancycaptcha-edit' => "Pa editar la páxina, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
 	'fancycaptcha-sendemail' => "P'ayudar a protexer escontra'l corréu puxarra automáticu, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
+	'fancycaptcha-reload-button' => 'Refrescar',
+	'fancycaptcha-reload-text' => 'Refrescar',
 );
 
 /** Bashkir (башҡортса)
@@ -588,6 +590,8 @@ $messages['he'] = array(
 	'fancycaptcha-create' => 'כדי ליצור את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'fancycaptcha-edit' => 'כדי לערוך את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'fancycaptcha-sendemail' => 'כדי לעזור להתגונן מפני שליחת זבל אוטומטית, אנא הכניסו את המילים שמופיעות בתיבה למטה ([[Special:Captcha/help|מידע נוסף]]):',
+	'fancycaptcha-reload-button' => 'רענון',
+	'fancycaptcha-reload-text' => 'רענון',
 );
 
 /** Hindi (हिन्दी)
@@ -958,6 +962,8 @@ $messages['mk'] = array(
 	'fancycaptcha-create' => 'За да создадете страница, внесете ги зборовите на сликичката подолу ([[Special:Captcha/help|повеќе информации]]):',
 	'fancycaptcha-edit' => 'За да ја уредите страницава, внесете ги зборовите на сликичката подолу ([[Special:Captcha/help|повеќе информации]]):',
 	'fancycaptcha-sendemail' => 'За да се заштитиме од автоматизирано спамирање, препишете ги зборовите од сликичката во полето подолу ([[Special:Captcha/help|повеќе информации]]):',
+	'fancycaptcha-reload-button' => 'Превчитај',
+	'fancycaptcha-reload-text' => 'Превчитај',
 );
 
 /** Malayalam (മലയാളം)

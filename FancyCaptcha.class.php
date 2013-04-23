@@ -105,13 +105,17 @@ class FancyCaptcha extends SimpleCaptcha {
 
 			$captchaReload = "<span class='confirmedit-captcha-reload fancycaptcha-reload'>" .
 			Html::element( 'img', array(
-				'class'  => 'fancycaptcha-reload-button',
-				'src'    => $wgExtensionAssetsPath . '/ConfirmEdit/images/fancycaptcha-reload-icon.png',
-				'alt'    => wfMessage( 'fancycaptcha-reload-button' )->text(),
-				'title'  => $reloadText ) ) .
-			Html::rawElement( 'small', array(
-				'class'  => 'fancycaptcha-reload-text' ),
-				$reloadText ) .
+					'class'  => 'fancycaptcha-reload-button',
+					'src'    => $wgExtensionAssetsPath . '/ConfirmEdit/images/fancycaptcha-reload-icon.png',
+					'alt'    => wfMessage( 'fancycaptcha-reload-button' )->text(),
+					'title'  => $reloadText
+				)
+			) .
+			Html::element( 'small', array(
+					'class'  => 'fancycaptcha-reload-text'
+				),
+				$reloadText
+			) .
 			"</span>\n";
 		} else {
 			$captchaReload = '';
@@ -119,28 +123,36 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		return "<div class='fancycaptcha-wrapper'><div class='fancycaptcha-image-container'>" .
 			Html::element( 'img', array(
-				'class'  => 'fancycaptcha-image',
-				'src'    => $title->getLocalUrl( 'wpCaptchaId=' . urlencode( $index ) ),
-				'alt'    => '' ) ) .
+					'class'  => 'fancycaptcha-image',
+					'src'    => $title->getLocalUrl( 'wpCaptchaId=' . urlencode( $index ) ),
+					'alt'    => ''
+				)
+			) .
 			"</div>\n" .
 			'<p>' .
 			Html::element( 'label', array(
-				'for' => 'wpCaptchaWord',
-			), parent::getMessage( 'label' ) . wfMessage( 'colon-separator' )->text() ) .
+					'for' => 'wpCaptchaWord',
+				),
+				parent::getMessage( 'label' ) . wfMessage( 'colon-separator' )->text()
+			) .
 			Html::element( 'input', array(
-				'name' => 'wpCaptchaWord',
-				'id'   => 'wpCaptchaWord',
-				'type' => 'text',
-				'autocorrect' => 'off',
-				'autocapitalize' => 'off',
-				'required' => 'required',
-				'tabindex' => 1 ) ) . // tab in before the edit textarea
+					'name' => 'wpCaptchaWord',
+					'id'   => 'wpCaptchaWord',
+					'type' => 'text',
+					'autocorrect' => 'off',
+					'autocapitalize' => 'off',
+					'required' => 'required',
+					'tabindex' => 1
+				)
+			) . // tab in before the edit textarea
 			$captchaReload .
 			Html::element( 'input', array(
-				'type'  => 'hidden',
-				'name'  => 'wpCaptchaId',
-				'id'    => 'wpCaptchaId',
-				'value' => $index ) ) .
+					'type'  => 'hidden',
+					'name'  => 'wpCaptchaId',
+					'id'    => 'wpCaptchaId',
+					'value' => $index
+				)
+			) .
 			"</p>\n" .
 			"</div>\n";;
 	}

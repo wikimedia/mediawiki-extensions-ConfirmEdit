@@ -174,6 +174,7 @@ $messages['bcc'] = array(
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'fancycaptcha-addurl' => 'Вашае рэдагаваньне ўтрымлівае новыя вонкавыя спасылкі.
@@ -183,6 +184,8 @@ $messages['be-tarask'] = array(
 	'fancycaptcha-create' => 'Для стварэньня старонкі, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
 	'fancycaptcha-edit' => 'Для рэдагаваньня гэтай старонкі, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
 	'fancycaptcha-sendemail' => 'У мэтах абароны супраць аўтаматычнага спаму, калі ласка, увядзіце словы паказаныя ніжэй у полі ([[Special:Captcha/help|дадатковая інфармацыя]]):',
+	'fancycaptcha-reload-button' => 'Абнавіць',
+	'fancycaptcha-reload-text' => 'Абнавіць',
 );
 
 /** Bulgarian (български)
@@ -276,6 +279,8 @@ $messages['cs'] = array(
 	'fancycaptcha-create' => 'Abyste mohli založit stránku, musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 	'fancycaptcha-edit' => 'Abyste mohli editovat tuto stránku, musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 	'fancycaptcha-sendemail' => 'V rámci ochrany proti automatickému spamování musíte opsat níže zobrazená slova ([[Special:Captcha/help|více informací]]):',
+	'fancycaptcha-reload-button' => 'Obnovit',
+	'fancycaptcha-reload-text' => 'Vygenerovat nový kód',
 );
 
 /** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
@@ -714,6 +719,8 @@ $messages['it'] = array(
 	'fancycaptcha-create' => 'Per creare la pagina si prega di inserire nella casella sottostante le parole che compaiono nella casella di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'fancycaptcha-edit' => 'Per modificare questa pagina si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'fancycaptcha-sendemail' => 'Come misura precauzionale nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'fancycaptcha-reload-button' => 'Aggiorna',
+	'fancycaptcha-reload-text' => 'Aggiorna',
 );
 
 /** Japanese (日本語)
@@ -1005,6 +1012,8 @@ $messages['ms'] = array(
 	'fancycaptcha-create' => 'Untuk mencipta laman ini, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 	'fancycaptcha-edit' => 'Untuk menyunting laman ini, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 	'fancycaptcha-sendemail' => 'Untuk membanteras kegiatan spam secara automatik, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
+	'fancycaptcha-reload-button' => 'Muat semula',
+	'fancycaptcha-reload-text' => 'Muat semula',
 );
 
 /** Maltese (Malti)
@@ -1073,6 +1082,8 @@ Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming t
 	'fancycaptcha-create' => 'Voer de woorden die hieronder verschijnen in het invoerveld in om de pagina aan te maken ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-edit' => 'Voer de woorden die hieronder verschijnen in het invoerveld in om deze pagina te bewerken ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen geautomatiseerde spam ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-reload-button' => 'Verversen',
+	'fancycaptcha-reload-text' => 'Verversen',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
@@ -1550,6 +1561,7 @@ Par jutarne a conbàtar el spam, par piaser inserissi ne la casela le parole che
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Cheers!
  * @author Minh Nguyen
  * @author Vinhtantran
  */
@@ -1561,6 +1573,8 @@ $messages['vi'] = array(
 	'fancycaptcha-create' => 'Để tạo trang, xin hãy nhập những chữ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'fancycaptcha-edit' => 'Để sửa trang này, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'fancycaptcha-sendemail' => 'Để giúp chúng tôi chống lại spam tự động, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'fancycaptcha-reload-button' => 'Làm tươi',
+	'fancycaptcha-reload-text' => 'Làm tươi',
 );
 
 /** Volapük (Volapük)

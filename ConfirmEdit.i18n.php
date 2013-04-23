@@ -2249,7 +2249,7 @@ Jetz kanns De met Dingem Brauser singem „Zeröck“-Knopp wigger maache, wo De
 	'captcha-addurl-whitelist' => ' #<!-- Lohß di Reih he jenou esu wi se es --> <pre>
 # Dä Opbou es:
 # * Alles fun enem #-Zeiche bes an et Engk fun ene Reih es ene Kommentaa för de Minsche
-# * Jede Reih met jet dren es en Stöck regular Expression, wat Domains en URL treffe kann
+# * Jede Reih met jet dren es en Stöck rejolähre Ußdrok, wat Domains en URL treffe kann
   #</pre> <!-- Lohß di Reih he jenou esu wi se es -->',
 	'right-skipcaptcha' => 'De Opforderung fum Kaptscha överjonn',
 );

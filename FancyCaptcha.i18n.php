@@ -435,6 +435,8 @@ Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaad
 	'fancycaptcha-create' => 'Lehekülje loomiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|lisateave]]):',
 	'fancycaptcha-edit' => 'Selle lehekülje muutmiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|lisateave]]):',
 	'fancycaptcha-sendemail' => 'Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaadistatud rämpsmuudatuste vastu ([[Special:Captcha/help|lisateave]]):',
+	'fancycaptcha-reload-button' => 'Vaheta',
+	'fancycaptcha-reload-text' => 'Vahetamine',
 );
 
 /** Basque (euskara)
@@ -705,6 +707,7 @@ Til þess að hjálpa okkur verjast sjálfvirku auglýsingarusli, vinsamlegast s
 	'fancycaptcha-create' => 'Til þess að búa til þessa síðu, vinsamlegast sláðu inn orðin sem birtast hér fyrir neðan í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):',
 	'fancycaptcha-edit' => 'Til þess að breyta þessari síðu, vinsamlegast sláðu inn orðin að neðan í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):',
 	'fancycaptcha-sendemail' => 'Til þess að hjálpa okkur að verjast sjálfvirkum auglýsingapósti, vinsamlegast sláðu inn orðin hér fyrir neðan í reitinn ([[Special:Captcha/help|frekari upplýsinngar]]):',
+	'fancycaptcha-reload-text' => 'Endurhlaða',
 );
 
 /** Italian (italiano)
@@ -1558,6 +1561,8 @@ Par jutarne a conbàtar el spam, par piaser inserissi ne la casela le parole che
 	'fancycaptcha-create' => 'Par crear la pagina, par piaser inserissi ne la casela le parole che vien fora qua soto ([[Special:Captcha/help|magiori informazion]]):',
 	'fancycaptcha-edit' => 'Par modificar la pagina, par piaser inserissi ne la casela le parole che vien fora qua soto ([[Special:Captcha/help|magiori informazion]]):',
 	'fancycaptcha-sendemail' => 'Par precauzion contro i tentativi de forzatura automatica de le password, par piaser inserissi ne la casela le parole che vien fora qua soto ([[Special:Captcha/help|magiori informazion]]):',
+	'fancycaptcha-reload-button' => 'Ajorna',
+	'fancycaptcha-reload-text' => 'Ajorna',
 );
 
 /** Vietnamese (Tiếng Việt)
@@ -1637,6 +1642,7 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Bencmq
+ * @author Cwek
  */
 $messages['zh-hans'] = array(
 	'fancycaptcha-addurl' => '你的编辑内容中含有本网站以外的链接。为防止不当程式大量破坏，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
@@ -1645,6 +1651,8 @@ $messages['zh-hans'] = array(
 	'fancycaptcha-create' => '为防止不当程式大量建立页面，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
 	'fancycaptcha-edit' => '如你想要编辑這个页面，请输入以下的文字（[[Special:Captcha/help|相关信息]]）：',
 	'fancycaptcha-sendemail' => '为防止不当程式进行破坏，请输入以下的文字（[[Special:Captcha/help|相关资讯]]）：',
+	'fancycaptcha-reload-button' => '刷新',
+	'fancycaptcha-reload-text' => '刷新',
 );
 
 /** Traditional Chinese (中文（繁體）‎)

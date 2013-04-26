@@ -1291,6 +1291,7 @@ $messages['yi'] = array(
 );
 
 /** Simplified Chinese (中文（简体）‎)
+ * @author Cwek
  */
 $messages['zh-hans'] = array(
 	'questycaptcha-addurl' => '您的编辑内容中含有本网站以外的连结。为防止不当程式大量破坏，请回答以下的问题（[[Special:Captcha/help|相关资讯]]）：',
@@ -1299,6 +1300,13 @@ $messages['zh-hans'] = array(
 	'questycaptcha-create' => '为防止不当程式大量建立页面，请回答以下问题（[[Special:Captcha/help|相关资讯]]）：',
 	'questycaptcha-edit' => '为防破坏，如您想要编辑此页面，请回答以下的问题（[[Special:Captcha/help|相关资讯]]）：',
 	'questycaptcha-sendemail' => '为防止不当程式破解密码，请回答下列问题（[[Special:Captcha/help|相关资讯]]）：',
+	'questycaptchahelp-text' => '像本站一样，对公众开放编辑的网站经常被垃圾连结骚扰。那些人使用自动化垃圾程序将他们的连结张贴到很多网站。虽然这些连结可以被清除，但是这些东西确实令人十分讨厌。
+
+有时，特别是当给一个页面添加新的网页链接时，本站会让你看一幅有颜色的或者有变形文字的图像，并且要你输入所显示的文字。因为这是难以自动完成的一项任务，它将允许人保存他们的编辑，同时阻止大多数发送垃圾邮件者和其他机器人的攻击。
+
+令人遗憾是，这会使得视力不好的人，或者使用基於文本或者基於声音的浏览器的用户感到不便。而目前我们还没有提供的音频的选择。如果这正好阻止你进行正常的编辑，请和[[{{MediaWiki:Grouppage-sysop}}|站点管理员]]联系获得帮助。
+
+点击浏览器中的“后退”按钮返回你所编辑的页面。',
 );
 
 /** Traditional Chinese (中文（繁體）‎)

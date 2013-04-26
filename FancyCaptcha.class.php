@@ -98,25 +98,16 @@ class FancyCaptcha extends SimpleCaptcha {
 		$index = $this->getCaptchaIndex();
 
 		if ( $wgEnableAPI ) {
-			$reloadText = wfMessage( 'fancycaptcha-reload-text' )->text();
-
 			// Loaded only if JS is enabled
 			$wgOut->addModules( 'ext.confirmEdit.fancyCaptcha' );
 
-			$captchaReload = "<span class='confirmedit-captcha-reload fancycaptcha-reload'>" .
-			Html::element( 'img', array(
-					'class'  => 'fancycaptcha-reload-button',
-					'src'    => $wgExtensionAssetsPath . '/ConfirmEdit/images/fancycaptcha-reload-icon.png',
-					'alt'    => wfMessage( 'fancycaptcha-reload-button' )->text(),
-					'title'  => $reloadText
-				)
-			) .
-			Html::element( 'small', array(
-					'class'  => 'fancycaptcha-reload-text'
+			$captchaReload = Html::element(
+				'small',
+				array(
+					'class' => 'confirmedit-captcha-reload fancycaptcha-reload'
 				),
-				$reloadText
-			) .
-			"</span>\n";
+				wfMessage( 'fancycaptcha-reload-text' )->text()
+			);
 		} else {
 			$captchaReload = '';
 		}

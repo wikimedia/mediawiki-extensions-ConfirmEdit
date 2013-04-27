@@ -19,7 +19,6 @@ To help protect against automated spam, please enter the words that appear below
 	'fancycaptcha-create'        => 'To create the page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-edit'          => 'To edit this page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-sendemail'     => 'To help protect against automated spamming, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-reload-button' => 'Refresh',
 	'fancycaptcha-reload-text'   => 'Refresh',
 );
 
@@ -38,16 +37,7 @@ $messages['qqq'] = array(
 	'fancycaptcha-create' => '{{Related|ConfirmEdit-create}}',
 	'fancycaptcha-edit' => '{{Related|ConfirmEdit-edit}}',
 	'fancycaptcha-sendemail' => '{{Related|ConfirmEdit-sendemail}}',
-	'fancycaptcha-reload-button' => 'Alternative (alt) text for reload button to get a new FancyCaptcha image.
-
-The title attribute for the reload button is {{msg-mw|Fancycaptcha-reload-text}}.
-{{Identical|Refresh}}',
-	'fancycaptcha-reload-text' => 'Prompts a click to get a new FancyCaptcha image.
-
-Used as <code>title</code> attribute for an image.
-
-The <code>alt</code> attribute for the image is {{msg-mw|Fancycaptcha-reload-button}}.
-{{Identical|Refresh}}',
+	'fancycaptcha-reload-text' => 'Prompts a click to get a new FancyCaptcha image.',
 );
 
 /** Gheg Albanian (Gegë)
@@ -142,7 +132,6 @@ $messages['ast'] = array(
 	'fancycaptcha-create' => "Pa crear la páxina, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
 	'fancycaptcha-edit' => "Pa editar la páxina, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
 	'fancycaptcha-sendemail' => "P'ayudar a protexer escontra'l corréu puxarra automáticu, por favor escribi nel caxellu les pallabres qu'apaecen embaxo ([[Special:Captcha/help|más información]]):",
-	'fancycaptcha-reload-button' => 'Refrescar',
 	'fancycaptcha-reload-text' => 'Refrescar',
 );
 
@@ -184,7 +173,6 @@ $messages['be-tarask'] = array(
 	'fancycaptcha-create' => 'Для стварэньня старонкі, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
 	'fancycaptcha-edit' => 'Для рэдагаваньня гэтай старонкі, калі ласка, увядзіце словы, якія паказаныя ў выяве ([[Special:Captcha/help|болей інфармацыі]]):',
 	'fancycaptcha-sendemail' => 'У мэтах абароны супраць аўтаматычнага спаму, калі ласка, увядзіце словы паказаныя ніжэй у полі ([[Special:Captcha/help|дадатковая інфармацыя]]):',
-	'fancycaptcha-reload-button' => 'Абнавіць',
 	'fancycaptcha-reload-text' => 'Абнавіць',
 );
 
@@ -279,7 +267,6 @@ $messages['cs'] = array(
 	'fancycaptcha-create' => 'Abyste mohli založit stránku, musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 	'fancycaptcha-edit' => 'Abyste mohli editovat tuto stránku, musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 	'fancycaptcha-sendemail' => 'V rámci ochrany proti automatickému spamování musíte opsat níže zobrazená slova ([[Special:Captcha/help|více informací]]):',
-	'fancycaptcha-reload-button' => 'Obnovit',
 	'fancycaptcha-reload-text' => 'Vygenerovat nový kód',
 );
 
@@ -331,7 +318,6 @@ Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten 
 	'fancycaptcha-create' => 'Zur Erstellung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'fancycaptcha-edit' => 'Zur Bearbeitung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'fancycaptcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, gib bitte die Wörter unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
-	'fancycaptcha-reload-button' => 'Aktualisieren',
 	'fancycaptcha-reload-text' => 'Aktualisieren',
 );
 
@@ -507,7 +493,6 @@ Pour vérifier qu’il ne s’agit pas de pourriels automatisés, veuillez entre
 	'fancycaptcha-create' => 'Pour créer la page, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :',
 	'fancycaptcha-edit' => 'Pour modifier cette page, veuillez saisir les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’information]]) :',
 	'fancycaptcha-sendemail' => 'Afin de nous aider à prévenir le pollupostage automatisé, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
-	'fancycaptcha-reload-button' => 'Actualiser',
 	'fancycaptcha-reload-text' => 'Actualiser',
 );
 
@@ -551,7 +536,6 @@ Para contribuír na protección contra o spam automatizado, introduza as palabra
 	'fancycaptcha-create' => 'Para crear a páxina, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-edit' => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-sendemail' => 'Para contribuír na protección contra o spam automatizado, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-reload-button' => 'Refrescar',
 	'fancycaptcha-reload-text' => 'Refrescar',
 );
 
@@ -597,7 +581,6 @@ $messages['he'] = array(
 	'fancycaptcha-create' => 'כדי ליצור את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'fancycaptcha-edit' => 'כדי לערוך את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'fancycaptcha-sendemail' => 'כדי לעזור להתגונן מפני שליחת זבל אוטומטית, אנא הכניסו את המילים שמופיעות בתיבה למטה ([[Special:Captcha/help|מידע נוסף]]):',
-	'fancycaptcha-reload-button' => 'רענון',
 	'fancycaptcha-reload-text' => 'רענון',
 );
 
@@ -722,7 +705,6 @@ $messages['it'] = array(
 	'fancycaptcha-create' => 'Per creare la pagina si prega di inserire nella casella sottostante le parole che compaiono nella casella di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'fancycaptcha-edit' => 'Per modificare questa pagina si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'fancycaptcha-sendemail' => 'Come misura precauzionale nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
-	'fancycaptcha-reload-button' => 'Aggiorna',
 	'fancycaptcha-reload-text' => 'Aggiorna',
 );
 
@@ -741,7 +723,6 @@ $messages['ja'] = array(
 	'fancycaptcha-create' => 'ページを新規作成するには、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-edit' => 'このページを編集するには、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-sendemail' => '自動でのスパム攻撃を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-reload-button' => '更新',
 	'fancycaptcha-reload-text' => '更新',
 );
 
@@ -972,7 +953,6 @@ $messages['mk'] = array(
 	'fancycaptcha-create' => 'За да создадете страница, внесете ги зборовите на сликичката подолу ([[Special:Captcha/help|повеќе информации]]):',
 	'fancycaptcha-edit' => 'За да ја уредите страницава, внесете ги зборовите на сликичката подолу ([[Special:Captcha/help|повеќе информации]]):',
 	'fancycaptcha-sendemail' => 'За да се заштитиме од автоматизирано спамирање, препишете ги зборовите од сликичката во полето подолу ([[Special:Captcha/help|повеќе информации]]):',
-	'fancycaptcha-reload-button' => 'Превчитај',
 	'fancycaptcha-reload-text' => 'Превчитај',
 );
 
@@ -1015,7 +995,6 @@ $messages['ms'] = array(
 	'fancycaptcha-create' => 'Untuk mencipta laman ini, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 	'fancycaptcha-edit' => 'Untuk menyunting laman ini, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
 	'fancycaptcha-sendemail' => 'Untuk membanteras kegiatan spam secara automatik, anda diminta mengisi huruf-huruf berikut dalam kotak yang disediakan ([[Special:Captcha/help|maklumat lanjut]]):',
-	'fancycaptcha-reload-button' => 'Muat semula',
 	'fancycaptcha-reload-text' => 'Muat semula',
 );
 
@@ -1085,7 +1064,6 @@ Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming t
 	'fancycaptcha-create' => 'Voer de woorden die hieronder verschijnen in het invoerveld in om de pagina aan te maken ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-edit' => 'Voer de woorden die hieronder verschijnen in het invoerveld in om deze pagina te bewerken ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen geautomatiseerde spam ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-reload-button' => 'Verversen',
 	'fancycaptcha-reload-text' => 'Verversen',
 );
 
@@ -1245,7 +1223,6 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere mitte le parole 
 	'fancycaptcha-create' => 'Pe ccrejà sta pàgene, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-edit' => 'Pe cangià sta pàgene, pe piacere mitte le parole combare aqquà sotte ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-sendemail' => "Pe aiutà a proteggere condre a spam automatece, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
-	'fancycaptcha-reload-button' => 'Aggiorne',
 	'fancycaptcha-reload-text' => 'Aggiorne',
 );
 
@@ -1578,7 +1555,6 @@ $messages['vi'] = array(
 	'fancycaptcha-create' => 'Để tạo trang, xin hãy nhập những chữ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'fancycaptcha-edit' => 'Để sửa trang này, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'fancycaptcha-sendemail' => 'Để giúp chúng tôi chống lại spam tự động, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
-	'fancycaptcha-reload-button' => 'Làm tươi',
 	'fancycaptcha-reload-text' => 'Làm tươi',
 );
 

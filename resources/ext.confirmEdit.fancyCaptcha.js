@@ -1,14 +1,11 @@
 ( function ( $, mw ) {
 	var api = new mw.Api();
 	$( document ).on( 'click', '.fancycaptcha-reload', function () {
-		var staticImageDirectory = mw.config.get( 'wgExtensionAssetsPath' ) + '/ConfirmEdit/images/',
-			$this = $( this ), reloadButtonImage, captchaImage;
+		var $this = $( this ), $captchaImage;
 
-		reloadButtonImage = $this
-			.find( '.fancycaptcha-reload-button' )
-			.attr( 'src', staticImageDirectory + 'ajax-loader-10x10.gif' );
+		$this.addClass( 'fancycaptcha-reload-loading' );
 
-		captchaImage = $( '.fancycaptcha-image' );
+		$captchaImage = $( '.fancycaptcha-image' );
 
 		// AJAX request to get captcha index key
 		api.post( {
@@ -22,9 +19,9 @@
 			captchaIndex = $( xmldata ).find( 'fancycaptchareload' ).attr( 'index' );
 			if ( typeof captchaIndex === 'string' ) {
 				// replace index key with a new one for captcha image
-				imgSrc = captchaImage.attr( 'src' )
+				imgSrc = $captchaImage.attr( 'src' )
 				.replace( /(wpCaptchaId=)\w+/, '$1' + captchaIndex );
-				captchaImage.attr( 'src', imgSrc );
+				$captchaImage.attr( 'src', imgSrc );
 
 				// replace index key with a new one for hidden tag
 				$( '#wpCaptchaId' ).val( captchaIndex );
@@ -32,7 +29,7 @@
 			}
 		} )
 		.always( function () {
-			reloadButtonImage.attr( 'src', staticImageDirectory + 'fancycaptcha-reload-icon.png' );
+			$this.removeClass( 'fancycaptcha-reload-loading' );
 		} );
 
 		return false;

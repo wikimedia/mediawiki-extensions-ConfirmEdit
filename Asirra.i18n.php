@@ -39,6 +39,21 @@ $messages['qqq'] = array(
 	'asirra-failed' => 'Used as alert message in JavaScript code.',
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'asirra-desc' => 'Módulu Asirra pa ConfirmEdit',
+	'asirra-edit' => "P'ayudanos a protexenos escontra el spam d'edición automática, esbille namái les fotos de gatos nel cuadru d'abaxo:",
+	'asirra-addurl' => "La so edición incluye enllaces esternos nuevos. P'ayudar a protexenos escontra'l spam automáticu, esbille namái les fotos de gatos nel cuadru d'abaxo:",
+	'asirra-badpass' => "P'ayudar a protexenos escontra'l frayamientu de claves automáticu, esbille namái les fotos de gatos nel cuadru d'abaxo:",
+	'asirra-createaccount' => "P'ayudar a protexenos escontra la creación de cuentes automática, esbille namái les fotos de gatos nel cuadru d'abaxo:",
+	'asirra-createaccount-fail' => 'Identifique correutamente los gatos.',
+	'asirra-create' => "P'ayudar a protexenos escontra la creación de páxines automática, esbille namái les fotos de gatos nel cuadru d'abaxo:",
+	'asirra-nojs' => "'''Por favor active JavaScript y vuelva a unviar la páxina.'''",
+	'asirra-failed' => 'Identifique toles imaxes de gatos',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by

@@ -942,6 +942,13 @@ $messages['lo'] = array(
 	'fancycaptcha-edit' => 'ກະລຸນາ ພິມຄຳສັບຂ້າງລຸ່ມນີ້ ໃສ່ໃນກັບ ເພື່ອ ດັດແກ້ໜ້ານີ້ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມຕື່ມ]]):',
 );
 
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'fancycaptcha-createaccount' => 'Untuak palinduangan tahadok pambuek akun otomatis, tolong masuakan kato di bawah ko ka kotak nan tasadio ([[Special:Captcha/help|info labiah lanjuik]]):',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */

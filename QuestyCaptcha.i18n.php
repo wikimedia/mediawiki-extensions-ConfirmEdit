@@ -753,6 +753,20 @@ Kontaktéiert w.e.g. d'[[{{MediaWiki:Grouppage-sysop}}|Administrateure vun dëse
 Dréckt op den 'Zréck' Knäppche vun ärem Browser fir an d'Beaarbechtungsfënster zréckzekommen.",
 );
 
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'questycaptchahelp-text' => 'Laman-laman web nan manarimo tulisan dari urang banyak (publik), samacam wiki ko, acok kali disalahgunoan dek pangguno-pangguno nan indak batangguang-jawek untuak mangiriman spam manggunoan program-program otomatis. Walaupun pautan-pautan spam tasabuik dapek sajo dihapuih, tapi tatap sajo manimbulan gangguan.
+
+Kadang-kadang, sangkek tangah manambahan pautan web baru ka suatu laman, wiki ko akan mangagiah sabuah patanyaan untuak Sanak jawek.
+Dek iko marupoan suatu karajo nan sulik untuak dibuek sacaro otomatis, pakaro ko akan mudah dilalui dek urang (manusia), sakaliguih dapek manghantian hampiang kasado sarangan spam dan robot otomatis lainnyo.
+
+Silakan hubuangi panguruih untuak mintak bantuan koq pakaro ko manghambaik Sanak untuak mambuek suntiangan nan layak.
+
+Takan tombol "back" di paramban web Sanak untuak baliak ka laman panyuntiangan.', # Fuzzy
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */

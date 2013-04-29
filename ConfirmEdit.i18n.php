@@ -2406,6 +2406,23 @@ $messages['mg'] = array(
 	'right-skipcaptcha' => 'Manao tao mampisy ny captcha fa tsy mila mameno azy',
 );
 
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'captchahelp-text' => 'Laman-laman web nan manarimo tulisan dari urang banyak (publik), samacam wiki ko, acok kali disalahgunoan dek pangguno-pangguno nan indak batangguang-jawek untuak mangiriman spam manggunoan program-program otomatis.
+Walaupun pautan-pautan spam tasabuik dapek sajo dihapuih, tapi tatap sajo manimbulan gangguan.
+
+Kadang-kadang, sangkek tangah manambahan pautan web baru ka suatu laman, wiki ko akan manampilan sabantuak gambar dari tulisan nan bawarna ataupun tadistorsi. Dan sudah tu, Sanak dimintak untuak mangetikkan tulisan nan nampak tu.
+Dek iko marupoan suatu karajo nan sulik untuak dibuek sacaro otomatis, pakaro ko akan mudah dilalui dek urang (manusia), sakaliguih dapek manghantian hampiang kasado sarangan spam dan robot otomatis lainnyo.
+
+Sayangnyo, hal iko mambuek sarik bagi pangguno nan tabateh panglihatannyo atau dek pangguno nan manggunoan paramban web babasis-teks ataupun babasis-suaro.
+Kini ko, kami alun dapek alternatip lain untuak manggunoan suaro buek pakaro ko.
+Silakan hubuangi [[{{MediaWiki:Grouppage-sysop}}|panguruih]] untuak mintak bantuan koq pakaro ko manghambaik Sanak untuak mambuek suntiangan nan layak.
+
+Takan tombol "back" di paramban web Sanak untuak baliak ka laman panyuntiangan.',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest

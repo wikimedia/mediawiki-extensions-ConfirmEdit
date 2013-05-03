@@ -119,6 +119,7 @@ class FancyCaptcha extends SimpleCaptcha {
 					'alt'    => ''
 				)
 			) .
+			$captchaReload .
 			"</div>\n" .
 			'<p>' .
 			Html::element( 'label', array(
@@ -137,7 +138,6 @@ class FancyCaptcha extends SimpleCaptcha {
 					'tabindex' => 1
 				)
 			) . // tab in before the edit textarea
-			$captchaReload .
 			Html::element( 'input', array(
 					'type'  => 'hidden',
 					'name'  => 'wpCaptchaId',

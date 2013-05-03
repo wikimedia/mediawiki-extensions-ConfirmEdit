@@ -7,6 +7,8 @@
 layout, for normal CAPTCHA sizes. */
 .fancycaptcha-image-container {
 	min-height: 95px;
+	position: relative; /* to position Reload link within this */
+	display: inline-block;
 }
 
 .client-nojs .fancycaptcha-reload {
@@ -30,4 +32,10 @@ layout, for normal CAPTCHA sizes. */
 .fancycaptcha-reload-loading {
 	/* @embed */
 	background: url(images/ajax-loader-10x10.gif) no-repeat scroll left center transparent;
+}
+
+.fancycaptcha-image-container .fancycaptcha-reload {
+	position: absolute;
+	bottom: 0;
+	right: 4px;
 }

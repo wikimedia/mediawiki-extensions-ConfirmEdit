@@ -396,6 +396,7 @@ Por preventi aŭtomatan spamon, bonvolu enigi la jenajn vortojn en la skatolo ([
 );
 
 /** Spanish (español)
+ * @author Fitoschido
  * @author Icvav
  * @author Pertile
  * @author Sanbec
@@ -407,6 +408,7 @@ $messages['es'] = array(
 	'fancycaptcha-create' => 'Para crear la página, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
 	'fancycaptcha-edit' => 'Para editar esta página, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
 	'fancycaptcha-sendemail' => 'Para protegernos contra el spam automatizado por favor ingrese las palabras que aparecen en el siguiente cuadro ([[Special:Captcha/help|más información]]):',
+	'fancycaptcha-reload-text' => 'Actualizar',
 );
 
 /** Estonian (eesti)
@@ -421,7 +423,7 @@ Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaad
 	'fancycaptcha-create' => 'Lehekülje loomiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|lisateave]]):',
 	'fancycaptcha-edit' => 'Selle lehekülje muutmiseks sisesta palun allpool olevas kastis kuvatud sõnad ([[Special:Captcha/help|lisateave]]):',
 	'fancycaptcha-sendemail' => 'Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaadistatud rämpsmuudatuste vastu ([[Special:Captcha/help|lisateave]]):',
-	'fancycaptcha-reload-text' => 'Vahetamine',
+	'fancycaptcha-reload-text' => 'Vaheta',
 );
 
 /** Basque (euskara)

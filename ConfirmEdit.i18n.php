@@ -2421,6 +2421,7 @@ Kini ko, kami alun dapek alternatip lain untuak manggunoan suaro buek pakaro ko.
 Silakan hubuangi [[{{MediaWiki:Grouppage-sysop}}|panguruih]] untuak mintak bantuan koq pakaro ko manghambaik Sanak untuak mambuek suntiangan nan layak.
 
 Takan tombol "back" di paramban web Sanak untuak baliak ka laman panyuntiangan.',
+	'right-skipcaptcha' => 'Mamicu CAPTCHA tanpa malaluinyo',
 );
 
 /** Macedonian (македонски)

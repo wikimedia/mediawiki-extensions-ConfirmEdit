@@ -846,6 +846,7 @@ $messages['ko'] = array(
 	'fancycaptcha-create' => '문서를 만드려면 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
 	'fancycaptcha-edit' => '이 문서를 편집하려면 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
 	'fancycaptcha-sendemail' => '자동화된 스팸으로부터 보호하기 위해 아래의 상자 안에 있는 낱말을 입력해주세요 ([[Special:Captcha/help|자세한 정보]]):',
+	'fancycaptcha-reload-text' => '새로 고침',
 );
 
 /** Karachay-Balkar (къарачай-малкъар)

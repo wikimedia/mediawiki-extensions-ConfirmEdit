@@ -131,6 +131,7 @@ class FancyCaptcha extends SimpleCaptcha {
 					'id'   => 'wpCaptchaWord',
 					'type' => 'text',
 					'size' => '12',  // max_length in captcha.py plus fudge factor
+					'autocomplete' => 'off',
 					'autocorrect' => 'off',
 					'autocapitalize' => 'off',
 					'required' => 'required',

@@ -292,6 +292,7 @@ Er mwyn ceisio rhwystro peiriannau sbam, byddwch gystal â theipio'r geiriau a w
 
 /** Danish (dansk)
  * @author Christian List
+ * @author HenrikKbh
  * @author Kaare
  * @author Peter Alberti
  */
@@ -302,6 +303,7 @@ $messages['da'] = array(
 	'fancycaptcha-create' => 'For at oprette en ny side, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'fancycaptcha-edit' => 'For at redigere denne side, indtast da venligst ordene, der står i feltet nedenfor ([[Special:Captcha/help|mere information]]):',
 	'fancycaptcha-sendemail' => 'For at beskytte mod automatisk spam, bedes du skrive ordene der ses herunder i boksen ([[Special:Captcha/help|mere information]]):',
+	'fancycaptcha-reload-text' => 'Opdater',
 );
 
 /** German (Deutsch)

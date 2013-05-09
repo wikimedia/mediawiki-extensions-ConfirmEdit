@@ -1088,7 +1088,7 @@ $messages['nl-informal'] = array(
 Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -1099,6 +1099,8 @@ For å hjelpa oss med å unngå automatisert spam, ver venleg og skriv inn orda 
 	'fancycaptcha-createaccount' => 'Skriv inn orda som kjem til syne i boksen nedanfor for å hjelpa oss med å unngå automatisk kontooppretting ([[Special:Captcha/help|meir informasjon]]):',
 	'fancycaptcha-create' => 'Skriv inn orda som kjem til syne i boksen nedanfor for å oppretta sida ([[Special:Captcha/help|meir informasjon]]):',
 	'fancycaptcha-edit' => 'For å endra denne sida, ver venleg og skriv inn orda som kjem til syne i boksen nedanfor ([[Special:Captcha/help|meir informasjon]]):',
+	'fancycaptcha-sendemail' => 'For å hjelpa til mot sjølvgåande spamming, skriv inn orda som kjem til syne i boksen under ([[Special:Captcha/help|meir informasjon]]):',
+	'fancycaptcha-reload-text' => 'Oppdater',
 );
 
 /** Occitan (occitan)

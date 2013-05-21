@@ -878,6 +878,7 @@ don di Wööt onge en dat Käßje endraare. (Verklierung)',
 	'fancycaptcha-sendemail' => 'Öm et Wiki jääje automattesch enjedraare SPAM ze schötze,
 bes esu joot, donn di Wööter enjävve, di en däm Käßje heh dronger shtonn.
 ([[Special:Captcha/help|Mieh Enfommazjuhne]])',
+	'fancycaptcha-reload-text' => 'Nöü Aanzeije!',
 );
 
 /** Cornish (kernowek)

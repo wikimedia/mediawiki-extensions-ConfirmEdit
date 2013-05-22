@@ -340,6 +340,7 @@ Zum Schutz vor automatisiertem Spamming geben Sie das folgende Wort in das Feld 
 );
 
 /** Zazaki (Zazaki)
+ * @author Gorizon
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -351,6 +352,7 @@ Qe otomatik spamî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan 
 	'fancycaptcha-edit' => 'Qe pel vurnayîşî, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'fancycaptcha-sendemail' => 'Qe spamê otomayoni ra pawitîşi, ma rica keno çekuyanê ke qutiya cor de înan binuse 
 ([[Special:Captcha/help|enformasyonê bînî]]):',
+	'fancycaptcha-reload-text' => 'Newe ke',
 );
 
 /** Lower Sorbian (dolnoserbski)

@@ -450,7 +450,12 @@ $messages['pt-br'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'recaptcha-edit' => "Pe darne 'na màne a proteggere condre le cangiaminde automatece de le rummate, pe piacere scrive le doje parole ca 'ndruche jndr'à buatte aqquà sotte:",
+	'recaptcha-addurl' => "Le cangiaminde tune 'ngludone collegaminde de fore nuève. Pe darne 'na màne a proteggere condre le cangiaminde automatece de le rummate, pe piacere scrive le doje parole ca 'ndruche jndr'à buatte aqquà sotte:",
+	'recaptcha-badpass' => "Pe darne 'na màne a proteggere condre le futteminde automatece de le passuord, pe piacere scrive le doje parole ca 'ndruche jndr'à buatte aqquà sotte:",
+	'recaptcha-createaccount' => "Pe darne 'na màne a proteggere condre le ccrejaziune automatece de le cunde, pe piacere scrive le doje parole ca 'ndruche jndr'à buatte aqquà sotte:",
 	'recaptcha-createaccount-fail' => 'Resposte reCAPTCHA ingorrette o mangande.',
+	'recaptcha-create' => "Pe darne 'na màne a proteggere condre le ccrejaziune automatece de le pàggene, pe piacere scrive le doje parole ca 'ndruche jndr'à buatte aqquà sotte:",
 );
 
 /** Russian (русский)

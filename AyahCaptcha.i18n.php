@@ -31,12 +31,6 @@ While these spam links can be removed, they are a significant nuisance.
 Sometimes, especially when adding new web links to a page, the wiki may ask you to complete a PlayThru puzzle.  Since this is a task that's hard to automate, it will allow most real humans to make their posts while stopping most spammers and other robotic attackers.  Please contact the  [[{{MediaWiki:Grouppage-sysop}}|site administrators]] for assistance if this is unexpectedly preventing you from making legitimate actions.
 
 Hit the 'back' button in your browser to return to the page editor.",
-	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>
-# Syntax is as follows:
-#   * Everything from a "#" character to the end of the line is a comment
-#   * Every non-blank line is a regex fragment which will only match hosts inside URLs
- #</pre> <!-- leave this line exactly as it is -->',
-	'right-skipcaptcha'          => 'Perform CAPTCHA-triggering actions without having to go through the CAPTCHA',
 );
 
 /** Message documentation (Message documentation)
@@ -70,13 +64,19 @@ See also
 See also
 *{{msg-mw|Questycaptcha-createaccount}}
 *{{msg-mw|Fancycaptcha-createaccount}}',
+	'ayahcaptcha-createaccount-fail' => 'Used as failure message.
+{{Related|ConfirmEdit-createaccount-fail}}',
 	'ayahcaptcha-create' => 'This message will be shown when creating a page if the wiki requires solving a captcha for that.
 See also
 *{{msg-mw|Questycaptcha-create}}
 *{{msg-mw|Fancycaptcha-create}}',
         'ayahcaptcha-nojs'  => 'This message will be shown when a PlayThru should be shown, but user has JavaScript disabled.',
-	'captchahelp-title' => 'The page title of [[Special:Captcha/help]]',
-	'captchahelp-text' => 'This is the help text shown on [[Special:Captcha/help]].',
-	'ayahcaptcha-addurl-whitelist' => "See also: [[MediaWiki:Spam-blacklist]] and [[MediaWiki:Spam-whitelist]]. Leave all the wiki markup, including the spaces, as is. You can translate the text, including 'Leave this line exactly as it is'. The first line of this messages has one (1) leading space.",
-	'right-skipcaptcha' => '{{doc-right|skipcaptcha}}',
+	'ayahcaptcha-sendemail' => 'Used as footer text.
+{{Related|ConfirmEdit-sendemail}}',
+	'ayahcaptcha-sendemail-fail' => 'Used as failure message.
+
+See also:
+* {{msg-mw|Captcha-createaccount-fail}}',
+	'ayahcaptcha-disabledinapi' => 'Used as error message when in the API mode.',
+	'ayahcaptchahelp-text' => 'This is the help text shown on [[Special:Captcha/help]].',
 );

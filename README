@@ -21,6 +21,9 @@ questions defined by the administrator(s)
 visually or audially, from a widget provided by the reCAPTCHA service
 * Asirra - users have to identify the cats in a set of photos of cats
 and dogs, from a widget provided by the Microsoft Asirra service
+* AreYouAHuman (aka PlayThru) - users have to play a very short game, in
+which the user matches related objects.  Demo at:
+http://areyouahuman.com/demo/
 
 == License ==
 
@@ -38,6 +41,8 @@ The QuestyCaptcha module was written by Benjamin Lees.
 The reCAPTCHA module was written by Mike Crawford and Ben Maurer.
 
 The Asirra module was written by Bachsau.
+
+The AreYouAHuman module was written by strix.
 
 Additional maintenance work was done by Yaron Koren.
 

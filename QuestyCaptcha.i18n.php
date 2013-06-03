@@ -842,7 +842,7 @@ Jekk jogħġbok ikkuntatja lill-[[{{MediaWiki:Grouppage-sysop}}|amministraturi t
 Iklikkja fuq il-buttuna 'lura' tal-browżer tiegħek sabiex tirritorna għall-editur ta-paġna.",
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Helland
  * @author Nghtwlkr
  * @author Simny
@@ -905,7 +905,7 @@ Vraag assistentie van de [[{{MediaWiki:Grouppage-sysop}}|sitebeheerders]] als di
 Klik op de knop "terug" in je browser om terug te gaan naar het tekstbewerkingsscherm.',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Gunnernett
  */
 $messages['nn'] = array(

@@ -322,7 +322,7 @@ $messages['mt'] = array(
 	'asirra-failed' => 'Sib l-istampi kollha tal-qtates',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Event
  */
 $messages['nb'] = array(

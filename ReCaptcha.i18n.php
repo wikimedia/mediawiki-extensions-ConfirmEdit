@@ -364,7 +364,7 @@ $messages['mt'] = array(
 	'recaptcha-create' => "Sabiex tgħinna nipproteġu kontra l-ħolqien awtomatiku ta' paġni, jekk jogħġbok ikteb iż-żewġ kelmiet li tara fil-kaxxa t'hawn taħt:",
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Event
  */
 $messages['nb'] = array(

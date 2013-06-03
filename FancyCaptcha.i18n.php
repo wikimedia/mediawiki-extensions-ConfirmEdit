@@ -105,7 +105,7 @@ $messages['arz'] = array(
 	'fancycaptcha-edit' => 'علشان تعدل فى الصفحة دى،لو سمحت تكتب الكلمات اللى باينة تحت فى الصندوء  ([[Special:Captcha/help|معلومات زيادة]]):',
 );
 
-/** Assamese (অসমীয়া)
+/** Assamese (অসমীয়া)
  * @author Chaipau
  * @author Gitartha.bordoloi
  * @author Rajuonline
@@ -1029,7 +1029,7 @@ Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok solvi din is-somma se
 	'fancycaptcha-sendemail' => 'Bħala prekawzjoni kontra l-ispam awtomatiku, jekk jogħġbok daħħal fil-kaxxa l-ittri li jidhru hawn taħt ([[Special:Captcha/help|aktar informazzjoni]]):',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Harald Khan
  * @author Laaknor
  * @author Njardarlogar
@@ -1056,7 +1056,7 @@ As Schutz gegen automaatsch Spam, geev disse Bookstavenreeg in dat Feld ünnen i
 	'fancycaptcha-edit' => 'Disse Sied to ännern, geev disse Bookstavenreeg in dat Feld ünnen in ([[Special:Captcha/help|mehr Infos]]).',
 );
 
-/** Nedersaksies (Nedersaksies)
+/** Low Saxon (Netherlands) (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(
@@ -1121,7 +1121,7 @@ $messages['oc'] = array(
 	'fancycaptcha-sendemail' => "Per tal de nos ajudar a prevenir lo spam automatic, entratz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’informacions]]) :",
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Psubhashish
  */
 $messages['or'] = array(

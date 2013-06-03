@@ -1325,6 +1325,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎)
  * @author Horacewai2
+ * @author Justincheng12345
  * @author Waihorace
  */
 $messages['zh-hant'] = array(
@@ -1334,4 +1335,11 @@ $messages['zh-hant'] = array(
 	'questycaptcha-create' => '為防止不當程式大量建立頁面，請回答以下問題（[[Special:Captcha/help|相關資訊]]）：',
 	'questycaptcha-edit' => '為防破壞，如您想要編輯此頁面，請回答以下的問題（[[Special:Captcha/help|相關資訊]]）：',
 	'questycaptcha-sendemail' => '為防止不當程式破解密碼，請回答下列問題（[[Special:Captcha/help|相關資訊]]）：',
+	'questycaptchahelp-text' => '像本維基一样，對公眾開放編輯的網站經常受垃圾連結騷擾。那些人使用自動化程式將他們的連結張貼至很多網站。雖然可以清除這些連結，但是這些連結的確十分討厭。
+
+有時，特别是為某一頁面加入新連結時，本維基會讓你看一幅有顏色或變形文字的圖片，並要求你輸入圖片中顯示的文字。因為此項任務難以自動完成，它將允許人類繼續儲存其編輯，同時阻止大多數發送垃圾郵件的人和其他機械人的攻擊。
+
+令人遺憾是，這會使視力不好的人或者使用基於文本或聲音的瀏覽器用戶感到不便。然而我們目前尚未提供音頻選擇。如果這阻止了你進行正常編輯，請與[[{{MediaWiki:Grouppage-sysop}}|管理員]]聯繫獲得幫助。
+
+按下瀏覽器的「返回」按鈕回到你所編輯的頁面。',
 );

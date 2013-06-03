@@ -684,6 +684,7 @@ Tapno  masalakniban kadagiti automatiko a spam, pangaasim nga ikabil ti balikas 
 	'fancycaptcha-create' => 'Tapno makaaramid ti panid, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):',
 	'fancycaptcha-edit' => 'Tapno makaurnos daytoy a panid, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):',
 	'fancycaptcha-sendemail' => 'Tapno  makasalaknib kadagiti automatiko a pinagspam, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'fancycaptcha-reload-text' => 'Pasadiwaen',
 );
 
 /** Icelandic (íslenska)
@@ -1654,6 +1655,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎)
  * @author Horacewai2
+ * @author Justincheng12345
  * @author Waihorace
  */
 $messages['zh-hant'] = array(
@@ -1663,4 +1665,5 @@ $messages['zh-hant'] = array(
 	'fancycaptcha-create' => '為防止不當程式大量建立頁面，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
 	'fancycaptcha-edit' => '如您想要編輯此頁面，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
 	'fancycaptcha-sendemail' => '為防止不當程式進行破壞，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
+	'fancycaptcha-reload-text' => '重新整理',
 );

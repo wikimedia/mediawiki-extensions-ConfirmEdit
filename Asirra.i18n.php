@@ -270,6 +270,7 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'asirra-desc' => 'Asirra-Modul fir ConfirmEdit',
+	'asirra-edit' => "Fir ze hëllefe eis géint automatiséierte Spam ze schützen froe mir Iech just d'Fotoe mat Kazen, déi Dir an der Këscht ënnendrënner gesitt, erauszesichen:",
 	'asirra-addurl' => "An Ärer Ännerung sinn nei extern Linken. Fir ze hëllefe géint automatiséierte Spam virzegoen, sicht w.e.g. d'Kategorie vun de Fotoen an der Këscht ënnendrënner eraus:",
 	'asirra-createaccount-fail' => "Identifizéiert d'Kaze w.e.g. richteg.",
 	'asirra-nojs' => "'''Aktivéiert w.e.g. JavaScript a schéckt d'Säit nachemol.'''",

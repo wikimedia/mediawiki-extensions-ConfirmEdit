@@ -364,15 +364,16 @@ $messages['azb'] = array(
 
 /** Bashkir (башҡортса)
  * @author Assele
+ * @author Рустам Нурыев
  * @author ҒатаУлла
  */
 $messages['ba'] = array(
 	'captcha-edit' => 'Был битте мөхәррирләү өсөн, зинһар, ябай мәсьәләне сисегеҙ һәм яуабын түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):',
-	'captcha-desc' => 'Спамдан һәм паролде яратыуҙан һаҡлау өсөн CAPTCHA ысулдары менән тәьмин итә',
+	'captcha-desc' => 'Спамдан һәм серһүҙҙе һайлып алыуҙан һаҡланыу өсөн CAPTCHA ысулдары менән тәьмин итә',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'Һеҙҙең текстығыҙҙа яңы тышҡы һылтанмалар бар.
 Автоматик спамдан һаҡлау маҡсатында, зинһар, ябай мәсьәләне сисегеҙ һәм яуабын түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):', # Fuzzy
-	'captcha-badlogin' => 'Паролде автоматик ватыуҙан һаҡлау маҡсатында, зинһар, ябай мәсьәләне сисегеҙ һәм яуабын түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):', # Fuzzy
+	'captcha-badlogin' => 'Серһүҙҙе автоматик ватыуҙан һаҡлау маҡсатында, зинһар, ябай мәсьәләне сисегеҙ һәм яуабын түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):',
 	'captcha-createaccount' => 'Иҫәп яҙмаларын автоматик булдырыуҙан һаҡлау маҡсатында, зинһар, ябай мәсьәләне сисегеҙ һәм яуабын түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):', # Fuzzy
 	'captcha-createaccount-fail' => 'Раҫлау коды керетелмәгән йәки дөрөҫ түгел.',
 	'captcha-create' => 'Яңы бит булдырыу өсөн, зинһар, ябай мәсьәләне сисегеҙ һәм яуабын түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):',
@@ -1227,6 +1228,7 @@ $messages['fa'] = array(
  * @author Linnea
  * @author Nedergard
  * @author Nike
+ * @author Stryn
  * @author Varusmies
  */
 $messages['fi'] = array(
@@ -1239,7 +1241,7 @@ Automatisoitujen roskamuokkausten välttämiseksi ratkaise alla oleva summa ja k
 	'captcha-createaccount' => 'Automaattisen käyttäjätunnusten luonnin estämiseksi ratkaise alla oleva summa ja kirjoita se kenttään ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-createaccount-fail' => 'Väärä tai puuttuva varmistuskoodi.',
 	'captcha-create' => 'Ratkaise alla oleva summa jatkaaksesi ([[Special:Captcha/help|lisätietoja]]):',
-	'captcha-sendemail' => 'Jotta auttaisit suojautumaan automaattiselta roskapostitukselta, ratkaise alla oleva yksinkertainen yhteenlasku ja kirjoita vastaus laatikkoon ([[Special:Captcha/help|lisätietoja]]):', # Fuzzy
+	'captcha-sendemail' => 'Jotta auttaisit wikiä suojautumaan automaattiselta roskapostitukselta, pyydämme sinua ystävällisesti ratkaisemaan alla olevan yksinkertaisen yhteenlaskun ja kirjoittamaan vastauksen laatikkoon ([[Special:Captcha/help|lisätietoja]]):',
 	'captcha-sendemail-fail' => 'Virheellinen tai puuttuva vahvistuskoodi',
 	'captcha-disabledinapi' => 'Tämä toiminto vaatii kuvavarmennusta, joten et voi suorittaa sitä APIn kautta.',
 	'captchahelp-title' => 'Captcha-ohje',
@@ -1248,7 +1250,7 @@ Automatisoitujen roskamuokkausten välttämiseksi ratkaise alla oleva summa ja k
 
 Joskus, erityisesti kun lisäät uusia linkkejä, saatat nähdä kuvan, jossa on värillistä ja vääristynyttä tekstiä, ja sinua pyydetään kirjoittamaan sen sisältämät sanat. Koska tätä tehtävää on vaikea automatisoida, se sallii melkein kaikkien oikeiden ihmisten tehdä muutoksensa, mutta estää automaattiset lisäykset.
 
-Valitettavasti tämä saattaa estää käyttäjiä, joilla on rajoittunut näkökyky tai käyttäjiä, jotka käyttävät teksti- tai puhepohjaisia selaimia. Ota yhteyttä sivuston [[{{MediaWiki:Grouppage-sysop}}|sivuston ylläpitäjiin]], jos et pysty tekemään kunnollisia muutoksia.
+Valitettavasti tämä saattaa estää käyttäjiä, joilla on rajoittunut näkökyky tai käyttäjiä, jotka käyttävät teksti- tai puhepohjaisia selaimia. Ota yhteyttä [[{{MediaWiki:Grouppage-sysop}}|sivuston ylläpitäjiin]], jos et pysty tekemään kunnollisia muutoksia.
 
 Varmistus ei toimi, jos evästeet eivät ole käytössä.
 
@@ -2256,10 +2258,11 @@ Jetz kanns De met Dingem Brauser singem „Zeröck“-Knopp wigger maache, wo De
 
 /** Cornish (kernowek)
  * @author Kernoweger
+ * @author Nrowe
  */
 $messages['kw'] = array(
-	'captcha-createaccount-fail' => 'Coden afydhya camm po gwag.',
-	'captcha-sendemail-fail' => 'Coden afydhya camm po gwag.',
+	'captcha-createaccount-fail' => 'Koden afydhya kamm po gwag.',
+	'captcha-sendemail-fail' => 'Koden afydhya kamm po gwag.',
 );
 
 /** Kirghiz (Кыргызча)

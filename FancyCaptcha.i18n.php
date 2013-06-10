@@ -137,11 +137,12 @@ $messages['ast'] = array(
 
 /** Bashkir (башҡортса)
  * @author Assele
+ * @author Рустам Нурыев
  */
 $messages['ba'] = array(
 	'fancycaptcha-addurl' => 'Һеҙҙең текстығыҙҙа яңы тышҡы һылтанмалар бар.
 Автоматик спамдан һаҡлау маҡсатында, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):',
-	'fancycaptcha-badlogin' => 'Паролде автоматик ватыуҙан һаҡлау маҡсатында, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):',
+	'fancycaptcha-badlogin' => 'Серһүҙҙе автоматик ватыуҙан һаҡлау маҡсатында, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):',
 	'fancycaptcha-createaccount' => 'Иҫәп яҙмаларын автоматик булдырыуҙан һаҡлау маҡсатында, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):',
 	'fancycaptcha-create' => 'Яңы бит булдырыу өсөн, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):',
 	'fancycaptcha-edit' => 'Был битте мөхәррирләү өсөн, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):',
@@ -218,6 +219,7 @@ a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
 
 /** Bosnian (bosanski)
  * @author CERminator
+ * @author DzWiki
  */
 $messages['bs'] = array(
 	'fancycaptcha-addurl' => 'Vaša izmjena uključuje nove vanjske linkove.
@@ -227,6 +229,7 @@ Da bi se zaštitili od automatskog spama, molimo da unesete riječi koje su prik
 	'fancycaptcha-create' => 'Da bi ste napravili stranicu, molimo Vas unesite riječi koje su prikazane u kutiji ispod ([[Special:Captcha/help|više informacija]]):',
 	'fancycaptcha-edit' => 'Da bi ste uređivali ovu stranicu, molimo Vas unesite riječi koje su prikazane u kutiji ispod ([[Special:Captcha/help|više informacija]]):',
 	'fancycaptcha-sendemail' => 'Da bi pomogli u sprječavanju protiv automatskog spamovanja, molimo Vas da unesete riječi koje su prikazane ispod u kutiji ([[Special:Captcha/help|više informacija]]):',
+	'fancycaptcha-reload-text' => 'Osvježi',
 );
 
 /** Catalan (català)
@@ -886,9 +889,10 @@ bes esu joot, donn di Wööter enjävve, di en däm Käßje heh dronger shtonn.
 
 /** Cornish (kernowek)
  * @author Kernoweger
+ * @author Nrowe
  */
 $messages['kw'] = array(
-	'fancycaptcha-createaccount' => "Rag gwitha rag formya acontow awtomategys, gwrewgh entra an geryow usy ow tisqwedhes a-woles y'n gist ([[Special:Captcha/help|moy kedhlow]]):",
+	'fancycaptcha-createaccount' => "Rag gwitha rag gwruthyl akontow yawtomategys, entrewgh an geryow a omdhiskwa a-woles y'n gist ([[Special:Captcha/help|moy kedhlow]]):",
 );
 
 /** Kirghiz (Кыргызча)
@@ -986,6 +990,7 @@ $messages['ml'] = array(
 	'fancycaptcha-create' => 'ഈ താൾ സൃഷ്ടിക്കുവാൻ താഴെയുള്ള പെട്ടിയിൽ കാണുന്ന വാക്കുകൾ ടൈപ്പു ചെയ്യുക  ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):',
 	'fancycaptcha-edit' => 'ഈ താൾ തിരുത്തുവാൻ ദയവായി താഴെ കാണുന്ന വാക്കുകൾ പെട്ടിയിൽ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):',
 	'fancycaptcha-sendemail' => 'യാന്ത്രികമായ പാഴെഴുത്ത് ഉൾപ്പെടുത്തലിനുള്ള പ്രതിരോധമെന്ന നിലയിൽ, താഴെ കാണുന്ന വാക്കുകൾ പെട്ടിയിൽ ടൈപ്പ് ചെയ്യുക ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):',
+	'fancycaptcha-reload-text' => 'പുതുക്കുക',
 );
 
 /** Marathi (मराठी)
@@ -1030,6 +1035,7 @@ Sabiex tipproteġi kontra spam awtomatiku, jekk jogħġbok solvi din is-somma se
 );
 
 /** Norwegian Bokmål (norsk bokmål)
+ * @author Danmichaelo
  * @author Harald Khan
  * @author Laaknor
  * @author Njardarlogar
@@ -1042,6 +1048,7 @@ $messages['nb'] = array(
 	'fancycaptcha-create' => 'Skriv inn ordene som dukker opp i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
 	'fancycaptcha-edit' => 'For å endre denne siden, vennligst skriv inn ordene som dukker opp i boksen nedenfor ([[Special:Captcha/help|mer informasjon]]):',
 	'fancycaptcha-sendemail' => 'For å beskytte mot automatisert spam så må du skrive ordene under inn i tekstboksen ([[Special:Captcha/help|mer informasjon]]):',
+	'fancycaptcha-reload-text' => 'Last inn ny',
 );
 
 /** Low German (Plattdüütsch)
@@ -1419,6 +1426,7 @@ $messages['su'] = array(
 
 /** Swedish (svenska)
  * @author Ainali
+ * @author Thurs
  */
 $messages['sv'] = array(
 	'fancycaptcha-addurl' => 'Din ändring lägger till nya externa länkar i texten. För att skydda wikin mot
@@ -1433,6 +1441,7 @@ skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information
 ([[Special:Captcha/help|mer information]]):',
 	'fancycaptcha-sendemail' => 'För att skydda wikin mot automatiserad lösenordknäckning måste du skriva
 orden som visas härunder i rutan ([[Special:Captcha/help|mer information]]):',
+	'fancycaptcha-reload-text' => 'Uppdatera',
 );
 
 /** Tamil (தமிழ்)

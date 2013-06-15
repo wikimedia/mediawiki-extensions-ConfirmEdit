@@ -1349,6 +1349,7 @@ Zaradi zaščite pred samodejnim smetjem prosimo, da vnesete spodnje besede v po
 	'fancycaptcha-create' => 'Če želite ustvariti stran, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
 	'fancycaptcha-edit' => 'Če želite urediti stran, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
 	'fancycaptcha-sendemail' => 'Zaradi zaščite pred samodejnim smetenjem prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
+	'fancycaptcha-reload-text' => 'Osveži',
 );
 
 /** Somali (Soomaaliga)

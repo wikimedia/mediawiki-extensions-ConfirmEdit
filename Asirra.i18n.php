@@ -438,9 +438,16 @@ $messages['si'] = array(
 );
 
 /** Swedish (svenska)
+ * @author Jopparn
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
+	'asirra-edit' => 'För att skydda mot automatiserat redigerings-spam, markera endast fotografierna på katter i rutan nedan:',
+	'asirra-addurl' => 'Din redigering innehåller nya externa länkar. För att skydda mot automatiserade spam, markera endast fotografierna på katter i rutan nedan:',
+	'asirra-badlogin' => 'För att skydda mot automatiserade försök att knäcka lösenord, markera endast fotografierna på katter i rutan nedan:',
+	'asirra-createaccount' => 'För att skydda mot automatiserat kontoskapande, markera endast fotografierna på katter i rutan nedan:',
+	'asirra-create' => 'För att skydda mot automatiserat sidskapande, markera endast fotografierna på katter i rutan nedan:',
+	'asirra-nojs' => "'''Var god aktivera JavaScript och hämta sidan igen.'''",
 	'asirra-failed' => 'Var god identifiera alla kattbilder',
 );
 

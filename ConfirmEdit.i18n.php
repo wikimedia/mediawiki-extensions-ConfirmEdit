@@ -1271,10 +1271,11 @@ $messages['fo'] = array(
 	'captcha-edit' => 'Fyri at rætta hesa síðu, vinarliga  loys tað einfalda roknistykki niðanfyri og skriva svarið í teigin ([[Special:Captcha/help|meira kunning]]):',
 	'captcha-desc' => 'Gevur CAPTCHA teknikkir fyri at verja ímóti spamming og ímóti giting av loyniorði',
 	'captcha-label' => 'CAPTCHA',
-	'captcha-createaccount' => 'Sum ein vernd ímóti sjálvvirknum spam, er neyðugt hjá tær at skriva inn tey orð, sum koma fyri á myndini fyri at stovna eina kontu: <br />([[Special:Captcha/help|Hvat er hetta?]])', # Fuzzy
+	'captcha-createaccount' => 'Fyri at verja wikiina ímóti sjálvvirkandi spam kontoupprættan, vilja vit vinarliga heita á teg um at loysa ta einføldu rokniuppgávuna niðanfyri og skriva svarið í teigin
+([[Special:Captcha/help|meira kunning]]):',
 	'captcha-createaccount-fail' => 'Skeiv ella manglandi váttanar loyniorð.',
 	'captcha-create' => 'Fyri at upprætta síðuna, vinarliga loys tað einfalda roknistykki niðanfyri og skriva svarið í teigin ([[Special:Captcha/help|meira kunning]]):',
-	'captcha-sendemail' => 'Fyri at hjálpa okkum at sleppa undan sjálvvirkandi upprættan av brúkaranavni (spamm), so verður tú vinarliga biðin um at loysa tað einfalda roknistykki og skriva svarið í teigin ([[Special:Captcha/help|meira kunning]]):', # Fuzzy
+	'captcha-sendemail' => 'Fyri at hjálpa okkum at sleppa undan sjálvvirkandi upprættan av brúkaranavni (spamm), so verður tú vinarliga biðin um at loysa tað einfalda roknistykki og skriva svarið í teigin ([[Special:Captcha/help|meira kunning]]):',
 	'captcha-sendemail-fail' => 'Skeiv ella manglandi váttanar loyniorð.',
 	'captcha-disabledinapi' => "Henda handling krevur ein captcha, so tað kann ikki verða framt við API'inum.",
 	'captchahelp-title' => 'Captcha hjálp',

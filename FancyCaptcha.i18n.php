@@ -1239,6 +1239,7 @@ Pentru a împiedica roboții de spam, vă rugăm să introduceți cuvintele care
 	'fancycaptcha-create' => 'Pentru a crea pagina, vă rugăm să introduceți în casetă cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
 	'fancycaptcha-edit' => 'Pentru a modifica această pagină, vă rugăm să introduceți în casetă cuvintele care apar mai jos ([[Special:Captcha/help|mai multe detalii]]):',
 	'fancycaptcha-sendemail' => 'Pentru a împiedica roboții de spam, vă rugăm să introduceți cuvintele care apar mai jos în căsuță ([[Special:Captcha/help|mai multe detalii]]):',
+	'fancycaptcha-reload-text' => 'Reîncarcă',
 );
 
 /** tarandíne (tarandíne)

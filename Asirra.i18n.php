@@ -411,6 +411,7 @@ $messages['pt'] = array(
 $messages['roa-tara'] = array(
 	'asirra-desc' => 'Module Asirra pe confermà le cangiaminde',
 	'asirra-createaccount-fail' => 'Pe piacere idendifiche correttamende le categorije.',
+	'asirra-nojs' => "'''Pe piacere abbilite JavaScript e conferme arrete 'a pàgene.'''",
 	'asirra-failed' => 'Pe piacere idendifiche tutte le categorije de le immaggine',
 );
 

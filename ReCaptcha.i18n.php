@@ -307,7 +307,7 @@ Dat sull jääje et automattesche Ändere un SPAM em Wiki schöze.', # Fuzzy
 	'recaptcha-addurl' => 'Schrief di zwei Wööt en dä Kaste onge erin.
 Dat sull jääje automattesch en et Wiki jebraate SPAM schöze, nohdämm en Dingem Beidraach {{PLURAL:$1|ene neue Lengk dren es|neue Lengks dren sin|kein neue Lengks dren sin}}.', # Fuzzy
 	'recaptcha-badlogin' => 'Schrief di zwei Wööt en dä Kaste onge erin.
-Dat sull jääje et automattesche Paßwoot Knacke em Wiki schöze.', # Fuzzy
+Dat sull jääje et automattesche Paßwoot Knacke em Wiki schöze.',
 	'recaptcha-createaccount' => 'Schrief di zwei Wööt en dä Kaste onge erin.
 Dat sull jääje SPAM un automattesch aanjelaate Zohjäng nohm Wiki schöze.', # Fuzzy
 	'recaptcha-createaccount-fail' => 'Dat wohr en verkehte udder jaa kei Antwoot op dat Kaptscha.', # Fuzzy

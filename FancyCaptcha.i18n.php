@@ -160,6 +160,20 @@ $messages['bcc'] = array(
 	'fancycaptcha-edit' => 'په اصلاح کتن ای صفحه، لطفا کلماتی که ته جهلگی جعبه ظاهراند واردش کنیت ([[Special:Captcha/help|گیشتر اطلاعات]]):',
 );
 
+/** Bikol Central (Bikol Central)
+ * @author Geopoet
+ */
+$messages['bcl'] = array(
+	'fancycaptcha-addurl' => 'An saimong pagliwat minabale nin baguhong mga panluwas na sugpon.
+Tanganing makatabang na protektaran kontra sa awtomatikong espam, pakikaag an mga tataramon na ipinapahiling sa ibaba sa laog nin kahon ([[Special:Captcha/help|kadagdagang impormasyon]]):',
+	'fancycaptcha-badlogin' => 'Tanganing makatabang na magprotekta kontra sa awtomatikong pagbaak kan pasa-taramon, pakikaag an mga tataramon na ipinapahiling sa ibaba sa laog nin kahon ([[Special:Captcha/help|kadagdagang impormasyon]]):',
+	'fancycaptcha-createaccount' => 'Tanganing makatabang na magprotekta kontra sa awtomatikong pagmumukna nin panindog, pakikaag an mga tataramon na ipinapahiling sa ibaba sa laog nin kahon ([[Special:Captcha/help|kadagdagang impormasyon]]):',
+	'fancycaptcha-create' => 'Tanganing makapagmukna nin pahina, pakikaag kan mga tataramon na ipinapahiling sa ibaba sa laog nin kahon ([[Special:Captcha/help|kadagdagang impormasyon]]):',
+	'fancycaptcha-edit' => 'Tanganing makapagliwat kaining pahina, pakikaag an mga tataramon na ipinapahiling sa ibaba sa laog nin kahon ([[Special:Captcha/help|kadagdagang impormasyon]]):',
+	'fancycaptcha-sendemail' => 'Tanganing makatabang na magprotekta kontra sa awtomatikong pag-eespam, pakikaag an mga tataramon na ipinapahiling sa ibaba sa laog nin kahon ([[Special:Captcha/help|kadagdagang impormasyon]]):',
+	'fancycaptcha-reload-text' => 'Preskohon otro',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by

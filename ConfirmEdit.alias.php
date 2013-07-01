@@ -25,7 +25,7 @@ $specialPageAliases['arz'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
-	'Captcha' => array( 'Qodaİtimadi' ),
+	'Captcha' => array( 'Kodaİtimadi' ),
 );
 
 /** Esperanto (Esperanto) */

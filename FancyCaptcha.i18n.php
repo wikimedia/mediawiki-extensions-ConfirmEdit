@@ -1140,6 +1140,7 @@ $messages['oc'] = array(
 	'fancycaptcha-create' => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agisson pas de spams automatics, picatz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",
 	'fancycaptcha-edit' => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, picatz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",
 	'fancycaptcha-sendemail' => "Per tal de nos ajudar a prevenir lo spam automatic, entratz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’informacions]]) :",
+	'fancycaptcha-reload-text' => 'Actualizar',
 );
 
 /** Oriya (ଓଡ଼ିଆ)

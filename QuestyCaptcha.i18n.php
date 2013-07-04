@@ -928,7 +928,7 @@ Per nos ajudar dins la proteccion contra lo spam automatizat, respondètz a la q
 	'questycaptcha-create' => 'Per crear la pagina, respondètz a la question çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :',
 	'questycaptcha-edit' => 'Per modificar aquesta pagina, respondètz a la question çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :',
 	'questycaptcha-sendemail' => "Per tal de nos ajudar a prevenir lo spam automatic, entratz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’informacions]]) :",
-	'questycaptchahelp-text' => "Los sites web qu'acceptan de contribucions del public, coma aqueste wiki, son sovent victimas de polluposteires qu'utilizan d'espleches automatizats per plaçar de ligams nombroses cap a lors sites.
+	'questycaptchahelp-text' => "Los sites web qu'acceptan de contribucions del public, coma aqueste wiki, son sovent victimas de polluposteires qu'utilizan d'aisinas automatizadas per plaçar de ligams nombroses cap a lors sites.
 Quitament s'aquesta pollucion pòt èsser escafada, es irritanta.
 
 De còps, particularament al moment de l’apondon de ligams extèrnes novèls dins una pagina, lo wiki vos pòt demandar de respondre a una question.

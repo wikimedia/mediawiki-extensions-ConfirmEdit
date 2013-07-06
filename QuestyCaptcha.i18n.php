@@ -239,6 +239,13 @@ Er mwyn ceisio rhwystro peiriannau sbam, byddwch gystal ag ateb y cwestiwn a wel
 	'questycaptcha-create' => "Er mwyn dechrau'r dudalen, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'questycaptcha-edit' => "Er mwyn golygu'r dudalen, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'questycaptcha-sendemail' => 'Er mwyn cyfrannu at ddiogelu rhag sbamio awtomatig, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
+	'questycaptchahelp-text' => "Mae safleoedd gwe fel y wici hon, sy'n caniatau i'r cyhoedd ysgrifennu iddi, yn darged beunyddiol i sbamwyr sy'n defnyddio rhaglenni arbennig i bostio eu cysylltiadau ar wefannau lu. Gellir dileu'r dolenni o'r tudalennau, ond mae hynny'n waith trafferthus.
+
+O dro i dro, yn enwedig wrth ychwanegu dolenni at safleoedd gwe eraill, fe fydd y wici hon yn gofyn i chi ateb cwestiwn. Mae hyn yn dasg anodd iawn i raglenni cyfrifiadurol, felly dylai'r rhan fwyaf o olygwyr go iawn gyflawni'r dasg yn ddi-drafferth, yn wahanol i'r mwyafrif o'r rhaglenni sbam ac ymosodwyr automatig eraill.
+
+Cysylltwch â [[{{MediaWiki:Grouppage-sysop}}|gweinyddwyr y safle]] os ydi'r nodwedd hon yn eich rhwystro rhag ychwanegu golygiadau dilys.
+
+Gwasgwch botwm \"nôl\" eich porwr er mwyn dychwelyd at y dudalen olygu.",
 );
 
 /** German (Deutsch)

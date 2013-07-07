@@ -84,7 +84,13 @@ See also:
 This message follows the following help message:
 * {{msg-mw|Captchahelp-text}}.',
 	'captchahelp-text' => 'This is the help text shown on [[Special:Captcha/help]].',
-	'captcha-addurl-whitelist' => "See also: [[MediaWiki:Spam-blacklist]] and [[MediaWiki:Spam-whitelist]]. Leave all the wiki markup, including the spaces, as is. You can translate the text, including 'Leave this line exactly as it is'. The first line of this messages has one (1) leading space.",
+	'captcha-addurl-whitelist' => 'See also: [[MediaWiki:Spam-blacklist]] and [[MediaWiki:Spam-whitelist]].
+
+Leave all the wiki markup, including the spaces, as is.
+You can translate the text, including \'Leave this line exactly as it is\'.
+The first line of this messages has one (1) leading space.
+
+"regex" stands for "regular expression".',
 	'right-skipcaptcha' => '{{doc-right|skipcaptcha}}',
 );
 

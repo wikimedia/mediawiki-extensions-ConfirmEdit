@@ -1089,6 +1089,7 @@ Um dit projekt te bescharmen tegen ongewunst reklame, mö'j t woord dat hieronde
 ([[Special:Captcha/help|hulpe]]):",
 	'fancycaptcha-edit' => "Joew bewarking bevat nieje uutgaonde verwiezingen. Um disse wiki te bescharmen tegen ongewunste reklame mö'j de woorden hieronder invullen ([[Special:Captcha/help|hulpe]]):",
 	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder staon in t invoerveld in as bescharming tegen automatiese ongewunste reklame ([[Special:Captcha/help|meer informasie]]):',
+	'fancycaptcha-reload-text' => 'Verniejen',
 );
 
 /** Dutch (Nederlands)

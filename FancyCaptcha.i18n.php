@@ -465,6 +465,7 @@ $messages['eu'] = array(
  * @author Huji
  * @author Ladsgroup
  * @author Meisam
+ * @author Reza1615
  * @author Wayiran
  */
 $messages['fa'] = array(
@@ -475,6 +476,7 @@ $messages['fa'] = array(
 	'fancycaptcha-create' => 'برای ایجاد این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-edit' => 'برای ویرایش این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-sendemail' => 'برای کمک به محافظت در برابر هرزه‌نگاری خودکار، لطفاً واژه‌هایی را که در جعبهٔ زیر نمایش داده می‌شوند وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
+	'fancycaptcha-reload-text' => 'تازه کردن',
 );
 
 /** Finnish (suomi)

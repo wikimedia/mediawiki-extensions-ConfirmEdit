@@ -451,7 +451,7 @@ Tanganing protektaran an wiki kontra sa awtomatikong espam, kami tabi minahagad 
 	'captcha-badlogin' => 'Tanganing protektaran an wiki kontra sa awtomatikong pagbaak kan pasa-taramon, kami tabi minahagad saimo na simbagan an simplehong suma sa ibaba asin pakikaag an simbag sa laog nin kahon ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount' => 'Tanganing protektaran an wiki kontra sa awtomatikong pagmumukna nin panindog, kami tabi minahagad saimon na simbagan an simplehong suma sa ibaba asin pakikaag an simbag sa laog nin kahon ([[Special:Captcha/help|more info]]):',
 	'captcha-createaccount-fail' => 'Bakong tama o nawawara an koda sa kumpirmasyon.',
-	'captcha-create' => 'Tangarig maggibo an pahina, paki simbagan an simpleng suma sa ibaba asin ikaag an simbag sa laog kan kahon ([[Special:Captcha/help|more info]]):',
+	'captcha-create' => 'Tanganing makamukna nin pahina, pakisimbagan tabi an simpleng suma sa ibaba asin ikaag an simbag sa laog kan kahon ([[Special:Captcha/help|more info]]):',
 	'captcha-sendemail' => 'Tanganing protektaran an wiki kontra sa awtomatikong pag-eespam, kami tabi minahagad saimo na simbagan an simplehong suma sa ibaba asin pakikaag an simbag sa laog nin kahon ([[Special:Captcha/help|more info]]):',
 	'captcha-sendemail-fail' => 'Bakong tama o nawawara an koda sa kumpirmasyon.',
 	'captcha-disabledinapi' => 'Ining aksyon minahagad nin sarong captcha, kaya ini dae magigibo sa paagi kan API.',

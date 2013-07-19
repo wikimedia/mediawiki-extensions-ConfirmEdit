@@ -972,6 +972,13 @@ $messages['lo'] = array(
 	'fancycaptcha-edit' => 'ກະລຸນາ ພິມຄຳສັບຂ້າງລຸ່ມນີ້ ໃສ່ໃນກັບ ເພື່ອ ດັດແກ້ໜ້ານີ້ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມຕື່ມ]]):',
 );
 
+/** Lithuanian (lietuvių)
+ * @author Eitvys200
+ */
+$messages['lt'] = array(
+	'fancycaptcha-reload-text' => 'Atnaujinti',
+);
+
 /** Minangkabau (Baso Minangkabau)
  * @author Iwan Novirion
  */

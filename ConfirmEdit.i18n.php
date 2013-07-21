@@ -2756,11 +2756,11 @@ Mit den „Trüch“-Knopp vun dien Browser kummst du trüch na dat Ännerfinste
 $messages['nds-nl'] = array(
 	'captcha-edit' => "Um disse zied te bewarken, mu'j eerst t antwoord op disse eenvoudige somme invullen ([[Special:Captcha/help|meer informasie]]):",
 	'captcha-desc' => 'Biejt CAPTCHA-technieken um bescharming te biejen tegen moekpost en t raojen van wachtwoorden',
-	'captcha-addurl' => 'Joew bewarking bevat nieje uutgaonde verwiezingen.
-Voer ter de bescharming tegen ongewunste reklame de somme in die hieronder steet:<br />
-([[Special:Captcha/help|Hulpe?]])', # Fuzzy
-	'captcha-badlogin' => 'Los disse eenvoudige rekensomme op en voer t antwoord in bie t invoervienster in ter bescharming tegen t automaties kraken van wachtwoorden ([[Special:Captcha/help|meer informasie]]):', # Fuzzy
-	'captcha-createaccount' => 'Voer ter bescharming tegen automatiese ongewunste reklame t antwoord op disse eenvoudige rekensomme in bie invoervienster ([[Special:Captcha/help|meer informatie]]):', # Fuzzy
+	'captcha-addurl' => 'In joew bewarking staon nieje uutgaonde verwiezingen.
+Vul ter de bescharming van disse wiki tegen automatiese moekpost t antwoord op de somme in, in t invoerveld dat hieronder steet, um joew bewarking op te slaon:<br />
+([[Special:Captcha/help|meer informasie]])',
+	'captcha-badlogin' => 'Vul ter de bescharming van disse wiki tegen t automaties kraken van wachtwoorden t antwoord op de somme in, in t invoerveld ([[Special:Captcha/help|meer informasie]]):',
+	'captcha-createaccount' => 'Vul ter bescharming van disse wiki tegen t automaties anmaken van gebrukers t antwoord op de somme in, in t invoerveld ([[Special:Captcha/help|meer informasie]]):',
 	'captcha-createaccount-fail' => 'Verkeerde of ontbrekende bevestigingskode.',
 	'captcha-create' => 'Je bin n nieje zied an t maken.
 Voer t antwoord van disse eenvoudige rekensomme in bie t invoervienster

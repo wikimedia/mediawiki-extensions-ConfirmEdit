@@ -393,15 +393,16 @@ $messages['pms'] = array(
 
 /** Portuguese (português)
  * @author Hamilton Abreu
+ * @author Luckas
  */
 $messages['pt'] = array(
 	'asirra-desc' => 'Módulo Asirra para o ConfirmEdit',
-	'asirra-edit' => "Como prevenção contra sistemas automatizados de inserção de ''spam'', seleccione só as fotografias de gatos na caixa abaixo:",
-	'asirra-addurl' => "A sua edição contém links externos novos. Como prevenção contra sistemas automatizados de inserção de ''spam'', seleccione só as fotografias de gatos na caixa abaixo:",
-	'asirra-badlogin' => 'Como prevenção com sistemas automatizados de descoberta de palavras-chave, seleccione só as fotografias de gatos na caixa abaixo:',
-	'asirra-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, seleccione só as fotografias de gatos na caixa abaixo:',
+	'asirra-edit' => "Como prevenção contra sistemas automatizados de inserção de ''spam'', selecione só as fotografias de gatos na caixa abaixo:",
+	'asirra-addurl' => "A sua edição contém links externos novos. Como prevenção contra sistemas automatizados de inserção de ''spam'', selecione só as fotografias de gatos na caixa abaixo:",
+	'asirra-badlogin' => 'Como prevenção com sistemas automatizados de descoberta de palavras-chave, selecione só as fotografias de gatos na caixa abaixo:',
+	'asirra-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, selecione só as fotografias de gatos na caixa abaixo:',
 	'asirra-createaccount-fail' => 'Identifique correctamente os gatos, por favor.',
-	'asirra-create' => 'Como prevenção contra sistemas automatizados de criação de páginas, seleccione só as fotografias de gatos na caixa abaixo:',
+	'asirra-create' => 'Como prevenção contra sistemas automatizados de criação de páginas, selecione só as fotografias de gatos na caixa abaixo:',
 	'asirra-nojs' => "'''Possibilite o uso de JavaScript e reenvie a página, por favor.'''",
 );
 

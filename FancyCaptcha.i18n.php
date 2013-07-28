@@ -266,6 +266,13 @@ $messages['cdo'] = array(
 	'fancycaptcha-badlogin' => 'Ôi-lāu huòng-cī tiàng-sê̤ṳ cê̤ṳ-dông puái-gāi mĭk-mā, chiāng nṳ̄ sṳ̆-ĭk â-dā̤ bēng-bēng diē-lié gì sṳ̀ ([[Special:Captcha/help|gáing sâ̤ séng-sék]]):',
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'fancycaptcha-addurl' => 'Хьан нисдар чохь керла арахьара хьажоригаш ю. Спамах лардала дерхар до лахахь гура чохь гайтан дешнаш язъе ([[Special:Captcha/help|ма-дарра…]]):',
+);
+
 /** Sorani Kurdish (کوردی)
  * @author Asoxor
  */

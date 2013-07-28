@@ -1018,12 +1018,13 @@ Clique o botão 'voltar' do seu browser para voltar à página de edição.",
 /** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
+ * @author Luckas
  * @author 555
  */
 $messages['pt-br'] = array(
 	'questycaptcha-addurl' => 'Sua edição inclui novas ligações externas.
 Para proteção contra spam automático, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|mais informações]]):',
-	'questycaptcha-badlogin' => 'Para proteger contra quebra automatizada de palavra-chave, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-badlogin' => 'Para proteger contra quebra automatizada de senha, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|mais informação]]):',
 	'questycaptcha-createaccount' => 'Para proteger contra criação automática de contas, por favor responda as questões que aparecem abaixo ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-create' => 'Para criar a página, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-edit' => 'Para editar esta página, por favor responda a questão que aparece abaixo ([[Special:Captcha/help|more info]]):',

@@ -3123,7 +3123,7 @@ Como prevenção contra sistemas automatizados de inserção de ''spam'', resolv
 	'captcha-createaccount-fail' => 'Código incorreto ou não preenchido.',
 	'captcha-create' => 'Para criar a página, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
 	'captcha-sendemail' => "Como prevenção contra sistemas automatizados de inserção de ''spam'', resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):", # Fuzzy
-	'captcha-sendemail-fail' => 'Código de confirmação incorrecto ou não preenchido.',
+	'captcha-sendemail-fail' => 'Código de confirmação incorreto ou não preenchido.',
 	'captcha-disabledinapi' => 'Esta operação necessita de captcha, por isso não pode ser realizada através da API.',
 	'captchahelp-title' => 'Ajuda sobre o CAPTCHA',
 	'captchahelp-cookies-needed' => "É necessário possibilitar o uso de ''cookies'' no seu browser para que o ''captcha'' funcione.",

@@ -683,6 +683,7 @@ Como protection contra le spam automatic, per favor entra le parolas que appare 
 	'fancycaptcha-create' => 'Pro crear le pagina, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
 	'fancycaptcha-edit' => 'Pro modificar iste pagina, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
 	'fancycaptcha-sendemail' => 'Pro adjutar nos in le protection contra le spam automatic, per favor entra le parolas que appare hic infra in le quadro ([[Special:Captcha/help|plus info]]):',
+	'fancycaptcha-reload-text' => 'Refrescar',
 );
 
 /** Indonesian (Bahasa Indonesia)

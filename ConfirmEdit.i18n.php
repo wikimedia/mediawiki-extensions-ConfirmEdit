@@ -730,6 +730,13 @@ Cĭng mì-hâng, dó̤i hī piĕ mĕ̤k-ciŭ mâ̤ hō̤, hĕ̤k-ciā sê sāi-�
 Buóh diōng kó̤ piĕng-cĭk hiĕk-miêng, áik \"diōng kó̤ sèng 1 hiĕk\" (\\'\\'back\\'\\').", # Fuzzy
 );
 
+/** Sorani Kurdish (کوردی)
+ * @author Calak
+ */
+$messages['ckb'] = array(
+	'right-skipcaptcha' => 'جێبەجێکردنی کردەوەکانی پێویست بە کاپچا بەبێ بەکارھێنانی کاپچا',
+);
+
 /** Czech (česky)
  * @author Danny B.
  * @author Li-sung

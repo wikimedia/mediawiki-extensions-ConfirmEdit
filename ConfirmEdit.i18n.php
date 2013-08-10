@@ -1938,7 +1938,7 @@ $messages['it'] = array(
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "La modifica richiesta aggiunge dei nuovi collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|come funziona?]]):",
 	'captcha-badlogin' => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, si prega di risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|come funziona?]]):',
-	'captcha-createaccount' => 'Come misura precauzionale contro i tentativi di creazione automatica degli account, si prega di risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|come funziona?]]):',
+	'captcha-createaccount' => 'Come misura precauzionale contro i tentativi di registrazione automatica, si prega di risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|come funziona?]]):',
 	'captcha-createaccount-fail' => 'Codice di verifica errato o mancante.',
 	'captcha-create' => 'Per creare la pagina è necessario risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella:<br />
 ([[Special:Captcha/help|maggiori informazioni]]):',

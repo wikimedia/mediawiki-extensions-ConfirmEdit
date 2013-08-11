@@ -13,12 +13,12 @@ $messages = array();
 $messages['en'] = array(
 	'questycaptcha-desc' => 'Questy CAPTCHA generator for Confirm Edit',
 	'questycaptcha-addurl' => 'Your edit includes new external links.
-To help protect against automated spam, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
-	'questycaptcha-badlogin' => 'To help protect against automated password cracking, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
-	'questycaptcha-createaccount' => 'To help protect against automated account creation, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
+To protect the wiki against automated edit spam, we kindly ask you to answer the question that appears below ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-badlogin' => 'To protect the wiki against automated password cracking, we kindly ask you to answer the question that appears below ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-createaccount' => 'To protect the wiki against automated account creation, we kindly ask you to answer the question that appears below ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-create' => 'To create the page, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
 	'questycaptcha-edit' => 'To edit this page, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
-	'questycaptcha-sendemail' => 'To help protect against automated spamming, please answer the question that appears below ([[Special:Captcha/help|more info]]):',
+	'questycaptcha-sendemail' => 'To protect the wiki against automated spamming, we kindly ask you to answer the question that appears below ([[Special:Captcha/help|more info]]):',
 	'questycaptchahelp-text' => 'Web sites that accept contributions from the public, like this wiki, are often abused by spammers who use automated tools to add their links to many sites.
 While these spam links can be removed, they are a significant nuisance.
 

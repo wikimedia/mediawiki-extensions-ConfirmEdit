@@ -10,12 +10,12 @@ $messages = array();
 
 $messages['en'] = array(
 	'recaptcha-desc' => 'reCAPTCHA module for Confirm Edit',
-        'recaptcha-edit' => 'To help protect against automated edit spam, please type the two words you see in the box below:', 
-        'recaptcha-addurl' => 'Your edit includes new external links. To help protect against automated spam, please type the two words you see in the box below:',
-	'recaptcha-badlogin' => 'To help protect against automated password cracking, please type the two words you see in the box below:',
-	'recaptcha-createaccount' => 'To help protect against automated account creation, please type the two words you see in the box below:',
+	'recaptcha-edit' => 'To protect the wiki against automated edit spam, we kindly ask you to type the two words you see in the box below:',
+	'recaptcha-addurl' => 'Your edit includes new external links. To protect the wiki against automated spam, we kindly ask you to type the two words you see in the box below:',
+	'recaptcha-badlogin' => 'To protect the wiki against automated password cracking, we kindly ask you to type the two words you see in the box below:',
+	'recaptcha-createaccount' => 'To protect the wiki against automated account creation, we kindly ask you to type the two words you see in the box below:',
 	'recaptcha-createaccount-fail' => "Incorrect or missing reCAPTCHA answer.",
-	'recaptcha-create' => 'To help protect against automated page creation, please type the two words you see in the box below:', 
+	'recaptcha-create' => 'To protect the wiki against automated page creation, we kindly ask you to type the two words you see in the box below:',
 );
 
 /** Message documentation (Message documentation)

@@ -25,7 +25,7 @@ While these spam links can be removed, they are a significant nuisance.
 Sometimes, especially when adding new web links to a page, the wiki may ask you to answer a question.
 Since this is a task that is hard to automate, it will allow most real humans to make their contributions while stopping most spammers and other robotic attackers.
 
-Please contact the [[{{MediaWiki:Grouppage-sysop}}|site administrators]] for assistance if this is unexpectedly preventing you from making legitimate contributions.
+Please contact the [[Special:ListAdmins|site administrators]] for assistance if this is unexpectedly preventing you from making legitimate contributions.
 
 Click the "back" button in your browser to return to the page editor.',
 );

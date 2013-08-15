@@ -1178,14 +1178,15 @@ $messages['or'] = array(
 /** Polish (polski)
  * @author Chrumps
  * @author Sp5uhe
+ * @author WTM
  */
 $messages['pl'] = array(
 	'fancycaptcha-desc' => 'Generator obrazka, którego odczytanie jest wymagane dla zatwierdzenia edycji.',
 	'fancycaptcha-addurl' => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 	'fancycaptcha-badlogin' => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 	'fancycaptcha-createaccount' => 'Ze względu na ochronę przed automatycznym spamem, aby się zarejestrować musisz wpisać słowo, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]])',
-	'fancycaptcha-create' => 'Aby utworzyć tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
-	'fancycaptcha-edit' => 'Aby edytować tę stronę, wpisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
+	'fancycaptcha-create' => 'Aby utworzyć tę stronę, przepisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
+	'fancycaptcha-edit' => 'Aby edytować tę stronę, przepisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 	'fancycaptcha-sendemail' => 'Zabezpieczenie przed automatycznie dodawanym spamem. Wprowadzić słowa widoczne w poniższym prostokącie ([[Special:Captcha/help|więcej informacji]]).',
 	'fancycaptcha-reload-text' => 'Odśwież',
 );

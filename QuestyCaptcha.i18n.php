@@ -981,15 +981,15 @@ Për giuté a protegi contra spam automàtich, për piasì arspond a la custion 
 	'questycaptcha-create' => 'Për creé la pàgina, për piasì arspond a la custion che a ven fòra sota: ([[Special:Captcha/help|për savejne ëd pì]]):',
 	'questycaptcha-edit' => 'Për modifiché sta pàgina-sì, për piasì arspond a la custion che a ven fòra sota ([[Special:Captcha/help|për savejne ëd pì]]):',
 	'questycaptcha-sendemail' => "Për giuté a protegi contra la rumenta automàtica, për piasì ch'a risponda a la chestion ch'as vëdd sì-sota ([[Special:Captcha/help|për savèjne ëd pi]]):",
-	'questycaptchahelp-text' => "Soèns a-i riva che ij sit dla Ragnà che la gent a peul dovré për ëscrive chèich-còs, coma sta wiki-sì, a resto ambërlifà ëd reclam da màchine che a carìo soa ròba dadsà e dadlà n'automàtich. 
-Për tant che sta reclam un a peula peuj gavela, a resta sempe un gran fastudi. 
+	'questycaptchahelp-text' => "Soèns a-i riva che ij sit dla Ragnà che la gent a peul dovré për ëscrive chèich-còs, coma sta wiki-sì, a resto ambërlifà d'areclam da 'd màchine che a cario soa ròba dadsà e dadlà n'automàtich. 
+Për tant che sti areclam un a peula peuj gaveje, a resta sempe un gran fastudi. 
 
-Dle vire, dzortut quand un a caria dj'anliure esterne neuve ansime a na pàgina, la wiki a peul ciamete d'arsponde a na custion. 
-Da già ch'a l'é grama scrive un programa ch'a lo fasa, a ven che la pì gran part dla gent a-i la fa a scrive, ma la ói part dle màchine a-i la fa pa. 
+Dle vire, dzortut quand un a caria dj'anliure esterne neuve ansime a na pàgina, la wiki a peul ciameje ëd rësponde a na chestion. 
+Da già ch'a l'é grama scrive un programa ch'a lo fasa, a ven che la pì gran part dla gent a-i la fa a scrive, ma la pi part dle màchine a-i la fa pa. 
 
-Për piasì contata j'[[Special:ListAdmins|aministrador dël sit]] për assistensa se sòn-sì a l'ha nen lassate fé na contribussion legìtima.
+Për piasì ch'a contata j'[[Special:ListAdmins|aministrator dël sit]] për d'assistensa se sòn a-j përmet nen ëd fé na contribussion legìtima.
 
-Ch'a-i bata ansima al boton 'andré' ant sò navigator për torné andré a l'editor dla pàgina.",
+Ch'a-i bata ansima al boton «andré» ant sò navigator për torné andré a l'editor dla pàgina.",
 );
 
 /** Portuguese (português)

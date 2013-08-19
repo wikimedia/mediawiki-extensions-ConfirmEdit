@@ -251,6 +251,7 @@ Gwasgwch botwm \"nôl\" eich porwr er mwyn dychwelyd at y dudalen olygu.",
 /** German (Deutsch)
  * @author Geitost
  * @author Kghbln
+ * @author Metalhead64
  * @author Pill
  * @author Umherirrender
  */
@@ -263,7 +264,7 @@ Zum Schutz vor automatisiertem Spam, beantworte bitte die untenstehende Frage, u
 	'questycaptcha-create' => 'Bitte beantworte die folgende Frage, um diese Seite erstellen zu können ([[Special:Captcha/help|weitere Informationen]]):',
 	'questycaptcha-edit' => 'Bitte beantworte die folgende Frage, um diese Seite speichern zu können ([[Special:Captcha/help|weitere Informationen]]):',
 	'questycaptcha-sendemail' => 'Zum Schutz vor automatisiertem Spam bitte die untenstehende Frage beantworten ([[Special:Captcha/help|weitere Informationen]]):',
-	'questycaptchahelp-text' => 'Internetangebote, die — wie dieses Wiki — für Beiträge von praktisch jedem offen sind, werden häufig von Spammern missbraucht, welche versuchen, mithilfe entsprechender Werkzeuge ihre Links automatisch auf vielen Webseiten zu platzieren.
+	'questycaptchahelp-text' => 'Internetangebote, die – wie dieses Wiki – für Beiträge von praktisch jedem offen sind, werden häufig von Spammern missbraucht, welche versuchen, mithilfe entsprechender Werkzeuge ihre Links automatisch auf vielen Webseiten zu platzieren.
 Zwar können derartige Spam-Links wieder entfernt werden, doch stellen sie trotzdem ein erhebliches Ärgernis dar.
 
 In manchen Fällen, meist beim Versuch, neue Weblinks zu einer Seite hinzuzufügen, kann es vorkommen, dass du um die Beantwortung einer Frage gebeten wirst.

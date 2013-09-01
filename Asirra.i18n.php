@@ -11,12 +11,12 @@ $messages = array();
 
 $messages['en'] = array(
 	'asirra-desc' => 'Asirra module for ConfirmEdit',
-	'asirra-edit' => 'To help protect against automated edit spam, please select just the cat photos in the box below:', 
-	'asirra-addurl' => 'Your edit includes new external links. To help protect against automated spam, please select just the cat photos in the box below:',
-	'asirra-badlogin' => 'To help protect against automated password cracking, please select just the cat photos in the box below:',
-	'asirra-createaccount' => 'To help protect against automated account creation, please select just the cat photos in the box below:',
+	'asirra-edit' => 'To protect the wiki against automated edit spam, we kindly ask you to select just the cat photos in the box below:',
+	'asirra-addurl' => 'Your edit includes new external links. To protect the wiki against automated edit spam, we kindly ask you to select just the cat photos in the box below:',
+	'asirra-badlogin' => 'To protect the wiki against automated password cracking, we kindly ask you to select just the cat photos in the box below:',
+	'asirra-createaccount' => 'To protect the wiki against automated account creation, we kindly ask you to select just the cat photos in the box below:',
 	'asirra-createaccount-fail' => "Please correctly identify the cats.",
-	'asirra-create' => 'To help protect against automated page creation, please select just the cat photos in the box below:', 
+	'asirra-create' => 'To protect the wiki against automated page creation, we kindly ask you to select just the cat photos in the box below:',
 	'asirra-nojs' => '\'\'\'Please enable JavaScript and resubmit the page.\'\'\'',
 	'asirra-failed' => 'Please identify all cat images',
 );

@@ -13,12 +13,12 @@ $messages = array();
 $messages['en'] = array(
 	'fancycaptcha-desc'          => 'Fancy CAPTCHA generator for Confirm Edit',
 	'fancycaptcha-addurl'        => 'Your edit includes new external links.
-To help protect against automated spam, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-badlogin'      => 'To help protect against automated password cracking, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-createaccount' => 'To help protect against automated account creation, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
+To protect the wiki against automated spam, we kindly ask you to enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-badlogin'      => 'To protect the wiki against automated password cracking, we kindly ask you to enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-createaccount' => 'To protect the wiki against automated account creation, we kindly ask you to enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-create'        => 'To create the page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-edit'          => 'To edit this page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-sendemail'     => 'To help protect against automated spamming, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
+	'fancycaptcha-sendemail'     => 'To protect the wiki against automated spamming, we kindly ask you to enter the words that appear below in the box ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-reload-text'   => 'Refresh',
 );
 

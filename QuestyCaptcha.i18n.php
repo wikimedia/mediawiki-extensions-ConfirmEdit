@@ -450,12 +450,12 @@ Cliquez sur le bouton « Précédent » de votre navigateur pour revenir à la p
 $messages['gl'] = array(
 	'questycaptcha-desc' => 'Xerador de preguntas CAPTCHA para Confirm Edit',
 	'questycaptcha-addurl' => 'A súa edición inclúe novas ligazóns externas.
-Para axudar na protección contra o spam automatizado, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
-	'questycaptcha-badlogin' => 'Para axudar na protección contra o descifrado automatizado de contrasinais, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
-	'questycaptcha-createaccount' => 'Para axudar na protección contra a creación automática de contas, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
+Para axudar na protección contra o spam automatizado, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):', # Fuzzy
+	'questycaptcha-badlogin' => 'Para axudar na protección contra o descifrado automatizado de contrasinais, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):', # Fuzzy
+	'questycaptcha-createaccount' => 'Para axudar na protección contra a creación automática de contas, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):', # Fuzzy
 	'questycaptcha-create' => 'Para crear a páxina, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
 	'questycaptcha-edit' => 'Para editar esta páxina, conteste a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
-	'questycaptcha-sendemail' => 'Para contribuír na protección contra o spam automatizado, responda a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):',
+	'questycaptcha-sendemail' => 'Para contribuír na protección contra o spam automatizado, responda a pregunta que aparece a continuación ([[Special:Captcha/help|máis información]]):', # Fuzzy
 	'questycaptchahelp-text' => 'Os sitios web que aceptan publicar as contribucións dos usuarios, coma este wiki, sofren, con frecuencia, o abuso por parte de spammers que usan ferramentas que automatizan a inclusión de lixo en forma de ligazóns publicitarias, nunha chea de páxinas, en pouco tempo.
 Mentres as devanditas ligazóns non son eliminadas supoñen unha molestia e unha perda de tempo.
 

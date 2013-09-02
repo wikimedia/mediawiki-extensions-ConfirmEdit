@@ -339,12 +339,12 @@ $messages['da'] = array(
 $messages['de'] = array(
 	'fancycaptcha-desc' => 'Fancy-CAPTCHA-Generator für die Erweiterung „Confirm Edit“',
 	'fancycaptcha-addurl' => 'Deine Bearbeitung enthält neue externe Links.
-Zum Schutz vor automatisiertem Spamming gib das folgende Wort in das Feld unten ein. Klicke dann erneut auf „Seite speichern“ ([[Special:Captcha/help|Fragen oder Probleme?]]).',
-	'fancycaptcha-badlogin' => 'Zum Schutz vor einer Kompromittierung deines Benutzerkontos gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]]:',
-	'fancycaptcha-createaccount' => 'Zum Schutz vor automatisierter Anlage von Benutzerkonten gib bitte das folgende Wort in das Feld unten ein ([[Special:Captcha/help|Fragen oder Probleme?]]):',
+Zum Schutz des Wikis vor automatisiertem Spamming bitten wir dich, das folgende Wort in das Feld unten einzugeben. Klicke dann erneut auf „Seite speichern“ ([[Special:Captcha/help|Fragen oder Probleme?]]).',
+	'fancycaptcha-badlogin' => 'Zum Schutz des Wikis vor einer Kompromittierung deines Benutzerkontos bitten wir dich, das folgende Wort in das Feld unten einzugeben [[Special:Captcha/help|(Fragen oder Probleme?)]]:',
+	'fancycaptcha-createaccount' => 'Zum Schutz des Wikis vor automatisierter Anlage von Benutzerkonten bitten wir dich, das folgende Wort in das Feld unten einzugeben ([[Special:Captcha/help|Fragen oder Probleme?]]):',
 	'fancycaptcha-create' => 'Zur Erstellung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'fancycaptcha-edit' => 'Zur Bearbeitung der Seite gib das folgende Wort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
-	'fancycaptcha-sendemail' => 'Um gegen automatischen Spam vorzugehen, gib bitte die Wörter unten in das Feld ein ([[Special:Captcha/help|mehr Informationen]]):',
+	'fancycaptcha-sendemail' => 'Zum Schutz des Wikis vor automatischem Spamming bitten wir dich, die Wörter unten in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen]]):',
 	'fancycaptcha-reload-text' => 'Aktualisieren',
 );
 
@@ -561,13 +561,13 @@ $messages['ga'] = array(
  */
 $messages['gl'] = array(
 	'fancycaptcha-desc' => 'Xerador de imaxes CAPTCHA para Confirm Edit',
-	'fancycaptcha-addurl' => 'A súa edición inclúe ligazóns externas novas.
-Para contribuír na protección contra o spam automatizado, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-badlogin' => 'Para contribuír a que non se descubran os contrasinais por medios automáticos, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-createaccount' => 'Para contribuír contra a creación automatizada de contas, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-create' => 'Para crear a páxina, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-edit' => 'Para editar esta páxina, introduza as palabras que aparecen na caixa de embaixo ([[Special:Captcha/help|máis información]]):',
-	'fancycaptcha-sendemail' => 'Para contribuír na protección contra o spam automatizado, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-addurl' => 'A súa edición inclúe novas ligazóns externas.
+Para protexer o wiki contra o spam automático, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-badlogin' => 'Para protexer o wiki contra o roubo de contrasinais, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-createaccount' => 'Para protexer o wiki contra a creación automática de contas, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-create' => 'Para crear a páxina, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-edit' => 'Para editar esta páxina, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
+	'fancycaptcha-sendemail' => 'Para protexer o wiki contra o spam automático, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):',
 	'fancycaptcha-reload-text' => 'Refrescar',
 );
 
@@ -735,12 +735,12 @@ Til þess að hjálpa okkur verjast sjálfvirku auglýsingarusli, vinsamlegast s
  * @author Nemo bis
  */
 $messages['it'] = array(
-	'fancycaptcha-addurl' => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):",
-	'fancycaptcha-badlogin' => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
-	'fancycaptcha-createaccount' => 'Come misura precauzionale contro i tentativi di registrazione automatica, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'fancycaptcha-addurl' => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, ti chiediamo gentilmente di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):",
+	'fancycaptcha-badlogin' => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, ti chiediamo gentilmente di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'fancycaptcha-createaccount' => 'Come misura precauzionale contro i tentativi di registrazione automatica, ti chiediamo gentilmente di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'fancycaptcha-create' => 'Per creare la pagina si prega di inserire nella casella sottostante le parole che compaiono nella casella di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'fancycaptcha-edit' => 'Per modificare questa pagina si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
-	'fancycaptcha-sendemail' => 'Come misura precauzionale nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'fancycaptcha-sendemail' => 'Come misura precauzionale nei confronti dei messaggi di spam automatici, ti chiediamo gentilmente di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'fancycaptcha-reload-text' => 'Aggiorna',
 );
 
@@ -753,12 +753,12 @@ $messages['it'] = array(
 $messages['ja'] = array(
 	'fancycaptcha-desc' => 'Confirm Edit 用の装飾的な CAPTCHA ジェネレーター',
 	'fancycaptcha-addurl' => 'あなたは新しい外部リンクを追加しようとしています。
-自動でのスパム攻撃を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-badlogin' => '自動でのパスワードクラック攻撃を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-createaccount' => 'アカウントの自動登録を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
+ウィキへの自動スパム攻撃を防ぐため、お手数をおかけしますが下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-badlogin' => 'ウィキへの自動パスワードクラック攻撃を防ぐため、お手数をおかけしますが下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-createaccount' => 'ウィキでのアカウント自動作成を防ぐため、お手数をおかけしますが下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-create' => 'ページを新規作成するには、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-edit' => 'このページを編集するには、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'fancycaptcha-sendemail' => '自動でのスパム攻撃を防ぐため、下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
+	'fancycaptcha-sendemail' => 'ウィキへの自動スパム攻撃を防ぐため、お手数をおかけしますが下記の確認用の文字列を欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'fancycaptcha-reload-text' => '更新',
 );
 
@@ -1466,20 +1466,21 @@ $messages['su'] = array(
 /** Swedish (svenska)
  * @author Ainali
  * @author Thurs
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
-	'fancycaptcha-addurl' => 'Din ändring lägger till nya externa länkar i texten. För att skydda wikin mot
-automatisk spam måste du skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information]]):',
-	'fancycaptcha-badlogin' => 'För att skydda wikin mot automatiserad lösenordknäckning måste du skriva
-orden som visas härunder i rutan ([[Special:Captcha/help|mer information]]):',
-	'fancycaptcha-createaccount' => 'För att skydda wikin mot automatiskt skapade användarkonton måste du
-skriva orden som visas härunder i rutan ([[Special:Captcha/help|mer information]]):',
+	'fancycaptcha-addurl' => 'Din ändring innehåller nya externa länkar.
+För att skydda wikin mot
+automatisk spam ber vi dig att skriva orden som visas i rutan nedan ([[Special:Captcha/help|mer information]]):',
+	'fancycaptcha-badlogin' => 'För att skydda wikin mot automatiserad lösenordsknäckning ber vi dig att skriva
+orden som visas i rutan nedan ([[Special:Captcha/help|mer information]]):',
+	'fancycaptcha-createaccount' => 'För att skydda wikin mot automatiskt skapade av användarkonton ber vi dig att
+skriva orden som visas i rutan nedan ([[Special:Captcha/help|mer information]]):',
 	'fancycaptcha-create' => 'För att skapa den här sidan måste du först skriva orden som visas härunder i rutan
 ([[Special:Captcha/help|mer information]]):',
 	'fancycaptcha-edit' => 'För att redigera den här sidan måste du först skriva orden som visas härunder i rutan
 ([[Special:Captcha/help|mer information]]):',
-	'fancycaptcha-sendemail' => 'För att skydda wikin mot automatiserad lösenordknäckning måste du skriva
-orden som visas härunder i rutan ([[Special:Captcha/help|mer information]]):',
+	'fancycaptcha-sendemail' => 'För att skydda wikin mot automatiserad spam ber vi dig att skriva orden som visas i rutan nedan ([[Special:Captcha/help|mer information]]):',
 	'fancycaptcha-reload-text' => 'Uppdatera',
 );
 

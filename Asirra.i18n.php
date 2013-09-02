@@ -80,15 +80,16 @@ $messages['cs'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Metalhead64
  */
 $messages['de'] = array(
 	'asirra-desc' => 'Ermöglicht die Nutzung des Anti-Spam-Moduls Asirra',
-	'asirra-edit' => 'Zum Schutz vor automatisiertem Spam bitten wir dich, nur die Fotos mit Katzen im untenstehenden Feld auszuwählen:',
-	'asirra-addurl' => 'Deine Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spam bitten wir dich, nur die Fotos mit Katzen im untenstehenden Feld auszuwählen:',
-	'asirra-badlogin' => 'Zum Schutz gegen automatisiertes Knacken von Passwörtern bitten wir dich, nur die Fotos mit Katzen im untenstehenden Feld auszuwählen:',
-	'asirra-createaccount' => 'Zum Schutz gegen automatisiertes Erstellen von Benutzerkonten bitten wir dich, nur die Fotos mit Katzen im untenstehenden Feld auszuwählen:',
+	'asirra-edit' => 'Zum Schutz des Wikis vor automatisiertem Spam bitten wir dich, nur die Fotos mit Katzen im untenstehenden Feld auszuwählen:',
+	'asirra-addurl' => 'Deine Bearbeitung enthält neue externe Links. Zum Schutz des Wikis vor automatisiertem Spam bitten wir dich, nur die Fotos mit Katzen im untenstehenden Feld auszuwählen:',
+	'asirra-badlogin' => 'Zum Schutz des Wikis gegen automatisiertes Knacken von Passwörtern bitten wir dich, nur die Fotos mit Katzen im untenstehenden Feld auszuwählen:',
+	'asirra-createaccount' => 'Zum Schutz des Wikis gegen automatisiertes Erstellen von Benutzerkonten bitten wir dich, nur die Fotos mit Katzen im untenstehenden Feld auszuwählen:',
 	'asirra-createaccount-fail' => 'Bitte wähle nur die Fotos mit Katzen aus.',
-	'asirra-create' => 'Zum Schutz gegen automatisiertes Erstellen von Seiten bitten wir dich, nur die Fotos mit Katzen im untenstehenden Feld auszuwählen:',
+	'asirra-create' => 'Zum Schutz des Wikis gegen automatisiertes Erstellen von Seiten bitten wir dich, nur die Fotos mit Katzen im untenstehenden Feld auszuwählen:',
 	'asirra-nojs' => "'''Bitte JavaScript aktivieren und die Seiten nochmals Speichern.'''",
 	'asirra-failed' => 'Bitte wähle nur die Fotos mit Katzen aus.',
 );
@@ -164,12 +165,12 @@ $messages['fr'] = array(
  */
 $messages['gl'] = array(
 	'asirra-desc' => 'Módulo Asirra para ConfirmEdit',
-	'asirra-edit' => 'Para axudarnos á protección contra o spam, seleccione só as fotos de gatos na caixa:',
-	'asirra-addurl' => 'A súa edición inclúe novas ligazóns externas. Para axudar na protección contra o spam automático, seleccione só as fotos de gatos na caixa:',
-	'asirra-badlogin' => 'Para axudarnos á protección contra o roubo de contrasinais, seleccione só as fotos de gatos na caixa:',
-	'asirra-createaccount' => 'Para axudarnos á protección contra a creación automática de contas, seleccione só as fotos de gatos na caixa:',
+	'asirra-edit' => 'Para protexer o wiki contra o spam automático, seleccione só as fotos de gatos na caixa:',
+	'asirra-addurl' => 'A súa edición inclúe novas ligazóns externas. Para protexer o wiki contra o spam automático, seleccione só as fotos de gatos na caixa:',
+	'asirra-badlogin' => 'Para protexer o wiki contra o roubo de contrasinais, seleccione só as fotos de gatos na caixa:',
+	'asirra-createaccount' => 'Para protexer o wiki contra a creación automática de contas, seleccione só as fotos de gatos na caixa:',
 	'asirra-createaccount-fail' => 'Identifique correctamente os gatos.',
-	'asirra-create' => 'Para axudarnos á protección contra a creación automática de páxinas, seleccione só as fotos de gatos na caixa:',
+	'asirra-create' => 'Para protexer o wiki contra a creación automática de páxinas, seleccione só as fotos de gatos na caixa:',
 	'asirra-nojs' => "'''Active o JavaScript e volva enviar a páxina.'''",
 	'asirra-failed' => 'Identifique todas as fotos de gatos',
 );
@@ -225,12 +226,12 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'asirra-desc' => 'ConfirmEdit 用 Asirra モジュール',
-	'asirra-edit' => '自動編集のスパム攻撃を防ぐため、猫が写っている画像を以下から選択してください:',
-	'asirra-addurl' => 'あなたは新しい外部リンクを追加しようとしています。自動でのスパム攻撃を防ぐため、猫が写っている画像を以下から選択してください:',
-	'asirra-badlogin' => '自動でのパスワードクラック攻撃を防ぐため、猫が写っている画像を以下から選択してください:',
-	'asirra-createaccount' => 'アカウントの自動登録を防ぐため、猫が写っている画像を以下から選択してください:',
+	'asirra-edit' => 'ウィキでの自動編集のスパム攻撃を防ぐため、お手数をおかけしますが猫が写っている画像を以下から選択してください:',
+	'asirra-addurl' => 'あなたは新しい外部リンクを追加しようとしています。ウィキへの自動スパム攻撃を防ぐため、お手数をおかけしますが猫が写っている画像を以下から選択してください:',
+	'asirra-badlogin' => 'ウィキへの自動パスワードクラック攻撃を防ぐため、お手数をおかけしますが猫が写っている画像を以下から選択してください:',
+	'asirra-createaccount' => 'ウィキでのアカウント自動作成を防ぐため、お手数をおかけしますが猫が写っている画像を以下から選択してください:',
 	'asirra-createaccount-fail' => '猫を正しく選択してください。',
-	'asirra-create' => 'ページの自動作成を防ぐため、猫が写っている画像を以下から選択してください:',
+	'asirra-create' => 'ウィキでのページ自動作成を防ぐため、お手数をおかけしますが猫が写っている画像を以下から選択してください:',
 	'asirra-nojs' => "'''JavaScript を有効にしてページを再読込してください。'''",
 	'asirra-failed' => '猫が写っている画像をすべて選択してください',
 );
@@ -450,11 +451,11 @@ $messages['si'] = array(
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
-	'asirra-edit' => 'För att skydda mot automatiserat redigerings-spam, markera endast fotografierna på katter i rutan nedan:',
-	'asirra-addurl' => 'Din redigering innehåller nya externa länkar. För att skydda mot automatiserade spam, markera endast fotografierna på katter i rutan nedan:',
-	'asirra-badlogin' => 'För att skydda mot automatiserade försök att knäcka lösenord, markera endast fotografierna på katter i rutan nedan:',
-	'asirra-createaccount' => 'För att skydda mot automatiserat kontoskapande, markera endast fotografierna på katter i rutan nedan:',
-	'asirra-create' => 'För att skydda mot automatiserat sidskapande, markera endast fotografierna på katter i rutan nedan:',
+	'asirra-edit' => 'För att skydda wikin mot automatiserat redigerings-spam ber vi dig att endast markera fotografierna på katter i rutan nedan:',
+	'asirra-addurl' => 'Din redigering innehåller nya externa länkar. För att skydda wikin mot automatiserat redigerings-spam ber vi dig att endast markera fotografierna på katter i rutan nedan:',
+	'asirra-badlogin' => 'För att skydda wikin mot automatiserade försök att knäcka lösenord ber vi dig att endast markera fotografierna på katter i rutan nedan:',
+	'asirra-createaccount' => 'För att skydda wikin mot automatiserat kontoskapande ber vi dig att endast markera fotografierna på katter i rutan nedan:',
+	'asirra-create' => 'För att skydda wikin mot automatiserat sidskapande ber vi dig att endast markera fotografierna på katter i rutan nedan:',
 	'asirra-nojs' => "'''Var god aktivera JavaScript och hämta sidan igen.'''",
 	'asirra-failed' => 'Var god identifiera alla kattbilder',
 );

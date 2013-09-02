@@ -125,16 +125,17 @@ $messages['cy'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Metalhead64
  * @author Umherirrender
  */
 $messages['de'] = array(
 	'recaptcha-desc' => 'reCAPTCHA-Module für die Erweiterung „Confirm Edit“',
-	'recaptcha-edit' => 'Zum Schutz vor automatisiertem Spam, gib bitte die beiden folgenden Wörter in das untenstehende Feld ein:',
-	'recaptcha-addurl' => 'Deine Bearbeitung enthält neue externe Links. Zum Schutz vor automatisiertem Spam gib bitte die beiden folgenden Wörter in das folgende Feld ein:',
-	'recaptcha-badlogin' => 'Zum Schutz gegen automatisiertes Knacken von Passwörtern, gib bitte die beiden folgenden Wörter in das folgende Feld ein:',
-	'recaptcha-createaccount' => 'Zum Schutz gegen die automatisierte Erstellung von Benutzerkonten bitten wir dich, die folgenden beiden Wörter in das untenstehende Feld einzugeben:',
+	'recaptcha-edit' => 'Zum Schutz des Wikis vor automatisiertem Spam bitten wir dich, die beiden folgenden Wörter in das untenstehende Feld einzugeben:',
+	'recaptcha-addurl' => 'Deine Bearbeitung enthält neue externe Links. Zum Schutz des Wikis vor automatisiertem Spam bitten wir dich, die beiden folgenden Wörter in das folgende Feld einzugeben:',
+	'recaptcha-badlogin' => 'Zum Schutz des Wikis gegen automatisiertes Knacken von Passwörtern bitten wir dich, die beiden folgenden Wörter in das folgende Feld einzugeben:',
+	'recaptcha-createaccount' => 'Zum Schutz des Wikis gegen die automatisierte Erstellung von Benutzerkonten bitten wir dich, die folgenden beiden Wörter in das untenstehende Feld einzugeben:',
 	'recaptcha-createaccount-fail' => 'Fehlerhafte oder fehlende reCAPTCHA Antwort.',
-	'recaptcha-create' => 'Zum Schutz gegen automatisierte Erstellung von Seiten gib bitte die beiden folgenden Wörter in das folgende Feld ein:',
+	'recaptcha-create' => 'Zum Schutz des Wikis gegen automatisierte Erstellung von Seiten bitten wir dich, die beiden folgenden Wörter in das folgende Feld einzugeben:',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -193,12 +194,12 @@ $messages['fr'] = array(
  */
 $messages['gl'] = array(
 	'recaptcha-desc' => 'Módulo de reCAPTCHA para Confirm Edit',
-	'recaptcha-edit' => 'Para axudarnos á protección contra o spam, escriba as dúas palabras que vexa nesta caixa:',
-	'recaptcha-addurl' => 'A súa edición inclúe novas ligazóns externas. Para axudar na protección contra o spam automático, ten que escribir as dúas palabras que aparecen na caixa inferior:',
-	'recaptcha-badlogin' => 'Para axudarnos á protección contra o roubo de contrasinais, escriba as dúas palabras que vexa nesta caixa:',
-	'recaptcha-createaccount' => 'Para axudarnos á protección contra a creación automática de contas, escriba as dúas palabras que vexa nesta caixa:',
+	'recaptcha-edit' => 'Para protexer o wiki contra o spam automático, introduza as dúas palabras que vexa na caixa:',
+	'recaptcha-addurl' => 'A súa edición inclúe novas ligazóns externas. Para protexer o wiki contra o spam automático, introduza as dúas palabras que vexa na caixa:',
+	'recaptcha-badlogin' => 'Para protexer o wiki contra o roubo de contrasinais, introduza as dúas palabras que vexa na caixa:',
+	'recaptcha-createaccount' => 'Para protexer o wiki contra a creación automática de contas, introduza as dúas palabras que vexa na caixa:',
 	'recaptcha-createaccount-fail' => 'Falta a resposta ao reCAPTCHA ou esta é incorrecta.',
-	'recaptcha-create' => 'Para axudarnos á protección contra a creación automática de páxinas, escriba as dúas palabras que vexa nesta caixa:',
+	'recaptcha-create' => 'Para protexer o wiki contra a creación automática de páxinas, introduza as dúas palabras que vexa na caixa:',
 );
 
 /** Swiss German (Alemannisch)
@@ -277,12 +278,12 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'recaptcha-desc' => 'Confirm Edit 用 reCAPTCHA モジュール',
-	'recaptcha-edit' => '自動編集のスパム攻撃を防ぐため、下の画像に表示されている 2 つの単語を入力してください:',
-	'recaptcha-addurl' => 'あなたは新しい外部リンクを追加しようとしています。自動でのスパム攻撃を防ぐため、下の画像に表示されている 2 つの単語を入力してください:',
-	'recaptcha-badlogin' => '自動でのパスワードクラック攻撃を防ぐため、下の画像に表示されている 2 つの単語を入力してください:',
-	'recaptcha-createaccount' => 'アカウントの自動登録を防ぐため、下の画像に表示されている 2 つの単語を入力してください:',
+	'recaptcha-edit' => 'ウィキへの自動編集スパム攻撃を防ぐため、お手数をおかけしますが下の画像に表示されている 2 つの単語を入力してください:',
+	'recaptcha-addurl' => 'あなたは新しい外部リンクを追加しようとしています。ウィキへの自動スパム攻撃を防ぐため、お手数をおかけしますが下の画像に表示されている 2 つの単語を入力してください:',
+	'recaptcha-badlogin' => 'ウィキへの自動パスワードクラック攻撃を防ぐため、お手数をおかけしますが下の画像に表示されている 2 つの単語を入力してください:',
+	'recaptcha-createaccount' => 'ウィキでのアカウント自動作成を防ぐため、お手数をおかけしますが下の画像に表示されている 2 つの単語を入力してください:',
 	'recaptcha-createaccount-fail' => '文字列が正しくない、または入力されていません。',
-	'recaptcha-create' => 'ページの自動作成を防ぐため、下の画像に表示されている 2 つの単語を入力してください:',
+	'recaptcha-create' => 'ウィキでのページの自動作成を防ぐため、お手数をおかけしますが下の画像に表示されている 2 つの単語を入力してください:',
 );
 
 /** Korean (한국어)
@@ -492,14 +493,15 @@ $messages['sr-el'] = array(
 );
 
 /** Swedish (svenska)
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
-	'recaptcha-edit' => 'Den här sidan skyddas mot spam-robotar, bevisa att du är en människa genom att skriva de två orden du ser i boxen nedan:',
-	'recaptcha-addurl' => 'Din förändring av sidan innehåller nya externa länkar, vilket är typiskt för spam. Bevisa att du är en människa genom att skriva de två orden du ser i boxen nedan:',
-	'recaptcha-badlogin' => 'För att skydda wikin mot robotar som gissar användares lösenord behöver användare bevisa att de är människor. Skriv ner de två orden som du ser i boxen nedan:',
-	'recaptcha-createaccount' => 'För att skydda wikin mot robotar som skapar konton behöver användare bevisa att de är människor. Var vänlig och skriv ner de två orden du ser i boxen nedan:',
+	'recaptcha-edit' => 'För att skydda wikin mot automatiskt redigerings-spam ber vi dig att skriva de två orden du ser i rutan nedan.',
+	'recaptcha-addurl' => 'Din redigering innehåller nya externa länkar. För att skydda wikin mot automatiserat spam ber vi dig att skriva de två ordern du ser i rutan nedan:',
+	'recaptcha-badlogin' => 'För att skydda wikin mot automatiserade försök att knäcka lösenord ber vi dig att skriva in de två orden du ser i rutan nedan:',
+	'recaptcha-createaccount' => 'För att skydda wikin mot automatiskt kontoskapande ber vi dig att skriva de två orden som du ser i rutan nedan:',
 	'recaptcha-createaccount-fail' => 'Du har angivit ett felaktig svar för reCAPTCHA.',
-	'recaptcha-create' => 'För att skydda wikin mot robotar som skapar nya artiklar. Var vänlig och skriv ner de två orden som finns i boxen nedan:',
+	'recaptcha-create' => 'För att skydda wikin mot automatiserade sidskapande ber vi dig att skriva in de två orden du ser i rutan nedan:',
 );
 
 /** Swahili (Kiswahili)

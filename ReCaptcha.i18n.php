@@ -74,15 +74,16 @@ $messages['be-tarask'] = array(
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Fulup
  */
 $messages['br'] = array(
-	'recaptcha-edit' => "Da sikour en em wareziñ diouzh ar stroboù emgefre, merkit an daou c'her a welit er voest dindan :",
-	'recaptcha-addurl' => "Liamm diavaez nevez zo bet degaset ganeoc'h. Da sikour en em wareziñ diouzh ar stroboù, merkit an daou c'her a welit er voest dindan :",
-	'recaptcha-badlogin' => "Da sikour en em wareziñ diouzh an diskuliañ gerioù-tremen emgefre dre daolioù-esae, merkit an daou c'her a welit er voest dindan :",
-	'recaptcha-createaccount' => "Da sikour en em wareziñ diouzh ar c'hrouiñ kontoù emgefre, merkit an daou c'her a welit er voest dindan :",
+	'recaptcha-edit' => "Evit sikour en em wareziñ diouzh ar stroboù emgefre, merkit an daou c'her a welit er voest dindan :",
+	'recaptcha-addurl' => "Liamm diavaez nevez zo bet degaset ganeoc'h. Evit sikour en em wareziñ diouzh ar stroboù, merkit an daou c'her a welit er voest dindan :",
+	'recaptcha-badlogin' => "Da sikour en em wareziñ diouzh an diskuliañ gerioù-tremen emgefre dre daolioù-esae, merkit an daou c'her a welit er voest dindan :", # Fuzzy
+	'recaptcha-createaccount' => "Da sikour en em wareziñ diouzh ar c'hrouiñ kontoù emgefre, merkit an daou c'her a welit er voest dindan :", # Fuzzy
 	'recaptcha-createaccount-fail' => 'Respont reCAPTHCA faziek pe ezvezant.',
-	'recaptcha-create' => "Da sikour en em wareziñ diouzh ar c'hrouiñ pajennoù emgefre, merkit an daou c'her a welit er voest dindan :",
+	'recaptcha-create' => "Da sikour en em wareziñ diouzh ar c'hrouiñ pajennoù emgefre, merkit an daou c'her a welit er voest dindan :", # Fuzzy
 );
 
 /** Bosnian (bosanski)
@@ -241,12 +242,12 @@ $messages['hsb'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'recaptcha-edit' => 'Pro adjutar a proteger nos contra le spam automatisate, per favor entra le duo parolas que tu vide in le quadro sequente:',
-	'recaptcha-addurl' => 'Iste modification include nove ligamines externe. Pro adjutar a proteger nos contra le spam automatisate, per favor entra le duo parolas que tu vide in le quadro sequente:',
-	'recaptcha-badlogin' => 'Pro adjutar a proteger nos contra le furto automatisate de contrasignos, per favor entra le duo parolas que tu vide in le quadro sequente:',
-	'recaptcha-createaccount' => 'Pro adjutar a proteger nos contra le creation automatisate de contos, per favor entra le duo parolas que tu vide in le quadro sequente:',
+	'recaptcha-edit' => 'Pro adjutar a proteger le wiki contra le spam automatisate, per favor dactylographa le duo parolas que tu vide in le quadro sequente:',
+	'recaptcha-addurl' => 'Iste modification include nove ligamines externe. Pro adjutar a proteger le wiki contra le spam automatisate, per favor dactylographa le duo parolas que tu vide in le quadro sequente:',
+	'recaptcha-badlogin' => 'Pro adjutar a proteger le wiki contra le furto automatisate de contrasignos, per favor dactylographa le duo parolas que tu vide in le quadro sequente:',
+	'recaptcha-createaccount' => 'Pro adjutar a proteger le wiki contra le creation automatisate de contos, per favor dactylographa le duo parolas que tu vide in le quadro sequente:',
 	'recaptcha-createaccount-fail' => 'Responsa reCAPTCHA incorrecte o mancante.',
-	'recaptcha-create' => 'Pro adjutar a proteger nos contra le creation automatisate de paginas, per favor entra le duo parolas que tu vide in le quadro sequente:',
+	'recaptcha-create' => 'Pro adjutar a proteger le wiki contra le creation automatisate de paginas, per favor dactylographa le duo parolas que tu vide in le quadro sequente:',
 );
 
 /** Indonesian (Bahasa Indonesia)

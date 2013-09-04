@@ -156,16 +156,17 @@ $messages['be-tarask'] = array(
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Fulup
  */
 $messages['br'] = array(
 	'questycaptcha-addurl' => "Degaset hoc'h liammoù diavaez nevez.
 A-benn hor skoazellañ da stourm a-enep d'ar strob emgefre, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
-	'questycaptcha-badlogin' => "A-benn hor skoazellañ da stourm a-enep ar freuzañ gerioù-tremen gant ardivinkoù, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
-	'questycaptcha-createaccount' => "A-benn hor skoazellañ da stourm a-enep ar c'hrouiñ kontoù emgefre, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
+	'questycaptcha-badlogin' => "Evit hor sikour da stourm a-enep ar freuzañ gerioù-tremen gant ardivinkoù, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
+	'questycaptcha-createaccount' => "Evit hor sikour da stourm a-enep ar c'hrouiñ kontoù emgefre, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
 	'questycaptcha-create' => "A-benn gellout krouiñ ar bajenn, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
 	'questycaptcha-edit' => "A-benn gellout degas kemmoù er bajenn-mañ, respontit d'ar goulenn a-is ([[Special:Captcha/help|muioc'h a ditouroù]]) :",
-	'questycaptcha-sendemail' => "Evit hor skoazellañ da zizarbenn ar strob emgefre, respontit d'ar goulenn skrivet dindan ([[Special:Captcha/help|gouzout hiroc'h]]) :",
+	'questycaptcha-sendemail' => "Evit hor sikour da zizarbenn ar strob emgefre, respontit d'ar goulenn skrivet dindan ([[Special:Captcha/help|gouzout hiroc'h]]) :",
 	'questycaptchahelp-text' => "Alies e vez taget al lec'hiennoù a zegemer kemennadennoù a-berzh an holl, evel ar wiki-mañ, gant ar stroberien a implij ostilhoù emgefre evit postañ o liammoù war-du lec'hiennoù a bep seurt. Ha pa c'hallfent bezañ diverket, kazus-mat ez eo ar stroboù-se memes tra.
 
 A-wezhioù, dreist-holl pa vez ouzhpennet liammoù Web nevez war ur bajenn, e c'hallo ar wiki-mañ sevel ur goulenn ouzhoc'h. 
@@ -560,12 +561,12 @@ Használd a böngésződ „vissza” gombját a szöveg szerkesztéséhez való
  */
 $messages['ia'] = array(
 	'questycaptcha-addurl' => 'Tu modification include nove ligamines externe.
-Pro adjutar nos in le protection contra le spam automatisate, per favor responde al question ci infra ([[Special:Captcha/help|plus info]]):',
-	'questycaptcha-badlogin' => 'Pro adjutar nos in le protection contra le deciframento automatisate de contrasignos, per favor responde al question ci infra ([[Special:Captcha/help|plus info]]):',
-	'questycaptcha-createaccount' => 'Pro adjutar nos in le protection contra le creation automatisate de contos, per favor responde al question ci infra ([[Special:Captcha/help|plus info]]):',
+Pro adjutar a proteger le wiki contra le spam automatisate, per favor responde al question que appare infra ([[Special:Captcha/help|plus info]]):',
+	'questycaptcha-badlogin' => 'Pro adjutar a proteger le wiki contra le furto automatisate de contrasignos, per favor responde al question que appare infra ([[Special:Captcha/help|plus info]]):',
+	'questycaptcha-createaccount' => 'Pro adjutar a proteger le wiki contra le creation automatisate de contos, per favor responde al question que appare infra ([[Special:Captcha/help|plus info]]):',
 	'questycaptcha-create' => 'Pro crear le pagina, per favor responde al question ci infra ([[Special:Captcha/help|plus info]]):',
 	'questycaptcha-edit' => 'Pro modificar iste pagina, per favor responde al question ci infra ([[Special:Captcha/help|plus info]]):',
-	'questycaptcha-sendemail' => 'Pro adjutar nos in le protection contra le spam automatic, per favor responde al question hic infra ([[Special:Captcha/help|plus info]]):',
+	'questycaptcha-sendemail' => 'Pro adjutar a proteger le wiki contra le spam automatisate, per favor responde al question que appare infra ([[Special:Captcha/help|plus info]]):',
 	'questycaptchahelp-text' => "Le sitos web que accepta contributiones del publico, como iste wiki, es frequentemente abusate per spammatores que usa instrumentos automatic pro publicar lor ligamines in multe sitos.
 Ben que iste ligamines spam pote esser eliminate, illos constitue un considerabile molestia.
 

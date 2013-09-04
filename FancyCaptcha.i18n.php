@@ -219,16 +219,18 @@ $messages['bn'] = array(
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Fulup
  */
 $messages['br'] = array(
-	'fancycaptcha-addurl' => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
-	'fancycaptcha-badlogin' => "A-benn talañ ouzh ar preizhañ kontoù dre c'herioù-tremen emgefre, skrivit er vaezienn ar gerioù merket dindan ([[Special:Captcha/help|Petra eo se?]]):",
+	'fancycaptcha-addurl' => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):", # Fuzzy
+	'fancycaptcha-badlogin' => "A-benn talañ ouzh ar preizhañ kontoù dre c'herioù-tremen emgefre, skrivit er vaezienn ar gerioù merket dindan ([[Special:Captcha/help|Petra eo se?]]):", # Fuzzy
 	'fancycaptcha-createaccount' => "Evit stourm a-enep d'ar c'hontoù  krouet ent emgefre, skrivit ar gerioù
-a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
+a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):", # Fuzzy
 	'fancycaptcha-create' => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
 	'fancycaptcha-edit' => "Liammoù diavaez nevez zo bet degaset ganeoc'h. Evit stourm a-enep d'ar strob emgefre, skrivit ar gerioù a zeu war wel er voest a-is ([[Special:Captcha/help|gouzout hiroc'h]]):",
-	'fancycaptcha-sendemail' => "Evit hor skoazellañ da zizarbenn ar strob emgefre, adskrivit ar gerioù a welit er voest dindan ([[Special:Captcha/help|gouzout hiroc'h]]):",
+	'fancycaptcha-sendemail' => "Evit hor skoazellañ da zizarbenn ar strob emgefre, adskrivit ar gerioù a welit er voest dindan ([[Special:Captcha/help|gouzout hiroc'h]]):", # Fuzzy
+	'fancycaptcha-reload-text' => 'Freskaat',
 );
 
 /** Bosnian (bosanski)
@@ -677,12 +679,12 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'fancycaptcha-addurl' => 'Tu modification include nove ligamines externe.
-Como protection contra le spam automatic, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
-	'fancycaptcha-badlogin' => 'Como protection contra le piratage automatic de contrasignos, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
-	'fancycaptcha-createaccount' => 'Como protection contra le creation automatic de contos, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
+Pro adjutar a proteger le wiki contra le spam automatisate, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
+	'fancycaptcha-badlogin' => 'Pro adjutar a proteger le wiki contra le furto automatisate de contrasignos, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
+	'fancycaptcha-createaccount' => 'Pro adjutar a proteger le wiki contra le creation automatisate de contos, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
 	'fancycaptcha-create' => 'Pro crear le pagina, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
 	'fancycaptcha-edit' => 'Pro modificar iste pagina, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
-	'fancycaptcha-sendemail' => 'Pro adjutar nos in le protection contra le spam automatic, per favor entra le parolas que appare hic infra in le quadro ([[Special:Captcha/help|plus info]]):',
+	'fancycaptcha-sendemail' => 'Pro adjutar a proteger le wiki contra le spam automatisate, per favor entra le parolas que appare infra in le quadro ([[Special:Captcha/help|plus info]]):',
 	'fancycaptcha-reload-text' => 'Refrescar',
 );
 

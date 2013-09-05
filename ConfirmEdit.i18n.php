@@ -1487,7 +1487,7 @@ Prema no botón "Atrás" do seu navegador para volver á páxina de edición.',
 # A sintaxe é a seguinte:
 #   * Todo o que vaia despois dun carácter "#" ata o final da liña é un comentario
 #   * Toda liña que non estea en branco é un fragmento de expresión regular que só coincide con dominios dentro de enderezos URL
-  #</pre> <!-- Deixe esta liña tal e como está -->',
+ #</pre> <!-- Deixe esta liña tal e como está -->',
 	'right-skipcaptcha' => 'Levar a cabo as accións que requiren CAPTCHA sen ter que introducilo',
 );
 

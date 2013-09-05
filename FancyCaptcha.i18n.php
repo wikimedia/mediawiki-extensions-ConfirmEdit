@@ -502,11 +502,14 @@ $messages['fi'] = array(
 );
 
 /** Faroese (føroyskt)
+ * @author EileenSanda
  * @author Spacebirdy
  */
 $messages['fo'] = array(
-	'fancycaptcha-addurl' => 'Sum ein vernd ímóti sjálvvirknum konto gerð, er neyðugt hjá tær at skriva inn tey orð, sum koma fyri á myndini fyri at stovna eina kontu: <br />([[Special:Captcha/help|Hvat er hetta?]])',
-	'fancycaptcha-createaccount' => 'Sum ein vernd ímóti sjálvvirknum konto gerð, er neyðugt hjá tær at skriva inn tey orð, sum koma fyri á myndini fyri at stovna eina kontu: <br />([[Special:Captcha/help|Hvat er hetta?]]):',
+	'fancycaptcha-addurl' => 'Tín rætting inniheldur nýggjar uttanhýsis slóðir.
+Fyri at verja wikiina ímóti sjálvvirkandi kontoupprættan, vilja vit vinarliga biðja teg um at skriva inn tey orð, sum koma fyri í teiginum niðanfyri, til tess at stovna eina konto: <br />([[Special:Captcha/help|meira kunning]]):',
+	'fancycaptcha-createaccount' => 'Fyri at verja wikiina ímóti sjálvvirkandi kontoupprættan, vilja vit vinarliga biðja teg um at skriva inn tey orð, sum koma fyri í teiginum niðanfyri, so at tú kanst stovna eina konto:
+([[Special:Captcha/help|meira kunning]]):',
 );
 
 /** French (français)
@@ -1244,16 +1247,18 @@ Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa ab
 );
 
 /** Brazilian Portuguese (português do Brasil)
+ * @author Cainamarques
  * @author Eduardo.mps
  * @author Giro720
  */
 $messages['pt-br'] = array(
-	'fancycaptcha-addurl' => "A sua edição inclui novas ligações externas. Como prevenção contra sistemas automatizados que inserem ''spam'', por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):",
-	'fancycaptcha-badlogin' => 'Como prevenção contra formas automatizadas de descoberta de palavras-chave, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
-	'fancycaptcha-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
+	'fancycaptcha-addurl' => "A sua edição inclui novas ligações externas. Como prevenção contra sistemas automatizados que inserem ''spam'', por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):", # Fuzzy
+	'fancycaptcha-badlogin' => 'Como prevenção contra formas automatizadas de descoberta de palavras-chave, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):', # Fuzzy
+	'fancycaptcha-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):', # Fuzzy
 	'fancycaptcha-create' => 'Para criar a página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
 	'fancycaptcha-edit' => 'Para editar esta página, por favor, introduza as palavras exibidas na seguinte caixa ([[Special:Captcha/help|mais informações]]):',
-	'fancycaptcha-sendemail' => "Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa as palavras que aparecem abaixo ([[Special:Captcha/help|mais informações]]):",
+	'fancycaptcha-sendemail' => "Para ajudar a combater ''spam'' automatizado, pedimos que, por favor, introduza as palavras que aparecem abaixo ([[Special:Captcha/help|mais informações]]):",
+	'fancycaptcha-reload-text' => 'Atualizar',
 );
 
 /** Romansh (rumantsch)

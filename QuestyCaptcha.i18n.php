@@ -234,12 +234,12 @@ Pro návrat na předchozí stránku stiskněte ve svém prohlížeči tlačítko
  */
 $messages['cy'] = array(
 	'questycaptcha-addurl' => 'Mae eich golygiad yn cynnwys o leiaf un cyswllt allanol newydd.
-Er mwyn ceisio rhwystro peiriannau sbam, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
-	'questycaptcha-badlogin' => 'Er mwyn ceisio rhwystro peiriannau datrys cyfrineiriau, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
-	'questycaptcha-createaccount' => 'Er mwyn ceisio rhwystro peiriannau creu cyfrifon, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
+Er mwyn arbed y wici rhag peiriannau sbam, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
+	'questycaptcha-badlogin' => 'Er mwyn arbed y wici rhag peiriannau datrys cyfrineiriau, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
+	'questycaptcha-createaccount' => 'Er mwyn arbed y wici rhag peiriannau creu cyfrifon, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
 	'questycaptcha-create' => "Er mwyn dechrau'r dudalen, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'questycaptcha-edit' => "Er mwyn golygu'r dudalen, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):",
-	'questycaptcha-sendemail' => 'Er mwyn cyfrannu at ddiogelu rhag sbamio awtomatig, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
+	'questycaptcha-sendemail' => 'Er mwyn arbed y wici rhag sbamio awtomatig, byddwch gystal ag ateb y cwestiwn a welwch isod ([[Special:Captcha/help|rhagor o wybodaeth]]):',
 	'questycaptchahelp-text' => "Mae safleoedd gwe fel y wici hon, sy'n caniatau i'r cyhoedd ysgrifennu iddi, yn darged beunyddiol i sbamwyr sy'n defnyddio rhaglenni arbennig i bostio eu cysylltiadau ar wefannau lu. Gellir dileu'r dolenni o'r tudalennau, ond mae hynny'n waith trafferthus.
 
 O dro i dro, yn enwedig wrth ychwanegu dolenni at safleoedd gwe eraill, fe fydd y wici hon yn gofyn i chi ateb cwestiwn. Mae hyn yn dasg anodd iawn i raglenni cyfrifiadurol, felly dylai'r rhan fwyaf o olygwyr go iawn gyflawni'r dasg yn ddi-drafferth, yn wahanol i'r mwyafrif o'r rhaglenni sbam ac ymosodwyr automatig eraill.
@@ -321,10 +321,24 @@ Klikni na tłocašk "Slědk" we swójom wobglědowaku, aby wróśił se k wobź�
 
 /** Greek (Ελληνικά)
  * @author Omnipaedista
+ * @author Protnet
  */
 $messages['el'] = array(
-	'questycaptcha-addurl' => 'Η επεξεργασία σας περιέχει νέους εξωτερικούς συνδέσμους.
-Για να μας βοηθήσετε στην προστασία κατά των αυτοματοποιημένων σπαμ, παρακαλώ απαντήστε στην παρακάτω ερώτηση ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+	'questycaptcha-desc' => 'Γεννήτρια Questy CAPTCHA για το Confirm Edit',
+	'questycaptcha-addurl' => 'Η επεξεργασία σας περιλαμβάνει νέους εξωτερικούς συνδέσμους.
+Για την προστασία του wiki ενάντια σε αυτοματοποιημένη επεξεργασία spam, σας παρακαλούμε να απαντήσετε στην παρακάτω ερώτηση ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+	'questycaptcha-badlogin' => 'Για την προστασία του wiki ενάντια σε αυτοματοποιημένο σπάσιμο κωδικών, σας παρακαλούμε να απαντήσετε στην παρακάτω ερώτηση ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+	'questycaptcha-createaccount' => 'Για την προστασία του wiki ενάντια σε αυτοματοποιημένη δημιουργία λογαριασμών, σας παρακαλούμε να απαντήσετε στην παρακάτω ερώτηση ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+	'questycaptcha-create' => 'Για να δημιουργήσετε τη σελίδα, σας παρακαλούμε να απαντήσετε στην παρακάτω ερώτηση ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+	'questycaptcha-edit' => 'Για να επεξεργαστείτε αυτή τη σελίδα, σας παρακαλούμε να απαντήσετε στην παρακάτω ερώτηση ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+	'questycaptcha-sendemail' => 'Για την προστασία του wiki ενάντια σε αυτοματοποιημένο σπαμάρισμα, σας παρακαλούμε να απαντήσετε στην παρακάτω ερώτηση ([[Special:Captcha/help|περισσότερες πληροφορίες]]):',
+	'questycaptchahelp-text' => 'Οι ιστότοποι που επιτρέπουν δημόσιες συνεισφορές, όπως αυτό το wiki, παραβιάζονται συχνά από spammers που χρησιμοποιούν αυτοματοποιημένα εργαλεία για να δημοσιεύουν μαζικά υπερσυνδέσμους σε πλήθος ιστοτόπων. Αν και αυτοί οι σύνδεσμοι spam μπορούν να αφαιρεθούν, είναι μεγάλος μπελάς.
+
+Μερικές φορές, ειδικά κατά την προσθήκη νέων συνδέσμων σε μια σελίδα, το wiki μπορεί να σας ζητήσει να απαντήσετε σε μια ερώτηση. Δεδομένου ότι αυτή η εργασία είναι δύσκολο να αυτοματοποιηθεί, θα επιτρέψει στους περισσότερους πραγματικούς ανθρώπους να κάνουν τις δημοσιεύσεις τους, σταματώντας όμως spammers και άλλους ρομποτικά επιτιθέμενους.
+
+Παρακαλούμε επικοινωνήστε με τους [[Special:ListAdmins|διαχειριστές του ιστότοπου]] για βοήθεια εάν αυτό για κάποιο λόγο σας αποτρέπει να εκτελέσετε θεμιτές ενέργειες.
+
+Πατήστε το κουμπί «πίσω» στον περιηγητή σας για να επιστρέψετε στον επεξεργαστή σελίδων.',
 );
 
 /** Esperanto (Esperanto)
@@ -747,12 +761,12 @@ di Sigg zom Ändere, woh De jraad wohß.',
  */
 $messages['lb'] = array(
 	'questycaptcha-addurl' => "An Ärer Ännerung sinn nei extern Linken.
-Fir d'Protectioun géint automatesche Spam ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnendrënner ([[Special:Captcha/help|méi Informatiounen]]):",
-	'questycaptcha-badlogin' => "Fir d'Protectioun géint d'automatiséiert Knacke vu Passwierder ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
-	'questycaptcha-createaccount' => "Fir d'Protectioun géint d'automatiséiert Uleeë vu Benotzerkonten ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnendrënner ([[Special:Captcha/help|méi Informatiounen]]):",
+Fir d'Protectioun géint automatesche Spam ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnendrënner ([[Special:Captcha/help|méi Informatiounen]]):", # Fuzzy
+	'questycaptcha-badlogin' => "Fir d'Protectioun géint d'automatiséiert Knacke vu Passwierder ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):", # Fuzzy
+	'questycaptcha-createaccount' => "Fir d'Protectioun géint d'automatiséiert Uleeë vu Benotzerkonten ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnendrënner ([[Special:Captcha/help|méi Informatiounen]]):", # Fuzzy
 	'questycaptcha-create' => "Fir d'Säit unzeleeën, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
 	'questycaptcha-edit' => "Fir dës Säit z'änneren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
-	'questycaptcha-sendemail' => 'Fir ze hëllefe eis géint automatiséierte Spam ze schütze, beäntwert w.e.g. déi Fro hei ënnendrënner ([[Special:Captcha/help|méi Informatiounen]]):',
+	'questycaptcha-sendemail' => 'Fir ze hëllefe dës Wiki géint automatiséierte Spam ze schütze, beäntwert w.e.g. déi Fro hei ënnendrënner ([[Special:Captcha/help|méi Informatiounen]]):',
 	'questycaptchahelp-text' => "Websäiten, déi et jiddwerengem erlaben Ännerunge virzehuelen, sou wéi dës Wiki, ginn dacks vu sougenannte Spammer mëssbraucht, déi automatiséiert hir Linken op vill Internetsäite setzen.
 Esou Spam-Linke kënne wuel geläscht ginn, mä si sinn trotzdem eng grouss Plo.
 

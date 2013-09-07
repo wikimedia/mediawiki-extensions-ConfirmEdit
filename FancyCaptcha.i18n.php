@@ -308,12 +308,12 @@ $messages['cu'] = array(
  */
 $messages['cy'] = array(
 	'fancycaptcha-addurl' => "Mae eich golygiad yn cynnwys cyswllt allanol newydd.
-Er mwyn ceisio rhwystro peiriannau sbam, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
-	'fancycaptcha-badlogin' => "Er mwyn ceisio rhwystro peiriannau datrys cyfrineiriau, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
-	'fancycaptcha-createaccount' => "Er mwyn ceisio rhwystro peiriannau creu cyfrifon, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+Er mwyn arbed y wici rhag peiriannau sbam, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+	'fancycaptcha-badlogin' => "Er mwyn arbed y wici rhag peiriannau datrys cyfrineiriau, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+	'fancycaptcha-createaccount' => "Er mwyn arbed y wici rhag peiriannau creu cyfrifon, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'fancycaptcha-create' => "Er mwyn creu'r dudalen, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'fancycaptcha-edit' => "Er mwyn gallu golygu'r dudalen hon, byddwch gystal â theipio'r geiriau a welwch isod yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
-	'fancycaptcha-sendemail' => "Er mwyn cyfrannu at ddiogelu rhag sbamio awtomatig, byddwch gystal â gwneud y swm isod ac ysgrifennu'r ateb yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
+	'fancycaptcha-sendemail' => "Er mwyn arbed y wici rhag sbamio awtomatig, byddwch gystal â gwneud y swm isod ac ysgrifennu'r ateb yn y blwch ([[Special:Captcha/help|rhagor o wybodaeth]]):",
 	'fancycaptcha-reload-text' => 'Adnewyddu',
 );
 

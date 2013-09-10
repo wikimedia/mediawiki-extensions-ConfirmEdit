@@ -379,15 +379,16 @@ $messages['nb'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author HanV
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'recaptcha-edit' => 'Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
-	'recaptcha-addurl' => 'Uw bewerking bevat nieuwe externe koppelingen. Voer ter bescherming tegen geautomatiseerde spam de twee woorden die u ziet in het invoervenster in:',
-	'recaptcha-badlogin' => 'Voer ter bescherming tegen het automatisch kraken van wachtwoorden de twee woorden die u ziet in het invoervenster in:',
-	'recaptcha-createaccount' => 'Om het automatisch aanmaken van gebruikers tegen te gaan moet u de twee woorden die u ziet invoeren:',
+	'recaptcha-edit' => 'Voer ter bescherming tegen geautomatiseerde spam de twee woorden in die u in het onderstaande venster ziet:',
+	'recaptcha-addurl' => 'Uw bewerking bevat nieuwe externe koppelingen. Voer ter bescherming tegen geautomatiseerde spam de twee woorden in die u ziet in het onderstaande venster:',
+	'recaptcha-badlogin' => 'Voer ter bescherming tegen het automatisch kraken van wachtwoorden de twee woorden in die u ziet in het invoervenster:',
+	'recaptcha-createaccount' => 'Om het automatisch aanmaken van gebruikers tegen te gaan moet u de twee woorden in het onderstaande venster invoeren:',
 	'recaptcha-createaccount-fail' => 'Het reCAPTCHA-antwoord is onjuist of niet ingevoerd.',
-	'recaptcha-create' => "Om het automatisch aanmaken van pagina's tegen te gaan moet u de twee woorden die u ziet invoeren:",
+	'recaptcha-create' => 'Om het automatisch aanmaken van een pagina tegen te gaan moet u de twee woorden invoeren die in het onderstaande veld staan:',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)

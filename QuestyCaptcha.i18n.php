@@ -892,12 +892,13 @@ Klikk på 'tilbake'-knappen i nettleseren din for å gå tilbake til sideeditore
 );
 
 /** Dutch (Nederlands)
+ * @author HanV
  * @author Siebrand
  */
 $messages['nl'] = array(
 	'questycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe koppelingen.
 Beantwoord de onderstaande vraag als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
-	'questycaptcha-badlogin' => 'Beantwoord de onderstaande vraag als bescherming tegen geautomatiseerde wachtwoordaanvallen ([[Special:Captcha/help|meer informatie]]):',
+	'questycaptcha-badlogin' => 'Beantwoord de onderstaande vraag als bescherming tegen het automatisch kraken van wachtwoorden  ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptcha-createaccount' => 'Beantwoord de onderstaande vraag als bescherming tegen het geautomatiseerd aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptcha-create' => 'Beantwoord de onderstaande vraag om de pagina aan te maken ([[Special:Captcha/help|meer informatie]]):',
 	'questycaptcha-edit' => 'Beantwoord de onderstaande vraag om deze pagina te bewerken ([[Special:Captcha/help|meer informatie]]):',

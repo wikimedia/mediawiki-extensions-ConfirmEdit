@@ -339,17 +339,18 @@ $messages['nb'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author HanV
  * @author SPQRobin
  * @author Siebrand
  */
 $messages['nl'] = array(
 	'asirra-desc' => 'Asirra-module voor ConfirmEdit',
 	'asirra-edit' => 'Kies ter bescherming tegen geautomatiseerde spam de afbeeldingen met een poes in het onderstaande venster:',
-	'asirra-addurl' => "Uw bewerking bevat nieuwe externe koppelingen. Selecteer de foto's van katten in het vak hieronder om te helpen beschermen tegen geautomatiseerde spam:",
+	'asirra-addurl' => "Uw bewerking bevat nieuwe externe koppelingen. Selecteer de foto's van katten in het vak hieronder om de wiki te beschermen tegen geautomatiseerde spam:",
 	'asirra-badlogin' => 'Kies ter bescherming tegen het automatisch kraken van wachtwoorden de afbeeldingen met een poes in het onderstaande venster:',
 	'asirra-createaccount' => 'Kies om het automatisch aanmaken van gebruikers tegen te gaan de afbeeldingen met een poes in het onderstaande venster:',
 	'asirra-createaccount-fail' => 'Identificeer de katten juist.',
-	'asirra-create' => "Kies om het automatisch aanmaken van pagina's tegen te gaan de afbeeldingen met een poes in het onderstaande venster:",
+	'asirra-create' => 'Kies om het automatisch aanmaken van een pagina tegen te gaan de afbeeldingen met een poes in het onderstaande venster:',
 	'asirra-nojs' => "'''Schakel JavaScript in en probeer de pagina opnieuw op te slaan.'''",
 	'asirra-failed' => 'Identificeer alle afbeeldingen van katten.',
 );

@@ -1116,17 +1116,18 @@ Um dit projekt te bescharmen tegen ongewunst reklame, mö'j t woord dat hieronde
 );
 
 /** Dutch (Nederlands)
+ * @author HanV
  * @author Siebrand
  */
 $messages['nl'] = array(
 	'fancycaptcha-desc' => "Generator voor opgedirkte captcha's voor ConfirmEdit",
 	'fancycaptcha-addurl' => 'Uw bewerking bevat nieuwe externe koppelingen.
 Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen automatische spam ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-badlogin' => 'Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen geautomatiseerde wachtwoordaanvallen ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-createaccount' => 'Voer de woorden die hieronder verschijnen in het invoerveld in ter bescherming tegen het geautomatiseerd aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-badlogin' => 'Voer de woorden die hieronder getoond worden in het invoerveld in als bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-createaccount' => 'Voer de woorden die hieronder getoond worden in het invoerveld in ter bescherming tegen het geautomatiseerd aanmaken van gebruikers ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-create' => 'Voer de woorden die hieronder verschijnen in het invoerveld in om de pagina aan te maken ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-edit' => 'Voer de woorden die hieronder verschijnen in het invoerveld in om deze pagina te bewerken ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming tegen geautomatiseerde spam ([[Special:Captcha/help|meer informatie]]):',
+	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder getoond worden in het invoerveld in als bescherming tegen spam ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-reload-text' => 'Verversen',
 );
 

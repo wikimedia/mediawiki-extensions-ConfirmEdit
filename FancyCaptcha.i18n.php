@@ -948,14 +948,14 @@ $messages['la'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'fancycaptcha-addurl' => 'An Ärer Ännerung sinn nei extern Linken.
+	'fancycaptcha-addurl' => "An Ärer Ännerung sinn nei extern Linken.
 
-Fir ze hellëfen, géint automatiséierte Spam virzegoen, gitt w.e.g. déi Wierder an, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):',
-	'fancycaptcha-badlogin' => "Fir ze hellëfe fir d'automatiséiert Hacke vu Passwierder méi schwéier ze maachen, gitt w.e.g. déi Wierder an, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
-	'fancycaptcha-createaccount' => "Fir géint d'automatiséiert Opmaache vu Benotzerkonte virzegoen, gitt w.e.g. déi Wierder an, déi an der Këscht ënnedrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
+Fir dës Wiki géint automatiséierte Spam ze schütze froe mir Iech d'Wierder anzeginn, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
+	'fancycaptcha-badlogin' => "Fir ze hëllefe fir d'automatiséiert Hacke vu Passwierder méi schwéier ze maachen, froe mir Iech fir d'Wierder anzeginn, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
+	'fancycaptcha-createaccount' => "Fir géint d'automatiséiert Opmaache vu Benotzerkonte virzegoen, gitt w.e.g. déi Wierder an, déi an der Këscht ënnedrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):", # Fuzzy
 	'fancycaptcha-create' => 'Fir dës Säit unzeleeën, gitt w.e.g. déi Wierder an, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):',
 	'fancycaptcha-edit' => "Fir dës Säit z'änneren, gitt w.e.g. déi Wierder an, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
-	'fancycaptcha-sendemail' => 'Fir eis géint automatescht Spammen ze schützen, gitt w.e.g. déi Wierder déi an der Këscht ënnedrënner stinn an ([[Special:Captcha/help|méi Informatiounen]]):',
+	'fancycaptcha-sendemail' => "Fir eis géint automatescht Spammen ze schützen, froe mir Iech fir d'Wierder déi an der Këscht ënnendrënner stinn anzeginn ([[Special:Captcha/help|méi Informatiounen]]):",
 	'fancycaptcha-reload-text' => 'Aktualiséieren',
 );
 

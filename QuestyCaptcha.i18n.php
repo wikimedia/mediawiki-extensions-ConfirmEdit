@@ -761,9 +761,9 @@ di Sigg zom Ändere, woh De jraad wohß.',
  */
 $messages['lb'] = array(
 	'questycaptcha-addurl' => "An Ärer Ännerung sinn nei extern Linken.
-Fir d'Protectioun géint automatesche Spam ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnendrënner ([[Special:Captcha/help|méi Informatiounen]]):", # Fuzzy
-	'questycaptcha-badlogin' => "Fir d'Protectioun géint d'automatiséiert Knacke vu Passwierder ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):", # Fuzzy
-	'questycaptcha-createaccount' => "Fir d'Protectioun géint d'automatiséiert Uleeë vu Benotzerkonten ze vergréisseren, beäntwert w.e.g. déi Fro hei ënnendrënner ([[Special:Captcha/help|méi Informatiounen]]):", # Fuzzy
+Fir d'Wiki géint automatesche Spam-Ännerungen ze schützen, froe mir Iech d'Fro hei ënnendrënner ze beäntweren ([[Special:Captcha/help|méi Informatiounen]]):",
+	'questycaptcha-badlogin' => "Fir dës Wiki géint d'automatiséiert Knacke vu Passwierder ze schütze, froe mir Iech d'Fro hei ënnendrënner ze beäntweren ([[Special:Captcha/help|méi Informatiounen]]):",
+	'questycaptcha-createaccount' => "Fir d'Wiki géint d'automatiséiert Uleeë vu Benotzerkonten ze schützen, froe mir Iech d'Fro hei ënnendrënner ze beäntweren ([[Special:Captcha/help|méi Informatiounen]]):",
 	'questycaptcha-create' => "Fir d'Säit unzeleeën, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
 	'questycaptcha-edit' => "Fir dës Säit z'änneren, beäntwert w.e.g. déi Fro hei ënnedrënner ([[Special:Captcha/help|méi Informatiounen]]):",
 	'questycaptcha-sendemail' => 'Fir ze hëllefe dës Wiki géint automatiséierte Spam ze schütze, beäntwert w.e.g. déi Fro hei ënnendrënner ([[Special:Captcha/help|méi Informatiounen]]):',

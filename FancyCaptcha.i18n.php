@@ -952,7 +952,7 @@ $messages['lb'] = array(
 
 Fir dës Wiki géint automatiséierte Spam ze schütze froe mir Iech d'Wierder anzeginn, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
 	'fancycaptcha-badlogin' => "Fir ze hëllefe fir d'automatiséiert Hacke vu Passwierder méi schwéier ze maachen, froe mir Iech fir d'Wierder anzeginn, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
-	'fancycaptcha-createaccount' => "Fir géint d'automatiséiert Opmaache vu Benotzerkonte virzegoen, gitt w.e.g. déi Wierder an, déi an der Këscht ënnedrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):", # Fuzzy
+	'fancycaptcha-createaccount' => "Fir d'Wiki géint automatiséiert Opmaache vu Benotzerkonte ze schützen, froe mir Iech d'Wierder  déi an der Këscht ënnendrënner stinn anzeginn ([[Special:Captcha/help|méi Informatiounen]]):",
 	'fancycaptcha-create' => 'Fir dës Säit unzeleeën, gitt w.e.g. déi Wierder an, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):',
 	'fancycaptcha-edit' => "Fir dës Säit z'änneren, gitt w.e.g. déi Wierder an, déi an der Këscht ënnendrënner stinn ([[Special:Captcha/help|méi Informatiounen]]):",
 	'fancycaptcha-sendemail' => "Fir eis géint automatescht Spammen ze schützen, froe mir Iech fir d'Wierder déi an der Këscht ënnendrënner stinn anzeginn ([[Special:Captcha/help|méi Informatiounen]]):",

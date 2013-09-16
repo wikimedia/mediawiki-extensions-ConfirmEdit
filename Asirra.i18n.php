@@ -150,12 +150,12 @@ $messages['fi'] = array(
  */
 $messages['fr'] = array(
 	'asirra-desc' => 'Module Asirra pour ConfirmEdit',
-	'asirra-edit' => "Pour aider à nous protéger contre le spam d’édition automatique, veuillez sélectionner '''uniquement les photos de chats''' dans la boîte ci-dessous :",
-	'asirra-addurl' => 'Votre édition contient des liens externes. Pour nous aider à nous protéger contre le spam automatique, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
-	'asirra-badlogin' => 'Pour nous aider à nous protéger des essais automatiques de cassage de mot de passe, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
-	'asirra-createaccount' => "Pour nous aider à nous protéger contre la création automatique de comptes, veuillez sélectionner '''uniquement les photos de chats''' dans la boîte ci-dessous :",
+	'asirra-edit' => 'Pour protéger le wiki contre le spam d’édition automatique, nous vous demandons de bien vouloir sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
+	'asirra-addurl' => 'Votre édition contient des liens externes. Pour nous aider à nous protéger contre le spam automatique, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :', # Fuzzy
+	'asirra-badlogin' => 'Pour nous aider à nous protéger des essais automatiques de cassage de mot de passe, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :', # Fuzzy
+	'asirra-createaccount' => "Pour nous aider à nous protéger contre la création automatique de comptes, veuillez sélectionner '''uniquement les photos de chats''' dans la boîte ci-dessous :", # Fuzzy
 	'asirra-createaccount-fail' => 'Veuillez identifier correctement les chats.',
-	'asirra-create' => 'Pour nous aider à nous protéger contre la création automatique de pages, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
+	'asirra-create' => 'Pour nous aider à nous protéger contre la création automatique de pages, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :', # Fuzzy
 	'asirra-nojs' => "'''Veuillez activer le JavaScript et re-soumettre la page.'''",
 	'asirra-failed' => 'Veuillez identifier toutes les images de chat',
 );

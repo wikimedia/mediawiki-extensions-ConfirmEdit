@@ -1302,16 +1302,18 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere mitte le parole 
 /** Russian (русский)
  * @author Dim Grits
  * @author Lockal
+ * @author Okras
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'fancycaptcha-desc' => 'Необычный CAPTCHA-генератор для подтверждения редактирования',
-	'fancycaptcha-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
-	'fancycaptcha-badlogin' => 'В целях защиты от автоматического взлома паролей, пожалуйста, введите в поле ввода буквы с изображения ([[Special:Captcha/help|подробнее]]):',
-	'fancycaptcha-createaccount' => 'Для предотвращения автоматической регистрации учётных записей, пожалуйста, введите изображённые символы в текстовое поле ([[Special:Captcha/help|подробнее]]):',
+	'fancycaptcha-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):', # Fuzzy
+	'fancycaptcha-badlogin' => 'В целях защиты от автоматического взлома паролей, пожалуйста, введите в поле ввода буквы с изображения ([[Special:Captcha/help|подробнее]]):', # Fuzzy
+	'fancycaptcha-createaccount' => 'Для предотвращения автоматической регистрации учётных записей, пожалуйста, введите изображённые символы в текстовое поле ([[Special:Captcha/help|подробнее]]):', # Fuzzy
 	'fancycaptcha-create' => 'Для создания страницы, пожалуйста, введите буквы, которые видны на изображении ниже ([[Special:Captcha/help|подробнее…]]):',
 	'fancycaptcha-edit' => 'Для редактирования страницы, пожалуйста, введите буквы, которые видны на изображении ниже ([[Special:Captcha/help|подробнее…]]):',
-	'fancycaptcha-sendemail' => 'В целях защиты от автоматического спама, пожалуйста, введите показанные ниже слова ([[Special:Captcha/help|подробнее]]):',
+	'fancycaptcha-sendemail' => 'В целях защиты от автоматического спама, пожалуйста, введите показанные ниже слова ([[Special:Captcha/help|подробнее]]):', # Fuzzy
+	'fancycaptcha-reload-text' => 'Обновить',
 );
 
 /** Rusyn (русиньскый)

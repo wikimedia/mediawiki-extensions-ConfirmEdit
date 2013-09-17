@@ -435,6 +435,7 @@ Napsauta selaimesi \'takaisin\'-painiketta palataksesi sivumuokkaimeen.',
 );
 
 /** French (français)
+ * @author Gomoko
  * @author IAlex
  * @author Nicolas NALLET
  * @author Verdy p
@@ -442,12 +443,12 @@ Napsauta selaimesi \'takaisin\'-painiketta palataksesi sivumuokkaimeen.',
 $messages['fr'] = array(
 	'questycaptcha-desc' => "Générateur de questions ''captcha'' pour confirmer les modifications",
 	'questycaptcha-addurl' => 'Votre modification inclut de nouveaux liens externes.
-Pour nous aider dans la protection contre le pourriel automatisé, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
-	'questycaptcha-badlogin' => 'Afin de nous aider à prévenir le cassage des mots de passe par des automates, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
-	'questycaptcha-createaccount' => 'Afin de nous aider à lutter contre les créations automatiques de comptes, veuillez répondre à la question qui apparaît ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+Pour nous aider dans la protection contre le pourriel automatisé, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :', # Fuzzy
+	'questycaptcha-badlogin' => 'Afin de protéger le wiki contre le cassage automatisé des mots de passe, nous vous demandons de bien vouloir répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+	'questycaptcha-createaccount' => 'Afin de protéger le wiki contre les créations automatiques de comptes, nous vous demandons de bien vouloir répondre à la question qui apparaît ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-create' => 'Pour créer la page, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-edit' => 'Pour créer, modifier ou publier cette page, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
-	'questycaptcha-sendemail' => 'Afin de nous aider à prévenir le spam automatique, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
+	'questycaptcha-sendemail' => 'Afin de protéger le wiki contre le spam automatique, nous vous demandons de bien vouloir répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptchahelp-text' => 'Les sites web qui acceptent des contributions du public, tels que ce wiki, sont souvent victimes de polluposteurs qui utilisent des outils automatisés pour placer de nombreux liens vers leurs sites.
 Même si cette pollution peut être effacée, elle n’en reste pas moins irritante.
 

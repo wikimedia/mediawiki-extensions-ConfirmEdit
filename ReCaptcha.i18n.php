@@ -179,15 +179,16 @@ $messages['fi'] = array(
 );
 
 /** French (français)
+ * @author Gomoko
  * @author Urhixidur
  */
 $messages['fr'] = array(
-	'recaptcha-edit' => "Pour nous protéger des robots, merci d'écrire les deux mots visibles dans le cadre qui suit:",
-	'recaptcha-addurl' => 'Votre contribution contient des liens vers un site externe. Pour nous protéger des robots, merci d’écrire les deux mots visibles dans le cadre qui suit :',
-	'recaptcha-badlogin' => "Pour nous protéger des essais automatiques de cassage de mot de passe, merci d'écrire les deux mots visibles dans le cadre qui suit:",
-	'recaptcha-createaccount' => "Pour nous protéger des créations automatiques de compte, merci d'écrire les deux mots visibles dans le cadre qui suit:",
+	'recaptcha-edit' => 'Afin de protéger le wiki du spam des modifications automatisées, nous vous demandons de bien vouloir écrire les deux mots visibles dans le cadre ci-dessous :',
+	'recaptcha-addurl' => 'Votre contribution contient des liens vers un site externe. Pour protéger le wiki contre le spam automatisé, nous vous demandons de bien vouloir écrire les deux mots visibles dans le cadre qui suit :',
+	'recaptcha-badlogin' => 'Pour protéger le wiki des essais automatiques de cassage de mot de passe, nous vous demandons de bien vouloir écrire les deux mots visibles dans le cadre qui suit:',
+	'recaptcha-createaccount' => 'Pour protéger le wiki des créations automatiques de compte, nous vous demandons de bien vouloir écrire les deux mots visibles dans le cadre qui suit :',
 	'recaptcha-createaccount-fail' => 'Réponse de reCAPTCHA fausse ou manquante.',
-	'recaptcha-create' => "Pour nous protéger des créations automatiques de pages, merci d'écrire les deux mots visibles dans le cadre qui suit:",
+	'recaptcha-create' => 'Pour protéger le wiki des créations automatiques de pages, nous vous demandons de bien vouloir écrire les deux mots visibles dans le cadre qui suit :',
 );
 
 /** Galician (galego)

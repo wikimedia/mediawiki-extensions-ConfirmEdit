@@ -151,11 +151,11 @@ $messages['fi'] = array(
 $messages['fr'] = array(
 	'asirra-desc' => 'Module Asirra pour ConfirmEdit',
 	'asirra-edit' => 'Pour protéger le wiki contre le spam d’édition automatique, nous vous demandons de bien vouloir sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
-	'asirra-addurl' => 'Votre édition contient des liens externes. Pour nous aider à nous protéger contre le spam automatique, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :', # Fuzzy
-	'asirra-badlogin' => 'Pour nous aider à nous protéger des essais automatiques de cassage de mot de passe, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :', # Fuzzy
-	'asirra-createaccount' => "Pour nous aider à nous protéger contre la création automatique de comptes, veuillez sélectionner '''uniquement les photos de chats''' dans la boîte ci-dessous :", # Fuzzy
+	'asirra-addurl' => 'Votre édition contient des liens externes. Pour protéger le wiki contre le spam de modification automatique, nous vous demandons de bien vouloir sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
+	'asirra-badlogin' => 'Pour protéger le wiki des essais automatiques de cassage de mot de passe, nous vous demandons de bien vouloir sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
+	'asirra-createaccount' => 'Pour protéger le wiki contre la création automatique de comptes, nous vous demandons de bien vouloir sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
 	'asirra-createaccount-fail' => 'Veuillez identifier correctement les chats.',
-	'asirra-create' => 'Pour nous aider à nous protéger contre la création automatique de pages, veuillez sélectionner uniquement les photos de chats dans la boîte ci-dessous :', # Fuzzy
+	'asirra-create' => 'Pour protéger le wiki contre la création automatique de pages, nous vous demandons de bien vouloir sélectionner uniquement les photos de chats dans la boîte ci-dessous :',
 	'asirra-nojs' => "'''Veuillez activer le JavaScript et re-soumettre la page.'''",
 	'asirra-failed' => 'Veuillez identifier toutes les images de chat',
 );

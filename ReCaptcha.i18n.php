@@ -322,12 +322,12 @@ Dat sull jääje SPAM un automattesch aanjelaate Sigge em Wiki schöze.', # Fuzz
  * @author Robby
  */
 $messages['lb'] = array(
-	'recaptcha-edit' => "Fir ze hëllefe eis géint automatiséierte Spam ze schützen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner an:",
-	'recaptcha-addurl' => "An Ärer Ännerung sinn nei extern Linken! Fir ze hëllefe géint automatiséierte Spam virzegoen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner:",
-	'recaptcha-badlogin' => "Fir ze hëllefe eis géint d'automatiséiert hacke vu Passwierder ze schützen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner an:",
-	'recaptcha-createaccount' => "Fir ze hëllefe eis géint d'automatiséiert Uleeë vu Benotzerkonten ze schützen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner an:",
+	'recaptcha-edit' => "Fir d'Wiki géint automatiséierte Spam ze schützen, froe mir Iech déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner anzeginn:",
+	'recaptcha-addurl' => "An Ärer Ännerung sinn nei extern Linken! Fir ze hëllefe géint automatiséierte Spam virzegoen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner:", # Fuzzy
+	'recaptcha-badlogin' => "Fir ze hëllefe eis géint d'automatiséiert hacke vu Passwierder ze schützen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner an:", # Fuzzy
+	'recaptcha-createaccount' => "Fir ze hëllefe eis géint d'automatiséiert Uleeë vu Benotzerkonten ze schützen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner an:", # Fuzzy
 	'recaptcha-createaccount-fail' => 'reCAPTCHA Äntwert feelt oder ass net korrekt.',
-	'recaptcha-create' => "Fir ze hëllefe eis géint d'automatiséiert Uleeë vu Säiten ze schützen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner an:",
+	'recaptcha-create' => "Fir ze hëllefe eis géint d'automatiséiert Uleeë vu Säiten ze schützen, tippt w.e.g. déi zwee Wierder déi Dir gesitt an d'Këscht ënnendrënner an:", # Fuzzy
 );
 
 /** Macedonian (македонски)

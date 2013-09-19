@@ -443,7 +443,7 @@ Napsauta selaimesi \'takaisin\'-painiketta palataksesi sivumuokkaimeen.',
 $messages['fr'] = array(
 	'questycaptcha-desc' => "Générateur de questions ''captcha'' pour confirmer les modifications",
 	'questycaptcha-addurl' => 'Votre modification inclut de nouveaux liens externes.
-Pour nous aider dans la protection contre le pourriel automatisé, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :', # Fuzzy
+Pour protéger le wiki contre le pourriel de modification automatisé, nous vous demandons de bien vouloir répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-badlogin' => 'Afin de protéger le wiki contre le cassage automatisé des mots de passe, nous vous demandons de bien vouloir répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-createaccount' => 'Afin de protéger le wiki contre les créations automatiques de comptes, nous vous demandons de bien vouloir répondre à la question qui apparaît ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',
 	'questycaptcha-create' => 'Pour créer la page, veuillez répondre à la question ci-dessous ([[Special:Captcha/help|plus d’informations]]) :',

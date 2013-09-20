@@ -71,6 +71,13 @@ $messages['be-tarask'] = array(
 	'asirra-failed' => 'Калі ласка, вызначце ўсе выявы з катамі',
 );
 
+/** Breton (brezhoneg)
+ * @author Fohanno
+ */
+$messages['br'] = array(
+	'asirra-nojs' => "'''Gweredekait JavaScript, mar plij, hag adkasit ar bajenn.'''",
+);
+
 /** Czech (česky)
  * @author Vks
  */

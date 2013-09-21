@@ -613,7 +613,7 @@ $messages['gu'] = array(
 $messages['he'] = array(
 	'fancycaptcha-desc' => 'מחולל תמונות CAPTCHA מגניבות בשביל ההרבחבה Confirm Edit',
 	'fancycaptcha-addurl' => 'עריכתכם כוללת קישורים חיצוניים חדשים.
-כהגנה מפני ספאם אוטומטי, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
+כהגנה מפני זיבול אוטומטי, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'fancycaptcha-badlogin' => 'כהגנה מפני פריצת סיסמאות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'fancycaptcha-createaccount' => 'כהגנה מפני יצירת חשבונות אוטומטית, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'fancycaptcha-create' => 'כדי ליצור את הדף, אנא הקלידו את המילים המופיעות להלן בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
@@ -1633,12 +1633,12 @@ Par jutarne a conbàtar el spam, par piaser inserissi ne la casela le parole che
  */
 $messages['vi'] = array(
 	'fancycaptcha-desc' => 'Trình sản xuất hình CAPTCHA đặc biệt cho ConfirmEdit',
-	'fancycaptcha-addurl' => 'Sửa đổi của bạn có chứa các liên kết ngoài. Để giúp tránh spam tự động, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
-	'fancycaptcha-badlogin' => 'Để giúp tránh bẻ mật khẩu tự động, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
-	'fancycaptcha-createaccount' => 'Để giúp tránh tạo tài khoản tự động, xin hãy nhập những chữ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'fancycaptcha-addurl' => 'Sửa đổi của bạn có chứa các liên kết ngoài. Để giúp chúng tôi chống lại spam tự động, xin vui lòng nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'fancycaptcha-badlogin' => 'Để giúp chúng tôi tránh bẻ mật khẩu tự động, xin vui lòng nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'fancycaptcha-createaccount' => 'Để giúp chúng tôi tránh mở tài khoản tự động, xin vui lòng nhập những chữ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'fancycaptcha-create' => 'Để tạo trang, xin hãy nhập những chữ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'fancycaptcha-edit' => 'Để sửa trang này, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
-	'fancycaptcha-sendemail' => 'Để giúp chúng tôi chống lại spam tự động, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
+	'fancycaptcha-sendemail' => 'Để giúp chúng tôi chống lại spam tự động, xin vui lòng nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'fancycaptcha-reload-text' => 'Làm tươi',
 );
 

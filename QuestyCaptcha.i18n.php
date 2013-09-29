@@ -651,12 +651,13 @@ Peslen ti 'agsubli' a buton dita pagbasabasam (browser) ti agsubli idiay panid t
  * @author Nemo bis
  */
 $messages['it'] = array(
-	'questycaptcha-addurl' => "La modifica richiesta aggiunge dei collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):",
-	'questycaptcha-badlogin' => 'Come misura precauzionale contro i tentativi di forzatura automatica della password, si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
-	'questycaptcha-createaccount' => 'Come misura precauzionale contro i tentativi di creazione automatica degli account, si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'questycaptcha-addurl' => 'La modifica richiesta aggiunge dei collegamenti esterni alla pagina.
+Per proteggere il wiki dallo spam automatico, ti chiediamo gentilmente di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'questycaptcha-badlogin' => 'Per proteggere il wiki dalla forzatura automatica delle password, ti chiediamo gentilmente di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'questycaptcha-createaccount' => 'Per proteggere il wiki dalla creazione automatica di nuovi accessi, ti chiediamo gentilmente di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'questycaptcha-create' => 'Per creare la pagina si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'questycaptcha-edit' => 'Per modificare questa pagina si prega di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
-	'questycaptcha-sendemail' => 'Come misura precauzionale nei confronti dei messaggi di spam automatici, si prega di inserire nella casella sottostante le parole che compaiono di seguito ([[Special:Captcha/help|come funziona?]]):',
+	'questycaptcha-sendemail' => 'Per proteggere il wiki dalle modifiche automatiche che aggiungono spam, ti chiediamo gentilmente di rispondere alla domanda che compare di seguito ([[Special:Captcha/help|come funziona?]]):',
 	'questycaptchahelp-text' => 'Capita spesso che i siti web che accettano contributi pubblici, come questo wiki, siano presi di mira da persone che usano strumenti automatici per inserire collegamenti pubblicitari verso un gran numero di siti (spam). Per quanto i collegamenti indesiderati si possano rimuovere, si tratta comunque di una seccatura non indifferente. 
 
 In alcuni casi, ad esempio quando si tenta di aggiungere nuovi collegamenti web in una pagina, il software wiki può richiedere di rispondere a una domanda. Poiché si tratta di un\'azione difficile da replicare da parte di un computer, questo meccanismo consente a (quasi tutti) gli utenti reali di effettuare i proprio contributi, impedendo l\'accesso alla maggior parte degli spammer e degli altri attacchi automatizzati. 
@@ -1104,16 +1105,17 @@ Cazze 'u buttone 'rrete' jndr'à 'u browser tue pe turnà 'a pàgene d'u cangiam
 
 /** Russian (русский)
  * @author Lockal
+ * @author Okras
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'questycaptcha-addurl' => 'Ваша правка содержит новые внешние ссылки.
-В целях защиты от автоматического спама, пожалуйста, ответьте на приведённый ниже вопрос ([[Special:Captcha/help|подробнее]]):', # Fuzzy
-	'questycaptcha-badlogin' => 'В целях защиты от автоматического подбора пароля, пожалуйста, ответьте на приведённый ниже вопрос  ([[Special:Captcha/help|подробнее]]):', # Fuzzy
-	'questycaptcha-createaccount' => 'В целях защиты от автоматического создания учётных записей, пожалуйста, ответьте на приведённый ниже вопрос  ([[Special:Captcha/help|подробнее]]):', # Fuzzy
+В целях защиты от автоматического спама просим вас ответить на вопрос, показанный ниже ([[Special:Captcha/help|подробнее…]]):',
+	'questycaptcha-badlogin' => 'В целях защиты от автоматического подбора пароля  просим вас ответить на вопрос, показанный ниже ([[Special:Captcha/help|подробнее…]]):',
+	'questycaptcha-createaccount' => 'В целях защиты от автоматического создания учётных записей просим вас ответить на вопрос, показанный ниже ([[Special:Captcha/help|подробнее…]]):',
 	'questycaptcha-create' => 'Для создания страницы, пожалуйста, ответьте на приведённый ниже вопрос  ([[Special:Captcha/help|подробнее]]):',
 	'questycaptcha-edit' => 'Чтобы изменить эту страницу, пожалуйста, ответьте на приведённый ниже вопрос  ([[Special:Captcha/help|подробнее]]):',
-	'questycaptcha-sendemail' => 'В целях защиты от автоматического спама, пожалуйста, ответьте на приведённый ниже вопрос ([[Special:Captcha/help|подробнее]]):', # Fuzzy
+	'questycaptcha-sendemail' => 'В целях защиты от автоматического спама просим вас ответить на вопрос, показанный ниже ([[Special:Captcha/help|подробнее…]]):',
 	'questycaptchahelp-text' => 'Веб-сайты, позволяющие добавлять и изменять своё содержимое, в том числе эта вики, часто становятся целью спамеров, использующих программы для автоматического добавления ссылок на сайты. Хотя такие ссылки могут быть впоследствии удалены, они являются существенной помехой.
 
 При некоторых действиях — например, при добавлении на страницу новой веб-ссылки —  вики может попросить вас ответить на вопрос. Поскольку эта задача является сложной для автоматизации, большинство спамерских и вандальных программ не могут с ней справиться, в то время как люди справляются легко.
@@ -1193,11 +1195,12 @@ $messages['sr-el'] = array(
 
 /** Swedish (svenska)
  * @author Boivie
+ * @author Rotsee
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'questycaptcha-addurl' => 'Din redigering inkluderar nya externa länkar.
-För att skydda wikin mot automatisk redigerings-spam ber vi dig att svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
+För att skydda wikin mot automatisk spam ber vi dig att svara på frågan här ([[Special:Captcha/help|mer information]]):',
 	'questycaptcha-badlogin' => 'För att skydda wikin mot automatisk lösenordsknäckning ber vi dig att svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
 	'questycaptcha-createaccount' => 'För att skydda wikin mot automatiskt kontoskapande ber vi dig att svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',
 	'questycaptcha-create' => 'För att skapa sidan, vänligen svara på frågan som finns nedan ([[Special:Captcha/help|mer information]]):',

@@ -264,15 +264,16 @@ $messages['id'] = array(
 );
 
 /** Italian (italiano)
+ * @author Beta16
  * @author Nemo bis
  */
 $messages['it'] = array(
-	'recaptcha-edit' => 'Per aiutarci a proteggerci dalle modifiche automatiche che aggiungono spam, scrivi le due parole mostrate nel riquadro sottostante:',
-	'recaptcha-addurl' => 'La tua modifica aggiunge qualche nuovo collegamento esterno. Per aiutarci a proteggerci dallo spam automatico, scrivi le due parole mostrate nel riquadro sottostante:',
-	'recaptcha-badlogin' => 'Per aiutarci a proteggerci dalla forzatura automatica delle password, scrivi le due parole mostrate nel riquadro sottostante:',
-	'recaptcha-createaccount' => 'Per aiutarci a proteggerci dalla creazione automatica di nuovi accessi, scrivi le due parole mostrate nel riquadro sottostante:',
+	'recaptcha-edit' => 'Per proteggere il wiki dalle modifiche automatiche che aggiungono spam, ti chiediamo gentilmente di scrivere le due parole mostrate nel riquadro sottostante:',
+	'recaptcha-addurl' => 'La tua modifica aggiunge qualche nuovo collegamento esterno. Per proteggere il wiki dallo spam automatico, ti chiediamo gentilmente di scrivere le due parole mostrate nel riquadro sottostante:',
+	'recaptcha-badlogin' => 'Per proteggere il wiki dalla forzatura automatica delle password, ti chiediamo gentilmente di scrivere le due parole mostrate nel riquadro sottostante:',
+	'recaptcha-createaccount' => 'Per proteggere il wiki dalla creazione automatica di nuovi accessi, ti chiediamo gentilmente di scrivere le due parole mostrate nel riquadro sottostante:',
 	'recaptcha-createaccount-fail' => 'Risposta reCAPTCHA mancante o errata.',
-	'recaptcha-create' => 'Per aiutarci a proteggerci dalla creazione automatica di pagine, scrivi le due parole mostrate nel riquadro sottostante:',
+	'recaptcha-create' => 'Per proteggere il wiki dalla creazione automatica di pagine, ti chiediamo gentilmente di scrivere le due parole mostrate nel riquadro sottostante:',
 );
 
 /** Japanese (日本語)
@@ -471,15 +472,16 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (русский)
+ * @author Okras
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'recaptcha-edit' => 'В целях защиты от автоматического спама в правках, пожалуйста, введите два слова, которые вы видите ниже:',
-	'recaptcha-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от автоматического спама, пожалуйста, введите два слова, которые вы видите ниже:',
-	'recaptcha-badlogin' => 'В целях защиты от автоматического подбора пароля, пожалуйста, введите два слова, которые вы видите ниже:',
-	'recaptcha-createaccount' => 'В целях защиты от автоматического создания учётных записей, пожалуйста, введите два слова, которые вы видите ниже:',
+	'recaptcha-edit' => 'В целях защиты от автоматического спама в правках просим вас ввести два слова, которые вы видите ниже:',
+	'recaptcha-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от автоматического спама просим вас ввести два слова, которые вы видите в рамке ниже:',
+	'recaptcha-badlogin' => 'В целях защиты от автоматического подбора пароля просим вас ввести два слова, которые вы видите в рамке ниже:',
+	'recaptcha-createaccount' => 'В целях защиты от автоматического создания учётных записей просим вас ввести два слова, которые вы видите в рамке ниже:',
 	'recaptcha-createaccount-fail' => 'Ответ reCAPTCHA неправильный или отсутствует.',
-	'recaptcha-create' => 'В целях защиты от автоматического создания страниц, пожалуйста, введите два слова, которые вы видите ниже:',
+	'recaptcha-create' => 'В целях защиты от автоматического создания страниц просим вас ввести два слова, которые вы видите в рамке ниже:',
 );
 
 /** Sinhala (සිංහල)

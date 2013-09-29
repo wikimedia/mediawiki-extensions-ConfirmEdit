@@ -418,12 +418,13 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'fancycaptcha-addurl' => 'Via redakto inkluzivas novajn eksterajn ligilojn.
-Por preventi aŭtomatan spamon, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plua informo]]):',
-	'fancycaptcha-badlogin' => 'Helpi protekti kontraŭ aŭtomata divenado de pasvortoj, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plua informo]]):',
-	'fancycaptcha-createaccount' => 'Helpi protekti kontraŭ aŭtomata kreado de kontoj, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plua informo]]):',
+Por preventi aŭtomatan spamon, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plia informo]]):',
+	'fancycaptcha-badlogin' => 'Por protekti kontraŭ aŭtomata divenado de pasvortoj, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plua informo]]):',
+	'fancycaptcha-createaccount' => 'Por protekti kontraŭ aŭtomata kreado de kontoj, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plia informo]]):',
 	'fancycaptcha-create' => 'Por krei la paĝon, bonvolu enigi la vortojn montritajn en la jena skatolo ([[Special:Captcha/help|plua informo]]):',
 	'fancycaptcha-edit' => 'Por redakti ĉi tiun paĝon, bonvolu enigi la vortojn jenajn en la kesto ([[Special:Captcha/help|plua informo]]):',
-	'fancycaptcha-sendemail' => 'Por helpi protekti kontraŭ aŭtomata spamado, bonvolu enigi la jenajn vortojn de la skatolo ([[Special:Captcha/help|plua informo]]):',
+	'fancycaptcha-sendemail' => 'Por helpi protekti kontraŭ aŭtomata spamado, bonvolu enigi la jenajn vortojn de la skatolo ([[Special:Captcha/help|plia informo]]):',
+	'fancycaptcha-reload-text' => 'Refreŝigi',
 );
 
 /** Spanish (español)
@@ -1307,12 +1308,13 @@ Pe aiutà a proteggere condre a 'u spam automateche, pe piacere mitte le parole 
  */
 $messages['ru'] = array(
 	'fancycaptcha-desc' => 'Необычный CAPTCHA-генератор для подтверждения редактирования',
-	'fancycaptcha-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от спама, пожалуйста, введите слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):', # Fuzzy
-	'fancycaptcha-badlogin' => 'В целях защиты от автоматического взлома паролей, пожалуйста, введите в поле ввода буквы с изображения ([[Special:Captcha/help|подробнее]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'Для предотвращения автоматической регистрации учётных записей, пожалуйста, введите изображённые символы в текстовое поле ([[Special:Captcha/help|подробнее]]):', # Fuzzy
+	'fancycaptcha-addurl' => 'Ваша правка содержит новые внешние ссылки.
+В целях защиты от спама просим вас ввести слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
+	'fancycaptcha-badlogin' => 'В целях защиты от автоматического взлома паролей просим вас ввести слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
+	'fancycaptcha-createaccount' => 'Для предотвращения автоматической регистрации учётных записей просим вас ввести слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
 	'fancycaptcha-create' => 'Для создания страницы, пожалуйста, введите буквы, которые видны на изображении ниже ([[Special:Captcha/help|подробнее…]]):',
 	'fancycaptcha-edit' => 'Для редактирования страницы, пожалуйста, введите буквы, которые видны на изображении ниже ([[Special:Captcha/help|подробнее…]]):',
-	'fancycaptcha-sendemail' => 'В целях защиты от автоматического спама, пожалуйста, введите показанные ниже слова ([[Special:Captcha/help|подробнее]]):', # Fuzzy
+	'fancycaptcha-sendemail' => 'В целях защиты от автоматического спама просим вас ввести слова, показанные ниже в рамке ([[Special:Captcha/help|подробнее…]]):',
 	'fancycaptcha-reload-text' => 'Обновить',
 );
 

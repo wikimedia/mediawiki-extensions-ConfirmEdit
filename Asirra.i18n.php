@@ -217,12 +217,12 @@ $messages['ia'] = array(
  */
 $messages['it'] = array(
 	'asirra-desc' => 'Modulo ASIRRA per ConfirmEdit',
-	'asirra-edit' => 'Per aiutarci a proteggerci dalle modifiche automatiche che aggiungono spam, seleziona solo le foto di gatti nel riquadro sottostante:',
-	'asirra-addurl' => 'La tua modifica aggiunge qualche nuovo collegamento esterno. Per aiutarci a proteggerci dallo spam automatico, seleziona solo le foto di gatti nel riquadro sottostante:',
-	'asirra-badlogin' => 'Per aiutarci a proteggerci dalla forzatura automatica delle password, seleziona solo le foto di gatti nel riquadro sottostante:',
-	'asirra-createaccount' => 'Per aiutarci a proteggerci dalla creazione automatica di nuovi accessi, seleziona solo le foto di gatti nel riquadro sottostante:',
+	'asirra-edit' => 'Per proteggere il wiki dalle modifiche automatiche che aggiungono spam, ti chiediamo gentilmente di selezionare solo le foto di gatti nel riquadro sottostante:',
+	'asirra-addurl' => 'La tua modifica aggiunge qualche nuovo collegamento esterno. Per proteggere il wiki dallo spam automatico, ti chiediamo gentilmente di selezionare solo le foto di gatti nel riquadro sottostante:',
+	'asirra-badlogin' => 'Per proteggere il wiki dalla forzatura automatica delle password, ti chiediamo gentilmente di selezionare solo le foto di gatti nel riquadro sottostante:',
+	'asirra-createaccount' => 'Per proteggere il wiki dalla creazione automatica di nuovi accessi, ti chiediamo gentilmente di selezionare solo le foto di gatti nel riquadro sottostante:',
 	'asirra-createaccount-fail' => 'Identifica correttamente i gatti.',
-	'asirra-create' => 'Per aiutarci a proteggerci dalla creazione automatica di pagine, seleziona solo le foto di gatti nel riquadro sottostante:',
+	'asirra-create' => 'Per proteggere il wiki dalla creazione automatica di pagine, ti chiediamo gentilmente di selezionare solo le foto di gatti nel riquadro sottostante:',
 	'asirra-nojs' => "'''Attiva JavaScript ed invia di nuovo la pagina.'''",
 	'asirra-failed' => 'Identifica tutte le immagini di gatti',
 );
@@ -438,11 +438,11 @@ $messages['roa-tara'] = array(
 $messages['ru'] = array(
 	'asirra-desc' => 'Модуль Asirra для ConfirmEdit',
 	'asirra-edit' => 'В целях защиты проекта от автоматического спама в правках, просим вас выбрать среди нижеприведённых изображений только фотографии кошек:',
-	'asirra-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты от автоматического спама, пожалуйста, выберите среди нижеприведённых фотографий только фотографии кошек:', # Fuzzy
-	'asirra-badlogin' => 'В целях защиты от автоматического подбора пароля, пожалуйста, выберите среди нижеприведённых фотографий только фотографии кошек:', # Fuzzy
-	'asirra-createaccount' => 'В целях защиты от автоматического создания учётных записей, пожалуйста, выберите среди нижеприведённых фотографий только фотографии кошек:', # Fuzzy
+	'asirra-addurl' => 'Ваша правка содержит новые внешние ссылки. В целях защиты проекта от автоматического спама в правках просим вас выбрать среди нижеприведённых изображений только фотографии кошек:',
+	'asirra-badlogin' => 'В целях защиты от автоматического подбора пароля просим вас выбрать среди нижеприведённых изображений только фотографии кошек:',
+	'asirra-createaccount' => 'В целях защиты от автоматического создания учётных записей просим вас выбрать среди нижеприведённых изображений только фотографии кошек:',
 	'asirra-createaccount-fail' => 'Пожалуйста правильно идентифицируйте котов.',
-	'asirra-create' => 'В целях защиты от автоматического создания страниц, пожалуйста, выберите среди нижеприведённых фотографий только фотографии кошек:', # Fuzzy
+	'asirra-create' => 'В целях защиты от автоматического создания страниц просим вас выбрать среди нижеприведённых изображений только фотографии кошек:',
 	'asirra-nojs' => "'''Пожалуйста, включите JavaScript и обновите страницу.'''",
 	'asirra-failed' => 'Пожалуйста, идентифицируйте все фотографии кота',
 );
@@ -457,10 +457,11 @@ $messages['si'] = array(
 
 /** Swedish (svenska)
  * @author Jopparn
+ * @author Rotsee
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
-	'asirra-edit' => 'För att skydda wikin mot automatiserat redigerings-spam ber vi dig att endast markera fotografierna på katter i rutan nedan:',
+	'asirra-edit' => 'För att skydda wikin mot spam ber vi dig att markera de fotografier som föreställer katter i rutan nedan:',
 	'asirra-addurl' => 'Din redigering innehåller nya externa länkar. För att skydda wikin mot automatiserat redigerings-spam ber vi dig att endast markera fotografierna på katter i rutan nedan:',
 	'asirra-badlogin' => 'För att skydda wikin mot automatiserade försök att knäcka lösenord ber vi dig att endast markera fotografierna på katter i rutan nedan:',
 	'asirra-createaccount' => 'För att skydda wikin mot automatiserat kontoskapande ber vi dig att endast markera fotografierna på katter i rutan nedan:',

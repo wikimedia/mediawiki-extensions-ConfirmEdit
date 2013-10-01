@@ -91,12 +91,12 @@ $messages['ar'] = array(
  * @author Xuacu
  */
 $messages['ast'] = array(
-	'questycaptcha-addurl' => "La to edición inclúi nuevos enllaces esternos. P'aidar a protexer escontra'l spam automatizáu, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
-	'questycaptcha-badlogin' => "P'ayudar a protexer escontra'l descifráu automáticu de claves, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
-	'questycaptcha-createaccount' => "P'ayudar a protexer escontra la creación automática de cuentes, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
+	'questycaptcha-addurl' => "La so edición incluye nuevos enllaces esternos. Pa protexer la wiki escontra'l spam d'edición automatizáu, pidimos-y que conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
+	'questycaptcha-badlogin' => "Pa protexer la wiki escontra'l descifráu automáticu de claves, pidimos-y que conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
+	'questycaptcha-createaccount' => "Pa protexer la wiki escontra la creación automática de cuentes, pidimos-y que conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
 	'questycaptcha-create' => "Pa crear la páxina, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
 	'questycaptcha-edit' => "Pa editar la páxina, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
-	'questycaptcha-sendemail' => "P'ayudar a protexer escontra'l corréu puxarra automáticu, por favor conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
+	'questycaptcha-sendemail' => "Pa protexer la wiki escontra'l corréu puxarra automáticu, pidimos-y que conteste la entruga qu'apaez embaxo ([[Special:Captcha/help|más información]]):",
 	'questycaptchahelp-text' => "Los sitios web qu'aceuten collaboración del públicu, como esta wiki, sufren de vezu l'abusu de «spammers» qu'usen ferramientes automátiques p'amestar los sos enllaces en munchos sitios.
 Mentanto qu'esos enllaces puen desaniciase, suponen una bultable molestia.
 

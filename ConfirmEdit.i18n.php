@@ -2350,7 +2350,7 @@ Fir dës Wiki virun automatiséiertem Spam ze schütze froe mir Iech fir déi fo
 	'captcha-sendemail-fail' => 'Falschen oder kee Confirmatiouns-Code.',
 	'captcha-disabledinapi' => 'Dës Aktioun brauch e Captcha, dofir ka se net mat enger API gemaach ginn.',
 	'captchahelp-title' => 'Captcha-Hëllef',
-	'captchahelp-cookies-needed' => 'Dir musst Cookieën an ärem Browser erlaben fir dat dëst fonktionéiert.',
+	'captchahelp-cookies-needed' => 'Dir musst Cookien an Ärem Browser erlabe fir dat dëst funktionéiert.',
 	'captchahelp-text' => "Websäiten, déi et jiddwerengem erlaben Ännerunge virzehuelen, sou wéi op dëser Wiki, ginn dacks vu sougenannte Spammer mëssbraucht, déi automatiséiert hir Linken op vill Internetsäite setzen. Esou Spam-Linke kënne wuel geläscht ginn, mä se sinn trotzdem eng grouss Plo.
 
 Heiansdo, besonnesch wann nei Internet-Linken op eng Säit derbäigesat ginn, weist dës Wiki Iech e Bild mat faarwegem oder verzerrtem Text a freet Iech fir déi gewise Wierder anzetipppen. Well dëst eng Aufgab ass déi schwéier ze automatiséieren ass, erlaabt dëst, datt Mënschen hir Ännerunge kënnen agi während déi meescht Spammer an aner Roboter-Attacke kënnen ofgewiert ginn.

@@ -44,12 +44,12 @@ $messages['qqq'] = array(
  */
 $messages['ast'] = array(
 	'asirra-desc' => 'Módulu Asirra pa ConfirmEdit',
-	'asirra-edit' => "P'ayudanos a protexenos escontra el spam d'edición automática, esbille namái les fotos de gatos nel cuadru d'abaxo:",
-	'asirra-addurl' => "La so edición incluye enllaces esternos nuevos. P'ayudar a protexenos escontra'l spam automáticu, esbille namái les fotos de gatos nel cuadru d'abaxo:",
-	'asirra-badlogin' => "P'ayudar a protexenos escontra'l frayamientu de claves automáticu, esbille namái les fotos de gatos nel cuadru d'abaxo:",
-	'asirra-createaccount' => "P'ayudar a protexenos escontra la creación de cuentes automática, esbille namái les fotos de gatos nel cuadru d'abaxo:",
+	'asirra-edit' => "Pa protexer la wiki escontra'l spam d'edición automáticu, pidimos-y qu'esbille namái les fotos de gatos del cuadru d'abaxo:",
+	'asirra-addurl' => "La so edición incluye enllaces esternos nuevos. Pa protexer la wiki escontra'l spam automáticu,  pidimos-y qu'esbille namái les fotos de gatos del cuadru d'abaxo:",
+	'asirra-badlogin' => "Pa protexer la wiki escontra'l frayamientu de claves automáticu, pidimos-y qu'esbille namái les fotos de gatos del cuadru d'abaxo:",
+	'asirra-createaccount' => "Pa protexer la wiki escontra la creación de cuentes automática, pidimos-y qu'esbille namái les fotos de gatos del cuadru d'abaxo:",
 	'asirra-createaccount-fail' => 'Identifique correutamente los gatos.',
-	'asirra-create' => "P'ayudar a protexenos escontra la creación de páxines automática, esbille namái les fotos de gatos nel cuadru d'abaxo:",
+	'asirra-create' => "Pa protexer la wiki escontra la creación de páxines automática, pidimos-y qu'esbille namái les fotos de gatos del cuadru d'abaxo:",
 	'asirra-nojs' => "'''Por favor active JavaScript y vuelva a unviar la páxina.'''",
 	'asirra-failed' => 'Identifique toles imaxes de gatos',
 );

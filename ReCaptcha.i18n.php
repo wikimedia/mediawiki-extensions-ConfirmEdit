@@ -52,12 +52,12 @@ $messages['ar'] = array(
  * @author Xuacu
  */
 $messages['ast'] = array(
-	'recaptcha-edit' => "P'ayudar a protexenos escontra'l spam d'edición, escribi les dos pallabres que se ven na caxella d'abaxo:",
-	'recaptcha-addurl' => "La to edición incluye enllaces esternos nuevos. P'ayudar a protexenos escontra'l spam automáticu, escribi les dos pallabres que se ven na caxella d'abaxo:",
-	'recaptcha-badlogin' => "P'ayudar a protexenos escontra'l frañimientu de claves automáticu, escribi les dos pallabres que se ven na caxella d'abaxo:",
-	'recaptcha-createaccount' => "P'ayudar a protexenos escontra la creación de cuentes automática, escribi les dos pallabres que se ven na caxella d'abaxo:",
+	'recaptcha-edit' => "Pa protexer la wiki escontra'l spam d'edición automáticu, pidimos-y qu'escriba les dos pallabres que se ven na caxella d'abaxo:",
+	'recaptcha-addurl' => "La so edición incluye enllaces esternos nuevos. Pa protexer la wiki escontra'l spam automáticu, pidimos-y qu'escriba les dos pallabres que se ven na caxella d'abaxo:",
+	'recaptcha-badlogin' => "Pa protexer la wiki escontra'l descifráu de claves automáticu, pidimos-y qu'escriba les dos pallabres que se ven na caxella d'abaxo:",
+	'recaptcha-createaccount' => "Pa protexer la wiki escontra la creación de cuentes automática, pidimos-y qu'escriba les dos pallabres que se ven na caxella d'abaxo:",
 	'recaptcha-createaccount-fail' => 'Falta la rempuesta a la entruga de reCAPTCHA o ye incorreuta',
-	'recaptcha-create' => "P'ayudar a protexenos escontra la creación de páxines automática, escribi les dos pallabres que se ven na caxella d'abaxo:",
+	'recaptcha-create' => "Pa protexer la wiki escontra la creación de páxines automática, pidimos-y qu'escriba les dos pallabres que se ven na caxella d'abaxo:",
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
@@ -556,14 +556,16 @@ $messages['uk'] = array(
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
  */
 $messages['vi'] = array(
-	'recaptcha-edit' => 'Để giúp tránh các sửa đổi rác tự động, xin hãy gõ hai từ mà bạn nhìn thấy vào ô dưới đây:',
-	'recaptcha-addurl' => 'Sửa đổi của bạn có chứa liên kết ngoài mới. Để giúp tránh các sửa đổi rác tự động, xin hãy gõ hai từ mà bạn nhìn vào ô dưới đây:',
-	'recaptcha-badlogin' => 'Để giúp tránh bẻ khóa mật khẩu tự động, xin hãy gõ hai từ mà bạn nhìn vào ô dưới đây:',
-	'recaptcha-createaccount' => 'Để giúp tránh việc mở tài khoản tự động, xin hãy gõ hai từ mà bạn nhìn vào ô dưới đây:',
+	'recaptcha-desc' => 'Mô đun reCAPTCHA cho Confirm Edit',
+	'recaptcha-edit' => 'Để giúp tránh các sửa đổi spam tự động, xin vui lòng gõ hai từ mà bạn nhìn thấy vào hộp dưới đây:',
+	'recaptcha-addurl' => 'Sửa đổi của bạn có chứa liên kết ngoài mới. Để giúp tránh các sửa đổi spam tự động, xin vui lòng gõ hai từ mà bạn nhìn vào hộp dưới đây:',
+	'recaptcha-badlogin' => 'Để giúp tránh bẻ khóa mật khẩu tự động, xin vui lòng gõ hai từ mà bạn nhìn vào hộp dưới đây:',
+	'recaptcha-createaccount' => 'Để giúp tránh việc mở tài khoản tự động, xin vui lòng gõ hai từ mà bạn nhìn vào hộp dưới đây:',
 	'recaptcha-createaccount-fail' => 'Thiếu câu trả lời reCAPTCHA hoặc câu trả lời không đúng.',
-	'recaptcha-create' => 'Để giúp tránh việc tạo trang tự động, xin hãy gõ hai từ mà bạn nhìn vào ô dưới đây:',
+	'recaptcha-create' => 'Để giúp tránh việc tạo trang tự động, xin vui lòng gõ hai từ mà bạn nhìn vào hộp dưới đây:',
 );
 
 /** Simplified Chinese (中文（简体）‎)

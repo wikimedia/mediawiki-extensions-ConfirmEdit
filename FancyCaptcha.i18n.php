@@ -1229,8 +1229,8 @@ $messages['pnb'] = array(
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
-	'fancycaptcha-create' => 'ددې مخ د جوړلو لپاره، لطفاً ورکړل شوي توري څنګه چې تاسو ته ښکاري هماغسې کټ مټ په لانديني چوکاټ کې وليکی ([[Special:Captcha/help|نور مالومات]]):',
-	'fancycaptcha-edit' => 'ددې مخ د سمولو لپاره، لطفاً ورکړل شوي توري څنګه چې تاسې ته ښکاري هماغسې کټ مټ په لانديني چوکاټ کې وليکی ([[Special:Captcha/help|نور مالومات]]):',
+	'fancycaptcha-create' => 'ددې مخ د جوړلو لپاره، لطفاً ورکړل شوي توري چې څنگه تاسې ته ښکاري هماغسې کټ مټ په لانديني چوکاټ کې وليکی ([[Special:Captcha/help|نور مالومات]]):',
+	'fancycaptcha-edit' => 'ددې مخ د سمولو لپاره، لطفاً ورکړل شوي توري چې څنگه تاسې ته ښکاري هماغسې کټ مټ په لانديني چوکاټ کې وليکی ([[Special:Captcha/help|نور مالومات]]):',
 );
 
 /** Portuguese (português)

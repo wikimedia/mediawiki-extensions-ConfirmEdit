@@ -994,6 +994,13 @@ $messages['lt'] = array(
 	'fancycaptcha-reload-text' => 'Atnaujinti',
 );
 
+/** Latvian (latviešu)
+ * @author Papuass
+ */
+$messages['lv'] = array(
+	'fancycaptcha-reload-text' => 'Atjaunināt',
+);
+
 /** Minangkabau (Baso Minangkabau)
  * @author Iwan Novirion
  */

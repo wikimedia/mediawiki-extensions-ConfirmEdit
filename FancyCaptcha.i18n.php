@@ -324,12 +324,13 @@ Er mwyn arbed y wici rhag peiriannau sbam, byddwch gystal â theipio'r geiriau a
  * @author Peter Alberti
  */
 $messages['da'] = array(
-	'fancycaptcha-addurl' => 'Din ændring tilføjer nye eksterne henvisninger. For at beskytte mod automatiseret spam, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
-	'fancycaptcha-badlogin' => 'For at beskytte mod automatiske forsøg på at gætte kodeord, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
-	'fancycaptcha-createaccount' => 'For at beskytte mod automatisk oprettelse af brugernavne, der bruges til spam, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
+	'fancycaptcha-addurl' => 'Din ændring tilføjer nye eksterne henvisninger.
+For at beskytte mod automatiseret spam, skal du indtaste ordene som vises i feltet nedenfor. ([[Special:Captcha/help|mere information]]):',
+	'fancycaptcha-badlogin' => 'For at beskytte mod automatiske forsøg på at gætte kodeord, skal du indtaste ordene som vises i feltet nedenfor. ([[Special:Captcha/help|mere information]]):',
+	'fancycaptcha-createaccount' => 'For at beskytte mod automatisk oprettelse af brugerkonti, der bruges til spam, skal du indtaste ordet som vises i feltet nedenfor. ([[Special:Captcha/help|mere information]]):',
 	'fancycaptcha-create' => 'For at oprette en ny side, skal du indtaste ordet som vises nedenfor i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'fancycaptcha-edit' => 'For at redigere denne side, indtast da venligst ordene, der står i feltet nedenfor ([[Special:Captcha/help|mere information]]):',
-	'fancycaptcha-sendemail' => 'For at beskytte mod automatisk spam, bedes du skrive ordene der ses herunder i boksen ([[Special:Captcha/help|mere information]]):',
+	'fancycaptcha-sendemail' => 'For at beskytte mod automatisk spam, skal du skrive ordene der vises i feltet herunder ([[Special:Captcha/help|mere information]]):',
 	'fancycaptcha-reload-text' => 'Opdater',
 );
 
@@ -1113,13 +1114,14 @@ As Schutz gegen automaatsch Spam, geev disse Bookstavenreeg in dat Feld ünnen i
  */
 $messages['nds-nl'] = array(
 	'fancycaptcha-addurl' => "Joew bewarking bevat uutgaonde verwiezingen. 
-Um dit projekt te bescharmen tegen ongewunst reklame, mö'j t woord dat hieronder steet invullen ([[Special:Captcha/help|hulpe]]):",
-	'fancycaptcha-badlogin' => "Um disse webstee te beveiligen tegen t kraken van wachtwoorden, wö'j verzöcht um de woorden die'j hieronder zien in te vullen ([[Special:Captcha/help|hulpe]]):",
-	'fancycaptcha-createaccount' => "Um disse wiki te bescharmen tegen t automaties anmaken van gebrukersprefielen mö'j t woord hieronder invullen ([[Special:Captcha/help|hulpe]]):",
+Um dit projekt te bescharmen tegen ongewunste reklame, mu'j t woord dat hieronder steet invullen ([[Special:Captcha/help|hulpe]]):",
+	'fancycaptcha-badlogin' => "Um disse webstee te beveiligen tegen t kraken van wachtwoorden, mu'j de woorden die'j hieronder zien effen invullen ([[Special:Captcha/help|hulpe]]):",
+	'fancycaptcha-createaccount' => "Um disse wiki te bescharmen tegen t automaties anmaken van gebrukersprofielen mu'j t woord hieronder invullen ([[Special:Captcha/help|hulpe]]):",
 	'fancycaptcha-create' => "Um n pagina an te maken, mö'j t woord dat hieronder steet invullen
 ([[Special:Captcha/help|hulpe]]):",
 	'fancycaptcha-edit' => "Joew bewarking bevat nieje uutgaonde verwiezingen. Um disse wiki te bescharmen tegen ongewunste reklame mö'j de woorden hieronder invullen ([[Special:Captcha/help|hulpe]]):",
-	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder staon in t invoerveld in as bescharming tegen automatiese ongewunste reklame ([[Special:Captcha/help|meer informasie]]):',
+	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder staon in t invoerveld in as bescharming tegen automatiese ongewunste reklame 
+([[Special:Captcha/help|hulpe]]):',
 	'fancycaptcha-reload-text' => 'Verniejen',
 );
 

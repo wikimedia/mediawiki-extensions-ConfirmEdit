@@ -2310,7 +2310,7 @@ $messages['kw'] = array(
 	'captcha-sendemail-fail' => 'Koden afydhya kamm po gwag.',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Chorobek
  */
 $messages['ky'] = array(

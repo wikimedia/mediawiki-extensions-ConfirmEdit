@@ -371,8 +371,8 @@ Zum Schutz vor automatisiertem Spamming geben Sie das folgende Wort in das Feld 
  * @author Xoser
  */
 $messages['diq'] = array(
-	'fancycaptcha-addurl' => 'Vurnayîşanê tu de linkanê harîcîyê newe esto. 
-Qe otomatik spamî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):', # Fuzzy
+	'fancycaptcha-addurl' => 'Vırnayışané tod linkané hariciyé newe esto. 
+Qe otomatik spami ra pawıtış, ma rica keno çekuyané ke qutiya cor de inan binuse ([[Special:Captcha/help|enformasyoné bini]]):',
 	'fancycaptcha-badlogin' => 'Qe otomatik parola crack kerdişî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):', # Fuzzy
 	'fancycaptcha-createaccount' => 'Qe otomatik hesab viraştişî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):', # Fuzzy
 	'fancycaptcha-create' => 'Qe pel viraştîşî, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',

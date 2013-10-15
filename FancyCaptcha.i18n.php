@@ -988,6 +988,13 @@ $messages['lo'] = array(
 	'fancycaptcha-edit' => 'ກະລຸນາ ພິມຄຳສັບຂ້າງລຸ່ມນີ້ ໃສ່ໃນກັບ ເພື່ອ ດັດແກ້ໜ້ານີ້ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມຕື່ມ]]):',
 );
 
+/** لوری (لوری)
+ * @author Mogoeilor
+ */
+$messages['lrc'] = array(
+	'fancycaptcha-reload-text' => 'د نؤ كردن',
+);
+
 /** Lithuanian (lietuvių)
  * @author Eitvys200
  */

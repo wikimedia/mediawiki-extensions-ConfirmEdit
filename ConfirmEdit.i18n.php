@@ -2411,6 +2411,14 @@ $messages['lo'] = array(
 	'captcha-create' => 'ກະລຸນາ ແກ້ເລກບວກງ່າຍໆລຸ່ມນີ້ ແລະ ພິມຜົນບວກໃສ່ໃນກັບ ເພື່ອ ສ້າງໜ້ານີ້ ([[Special:Captcha/help|ຂໍ້ມູນເພີ່ມເຕີມ]]):',
 );
 
+/** لوری (لوری)
+ * @author Mogoeilor
+ */
+$messages['lrc'] = array(
+	'captcha-label' => 'كپچا',
+	'captchahelp-title' => 'هومياری كپچا',
+);
+
 /** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Garas

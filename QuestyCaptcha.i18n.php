@@ -1179,12 +1179,12 @@ Späť na úpravu stránky sa vrátite kliknutím na tlačidlo „Späť“ vo v
  */
 $messages['sl'] = array(
 	'questycaptcha-addurl' => 'Vaše urejanje vključuje nove zunanje povezave.
-Zaradi zaščite pred samodejnim smetjem prosimo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):', # Fuzzy
-	'questycaptcha-badlogin' => 'Zaradi zaščite pred samodejnim ugotavljanjem gesel prosimo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):', # Fuzzy
-	'questycaptcha-createaccount' => 'Zaradi zaščite pred samodejnim ustvarjanjem računov prosimo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):', # Fuzzy
+Zaradi zaščite wikija pred samodejnim smetjem vas prijazno naprošamo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
+	'questycaptcha-badlogin' => 'Zaradi zaščite wikija pred samodejnim ugotavljanjem gesel vas prijazno naprošamo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
+	'questycaptcha-createaccount' => 'Zaradi zaščite wikija pred samodejnim ustvarjanjem računov vas prijazno naprošamo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
 	'questycaptcha-create' => 'Če želite ustvariti stran, prosimo odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
 	'questycaptcha-edit' => 'Če želite urediti stran, prosimo odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
-	'questycaptcha-sendemail' => 'Zaradi zaščite pred samodejnim smetenjem prosimo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):', # Fuzzy
+	'questycaptcha-sendemail' => 'Zaradi zaščite wikija pred samodejnim smetenjem vas prijazno naprošamo, da odgovorite na spodaj zastavljeno vprašanje ([[Special:Captcha/help|več informacij]]):',
 	'questycaptchahelp-text' => 'Spletne strani, ki omogočajo prispevanje širši javnosti, kot na primer ta wiki, pogosto zlorabljajo spamerji, ki za dodajanje svojih povezav na mnoge strani uporabljajo avtomatizirana orodja.
 Čeprav je neželene povezave mogoče odstraniti, so precejšnja nadloga.
 

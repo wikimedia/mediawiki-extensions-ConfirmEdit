@@ -1409,12 +1409,12 @@ $messages['sk'] = array(
  */
 $messages['sl'] = array(
 	'fancycaptcha-addurl' => 'Vaše urejanje vključuje nove zunanje povezave.
-Zaradi zaščite pred samodejnim smetjem prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):', # Fuzzy
-	'fancycaptcha-badlogin' => 'Zaradi zaščite pred samodejnim ugotavljanjem gesel prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'Zaradi zaščite pred samodejnim ustvarjanjem računov prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):', # Fuzzy
+Zaradi zaščite wikija pred samodejnim smetjem vas prijazno naprošamo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
+	'fancycaptcha-badlogin' => 'Zaradi zaščite wikija pred samodejnim ugotavljanjem gesel vas prijazno naprošamo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
+	'fancycaptcha-createaccount' => 'Zaradi zaščite wikija pred samodejnim ustvarjanjem računov vas prijazno naprošamo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
 	'fancycaptcha-create' => 'Če želite ustvariti stran, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
 	'fancycaptcha-edit' => 'Če želite urediti stran, prosimo vnesite spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
-	'fancycaptcha-sendemail' => 'Zaradi zaščite pred samodejnim smetenjem prosimo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):', # Fuzzy
+	'fancycaptcha-sendemail' => 'Zaradi zaščite wikija pred samodejnim smetenjem vas prijazno naprošamo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):',
 	'fancycaptcha-reload-text' => 'Osveži',
 );
 

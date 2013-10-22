@@ -482,7 +482,7 @@ $messages['eu'] = array(
 $messages['fa'] = array(
 	'fancycaptcha-addurl' => 'ویرایش شما حاوی پیوند به بیرون جدیدی است.
 برای کمک به جلوگیری از هرزنگاری خودکار، لطفاً واژه‌ای را که در تصویر می‌بینید در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):', # Fuzzy
-	'fancycaptcha-badlogin' => 'برای کمک به جلوگیری از سرقت خودکار کلمه عبور، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):', # Fuzzy
+	'fancycaptcha-badlogin' => 'برای کمک به جلوگیری از شکستن خودکار گذرواژه، لطفاً واژه‌ای را که در تصویر می‌بینید را وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-createaccount' => 'برای کمک به جلوگیری از ایجاد خودکار حساب کاربری، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):', # Fuzzy
 	'fancycaptcha-create' => 'برای ایجاد این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-edit' => 'برای ویرایش این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
@@ -830,6 +830,7 @@ $messages['kk-arab'] = array(
 );
 
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ * @author Arystanbek
  */
 $messages['kk-cyrl'] = array(
 	'fancycaptcha-addurl' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
@@ -842,6 +843,7 @@ $messages['kk-cyrl'] = array(
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):', # Fuzzy
 	'fancycaptcha-edit' => 'Түзетуіңізде жаңа сыртқы сілтемелер бар екен. Өздік түрде «спам» жасалуынан қорғану үшін,
 төмендегі көрсетілген сөздерді аумаққа енгізіңіз ([[{{ns:special}}:Captcha/help|көбірек ақпарат]]):', # Fuzzy
+	'fancycaptcha-reload-text' => 'Жаңарту',
 );
 
 /** Kazakh (Latin script) (qazaqşa (latın)‎)
@@ -1220,12 +1222,13 @@ $messages['pl'] = array(
  */
 $messages['pms'] = array(
 	'fancycaptcha-addurl' => "Soa modìfica a l'ha andrinta dj'anliure esterne neuve.
-Për dene na man a vardesse da la reclam aotomatisà, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):", # Fuzzy
-	'fancycaptcha-badlogin' => "Për dene na man a vardesse da ij programa ch'a fan ciav fàosse, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):", # Fuzzy
-	'fancycaptcha-createaccount' => "Për dene na man a vardesse da ij programa ch'a deurbo cont neuv n'aotomàtich, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):", # Fuzzy
+Për protege la wiki da la rumenta aotomatisà, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ant la casela ([[Special:Captcha/help|për savejne dë pì]]):",
+	'fancycaptcha-badlogin' => "Për protege la wiki dai programa ch'a sërco ëd freghé le ciav, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ant la casela ambelessì-sota ([[Special:Captcha/help|për savejne dë pì]]):",
+	'fancycaptcha-createaccount' => "Për protege la wiki dai programa ch'a deurbo ëd cont neuv n'aotomàtich, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ant la casela ambelessì-sota ([[Special:Captcha/help|për savejne dë pì]]):",
 	'fancycaptcha-create' => "Për creé sta pàgina-i d'amblé, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):",
 	'fancycaptcha-edit' => "Për fe-ie dle modìfiche ansima a sta pàgina-sì, për piasì, ch'a l'arbata le paròle ch'a s-ciàira ambelessì sota ([[Special:Captcha/help|për savejne dë pì]]):",
-	'fancycaptcha-sendemail' => "Për giuté a protegi contra la rumenta automàtica, për piasì ch'a anseriss le paròle che as vëddo sota ant la casela ([[Special:Captcha/help|për savèjne ëd pi]]):", # Fuzzy
+	'fancycaptcha-sendemail' => "Për protege la wiki contra la rumenta automàtica, për piasì ch'a anserissa le paròle che as vëddo ant la casela sì-sota ([[Special:Captcha/help|për savèjne ëd pi]]):",
+	'fancycaptcha-reload-text' => 'Agiorné',
 );
 
 /** Western Punjabi (پنجابی)
@@ -1735,10 +1738,12 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (中文（繁體）‎)
  * @author Horacewai2
  * @author Justincheng12345
+ * @author Liuxinyu970226
  * @author Waihorace
  */
 $messages['zh-hant'] = array(
-	'fancycaptcha-addurl' => '您的編輯內容中含有本網站以外的連結。為防止不當程式大量破壞，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：', # Fuzzy
+	'fancycaptcha-addurl' => '您的編輯內容中含有本網站以外的連結。
+為防止不當程式大量破壞，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',
 	'fancycaptcha-badlogin' => '為防止不當程式破解密碼，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：', # Fuzzy
 	'fancycaptcha-createaccount' => '為防止不當程式大量建立帳戶，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：', # Fuzzy
 	'fancycaptcha-create' => '為防止不當程式大量建立頁面，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：',

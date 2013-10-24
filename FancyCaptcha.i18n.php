@@ -37,7 +37,8 @@ $messages['qqq'] = array(
 	'fancycaptcha-create' => '{{Related|ConfirmEdit-create}}',
 	'fancycaptcha-edit' => '{{Related|ConfirmEdit-edit}}',
 	'fancycaptcha-sendemail' => '{{Related|ConfirmEdit-sendemail}}',
-	'fancycaptcha-reload-text' => 'Prompts a click to get a new FancyCaptcha image.',
+	'fancycaptcha-reload-text' => 'Prompts a click to get a new FancyCaptcha image.
+{{Identical|Refresh}}',
 );
 
 /** Gheg Albanian (Gegë)
@@ -487,7 +488,7 @@ $messages['fa'] = array(
 	'fancycaptcha-create' => 'برای ایجاد این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-edit' => 'برای ویرایش این صفحه، لطفاً واژه‌ای را که در تصویر می‌بینید وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):',
 	'fancycaptcha-sendemail' => 'برای کمک به محافظت در برابر هرزه‌نگاری خودکار، لطفاً واژه‌هایی را که در جعبهٔ زیر نمایش داده می‌شوند وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):', # Fuzzy
-	'fancycaptcha-reload-text' => 'تازه کردن',
+	'fancycaptcha-reload-text' => 'تازه‌کردن',
 );
 
 /** Finnish (suomi)

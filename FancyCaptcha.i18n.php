@@ -273,7 +273,7 @@ $messages['cdo'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
-	'fancycaptcha-addurl' => 'Хьан нисдар чохь керла арахьара хьажоригаш ю. Спамах лардала дерхар до лахахь гура чохь гайтан дешнаш язъе ([[Special:Captcha/help|ма-дарра…]]):', # Fuzzy
+	'fancycaptcha-addurl' => 'Хьан нисдар чохь керла арахьара хьажорагаш ю. Спамах лардала дехар до лахахь гура чохь гайтан дешнаш язъе ([[Special:Captcha/help|ма-дарра…]]):',
 );
 
 /** Sorani Kurdish (کوردی)

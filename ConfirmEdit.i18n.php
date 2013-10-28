@@ -822,6 +822,7 @@ Gwasgwch botwm 'nôl' eich porwr er mwyn dychwelyd at y dudalen golygu.",
 /** Danish (dansk)
  * @author Aputtu
  * @author Byrial
+ * @author Christian List
  * @author Hylle
  * @author Kaare
  * @author Peter Alberti
@@ -834,7 +835,7 @@ $messages['da'] = array(
 Som beskyttelse af wikien mod automatiseret spam, skal du løse det enkle regnestykke nedenfor og skrive resultatet i boksen, for at kunne gemme din redigering ([[Special:Captcha/help|flere oplysninger]]):',
 	'captcha-badlogin' => 'For at beskytte wikien mod automatiseret adgangskodegætning, skal du løse det enkle regnestykke nedenfor og skrive resultatet i boksen ([[Special:Captcha/help|flere oplysninger]]):',
 	'captcha-createaccount' => 'For at beskytte wikien mod automatisk oprettelse af brugernavne, skal du løse det enkle regnestykke nedenfor og skrive resultatet i boksen ([[Special:Captcha/help|flere oplysninger]]):',
-	'captcha-createaccount-fail' => 'Forkert eller manglende kodeord.',
+	'captcha-createaccount-fail' => 'Forkert eller manglende bekræftelseskode.',
 	'captcha-create' => 'For at oprette en ny side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captcha-sendemail' => 'For at beskytte wikien mod automatisk spamning, skal du løse det enkle regnestykke nedenfor og skrive resultatet i boksen ([[Special:Captcha/help|flere oplysninger]]):',
 	'captcha-sendemail-fail' => 'Forkert eller manglende bekræftelseskode.',
@@ -2013,6 +2014,7 @@ $messages['ja'] = array(
 );
 
 /** Jutish (jysk)
+ * @author Christian List
  * @author Huslåke
  * @author Ælsån
  */
@@ -2020,9 +2022,9 @@ $messages['jut'] = array(
 	'captcha-edit' => 'For at redigere denne side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captcha-desc' => 'Semple captcha implementåsje', # Fuzzy
 	'captcha-addurl' => 'Din redigering tilføjer nye eksterne henvisninger til artiklen. Som beskyttelse mod automatiseret spam, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):', # Fuzzy
-	'captcha-badlogin' => 'For at beskytte mod automatiserede gæt på kodeord, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):', # Fuzzy
+	'captcha-badlogin' => 'For at beskytte mod automatiske forsøg på at gætte adgangskoden, skal du give svaret på regnestykket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captcha-createaccount' => 'For at beskytte mod automatisk oprettelse af brugernavne, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):', # Fuzzy
-	'captcha-createaccount-fail' => 'Forkert eller manglende kodeord.',
+	'captcha-createaccount-fail' => 'Forkert eller manglende bekræftelseskode.',
 	'captcha-create' => 'For at oprette en ny side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captchahelp-title' => 'Captcha-hjælp',
 	'captchahelp-cookies-needed' => 'Din browser skal understøtte cookies, før dette kan gennemføres.',
@@ -2780,9 +2782,9 @@ Mit den „Trüch“-Knopp vun dien Browser kummst du trüch na dat Ännerfinste
  */
 $messages['nds-nl'] = array(
 	'captcha-edit' => "Um disse zied te bewarken, mu'j eerst t antwoord op disse eenvoudige somme invullen ([[Special:Captcha/help|meer informasie]]):",
-	'captcha-desc' => 'Biejt CAPTCHA-technieken um bescharming te biejen tegen moekpost en t raojen van wachtwoorden',
+	'captcha-desc' => 'Biedt CAPTCHA-technieken um bescharming te biejen tegen spam en t raojen van wachtwoorden',
 	'captcha-addurl' => 'In joew bewarking staon nieje uutgaonde verwiezingen.
-Vul ter de bescharming van disse wiki tegen automatiese moekpost t antwoord op de somme in, in t invoerveld dat hieronder steet, um joew bewarking op te slaon:<br />
+Vul ter de bescharming van disse wiki tegen automatiese moekbiedragen t antwoord op de somme in, in t invoerveld dat hieronder steet, um joew bewarking op te slaon:<br />
 ([[Special:Captcha/help|meer informasie]])',
 	'captcha-badlogin' => 'Vul ter de bescharming van disse wiki tegen t automaties kraken van wachtwoorden t antwoord op de somme in, in t invoerveld ([[Special:Captcha/help|meer informasie]]):',
 	'captcha-createaccount' => 'Vul ter bescharming van disse wiki tegen t automaties anmaken van gebrukers t antwoord op de somme in, in t invoerveld ([[Special:Captcha/help|meer informasie]]):',
@@ -2910,7 +2912,7 @@ Trykk på «attende»-knappen for å kome tilbake til endringssida.',
  */
 $messages['oc'] = array(
 	'captcha-edit' => "Per modificar aquesta pagina, vos cal efectuar lo calcul çaijós e n'inscriure lo resultat dins lo camp ([[Special:Captcha/help|Mai d’entresenhas]]) :",
-	'captcha-desc' => 'Implementacion captcha simpla', # Fuzzy
+	'captcha-desc' => 'Ofèrta de tecnicas CAPTCHA per protegir contra lo spam e la descobèrta dels senhals per ensages multiples',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Vòstra modificacion inclutz de ligams URL novèla ; per empachar las connexions automatizadas, vos cal picar los mots que s’afichan dins l’imatge que seguís : <br />([[Special:Captcha/help|Qu'es aquò?]])", # Fuzzy
 	'captcha-badlogin' => "Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxte çaijós dins la bóstia de tèxte plaçada al dejós d'aqueste. ([[Special:Captcha/help|Mai d’entresenhas]])", # Fuzzy

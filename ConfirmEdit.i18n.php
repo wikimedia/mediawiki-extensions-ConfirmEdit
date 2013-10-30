@@ -3218,6 +3218,7 @@ Pressione o botão 'voltar' de seu navegador para retornar à página de ediçã
  * @author AlimanRuna
  */
 $messages['qu'] = array(
+	'captcha-badlogin' => 'Wikita kikinmanta millay ruraq yaykuna rima chamqaymanta amachanapaqqa, kay qatiq yapayta ruraspa yapasqata kahachapi yaykuchiy ([[Special:Captcha/help|astawan yachay]]):',
 	'captchahelp-title' => 'Captcha nisqamanta yanapay',
 );
 
@@ -4130,7 +4131,8 @@ Nhấn chuột vào nút “Back” của trình duyệt để trở lại trang
  */
 $messages['vo'] = array(
 	'captcha-edit' => 'Ad redakön yegedi at, dunolös, begö! saedami dono e penolös saedoti in bokil ([[Special:Captcha/help|nüns pluik]]):',
-	'captcha-addurl' => 'Redakam olik keninükon yümis plödik nulik. Ad jelön siti ta peneds itjäfidik, dunolös, begö! saedami sököl, e penolös saedoti in bokil ([[Special:Captcha/help|nüns pluik]]):', # Fuzzy
+	'captcha-addurl' => 'Redakam olik keninükon yümis plödik nulik.
+Ad jelön siti ta peneds badik itjäfidik, dunolös, begö! saedami balugik sököl, e penolös saedoti in bokil ad dakipön redakam ola ([[Special:Captcha/help|nüns pluik]]):',
 	'captcha-badlogin' => 'Ad jelön siti ta daget itjäfidik letavödas, dunolös, begö! saedami sököl e penolös saedoti in bokil ([[Special:Captcha/help|nüns pluik]]):', # Fuzzy
 	'captcha-createaccount' => 'Ad jelön siti ta kalijafam itjäfidik, dunolös, begö! saedami sököl e penolös saedoti in bokil ([[Special:Captcha/help|nüns pluik]]):', # Fuzzy
 	'captcha-createaccount-fail' => 'Kot fümükama paneveräton u paseleton.',

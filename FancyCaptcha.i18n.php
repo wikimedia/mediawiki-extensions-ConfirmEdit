@@ -1284,6 +1284,14 @@ $messages['pt-br'] = array(
 	'fancycaptcha-reload-text' => 'Atualizar',
 );
 
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'fancycaptcha-create' => "P'anqata kamarinaykipaqqa kay qatiq kahachapi kaq rimakunata yaykuchiy ([[Special:Captcha/help|astawan yachay]]):",
+	'fancycaptcha-edit' => "Kay p'anqata llamk'anaykipaqqa kay qatiq kahachapi kaq rimakunata yaykuchiy ([[Special:Captcha/help|astawan yachay]]):",
+);
+
 /** Romansh (rumantsch)
  * @author Kazu89
  */

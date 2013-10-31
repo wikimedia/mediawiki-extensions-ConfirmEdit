@@ -288,12 +288,13 @@ $messages['ckb'] = array(
  */
 $messages['cs'] = array(
 	'fancycaptcha-desc' => 'Pokročilý generátor captcha pro rozšíření „Confirm Edit“',
-	'fancycaptcha-addurl' => 'Vaše editace obsahuje nové odkazy formou URL; v zájmu ochrany před automatickým spamováním musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])', # Fuzzy
-	'fancycaptcha-badlogin' => 'V rámci ochrany proti automatickým pokusům uhodnout heslo musíte opsat text z následujícího obrázku. ([[Special:Captcha/help|Co tohle znamená?]])', # Fuzzy
-	'fancycaptcha-createaccount' => 'V rámci ochrany před automatickým zakládáním účtů musíte pro provedení registrace opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])', # Fuzzy
+	'fancycaptcha-addurl' => 'Vaše editace obsahuje nové odkazy formou URL.
+Abychom wiki ochránili před automatickým spamováním, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
+	'fancycaptcha-badlogin' => 'Abychom wiki ochránili proti automatickým pokusům uhodnout heslo, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
+	'fancycaptcha-createaccount' => 'Abychom wiki ochránili proti automatickému zakládání účtů, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
 	'fancycaptcha-create' => 'Abyste mohli založit stránku, musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 	'fancycaptcha-edit' => 'Abyste mohli editovat tuto stránku, musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
-	'fancycaptcha-sendemail' => 'V rámci ochrany proti automatickému spamování musíte opsat níže zobrazená slova ([[Special:Captcha/help|více informací]]):', # Fuzzy
+	'fancycaptcha-sendemail' => 'Abychom wiki ochránili proti automatickému spamování, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
 	'fancycaptcha-reload-text' => 'Vygenerovat nový kód',
 );
 

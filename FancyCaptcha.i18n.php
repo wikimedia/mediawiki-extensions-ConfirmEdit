@@ -285,16 +285,17 @@ $messages['ckb'] = array(
 
 /** Czech (čeština)
  * @author Mormegil
+ * @author Tchoř
  */
 $messages['cs'] = array(
 	'fancycaptcha-desc' => 'Pokročilý generátor captcha pro rozšíření „Confirm Edit“',
 	'fancycaptcha-addurl' => 'Vaše editace obsahuje nové odkazy formou URL.
-Abychom wiki ochránili před automatickým spamováním, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
-	'fancycaptcha-badlogin' => 'Abychom wiki ochránili proti automatickým pokusům uhodnout heslo, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
-	'fancycaptcha-createaccount' => 'Abychom wiki ochránili proti automatickému zakládání účtů, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
+Abychom wiki ochránili před automatizovaným spamováním, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
+	'fancycaptcha-badlogin' => 'Abychom wiki ochránili proti automatizovaným pokusům uhodnout heslo, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
+	'fancycaptcha-createaccount' => 'Abychom wiki ochránili proti automatizovanému zakládání účtů, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
 	'fancycaptcha-create' => 'Abyste mohli založit stránku, musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
 	'fancycaptcha-edit' => 'Abyste mohli editovat tuto stránku, musíte opsat text z následujícího obrázku: ([[Special:Captcha/help|Co tohle znamená?]])',
-	'fancycaptcha-sendemail' => 'Abychom wiki ochránili proti automatickému spamování, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
+	'fancycaptcha-sendemail' => 'Abychom wiki ochránili proti automatizovanému spamování, žádáme vás o opsání textu z následujícího obrázku ([[Special:Captcha/help|více informací]]):',
 	'fancycaptcha-reload-text' => 'Vygenerovat nový kód',
 );
 

@@ -714,13 +714,13 @@ $messages['id'] = array(
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'fancycaptcha-addurl' => 'Ti inurnos mo ket adda nagyan na a baro a panilpo ti ruar.
-Tapno  masalakniban kadagiti automatiko a spam, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
-	'fancycaptcha-badlogin' => 'Tapno  masalakniban kadagiti automatiko a pinagsulbar ti kontrasenias, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'Tapno  makasalaknib kadagiti automatiko a pinagaramid ti pakabilangan, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
+	'fancycaptcha-addurl' => 'Dagiti inurnosmo ket aglaon kadagiti baro a silpo ti ruar.
+Tapno masalakniban ti wiki kadagiti automatiko nga spam, naemmakami nga agdawat nga ikabilmo dagiti balikas nga agparang dita baba iti kahon ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'fancycaptcha-badlogin' => 'Tapno masalakniban kadagiti automatiko a panagsulbar ti kontrasenias, naemmakami nga agdawat nga ikabilmo dagiti balikas nga agparang dita baba iti kahon ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'fancycaptcha-createaccount' => 'Tapno makasalakniban ti wiki kadagiti automatiko a panagpartuat ti pakabilangan, naemmakami nga agdawat nga ikabilmo dagiti balikas nga agparang dita baba iti kahon ([[Special:Captcha/help|adu pay a pakaammo]]):',
 	'fancycaptcha-create' => 'Tapno makaaramid ti panid, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):',
 	'fancycaptcha-edit' => 'Tapno makaurnos daytoy a panid, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):',
-	'fancycaptcha-sendemail' => 'Tapno  makasalaknib kadagiti automatiko a pinagspam, pangaasim nga ikabil ti balikas nga agparang dita baba a kahon. ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
+	'fancycaptcha-sendemail' => 'Tapno makasalakniban ti wiki kadagiti automatiko a panag-spam, naemmakami nga agdawat nga ikabilmo dagiti balikas nga agparang dita baba iti kahon ([[Special:Captcha/help|adu pay a pakaammo]]):',
 	'fancycaptcha-reload-text' => 'Pasadiwaen',
 );
 
@@ -802,12 +802,12 @@ $messages['jv'] = array(
  */
 $messages['ka'] = array(
 	'fancycaptcha-addurl' => 'თქვენი ცვლილება შეიცავს ახალ გარე ბმულებს.
-ავტომატური სპამინგისგან თავდაცვის მიზნით, გთხოვთ, შეიყვანოთ ქვემოთ მოცემული სიტყვები ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):', # Fuzzy
-	'fancycaptcha-badlogin' => 'პაროლების ავტომატური გატეხვისგან თავდაცვის მიზნით, გთხოვთ, შეიყვანოთ ქვემოთ მოცემული სიტყვები ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'ანგარიშების ავტომატური რეგისტრაციისაგან თავდაცვის მიზნით, გთხოვთ, შეიყვანოთ ნაჩვენები სიმბოლოები ტექსტურ ველში ([[Special:Captcha/help|დეტალურად]]):', # Fuzzy
+ვიკის ავტომატური სპამინგისგან თავდაცვის მიზნით, ჩვენ მოგიწოდებთ, შეიყვანოთ ქვემოთ მოცემული სიტყვები ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
+	'fancycaptcha-badlogin' => 'ვიკის პაროლების ავტომატური გატეხვისგან თავდაცვის მიზნით, ჩვენ მოგიწოდებთ, შეიყვანოთ ქვემოთ მოცემული სიტყვები ყუთში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
+	'fancycaptcha-createaccount' => 'ვიკის ანგარიშების ავტომატური რეგისტრაციისაგან თავდაცვის მიზნით, ჩვენ მოგიწოდებთ, შეიყვანოთ ნაჩვენები სიმბოლოები ტექსტურ ველში ([[Special:Captcha/help|დეტალურად]]):',
 	'fancycaptcha-create' => 'გვერდის შესაქმნელად, გთხოვთ, შეიყვანეთ ასოები, რომლებიც ნაჩვენებია ქვედა სურათზე ([[Special:Captcha/help|დეტალურად…]]):',
 	'fancycaptcha-edit' => 'გვერდის რედაქტირებისათვის, გთხოვთ, შეიყვანეთ ასოები, რომლებიც ნაჩვენებია ქვედა სურათზე ([[Special:Captcha/help|დეტალურად…]]):',
-	'fancycaptcha-sendemail' => 'ავტომატური სპამისაგან თავდაცვის მიზნით, გთხოვთ, შეიყვანოთ ქვევით ნაჩვენები სიტყვა ტექსტურ ველში ([[Special:Captcha/help|მეტი ინფორმაცია]]):', # Fuzzy
+	'fancycaptcha-sendemail' => 'ვიკის ავტომატური სპამისაგან თავდაცვის მიზნით, ჩვენ მოგიწოდებთ, შეიყვანოთ ქვევით ნაჩვენები სიტყვა ტექსტურ ველში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
 );
 
 /** Kara-Kalpak (Qaraqalpaqsha)

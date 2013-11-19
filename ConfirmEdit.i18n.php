@@ -20,7 +20,7 @@ To protect the wiki against automated spam, we kindly ask you to solve the simpl
 	'captcha-create'             => 'To create the page, please solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-sendemail'          => 'To protect the wiki against automated spamming, we kindly ask you to solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):',
 	'captcha-sendemail-fail'     => 'Incorrect or missing confirmation code.',
-	'captcha-disabledinapi'      => 'This action requires a captcha, so it cannot be performed through the API.',
+	'captcha-disabledinapi'      => 'This action requires a CAPTCHA, so it cannot be performed through the API.',
 	'captchahelp-title'          => 'CAPTCHA help',
 	'captchahelp-cookies-needed' => 'You will need to have cookies enabled in your browser for this to work.',
 	'captchahelp-text'           => "Web sites that accept postings from the public, like this wiki, are often abused by spammers who use automated tools to post their links to many sites.
@@ -31,7 +31,7 @@ Since this is a task that's hard to automate, it will allow most real humans to 
 
 Unfortunately this may inconvenience users with limited vision or using text-based or speech-based browsers.
 At the moment we do not have an audio alternative available.
-Please contact the  [[Special:ListAdmins|site administrators]] for assistance if this is unexpectedly preventing you from making legitimate actions.
+Please contact the [[Special:ListAdmins|site administrators]] for assistance if this is unexpectedly preventing you from making legitimate actions.
 
 Hit the \"back\" button in your browser to return to the page editor.",
 	'captcha-addurl-whitelist'   => ' #<!-- leave this line exactly as it is --> <pre>

@@ -42,7 +42,9 @@ try:
 except:
 	sys.exit("This script requires the Python Imaging Library - http://www.pythonware.com/products/pil/")
 
-nonalpha = re.compile('[^a-z]') # regex to test for suitability of words
+#nonalpha = re.compile('[^a-z]') # regex to test for suitability of words
+re.U
+nonalpha = re.compile('[\u0000-\uFFFF]') # regex to test for suitability of words
 
 # Does X-axis wobbly copy, sandwiched between two rotates
 def wobbly_copy(src, wob, col, scale, ang):
@@ -76,7 +78,8 @@ def gen_captcha(text, fontname, fontsize, file_name):
 	bgcolor = 0x0
 	fgcolor = 0xffffff
 	# create a font object 
-	font = ImageFont.truetype(fontname,fontsize)
+	#font = ImageFont.truetype(fontname,fontsize)
+	font = ImageFont.truetype(fontname,fontsize,encoding='unic')
 	# determine dimensions of the text
 	dim = font.getsize(text)
 	# create a new image significantly larger that the text
@@ -85,7 +88,8 @@ def gen_captcha(text, fontname, fontsize, file_name):
 	d = ImageDraw.Draw(im)
 	x, y = im.size
 	# add the text to the image
-	d.text((x/2-dim[0]/2, y/2-dim[1]/2), text, font=font, fill=fgcolor)
+	text0 = text.decode("utf-8")
+	d.text((x/2-dim[0]/2, y/2-dim[1]/2), text0, font=font, fill=fgcolor)
 	k = 3
 	wob = 0.20*dim[1]/k
 	rot = 45

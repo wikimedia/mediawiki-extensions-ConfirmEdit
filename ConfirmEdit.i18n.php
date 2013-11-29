@@ -1831,20 +1831,22 @@ Clicca le button 'retro' in tu navigator pro retornar al pagina de modification.
  * @author Ilham151096
  * @author IvanLanin
  * @author Iwan Novirion
+ * @author Kenrick95
  * @author Rex
  */
 $messages['id'] = array(
 	'captcha-edit' => 'Untuk menyunting halaman ini, harap pecahkan penjumlahan sederhana di bawah ini dan masukkan jawaban di kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
 	'captcha-desc' => 'Menyediakan teknik captcha untuk melindungi terhadap spam dan penebakan sandi',
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => "Suntingan Anda menyertakan pranala luar baru. Sebagai pelindungan terhadap ''spam'' otomatis, Anda harus mengetikkan kata atau hasil perhitungan yang tertera berikut ini:<br />
-([[Special:Captcha/help|info lengkap]])", # Fuzzy
-	'captcha-badlogin' => 'Untuk membantu pelindungan terhadap perengkahan kunci sandi otomatis, tolong masukkan kata atau hasil perhitungan sederhana berikut dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):', # Fuzzy
-	'captcha-createaccount' => 'Sebagai pelindungan terhadap spam, Anda diharuskan untuk mengetikkan kata atau hasil perhitungan di bawah ini di kotak yang tersedia untuk dapat mendaftarkan pengguna baru:<br />
-([[Special:Captcha/help|info lengkap]])', # Fuzzy
+	'captcha-addurl' => "Suntingan Anda menyertakan pranala luar baru.
+Sebagai pelindungan terhadap ''spam'' otomatis, Anda harus mengetikkan hasil perhitungan sederhana berikut ini 
+([[Special:Captcha/help|info lengkap]]):",
+	'captcha-badlogin' => 'Untuk melindungi wiki ini dari perengkahan kunci sandi otomatis, harap masukkan hasil perhitungan sederhana berikut dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
+	'captcha-createaccount' => 'Untuk melindungi wiki ini dari pembuatan akun otomatis, kami meminta Anda untuk mengetikkan hasil perhitungan sederhana di bawah ini dalam kotak yang tersedia 
+([[Special:Captcha/help|info lengkap]]):',
 	'captcha-createaccount-fail' => 'Kode konfirmasi salah atau belum diisi.',
 	'captcha-create' => 'Untuk menyunting halaman ini, silakan pecahkan penjumlahan sederhana di bawah ini dan masukkan jawaban di kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):',
-	'captcha-sendemail' => 'Sebagai pelindungan terhadap spam, silakan pecahkan penjumlahan sederhana di bawah ini dan masukkan jawaban di kotak yang tersedia ([[Special:Captcha/help|more info]]):', # Fuzzy
+	'captcha-sendemail' => 'Untuk melindungi wiki ini dari spam otomatis, kami meminta Anda untuk memecahkan penjumlahan sederhana di bawah ini dan masukkan jawaban di kotak yang tersedia ([[Special:Captcha/help|more info]]):',
 	'captcha-sendemail-fail' => 'Kode konfirmasi salah atau belum diisi.',
 	'captcha-disabledinapi' => 'Tindakan ini membutuhkan captcha, sehingga tidak dapat dilakukan melalui API.',
 	'captchahelp-title' => 'Mengenai Captcha',

@@ -1580,13 +1580,14 @@ $messages['gu'] = array(
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Guycn2
  * @author Rotem Liss
  * @author Rotemliss
  * @author YaronSh
  */
 $messages['he'] = array(
 	'captcha-edit' => 'כדי לערוך את הדף, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
-	'captcha-desc' => 'מתן טכניקות CAPTCHA להגנה נגד זיבול וניחוש ססמאות',
+	'captcha-desc' => 'מתן טכניקות CAPTCHA להגנה נגד ספאם וניחוש סיסמאות',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => 'עריכתכם כוללת קישורים חיצוניים חדשים.
 לשם הגנה מפני ספאם אוטומטי, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה כדי לשמור את עריכתכם ([[Special:Captcha/help|מידע נוסף]]):',

@@ -597,18 +597,19 @@ Zum Schutz vor automatisiertem Spamming gib des Wort in s Fäld unten yy. Druck 
 );
 
 /** Gujarati (ગુજરાતી)
+ * @author Ashok modhvadia
  * @author Dsvyas
  * @author Sushant savla
  */
 $messages['gu'] = array(
-	'fancycaptcha-addurl' => 'તમારા ફેરફારમાં નવી બાહ્ય કડીઓ શામિલ છે.
-તમે કરેલા ફેરફારોમાં નવી બાહ્ય કડીઓ સામેલ છે. સ્વચાલિત સ્પેમ/સ્પામ(spam) થી બચવા માટે નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો
-([[Special:Captcha/help|more info]]):', # Fuzzy
-	'fancycaptcha-badlogin' => 'આપોઆપ થતી ગુપ્તસંજ્ઞાની ચોરી (password cracking)થી બચાવવા માટે નીચે આપેલા શબ્દ તેની બાજુના ખાનામાં લખો ([[Special:Captcha/help|more info]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'આપોઆપ નવા ખાતા ખુલતા રોકવા માટે નીચે દેખાતા શબ્દો ખાનામાં લખો ([[Special:Captcha/help|વધુ માહિતી]]):', # Fuzzy
+	'fancycaptcha-addurl' => 'તમે કરેલા ફેરફારોમાં નવી બાહ્ય કડીઓ સામેલ છે. 
+વિકિને સ્વચાલિત સ્પેમ/સ્પામ(spam)થી બચાવવા માટે અમે તમને જણાવીએ છીએ કે કૃપયા નીચે આપેલા સરળ દાખલાનો જવાબ તેની બાજુના ખાનામાં લખો.
+([[Special:Captcha/help|વધુ વિગત]]):',
+	'fancycaptcha-badlogin' => 'આપોઆપ થતી ગુપ્તસંજ્ઞાની ચોરી (password cracking)થી વિકિને બચાવવા માટે અમે તમને જણાવીએ છીએ કે કૃપયા નીચે આપેલા શબ્દ તેની બાજુના ખાનામાં લખો. ([[Special:Captcha/help|વધુ વિગત]]):',
+	'fancycaptcha-createaccount' => 'આપોઆપ નવા ખાતા ખુલતા રોકવા અને વિકીને તેનાથી બચાવવા માટે. અમે તમને જણાવીએ છીએ કે કૃપયા નીચે દેખાતા શબ્દો ખાનામાં લખો. ([[Special:Captcha/help|વધુ માહિતી]]):',
 	'fancycaptcha-create' => 'પાનું બનાવવા માટે નીચે દેખાતા શબ્દો ખાનામાં ટાઈપ કરો ([[Special:Captcha/help|વધુ માહિતી]]):',
 	'fancycaptcha-edit' => 'આ પાનામાં ફેરફાર કરવા માટે નીચે દેખાતા શબ્દો ખાનામાં ટાઈપ કરો ([[Special:Captcha/help|વધુ માહિતી]]):',
-	'fancycaptcha-sendemail' => 'આપોઆપ થતી સ્પૅમીંગથી બચાવવા માટે નીચે આપેલા શબ્દ તેની બાજુના ખાનામાં લખો ([[Special:Captcha/help|more info]]):', # Fuzzy
+	'fancycaptcha-sendemail' => 'વિકિને આપોઆપ થતી સ્પૅમીંગથી બચાવવા માટે. અમે તમને જણાવીએ છીએ કે કૃપયા નીચે આપેલા શબ્દ તેની બાજુના ખાનામાં લખો ([[Special:Captcha/help|વધુ માહિતી]]):',
 );
 
 /** Hebrew (עברית)

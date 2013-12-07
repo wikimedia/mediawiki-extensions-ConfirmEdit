@@ -99,7 +99,7 @@ $messages['bs'] = array(
 	'recaptcha-create' => 'Da bismo pomogli protiv automatiziranog pravljenja stranica, molimo upišite dvije riječi koje vidite u kutiju ispod:', # Fuzzy
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Jkjk
  * @author Mormegil
  */

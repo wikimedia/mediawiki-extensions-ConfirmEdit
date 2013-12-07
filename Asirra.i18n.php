@@ -79,7 +79,7 @@ $messages['br'] = array(
 	'asirra-nojs' => "'''Gweredekait JavaScript, mar plij, hag adkasit ar bajenn.'''",
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Vks
  */
 $messages['cs'] = array(
@@ -188,12 +188,12 @@ $messages['gl'] = array(
  */
 $messages['hsb'] = array(
 	'asirra-desc' => 'Modul Asirra za ConfirmEdit',
-	'asirra-edit' => 'Za škit přećiwo awtomatizowanemu spamej, prošu wubjer jenož fota kóčkow w slědowacym polu:', # Fuzzy
-	'asirra-addurl' => 'Twoja změna wobsahuje nowe eksterne wotkazy. Za škit přećiwo awtomatizowanemu spamej, prošu wubjer jenož fota kóčkow w slědowacym polu:', # Fuzzy
-	'asirra-badlogin' => 'Za škit přećiwo awtomatizowanemu złamanju hesłow, prošu wubjer jenož fota kóčkow w slědowacym polu:', # Fuzzy
-	'asirra-createaccount' => 'Za škit přećiwo awtomatiskemu wutworjenju konta, prošu wubjer jenož fota kóčkow w slědowacym polu:', # Fuzzy
+	'asirra-edit' => 'Za škit přećiwo awtomatizowanemu spamej, prošu wubjer jenož fota kóčkow w slědowacym polu:',
+	'asirra-addurl' => 'Twoja změna wobsahuje nowe eksterne wotkazy. Za škit přećiwo awtomatizowanemu spamej, prošu wubjer jenož fota kóčkow w slědowacym polu:',
+	'asirra-badlogin' => 'Za škit přećiwo awtomatizowanemu złamanju hesłow, prošu wubjer jenož fota kóčkow w slědowacym polu:',
+	'asirra-createaccount' => 'Za škit přećiwo awtomatiskemu wutworjenju konta, prošu wubjer jenož fota kóčkow w slědowacym polu:',
 	'asirra-createaccount-fail' => 'Prošu identifikuj kóčki.',
-	'asirra-create' => 'Za škit přećiwo awtomatiskemu wutworjenju strony, prošu wubjer jenož fota kóčkow w slědowacym polu:', # Fuzzy
+	'asirra-create' => 'Za škit přećiwo awtomatiskemu wutworjenju strony, prošu wubjer jenož fota kóčkow w slědowacym polu:',
 	'asirra-nojs' => "'''Prošu zmóžń JavaScript a składuj stronu hišće raz.'''",
 	'asirra-failed' => 'Prošu identifikuj wšě wobrazy z kóčkami',
 );

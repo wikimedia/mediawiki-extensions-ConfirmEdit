@@ -208,7 +208,7 @@ Per ajudar a protegir-se contra la brossa automàtica, responeu la pregunta que 
 	'questycaptcha-create' => 'Per crear la pàgina, per favor responeu la pregunta que apareix a continuació ([[Special:Captcha/help|més informació]]):',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Mormegil
  */
 $messages['cs'] = array(

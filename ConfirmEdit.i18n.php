@@ -745,7 +745,7 @@ $messages['ckb'] = array(
 	'right-skipcaptcha' => 'جێبەجێکردنی کردەوەکانی پێویست بە کاپچا بەبێ بەکارھێنانی کاپچا',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Danny B.
  * @author Li-sung
  * @author Matěj Grabovský

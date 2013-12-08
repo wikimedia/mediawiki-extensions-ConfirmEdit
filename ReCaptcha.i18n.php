@@ -105,12 +105,12 @@ $messages['bs'] = array(
  */
 $messages['cs'] = array(
 	'recaptcha-desc' => 'Podpora reCAPTCHA pro rozšíření Confirm Edit',
-	'recaptcha-edit' => 'V zájmu ochrany před automatickým spamováním opište dvě slova, která vidíte na obrázku:', # Fuzzy
-	'recaptcha-addurl' => 'Vaše editace obsahuje nové externí odkazy. V zájmu ochrany před automatickým spamováním opište dvě slova, která vidíte na obrázku:', # Fuzzy
-	'recaptcha-badlogin' => 'V zájmu ochrany proti automatickým pokusům uhodnout heslo opište dvě slova, která vidíte na obrázku:', # Fuzzy
-	'recaptcha-createaccount' => 'V rámci ochrany před automatickým vytvářením účtů opište dvě slova, která vidíte na obrázku:', # Fuzzy
+	'recaptcha-edit' => 'V zájmu ochrany této wiki před automatickým spamováním vás prosíme o opsání dvou slov, která vidíte v rámečku níže:',
+	'recaptcha-addurl' => 'Vaše editace obsahuje nové externí odkazy. V zájmu ochrany této wiki před automatickým spamováním vás prosíme o opsání dvou slov, která vidíte v rámečku níže:',
+	'recaptcha-badlogin' => 'V zájmu ochrany této wiki proti automatickým pokusům uhodnout heslo vás prosíme o opsání dvou slov, která vidíte v rámečku níže:',
+	'recaptcha-createaccount' => 'V zájmu ochrany této wiki před automatickým vytvářením účtů vás prosíme o opsání dvou slov, která vidíte v rámečku níže:',
 	'recaptcha-createaccount-fail' => 'Nesprávná nebo chybějící odpověď na reCAPTCHA.',
-	'recaptcha-create' => 'V zájmu ochrany před automatickým zakládáním stránek opište dvě slova, která vidíte na obrázku:', # Fuzzy
+	'recaptcha-create' => 'V zájmu ochrany před automatickým zakládáním stránek vás prosíme o opsání dvou slov, která vidíte v rámečku níže:',
 );
 
 /** Welsh (Cymraeg)

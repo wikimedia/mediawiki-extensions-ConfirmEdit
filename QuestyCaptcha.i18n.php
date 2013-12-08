@@ -213,12 +213,12 @@ Per ajudar a protegir-se contra la brossa automàtica, responeu la pregunta que 
  */
 $messages['cs'] = array(
 	'questycaptcha-addurl' => 'Vaše editace obsahuje nové externí odkazy.
-V zájmu ochrany před automatickým spamováním musíte zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):', # Fuzzy
-	'questycaptcha-badlogin' => 'V rámci ochrany proti automatickým pokusům uhodnout heslo musíte zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):', # Fuzzy
-	'questycaptcha-createaccount' => 'V rámci ochrany před automatickým vytvářením účtů musíte pro provedení registrace zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):', # Fuzzy
+V zájmu ochrany této wiki před automatickým spamováním vás prosíme o zodpovězení níže uvedené otázky ([[Special:Captcha/help|další informace]]):',
+	'questycaptcha-badlogin' => 'V zájmu ochrany této wiki proti automatickým pokusům uhodnout heslo vás prosíme o zodpovězení níže uvedené otázky ([[Special:Captcha/help|další informace]]):',
+	'questycaptcha-createaccount' => 'V zájmu ochrany této wiki před automatickým vytvářením účtů vás prosíme o zodpovězení níže uvedené otázky ([[Special:Captcha/help|další informace]]):',
 	'questycaptcha-create' => 'Abyste mohli založit stránku, musíte zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):',
 	'questycaptcha-edit' => 'Abyste mohli editovat tuto stránku, musíte zodpovědět níže uvedenou otázku ([[Special:Captcha/help|další informace]]):',
-	'questycaptcha-sendemail' => 'V rámci ochrany proti automatickému spamování musíte zodpovědět níže zobrazenou otázku ([[Special:Captcha/help|více informací]]):', # Fuzzy
+	'questycaptcha-sendemail' => 'V zájmu ochrany této wiki před automatickým spamováním vás prosíme o zodpovězení níže uvedené otázky ([[Special:Captcha/help|další informace]]):',
 	'questycaptchahelp-text' => 'Webové stránky, do kterých mohou přispívat jejich návštěvníci (jako například tato wiki), jsou často terčem spammerů, kteří pomocí automatických nástrojů vkládají své odkazy na velké množství stránek. Přestože lze tento spam odstranit, představuje nepříjemné obtěžování.
 
 Někdy, zvláště při přidávání nových webových odkazů, vás wiki může požádat o zodpovězení otázky.

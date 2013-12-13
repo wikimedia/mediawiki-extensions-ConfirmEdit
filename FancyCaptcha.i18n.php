@@ -464,12 +464,13 @@ Palun sisesta allpool olevas kastis kuvatud sõnad. Abinõu on kaitseks automaad
 
 /** Basque (euskara)
  * @author An13sa
+ * @author Xabier Armendaritz
  */
 $messages['eu'] = array(
 	'fancycaptcha-addurl' => 'Zure aldaketak kanpo lotura berriak ditu. Spam automatikoa saihestu ahal izateko, beheko koadroan ageri diren hitzak idatzi ([[Special:Captcha/help|informazio gehigarria]]):', # Fuzzy
 	'fancycaptcha-badlogin' => 'Pasahitzen cracking automatikoa saihestu asmoz, beheko koadroan ageri diren hitzak idazteko eskatzen dizugu ([[Special:Captcha/help|informazio gehigarria]]):', # Fuzzy
 	'fancycaptcha-createaccount' => 'Erabiltzaile kontuak automatikoki sortzea saihestu asmoz, beheko koadroan ageri diren hitzak idazteko eskatzen dizugu ([[Special:Captcha/help|informazio gehigarria]]):', # Fuzzy
-	'fancycaptcha-create' => 'Orrialde sortu ahal izateko, beheko koadroan ageri hitzak idatzi ([[Special:Captcha/help|informazio gehigarria]]):',
+	'fancycaptcha-create' => 'Orri sortu ahal izateko, idatz itzazu beheko koadroan ageri diren hitzak ([[Special:Captcha/help|informazio gehigarria]]):',
 	'fancycaptcha-edit' => 'Orrialde hau aldatu ahal izateko, beheko koadroan ageri diren hitzak idatzi ([[Special:Captcha/help|informazio gehigarria]]):',
 	'fancycaptcha-sendemail' => 'Zabor-posta automatizatuaz babesteko, idatzi azpiko kutxako hitzak ([[Special:Captcha/help|informazio gehiago]]):', # Fuzzy
 );

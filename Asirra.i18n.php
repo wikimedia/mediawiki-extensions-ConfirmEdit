@@ -460,6 +460,7 @@ $messages['si'] = array(
 /** Swedish (svenska)
  * @author Jopparn
  * @author Rotsee
+ * @author Tobulos1
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
@@ -467,6 +468,7 @@ $messages['sv'] = array(
 	'asirra-addurl' => 'Din redigering innehåller nya externa länkar. För att skydda wikin mot automatiserat redigerings-spam ber vi dig att endast markera fotografierna på katter i rutan nedan:',
 	'asirra-badlogin' => 'För att skydda wikin mot automatiserade försök att knäcka lösenord ber vi dig att endast markera fotografierna på katter i rutan nedan:',
 	'asirra-createaccount' => 'För att skydda wikin mot automatiserat kontoskapande ber vi dig att endast markera fotografierna på katter i rutan nedan:',
+	'asirra-createaccount-fail' => 'Vänligen korrekt identifiera katterna.',
 	'asirra-create' => 'För att skydda wikin mot automatiserat sidskapande ber vi dig att endast markera fotografierna på katter i rutan nedan:',
 	'asirra-nojs' => "'''Var god aktivera JavaScript och hämta sidan igen.'''",
 	'asirra-failed' => 'Var god identifiera alla kattbilder',

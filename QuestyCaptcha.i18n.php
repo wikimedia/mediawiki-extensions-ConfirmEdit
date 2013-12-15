@@ -795,7 +795,7 @@ Fir d'Wiki géint automatesche Spam-Ännerungen ze schützen, froe mir Iech d'Fr
 	'questycaptchahelp-text' => "Websäiten, déi et jiddwerengem erlaben Ännerunge virzehuelen, sou wéi dës Wiki, ginn dacks vu sougenannte Spammer mëssbraucht, déi automatiséiert hir Linken op vill Internetsäite setzen.
 Sou Spam-Linke kënne wuel geläscht ginn, mä si sinn trotzdeem eng grouss Plo.
 
-Heiansdo, besonnesch wann nei Internet-Linken op eng Säit dobäigesat ginn, freet dës Wiki Iech eng Fro ze beäntwerten.
+Heiansdo, besonnesch wann nei Internet-Linken op eng Säit derbäigesat ginn, freet dës Wiki Iech eng Fro ze beäntwerten.
 Well dëst eng Aufgab ass déi schwéier z'automatiséieren ass, erlaabt dëst datt Mënschen hir Ännerunge kënnen agi während déi meescht Spammer an aner Roboter-Attacke kënnen ofgewiert ginn.
 
 Kontaktéiert w.e.g. d'[[Special:ListAdmins|Administrateure vun dësem Site]] fir Hëllef wann dëst Iech onerwaarter Weis vu legitimen Editen ofhält.

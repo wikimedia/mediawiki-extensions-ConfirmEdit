@@ -662,12 +662,13 @@ slova koja vidite na slici dolje: <br />([[Special:Captcha/help|Pomoć]])',
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'fancycaptcha-addurl' => 'W twojej změnje su nowe eksterne wotkazy. Jako škitna naprawa přećiwo awtomatiskemu spamej zapodaj prošu sćěhowace znamješka do kašćika ([[Special:Captcha/help|čehodla?]]).', # Fuzzy
-	'fancycaptcha-badlogin' => 'Jako škitna naprawa přećiwo awtomatiskemu zadobywanju do wužiwarskich kontow zapodaj prošu sćěhowace znamješka do kašćika ([[Special:Captcha/help|čehodla?]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'Jako škitna naprawa přećiwo awtomatiskemu wutworjenju wužiwarskich kontow zapodaj prošu sćěhowace znamješka do kašćika ([[Special:Captcha/help|čehodla?]]):', # Fuzzy
+	'fancycaptcha-addurl' => 'W twojej změnje su nowe eksterne wotkazy. Jako škitnu naprawu přećiwo awtomatiskemu spamej zapodaj prošu slědowace znamješka do kašćika ([[Special:Captcha/help|dalše informacije]]):',
+	'fancycaptcha-badlogin' => 'Zo by wiki přećiwo awtomatiskemu kradnjenju hesłow škitał, prosymy će, slědowace słowa do kašćika zapisować ([[Special:Captcha/help|dalše informacije]]):',
+	'fancycaptcha-createaccount' => 'Jako škitna naprawa přećiwo awtomatiskemu wutworjenju wužiwarskich kontow, zapodaj prošu slědowace słowa do kašćika ([[Special:Captcha/help|dalše informacije]]):',
 	'fancycaptcha-create' => 'Zo by stronu wutworić móhł zapodaj prošu sćěhowace znamješka do kašćika ([[Special:Captcha/help|čehodla?]]):',
 	'fancycaptcha-edit' => 'Zo by stronu wobdźěłować móhł zapodaj prošu sćěhowace znamješka do kašćika ([[Special:Captcha/help|čehodla?]]):',
-	'fancycaptcha-sendemail' => 'Za škit přećiwo awtomatiskemu spamowanju, zapodaj prošu słowa, kotrež so deleka w kašćiku jewi ([[Special:Captcha/help|dalše informacije]]):', # Fuzzy
+	'fancycaptcha-sendemail' => 'Za škit přećiwo awtomatiskemu spamowanju, zapodaj prošu słowa, kotrež so deleka w kašćiku jewja ([[Special:Captcha/help|dalše informacije]]):',
+	'fancycaptcha-reload-text' => 'Aktualizować',
 );
 
 /** Hungarian (magyar)
@@ -1213,12 +1214,12 @@ $messages['or'] = array(
  */
 $messages['pl'] = array(
 	'fancycaptcha-desc' => 'Generator obrazka, którego odczytanie jest wymagane dla zatwierdzenia edycji.',
-	'fancycaptcha-addurl' => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):', # Fuzzy
-	'fancycaptcha-badlogin' => 'Ze względu na zabezpieczenie przed automatycznym łamaniem haseł prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'Ze względu na ochronę przed automatycznym spamem, aby się zarejestrować musisz wpisać słowo, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]])', # Fuzzy
+	'fancycaptcha-addurl' => 'Twoja edycja zawiera nowe linki zewnętrzne. Ze względu na ochronę przed zautomatyzowanym spamem prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|więcej informacji]]):',
+	'fancycaptcha-badlogin' => 'Ze względu na ochronę przed automatycznym łamaniem haseł prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|więcej informacji]]):',
+	'fancycaptcha-createaccount' => 'Ze względu na ochronę przed automatycznym tworzeniem kont prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|więcej informacji]])',
 	'fancycaptcha-create' => 'Aby utworzyć tę stronę, przepisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
 	'fancycaptcha-edit' => 'Aby edytować tę stronę, przepisz słowa, które widzisz poniżej, do pola tekstowego ([[Special:Captcha/help|pomoc]]):',
-	'fancycaptcha-sendemail' => 'Zabezpieczenie przed automatycznie dodawanym spamem. Wprowadzić słowa widoczne w poniższym prostokącie ([[Special:Captcha/help|więcej informacji]]).', # Fuzzy
+	'fancycaptcha-sendemail' => 'Ze względu na ochronę przed zautomatyzowanym spamem prosimy o wpisanie słów, które widzisz poniżej, do pola tekstowego  ([[Special:Captcha/help|więcej informacji]]).',
 	'fancycaptcha-reload-text' => 'Odśwież',
 );
 

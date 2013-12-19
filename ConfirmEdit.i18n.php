@@ -874,10 +874,10 @@ $messages['de'] = array(
 Um das Wiki vor automatisiertem Spam zu schützen, bitten wir dich die untenstehende einfache Rechenaufgabe zu lösen und deine Antwort in das Feld einzugeben, damit deine Bearbeitung gespeichert werden kann ([[Special:Captcha/help|mehr Informationen …]]):',
 	'captcha-badlogin' => 'Um das Wiki vor der automatisierten Kompromittierung der Benutzerkonten zu schützen, bitten wir dich die untenstehende einfache Rechenaufgabe zu lösen und deine Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):',
 	'captcha-createaccount' => 'Um das Wiki vor der automatisierten Erstellung von Benutzerkonten zu schützen, bitten wir dich die untenstehende einfache Rechenaufgabe zu lösen und deine Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):',
-	'captcha-createaccount-fail' => 'Falscher oder fehlender Bestätigungscode.',
+	'captcha-createaccount-fail' => 'Falsches oder fehlendes CAPTCHA.',
 	'captcha-create' => 'Zur Erstellung der Seite löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].',
 	'captcha-sendemail' => 'Um das Wiki vor automatisiertem Spam zu schützen, bitten wir dich die untenstehende einfache Rechenaufgabe zu lösen und deine Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):',
-	'captcha-sendemail-fail' => 'Falscher oder fehlender Bestätigungscode.',
+	'captcha-sendemail-fail' => 'Falsches oder fehlendes CAPTCHA.',
 	'captcha-disabledinapi' => 'Diese Aktion benötigt ein CAPTCHA. Sie kann nicht über die API ausgeführt werden.',
 	'captchahelp-title' => 'CAPTCHA-Hilfe',
 	'captchahelp-cookies-needed' => "'''Wichtiger Hinweis:''' Es müssen Cookies im Browser erlaubt sein.",
@@ -1335,6 +1335,7 @@ $messages['fo'] = array(
 
 /** French (français)
  * @author Crochet.david
+ * @author Gomoko
  * @author Grondin
  * @author IAlex
  * @author Meithal
@@ -1356,10 +1357,10 @@ $messages['fr'] = array(
 Pour nous aider dans la protection contre le pourriel automatisé, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-badlogin' => 'Afin de nous aider à prévenir le cassage automatisé des mots de passe, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-createaccount' => 'Afin de nous aider à lutter contre les créations automatiques de comptes, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-createaccount-fail' => 'Code de confirmation erroné ou manquant.',
+	'captcha-createaccount-fail' => 'CAPTCHA erroné ou manquant.',
 	'captcha-create' => 'Pour créer la page, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
 	'captcha-sendemail' => 'Afin de nous aider à prévenir le pollupostage automatisé, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :',
-	'captcha-sendemail-fail' => 'Code de confirmation incorrect ou manquant.',
+	'captcha-sendemail-fail' => 'CAPTCHA incorrect ou absent.',
 	'captcha-disabledinapi' => 'Cette action requiert un captcha, donc elle ne peut pas être effectuée via l’IPA.',
 	'captchahelp-title' => 'Aide sur le captcha',
 	'captchahelp-cookies-needed' => "Il vous faudra autoriser les témoins (''cookies'') de votre navigateur pour que cela fonctionne.",
@@ -1593,7 +1594,7 @@ $messages['he'] = array(
 לשם הגנה מפני ספאם אוטומטי, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה כדי לשמור את עריכתכם ([[Special:Captcha/help|מידע נוסף]]):',
 	'captcha-badlogin' => 'לשם הגנה מפני פריצת סיסמאות אוטומטית, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'captcha-createaccount' => 'לשם הגנה מפני יצירת חשבונות אוטומטית, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
-	'captcha-createaccount-fail' => 'לא הקלדתם קוד אישור, או שהוא שגוי.',
+	'captcha-createaccount-fail' => 'קוד אישור שגוי או חסר.',
 	'captcha-create' => 'כדי ליצור את הדף, אנא פתרו את תרגיל החיבור הפשוט שלהלן והקלידו את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'captcha-sendemail' => 'כדי לעזור להילחם במציפי זבל אוטומטיים, עליך לחשב את הסכום הפשוט שלהלן ולהזין את התוצאה בתיבה ([[Special:Captcha/help|מידע נוסף]]):',
 	'captcha-sendemail-fail' => 'קוד האישור שגוי או חסר.',
@@ -1990,10 +1991,10 @@ $messages['ja'] = array(
 自動でのスパム攻撃を防ぐため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
 	'captcha-badlogin' => '自動でのパスワードクラック攻撃からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|詳細]]):',
 	'captcha-createaccount' => 'アカウントの自動登録からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
-	'captcha-createaccount-fail' => '確認コードが正しくない、または入力されていません。',
+	'captcha-createaccount-fail' => 'CAPTCHA が正しくない、または入力されていません。',
 	'captcha-create' => 'ページを新規作成するには、下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):',
 	'captcha-sendemail' => '自動でのスパム攻撃からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|詳細]]):',
-	'captcha-sendemail-fail' => '確認コードが正しくない、または入力されていません。',
+	'captcha-sendemail-fail' => 'CAPTCHA が正しくない、または入力されていません。',
 	'captcha-disabledinapi' => 'この操作には CAPTCHA 認証が必要なため、API では実行できません。',
 	'captchahelp-title' => 'CAPTCHA (画像認証) ヘルプ',
 	'captchahelp-cookies-needed' => 'ブラウザーの Cookie を有効にする必要があります。',
@@ -2356,10 +2357,10 @@ $messages['lb'] = array(
 Fir dës Wiki virun automatiséiertem Spam ze schütze froe mir Iech fir déi folgend einfach Additioun ze léisen an d'Resultat an d'Feld ënnen anzedroen fir Är Ännerung ze späicheren ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captcha-badlogin' => "Fir dës Wiki géint automatescht Hacke vu Passwierder ze schützen, léist w.e.g. déi einfach Additioun hei ënnendrënner an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captcha-createaccount' => "Fir dës Wiki géint d'automatescht Uleeë vu Benotzerkonten ze schützen, léist w.e.g. déi einfach Additioun hei ënnendrënner, an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
-	'captcha-createaccount-fail' => 'Falschen oder kee Confirmatiouns-Code.',
+	'captcha-createaccount-fail' => 'Falschen oder kee CAPTCHA.',
 	'captcha-create' => "Fir eng Nei Säit unzeleeën, léist w.e.g. déi einfach Additioun hei ënnendrënner an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
 	'captcha-sendemail' => "Fir dës Wiki géint automatescht Spammen ze schützen, léist w.e.g. déi einfach Additioun hei ënnendrënner an tippt d'Äntwert an d'Këscht ([[Special:Captcha/help|méi Informatiounen]]):",
-	'captcha-sendemail-fail' => 'Falschen oder kee Confirmatiouns-Code.',
+	'captcha-sendemail-fail' => 'Falschen oder kee CAPTCHA.',
 	'captcha-disabledinapi' => 'Dës Aktioun brauch e Captcha, dofir ka se net mat enger API gemaach ginn.',
 	'captchahelp-title' => 'Captcha-Hëllef',
 	'captchahelp-cookies-needed' => 'Dir musst Cookien an Ärem Browser erlabe fir dat dëst funktionéiert.',
@@ -2826,11 +2827,11 @@ Voer het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[S
 Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in in het invoerveld om uw bewerking op te slaan ([[Special:Captcha/help|meer informatie]]):",
 	'captcha-badlogin' => 'Los de onderstaande eenvoudige som op en voer het antwoord in het invoervenster in ter bescherming tegen het automatisch kraken van wachtwoorden ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-createaccount' => 'Voer ter bescherming tegen het geautomatiseerd gebruikers aanmaken, het antwoord op de onderstaande eenvoudige som in in het invoervenster ([[Special:Captcha/help|meer informatie]]):',
-	'captcha-createaccount-fail' => 'De bevestigingscode ontbreekt of is onjuist.',
+	'captcha-createaccount-fail' => 'De CAPTCHA ontbreekt of is onjuist.',
 	'captcha-create' => 'U wilt een nieuwe pagina aanmaken.
 Voer het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
 	'captcha-sendemail' => 'Voer ter bescherming tegen geautomatiseerde spam het antwoord op de onderstaande eenvoudige som in het invoervenster in ([[Special:Captcha/help|meer informatie]]):',
-	'captcha-sendemail-fail' => 'De bevestigingscode ontbreekt of is onjuist.',
+	'captcha-sendemail-fail' => 'De CAPTCHA ontbreekt of is onjuist.',
 	'captcha-disabledinapi' => 'Voor deze handeling is een captcha nodig die niet afgehandeld kan worden via de API.',
 	'captchahelp-title' => 'Captcha-hulppagina',
 	'captchahelp-cookies-needed' => 'U dient in uw browser cookies ingeschakeld te hebben om dit te laten werken.',
@@ -3741,6 +3742,7 @@ Hit the 'back' button in your browser to return to the page editor.", # Fuzzy
  * @author Martinwiss
  * @author Per
  * @author Rotsee
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'captcha-edit' => 'För att redigera den här sidan måste du först skriva svaret på följande
@@ -3750,11 +3752,11 @@ räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
 	'captcha-addurl' => 'Din ändring innebär nya externa länkar i texten. För att skydda wikin mot automatisk spam måste du skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
 	'captcha-badlogin' => 'För att skydda mot wikin mot försök att knäcka lösenord på automatisk väg, måste du skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
 	'captcha-createaccount' => 'För att skydda wikin mot automatiskt skapade användarkonton, måste du skriva svaret på följande räkneuppgift i rutan ([[Special:Captcha/help|mer information]]):',
-	'captcha-createaccount-fail' => 'Bekräftelsekoden är felaktig eller saknas.',
+	'captcha-createaccount-fail' => 'Felaktig eller saknad CAPTCHA.',
 	'captcha-create' => 'För att skapa den här sidan måste du skriva svaret på följande räkneuppgift
 i rutan ([[Special:Captcha/help|mer information]]):',
 	'captcha-sendemail' => 'För att skydda wikin mot spam, ber vi dig att lösa den här enkla räkneuppgiften, och skriva in svaret i rutan ([[Special:Captcha/help|mer information]]):',
-	'captcha-sendemail-fail' => 'Felaktig eller saknad bekräftelsekod.',
+	'captcha-sendemail-fail' => 'Felaktig eller saknad CAPTCHA.',
 	'captcha-disabledinapi' => 'Denna åtgärd kräver en captcha, så den kan inte utföras genom APIet.',
 	'captchahelp-title' => 'Captchahjälp',
 	'captchahelp-cookies-needed' => 'Du måste ha cookies aktiverade i din webbläsare för att det här ska fungera.',
@@ -4019,6 +4021,7 @@ $messages['tru'] = array(
 /** Ukrainian (українська)
  * @author Ahonc
  * @author Alex Khimich
+ * @author Andriykopanytsia
  * @author NickK
  * @author Olvin
  * @author Riwnodennyk
@@ -4033,10 +4036,10 @@ $messages['uk'] = array(
 Із метою захисту від автоматичного спаму, будь ласка, виконайте просту арифметичну дію і введіть відповідь у текстове поле, щоб редагування було збережене ([[Special:Captcha/help|докладніше]]):',
 	'captcha-badlogin' => 'Із метою захисту від автоматичного злому пароля, будь ласка, виконайте просту арифметичну дію і введіть відповідь у текстове поле ([[Special:Captcha/help|докладніше]]):',
 	'captcha-createaccount' => 'Із метою захисту від автоматичного створення облікового запису просимо виконати просту арифметичну дію і ввести відповідь у текстове поле ([[Special:Captcha/help|докладніше]]):',
-	'captcha-createaccount-fail' => 'Неправильний або відсутній код підтвердження.',
+	'captcha-createaccount-fail' => 'Неправильна або відсутня капча.',
 	'captcha-create' => 'Щоб створити сторінку, будь ласка, виконайте просту арифметичну дію і введіть відповідь у текстове поле ([[Special:Captcha/help|докладніше]]):',
 	'captcha-sendemail' => "Із метою захисту вікі від автоматичного спаму просимо розв'язати простий математичний приклад і ввести відповідь ([[Special:Captcha/help|деталі]]):",
-	'captcha-sendemail-fail' => 'Неправильний або відсутній код підтвердження.',
+	'captcha-sendemail-fail' => 'Неправильна або відсутня капча.',
 	'captcha-disabledinapi' => 'Ця дія потребує перевірки CAPTCHA, тому не може бути здійснена за допомогою API.',
 	'captchahelp-title' => 'Довідка про CAPTCHA',
 	'captchahelp-cookies-needed' => 'Вам потрібно ввімкнути куки у браузері, щоб ця функція запрацювала.',

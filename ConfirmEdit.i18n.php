@@ -928,6 +928,7 @@ Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 /** Zazaki (Zazaki)
  * @author Aspar
  * @author Erdemaslancan
+ * @author Marmase
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -940,11 +941,11 @@ Otomatik spamî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de z
 ([[Special:Captcha/help|malumato detayın]]):',
 	'captcha-createaccount' => 'Otomatik spam ra pawıtışi, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse 
 ([[Special:Captcha/help|malumato detayın]]):',
-	'captcha-createaccount-fail' => 'Kodê testiqî vin biyo ya zi raşt niyo.',
+	'captcha-createaccount-fail' => 'Xırab yana kemi kodê testiqi',
 	'captcha-create' => 'Qe pel viraştîşî, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'captcha-sendemail' => 'Otomatik spam ra pawıtışi, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse 
 ([[Special:Captcha/help|malumato detayın]]):',
-	'captcha-sendemail-fail' => 'Kodê testiqî vin biyo ya zi raşt niyo.',
+	'captcha-sendemail-fail' => 'Xırab yana kemi kodê testiqi',
 	'captcha-disabledinapi' => 'Ena hereket de captcha lazim o, aye ra ser API ra ena hereket nibena.',
 	'captchahelp-title' => 'Yardimê captchayî',
 	'captchahelp-cookies-needed' => 'Eka şıma wazeno bıkewê pela Wikipedia, programê internetê şıma de cookiesi gani aktiv bê.',
@@ -3059,11 +3060,11 @@ e ch'a buta l'arzulta ant ël quadrèt ([[Special:Captcha/help|për savejne dë 
 	'captcha-badlogin' => "Për goerné la wiki da ij programa ch'a fan ciav fàusse n'automàtich, i-j ciamoma për piasì ch'a fasa ël total ambelessì-sota e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-createaccount' => "Për goerné la wiki da ij programa ch'a deurbo dij cont n'automàtich, i-j ciamoma për piasì ch'a fasa ël total ambelessì-sota
 e ch'a buta l'arzultà ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
-	'captcha-createaccount-fail' => "Ël còdes ëd verìfica ò ch'a manca d'autut ò ch'a l'é pa bon.",
+	'captcha-createaccount-fail' => "Ël còde tërbol ò ch'a manca d'autut ò ch'a l'é pa bon.",
 	'captcha-create' => "Për creé d'amblé sta pàgina-sì, për piasì ch'a fasa ël total ambelessì sota e ch'a buta l'arzultà<br />
 ant ël quadrèt ([[Special:Captcha/help|për savejne dë pì]]):",
 	'captcha-sendemail' => "Për protegi la wiki contra la rumenta automàtica, i-j ciamoma për piasì ch'a fasa l'adission sempia sì-sota e ch'a buta l'arspòsta ant la casela ([[Special:Captcha/help|për savèjne ëd pi]]):",
-	'captcha-sendemail-fail' => "Ël còdes ëd verìfica ò ch'a manca d'autut ò ch'a l'é pa bon.",
+	'captcha-sendemail-fail' => "Ël còdes tërbol ò ch'a manca d'autut ò ch'a l'é pa bon.",
 	'captcha-disabledinapi' => "St'assion-sì a ciama na captcha, parèj a peul pa esse fàita con na API.",
 	'captchahelp-title' => 'Còs é-lo mai ës captcha?',
 	'captchahelp-cookies-needed' => "Për podej dovré sossì a l'ha da manca che sò navigator (browser) a pija ij cookies.",
@@ -3193,10 +3194,10 @@ $messages['pt-br'] = array(
 Como prevenção contra sistemas automatizados que inserem spam, será necessário resolver a simples soma abaixo e inserir sua resposta no respectivo campo ([[Special:Captcha/help|detalhes]])',
 	'captcha-badlogin' => 'Como prevenção contra sistemas automatizados de pesquisa e descoberta de senhas, será necessário resolver a simples soma abaixo e inserir sua resposta no respectivo campo ([[Special:Captcha/help|detalhes]])',
 	'captcha-createaccount' => 'Para proteger a wiki contra sistemas automatizados de criação de contas, solicitamos que resolva a soma simples apresentada abaixo e introduza a resposta no respectivo campo  ([[Special:Captcha/help|mais informações]]):',
-	'captcha-createaccount-fail' => 'Código de confirmação incorreto ou não preenchido.',
+	'captcha-createaccount-fail' => 'Código de confirmação incorreto ou não preenchido.', # Fuzzy
 	'captcha-create' => 'Para criar a página, por favor resolva a simples soma abaixo e entre com a resposta no respectivo campo ([[Special:Captcha/help|o que é isto?]])',
 	'captcha-sendemail' => 'Como proteção ao wiki contra spam automatizado, será necessário resolver a simples soma abaixo e inserir sua resposta no respectivo campo ([[Special:Captcha/help|detalhes]]):',
-	'captcha-sendemail-fail' => 'Código de confirmação incorreto ou não preenchido.',
+	'captcha-sendemail-fail' => 'Código CAPTCHA incorreto ou não preenchido.',
 	'captcha-disabledinapi' => 'Esta operação necessita de captcha, por isso não pode ser realizada através da API.',
 	'captchahelp-title' => 'Ajuda com o Captcha',
 	'captchahelp-cookies-needed' => 'Você precisa ter cookies habilitados em seu navegador para que possa funcionar',

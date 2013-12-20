@@ -1154,7 +1154,7 @@ Voer de woorden die hieronder verschijnen in het invoerveld in als bescherming t
 	'fancycaptcha-create' => 'Voer de woorden die hieronder verschijnen in het invoerveld in om de pagina aan te maken ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-edit' => 'Voer de woorden die hieronder verschijnen in het invoerveld in om deze pagina te bewerken ([[Special:Captcha/help|meer informatie]]):',
 	'fancycaptcha-sendemail' => 'Voer de woorden die hieronder getoond worden in het invoerveld in als bescherming tegen spam ([[Special:Captcha/help|meer informatie]]):',
-	'fancycaptcha-reload-text' => 'Verversen',
+	'fancycaptcha-reload-text' => 'Vernieuwen',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)

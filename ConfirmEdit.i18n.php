@@ -835,10 +835,10 @@ $messages['da'] = array(
 Som beskyttelse af wikien mod automatiseret spam, skal du løse det enkle regnestykke nedenfor og skrive resultatet i boksen, for at kunne gemme din redigering ([[Special:Captcha/help|flere oplysninger]]):',
 	'captcha-badlogin' => 'For at beskytte wikien mod automatiseret adgangskodegætning, skal du løse det enkle regnestykke nedenfor og skrive resultatet i boksen ([[Special:Captcha/help|flere oplysninger]]):',
 	'captcha-createaccount' => 'For at beskytte wikien mod automatisk oprettelse af brugernavne, skal du løse det enkle regnestykke nedenfor og skrive resultatet i boksen ([[Special:Captcha/help|flere oplysninger]]):',
-	'captcha-createaccount-fail' => 'Forkert eller manglende bekræftelseskode.',
+	'captcha-createaccount-fail' => 'Forkert eller manglende CAPTCHA.',
 	'captcha-create' => 'For at oprette en ny side, skal du give svaret på regnestyket nedenfor, og angive resultatet i feltet under det. ([[Special:Captcha/help|mere information]]):',
 	'captcha-sendemail' => 'For at beskytte wikien mod automatisk spamning, skal du løse det enkle regnestykke nedenfor og skrive resultatet i boksen ([[Special:Captcha/help|flere oplysninger]]):',
-	'captcha-sendemail-fail' => 'Forkert eller manglende bekræftelseskode.',
+	'captcha-sendemail-fail' => 'Forkert eller manglende CAPTCHA.',
 	'captcha-disabledinapi' => "Denne handling kræver en captcha, så det ikke kan udføres via API'en.",
 	'captchahelp-title' => 'Captcha-hjælp',
 	'captchahelp-cookies-needed' => 'Din browser skal understøtte cookies, før dette kan gennemføres.',
@@ -979,10 +979,10 @@ $messages['dsb'] = array(
 Za šćit pśeśiwo zawtomatizěrowanemu spamoju, pšosymy śi slědujucy jadnory liceński nadawk rozwězaś a zapódaj wuslědk do kašćika, aby swóju změnu składował ([[Special:Captcha/help|dalšne info]]):',
 	'captcha-badlogin' => 'Aby wiki pśeśiwo zawtomatizěrowanemu wuzgónjowanjeju gronidła šćitał, pšosymy śi slědujucy jadnory liceński nadawk rozwězaś a zapódaj wuslědk do kašćika ([[Special:Captcha/help|dalšne info]]):',
 	'captcha-createaccount' => 'Aby wiki pśeśiwo zawtomatizěrowanemu załoženjeju kontow šćitał, pšosymy śi slědujucy jadnory liceński nadawk rozwězaś a zapódaj wuslědk do kašćika ([[Special:Captcha/help|dalšne info]]):',
-	'captcha-createaccount-fail' => 'Wopacny abo felujucy wobkšuśeński kod.',
+	'captcha-createaccount-fail' => 'Wopacny abo felujucy wobkšuśeński kod CAPTCHA.',
 	'captcha-create' => 'Aby napórał bok, rozwěž pšosym slědujucy jadnory liceński nadawk a zapódaj wuslědk do kašćika ([[Special:Captcha/help|dalšne info]]):',
 	'captcha-sendemail' => 'Aby wiki pśeśiwo awtomatiskemu spamowanjeju šćitał, pšosymy śi jadnory liceński nadawk rozwězaś a zapódaj wótegrono do kašćika ([[Special:Captcha/help|dalšne informacije]]):',
-	'captcha-sendemail-fail' => 'Wopacny abo felujucy wobkšuśeński kod.',
+	'captcha-sendemail-fail' => 'Wopacny abo felujucy wobkšuśeński kod CAPTCHA.',
 	'captcha-disabledinapi' => 'Toś ta akcija pomina se captcha, togodla njedajo se pśez API wuwjasć.',
 	'captchahelp-title' => 'Pomoc wó captcha',
 	'captchahelp-cookies-needed' => 'Aby to funkcioněrowało, muse cookieje dowólone byś.',
@@ -1711,10 +1711,10 @@ $messages['hsb'] = array(
 	'captcha-addurl' => 'W twojej změnje su nowe eksterne wotkazy. Zo by wiki přećiwo awtomatizowanemu spamej škitał, prosymy će slědowacy nadawk wuličić a wuslědk do kašćika zapisować, zo by so twoja změna składowała ([[Special:Captcha/help|dalše informacije]]).',
 	'captcha-badlogin' => 'Zo by wiki přećiwo  awtomatiskemu zadobywanju do hesłow škitał, prosymy će slědowacy nadawk wuličeć a wuslědk do kašćika zapisować ([[Special:Captcha/help|dalše informacije]]):',
 	'captcha-createaccount' => 'Zo by wiki přećiwo awtomatiskemu wutworjenju wužiwarskich kontow škitał, prosymy će slědowacy nadawk nadawk rozrisać a wuslědk do kašćika zapisować  ([[Special:Captcha/help|dalše informacije]]):',
-	'captcha-createaccount-fail' => 'Wopačny abo pobrachowacy wobkrućenski kod.',
+	'captcha-createaccount-fail' => 'Wopačny abo falowacy wobkrućenski kod CAPTCHA.',
 	'captcha-create' => 'Zo by stronu wutworił, rozrisaj prošu slědowacy ličenski nadawk a zapodaj wuslědk do kašćika ([[Special:Captcha/help|Dalše informacije]]):',
 	'captcha-sendemail' => 'Za škit přećiwo awtomatiskemu spamowanju, rozrisaj prošu slědowacy jednory ličenski nadawk a zapodaj wotmołwu do kašćika ([[Special:Captcha/help|dalše informacije]]):',
-	'captcha-sendemail-fail' => 'Wopačny abo falowacy wobkrućenski kod.',
+	'captcha-sendemail-fail' => 'Wopačny abo falowacy wobkrućenski kod CAPTCHA.',
 	'captcha-disabledinapi' => 'Tuta akcija wužaduje sej captcha, tohodla njeda so přez API wuwjesć.',
 	'captchahelp-title' => 'Pomoc za CAPTCHA',
 	'captchahelp-cookies-needed' => 'Dyrbiš placki (cookies) w swojim wobhladowaku zmóžnić.',
@@ -2449,15 +2449,17 @@ $messages['lt'] = array(
 
 /** Latvian (latviešu)
  * @author BrokenArrow
+ * @author Edgars2007
  * @author Marozols
  * @author Yyy
  */
 $messages['lv'] = array(
 	'captcha-edit' => 'Lai izmainītu šo lapu, atrisini šo vienādojumu un iegūto skaitli ieraksti šajā lodziņā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
-	'captcha-addurl' => 'Tavas izmaiņas ietver jaunu URL saiti. Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta te redzamā vienādojuma rezultāts: <br />([[Special:Captcha/help|Kāpēc tā?]])', # Fuzzy
+	'captcha-addurl' => 'Tavas izmaiņas ietver jaunu URL saiti.
+Lai pasargātos no automātiskas mēstuļošanas, Tev ir jāieraksta te redzamā vienādojuma rezultāts: <br />([[Special:Captcha/help|vairāk informācijas]])',
 	'captcha-badlogin' => 'Lai pasargātos no automātiskiem paroļu lauzējiem, lūdzu aprēķini šīs izteiksmes vērtību un rezultātu ieraksti apakšā esošajā lodziņā ([[Special:Captcha/help|papildus informācija]]):', # Fuzzy
 	'captcha-createaccount' => 'Lai pasargātos no automātiskas mēstuļošanas, Tev reģistrējoties ir jāieraksta šī vienādojuma rezultāts: <br />([[Special:Captcha/help|Kāpēc tā?]])', # Fuzzy
-	'captcha-createaccount-fail' => 'Nepareizs apstiprinājuma kods vai arī tas nav ievadīts.',
+	'captcha-createaccount-fail' => 'Nepareizs apstiprinājuma kods vai arī tas nav ievadīts.', # Fuzzy
 	'captcha-create' => 'Lai izveidotu šo lapu, atrisini šo vienādojumu un rezulātu ieraksti šajā lodziņā: <br />([[Special:Captcha/help|Kāpēc tā?]])',
 	'captchahelp-cookies-needed' => "Lai šis darbotos, pārlūkprogrammā jābūt iespējotām (''enabled'') sīkdatnēm (''cookies'').",
 	'captchahelp-text' => "Interneta lapas, kurās iespējams pievienot tekstu, kā šajā wiki, bieži cieš no mēstuļotājiem, kuri izmanto automatizētus līdzekļus, lai pievienotu savus saites daudzās jo daudzās interneta lapās.
@@ -3662,6 +3664,7 @@ $messages['sr-ec'] = array(
 
 /** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
+ * @author Milicevic01
  */
 $messages['sr-el'] = array(
 	'captcha-edit' => 'Za izmenu ove strane, reši jednostavan zbri ispod i unesi odgovor u kutiju ([[Special:Captcha/help|detaljnije]]):',
@@ -3669,12 +3672,12 @@ $messages['sr-el'] = array(
 	'captcha-addurl' => 'Tvoja izmena uključuje nove spoljašnje veze. U cilju zaštite protiv automatskog spama, reši jednostavan zbir ispod i upiši odgovor u kutiju ([[Special:Captcha/help|detaljnije]]):', # Fuzzy
 	'captcha-badlogin' => 'U cilju zaštite od automatske provale u lozinku, reši jednostavan zbir ispod i unesi odgovor u kutiju ([[Special:Captcha/help|detaljnije]]):', # Fuzzy
 	'captcha-createaccount' => 'U cilju zaštite od automatskog stvaranja naloga, reši jednostavan zbir dole i unesi ga u kutiju ([[Special:Captcha/help|detaljnije]]):', # Fuzzy
-	'captcha-createaccount-fail' => 'Nepravilan ili nepostojeći kod za potvrdu.',
+	'captcha-createaccount-fail' => 'Nepravilan ili nepostojeći kod za potvrdu.', # Fuzzy
 	'captcha-create' => 'Za stvaranje strane reši jednostavan zbir dole i unesi ga u kutiju ([[Special:Captcha/help|detaljnije]]):',
-	'captcha-sendemail-fail' => 'Nepravilan ili nepostojeći kod za potvrdu.',
+	'captcha-sendemail-fail' => 'Nepravilan ili nepostojeći kod za potvrdu.', # Fuzzy
 	'captchahelp-title' => 'pomoć za kapču',
 	'captchahelp-cookies-needed' => 'Da bi ovo uradio, neophodno je da su ti kolačići omogućeni u brauzeru.',
-	'right-skipcaptcha' => 'Izvedi akcije kapče bez potrebe da se prođe kroz kapču.',
+	'right-skipcaptcha' => 'preskakanje radnji koje zahtevaju unos potvrdnog koda',
 );
 
 /** Seeltersk (Seeltersk)
@@ -4106,11 +4109,11 @@ $messages['vi'] = array(
 	'captcha-addurl' => 'Sửa đổi của bạn có chứa các liên kết ra bên ngoài. Để tránh spam tự động trong wiki, xin bạn vui lòng giải phép toán đơn giản ở dưới và nhập kết quả vào ô để lưu giữ các sửa đổi của bạn ([[Special:Captcha/help|thông tin thêm]]):',
 	'captcha-badlogin' => 'Để tránh vụ tự động bẻ mật khẩu của người dùng wiki, xin bạn vui lòng giải phép cộng đơn giản ở dưới và nhập kết quả vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'captcha-createaccount' => 'Để tránh vụ tự động mở tài khoản trong wiki, xin bạn vui lòng giải phép cộng đơn giản ở dưới và nhập kết quả vào ô ([[Special:Captcha/help|thông tin thêm]]):',
-	'captcha-createaccount-fail' => 'Thiếu mã xác nhận hoặc mã xác nhận sai.',
+	'captcha-createaccount-fail' => 'CAPTCHA bị thiếu hoặc không chính xác.',
 	'captcha-create' => 'Để tạo mới trang, xin hãy giải phép cộng đơn giản ở dưới và gõ
 câu trả lời vào ô ([[Special:Captcha/help|thông tin thêm]]):',
 	'captcha-sendemail' => 'Để xác nhận rằng bạn không phải là tay spam, xin bạn vui lòng giải phép cộng đơn giản ở dưới và nhập kết quả vào ô ([[Special:Captcha/help|thông tin thêm]]):',
-	'captcha-sendemail-fail' => 'Mã xác nhận không chính xác hoặc chưa được cung cấp.',
+	'captcha-sendemail-fail' => 'CAPTCHA bị thiếu hoặc không chính xác.',
 	'captcha-disabledinapi' => 'Tác vụ này đòi người dùng giải CAPTCHA trước tiên, nên không thể thực hiện nó qua API.',
 	'captchahelp-title' => 'Trợ giúp Captcha',
 	'captchahelp-cookies-needed' => 'Bạn cần phải bật cookie trong trình duyệt để chức năng này hoạt động được.',

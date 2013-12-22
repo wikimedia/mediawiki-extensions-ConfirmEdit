@@ -232,12 +232,12 @@ $messages['he'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'recaptcha-edit' => 'Za škit přećiwo awtomatizowanemu spamej, prošu zapisaj dwě słowje, kotrejž w slědowacym polu widźiš:', # Fuzzy
-	'recaptcha-addurl' => 'Twoja změna wobsahuje nowe eksterne wotkazy. Za škit přećiwo awtomatizowanemu spamej, prošu zapisaj dwě słowje, kotrerjž w slědowacym polu widźiš:', # Fuzzy
-	'recaptcha-badlogin' => 'Za škit přećiwo awtomatizowanemu złamanju hesłow, zapisaj prošu wobě słowje, kotrejž widźiš, do slědowaceho pola:', # Fuzzy
-	'recaptcha-createaccount' => 'Za škit přećiwo awtomatiskemu wutworjenju konta, prošu zapisaj tej wobě słowje, kotrejž w slědowacym polu widźiš:', # Fuzzy
+	'recaptcha-edit' => 'Zo by wiki přećiwo awtomatizowanemu spamej škitał, zapisaj prošu dwě słowje, kotrejž w slědowacym polu widźiš:',
+	'recaptcha-addurl' => 'Twoja změna wobsahuje nowe eksterne wotkazy. Zo by wiki přećiwo awtomatizowanemu spamej škitał, zapisaj prošu dwě słowje, kotrejž w slědowacym polu widźiš:',
+	'recaptcha-badlogin' => 'Zo by wiki přećiwo awtomatizowanemu złamanju hesłow škitał, zapisaj prošu dwě słowje, kotrejž widźiš, do slědowaceho pola:',
+	'recaptcha-createaccount' => 'Zo by wiki přećiwo awtomatiskemu wutworjenju konta škitał, zapisaj prošu dwě słowje, kotrejž w slědowacym polu widźiš:',
 	'recaptcha-createaccount-fail' => 'Wopačna abo falowaca wotmołwa reCAPTCHA.',
-	'recaptcha-create' => 'Za škit přećiwo awtomatiskemu wutworjenju strony, prošu zapisaj tej wobě słowje, kotrejž w slědowacym polu widźiš:', # Fuzzy
+	'recaptcha-create' => 'Zo by wiki přećiwo awtomatiskemu wutworjenju strony škitał, zapisaj prošu dwě słowje, kotrejž w slědowacym polu widźiš:',
 );
 
 /** Interlingua (interlingua)

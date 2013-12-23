@@ -303,12 +303,12 @@ Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.', #
  */
 $messages['dsb'] = array(
 	'questycaptcha-addurl' => 'Twója změna wopśimujo nowe eksterne wótkaze.
-Za šćit pśeśiwo zawtomatizěrowanemu spamoju, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):', # Fuzzy
-	'questycaptcha-badlogin' => 'Za šćit pśeśiwo zawtomatizěrowanemu wusnuchlenjeju gronidła, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):', # Fuzzy
-	'questycaptcha-createaccount' => 'Za šćit pśeśiwo zawtomatizěrowanemu napóranjeju kontow, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):', # Fuzzy
+Aby wiki pśeśiwo zawtomatizěrowanemu spamoju šćitał, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
+	'questycaptcha-badlogin' => 'Aby wiki pśeśiwo zawtomatizěrowanemu wusnuchlenjeju gronidła šćitał, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
+	'questycaptcha-createaccount' => 'Aby wiki pśeśiwo zawtomatizěrowanemu napóranjeju kontow šćitał, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
 	'questycaptcha-create' => 'Aby napórał bok, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
 	'questycaptcha-edit' => 'Aby wobźěłał toś ten bok, wótegroń pšosym na pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
-	'questycaptcha-sendemail' => 'Za šćit pśeśiwo awtomatiskemu spamowanjeju, wótegroń pšosym pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):', # Fuzzy
+	'questycaptcha-sendemail' => 'Aby wiki pśeśiwo awtomatiskemu spamowanjeju šćitał, wótegroń pšosym pšašanje, kótarež pokazujo se dołojce ([[Special:Captcha/help|dalšne informacije]]):',
 	'questycaptchahelp-text' => 'Websedła, kótarež akceptěruju zjawne pśinoski, ako toś ten wiki, znjewužywaju se cesto wót spamowarjow, kótarež wužywaju zawtomatizěrowane rědy, aby pśidali swóje wótkaze na wjele sedłow. Lěcrownož toś te spamowe wótkaze daju se wótpóraś, su wóne bejna pógóršota. 
 
 Wótergi, wósebnje, gaž se nowe wótkaze pśidawaju bokoju, jo móžno, až se śi wiki něco pšaša. 

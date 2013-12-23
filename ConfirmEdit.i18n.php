@@ -3990,13 +3990,13 @@ $messages['tr'] = array(
 	'captcha-desc' => 'Spam ve parola tahminine karşı korunmak için "Güvenlik Kodu" (CAPTCHA) tekniği sağlar.',
 	'captcha-label' => 'Güvenlik Kodu',
 	'captcha-addurl' => 'Değişikliğiniz yeni dış bağlantılar içeriyor.
-Otomatik spamdan korunmak için lütfen aşağıdaki basit soruyu yanıtlayın ve yanıtı kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgi]]):', # Fuzzy
-	'captcha-badlogin' => 'Otomatik parola çözülmesine karşı korunmak için, lütfen aşağıdaki basit soruyu yanıtlayın ve kutunın içinde yanıtı yazın ([[Special:Captcha/help|ayrıntılı bilgi]]):', # Fuzzy
-	'captcha-createaccount' => 'Otomatik hesap oluşturmaya karşı korunmak için, lütfen aşağıdaki basit soruyu yanıtlayın ve kutunın içinde yanıtı yazın ([[Special:Captcha/help|ayrıntılı bilgi]]):', # Fuzzy
-	'captcha-createaccount-fail' => 'Hatalı ya da eksik onay kodu.',
+Vikiyi otomatik spamdan korumak ve değişikliğinizi kaydetmek için, aşağıdaki basit toplamı çözmenizi ve yanıtı kutunun içine yazmanızı rica ediyoruz ([[Special:Captcha/help|ayrıntılı bilgi]]):',
+	'captcha-badlogin' => 'Vikiyi otomatik parola çözülmesine karşı korumak için, aşağıdaki basit toplamı çözmenizi ve yanıtı kutunun içine yazmanızı rica ediyoruz ([[Special:Captcha/help|ayrıntılı bilgi]]):',
+	'captcha-createaccount' => 'Vikiyi otomatik hesap oluşturmaya karşı korumak için, aşağıdaki basit toplamı çözmenizi ve yanıtı kutunun içine yazmanızı rica ediyoruz ([[Special:Captcha/help|ayrıntılı bilgi]]):',
+	'captcha-createaccount-fail' => 'Hatalı ya da eksik CAPTCHA.',
 	'captcha-create' => 'Bu sayfayı oluşturmak için, lütfen aşağıdaki basit soruyu yanıtlayın ve kutunun içinde yanıtı yazın ([[Special:Captcha/help|ayrıntılı bilgi]]):',
-	'captcha-sendemail' => 'Otomatik spamlara karşı korunmaya yardımcı olmak için, lütfen aşağıdaki basit işlemi çözün ve yanıtı kutuya yazın ([[Special:Captcha/help|ayrıntılı bilgi]]):', # Fuzzy
-	'captcha-sendemail-fail' => 'Hatalı ya da eksik onay kodu.',
+	'captcha-sendemail' => 'Vikiyi otomatik spamlara karşı korumaya yardımcı olmak için, aşağıdaki basit toplamı çözmenizi ve yanıtı kutunun içine yazmanızı rica ediyoruz ([[Special:Captcha/help|ayrıntılı bilgi]]):',
+	'captcha-sendemail-fail' => 'Hatalı ya da eksik CAPTCHA.',
 	'captcha-disabledinapi' => 'Bu eylem güvenlik kodu gerektiriyor, dolayısıyla API aracılığıyla yapılamaz.',
 	'captchahelp-title' => 'Güvenlik kodu yardımı',
 	'captchahelp-cookies-needed' => 'Bunun çalışabilmesi için tarayıcınızın çerezleri etkinleştirilmelidir.',

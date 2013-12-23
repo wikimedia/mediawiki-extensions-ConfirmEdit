@@ -390,12 +390,13 @@ Qe otomatik spami ra pawıtış, ma rica keno çekuyané ke qutiya cor de inan b
  */
 $messages['dsb'] = array(
 	'fancycaptcha-addurl' => 'Twója změna wopśimujo nowe eksterne wótkaze.
-Za šćit pśeśiwo awtomatiskemu spamowanjeju, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku  ([[Special:Captcha/help|dalšne informacije]]):', # Fuzzy
-	'fancycaptcha-badlogin' => 'Za šćit pśeśiwo awtomatiskemu wugódanjeju gronidła, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'Za šćit pśeśiwo awtomatiskemu załoženjeju kontow, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):', # Fuzzy
+Aby wiki pśeśiwo awtomatiskemu spamowanjeju šćitał, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku  ([[Special:Captcha/help|dalšne informacije]]):',
+	'fancycaptcha-badlogin' => 'Aby wiki pśeśiwo awtomatiskemu wugódanjeju gronidła šćitał, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):',
+	'fancycaptcha-createaccount' => 'Aby wiki pśeśiwo awtomatiskemu załoženjeju kontow šćitał, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):',
 	'fancycaptcha-create' => 'Aby bok napórał, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):',
 	'fancycaptcha-edit' => 'Aby toś ten bok wobźěłał, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):',
-	'fancycaptcha-sendemail' => 'Za šćit pśeśiwo awtomatiskemu spamowanjeju, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):', # Fuzzy
+	'fancycaptcha-sendemail' => 'Aby wiki pśeśiwo awtomatiskemu spamowanjeju šćitał, zapódaj pšosym słowa, kótarež pokazuju se dołojce w kašćiku ([[Special:Captcha/help|dalšne informacije]]):',
+	'fancycaptcha-reload-text' => 'Aktualizěrowaś',
 );
 
 /** Greek (Ελληνικά)
@@ -1620,12 +1621,12 @@ Upang makatulong sa pagsasanggalang laban sa kusang pinapadalang mga \"manluluso
  */
 $messages['tr'] = array(
 	'fancycaptcha-addurl' => 'Değişikliğiniz yeni dış bağlantılar içeriyor.
-Otomatik spamdan korunmak için, lütfen aşağıdaki sözcükleri kutunun içine yazın ([[Special:Captcha/help|ayrıntılı bilgiler]]):', # Fuzzy
-	'fancycaptcha-badlogin' => 'Otomatik parola kırma yöntemine karşı korunmak için lütfen aşağıdaki sözcükleri kutunun içine yazınız ([[Special:Captcha/help|ayrıntılı bilgi]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'Otomatik hesap oluşturmaya karşı korumaya yardım etmek için, lütfen aşağıdaki kutuda görünen kelimeleri girin ([[Special:Captcha/help|daha fazla bilgi]]):', # Fuzzy
+Vikiyi otomatik spamdan korumak için, aşağıdaki sözcükleri kutunun içine yazmanızı rica ediyoruz ([[Special:Captcha/help|ayrıntılı bilgi]]):',
+	'fancycaptcha-badlogin' => 'Vikiyi otomatik parola kırma yöntemine karşı korumak için, aşağıdaki sözcükleri kutunun içine yazmanızı rica ediyoruz ([[Special:Captcha/help|ayrıntılı bilgi]]):',
+	'fancycaptcha-createaccount' => 'Vikiyi otomatik hesap oluşturmaya karşı korumaya yardım etmek için, aşağıdaki sözcükleri kutunun içine yazmanızı rica ediyoruz ([[Special:Captcha/help|ayrıntılı bilgi]]):',
 	'fancycaptcha-create' => 'Sayfayı oluşturmak için, lütfen aşağıdaki kutuda görünen kelimeleri girin ([[Special:Captcha/help|daha fazla bilgi]]):',
 	'fancycaptcha-edit' => 'Bu sayfayı değiştirmek için, lütfen aşağıdaki kutuda görünen kelimeleri girin ([[Special:Captcha/help|daha fazla bilgi]]):',
-	'fancycaptcha-sendemail' => 'Otomatik spamlerden korunmaya yardımcı olmak için, lütfen aşağıda görünen sözcükleri kutuya yazın ([[Special:Captcha/help|daha fazla bilgi]]):', # Fuzzy
+	'fancycaptcha-sendemail' => 'Vikiyi otomatik spamlerden korumak için, aşağıdaki sözcükleri kutunun içine yazmanızı rica ediyoruz ([[Special:Captcha/help|ayrıntılı bilgi]]):',
 	'fancycaptcha-reload-text' => 'Yenile',
 );
 

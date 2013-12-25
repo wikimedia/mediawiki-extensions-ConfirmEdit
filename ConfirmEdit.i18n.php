@@ -1464,6 +1464,7 @@ $messages['ga'] = array(
 
 /** Galician (galego)
  * @author Alma
+ * @author Elisardojm
  * @author Toliño
  * @author Xosé
  */
@@ -1475,10 +1476,10 @@ $messages['gl'] = array(
 Para protexer o wiki contra o spam automático, resolva a suma que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-badlogin' => 'Para protexer o wiki contra o roubo de contrasinais, resolva a suma que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-createaccount' => 'Para protexer o wiki contra a creación automática de contas, resolva a suma que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
-	'captcha-createaccount-fail' => 'Falta o código de confirmación ou é incorrecto.',
+	'captcha-createaccount-fail' => 'Falta o código de confirmación (CAPTCHA) ou é incorrecto.',
 	'captcha-create' => 'Para crear a páxina, resolva a suma que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
 	'captcha-sendemail' => 'Para protexer o wiki contra o spam automático, resolva a suma que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):',
-	'captcha-sendemail-fail' => 'Falta o código de confirmación ou é incorrecto.',
+	'captcha-sendemail-fail' => 'Falta o código de confirmación (CAPTCHA) ou é incorrecto.',
 	'captcha-disabledinapi' => 'Esta acción necesita o captcha, polo que non se pode realizar a través da API.',
 	'captchahelp-title' => 'Axuda acerca do CAPTCHA',
 	'captchahelp-cookies-needed' => 'Necesita ter as cookies habilitadas no seu navegador para que funcione.',
@@ -2509,10 +2510,10 @@ $messages['mk'] = array(
 За да ни помогнете да се заштитиме од автоматизиран спам, би ве замолиле да ја решите простата задача подолу и да го внесете резултатот во полето за да можете да го зачувате уредувањето ([[Special:Captcha/help|повеќе инфо]]):',
 	'captcha-badlogin' => 'За да ни помогнете да се заштитиме од автоматизирано пробивање на лозинки, би ве замолиле да ја решите простата задача подолу и внесете резултатот во полето ([[Special:Captcha/help|повеќе информации]]):',
 	'captcha-createaccount' => 'За да ни помогнете да се заштитиме од автоматизирано создавање на сметки, би ве замолиле да ја решите простата задача подолу и да го внесете резултатот во полето ([[Special:Captcha/help|повеќе инфо]]):',
-	'captcha-createaccount-fail' => 'Потврдниот код е неточен или недостасува.',
+	'captcha-createaccount-fail' => 'CAPTCHA е неточен или недостасува.',
 	'captcha-create' => 'За да ја создадете страницата, прво решете ја простата задача подолу и впишете го решението во полето ([[Special:Captcha/help|повеќе инфо]]):',
 	'captcha-sendemail' => 'За да се заштитиме од автоматизирано спамирање, би сакале да ве замолиме да ја решите простата задача подолу и да го внесете резултатот во полето ([[Special:Captcha/help|повеќе информации]]):',
-	'captcha-sendemail-fail' => 'Потврдниот код е неточен или недостасува.',
+	'captcha-sendemail-fail' => 'CAPTCHA е неточен или недостасува.',
 	'captcha-disabledinapi' => 'Ова дејство бара captcha, така што не може да се изврши преку API.',
 	'captchahelp-title' => 'Помош со Captcha',
 	'captchahelp-cookies-needed' => 'Треба да имате овозможено колачиња за да може ова да работи.',

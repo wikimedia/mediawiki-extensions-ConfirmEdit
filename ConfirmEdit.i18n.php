@@ -1184,11 +1184,11 @@ $messages['et'] = array(
 Palun lahenda allpool lihtne tehe ja sisesta vastus kasti, et saaksid muudatuse salvestada. Abinõu on viki kaitseks automaadistatud rämpsmuudatuste eest ([[Special:Captcha/help|lisateave]]):',
 	'captcha-badlogin' => 'Palun lahenda allpool lihtne tehe ja sisesta vastus kasti. Abinõu on viki kaitseks automaatsete parooliäraarvajate eest ([[Special:Captcha/help|lisateave]]):',
 	'captcha-createaccount' => 'Palun lahenda lihtne tehe ja sisesta vastus kasti. Abinõu on viki kaitseks kontode automaatse loomise eest ([[Special:Captcha/help|lisateave]]):',
-	'captcha-createaccount-fail' => 'Puuduv või valesti sisestatud kinnituskood.',
+	'captcha-createaccount-fail' => 'Puuduv või valesti sisestatud robotilõksu tekst.',
 	'captcha-create' => 'Lehekülje loomiseks lahenda palun lihtne tehe ja sisesta vastus kasti
 ([[Special:Captcha/help|lisateave]]):',
 	'captcha-sendemail' => 'Palun lahenda allpool lihtne tehe ja sisesta vastus kasti. Abinõu on viki kaitseks automaadistatud rämpsmuudatuste eest ([[Special:Captcha/help|lisateave]]):',
-	'captcha-sendemail-fail' => 'Vigane või puuduv kinnituskood.',
+	'captcha-sendemail-fail' => 'Vigane või puuduv robotilõksu tekst.',
 	'captcha-disabledinapi' => 'Ühes selle toiminguga tuleb läbida robotilõks ja seetõttu ei saa seda API kaudu sooritada.',
 	'captchahelp-title' => 'Mis on robotilõks?',
 	'captchahelp-cookies-needed' => 'Selle toimimiseks peab veebilehitseja lubama küpsiseid.',

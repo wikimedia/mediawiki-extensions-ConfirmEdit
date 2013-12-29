@@ -3644,6 +3644,7 @@ Shtypni butonin "prapa" ("back") të shfletuesit tuaj për tu kthyer tek faqja e
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Milicevic01
  * @author Millosh
  * @author Rancher
  */
@@ -3654,12 +3655,19 @@ $messages['sr-ec'] = array(
 У циљу заштите од непожељних порука, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):', # Fuzzy
 	'captcha-badlogin' => 'У циљу заштите од пробијања лозинки, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):', # Fuzzy
 	'captcha-createaccount' => 'У циљу заштите од самоотварања налога, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):', # Fuzzy
-	'captcha-createaccount-fail' => 'Неправилан или непостојећи код за потврду.',
+	'captcha-createaccount-fail' => 'Неправилан или непостојећи код за потврду.', # Fuzzy
 	'captcha-create' => 'Да бисте направили страницу, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):',
 	'captcha-sendemail' => 'У циљу заштите од слања непожељних порука, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):', # Fuzzy
-	'captcha-sendemail-fail' => 'Неправилан или непостојећи код за потврду.',
-	'captchahelp-title' => 'Помоћ око потврдног кôда',
+	'captcha-sendemail-fail' => 'Неправилан или непостојећи код за потврду.', # Fuzzy
+	'captchahelp-title' => 'Помоћ око потврдног кoда',
 	'captchahelp-cookies-needed' => 'Потребно је да омогућите колачиће да би ово радило.',
+	'captchahelp-text' => 'Веб-сајтове који подржавају слање садржаја из јавности, као што је овај вики, често злоупотребљавају вандали који користе аутоматизоване алате да шаљу своје повезнице ка многим сајтовима. Иако се ове нежељене повезнице могу уклонити, оне задају велику муку.
+
+Понекад, поготово када се додају нове интернет повезнице на страну, вики софтвер вам може показати слику обојеног и изврнутог текста и тражити да укуцате тражену реч. Пошто је тешко аутоматизовати овакав задатак, он омогућује свим правим људима да врше своје измене, али ће зато спречити вандале и остале роботске нападаче.
+
+Нажалост, ово може да буде неповољно за кориснике са ограниченим видом и за оне који користе прегледаче базиране на тексту или говору. У овом тренутку, аудио алтернатива није доступна. Молимо контактирајте администраторе сајта ради помоћи ако вас ово неочекивано омета у прављењу добрих измена.
+
+Кликните на дугме „назад“ вашег прегледача да се вратите на поље за унос текста.', # Fuzzy
 	'right-skipcaptcha' => 'прескакање радњи које захтевају унос потврдног кода',
 );
 
@@ -3676,8 +3684,15 @@ $messages['sr-el'] = array(
 	'captcha-createaccount-fail' => 'Nepravilan ili nepostojeći kod za potvrdu.', # Fuzzy
 	'captcha-create' => 'Za stvaranje strane reši jednostavan zbir dole i unesi ga u kutiju ([[Special:Captcha/help|detaljnije]]):',
 	'captcha-sendemail-fail' => 'Nepravilan ili nepostojeći kod za potvrdu.', # Fuzzy
-	'captchahelp-title' => 'pomoć za kapču',
+	'captchahelp-title' => 'Pomoć oko potvrdnog koda',
 	'captchahelp-cookies-needed' => 'Da bi ovo uradio, neophodno je da su ti kolačići omogućeni u brauzeru.',
+	'captchahelp-text' => 'Veb-sajtove koji podržavaju slanje sadržaja iz javnosti, kao što je ovaj viki, često zloupotrebljavaju vandali koji koriste automatizovane alate da šalju svoje poveznice ka mnogim sajtovima. Iako se ove neželjene poveznice mogu ukloniti, one zadaju veliku muku.
+
+Ponekad, pogotovo kada se dodaju nove internet poveznice na stranu, viki softver vam može pokazati sliku obojenog i izvrnutog teksta i tražiti da ukucate traženu reč. Pošto je teško automatizovati ovakav zadatak, on omogućuje svim pravim ljudima da vrše svoje izmene, ali će zato sprečiti vandale i ostale robotske napadače.
+
+Nažalost, ovo može da bude nepovoljno za korisnike sa ograničenim vidom i za one koji koriste pregledače bazirane na tekstu ili govoru. U ovom trenutku, audio alternativa nije dostupna. Molimo kontaktirajte administratore sajta radi pomoći ako vas ovo neočekivano ometa u pravljenju dobrih izmena.
+
+Kliknite na dugme „nazad“ vašeg pregledača da se vratite na polje za unos teksta.', # Fuzzy
 	'right-skipcaptcha' => 'preskakanje radnji koje zahtevaju unos potvrdnog koda',
 );
 

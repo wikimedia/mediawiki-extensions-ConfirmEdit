@@ -136,6 +136,21 @@ $messages['es'] = array(
 	'asirra-failed' => 'Identifique todas las imágenes de gatos',
 );
 
+/** Persian (فارسی)
+ * @author Armin1392
+ */
+$messages['fa'] = array(
+	'asirra-desc' => 'بخش آسیرا برای تایید ویرایش',
+	'asirra-edit' => ' برای محافظت ویکی دربرابر ویرایش خودکار اسپم، ما دوستانه از شما درخواست می‌کنیم که تنها عکس‌های گربه را در جعبهٔ زیر انتخاب کنید:',
+	'asirra-addurl' => 'ویرایش شما شامل لینک‌های خارجی جدید است.برای محافظت ویکی دربرابر ویرایش خودکار اسپم، ما دوستانه از شما درخواست می‌کنیم که تنها عکس‌های گربه را در جعبهٔ زیر انتخاب کنید:',
+	'asirra-badlogin' => 'برای محافظت ویکی دربرابر رخنه به رمز‌ عبور به طور خودکار، ما دوستانه از شما درخواست می‌کنیم که تنها عکس‌های گربه را در جعبهٔ زیر انتخاب کنید:',
+	'asirra-createaccount' => 'برای محافظت ویکی دربرابر ایجاد حساب به طور خودکار، ما دوستانه از شما درخواست می‌کنیم که تنها عکس‌های گربه را در جعبهٔ زیر انتخاب کنید:',
+	'asirra-createaccount-fail' => 'لطفاً این گربه‌ها را به درستی شناسایی کنید.',
+	'asirra-create' => 'برای محافظت ویکی دربرابر ایجاد صفحه به طور خودکار، ما دوستانه از شما درخواست می‌کنیم که تنها عکس‌های گربه را در جعبهٔ زیر انتخاب کنید:',
+	'asirra-nojs' => "'''لطفاً جاوااسکریپت را فعال کنید و صفحه را دوباره ارائه کنید.'''",
+	'asirra-failed' => 'لطفاً همهٔ عکس‌های گربه را شناسایی کنید',
+);
+
 /** Finnish (suomi)
  * @author VezonThunder
  */
@@ -468,7 +483,7 @@ $messages['sv'] = array(
 	'asirra-addurl' => 'Din redigering innehåller nya externa länkar. För att skydda wikin mot automatiserat redigerings-spam ber vi dig att endast markera fotografierna på katter i rutan nedan:',
 	'asirra-badlogin' => 'För att skydda wikin mot automatiserade försök att knäcka lösenord ber vi dig att endast markera fotografierna på katter i rutan nedan:',
 	'asirra-createaccount' => 'För att skydda wikin mot automatiserat kontoskapande ber vi dig att endast markera fotografierna på katter i rutan nedan:',
-	'asirra-createaccount-fail' => 'Vänligen korrekt identifiera katterna.',
+	'asirra-createaccount-fail' => 'Vänligen identifiera katterna korrekt.',
 	'asirra-create' => 'För att skydda wikin mot automatiserat sidskapande ber vi dig att endast markera fotografierna på katter i rutan nedan:',
 	'asirra-nojs' => "'''Var god aktivera JavaScript och hämta sidan igen.'''",
 	'asirra-failed' => 'Var god identifiera alla kattbilder',

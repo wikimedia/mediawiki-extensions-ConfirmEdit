@@ -1803,10 +1803,10 @@ $messages['ia'] = array(
 Pro proteger le wiki contra le spam automatisate, per favor resolve le simple summa hic infra e entra le resultato in le quadro a fin de salveguardar tu modification ([[Special:Captcha/help|plus info]]):',
 	'captcha-badlogin' => 'Pro proteger le wiki contra le furto automatisate de contrasignos, per favor resolve le simple summa hic infra e entra le resultato in le quadro ([[Special:Captcha/help|plus info]]):',
 	'captcha-createaccount' => 'Pro proteger le wiki contra le creation automatisate de contos, per favor resolve le simple summa hic infra e entra le resultato in le quadro ([[Special:Captcha/help|plus info]]):',
-	'captcha-createaccount-fail' => 'Codice de confirmation incorrecte o mancante.',
+	'captcha-createaccount-fail' => 'Codice de confirmation (CAPTCHA) incorrecte o mancante.',
 	'captcha-create' => 'Pro crear le pagina, per favor resolve le simple summa hic infra e entra le resultato in le quadro ([[Special:Captcha/help|plus info]]):',
 	'captcha-sendemail' => 'Pro proteger le wiki contra le spam automatisate, per favor resolve le simple summa hic infra e entra le resultato in le quadro ([[Special:Captcha/help|plus info]]):',
-	'captcha-sendemail-fail' => 'Codice de confirmation incorrecte o mancante.',
+	'captcha-sendemail-fail' => 'Codice de confirmation (CAPTCHA) incorrecte o mancante.',
 	'captcha-disabledinapi' => 'Iste action require un captcha, dunque illo non pote esser exequite per medio del API.',
 	'captchahelp-title' => 'Adjuta super le captcha',
 	'captchahelp-cookies-needed' => 'Tu debe haber le cookies activate in tu navigator a fin que isto pote functionar.',
@@ -2049,6 +2049,7 @@ Tryk på 'tilbage'-knappen i din browser for at returnere til redigeringssiden."
 );
 
 /** Javanese (Basa Jawa)
+ * @author Bennylin
  * @author Meursault2004
  * @author NoiX180
  * @author Pras
@@ -2058,12 +2059,14 @@ $messages['jv'] = array(
 	'captcha-desc' => 'Nyadhiyakaké tèhnik CAPTCHA kanggo njaga saka spam lan pambedhèk sandhi',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Suntingan panjenengan iku nyertakaké pranala jaba anyar.
-Kanggo ngéwangi ngreksa lawan ''spam'' otomatis, tulung pecahna itung-itungan ing ngisor iki lan lebokna kasilna sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):", # Fuzzy
-	'captcha-badlogin' => 'Kanggo ngreksa lawan parengkahan kunci sandhi otomatis, tulung lebokna tembung utawa kasil itung-itungan gampang ing ngisor sajroning kothak sing wis sumedya ([[Special:Captcha/help|info sabanjuré]]):', # Fuzzy
-	'captcha-createaccount' => 'Kanggo ngreksa lawan panggawéyan rékening (akun) otomatis, tulung pecahna itung-itungan ing ngisor iki lan lebokna kasilna sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):', # Fuzzy
-	'captcha-createaccount-fail' => 'Kode pandhedhesan (konfirmasi) salah utawa durung diisi.',
+Kanggo ngéwangi ngreksa lawan ''spam'' otomatis, tulung pecahna itung-itungan ing ngisor iki lan lebokna kasilna sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):",
+	'captcha-badlogin' => 'Kanggo ngreksa lawan parengkahan tembung sandhi otomatis, tulung lebokna tembung utawa kasil itung-itungan gampang ing ngisor sajroning kothak sing wis sumedya ([[Special:Captcha/help|info sabanjuré]]):',
+	'captcha-createaccount' => 'Kanggo ngreksa lawan panggawéyan rékening (akun) otomatis, tulung pecahna itung-itungan ing ngisor iki lan lebokna kasilna sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):',
+	'captcha-createaccount-fail' => 'Kode CAPTCHA salah utawa durung diisi.',
 	'captcha-create' => 'Kanggo nggawé kaca iki, mangga itung-itungan ing ngisor iki diwangsuli sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):',
-	'captcha-sendemail-fail' => 'Kodhe pepesthèn salah utawa durung diisi.',
+	'captcha-sendemail' => 'Kanggo ngreksa lawan spam otomatis, tulung lebokna tembung utawa kasil itung-itungan gampang ing ngisor sajroning kothak sing wis sumedya ([[Special:Captcha/help|info sabanjuré]]):',
+	'captcha-sendemail-fail' => 'Kode CAPTCHA salah utawa durung diisi.',
+	'captcha-disabledinapi' => 'Tindakan ini membutuhkan CAPTCHA, sehingga tidak dapat dilakukan melalui API.',
 	'captchahelp-title' => 'Pitulung Captcha',
 	'captchahelp-cookies-needed' => 'Panjenengan perlu ngaktifaké cookie ing panjlajah wèb panjenengan kanggo nganggo fitur iki.',
 	'captchahelp-text' => "Situs-situs wèb sing nampa data saka umum, kaya ta wiki iki, kerep disalahgunakaké déning panganggo-panganggo sing ora bertanggungjawab kanggo ngirimaké ''spam'' mawa program-program otomatis. Senadyan spam-spam iku bisa dibuang kabèh, nanging waé tetep ngrusuhi lan dianggep gawé masalah.
@@ -2547,10 +2550,10 @@ $messages['ml'] = array(
 യാന്ത്രികമായി പാഴെഴുത്തുൾപ്പെടുത്തുന്നതിൽ നിന്നും വിക്കി സം‌രക്ഷിക്കുന്നതിന്റെ ഭാഗമായി, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത് അതിന്റെ ഉത്തരം താഴെയുള്ള പെട്ടിയിൽ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):',
 	'captcha-badlogin' => 'യാന്ത്രികമായി രഹസ്യവാക്ക് പൊളിക്കുന്നതിൽ നിന്നും വിക്കി സംരക്ഷിക്കുന്നതിന്റെ ഭാഗമായി, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത്, ഉത്തരം താഴെയുള്ള പെട്ടിയിൽ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):',
 	'captcha-createaccount' => 'യാന്ത്രികമായി അംഗത്വം സൃഷ്ടിക്കുന്നതിൽ നിന്നും വിക്കി സം‌രക്ഷിക്കുന്നതിന്റെ ഭാഗമായി, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത് അതിന്റെ ഉത്തരം താഴെയുള്ള പെട്ടിയിൽ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):',
-	'captcha-createaccount-fail' => 'തെറ്റായതോ ലഭ്യമല്ലാത്തതോ ആയ സ്ഥിരീകരണ കോഡ്.',
+	'captcha-createaccount-fail' => 'തെറ്റായതോ ലഭ്യമല്ലാത്തതോ ആയ കാപ്ച്ച.',
 	'captcha-create' => 'ഈ താൾ സൃഷ്ടിക്കുവാൻ, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന കൂട്ടൽ ക്രിയയുടെ ഉത്തരം താഴെയുള്ള പെട്ടിയിൽ എഴുതുക  ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):',
 	'captcha-sendemail' => 'യാന്ത്രികമായ പാഴെഴുത്ത് ഉൾപ്പെടുത്തുന്നതിൽ നിന്നും വിക്കി സംരക്ഷിക്കുന്നതിന്റെ  ഭാഗമായി, ദയവായി താഴെ കൊടുത്തിരിക്കുന്ന ലഘു ഗണിത ക്രിയ ചെയ്ത്, ഉത്തരം പെട്ടിയിൽ എഴുതുക ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):',
-	'captcha-sendemail-fail' => 'തെറ്റായതോ ലഭ്യമല്ലാത്തതോ ആയ സ്ഥിരീകരണ കോഡ്.',
+	'captcha-sendemail-fail' => 'തെറ്റായതോ ലഭ്യമല്ലാത്തതോ ആയ കാപ്ച്ച.',
 	'captcha-disabledinapi' => 'ഈ പ്രവൃത്തി പൂർണ്ണമാകാൻ കാപ്ച ആവശ്യമാണ്, അതുകൊണ്ടിത് എ.പി.ഐ. ഉപയോഗിച്ച് ചെയ്യാൻ കഴിയില്ല.',
 	'captchahelp-title' => 'കാപ്ച്ച സഹായം',
 	'captchahelp-cookies-needed' => 'ഇതു പ്രവർത്തിക്കണമെങ്കിൽ താങ്കളുടെ ബ്രൗസറിൽ കുക്കികൾ സജ്ജീകരിച്ചിരിക്കണം.',

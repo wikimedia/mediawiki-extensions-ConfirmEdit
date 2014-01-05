@@ -790,14 +790,17 @@ $messages['jut'] = array(
 );
 
 /** Javanese (Basa Jawa)
+ * @author Bennylin
  * @author Meursault2004
  */
 $messages['jv'] = array(
-	'fancycaptcha-addurl' => 'Suntingan panjenengan iku ngandhut pranala jaba anyar. Kanggo pangreksan marang spam otomatis, mangga lebokna tembung sing kapacak ing ngisor iki ing kothak sing wis cumepak ([[Special:Captcha/help|info jangkep]]):', # Fuzzy
-	'fancycaptcha-badlogin' => 'Kanggo ngréwangi pangreksan marang parengkahan kunci sandhi otomatis, mangga lebokna tembung sing kapacak ing ngisor iki ing kothak sing wis cumepak ([[Special:Captcha/help|info jangkep]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'Minangka pangreksan marang rékening (akun) sing digawé otomatis, tulung lebokna tembung sing kapacak ing ngisor iki ing kothak sing wis cumepak ([[Special:Captcha/help|info jangkep]]):', # Fuzzy
+	'fancycaptcha-addurl' => 'Suntingan panjenengan iku ngandhut pranala jaba anyar. Kanggo pangreksan marang spam otomatis, mangga lebokna tembung sing kapacak ing ngisor iki ing kothak sing wis cumepak ([[Special:Captcha/help|info jangkep]]):',
+	'fancycaptcha-badlogin' => 'Kanggo ngreksa lawan parengkahan tembung sandhi otomatis, tulung lebokna ukara ing ngisor iki menyang sajroning kothak sing wis sumedya ([[Special:Captcha/help|info sabanjuré]]):',
+	'fancycaptcha-createaccount' => 'Kanggo ngreksa lawan panggawéyan rékening (akun) otomatis, tulung lebokna ukara ing ngisor iki menyang sajroning kothak ([[Special:Captcha/help|info sabanjuré]]):',
 	'fancycaptcha-create' => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nggawé kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
 	'fancycaptcha-edit' => 'Suntingan panjenengan ngandhut pranala jaba anyar. Kanggo nyunting kaca iki, mangga isèkna tembung-tembung sing ana ing kothak iki ([[Special:Captcha/help|info jangkep]]):',
+	'fancycaptcha-sendemail' => 'Kanggo ngreksa lawan spam otomatis, tulung lebokna ukara ing ngisor iki menyang sajroning kothak sing wis sumedya ([[Special:Captcha/help|info sabanjuré]]):',
+	'fancycaptcha-reload-text' => 'Anyarana',
 );
 
 /** Georgian (ქართული)

@@ -1129,6 +1129,7 @@ Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Ciencia Al Poder
  * @author Crazymadlover
  * @author Drini
  * @author Icvav
@@ -1147,10 +1148,10 @@ $messages['es'] = array(
 Para proteger el wiki contra el spam automatizado, por favor resuelve la sencilla suma de abajo e introduce la respuesta en la caja  para guardar tu edición ([[Special:Captcha/help|más información]]):',
 	'captcha-badlogin' => 'Para proteger el wiki del descifrado de contraseñas automatizado, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
 	'captcha-createaccount' => 'Para proteger el wiki de la creación automática de cuentas, resuelve por favor la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
-	'captcha-createaccount-fail' => 'Falta el código de confirmación, o éste es incorrecto.',
+	'captcha-createaccount-fail' => 'Falta el código CAPTCHA, o éste es incorrecto.',
 	'captcha-create' => 'Para crear la página, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
 	'captcha-sendemail' => 'Para proteger el wiki contra el spam automatizado, por favor resuelve la simple suma que se presenta a continuación e introduce la respuesta en el cuadro de texto ([[Special:Captcha/help|más información]]):',
-	'captcha-sendemail-fail' => 'El código de confirmación falta o es incorrecto.',
+	'captcha-sendemail-fail' => 'Falta el código CAPTCHA, o éste es incorrecto.',
 	'captcha-disabledinapi' => 'Esta acción requiere un captcha, así que no puede ser ejecutada a través de un API.',
 	'captchahelp-title' => 'Ayuda sobre el captcha',
 	'captchahelp-cookies-needed' => 'Debe tener las cookies activadas en el navegador para que el sistema funcione.',

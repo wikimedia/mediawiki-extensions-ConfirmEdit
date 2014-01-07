@@ -926,6 +926,7 @@ Der „Zurück“-Knopf des Browsers führt zurück zum Bearbeitungsfenster.',
 );
 
 /** Zazaki (Zazaki)
+ * @author Asmen
  * @author Aspar
  * @author Erdemaslancan
  * @author Marmase
@@ -941,11 +942,11 @@ Otomatik spamî ra pawitîş, ma rica keno cewabê problemî qutiyê ke cor de z
 ([[Special:Captcha/help|malumato detayın]]):',
 	'captcha-createaccount' => 'Otomatik spam ra pawıtışi, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse 
 ([[Special:Captcha/help|malumato detayın]]):',
-	'captcha-createaccount-fail' => 'Xırab yana kemi kodê testiqi',
+	'captcha-createaccount-fail' => 'CAPTCHA ğeleto ya ki kemio',
 	'captcha-create' => 'Qe pel viraştîşî, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'captcha-sendemail' => 'Otomatik spam ra pawıtışi, ma rica keno cewabê problemî qutiyê ke cor de zerre ey ra binuse 
 ([[Special:Captcha/help|malumato detayın]]):',
-	'captcha-sendemail-fail' => 'Xırab yana kemi kodê testiqi',
+	'captcha-sendemail-fail' => 'CAPTCHA ğeleto ya ki kemio',
 	'captcha-disabledinapi' => 'Ena hereket de captcha lazim o, aye ra ser API ra ena hereket nibena.',
 	'captchahelp-title' => 'Yardimê captchayî',
 	'captchahelp-cookies-needed' => 'Eka şıma wazeno bıkewê pela Wikipedia, programê internetê şıma de cookiesi gani aktiv bê.',

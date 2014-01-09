@@ -371,11 +371,12 @@ Zum Schutz vor automatisiertem Spamming geben Sie das folgende Wort in das Feld 
 
 /** Zazaki (Zazaki)
  * @author Gorizon
+ * @author Mirzali
  * @author Xoser
  */
 $messages['diq'] = array(
-	'fancycaptcha-addurl' => 'Vırnayışané tod linkané hariciyé newe esto. 
-Qe otomatik spami ra pawıtış, ma rica keno çekuyané ke qutiya cor de inan binuse ([[Special:Captcha/help|enformasyoné bini]]):',
+	'fancycaptcha-addurl' => 'Vurnayışanê to de gıreyê teberiê newey estê. 
+Seba pawıtışê spamê otomatiki ra, ma reca kenime ke çekuyanê cêrênan zerreyê qutiye de bınusê ([[Special:Captcha/help|zêde melumat]]):',
 	'fancycaptcha-badlogin' => 'Qe otomatik parola crack kerdişî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'fancycaptcha-createaccount' => 'Qe otomatik hesab viraştişî ra pawitîş, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',
 	'fancycaptcha-create' => 'Qe pel viraştîşî, ma rica keno çekuyanê ke qutiya cor de înan binuse ([[Special:Captcha/help|enformasyonê bînî]]):',

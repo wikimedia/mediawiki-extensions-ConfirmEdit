@@ -2436,7 +2436,10 @@ $messages['lo'] = array(
  */
 $messages['lrc'] = array(
 	'captcha-label' => 'كپچا',
+	'captcha-createaccount-fail' => 'کد کپچا غلط یا گم بیه.',
+	'captcha-sendemail-fail' => 'کد کپچا غلط یا گم بیه.',
 	'captchahelp-title' => 'هومياری كپچا',
+	'captchahelp-cookies-needed' => 'شما با کوکیانه د جاگرد تو فعال بکید سی یه وه کار بکه.',
 );
 
 /** Lithuanian (lietuvių)

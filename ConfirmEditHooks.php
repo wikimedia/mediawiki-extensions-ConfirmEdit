@@ -26,6 +26,14 @@ class ConfirmEditHooks {
 	static function confirmEditAPI( $editPage, $newtext, &$resultArr ) {
 		return self::getInstance()->confirmEditAPI( $editPage, $newtext, $resultArr );
 	}
+	
+	static function addNewAccountApiForm( $apiModule, $loginForm ) {
+		return self::getInstance()->addNewAccountApiForm( $apiModule, $loginForm );
+	}
+	
+	static function addNewAccountApiResult( $apiModule, $loginPage, &$result ) {
+		return self::getInstance()->addNewAccountApiResult( $apiModule, $loginPage, $result );
+	}
 
 	static function injectUserCreate( &$template ) {
 		return self::getInstance()->injectUserCreate( $template );

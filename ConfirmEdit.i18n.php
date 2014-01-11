@@ -3662,7 +3662,7 @@ $messages['sr-ec'] = array(
 	'captcha-addurl' => 'Ваша измена садржи нове спољашње везе.
 У циљу заштите од непожељних порука, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):', # Fuzzy
 	'captcha-badlogin' => 'У циљу заштите од пробијања лозинки, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):', # Fuzzy
-	'captcha-createaccount' => 'У циљу заштите од самоотварања налога, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):', # Fuzzy
+	'captcha-createaccount' => 'У циљу заштите од аутоматизованог вандализма, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):',
 	'captcha-createaccount-fail' => 'Неправилан или непостојећи код за потврду.', # Fuzzy
 	'captcha-create' => 'Да бисте направили страницу, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):',
 	'captcha-sendemail' => 'У циљу заштите од слања непожељних порука, решите просту рачуницу испод и унесите одговор у поље ([[Special:Captcha/help|више информација]]):', # Fuzzy
@@ -3688,7 +3688,7 @@ $messages['sr-el'] = array(
 	'captcha-desc' => 'Pruža zaštitu protiv nepoželjnih poruka u vidu potvrdnog koda',
 	'captcha-addurl' => 'Tvoja izmena uključuje nove spoljašnje veze. U cilju zaštite protiv automatskog spama, reši jednostavan zbir ispod i upiši odgovor u kutiju ([[Special:Captcha/help|detaljnije]]):', # Fuzzy
 	'captcha-badlogin' => 'U cilju zaštite od automatske provale u lozinku, reši jednostavan zbir ispod i unesi odgovor u kutiju ([[Special:Captcha/help|detaljnije]]):', # Fuzzy
-	'captcha-createaccount' => 'U cilju zaštite od automatskog stvaranja naloga, reši jednostavan zbir dole i unesi ga u kutiju ([[Special:Captcha/help|detaljnije]]):', # Fuzzy
+	'captcha-createaccount' => 'U cilju zaštite od automatizovanog vandalizma, rešite prostu računicu ispod i unesite odgovor u polje ([[Special:Captcha/help|više informacija]]):',
 	'captcha-createaccount-fail' => 'Nepravilan ili nepostojeći kod za potvrdu.', # Fuzzy
 	'captcha-create' => 'Za stvaranje strane reši jednostavan zbir dole i unesi ga u kutiju ([[Special:Captcha/help|detaljnije]]):',
 	'captcha-sendemail-fail' => 'Nepravilan ili nepostojeći kod za potvrdu.', # Fuzzy

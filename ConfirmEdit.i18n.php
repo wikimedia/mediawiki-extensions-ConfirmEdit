@@ -2351,6 +2351,14 @@ $messages['la'] = array(
 	'captchahelp-title' => 'Captcha auxilium',
 );
 
+/** Ladino (Ladino)
+ * @author Menachem.Moreira
+ */
+$messages['lad'] = array(
+	'captcha-label' => 'CAPTCHA',
+	'captchahelp-title' => 'Ayudo de CAPTCHA',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby

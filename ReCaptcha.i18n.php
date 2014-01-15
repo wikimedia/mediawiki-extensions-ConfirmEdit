@@ -303,14 +303,15 @@ $messages['ja'] = array(
 );
 
 /** Korean (한국어)
+ * @author Priviet
  * @author 아라
  */
 $messages['ko'] = array(
 	'recaptcha-desc' => '편집 확인에 대한 reCAPCHA 모듈',
-	'recaptcha-edit' => '자동화된 편집 스팸으로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:', # Fuzzy
-	'recaptcha-addurl' => '편집에 새로운 바깥 링크가 포함되어 있습니다. 자동화된 스팸으로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:', # Fuzzy
-	'recaptcha-badlogin' => '자동화된 비밀번호 깨기로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:', # Fuzzy
-	'recaptcha-createaccount' => '자동화된 계정 만들기로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:', # Fuzzy
+	'recaptcha-edit' => '자동 편집 스팸으로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:',
+	'recaptcha-addurl' => '편집에 새로운 바깥 고리가 포함되어 있습니다. 자동 스팸으로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:',
+	'recaptcha-badlogin' => '자동 비밀번호 크래킹으로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:',
+	'recaptcha-createaccount' => '자동화된 계정 만들기로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:',
 	'recaptcha-createaccount-fail' => 'reCAPTCHA 답이 올바르지 않거나 없습니다.',
 	'recaptcha-create' => '자동화된 문서 만들기로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:', # Fuzzy
 );

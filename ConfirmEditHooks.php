@@ -39,8 +39,8 @@ class ConfirmEditHooks {
 		return self::getInstance()->injectUserCreate( $template );
 	}
 
-	static function confirmUserCreate( $u, &$message ) {
-		return self::getInstance()->confirmUserCreate( $u, $message );
+	static function confirmUserCreate( $u, &$message, &$status = null ) {
+		return self::getInstance()->confirmUserCreate( $u, $message, $status );
 	}
 
 	static function triggerUserLogin( $user, $password, $retval ) {

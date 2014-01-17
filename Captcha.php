@@ -537,13 +537,17 @@ class SimpleCaptcha {
 	 * Hook for user creation form submissions.
 	 * @param User $u
 	 * @param string $message
+	 * @param Status $status
 	 * @return bool true to continue, false to abort user creation
 	 */
-	function confirmUserCreate( $u, &$message ) {
+	function confirmUserCreate( $u, &$message, &$status = null ) {
 		if ( $this->needCreateAccountCaptcha() ) {
 			$this->trigger = "new account '" . $u->getName() . "'";
 			if ( !$this->passCaptcha() ) {
+				// For older MediaWiki
 				$message = wfMessage( 'captcha-createaccount-fail' )->text();
+				// For MediaWiki 1.23+
+				$status = Status::newFatal( 'captcha-createaccount-fail' );
 				return false;
 			}
 		}

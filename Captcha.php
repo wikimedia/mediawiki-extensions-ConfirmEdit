@@ -540,15 +540,7 @@ class SimpleCaptcha {
 	 * @return bool true to continue, false to abort user creation
 	 */
 	function confirmUserCreate( $u, &$message ) {
-		global $wgCaptchaTriggers, $wgUser;
-		if ( $wgCaptchaTriggers['createaccount'] ) {
-			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
-				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
-				return true;
-			}
-			if ( $this->isIPWhitelisted() )
-				return true;
-
+		if ( $this->needCreateAccountCaptcha() ) {
 			$this->trigger = "new account '" . $u->getName() . "'";
 			if ( !$this->passCaptcha() ) {
 				$message = wfMessage( 'captcha-createaccount-fail' )->text();
@@ -556,6 +548,27 @@ class SimpleCaptcha {
 			}
 		}
 		return true;
+	}
+	
+	/**
+	 * Logic to check if we need to pass a captcha for the current user
+	 * to create a new account, or not
+	 *
+	 * @return bool true to show captcha, false to skip captcha
+	 */
+	function needCreateAccountCaptcha() {
+		global $wgCaptchaTriggers, $wgUser;
+		if ( $wgCaptchaTriggers['createaccount'] ) {
+			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
+				return false;
+			}
+			if ( $this->isIPWhitelisted() ) {
+				return false;
+			}
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -619,7 +632,7 @@ class SimpleCaptcha {
 	 * @return bool
 	 */
 	protected function isAPICaptchaModule( $module ) {
-		return $module instanceof ApiEditPage;
+		return $module instanceof ApiEditPage || $module instanceof ApiCreateAccount;
 	}
 
 	/**
@@ -769,5 +782,51 @@ class SimpleCaptcha {
 		if ( CaptchaStore::get()->cookiesNeeded() ) {
 			$wgOut->addWikiMsg( 'captchahelp-cookies-needed' );
 		}
+	}
+
+	/**
+	 * Pass API captcha parameters on to the login form when using
+	 * API account creation.
+	 *
+	 * @param ApiCreateAccount $apiModule
+	 * @param LoginForm $loginForm
+	 * @return hook return value
+	 */
+	function addNewAccountApiForm( $apiModule, $loginForm ) {
+		global $wgRequest;
+		$main = $apiModule->getMain();
+
+		$id = $main->getVal( 'captchaid' );
+		if ( $id ) {
+			$wgRequest->setVal( 'wpCaptchaId', $id );
+
+			// Suppress "unrecognized parameter" warning:
+			$main->getVal( 'wpCaptchaId' );
+		}
+
+		$word = $main->getVal( 'captchaword' );
+		if ( $word ) {
+			$wgRequest->setVal( 'wpCaptchaWord', $word );
+
+			// Suppress "unrecognized parameter" warning:
+			$main->getVal( 'wpCaptchaWord' );
+		}
+
+		return true;
+	}
+	
+	/**
+	 * Pass extra data back in API results for account creation.
+	 *
+	 * @param ApiCreateAccount $apiModule
+	 * @param LoginForm &loginForm
+	 * @param array &$params
+	 * @return hook return value
+	 */
+	function addNewAccountApiResult( $apiModule, $loginPage, &$result ) {
+		if ( $result['result'] !== 'success' && $this->needCreateAccountCaptcha() ) {
+			$this->addCaptchaAPI( $result );
+		}
+		return true;
 	}
 }

@@ -313,7 +313,7 @@ $messages['ko'] = array(
 	'recaptcha-badlogin' => '자동 비밀번호 크래킹으로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:',
 	'recaptcha-createaccount' => '자동화된 계정 만들기로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:',
 	'recaptcha-createaccount-fail' => 'reCAPTCHA 답이 올바르지 않거나 없습니다.',
-	'recaptcha-create' => '자동화된 문서 만들기로부터 보호하기 위해, 아래 상자에 보이는 두 낱말을 입력하세요:', # Fuzzy
+	'recaptcha-create' => '자동 문서 생성을 막기 위해 아래 상자에 보이는 두 낱말을 입력하세요:',
 );
 
 /** Colognian (Ripoarisch)

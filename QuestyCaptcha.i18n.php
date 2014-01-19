@@ -1109,13 +1109,13 @@ Apăsați butonul „Înapoi” al navigatorului pentru a vă reîntoarce la pag
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'questycaptcha-addurl' => "'U cangiamende tue inglude de le collegaminde esterne.
-Pe aiutà a proteggere condre a 'u spam automateche, pe piacere respunne a 'a domande ca combare sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):", # Fuzzy
-	'questycaptcha-badlogin' => "Pe aiutà a proteggere condre a futteminde automatece de password, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):", # Fuzzy
-	'questycaptcha-createaccount' => "Pe aiutà a proteggere condre a ccreazione automateche de cunde utinde, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):", # Fuzzy
+	'questycaptcha-addurl' => "'U cangiamende tune 'nglude de le collegaminde de fore.
+Peproteggere condre a 'u spam automateche, pe piacere respunne a 'a domande ca iesse sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
+	'questycaptcha-badlogin' => "Pe proteggere condre a futteminde automatece de password, pe piacere respunne a 'a domande ca iesse aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
+	'questycaptcha-createaccount' => "Pe proteggere condre a ccreazione automateche de cunde utinde, pe piacere respunne a 'a domande ca iesse aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
 	'questycaptcha-create' => "Pe ccrejà sta pàgene, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):",
 	'questycaptcha-edit' => "Pe cangià sta pàgene, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|more info]]):",
-	'questycaptcha-sendemail' => "Pe aiutà a proteggere condre a spam automatece, pe piacere respunne a 'a domande ca combare aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):", # Fuzzy
+	'questycaptcha-sendemail' => "Pe proteggere condre a spam automatece, pe piacere respunne a 'a domande ca iesse aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
 	'questycaptchahelp-text' => "Le site web ca accettane condrebbute da 'u pubbleche, cumme sta Uicchi, sonde spesse abusate da le ''spammer'' ca ausane struminde automatece e aggiungene le lore collegaminde a 'nu sacche de site.<br />
 Pure ca chiste collegaminde de spam ponne essere luate, lore sò sembre 'nu scassamende de palle.<br />
 <br />

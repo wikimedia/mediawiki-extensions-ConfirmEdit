@@ -1329,13 +1329,13 @@ Pentru a împiedica roboții de spam, vă rugăm să introduceți cuvintele care
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'fancycaptcha-addurl' => "'U cangiamende tue inglude de le collegaminde esterne.
-Pe aiutà a proteggere condre a 'u spam automateche, pe piacere mitte le parole ca combare sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):", # Fuzzy
-	'fancycaptcha-badlogin' => 'Pe aiutà a proteggere condre a futteminde automatece de password, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|more info]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'Pe aiutà a proteggere condre a ccreazione automateche de cunde utinde, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|more info]]):', # Fuzzy
+	'fancycaptcha-addurl' => "'U cangiamende tune 'nglude de le collegaminde de fore.
+Pe proteggere condre a 'u spam automateche, pe piacere mitte le parole ca iessene sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
+	'fancycaptcha-badlogin' => "Pe proteggere condre a futteminde automatece de passuord, pe piacere mitte le parole ca iessene aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
+	'fancycaptcha-createaccount' => "Pe proteggere condre a ccreazione automateche de cunde utinde, pe piacere mitte le parole ca iessene aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
 	'fancycaptcha-create' => 'Pe ccrejà sta pàgene, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|more info]]):',
 	'fancycaptcha-edit' => 'Pe cangià sta pàgene, pe piacere mitte le parole combare aqquà sotte ([[Special:Captcha/help|more info]]):',
-	'fancycaptcha-sendemail' => "Pe aiutà a proteggere condre a spam automatece, pe piacere mitte le parole ca combare aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):", # Fuzzy
+	'fancycaptcha-sendemail' => "Pe proteggere condre a spam automatece, pe piacere mitte le parole ca iessene aqquà sotte ([[Special:Captcha/help|cchiù 'mbormaziune]]):",
 	'fancycaptcha-reload-text' => 'Aggiorne',
 );
 

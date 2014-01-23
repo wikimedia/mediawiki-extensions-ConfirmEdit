@@ -736,6 +736,7 @@ Buóh diōng kó̤ piĕng-cĭk hiĕk-miêng, áik \"diōng kó̤ sèng 1 hiĕk\"
  * @author Умар
  */
 $messages['ce'] = array(
+	'captcha-desc' => 'Спамах ларо а пароль харжа а CAPTCHA таронаш хуьлуьйту',
 	'right-skipcaptcha' => 'CAPTCHA-хьажар кхочушдар, CAPTCHA чекхдалар доцуш',
 );
 

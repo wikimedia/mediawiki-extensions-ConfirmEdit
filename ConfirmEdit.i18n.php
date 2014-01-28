@@ -2734,6 +2734,7 @@ $messages['nan'] = array(
 /** Norwegian Bokmål (norsk bokmål)
  * @author Audun
  * @author Danmichaelo
+ * @author Event
  * @author Laaknor
  * @author Nghtwlkr
  */
@@ -2741,13 +2742,14 @@ $messages['nb'] = array(
 	'captcha-edit' => 'Skriv inn summen nedenfor i boksen for å kunne redigere denne siden ([[Special:Captcha/help|mer informasjon]]):',
 	'captcha-desc' => 'Gir tilgang til CAPTCHA-teknikker for å beskytte mot søppl og passordgjetting',
 	'captcha-label' => 'CAPTCHA',
-	'captcha-addurl' => 'Din redigering inneholder nye eksterne lenker. Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk spam ([[Special:Captcha/help|mer informasjon]]):', # Fuzzy
-	'captcha-badlogin' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk passordtyveri ([[Special:Captcha/help|mer informasjon]]):', # Fuzzy
-	'captcha-createaccount' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk kontoopprettelse ([[Special:Captcha/help|mer informasjon]]):', # Fuzzy
-	'captcha-createaccount-fail' => 'Feil eller manglende bekreftelseskode.',
+	'captcha-addurl' => 'Din redigering inneholder nye eksterne lenker.
+Løs den enkle summeringen i boksen nedenfor for å beskytte mot automatisk spam ([[Special:Captcha/help|Mer informasjon]]):',
+	'captcha-badlogin' => 'Løs den enkle summeringen i boksen nedenfor for å beskytte mot automatisk passordtyveri ([[Special:Captcha/help|Mer informasjon]]):',
+	'captcha-createaccount' => 'Løs den enkle summeringen i boksen nedenfor for å beskytte mot automatisk kontoopprettelse ([[Special:Captcha/help|Mer informasjon]]):',
+	'captcha-createaccount-fail' => 'Feil eller manglende CAPTCHA-svar.',
 	'captcha-create' => 'Løs det enkle regnestykket i boksen nedenfor for å opprette siden ([[Special:Captcha/help|mer informasjon]]):',
-	'captcha-sendemail' => 'Løs det enkle regnestykket i boksen nedenfor for å hjelpe oss å beskytte oss mot automatisk spamming ([[Special:Captcha/help|mer informasjon]]):', # Fuzzy
-	'captcha-sendemail-fail' => 'Ukorrekt eller manglende bekreftelseskode.',
+	'captcha-sendemail' => 'Løs den enkle summeringen i boksen nedenfor for å beskytte mot automatisk spamming ([[Special:Captcha/help|m\\Mer informasjon]]):',
+	'captcha-sendemail-fail' => 'Feil eller manglende CAPTCHA-svar.',
 	'captcha-disabledinapi' => 'Denne handlinger krever en captcha, så den kan ikke bli gjort gjennom APIet.',
 	'captchahelp-title' => 'Hjelp med Captcha',
 	'captchahelp-cookies-needed' => 'Du må slå på informasjonskapsler for at dette skal fungere.',

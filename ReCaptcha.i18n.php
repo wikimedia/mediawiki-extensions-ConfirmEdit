@@ -194,8 +194,10 @@ $messages['fi'] = array(
 /** French (français)
  * @author Gomoko
  * @author Urhixidur
+ * @author Verdy p
  */
 $messages['fr'] = array(
+	'recaptcha-desc' => 'module reCAPTCHA pour Confirmer Modifier',
 	'recaptcha-edit' => 'Afin de protéger le wiki du spam des modifications automatisées, nous vous demandons de bien vouloir écrire les deux mots visibles dans le cadre ci-dessous :',
 	'recaptcha-addurl' => 'Votre contribution contient des liens vers un site externe. Pour protéger le wiki contre le spam automatisé, nous vous demandons de bien vouloir écrire les deux mots visibles dans le cadre qui suit :',
 	'recaptcha-badlogin' => 'Pour protéger le wiki des essais automatiques de cassage de mot de passe, nous vous demandons de bien vouloir écrire les deux mots visibles dans le cadre qui suit:',

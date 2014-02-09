@@ -807,6 +807,7 @@ $messages['jv'] = array(
 /** Georgian (ქართული)
  * @author David1010
  * @author ITshnik
+ * @author Tokoko
  */
 $messages['ka'] = array(
 	'fancycaptcha-addurl' => 'თქვენი ცვლილება შეიცავს ახალ გარე ბმულებს.
@@ -816,6 +817,7 @@ $messages['ka'] = array(
 	'fancycaptcha-create' => 'გვერდის შესაქმნელად, გთხოვთ, შეიყვანეთ ასოები, რომლებიც ნაჩვენებია ქვედა სურათზე ([[Special:Captcha/help|დეტალურად…]]):',
 	'fancycaptcha-edit' => 'გვერდის რედაქტირებისათვის, გთხოვთ, შეიყვანეთ ასოები, რომლებიც ნაჩვენებია ქვედა სურათზე ([[Special:Captcha/help|დეტალურად…]]):',
 	'fancycaptcha-sendemail' => 'ვიკის ავტომატური სპამისაგან თავდაცვის მიზნით, ჩვენ მოგიწოდებთ, შეიყვანოთ ქვევით ნაჩვენები სიტყვა ტექსტურ ველში ([[Special:Captcha/help|მეტი ინფორმაცია]]):',
+	'fancycaptcha-reload-text' => 'განახლება',
 );
 
 /** Kara-Kalpak (Qaraqalpaqsha)

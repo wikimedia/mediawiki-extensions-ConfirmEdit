@@ -77,6 +77,7 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author Aiman titi
+ * @author Asaifm
  * @author Meno25
  */
 $messages['ar'] = array(
@@ -90,6 +91,7 @@ $messages['ar'] = array(
 	'fancycaptcha-edit' => 'لتعديل هذه الصفحة، من فضلك أدخل الكلمات التي تظهر بالأسفل في الصندوق
 ([[Special:Captcha/help|مزيد من المعلومات]]):',
 	'fancycaptcha-sendemail' => 'للمساعدة في منع إنشاء حسابات بطريقة أوتوماتيكية، قم من فضلك بإدخال الكلمات التي تظهر أدناه في الصندوق ([[Special:Captcha/help|مزيد من المعلومات]]):', # Fuzzy
+	'fancycaptcha-reload-text' => 'تحديث',
 );
 
 /** Egyptian Spoken Arabic (مصرى)

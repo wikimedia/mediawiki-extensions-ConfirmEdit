@@ -3519,6 +3519,13 @@ $messages['sco'] = array(
 	'captcha-edit' => 'Tae edit this airticle, please dae the eisy sum ablo an put the answer in the box ([[Special:Captcha/help|mair info]])', # Fuzzy
 );
 
+/** Serbo-Croatian (srpskohrvatski / српскохрватски)
+ * @author Kolega2357
+ */
+$messages['sh'] = array(
+	'captcha-createaccount-fail' => 'Netačan unos ili nedostatak koda za potvrđivanje.',
+);
+
 /** Sinhala (සිංහල)
  * @author Budhajeewa
  * @author Singhalawap

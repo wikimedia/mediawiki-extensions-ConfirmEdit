@@ -76,7 +76,10 @@ $messages['be-tarask'] = array(
  * @author Fohanno
  */
 $messages['br'] = array(
+	'asirra-desc' => 'Modulenn Asirra evit ConfirmEdit',
+	'asirra-edit' => 'Evit sikour da wareziñ ar wiki diouzh ar stroboù emgefre, diuzit ar skeudennoù kizhier er voest dindan :',
 	'asirra-nojs' => "'''Gweredekait JavaScript, mar plij, hag adkasit ar bajenn.'''",
+	'asirra-failed' => 'Diuzit an holl skeudennoù kizhier, mar plij',
 );
 
 /** Catalan (català)

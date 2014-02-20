@@ -828,7 +828,7 @@ class SimpleCaptcha {
 	 * @return hook return value
 	 */
 	function addNewAccountApiResult( $apiModule, $loginPage, &$result ) {
-		if ( $result['result'] !== 'success' && $this->needCreateAccountCaptcha() ) {
+		if ( $result['result'] !== 'Success' && $this->needCreateAccountCaptcha() ) {
 			$this->addCaptchaAPI( $result );
 		}
 		return true;

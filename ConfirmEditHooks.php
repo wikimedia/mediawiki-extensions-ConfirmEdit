@@ -4,7 +4,7 @@ class ConfirmEditHooks {
 	/**
 	 * Get the global Captcha instance
 	 *
-	 * @return Captcha|SimpleCaptcha
+	 * @return SimpleCaptcha
 	 */
 	static function getInstance() {
 		global $wgCaptcha, $wgCaptchaClass;

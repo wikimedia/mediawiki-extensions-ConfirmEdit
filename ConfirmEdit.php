@@ -198,7 +198,6 @@ $wgAutoloadClasses['CaptchaStore'] = "$wgConfirmEditIP/CaptchaStore.php";
 $wgAutoloadClasses['CaptchaSessionStore'] = "$wgConfirmEditIP/CaptchaStore.php";
 $wgAutoloadClasses['CaptchaCacheStore'] = "$wgConfirmEditIP/CaptchaStore.php";
 $wgAutoloadClasses['CaptchaSpecialPage'] = "$wgConfirmEditIP/ConfirmEditHooks.php";
-$wgAutoloadClasses['HTMLCaptchaField'] = "$wgConfirmEditIP/HTMLCaptchaField.php";
 
 /**
  * Set up $wgWhitelistRead

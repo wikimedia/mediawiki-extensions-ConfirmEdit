@@ -3513,10 +3513,41 @@ Fari clic supra ô buttuni 'back' dû browser pi turnari a la pàggina di mudìf
 );
 
 /** Scots (Scots)
+ * @author John Reid
  * @author OchAyeTheNoo
  */
 $messages['sco'] = array(
-	'captcha-edit' => 'Tae edit this airticle, please dae the eisy sum ablo an put the answer in the box ([[Special:Captcha/help|mair info]])', # Fuzzy
+	'captcha-edit' => 'Tae edit this page, please solve the simple sum ablow an enter the answer in the box ([[Special:Captcha/help|more info]]):',
+	'captcha-desc' => 'Provides CAPTCHA techniques fer tae protect again spam an passwaird-guessin',
+	'captcha-label' => 'CAPTCHA.',
+	'captcha-addurl' => 'Yer eidit inclædes new external airtins.
+Tae protect the wiki again autæmated spam, we kindly ask ye tae solve the symple sum ablow an enter the answer in the box in order tae save yer eidit ([[Special:Captcha/help|mair info]]):',
+	'captcha-badlogin' => 'Tae protect the wiki fae autaemated passwaird cracking, we kindly ask ye tae solve the symple sum ablow an enter the answer in the box ([[Special:Captcha/help|mair info]]):',
+	'captcha-createaccount' => 'Tae protect the wiki fae autæmated accoont creation, we kindly ask ye tae solve the symple sum ablow an enter the answer in the box ([[Special:Captcha/help|mair info]]):',
+	'captcha-createaccount-fail' => 'Oncorrect or missing CAPTCHA.',
+	'captcha-create' => 'Tae mak the page, please solve the symple sum ablow an enter the answer in the box ([[Special:Captcha/help|mair info]]):',
+	'captcha-sendemail' => 'Tae protect the wiki fae autæmated spamming, we kindly ask ye tae solve the symple sum ablow an enter the answer in the box ([[Special:Captcha/help|mair info]]):',
+	'captcha-sendemail-fail' => 'Oncorrect or missing CAPTCHA.',
+	'captcha-disabledinapi' => 'This action needs ae CAPTCHA, sae it canna be performed through the API.',
+	'captchahelp-title' => 'CAPTCHA heelp',
+	'captchahelp-cookies-needed' => "Ye'll need tae haee cookies enabled in yer brouser fer this tae wairk.",
+	'captchahelp-text' => 'Wab sites that accept postings fae the public, like this wiki, ar aften abused bi spammers wha uise autaemated tuils tae post their links til moni sites.
+While these spam links can be remuived, they ar ae signeeficant nuisance.
+
+Sometimes, especially whan adding new wab links til ae page, the wiki micht shaw ye aen eimage o coloured or distorted tex an ask ye tae type the wairds shawn.
+Syne this is ae task that\'s hard tae autæmate, it will allou maist real bodies tae mak their posts while stapping maist spammers an ither robotic attackers.
+
+Onfortunately this can inconvenience uisers with limited vision or uising tex-based or speech-based brousers.
+At the moment we dinna hae aen audio alternative available.
+Please contact the [[Special:ListAdmins|site admeenistraters]] fer assistance gif this is onexpectedly preventin ye fae makin legeetimate actions.
+
+Hit the "back" button in yer brouser tae return til the page eiditer.',
+	'captcha-addurl-whitelist' => ' #<!-- lea this line exactly aes it is --> <pre>
+# Syntax is aes follows:
+#   * Awthin fae ae "#" chairacter til the end o the line is ae comment
+#   * Ilka no-blank line is ae regex fragment that will yinly match hosts inside URLs
+ #</pre> <!-- lea this line exactly aes it is -->',
+	'right-skipcaptcha' => 'Perform CAPTCHA-triggering actions wiout haein tae gae through the CAPTCHA',
 );
 
 /** Serbo-Croatian (srpskohrvatski / српскохрватски)

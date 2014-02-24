@@ -920,20 +920,21 @@ $messages['krc'] = array(
  */
 $messages['ksh'] = array(
 	'fancycaptcha-desc' => 'Määt e nett Käptsche för dä <code lang="en">Confirm Edit</code> Projramm-Zohsatz',
-	'fancycaptcha-addurl' => 'Do häß neu Lingks op frembde Websigge dobei jedonn.
-Mer schöze uns Wiki jäje automatesche SPAM, dröm
-don di Wööter en dat Käßje endraare. (Verklierung)', # Fuzzy
+	'fancycaptcha-addurl' => 'Do häß neuje Lengks op frembde Websigge dobei jedonn.
+Mer schöze ons Wiki jäje automattesche <code lang="en" xml:lang="en">SPAM</code>, dröm
+don di Wööter en dat Käßje endraare. ([[Special:Captcha/help|Verklierung]])',
 	'fancycaptcha-badlogin' => 'Mer schöze Metmaacher en unsem Wiki jäje automatesche
 Paßwoot-Knackerei, dröm don di Wööt onge en dat Käßje
-endraare. (Verklierung)', # Fuzzy
+endraare. ([[Special:Captcha/help|Verklierung]])',
 	'fancycaptcha-createaccount' => 'Mer schöze uns Wiki dojäje, dat mer en Masse automatesch
-Metmaacher aanmeldt. Dröm beß esu joot un
-don di Wööt onge en dat Käßje endraare. (Verklierung)', # Fuzzy
+Metmaacher aanmeldt.
+Dröm beß esu joot un
+don di Wööt onge en dat Käßje endraare. ([[Special:Captcha/help|Verklierung]])',
 	'fancycaptcha-create' => 'Öm di Sigg neu aanzelääje, don di Wööt onge en dat Käßje endraare. (Verklierung)',
 	'fancycaptcha-edit' => 'Öm de Sigg ze ändere, don di Wööt onge en dat Käßje endraare. ([[Special:Captcha/help|Verklierung]])',
-	'fancycaptcha-sendemail' => 'Öm et Wiki jääje automattesch enjedraare SPAM ze schötze,
+	'fancycaptcha-sendemail' => 'Öm et Wiki jääje automattesch enjedraare <code lang="en" xml:lang="en">SPAM</code> ze schötze,
 bes esu joot, donn di Wööter enjävve, di en däm Käßje heh dronger shtonn.
-([[Special:Captcha/help|Mieh Enfommazjuhne]])', # Fuzzy
+([[Special:Captcha/help|Mieh Enfommazjuhne]])',
 	'fancycaptcha-reload-text' => 'Nöü Aanzeije!',
 );
 

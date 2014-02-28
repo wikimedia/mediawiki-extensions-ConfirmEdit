@@ -547,7 +547,12 @@ class SimpleCaptcha {
 				// For older MediaWiki
 				$message = wfMessage( 'captcha-createaccount-fail' )->text();
 				// For MediaWiki 1.23+
-				$status = Status::newFatal( 'captcha-createaccount-fail' );
+				$status = Status::newGood();
+				
+				// Apply a *non*-fatal warning. This will still abort the
+				// account creation but returns a "Warning" response to the
+				// API or UI.
+				$status->warning( 'captcha-createaccount-fail' );
 				return false;
 			}
 		}
@@ -830,6 +835,15 @@ class SimpleCaptcha {
 	function addNewAccountApiResult( $apiModule, $loginPage, &$result ) {
 		if ( $result['result'] !== 'Success' && $this->needCreateAccountCaptcha() ) {
 			$this->addCaptchaAPI( $result );
+
+			// If we failed a captcha, override the generic 'Warning' result string
+			if ( $result['result'] === 'Warning' && isset( $result['warnings'] ) ) {
+				foreach ( $result['warnings'] as $warning ) {
+					if ( $warning['message'] === 'captcha-createaccount-fail' ) {
+						$result['result'] = 'NeedCaptcha';
+					}
+				}
+			}
 		}
 		return true;
 	}

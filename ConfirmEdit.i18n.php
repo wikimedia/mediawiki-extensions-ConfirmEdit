@@ -3517,16 +3517,16 @@ Fari clic supra ô buttuni 'back' dû browser pi turnari a la pàggina di mudìf
  * @author OchAyeTheNoo
  */
 $messages['sco'] = array(
-	'captcha-edit' => 'Tae edit this page, please solve the simple sum ablow an enter the answer in the box ([[Special:Captcha/help|more info]]):',
+	'captcha-edit' => 'Tae eidit this page, please solve the simple sum ablo aen enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
 	'captcha-desc' => 'Provides CAPTCHA techniques fer tae protect again spam an passwaird-guessin',
 	'captcha-label' => 'CAPTCHA.',
 	'captcha-addurl' => 'Yer eidit inclædes new external airtins.
-Tae protect the wiki again autæmated spam, we kindly ask ye tae solve the symple sum ablow an enter the answer in the box in order tae save yer eidit ([[Special:Captcha/help|mair info]]):',
-	'captcha-badlogin' => 'Tae protect the wiki fae autaemated passwaird cracking, we kindly ask ye tae solve the symple sum ablow an enter the answer in the box ([[Special:Captcha/help|mair info]]):',
-	'captcha-createaccount' => 'Tae protect the wiki fae autæmated accoont creation, we kindly ask ye tae solve the symple sum ablow an enter the answer in the box ([[Special:Captcha/help|mair info]]):',
+Tae protect the wiki again autæmated spam, we kindlie ask ye tae solve the symple sum ablo an enter the answer in the kist in order tae hain yer eidit ([[Special:Captcha/help|mair info]]):',
+	'captcha-badlogin' => 'Tae protect the wiki fae autaemated passwaird crackin, we kindlie ask ye tae solve the symple sum ablo an enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
+	'captcha-createaccount' => 'Tae protect the wiki fae autæmated accoont makin, we kyndlie ask ye tae solve the symple sum ablo an enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
 	'captcha-createaccount-fail' => 'Oncorrect or missing CAPTCHA.',
-	'captcha-create' => 'Tae mak the page, please solve the symple sum ablow an enter the answer in the box ([[Special:Captcha/help|mair info]]):',
-	'captcha-sendemail' => 'Tae protect the wiki fae autæmated spamming, we kindly ask ye tae solve the symple sum ablow an enter the answer in the box ([[Special:Captcha/help|mair info]]):',
+	'captcha-create' => 'Tae mak the page, please solve the symple sum ablo aen enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
+	'captcha-sendemail' => 'Tae protect the wiki fae autæmated spamming, we kindly ask ye tae solve the symple sum ablo aen enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
 	'captcha-sendemail-fail' => 'Oncorrect or missing CAPTCHA.',
 	'captcha-disabledinapi' => 'This action needs ae CAPTCHA, sae it canna be performed through the API.',
 	'captchahelp-title' => 'CAPTCHA heelp',

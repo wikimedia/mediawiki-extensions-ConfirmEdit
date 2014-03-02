@@ -141,11 +141,12 @@ $messages['diq'] = array(
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Carlosz22
  * @author Ciencia Al Poder
  */
 $messages['es'] = array(
 	'asirra-desc' => 'Módulo de Asirra para ConfirmEdit',
-	'asirra-edit' => 'Para ayudar a protegernos contra el spam de edición automática, seleccione sólo las fotos de gatos en el cuadro siguiente:', # Fuzzy
+	'asirra-edit' => 'Para ayudar a protegernos contra el spam de ediciones automáticas, seleccione sólo las fotos de gatos en el cuadro siguiente:',
 	'asirra-addurl' => 'Tu edición incluye nuevos enlaces externos. Para proteger el wiki contra el spam automatizado, por favor, te pedimos que selecciones solo las fotos de gatos en el cuadro siguiente:',
 	'asirra-badlogin' => 'Para proteger el wiki contra el robo automatizado de contraseñas, te pedimos por favor que selecciones únicamente las fotos de gatos en el cuadro siguiente:',
 	'asirra-createaccount' => 'Para proteger el wiki contra la creación automatizada de cuentas de usuario, te pedimos por favor que selecciones únicamente las fotos de gatos en el cuadro siguiente:',

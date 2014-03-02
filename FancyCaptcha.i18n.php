@@ -436,13 +436,15 @@ Por preventi aŭtomatan spamon, bonvolu enigi la jenajn vortojn en la skatolo ([
 );
 
 /** Spanish (español)
+ * @author Carlosz22
  * @author Fitoschido
  * @author Icvav
  * @author Pertile
  * @author Sanbec
  */
 $messages['es'] = array(
-	'fancycaptcha-addurl' => 'Tu edición incluye nuevos enlaces externos. Para protegernos contra el spam automatizado, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):', # Fuzzy
+	'fancycaptcha-addurl' => 'Tu edición incluye nuevos enlaces externos. 
+Para protegernos contra el spam automatizado, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
 	'fancycaptcha-badlogin' => 'Para ayudarnos en la protección contra el descifrado automático de contraseñas, por favor, introduce las palabras que aparecen abajo en la caja ([[Special:Captcha/help|más información]]):', # Fuzzy
 	'fancycaptcha-createaccount' => 'Para evitar la creación automatizada de cuentas, introduce por favor en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):', # Fuzzy
 	'fancycaptcha-create' => 'Para crear la página, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',

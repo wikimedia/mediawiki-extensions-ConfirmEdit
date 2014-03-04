@@ -3531,13 +3531,13 @@ Tae protect the wiki again autæmated spam, we kindlie ask ye tae solve the symp
 	'captcha-disabledinapi' => 'This action needs ae CAPTCHA, sae it canna be performed through the API.',
 	'captchahelp-title' => 'CAPTCHA heelp',
 	'captchahelp-cookies-needed' => "Ye'll need tae haee cookies enabled in yer brouser fer this tae wairk.",
-	'captchahelp-text' => 'Wab sites that accept postings fae the public, like this wiki, ar aften abused bi spammers wha uise autaemated tuils tae post their links til moni sites.
+	'captchahelp-text' => 'Wab sites that accept postins fae the public, like this wiki, ar aften abuised bi spammers wha uise autaemated tuils tae post their links til moni sites.
 While these spam links can be remuived, they ar ae signeeficant nuisance.
 
-Sometimes, especially whan adding new wab links til ae page, the wiki micht shaw ye aen eimage o coloured or distorted tex an ask ye tae type the wairds shawn.
-Syne this is ae task that\'s hard tae autæmate, it will allou maist real bodies tae mak their posts while stapping maist spammers an ither robotic attackers.
+Sometimes, especiallie whan addin new wab links til ae page, the wiki micht shaw ye aen eimage o coloured or distorted tex an ask ye tae type the wairds shawn.
+Sin this is ae task that\'s hard tae autæmate, it will permit maist real bodies tae mak thair posts while stappin maist spammers an ither roboteec attackers.
 
-Onfortunately this can inconvenience uisers with limited vision or uising tex-based or speech-based brousers.
+Onfortunatelie this can onconveeenience uisers wi limited veesion or uisin tex-based or speech-based brousers.
 At the moment we dinna hae aen audio alternative available.
 Please contact the [[Special:ListAdmins|site admeenistraters]] fer assistance gif this is onexpectedly preventin ye fae makin legeetimate actions.
 

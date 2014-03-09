@@ -363,15 +363,16 @@ Klaku la 'reiru' butonon en via retumilo por reiri al la paĝo-redaktilo.",
 /** Spanish (español)
  * @author Crazymadlover
  * @author Pertile
+ * @author Sporeunai
  */
 $messages['es'] = array(
-	'questycaptcha-addurl' => 'Tu edición incluye nuevos vínculos externos.
-Para ayudar a proteger contra spam automático, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):', # Fuzzy
-	'questycaptcha-badlogin' => 'Para ayudar a proteger contra craqueo de contraseña, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):', # Fuzzy
-	'questycaptcha-createaccount' => 'Para ayudar a proteger contra la creación automática de cuentas, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):', # Fuzzy
+	'questycaptcha-addurl' => 'Tu edición incluye nuevos enlaces externos. 
+Para protegernos contra el spam automatizado, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
+	'questycaptcha-badlogin' => 'Para proteger el wiki del descifrado de contraseñas automatizado, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
+	'questycaptcha-createaccount' => 'Para proteger el wiki de la creación automática de cuentas, resuelve por favor la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
 	'questycaptcha-create' => 'Para crear la página, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):',
 	'questycaptcha-edit' => 'Para editar esta página, por favor responde la pregunta que aparece abajo ([[Special:Captcha/help|más información]]):',
-	'questycaptcha-sendemail' => 'Para protegernos contra el spam automatizado por favor conteste la pregunta que aparece a continuación ([[Special:Captcha/help|más información]]):', # Fuzzy
+	'questycaptcha-sendemail' => 'Para proteger el wiki del descifrado de contraseñas automatizado, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
 	'questycaptchahelp-text' => "Sitios Web que aceptan contribuciones del público, como este wiki, son constantemente abusadas por enviadores de spam quienes usan herramientas automáticas para agregar sus enlaces a muchos sitios.
 Así estos enlaces spam puedan ser borrados, son una molestia significativa.
 

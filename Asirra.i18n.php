@@ -459,13 +459,14 @@ $messages['pms'] = array(
  */
 $messages['pt'] = array(
 	'asirra-desc' => 'Módulo Asirra para o ConfirmEdit',
-	'asirra-edit' => "Como prevenção contra sistemas automatizados de inserção de ''spam'', selecione só as fotografias de gatos na caixa abaixo:", # Fuzzy
-	'asirra-addurl' => "A sua edição contém links externos novos. Como prevenção contra sistemas automatizados de inserção de ''spam'', selecione só as fotografias de gatos na caixa abaixo:", # Fuzzy
-	'asirra-badlogin' => 'Como prevenção com sistemas automatizados de descoberta de palavras-chave, selecione só as fotografias de gatos na caixa abaixo:', # Fuzzy
-	'asirra-createaccount' => 'Como prevenção contra sistemas automatizados de criação de contas, selecione só as fotografias de gatos na caixa abaixo:', # Fuzzy
+	'asirra-edit' => "Para proteger a wiki contra sistemas automatizados de inserção de ''spam'', pedimos que selecione só as fotografias de gatos na caixa abaixo:",
+	'asirra-addurl' => "A sua edição contém links externos novos. Para proteger a wiki contra sistemas automatizados de inserção de ''spam'', pedimos que selecione só as fotografias de gatos na caixa abaixo:",
+	'asirra-badlogin' => 'Para proteger a wiki contra sistemas automatizados de descoberta de palavras-chave, pedimos que selecione só as fotografias de gatos na caixa abaixo:',
+	'asirra-createaccount' => 'Para proteger a wiki contra sistemas automatizados de criação de contas, pedimos que selecione só as fotografias de gatos na caixa abaixo:',
 	'asirra-createaccount-fail' => 'Identifique corretamente os gatos, por favor.',
-	'asirra-create' => 'Como prevenção contra sistemas automatizados de criação de páginas, selecione só as fotografias de gatos na caixa abaixo:', # Fuzzy
+	'asirra-create' => 'Para proteger a wiki contra sistemas automatizados de criação de páginas, pedimos que selecione só as fotografias de gatos na caixa abaixo:',
 	'asirra-nojs' => "'''Possibilite o uso de JavaScript e reenvie a página, por favor.'''",
+	'asirra-failed' => 'Identifique todas as imagens de gatos, por favor',
 );
 
 /** tarandíne (tarandíne)

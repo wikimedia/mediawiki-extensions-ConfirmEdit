@@ -156,14 +156,15 @@ $messages['dsb'] = array(
 
 /** Spanish (español)
  * @author Fitoschido
+ * @author Sporeunai
  */
 $messages['es'] = array(
-	'recaptcha-edit' => 'Para protegernos de la publicidad automatizada, escribe las dos palabras visibles en el cuadro de abajo:', # Fuzzy
-	'recaptcha-addurl' => 'Tu edición incluye nuevos enlaces externos. Para ayudar a protegernos contra el spam automatizado, por favor, escribe las dos palabras que ves en el cuadro a continuación:', # Fuzzy
-	'recaptcha-badlogin' => 'Para protegernos del robo automatizado de contraseñas, escribe las dos palabras visibles en el cuadro de abajo:', # Fuzzy
-	'recaptcha-createaccount' => 'Para protegernos de la creación automática de cuentas, escribe las dos palabras que ves en el cuadro de abajo:', # Fuzzy
+	'recaptcha-edit' => 'Para ayudar a protegernos contra el spam de ediciones automáticas, seleccione sólo las fotos de gatos en el cuadro siguiente:',
+	'recaptcha-addurl' => 'La edición incluye nuevos enlaces externos. Para proteger la wiki contra el spam automatizado, le rogamos que escriba las dos palabras que ves en el cuadro siguiente:',
+	'recaptcha-badlogin' => 'Para proteger el wiki contra el robo automatizado de contraseñas, te pedimos por favor que selecciones únicamente las fotos de gatos en el cuadro siguiente:',
+	'recaptcha-createaccount' => 'Para protegernos de la creación automática de cuentas, escribe las dos palabras que ves en el cuadro de abajo:',
 	'recaptcha-createaccount-fail' => 'ReCAPTCHA incorrecto o sin responder.',
-	'recaptcha-create' => 'Para protegernos de la creación automática de páginas, escribe las dos palabras que ves en el cuadro de abajo:', # Fuzzy
+	'recaptcha-create' => 'Para proteger contra creación automatizada página wiki, amablemente le pedimos que escriba las dos palabras que ves en el cuadro siguiente:',
 );
 
 /** Persian (فارسی)

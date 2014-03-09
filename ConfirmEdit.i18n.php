@@ -3171,21 +3171,21 @@ $messages['ps'] = array(
  * @author 555
  */
 $messages['pt'] = array(
-	'captcha-edit' => 'Para editar esta página, por favor, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
+	'captcha-edit' => 'Para editar esta página resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
 	'captcha-desc' => 'Fornece técnicas CAPTCHA para proteção contra spam e tentativas de adivinhar a palavra-chave',
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "A sua edição introduziu links externos novos.
-Como prevenção contra sistemas automatizados de inserção de ''spam'', resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):", # Fuzzy
-	'captcha-badlogin' => 'Como prevenção com sistemas automatizados de descoberta de palavras-chave, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):', # Fuzzy
-	'captcha-createaccount' => 'Para proteger a wiki contra sistemas automatizados de criação de contas, solicitamos que resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
-	'captcha-createaccount-fail' => 'Código incorreto ou não preenchido.',
+Para proteger a wiki contra sistemas automatizados de inserção de ''spam'', antes de gravar a sua edição pedimos que resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):",
+	'captcha-badlogin' => 'Para proteger a wiki contra sistemas automatizados de descoberta de palavras-chave, pedimos que resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
+	'captcha-createaccount' => 'Para proteger a wiki contra sistemas automatizados de criação de contas, pedimos que resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
+	'captcha-createaccount-fail' => 'O código CAPTCHA está incorreto ou não foi preenchido.',
 	'captcha-create' => 'Para criar a página, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):',
-	'captcha-sendemail' => "Como prevenção contra sistemas automatizados de inserção de ''spam'', resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):", # Fuzzy
-	'captcha-sendemail-fail' => 'Código de confirmação incorreto ou não preenchido.',
-	'captcha-disabledinapi' => 'Esta operação necessita de captcha, por isso não pode ser realizada através da API.',
+	'captcha-sendemail' => "Para proteger a wiki contra sistemas automatizados de inserção de ''spam'', pedimos que resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):",
+	'captcha-sendemail-fail' => 'O código CAPTCHA está incorreto ou não foi preenchido.',
+	'captcha-disabledinapi' => 'Esta operação necessita de CAPTCHA, por isso não pode ser realizada através da API.',
 	'captchahelp-title' => 'Ajuda sobre o CAPTCHA',
 	'captchahelp-cookies-needed' => "É necessário possibilitar o uso de ''cookies'' no seu browser para que o ''captcha'' funcione.",
-	'captchahelp-text' => "Sites na internet abertos a edição pública, como é o caso desta wiki, são frequentemente abusados por ''spammers'' que utilizam ferramentas automatizadas para inserção em massa de links, em muitos sites.
+	'captchahelp-text' => "Sites na internet abertos a edição pública, como é o caso desta wiki, são frequentemente abusados por ''spammers'' que usam ferramentas automatizadas para inserção em massa de links, em muitos sites.
 Embora esses links possam ser removidos, representam um incómodo significativo.
 
 Por vezes, especialmente quando introduzir links externos novos numa página, a wiki apresentará a imagem de um texto colorido ou distorcido e pedirá que escreva o texto apresentado.
@@ -3193,9 +3193,9 @@ Porque a interpretação do texto apresentado nas imagens é uma tarefa difícil
 
 Infelizmente, esta funcionalidade pode revelar-se um inconveniente para utilizadores com limitações visuais ou que utilizam browsers baseados em texto ou voz.
 Neste momento, não temos disponível uma alternativa em áudio.
-Por favor, contacte os [[Special:ListAdmins|administradores]] para assistência, caso a funcionalidade esteja a impedi-lo de fazer edições legítimas.
+Caso esta funcionalidade esteja a impedi-lo de fazer edições legítimas, contacte os [[Special:ListAdmins|administradores]] para assistência, por favor.
 
-Clique o botão 'voltar' do seu browser para voltar à página de edição.",
+Clique o botão \"voltar\" do seu browser para voltar à página de edição.",
 	'captcha-addurl-whitelist' => ' #<!-- deixe esta linha exactamente como está --> <pre>
 # A sintaxe é a seguinte:
 #  * Tudo desde um símbolo de cardinal (#) até ao fim da linha é um comentário
@@ -3518,7 +3518,7 @@ Fari clic supra ô buttuni 'back' dû browser pi turnari a la pàggina di mudìf
  */
 $messages['sco'] = array(
 	'captcha-edit' => 'Tae eidit this page, please solve the simple sum ablo aen enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
-	'captcha-desc' => 'Provides CAPTCHA techniques fer tae protect again spam an passwaird-guessin',
+	'captcha-desc' => 'Provides CAPTCHA techniques fer tae protect again spam n passwaird-guessin',
 	'captcha-label' => 'CAPTCHA.',
 	'captcha-addurl' => 'Yer eidit inclædes new external airtins.
 Tae protect the wiki again autæmated spam, we kindlie ask ye tae solve the symple sum ablo an enter the answer in the kist in order tae hain yer eidit ([[Special:Captcha/help|mair info]]):',

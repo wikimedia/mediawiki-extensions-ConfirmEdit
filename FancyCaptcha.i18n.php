@@ -441,15 +441,16 @@ Por preventi aŭtomatan spamon, bonvolu enigi la jenajn vortojn en la skatolo ([
  * @author Icvav
  * @author Pertile
  * @author Sanbec
+ * @author Sporeunai
  */
 $messages['es'] = array(
 	'fancycaptcha-addurl' => 'Tu edición incluye nuevos enlaces externos. 
 Para protegernos contra el spam automatizado, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
-	'fancycaptcha-badlogin' => 'Para ayudarnos en la protección contra el descifrado automático de contraseñas, por favor, introduce las palabras que aparecen abajo en la caja ([[Special:Captcha/help|más información]]):', # Fuzzy
-	'fancycaptcha-createaccount' => 'Para evitar la creación automatizada de cuentas, introduce por favor en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):', # Fuzzy
+	'fancycaptcha-badlogin' => 'Para proteger el wiki del descifrado de contraseñas automatizado, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
+	'fancycaptcha-createaccount' => 'Para proteger el wiki de la creación automática de cuentas, resuelve por favor la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
 	'fancycaptcha-create' => 'Para crear la página, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
 	'fancycaptcha-edit' => 'Para editar esta página, por favor introduce en el recuadro las palabras que aparecen debajo ([[Special:Captcha/help|más información]]):',
-	'fancycaptcha-sendemail' => 'Para protegernos contra el spam automatizado por favor ingrese las palabras que aparecen en el siguiente cuadro ([[Special:Captcha/help|más información]]):', # Fuzzy
+	'fancycaptcha-sendemail' => 'Para proteger el wiki del descifrado de contraseñas automatizado, por favor resuelve la simple suma de abajo e introduce la respuesta en la caja ([[Special:Captcha/help|más información]]):',
 	'fancycaptcha-reload-text' => 'Actualizar',
 );
 
@@ -1274,6 +1275,7 @@ $messages['ps'] = array(
 /** Portuguese (português)
  * @author Hamilton Abreu
  * @author Malafaya
+ * @author SandroHc
  */
 $messages['pt'] = array(
 	'fancycaptcha-desc' => 'Gerador sofisticado de captcha para o Confirm Edit',
@@ -1284,6 +1286,7 @@ Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa ab
 	'fancycaptcha-create' => 'Para criar a página, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):',
 	'fancycaptcha-edit' => 'Para editar esta página, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):',
 	'fancycaptcha-sendemail' => "Para ajudar a prevenir o ''spam'' automatizado, por favor, introduza na caixa as palavras que aparecem abaixo ([[Special:Captcha/help|mais informações]]):", # Fuzzy
+	'fancycaptcha-reload-text' => 'Atualizar',
 );
 
 /** Brazilian Portuguese (português do Brasil)

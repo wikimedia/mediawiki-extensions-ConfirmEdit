@@ -3520,10 +3520,10 @@ $messages['sco'] = array(
 	'captcha-edit' => 'Tae eidit this page, please solve the simple sum ablo aen enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
 	'captcha-desc' => 'Provides CAPTCHA techniques fer tae protect again spam n passwaird-guessin',
 	'captcha-label' => 'CAPTCHA.',
-	'captcha-addurl' => 'Yer eidit inclædes new external airtins.
-Tae protect the wiki again autæmated spam, we kindlie ask ye tae solve the symple sum ablo an enter the answer in the kist in order tae hain yer eidit ([[Special:Captcha/help|mair info]]):',
-	'captcha-badlogin' => 'Tae protect the wiki fae autaemated passwaird crackin, we kindlie ask ye tae solve the symple sum ablo an enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
-	'captcha-createaccount' => 'Tae protect the wiki fae autæmated accoont makin, we kyndlie ask ye tae solve the symple sum ablo an enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
+	'captcha-addurl' => 'Yer eedit inclædes new external links.
+Tae protect the wiki again autæmated spam, we kyndlie ask ye tae solve the symple sum ablo n enter the answer in the kist in order tae hain yer eedit ([[Special:Captcha/help|mair info]]):',
+	'captcha-badlogin' => 'Tae protect the wiki fae autaemated passwaird crackin, we kyndlie ask ye tae solve the symple sum ablo n enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
+	'captcha-createaccount' => 'Tae protect the wiki fae autæmated accoont makin, we kyndlie ask ye tae solve the symple sum ablo n enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
 	'captcha-createaccount-fail' => 'Oncorrect or missing CAPTCHA.',
 	'captcha-create' => 'Tae mak the page, please solve the symple sum ablo aen enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
 	'captcha-sendemail' => 'Tae protect the wiki fae autæmated spamming, we kindly ask ye tae solve the symple sum ablo aen enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
@@ -3531,17 +3531,17 @@ Tae protect the wiki again autæmated spam, we kindlie ask ye tae solve the symp
 	'captcha-disabledinapi' => 'This action needs ae CAPTCHA, sae it canna be performed through the API.',
 	'captchahelp-title' => 'CAPTCHA heelp',
 	'captchahelp-cookies-needed' => "Ye'll need tae haee cookies enabled in yer brouser fer this tae wairk.",
-	'captchahelp-text' => 'Wab sites that accept postins fae the public, like this wiki, ar aften abuised bi spammers wha uise autaemated tuils tae post their links til moni sites.
-While these spam links can be remuived, they ar ae signeeficant nuisance.
+	'captchahelp-text' => 'Wab sites that accept postins fae the publeec, like this wiki, ar aften abuised bi spammers that uise autaemated tuils tae post thair links til monie sites.
+While thir spam links can be remuived, thay ar ae signeeficant nuisance.
 
-Sometimes, especiallie whan addin new wab links til ae page, the wiki micht shaw ye aen eimage o coloured or distorted tex an ask ye tae type the wairds shawn.
-Sin this is ae task that\'s hard tae autæmate, it will permit maist real bodies tae mak thair posts while stappin maist spammers an ither roboteec attackers.
+Sometimes, especiallie whan addin new wab links til ae page, the wiki micht shaw ye aen eemage o coloured or distorted tex n ask ye tae type the wairds shawn.
+Sin this is ae task that\'s haurd tae autæmate, it will permit maist real bodies tae mak thair posts while stappin maist spammers n ither roboteec attackers.
 
 Onfortunatelie this can onconveeenience uisers wi limited veesion or uisin tex-based or speech-based brousers.
-At the moment we dinna hae aen audio alternative available.
-Please contact the [[Special:ListAdmins|site admeenistraters]] fer assistance gif this is onexpectedly preventin ye fae makin legeetimate actions.
+At the moment we dinna hae aen audio alternateeve available.
+Please contact the [[Special:ListAdmins|site admeenistraters]] fer assistance gif this is onexpectedlie preventin ye fae makin legeetimate actions.
 
-Hit the "back" button in yer brouser tae return til the page eiditer.',
+Hit the "back" button in yer brouser tae return til the page eediter.',
 	'captcha-addurl-whitelist' => ' #<!-- lea this line exactly aes it is --> <pre>
 # Syntax is aes follows:
 #   * Awthin fae ae "#" chairacter til the end o the line is ae comment

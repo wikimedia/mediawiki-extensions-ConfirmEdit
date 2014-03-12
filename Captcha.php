@@ -823,23 +823,23 @@ class SimpleCaptcha {
 
 		return true;
 	}
-	
+
 	/**
 	 * Pass extra data back in API results for account creation.
 	 *
 	 * @param ApiCreateAccount $apiModule
-	 * @param LoginForm &loginForm
-	 * @param array &$params
-	 * @return hook return value
+	 * @param LoginForm &loginPage
+	 * @param array &$result
+	 * @return bool: Hook return value
 	 */
 	function addNewAccountApiResult( $apiModule, $loginPage, &$result ) {
 		if ( $result['result'] !== 'Success' && $this->needCreateAccountCaptcha() ) {
-			$this->addCaptchaAPI( $result );
 
 			// If we failed a captcha, override the generic 'Warning' result string
 			if ( $result['result'] === 'Warning' && isset( $result['warnings'] ) ) {
 				foreach ( $result['warnings'] as $warning ) {
 					if ( $warning['message'] === 'captcha-createaccount-fail' ) {
+						$this->addCaptchaAPI( $result );
 						$result['result'] = 'NeedCaptcha';
 					}
 				}

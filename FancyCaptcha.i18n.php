@@ -1663,6 +1663,13 @@ $messages['uk'] = array(
 	'fancycaptcha-reload-text' => 'Оновити',
 );
 
+/** Uzbek (oʻzbekcha)
+ * @author Sociologist
+ */
+$messages['uz'] = array(
+	'fancycaptcha-reload-text' => 'Yangilash',
+);
+
 /** vèneto (vèneto)
  * @author Candalua
  */

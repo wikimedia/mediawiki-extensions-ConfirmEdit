@@ -651,13 +651,13 @@ Tekan tombol 'back' di penjelajah web Anda untuk kembali ke halaman penyuntingan
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'questycaptcha-addurl' => 'Ti inurnos mo ket adda nagyan na a baro a panilpo ti ruar.
-Tapno  makasalaknib kadagiti automatiko a spam, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
-	'questycaptcha-badlogin' => 'Tapno  makasalaknib kadagiti automatiko a pinagsulbar ti kontrasenias, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
-	'questycaptcha-createaccount' => 'Tapno  makasalaknib kadagiti automatiko a pinagaramid ti pakabilangan, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
+	'questycaptcha-addurl' => 'Ti unurnosmo ket mangiraman kadagiti silpo ti ruar.
+Tapno masalakniban ti wiki kadagiti spam nga automatiko a naurnos, naemmakami nga agkiddaw kenka nga ikabilmo dagiti balikas nga agparang dita baba ([[Special:Captcha/help|adu ay a pakaammo]]):',
+	'questycaptcha-badlogin' => 'Tapno makasalakniban ti wiki kadagiti automatiko a pinagsulbar ti kontrasenias, naemmakami nga agkiddaw kenka a sungbatam ti saludsod nga agparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
+	'questycaptcha-createaccount' => 'Tapno makasalakniban ti wiki kadagiti automatiko a panagpartuat ti pakabilangan, naemmakami nga agkiddaw kenka a sungbatam ti saludsod nga agparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
 	'questycaptcha-create' => 'Tapno makaaramid ti panid, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
 	'questycaptcha-edit' => 'Tapno makaurnoy ditoya panid, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
-	'questycaptcha-sendemail' => 'Tapno  makasalaknib kadagiti automatiko a pinagspam, pangaasim a sungbatan ti saludsud a nagparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):', # Fuzzy
+	'questycaptcha-sendemail' => 'Tapno makasalakniban ti wiki kadagiti automatiko a panag-spam, naemmakami nga agkiddaw kenka a sungbatam ti saludsod nga agparang dita baba. ([[Special:Captcha/help|adu pay a pakaammo]]):',
 	'questycaptchahelp-text' => "Dagiti sapot a pagsaadan nga agaw-awat kadagiti maipablaak iti publiko, kasla daytoy a wiki, ket kanayon nga inabuso dagiti spammers nga agus-usar ti automatiko a ramramit ti pinagipablaak da kadagiti kukua da a panilpo ti adu a pagsasaadan. 
 Maikkat met dagitoy a panilpo, mgen makariri da unay.
 

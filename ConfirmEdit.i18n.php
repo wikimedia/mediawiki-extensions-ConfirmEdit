@@ -3520,26 +3520,26 @@ $messages['sco'] = array(
 	'captcha-edit' => 'Tae eidit this page, please solve the simple sum ablo aen enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
 	'captcha-desc' => 'Provides CAPTCHA techniques fer tae protect again spam n passwaird-guessin',
 	'captcha-label' => 'CAPTCHA.',
-	'captcha-addurl' => 'Yer eedit inclædes new external links.
-Tae protect the wiki again autæmated spam, we kyndlie ask ye tae solve the symple sum ablo n enter the answer in the kist in order tae hain yer eedit ([[Special:Captcha/help|mair info]]):',
-	'captcha-badlogin' => 'Tae protect the wiki fae autaemated passwaird crackin, we kyndlie ask ye tae solve the symple sum ablo n enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
-	'captcha-createaccount' => 'Tae protect the wiki fae autæmated accoont makin, we kyndlie ask ye tae solve the symple sum ablo n enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
+	'captcha-addurl' => 'Yer eedit incluids new ootbi links.
+Tae protect the wiki again autæmatit spam, we kyndlie request that ye solve the simple sum ablo n enter the answer in the kist in order tae hain yer eedit ([[Special:Captcha/help|mair info]]):',
+	'captcha-badlogin' => 'Tae protect the wiki fae autæmatit passwaird crackin, we kyndlie request that ye solve the simple sum ablo n enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
+	'captcha-createaccount' => 'Tae protect the wiki fae autæmatit accoont cræftin, we kyndlie request that ye solve the simple sum ablo n enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
 	'captcha-createaccount-fail' => 'Oncorrect or missing CAPTCHA.',
 	'captcha-create' => 'Tae mak the page, please solve the symple sum ablo aen enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
-	'captcha-sendemail' => 'Tae protect the wiki fae autæmated spamming, we kindly ask ye tae solve the symple sum ablo aen enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
+	'captcha-sendemail' => 'Tae protect the wiki fae autæmatit spammin, we kyndlie request that ye solve the simple sum ablo n enter the answer in the kist ([[Special:Captcha/help|mair info]]):',
 	'captcha-sendemail-fail' => 'Oncorrect or missing CAPTCHA.',
 	'captcha-disabledinapi' => 'This action needs ae CAPTCHA, sae it canna be performed through the API.',
 	'captchahelp-title' => 'CAPTCHA heelp',
 	'captchahelp-cookies-needed' => "Ye'll need tae haee cookies enabled in yer brouser fer this tae wairk.",
-	'captchahelp-text' => 'Wab sites that accept postins fae the publeec, like this wiki, ar aften abuised bi spammers that uise autaemated tuils tae post thair links til monie sites.
+	'captchahelp-text' => 'Wab sites that accept postins fae the publeec, like this wiki, ar aften abuised bi spammers that uise autæmatit tuils tae post thair links til monie sites.
 While thir spam links can be remuived, thay ar ae signeeficant nuisance.
 
-Sometimes, especiallie whan addin new wab links til ae page, the wiki micht shaw ye aen eemage o coloured or distorted tex n ask ye tae type the wairds shawn.
+Sometimes, especiallie whan addin new wab links til ae page, the wiki micht shaw ye aen eemage o colored or distorted tex n ask ye tae type the wairds shawn.
 Sin this is ae task that\'s haurd tae autæmate, it will permit maist real bodies tae mak thair posts while stappin maist spammers n ither roboteec attackers.
 
-Onfortunatelie this can onconveeenience uisers wi limited veesion or uisin tex-based or speech-based brousers.
+Onfortunatelie this can onconveeneeance uisers wi limited veesion or uisin tex-based or speech-based brousers.
 At the moment we dinna hae aen audio alternateeve available.
-Please contact the [[Special:ListAdmins|site admeenistraters]] fer assistance gif this is onexpectedlie preventin ye fae makin legeetimate actions.
+Please contact the [[Special:ListAdmins|site admeenistraters]] fer assistance gif this is onexpectedlie stapin ye fae daein legeetimate actions.
 
 Hit the "back" button in yer brouser tae return til the page eediter.',
 	'captcha-addurl-whitelist' => ' #<!-- lea this line exactly aes it is --> <pre>

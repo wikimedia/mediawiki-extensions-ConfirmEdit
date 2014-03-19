@@ -3531,10 +3531,10 @@ Tae protect the wiki again autæmatit spam, we kyndlie request that ye solve the
 	'captcha-disabledinapi' => 'This action needs ae CAPTCHA, sae it canna be performed through the API.',
 	'captchahelp-title' => 'CAPTCHA heelp',
 	'captchahelp-cookies-needed' => "Ye'll need tae haee cookies enabled in yer brouser fer this tae wairk.",
-	'captchahelp-text' => 'Wab sites that accept postins fae the publeec, like this wiki, ar aften abuised bi spammers that uise autæmatit tuils tae post thair links til monie sites.
+	'captchahelp-text' => 'Wab steids that accept postins fae the publeec, like this wiki, ar aften abuised bi spammers that uise autæmatit tuils tae post thair links til monie sites.
 While thir spam links can be remuived, thay ar ae signeeficant nuisance.
 
-Sometimes, especiallie whan addin new wab links til ae page, the wiki micht shaw ye aen eemage o colored or distorted tex n ask ye tae type the wairds shawn.
+Sometimes, especiallie whan addin new wab links til ae page, the wiki micht shaw ye aen eemage o colored or distorted tex n speir ye tae type the wairds shawn.
 Sin this is ae task that\'s haurd tae autæmate, it will permit maist real bodies tae mak thair posts while stappin maist spammers n ither roboteec attackers.
 
 Onfortunatelie this can onconveeneeance uisers wi limited veesion or uisin tex-based or speech-based brousers.

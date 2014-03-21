@@ -546,6 +546,18 @@ $messages['sw'] = array(
 	'recaptcha-create' => 'Ili kusaidia kuzuia kurasa zisianzishwe nyingi na mashine, tafadhali andika maneno mawili yanayoonekana katika kisanduku pakipo chini:', # Fuzzy
 );
 
+/** Telugu (తెలుగు)
+ * @author Ravichandra
+ */
+$messages['te'] = array(
+	'recaptcha-edit' => 'వికీలో యాంత్రికంగా మార్పులు చేసే స్పామర్లను నియంత్రించడానికి కింద పెట్టెలో ఉన్న రెండు పదాలను టైపు చెయ్యండి:',
+	'recaptcha-addurl' => 'మీ మార్పులు కొత్త బాహ్య లింకులు కలిగి ఉన్నాయి. వికీలో యాంత్రికంగా మార్పులు చేసే స్పామర్లను నియంత్రించడానికి కింద పెట్టెలో ఉన్న రెండు పదాలను టైపు చెయ్యండి:',
+	'recaptcha-badlogin' => 'వికీలో పాస్‌వర్డ్ దొంగిలించే స్పామర్లను నియంత్రించడానికి కింద పెట్టెలో ఉన్న రెండు పదాలను టైపు చెయ్యండి:',
+	'recaptcha-createaccount' => 'వికీలో యాంత్రికంగా ఖాతా సృష్టించేవారిని నియంత్రించడానికి కింద పెట్టెలో ఉన్న రెండు పదాలను టైపు చెయ్యండి:',
+	'recaptcha-createaccount-fail' => 'reCAPTCHA సమాధానం తప్పుగా ఇచ్చారు లేదా అసలే ఇవ్వలేదు.',
+	'recaptcha-create' => 'వికీలో యాంత్రికంగా పేజీ సృష్టించేవారిని నియంత్రించడానికి కింద పెట్టెలో ఉన్న రెండు పదాలను టైపు చెయ్యండి:',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */

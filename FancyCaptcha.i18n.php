@@ -1198,8 +1198,10 @@ For å hjelpa oss med å unngå automatisert spam, ver venleg og skriv inn orda 
  */
 $messages['oc'] = array(
 	'fancycaptcha-desc' => "Generador d’imatges ''captcha'' antirobòts que demandan una confirmacion umana de las modificacions.",
-	'fancycaptcha-addurl' => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agisson pas de spams automatics, epicatz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :", # Fuzzy
-	'fancycaptcha-badlogin' => 'Per ajudar a vos protegir contra lo piratatge de compte per de senhals automatics, mercés de picar los mots que s’afichan dins aquesta bóstia ([[Special:Captcha/help|Ajuda]]) :', # Fuzzy
+	'fancycaptcha-addurl' => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per protegir lo wiki contra los corrièls indesirables automatics, vos demandam d'entrar los mots qu'apareisson dins la bóstia
+([[Special:Captcha/help|mai d’entresenhas]]) :",
+	'fancycaptcha-badlogin' => "Per protegir lo wiki contra lo copatge de senhals per d'automats, mercés de picar los mots que s’afichan dins aquesta bóstia 
+([[Special:Captcha/help|Mai d'entresenhas]]) :",
 	'fancycaptcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, picatz los mots çaijós dins la bóstia ([[Special:Captcha/help|mai d’entresenhas]]) :', # Fuzzy
 	'fancycaptcha-create' => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agisson pas de spams automatics, picatz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",
 	'fancycaptcha-edit' => "Vòstra modificacion inclutz de ligams extèrnes novèls. Per verificar que s’agís pas de spam automatic, picatz los mots qu'apareisson dins la bóstia çaijós ([[Special:Captcha/help|mai d’entresenhas]]) :",

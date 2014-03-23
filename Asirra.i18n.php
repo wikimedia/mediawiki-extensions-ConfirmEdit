@@ -423,6 +423,14 @@ $messages['nl-informal'] = array(
 	'asirra-addurl' => "Je bewerking bevat nieuwe externe koppelingen. Selecteer de foto's van katten in het vak hieronder om te helpen beschermen tegen geautomatiseerde spam:", # Fuzzy
 );
 
+/** Occitan (occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'asirra-desc' => 'Modul Asirra per ConfirmEdit',
+	'asirra-createaccount-fail' => 'Identificatz corrèctament los gats.',
+);
+
 /** Polish (polski)
  * @author BeginaFelicysym
  */

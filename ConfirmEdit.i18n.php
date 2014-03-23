@@ -2946,11 +2946,11 @@ $messages['oc'] = array(
 	'captcha-label' => 'CAPTCHA',
 	'captcha-addurl' => "Vòstra modificacion inclutz de ligams extèrnes.
 Per nos ajudar dins la proteccion contra lo corrièr indesirable automatizat, calculatz l'operacion simpla çaijós e inscrivissètz-ne lo resultat dins lo camp ([[Special:Captcha/help|mai d'informacions]]) :",
-	'captcha-badlogin' => "Per ensajar de contornar las temptativas de cracatge de senhals automatizadas per de robòts, recopiatz lo tèxte çaijós dins la bóstia de tèxte plaçada al dejós d'aqueste. ([[Special:Captcha/help|Mai d’entresenhas]])", # Fuzzy
-	'captcha-createaccount' => 'Coma proteccion contra las creacions de compte abusivas, entratz lo resultat de l’addicion dins la bóstia çaijós:<br />
-([[Special:Captcha/help|mai d’entresenhas]])', # Fuzzy
+	'captcha-badlogin' => 'Per nos ajudar a empachar lo copatge automatizat dels senhal, calculatz l’operacion simpla çaijós e inscrivètz-ne lo resultat dins lo camp ([[Special:Captcha/help|mai d’informacions]]) :',
+	'captcha-createaccount' => 'Per nos ajudar a empachar la creacion automatizada de comptes, calculatz l’operacion simpla çaijós e inscrivètz-ne lo resultat dins lo camp ([[Special:Captcha/help|mai d’informacions]]) :',
 	'captcha-createaccount-fail' => 'CAPTCHA erronèu o mancant.',
 	'captcha-create' => "Per modificar la pagina, vos cal de resòldre l'operacion çaijós e n'inscriure lo resultat dins lo camp ([[Special:Captcha/help|Mai d'infòs]]) :",
+	'captcha-sendemail-fail' => 'CAPTCHA erronèu o mancant.',
 	'captchahelp-title' => 'Ajuda suls Captcha',
 	'captchahelp-cookies-needed' => "Vos cal aver los cookies activats dins vòstre navigador per qu'aquò foncione.",
 	'captchahelp-text' => "Los sites webs qu'accèptan de contribucions del public, coma aqueste wiki, sovent son atacats per de spammers qu'utilizan d'aisinas automatizadas per plaçar de ligams nombroses cap a de sites.

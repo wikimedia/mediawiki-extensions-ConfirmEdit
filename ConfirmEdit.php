@@ -40,7 +40,7 @@ $wgExtensionCredits['antispam'][] = array(
 	'name' => 'ConfirmEdit',
 	'author' => array( 'Brion Vibber', '...' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ConfirmEdit',
-	'version' => '1.2',
+	'version' => '1.3',
 	'descriptionmsg' => 'captcha-desc',
 );
 
@@ -174,6 +174,7 @@ $wgCaptchaRegexes = array();
 $wgSpecialPages['Captcha'] = 'CaptchaSpecialPage';
 
 $wgConfirmEditIP = __DIR__;
+$wgMessagesDirs['ConfirmEdit'] = __DIR__ . '/i18n/core';
 $wgExtensionMessagesFiles['ConfirmEdit'] = "$wgConfirmEditIP/ConfirmEdit.i18n.php";
 $wgExtensionMessagesFiles['ConfirmEditAlias'] = "$wgConfirmEditIP/ConfirmEdit.alias.php";
 

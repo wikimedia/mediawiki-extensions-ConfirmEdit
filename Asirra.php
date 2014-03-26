@@ -28,6 +28,7 @@ $dir = __DIR__;
 require_once( $dir . '/ConfirmEdit.php' );
 
 $wgCaptchaClass = 'Asirra';
+$wgMessagesDirs['Asirra'] = __DIR__ . '/i18n/asirra';
 $wgExtensionMessagesFiles['Asirra'] = $dir . '/Asirra.i18n.php';
 $wgAutoloadClasses['Asirra'] = $dir . '/Asirra.class.php';
 

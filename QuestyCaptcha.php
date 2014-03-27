@@ -35,12 +35,14 @@ $wgCaptchaClass = 'QuestyCaptcha';
 global $wgCaptchaQuestions;
 $wgCaptchaQuestions = array();
 
-// Add your questions in LocalSettings.php using this format
-// $wgCaptchaQuestions[] = array( 'question' => "A question?", 'answer' => "An answer!" );
-// $wgCaptchaQuestions[] = array( 'question' => 'How much wood would a woodchuck chuck if a woodchuck could chuck wood?', 'answer' => 'as much wood as...' );
-// $wgCaptchaQuestions[] = array( 'question' => "What is this wiki's name?", 'answer' => "$wgSitename" );
-// You can also provide several acceptable answers to a given question (the answers shall be in lowercase):
-// $wgCaptchaQuestions[] = array( 'question' => "2 + 2 ?", 'answer' => array( '4', 'four' ) );
+/* Add your questions in LocalSettings.php using this format
+$wgCaptchaQuestions = array(
+	'A question?' => 'An answer!',
+	'What is the capital of France?' => 'Paris', //Answers are normalized to lowercase: Paris and paris are the same
+	'What is this wiki's name?' => $wgSitename,
+	'2 + 2 ?' => array( '4', 'four' ), //Questions may have many answers
+);
+*/
 
 $wgMessagesDirs['QuestyCaptcha'] = __DIR__ . '/i18n/questy';
 $wgExtensionMessagesFiles['QuestyCaptcha'] = $dir . '/QuestyCaptcha.i18n.php';

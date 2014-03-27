@@ -30,7 +30,15 @@ class QuestyCaptcha extends SimpleCaptcha {
 
 	function getCaptcha() {
 		global $wgCaptchaQuestions;
-		return $wgCaptchaQuestions[mt_rand( 0, count( $wgCaptchaQuestions ) - 1 )]; // pick a question, any question
+
+		//Backwards compatibility
+		if ( $wgCaptchaQuestions === array_values( $wgCaptchaQuestions ) ) {
+			return $wgCaptchaQuestions[ mt_rand( 0, count( $wgCaptchaQuestions ) - 1 ) ];
+		}
+
+		$question = array_rand( $wgCaptchaQuestions, 1 );
+		$answer = $wgCaptchaQuestions[ $question ];
+		return array( 'question' => $question, 'answer' => $answer );
 	}
 
 	function getForm() {

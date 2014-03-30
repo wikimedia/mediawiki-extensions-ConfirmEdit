@@ -2,11 +2,13 @@
     "@metadata": {
         "authors": [
             "Imre",
-            "Umherirrender"
+            "Umherirrender",
+            "Kghbln"
         ]
     },
     "questycaptcha-addurl": "Ihre Bearbeitung enthält neue externe Links.\nZum Schutz vor automatisiertem Spam beantworten Sie bitte die untenstehende Frage ([[Special:Captcha/help|weitere Informationen]]):",
     "questycaptcha-badlogin": "Zum Schutz vor einer Kompromittierung Ihres Benutzerkontos beantworten Sie bitte die folgende Frage ([[Special:Captcha/help|weitere Informationen]]):",
+    "questycaptcha-createaccount": "Zum Schutz des Wikis vor einer automatisierten Anlage von Benutzerkonten bitten wir Sie, die folgende Frage zu beantworten ([[Special:Captcha/help|weitere Informationen]]):",
     "questycaptcha-create": "Bitte beantworten Sie die folgende Frage, um diese Seite erstellen zu können ([[Special:Captcha/help|weitere Informationen]]):",
     "questycaptcha-edit": "Bitte beantworten Sie die folgende Frage, um diese Seite bearbeiten zu können ([[Special:Captcha/help|weitere Informationen]]):",
     "questycaptcha-sendemail": "Zum Schutz vor automatisiertem Spam bitten wir Sie, die folgende Frage zu beantworten ([[Special:Captcha/help|weitere Informationen]]):",

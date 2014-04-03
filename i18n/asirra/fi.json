@@ -1,7 +1,8 @@
 {
     "@metadata": {
         "authors": [
-            "VezonThunder"
+            "VezonThunder",
+            "Nedergard"
         ]
     },
     "asirra-desc": "Asirra-moduuli muokkauksen varmennukseen",
@@ -10,7 +11,7 @@
     "asirra-badlogin": "Suojana automaattisia salasanamurtoja vastaan sinun on valittava kissan kuvat laatikosta alla:",
     "asirra-createaccount": "Suojana automaattista tunnusten luontia vastaan sinun on valittava kissan kuvat laatikosta alla:",
     "asirra-createaccount-fail": "Tunnista kissat.",
-    "asirra-create": "Suojana automaattista sivujen luontia vastaan sinun on valittava kissan kuvat laatikosta alla:",
+    "asirra-create": "Suojana automaattista sivujen luontia vastaan sinun on valittava kissojen kuvat alta:",
     "asirra-nojs": "'''Salli JavaScript ja lähetä uudelleen.'''",
     "asirra-failed": "Tunnista kaikki kissan kuvat"
 }

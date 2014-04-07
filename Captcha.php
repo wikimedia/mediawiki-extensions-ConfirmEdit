@@ -38,7 +38,7 @@ class SimpleCaptcha {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
 
-		return "<p><label for=\"wpCaptchaWord\">{$captcha['question']}</label> = " .
+		return "<p><label for=\"wpCaptchaWord\">{$captcha['question']} = </label>" .
 			Xml::element( 'input', array(
 				'name' => 'wpCaptchaWord',
 				'id'   => 'wpCaptchaWord',

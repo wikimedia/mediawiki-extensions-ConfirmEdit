@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Snakesteuben"
-        ]
-    },
-    "fancycaptcha-badlogin": "As ekstra beskerming tsjin automatysk ûntsiferjen fan wachtwurden wurdt jo frege de ûndersteande letters oer te tikken. ([[Special:Captcha/help|mear ynformaasje]])."
+	"@metadata": {
+		"authors": [
+			"Snakesteuben"
+		]
+	},
+	"fancycaptcha-badlogin": "As ekstra beskerming tsjin automatysk ûntsiferjen fan wachtwurden wurdt jo frege de ûndersteande letters oer te tikken. ([[Special:Captcha/help|mear ynformaasje]])."
 }

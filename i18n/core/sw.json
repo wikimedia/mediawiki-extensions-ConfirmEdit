@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Stephenwanjau"
-        ]
-    },
-    "captcha-label": "CAPTCHA",
-    "captchahelp-title": "Usaidizi wa CAPTCHA"
+	"@metadata": {
+		"authors": [
+			"Stephenwanjau"
+		]
+	},
+	"captcha-label": "CAPTCHA",
+	"captchahelp-title": "Usaidizi wa CAPTCHA"
 }

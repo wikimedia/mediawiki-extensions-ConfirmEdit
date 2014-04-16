@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Michawiki"
-        ]
-    },
-    "recaptcha-createaccount-fail": "Wopacne abo felujuce wótegrono reCAPTCHA."
+	"@metadata": {
+		"authors": [
+			"Michawiki"
+		]
+	},
+	"recaptcha-createaccount-fail": "Wopacne abo felujuce wótegrono reCAPTCHA."
 }

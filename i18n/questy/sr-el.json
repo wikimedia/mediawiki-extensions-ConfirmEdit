@@ -1,6 +1,4 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "questycaptcha-desc": "Stvarač slikovnog koda za potvrdu uređivanja"
+	"@metadata": [],
+	"questycaptcha-desc": "Stvarač slikovnog koda za potvrdu uređivanja"
 }

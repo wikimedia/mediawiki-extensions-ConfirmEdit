@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Rancher"
-        ]
-    },
-    "recaptcha-desc": "Модул reCAPTCHA за потврду уређивања"
+	"@metadata": {
+		"authors": [
+			"Rancher"
+		]
+	},
+	"recaptcha-desc": "Модул reCAPTCHA за потврду уређивања"
 }

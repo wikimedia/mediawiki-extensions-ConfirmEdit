@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ariyo"
-        ]
-    },
-    "captcha-label": "CAPTCHA"
+	"@metadata": {
+		"authors": [
+			"Ariyo"
+		]
+	},
+	"captcha-label": "CAPTCHA"
 }

@@ -1,6 +1,4 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "recaptcha-desc": "Modul reCAPTCHA za potvrdu uređivanja"
+	"@metadata": [],
+	"recaptcha-desc": "Modul reCAPTCHA za potvrdu uređivanja"
 }

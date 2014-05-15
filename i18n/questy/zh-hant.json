@@ -6,7 +6,7 @@
 			"Waihorace"
 		]
 	},
-	"questycaptcha-addurl": "您的編輯內容中含有本網站以外的連結。為防止不當程式大量破壞，請回答以下的問題（[[Special:Captcha/help|相關資訊]]）：",
+	"questycaptcha-addurl": "您的編輯中含有外部連結。為防止不當程式大量破壞，請回答以下的問題（[[Special:Captcha/help|相關資訊]]）：",
 	"questycaptcha-badlogin": "為防止不當程式破解密碼，請回答以下的問題（[[Special:Captcha/help|相關資訊]]）：",
 	"questycaptcha-createaccount": "為防止不當程式大量建立帳戶，請回答以下的問題（[[Special:Captcha/help|相關資訊]]）：",
 	"questycaptcha-create": "為防止不當程式大量建立頁面，請回答以下問題（[[Special:Captcha/help|相關資訊]]）：",

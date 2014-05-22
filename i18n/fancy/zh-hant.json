@@ -4,14 +4,15 @@
 			"Horacewai2",
 			"Justincheng12345",
 			"Liuxinyu970226",
-			"Waihorace"
+			"Waihorace",
+			"Cwlin0416"
 		]
 	},
-	"fancycaptcha-addurl": "您的編輯內容中含有本網站以外的連結。\n為防止不當程式大量破壞，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：",
-	"fancycaptcha-badlogin": "為幫助wiki防範可自動破解密碼之不當程式，我們請您鍵入下面資訊框中的單詞（[[Special:Captcha/help|相關資訊]]）：",
-	"fancycaptcha-createaccount": "為幫助wiki防範可自動創建賬戶之不當程式，我們請您鍵入下面資訊框中的單詞（[[Special:Captcha/help|相關資訊]]）：",
-	"fancycaptcha-create": "為防止不當程式大量建立頁面，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：",
-	"fancycaptcha-edit": "如您想要編輯此頁面，請輸入以下的文字（[[Special:Captcha/help|相關資訊]]）：",
-	"fancycaptcha-sendemail": "為幫助wiki防範垃圾電郵，我們請您鍵入下面資訊框中的單詞（[[Special:Captcha/help|相關資訊]]）：",
+	"fancycaptcha-addurl": "您的編輯使用了新的外部連結。\n為了防止垃圾編輯程式，我們要麻煩您輸入在下面的方框中顯示的單字　([[Special:Captcha/help|更多資訊]])：",
+	"fancycaptcha-badlogin": "為了防止密碼破解程式，我們要麻煩您輸入在下面的方框中顯示的單字　([[Special:Captcha/help|更多資訊]])：",
+	"fancycaptcha-createaccount": "為了防止自動註冊程式，我們要麻煩您輸入在下面的方框中顯示的單字　([[Special:Captcha/help|更多資訊]])：",
+	"fancycaptcha-create": "為了防止自動建立頁面程式，我們要麻煩您輸入在下面的方框中顯示的單字　([[Special:Captcha/help|更多資訊]])：",
+	"fancycaptcha-edit": "若要編輯此頁面，請輸入在下面的方框中顯示的單字　([[Special:Captcha/help|更多資訊]])：",
+	"fancycaptcha-sendemail": "為了防止垃圾編輯程式，我們要麻煩您輸入在下面的方框中顯示的單字　([[Special:Captcha/help|更多資訊]])：",
 	"fancycaptcha-reload-text": "重新整理"
 }

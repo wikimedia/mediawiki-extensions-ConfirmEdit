@@ -2,14 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Michaello",
-			"Жељко Тодоровић"
+			"Жељко Тодоровић",
+			"Milicevic01"
 		]
 	},
 	"fancycaptcha-desc": "Obogaćen stvarač slikovnog koda za potvrdu uređivanja",
-	"fancycaptcha-addurl": "Tvoja izmena uključuje nove spoljne veze. U cilju zaštite od automatskog spama, unesi reči koje se nalaze ispod u kutiju ([[Special:Captcha/help|detaljnije]]):",
-	"fancycaptcha-badlogin": "U cilju sprečavanja automatskog otkrivanja lozinki, unesi reči koje se nalaze ispod u kutiju ([[Special:Captcha/help|detaljnije]]):",
-	"fancycaptcha-createaccount": "U cilju zaštite od automatskog spama, unesi reči odozdo u kutiju ([[Special:Captcha/help|detaljnije]]):",
+	"fancycaptcha-addurl": "Vaša izmena sadrži nove spoljašnje veze.\nU cilju zaštite od nepoželjnih poruka, unesite reči sa slike u polje ispod ([[Special:Captcha/help|više informacija]]):",
+	"fancycaptcha-badlogin": "U cilju zaštite od probijanja lozinki, unesite reči sa slike u polje ispod ([[Special:Captcha/help|više informacija]]):",
+	"fancycaptcha-createaccount": "U cilju zaštite od samootvaranja naloga, unesite reči sa slike u polje ispod ([[Special:Captcha/help|više informacija]]):",
 	"fancycaptcha-create": "Da bi se napravila stranica, potrebno je uneti reči koje se nalaze ispod kutije ([[Special:Captcha/help|detaljnije]]):",
 	"fancycaptcha-edit": "Za izmenu ove strane unesi reči koje se nalaze ispod kutije ([[Special:Captcha/help|detaljnije]]):",
-	"fancycaptcha-sendemail": "U cilju zaštite od automatskog spama, unesi reči odozdo u kutiju ([[Special:Captcha/help|detaljnije]]):"
+	"fancycaptcha-sendemail": "U cilju zaštite od nepoželjnih poruka, unesite reči sa slike u polje ispod ([[Special:Captcha/help|više informacija]]):",
+	"fancycaptcha-reload-text": "Osveži"
 }

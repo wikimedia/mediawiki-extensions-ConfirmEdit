@@ -24,6 +24,10 @@ class ConfirmEditHooks {
 			$user, $minorEdit );
 	}
 
+	static function confirmEditPage( $editpage, $buttons, $tabindex ) {
+		self::getInstance()->editShowCaptcha( $editpage );
+	}
+
 	static function confirmEditAPI( $editPage, $newtext, &$resultArr ) {
 		return self::getInstance()->confirmEditAPI( $editPage, $newtext, $resultArr );
 	}
@@ -35,7 +39,7 @@ class ConfirmEditHooks {
 	static function addNewAccountApiForm( $apiModule, $loginForm ) {
 		return self::getInstance()->addNewAccountApiForm( $apiModule, $loginForm );
 	}
-	
+
 	static function addNewAccountApiResult( $apiModule, $loginPage, &$result ) {
 		return self::getInstance()->addNewAccountApiResult( $apiModule, $loginPage, $result );
 	}

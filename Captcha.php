@@ -1,6 +1,8 @@
 <?php
 
 class SimpleCaptcha {
+	private $showEditCaptcha = false;
+
 	function getCaptcha() {
 		$a = mt_rand( 0, 100 );
 		$b = mt_rand( 0, 10 );
@@ -55,7 +57,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Insert the captcha prompt into an edit form.
+	 * Show error message for missing or incorrect captcha on EditPage.
 	 * @param EditPage $editPage
 	 * @param OutputPage $out
 	 */
@@ -65,8 +67,47 @@ class SimpleCaptcha {
 			return;
 		}
 		unset( $page->ConfirmEdit_ActivateCaptcha );
-		$out->addWikiText( $this->getMessage( $this->action ) );
-		$out->addHTML( $this->getForm() );
+		$out->addHTML(
+			Html::openElement(
+				'div',
+				array(
+					'id' => 'mw-confirmedit-error-area',
+					'class' => 'errorbox'
+				)
+			) .
+			Html::element(
+				'strong',
+				array(),
+				$out->msg( 'errorpagetitle' )->text()
+			) .
+			Html::element(
+				'div',
+				array( 'id' => 'errorbox-body' ),
+				$out->msg( 'captcha-sendemail-fail' )->text()
+			) .
+			Html::closeElement( 'div' )
+		);
+		$this->showEditCaptcha = true;
+	}
+
+	/**
+	 * Insert the captcha prompt into an edit form.
+	 * @param EditPage $editPage
+	 * @param string $newText
+	 * @param string $section
+	 */
+	function editShowCaptcha( $editPage, $newText = '', $section = '' ) {
+		$context = $editPage->getArticle()->getContext();
+		$page = $editPage->getArticle()->getPage();
+		$out = $context->getOutput();
+		if ( isset( $page->ConfirmEdit_ActivateCaptcha ) ||
+			$this->showEditCaptcha ||
+			$this->shouldCheck( $page, $newText, $section )
+		) {
+			$out->addWikiText( $this->getMessage( $this->action ) );
+			$out->addHTML( $this->getForm() );
+		}
+		unset( $page->ConfirmEdit_ActivateCaptcha );
 	}
 
 	/**
@@ -569,7 +610,7 @@ class SimpleCaptcha {
 				$message = wfMessage( 'captcha-createaccount-fail' )->text();
 				// For MediaWiki 1.23+
 				$status = Status::newGood();
-				
+
 				// Apply a *non*-fatal warning. This will still abort the
 				// account creation but returns a "Warning" response to the
 				// API or UI.
@@ -579,7 +620,7 @@ class SimpleCaptcha {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Logic to check if we need to pass a captcha for the current user
 	 * to create a new account, or not

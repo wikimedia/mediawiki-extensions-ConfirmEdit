@@ -4,9 +4,11 @@
 			"Jopparn",
 			"Rotsee",
 			"Tobulos1",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Lokal Profil"
 		]
 	},
+	"asirra-desc": "Asirra-modul för ConfirmEdit",
 	"asirra-edit": "För att skydda wikin mot spam ber vi dig att markera de fotografier som föreställer katter i rutan nedan:",
 	"asirra-addurl": "Din redigering innehåller nya externa länkar. För att skydda wikin mot automatiserat redigerings-spam ber vi dig att endast markera fotografierna på katter i rutan nedan:",
 	"asirra-badlogin": "För att skydda wikin mot automatiserade försök att knäcka lösenord ber vi dig att endast markera fotografierna på katter i rutan nedan:",

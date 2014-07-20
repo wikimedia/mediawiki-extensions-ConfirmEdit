@@ -13,14 +13,15 @@
 			"Pertile",
 			"Sanbec",
 			"Fitoschido",
-			"Luis Felipe Schenone"
+			"Luis Felipe Schenone",
+			"Macofe"
 		]
 	},
 	"captcha-edit": "Para editar este artículo, por favor responde la siguiente pregunta ([[Special:Captcha/help|más información]]):",
 	"captcha-desc": "Provee técnicas CAPTCHA para proteger contra spam y adivinación de contraseña.",
 	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "Tu edición incluye nuevos enlaces externos.\nPara proteger el wiki contra el spam automatizado, por favor responde la siguiente pregunta ([[Special:Captcha/help|más información]]):",
-	"captcha-badlogin": "Para proteger el wiki del descifrado de contraseñas automatizado, por favor responde la siguiente pregunta ([[Special:Captcha/help|más información]]):",
+	"captcha-badlogin": "Para proteger el wiki del descifrado de contraseñas automatizado, por favor resuelve la siguiente suma e ingresa la respuesta en la casilla ([[Special:Captcha/help|más información]]):",
 	"captcha-createaccount": "Para proteger el wiki de la creación automática de cuentas, por favor responde la siguiente pregunta ([[Special:Captcha/help|más información]]):",
 	"captcha-createaccount-fail": "Falta el código CAPTCHA, o éste es incorrecto.",
 	"captcha-create": "Para crear la página, por favor responde la siguiente pregunta ([[Special:Captcha/help|más información]]):",

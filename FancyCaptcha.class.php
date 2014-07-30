@@ -130,6 +130,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			) .
 			Html::element( 'input', array(
 					'name' => 'wpCaptchaWord',
+					'class' => 'mw-ui-input',
 					'id'   => 'wpCaptchaWord',
 					'type' => 'text',
 					'size' => '12',  // max_length in captcha.py plus fudge factor

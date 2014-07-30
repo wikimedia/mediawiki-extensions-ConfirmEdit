@@ -41,6 +41,7 @@ class SimpleCaptcha {
 		return "<p><label for=\"wpCaptchaWord\">{$captcha['question']} = </label>" .
 			Xml::element( 'input', array(
 				'name' => 'wpCaptchaWord',
+				'class' => 'mw-ui-input',
 				'id'   => 'wpCaptchaWord',
 				'size'  => 5,
 				'autocomplete' => 'off',

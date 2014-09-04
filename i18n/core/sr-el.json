@@ -10,7 +10,7 @@
 	"captcha-addurl": "Tvoja izmena uključuje nove spoljašnje veze. U cilju zaštite protiv automatskog spama, reši jednostavan zbir ispod i upiši odgovor u kutiju ([[Special:Captcha/help|detaljnije]]):",
 	"captcha-badlogin": "U cilju zaštite od automatske provale u lozinku, reši jednostavan zbir ispod i unesi odgovor u kutiju ([[Special:Captcha/help|detaljnije]]):",
 	"captcha-createaccount": "U cilju zaštite od automatizovanog vandalizma, rešite prostu računicu ispod i unesite odgovor u polje ([[Special:Captcha/help|više informacija]]):",
-	"captcha-createaccount-fail": "Nepravilan ili nepostojeći kod za potvrdu.",
+	"captcha-createaccount-fail": "Pogrešan ili nepostojeći kod za potvrdu.",
 	"captcha-create": "Za stvaranje strane reši jednostavan zbir dole i unesi ga u kutiju ([[Special:Captcha/help|detaljnije]]):",
 	"captcha-sendemail-fail": "Nepravilan ili nepostojeći kod za potvrdu.",
 	"captchahelp-title": "Pomoć oko potvrdnog koda",

@@ -111,12 +111,13 @@ def gen_captcha(text, fontname, fontsize, file_name):
 	data = noise.load()
 	for x in range(nsize[0]):
 		for y in range(nsize[1]):
-			r = random.randint(0, 100)
-			data[x, y] = r
+			r = random.randint(0, 65)
+			gradient = 70 * x / nsize[0]
+			data[x, y] = r + gradient
 	# Turn speckles into blobs
 	noise = noise.resize(im.size, Image.BILINEAR)
 	# Add to the image
-	im = ImageMath.eval('convert(convert(a, "L") / 2 + b, "RGB")', a=im, b=noise)
+	im = ImageMath.eval('convert(convert(a, "L") / 3 + b, "RGB")', a=im, b=noise)
 
 	# and turn into black on white
 	im = ImageOps.invert(im)

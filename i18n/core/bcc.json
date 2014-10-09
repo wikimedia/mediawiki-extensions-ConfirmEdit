@@ -1,14 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mostafadaneshvar"
+			"Mostafadaneshvar",
+			"Baloch Afghanistan"
 		]
 	},
 	"captcha-edit": "به اصلاح کتن ای صفحه،لطفا ای جمع ساده حل کنیت و جوابء جهلا وارد کنیت ([[Special:Captcha/help|گیشتر اطلاعات]]):",
 	"captcha-desc": " کاربرد ساده captcha",
+	"captcha-label": "کپچا",
 	"captcha-addurl": "شمی اصلاح شامل نوکین درای لینک انت.\nپه کمک په حمایت چه اتوماتیکی اسپم، لطفا جمع ساده حل کینت و جواب جهلء وارد کنیت  ([[Special:Captcha/help|گیشتر اطلاعات]]):",
 	"captcha-badlogin": "په کمک په حمایت چه اتوماتیکی کلمه رمز پروشوک، لطفا ای جمع ساده حل کنیت. جوابء جهلء وارد کنید  ([[Special:Captcha/help|گیشتر اطلاعات]]):",
-	"captcha-createaccount": "په کمک په حمایت چه اتوماتیکی حساب شرکتن، لطفا ای جهلی ساده جمع حل کنیت و جواب بنویسیت  ([[Special:Captcha/help|گیشتر اطلاعات]]):",
+	"captcha-createaccount": "په کمک په حمایت چه اتوماتیکی حساب شرکتن، لطفا ای جهلی ساده جمع حل کنیت و جواب بنویسیت  ([[Special:Captcha/help|گیشترین مئلومات]]):",
 	"captcha-createaccount-fail": "اشتباه یا گارین کد تایید",
 	"captcha-create": "په شرکتن صفحه، لطفا ای جمع ساده حل کنیت و جواب ادان بنویسیت  ([[Special:Captcha/help|گیشتر اطلاعات]]):",
 	"captchahelp-title": "کمک Captcha",

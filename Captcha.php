@@ -403,7 +403,7 @@ class SimpleCaptcha {
 			// return '/' . str_replace( '/', '\/', preg_replace('|\\\*/|', '/', $regex) ) . '/Si';
 			$regexes = array();
 			$regexStart = array(
-				'normal' => '/^https?:\/\/+[a-z0-9_\-.]*(?:',
+				'normal' => '/^(?:https?:)?\/\/+[a-z0-9_\-.]*(?:',
 				'noprotocol' => '/^(?:',
 			);
 			$regexEnd = array(

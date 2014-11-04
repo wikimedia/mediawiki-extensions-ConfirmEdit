@@ -11,5 +11,7 @@
 	"fancycaptcha-create": "За да создадете страница, внесете ги зборовите на сликичката подолу ([[Special:Captcha/help|повеќе информации]]):",
 	"fancycaptcha-edit": "За да ја уредите страницава, внесете ги зборовите на сликичката подолу ([[Special:Captcha/help|повеќе информации]]):",
 	"fancycaptcha-sendemail": "За да се заштитиме од автоматизирано спамирање, би ве замолиле да ги внесете зборовите од сликичката во полето подолу ([[Special:Captcha/help|повеќе информации]]):",
-	"fancycaptcha-reload-text": "Превчитај"
+	"fancycaptcha-reload-text": "Превчитај",
+	"apihelp-fancycaptchareload-description": "Дај нова FancyCaptcha.",
+	"apihelp-fancycaptchareload-example-1": "Дај нова FancyCaptcha."
 }

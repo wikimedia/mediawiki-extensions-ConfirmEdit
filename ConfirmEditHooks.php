@@ -19,12 +19,17 @@ class ConfirmEditHooks {
 		return $wgCaptcha;
 	}
 
-	static function confirmEditMerged( $editPage, $newtext ) {
-		return self::getInstance()->confirmEditMerged( $editPage, $newtext );
+	static function confirmEditMerged( $context, $content, $status, $summary, $user, $minorEdit ) {
+		return self::getInstance()->confirmEditMerged( $context, $content, $status, $summary,
+			$user, $minorEdit );
 	}
 
 	static function confirmEditAPI( $editPage, $newtext, &$resultArr ) {
 		return self::getInstance()->confirmEditAPI( $editPage, $newtext, $resultArr );
+	}
+
+	static function showEditFormFields( &$editPage, &$out ) {
+		return self::getInstance()->showEditFormFields( $editPage, $out );
 	}
 	
 	static function addNewAccountApiForm( $apiModule, $loginForm ) {

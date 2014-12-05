@@ -56,9 +56,15 @@ class SimpleCaptcha {
 
 	/**
 	 * Insert the captcha prompt into an edit form.
+	 * @param EditPage $editPage
 	 * @param OutputPage $out
 	 */
-	function editCallback( &$out ) {
+	function showEditFormFields( &$editPage, &$out ) {
+		$page = $editPage->getArticle()->getPage();
+		if ( !isset( $page->ConfirmEdit_ActivateCaptcha ) ) {
+			return;
+		}
+		unset( $page->ConfirmEdit_ActivateCaptcha );
 		$out->addWikiText( $this->getMessage( $this->action ) );
 		$out->addHTML( $this->getForm() );
 	}
@@ -223,29 +229,38 @@ class SimpleCaptcha {
 	// ----------------------------------
 
 	/**
-	 * @param EditPage $editPage
+	 * @param Title $title
 	 * @param string $action (edit/create/addurl...)
-	 * @return bool true if action triggers captcha on editPage's namespace
+	 * @return bool true if action triggers captcha on $title's namespace
 	 */
-	function captchaTriggers( &$editPage, $action ) {
+	function captchaTriggers( $title, $action ) {
 		global $wgCaptchaTriggers, $wgCaptchaTriggersOnNamespace;
 		// Special config for this NS?
-		if ( isset( $wgCaptchaTriggersOnNamespace[$editPage->mTitle->getNamespace()][$action] ) )
-			return $wgCaptchaTriggersOnNamespace[$editPage->mTitle->getNamespace()][$action];
+		if ( isset( $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action] ) )
+			return $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action];
 
 		return ( !empty( $wgCaptchaTriggers[$action] ) ); // Default
 	}
 
 	/**
-	 * @param $editPage EditPage
-	 * @param $newtext string
+	 * @param WikiPage $page
+	 * @param $content Content|string
 	 * @param $section string
-	 * @param $merged bool
+	 * @param $isContent bool If true, $content is a Content object
 	 * @return bool true if the captcha should run
 	 */
-	function shouldCheck( &$editPage, $newtext, $section, $merged = false ) {
+	function shouldCheck( WikiPage $page, $content, $section, $isContent = false ) {
+		$title = $page->getTitle();
 		$this->trigger = '';
-		$title = $editPage->mArticle->getTitle();
+		if ( $isContent ) {
+			if ( $content->getModel() == CONTENT_MODEL_WIKITEXT ) {
+				$newtext = $content->getNativeData();
+			} else {
+				$newtext = null;
+			}
+		} else {
+			$newtext = $content;
+		}
 
 		global $wgUser;
 		if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
@@ -263,7 +278,7 @@ class SimpleCaptcha {
 			return false;
 		}
 
-		if ( $this->captchaTriggers( $editPage, 'edit' ) ) {
+		if ( $this->captchaTriggers( $title, 'edit' ) ) {
 			// Check on all edits
 			global $wgUser;
 			$this->trigger = sprintf( "edit trigger by '%s' at [[%s]]",
@@ -274,7 +289,7 @@ class SimpleCaptcha {
 			return true;
 		}
 
-		if ( $this->captchaTriggers( $editPage, 'create' )  && !$editPage->mTitle->exists() ) {
+		if ( $this->captchaTriggers( $title, 'create' )  && !$title->exists() ) {
 			// Check if creating a page
 			global $wgUser;
 			$this->trigger = sprintf( "Create trigger by '%s' at [[%s]]",
@@ -285,19 +300,23 @@ class SimpleCaptcha {
 			return true;
 		}
 
-		if ( $this->captchaTriggers( $editPage, 'addurl' ) ) {
+		if ( $this->captchaTriggers( $title, 'addurl' ) ) {
 			// Only check edits that add URLs
-			if ( $merged ) {
+			if ( $isContent ) {
 				// Get links from the database
 				$oldLinks = $this->getLinksFromTracker( $title );
 				// Share a parse operation with Article::doEdit()
-				$editInfo = $editPage->mArticle->prepareTextForEdit( $newtext );
-				$newLinks = array_keys( $editInfo->output->getExternalLinks() );
+				$editInfo = $page->prepareContentForEdit( $content );
+				if ( $editInfo->output ) {
+					$newLinks = array_keys( $editInfo->output->getExternalLinks() );
+				} else {
+					$newLinks = array();
+				}
 			} else {
 				// Get link changes in the slowest way known to man
-				$oldtext = $this->loadText( $editPage, $section );
-				$oldLinks = $this->findLinks( $editPage, $oldtext );
-				$newLinks = $this->findLinks( $editPage, $newtext );
+				$oldtext = $this->loadText( $title, $section );
+				$oldLinks = $this->findLinks( $title, $oldtext );
+				$newLinks = $this->findLinks( $title, $newtext );
 			}
 
 			$unknownLinks = array_filter( $newLinks, array( &$this, 'filterLink' ) );
@@ -317,9 +336,9 @@ class SimpleCaptcha {
 		}
 
 		global $wgCaptchaRegexes;
-		if ( $wgCaptchaRegexes ) {
+		if ( $newtext !== null && $wgCaptchaRegexes ) {
 			// Custom regex checks. Reuse $oldtext if set above.
-			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $editPage, $section );
+			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section );
 
 			foreach ( $wgCaptchaRegexes as $regex ) {
 				$newMatches = array();
@@ -472,13 +491,13 @@ class SimpleCaptcha {
 
 	/**
 	 * Backend function for confirmEdit() and confirmEditAPI()
-	 * @param $editPage EditPage
+	 * @param WikiPage $page
 	 * @param $newtext string
 	 * @param $section
-	 * @param $merged bool
+	 * @param $isContent bool
 	 * @return bool false if the CAPTCHA is rejected, true otherwise
 	 */
-	private function doConfirmEdit( $editPage, $newtext, $section, $merged = false ) {
+	private function doConfirmEdit( WikiPage $page, $newtext, $section, $isContent = false ) {
 		global $wgRequest;
 		if ( $wgRequest->getVal( 'captchaid' ) ) {
 			$wgRequest->setVal( 'wpCaptchaId', $wgRequest->getVal( 'captchaid' ) );
@@ -486,7 +505,7 @@ class SimpleCaptcha {
 		if ( $wgRequest->getVal( 'captchaword' ) ) {
 			$wgRequest->setVal( 'wpCaptchaWord', $wgRequest->getVal( 'captchaword' ) );
 		}
-		if ( $this->shouldCheck( $editPage, $newtext, $section, $merged ) ) {
+		if ( $this->shouldCheck( $page, $newtext, $section, $isContent ) ) {
 			return $this->passCaptcha();
 		} else {
 			wfDebug( "ConfirmEdit: no need to show captcha.\n" );
@@ -495,38 +514,39 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * The main callback run on edit attempts.
-	 * @param EditPage $editPage
-	 * @param string $newtext
-	 * @param string $section
-	 * @param bool $merged
-	 * @return bool true to continue saving, false to abort and show a captcha form
+	 * An efficient edit filter callback based on the text after section merging
+	 * @param RequestContext $context
+	 * @param Content $content
+	 * @param Status $status
+	 * @param $summary
+	 * @param $user
+	 * @param $minorEdit
+	 * @return bool
 	 */
-	function confirmEdit( $editPage, $newtext, $section, $merged = false ) {
-		if ( defined( 'MW_API' ) ) {
+	function confirmEditMerged( $context, $content, $status, $summary, $user, $minorEdit ) {
+		$legacyMode = !defined( 'MW_EDITFILTERMERGED_SUPPORTS_API' );
+		if ( defined( 'MW_API' ) && $legacyMode ) {
 			# API mode
 			# The CAPTCHA was already checked and approved
 			return true;
 		}
-		if ( !$this->doConfirmEdit( $editPage, $newtext, $section, $merged ) ) {
-			$editPage->showEditForm( array( &$this, 'editCallback' ) );
-			return false;
+		$page = $context->getWikiPage();
+		if ( !$this->doConfirmEdit( $page, $content, false, true ) ) {
+			if ( $legacyMode ) {
+				$status->fatal( 'hookaborted' );
+			}
+			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
+			$status->apiHookResult = array();
+			$this->addCaptchaAPI( $status->apiHookResult );
+			$page->ConfirmEdit_ActivateCaptcha = true;
+			return $legacyMode;
 		}
 		return true;
 	}
 
-	/**
-	 * A more efficient edit filter callback based on the text after section merging
-	 * @param EditPage $editPage
-	 * @param string $newtext
-	 * @return bool
-	 */
-	function confirmEditMerged( $editPage, $newtext ) {
-		return $this->confirmEdit( $editPage, $newtext, false, true );
-	}
-
-	function confirmEditAPI( $editPage, $newtext, &$resultArr ) {
-		if ( !$this->doConfirmEdit( $editPage, $newtext, false, false ) ) {
+	function confirmEditAPI( $editPage, $newText, &$resultArr ) {
+		$page = $editPage->getArticle()->getPage();
+		if ( !$this->doConfirmEdit( $page, $newText, false, false ) ) {
 			$this->addCaptchaAPI( $resultArr );
 			return false;
 		}
@@ -652,7 +672,7 @@ class SimpleCaptcha {
 	 * @return bool
 	 */
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {
-		if ( $flags && $this->isAPICaptchaModule( $module ) ) {
+		if ( $this->isAPICaptchaModule( $module ) ) {
 			$params['captchaword'] = null;
 			$params['captchaid'] = null;
 		}
@@ -746,13 +766,13 @@ class SimpleCaptcha {
 
 	/**
 	 * Retrieve the current version of the page or section being edited...
-	 * @param EditPage $editPage
+	 * @param Title $title
 	 * @param string $section
 	 * @return string
 	 * @access private
 	 */
-	function loadText( $editPage, $section ) {
-		$rev = Revision::newFromTitle( $editPage->mTitle, false, Revision::READ_LATEST );
+	function loadText( $title, $section ) {
+		$rev = Revision::newFromTitle( $title, false, Revision::READ_LATEST );
 		if ( is_null( $rev ) ) {
 			return "";
 		} else {
@@ -768,16 +788,16 @@ class SimpleCaptcha {
 
 	/**
 	 * Extract a list of all recognized HTTP links in the text.
-	 * @param $editpage EditPage
+	 * @param $title Title
 	 * @param $text string
 	 * @return array of strings
 	 */
-	function findLinks( &$editpage, $text ) {
+	function findLinks( $title, $text ) {
 		global $wgParser, $wgUser;
 
 		$options = new ParserOptions();
-		$text = $wgParser->preSaveTransform( $text, $editpage->mTitle, $wgUser, $options );
-		$out = $wgParser->parse( $text, $editpage->mTitle, $options );
+		$text = $wgParser->preSaveTransform( $text, $title, $wgUser, $options );
+		$out = $wgParser->parse( $text, $title, $options );
 
 		return array_keys( $out->getExternalLinks() );
 	}

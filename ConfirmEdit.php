@@ -33,6 +33,9 @@
 if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
+if ( !defined( 'MW_SUPPORTS_CONTENTHANDLER' ) ) {
+	throw Exception( 'This version of ConfirmEdit requires MediaWiki 1.21 or later' );
+}
 
 $wgExtensionFunctions[] = 'confirmEditSetup';
 $wgExtensionCredits['antispam'][] = array(
@@ -178,7 +181,6 @@ $wgMessagesDirs['ConfirmEdit'] = __DIR__ . '/i18n/core';
 $wgExtensionMessagesFiles['ConfirmEdit'] = "$wgConfirmEditIP/ConfirmEdit.i18n.php";
 $wgExtensionMessagesFiles['ConfirmEditAlias'] = "$wgConfirmEditIP/ConfirmEdit.alias.php";
 
-$wgHooks['EditFilterMerged'][] = 'ConfirmEditHooks::confirmEditMerged';
 $wgHooks['UserCreateForm'][] = 'ConfirmEditHooks::injectUserCreate';
 $wgHooks['AbortNewAccount'][] = 'ConfirmEditHooks::confirmUserCreate';
 $wgHooks['LoginAuthenticateAudit'][] = 'ConfirmEditHooks::triggerUserLogin';
@@ -186,8 +188,13 @@ $wgHooks['UserLoginForm'][] = 'ConfirmEditHooks::injectUserLogin';
 $wgHooks['AbortLogin'][] = 'ConfirmEditHooks::confirmUserLogin';
 $wgHooks['EmailUserForm'][] = 'ConfirmEditHooks::injectEmailUser';
 $wgHooks['EmailUser'][] = 'ConfirmEditHooks::confirmEmailUser';
-# Register API hook
-$wgHooks['APIEditBeforeSave'][] = 'ConfirmEditHooks::confirmEditAPI';
+$wgHooks['EditPage::showEditForm:fields'][] = 'ConfirmEditHooks::showEditFormFields';
+$wgHooks['EditFilterMergedContent'][] = 'ConfirmEditHooks::confirmEditMerged';
+
+if ( !defined( 'MW_EDITFILTERMERGED_SUPPORTS_API' ) ) {
+	$wgHooks['APIEditBeforeSave'][] = 'ConfirmEditHooks::confirmEditAPI';
+}
+
 $wgHooks['APIGetAllowedParams'][] = 'ConfirmEditHooks::APIGetAllowedParams';
 $wgHooks['APIGetParamDescription'][] = 'ConfirmEditHooks::APIGetParamDescription';
 $wgHooks['AddNewAccountApiForm'][] = 'ConfirmEditHooks::addNewAccountApiForm';

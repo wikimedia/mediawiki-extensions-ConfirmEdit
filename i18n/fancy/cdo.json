@@ -1,4 +1,8 @@
 {
-	"@metadata": [],
-	"fancycaptcha-badlogin": "Ôi-lāu huòng-cī tiàng-sê̤ṳ cê̤ṳ-dông puái-gāi mĭk-mā, chiāng nṳ̄ sṳ̆-ĭk â-dā̤ bēng-bēng diē-lié gì sṳ̀ ([[Special:Captcha/help|gáing sâ̤ séng-sék]]):"
+	"@metadata": {
+		"authors": [
+			"Yejianfei"
+		]
+	},
+	"fancycaptcha-badlogin": "為𡅏保護維基百科免受自動化其密碼破解，儂家誠摯其起動汝輸底下底方框底裡其驗證碼（[[Special:Captcha/help|更価信息]]）："
 }

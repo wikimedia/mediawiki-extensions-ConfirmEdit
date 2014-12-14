@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": []
+    },
+    "renoCAPTCHA-edit": "Message above the CAPTCHA for edit action.",
+    "renoCAPTCHA-addurl": "Message above the CAPTCHA for addurl (user added new external links to the page) action.",
+    "renoCAPTCHA-badlogin": "Message above the CAPTCHA for badlogin action.",
+    "renoCAPTCHA-createaccount": "Message above the CAPTCHA for createaccount (user creates a new account) action.",
+    "renoCAPTCHA-createaccount-fail": "Error message, when the CAPTCHA isn't solved correctly.",
+    "renoCAPTCHA-create": "Message above the CAPTCHA for create (user creates a new page) action."
+}

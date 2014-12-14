@@ -41,7 +41,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 		return array( 'question' => $question, 'answer' => $answer );
 	}
 
-	function getForm() {
+	function getForm( OutputPage $out ) {
 		$captcha = $this->getCaptcha();
 		if ( !$captcha ) {
 			die( "No questions found; set some in LocalSettings.php using the format from QuestyCaptcha.php." );

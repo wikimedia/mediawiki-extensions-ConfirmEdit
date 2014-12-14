@@ -37,7 +37,7 @@ class SimpleCaptcha {
 	 *
 	 * @return string HTML
 	 */
-	function getForm() {
+	function getForm( OutputPage $out ) {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
 
@@ -87,7 +87,7 @@ class SimpleCaptcha {
 			$this->shouldCheck( $page, '', '', false )
 		) {
 			$out->addWikiText( $this->getMessage( $this->action ) );
-			$out->addHTML( $this->getForm() );
+			$out->addHTML( $this->getForm( $out ) );
 		}
 		unset( $page->ConfirmEdit_ActivateCaptcha );
 	}
@@ -124,7 +124,7 @@ class SimpleCaptcha {
 			$form->addFooterText(
 				"<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'sendemail' ) ) .
-				$this->getForm() .
+				$this->getForm( $wgOut ) .
 				"</div>\n" );
 		}
 		return true;
@@ -146,7 +146,7 @@ class SimpleCaptcha {
 			}
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
-				$this->getForm() .
+				$this->getForm( $wgOut ) .
 				"</div>\n";
 			// for older MediaWiki versions
 			if ( is_callable( array( $template, 'extend' ) ) ) {
@@ -172,7 +172,7 @@ class SimpleCaptcha {
 			$this->action = 'badlogin';
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'badlogin' ) ) .
-				$this->getForm() .
+				$this->getForm( $wgOut ) .
 				"</div>\n";
 			// for older MediaWiki versions
 			if ( is_callable( array( $template, 'extend' ) ) ) {

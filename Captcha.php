@@ -100,7 +100,7 @@ class SimpleCaptcha {
 		$out = $context->getOutput();
 		if ( isset( $page->ConfirmEdit_ActivateCaptcha ) ||
 			$this->showEditCaptcha ||
-			$this->shouldCheck( $page, '', '', false )
+			$this->shouldCheck( $page, '', '', $context, false )
 		) {
 			$out->addWikiText( $this->getMessage( $this->action ) );
 			$out->addHTML( $this->getForm() );
@@ -130,16 +130,20 @@ class SimpleCaptcha {
 	 * @return bool true to keep running callbacks
 	 */
 	function injectEmailUser( &$form ) {
-		global $wgCaptchaTriggers, $wgOut, $wgUser;
+		global $wgCaptchaTriggers;
+
+		$user = $form->getUser();
+		$out = $form->getOutput();
+
 		if ( $wgCaptchaTriggers['sendemail'] ) {
 			$this->action = 'sendemail';
-			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+			if ( $user->isAllowed( 'skipcaptcha' ) ) {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
 				return true;
 			}
 			$form->addFooterText(
 				"<div class='captcha'>" .
-				$wgOut->parse( $this->getMessage( 'sendemail' ) ) .
+				$out->parse( $this->getMessage( 'sendemail' ) ) .
 				$this->getForm() .
 				"</div>\n" );
 		}
@@ -153,15 +157,19 @@ class SimpleCaptcha {
 	 * @return bool true to keep running callbacks
 	 */
 	function injectUserCreate( &$template ) {
-		global $wgCaptchaTriggers, $wgOut, $wgUser;
+		global $wgCaptchaTriggers;
+
+		$user = $template->getSkin()->getUser();
+		$out = $template->getSkin()->getOutput();
+
 		if ( $wgCaptchaTriggers['createaccount'] ) {
 			$this->action = 'usercreate';
-			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+			if ( $user->isAllowed( 'skipcaptcha' ) ) {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return true;
 			}
 			$captcha = "<div class='captcha'>" .
-				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
+				$out->parse( $this->getMessage( 'createaccount' ) ) .
 				$this->getForm() .
 				"</div>\n";
 			// for older MediaWiki versions
@@ -183,11 +191,11 @@ class SimpleCaptcha {
 	 */
 	function injectUserLogin( &$template ) {
 		if ( $this->isBadLoginTriggered() ) {
-			global $wgOut;
+			$out = $template->getSkin()->getOutput();
 
 			$this->action = 'badlogin';
 			$captcha = "<div class='captcha'>" .
-				$wgOut->parse( $this->getMessage( 'badlogin' ) ) .
+				$out->parse( $this->getMessage( 'badlogin' ) ) .
 				$this->getForm() .
 				"</div>\n";
 			// for older MediaWiki versions
@@ -211,6 +219,7 @@ class SimpleCaptcha {
 	 */
 	function triggerUserLogin( $user, $password, $retval ) {
 		global $wgCaptchaTriggers, $wgCaptchaBadLoginExpiration, $wgMemc;
+
 		if ( $retval == LoginForm::WRONG_PASS && $wgCaptchaTriggers['badlogin'] ) {
 			$key = $this->badLoginKey();
 			$count = $wgMemc->get( $key );
@@ -299,12 +308,17 @@ class SimpleCaptcha {
 	 * @param WikiPage $page
 	 * @param $content Content|string
 	 * @param $section string
+	 * @param $context IContextSource
 	 * @param $isContent bool If true, $content is a Content object
 	 * @return bool true if the captcha should run
 	 */
-	function shouldCheck( WikiPage $page, $content, $section, $isContent = false ) {
+	function shouldCheck( WikiPage $page, $content, $section, IContextSource $context, $isContent = false ) {
+		global $wgEmailAuthentication, $ceAllowConfirmedEmail, $wgCaptchaRegexes;
+
 		$title = $page->getTitle();
 		$this->trigger = '';
+		$user = $context->getUser();
+
 		if ( $isContent ) {
 			if ( $content->getModel() == CONTENT_MODEL_WIKITEXT ) {
 				$newtext = $content->getNativeData();
@@ -317,27 +331,23 @@ class SimpleCaptcha {
 			$isEmpty = $content === '';
 		}
 
-		global $wgUser;
-		if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+		if ( $user->isAllowed( 'skipcaptcha' ) ) {
 			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
 			return false;
 		}
 		if ( $this->isIPWhitelisted() )
 			return false;
 
-
-		global $wgEmailAuthentication, $ceAllowConfirmedEmail;
 		if ( $wgEmailAuthentication && $ceAllowConfirmedEmail &&
-			$wgUser->isEmailConfirmed() ) {
+			$user->isEmailConfirmed() ) {
 			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );
 			return false;
 		}
 
 		if ( $this->captchaTriggers( $title, 'edit' ) ) {
 			// Check on all edits
-			global $wgUser;
 			$this->trigger = sprintf( "edit trigger by '%s' at [[%s]]",
-				$wgUser->getName(),
+				$user->getName(),
 				$title->getPrefixedText() );
 			$this->action = 'edit';
 			wfDebug( "ConfirmEdit: checking all edits...\n" );
@@ -346,9 +356,8 @@ class SimpleCaptcha {
 
 		if ( $this->captchaTriggers( $title, 'create' )  && !$title->exists() ) {
 			// Check if creating a page
-			global $wgUser;
 			$this->trigger = sprintf( "Create trigger by '%s' at [[%s]]",
-				$wgUser->getName(),
+				$user->getName(),
 				$title->getPrefixedText() );
 			$this->action = 'create';
 			wfDebug( "ConfirmEdit: checking on page creation...\n" );
@@ -370,8 +379,8 @@ class SimpleCaptcha {
 			} else {
 				// Get link changes in the slowest way known to man
 				$oldtext = $this->loadText( $title, $section );
-				$oldLinks = $this->findLinks( $title, $oldtext );
-				$newLinks = $this->findLinks( $title, $newtext );
+				$oldLinks = $this->findLinks( $title, $oldtext, $user );
+				$newLinks = $this->findLinks( $title, $newtext, $user );
 			}
 
 			$unknownLinks = array_filter( $newLinks, array( &$this, 'filterLink' ) );
@@ -379,10 +388,9 @@ class SimpleCaptcha {
 			$numLinks = count( $addedLinks );
 
 			if ( $numLinks > 0 ) {
-				global $wgUser;
 				$this->trigger = sprintf( "%dx url trigger by '%s' at [[%s]]: %s",
 					$numLinks,
-					$wgUser->getName(),
+					$user->getName(),
 					$title->getPrefixedText(),
 					implode( ", ", $addedLinks ) );
 				$this->action = 'addurl';
@@ -390,7 +398,6 @@ class SimpleCaptcha {
 			}
 		}
 
-		global $wgCaptchaRegexes;
 		if ( $newtext !== null && $wgCaptchaRegexes ) {
 			// Custom regex checks. Reuse $oldtext if set above.
 			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section );
@@ -405,11 +412,10 @@ class SimpleCaptcha {
 
 					$numHits = count( $addedMatches );
 					if ( $numHits > 0 ) {
-						global $wgUser;
 						$this->trigger = sprintf( "%dx %s at [[%s]]: %s",
 							$numHits,
 							$regex,
-							$wgUser->getName(),
+							$user->getName(),
 							$title->getPrefixedText(),
 							implode( ", ", $addedMatches ) );
 						$this->action = 'edit';
@@ -549,18 +555,20 @@ class SimpleCaptcha {
 	 * @param WikiPage $page
 	 * @param $newtext string
 	 * @param $section
+	 * @param IContextSource $context
 	 * @param $isContent bool
 	 * @return bool false if the CAPTCHA is rejected, true otherwise
 	 */
-	private function doConfirmEdit( WikiPage $page, $newtext, $section, $isContent = false ) {
-		global $wgRequest;
-		if ( $wgRequest->getVal( 'captchaid' ) ) {
-			$wgRequest->setVal( 'wpCaptchaId', $wgRequest->getVal( 'captchaid' ) );
+	private function doConfirmEdit( WikiPage $page, $newtext, $section, IContextSource $context, $isContent = false ) {
+		$request = $context->getRequest();
+
+		if ( $request->getVal( 'captchaid' ) ) {
+			$request->setVal( 'wpCaptchaId', $request->getVal( 'captchaid' ) );
 		}
-		if ( $wgRequest->getVal( 'captchaword' ) ) {
-			$wgRequest->setVal( 'wpCaptchaWord', $wgRequest->getVal( 'captchaword' ) );
+		if ( $request->getVal( 'captchaword' ) ) {
+			$request->setVal( 'wpCaptchaWord', $request->getVal( 'captchaword' ) );
 		}
-		if ( $this->shouldCheck( $page, $newtext, $section, $isContent ) ) {
+		if ( $this->shouldCheck( $page, $newtext, $section, $context, $isContent ) ) {
 			return $this->passCaptchaLimited();
 		} else {
 			wfDebug( "ConfirmEdit: no need to show captcha.\n" );
@@ -586,7 +594,7 @@ class SimpleCaptcha {
 			return true;
 		}
 		$page = $context->getWikiPage();
-		if ( !$this->doConfirmEdit( $page, $content, false, true ) ) {
+		if ( !$this->doConfirmEdit( $page, $content, false, $context, true ) ) {
 			if ( $legacyMode ) {
 				$status->fatal( 'hookaborted' );
 			}
@@ -601,7 +609,7 @@ class SimpleCaptcha {
 
 	function confirmEditAPI( $editPage, $newText, &$resultArr ) {
 		$page = $editPage->getArticle()->getPage();
-		if ( !$this->doConfirmEdit( $page, $newText, false, false ) ) {
+		if ( !$this->doConfirmEdit( $page, $newText, false, $editPage->getArticle()->getContext(), false ) ) {
 			$this->addCaptchaAPI( $resultArr );
 			return false;
 		}
@@ -639,12 +647,17 @@ class SimpleCaptcha {
 	 * Logic to check if we need to pass a captcha for the current user
 	 * to create a new account, or not
 	 *
+	 * @param $user User
 	 * @return bool true to show captcha, false to skip captcha
 	 */
-	function needCreateAccountCaptcha() {
-		global $wgCaptchaTriggers, $wgUser;
+	function needCreateAccountCaptcha( $user = null ) {
+		global $wgCaptchaTriggers;
+		if ( is_null( $user ) ) {
+			global $wgUser;
+			$user = $wgUser;
+		}
 		if ( $wgCaptchaTriggers['createaccount'] ) {
-			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+			if ( $user->isAllowed( 'skipcaptcha' ) ) {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return false;
 			}
@@ -780,9 +793,10 @@ class SimpleCaptcha {
 	 * @return bool if passed, false if failed or new session
 	 */
 	function passCaptcha() {
-		$info = $this->retrieveCaptcha();
+		global $wgRequest;
+
+		$info = $this->retrieveCaptcha( $wgRequest );
 		if ( $info ) {
-			global $wgRequest;
 			if ( $this->keyMatch( $wgRequest->getVal( 'wpCaptchaWord' ), $info ) ) {
 				$this->log( "passed" );
 				$this->clearCaptcha( $info );
@@ -828,11 +842,11 @@ class SimpleCaptcha {
 
 	/**
 	 * Fetch this session's captcha info.
+	 * @param WebRequest
 	 * @return mixed array of info, or false if missing
 	 */
-	function retrieveCaptcha() {
-		global $wgRequest;
-		$index = $wgRequest->getVal( 'wpCaptchaId' );
+	function retrieveCaptcha( WebRequest $request ) {
+		$index = $request->getVal( 'wpCaptchaId' );
 		return CaptchaStore::get()->retrieve( $index );
 	}
 
@@ -870,13 +884,14 @@ class SimpleCaptcha {
 	 * Extract a list of all recognized HTTP links in the text.
 	 * @param $title Title
 	 * @param $text string
+	 * @param $user User
 	 * @return array of strings
 	 */
-	function findLinks( $title, $text ) {
-		global $wgParser, $wgUser;
+	function findLinks( $title, $text, User $user ) {
+		global $wgParser;
 
 		$options = new ParserOptions();
-		$text = $wgParser->preSaveTransform( $text, $title, $wgUser, $options );
+		$text = $wgParser->preSaveTransform( $text, $title, $user, $options );
 		$out = $wgParser->parse( $text, $title, $options );
 
 		return array_keys( $out->getExternalLinks() );
@@ -884,13 +899,13 @@ class SimpleCaptcha {
 
 	/**
 	 * Show a page explaining what this wacky thing is.
+	 * @param OutputPage
 	 */
-	function showHelp() {
-		global $wgOut;
-		$wgOut->setPageTitle( wfMessage( 'captchahelp-title' )->text() );
-		$wgOut->addWikiMsg( 'captchahelp-text' );
+	function showHelp( OutputPage $out ) {
+		$out->setPageTitle( wfMessage( 'captchahelp-title' )->text() );
+		$out->addWikiMsg( 'captchahelp-text' );
 		if ( CaptchaStore::get()->cookiesNeeded() ) {
-			$wgOut->addWikiMsg( 'captchahelp-cookies-needed' );
+			$out->addWikiMsg( 'captchahelp-cookies-needed' );
 		}
 	}
 
@@ -903,12 +918,12 @@ class SimpleCaptcha {
 	 * @return hook return value
 	 */
 	function addNewAccountApiForm( $apiModule, $loginForm ) {
-		global $wgRequest;
+		$request = $loginForm->getContext()->getRequest();
 		$main = $apiModule->getMain();
 
 		$id = $main->getVal( 'captchaid' );
 		if ( $id ) {
-			$wgRequest->setVal( 'wpCaptchaId', $id );
+			$request->setVal( 'wpCaptchaId', $id );
 
 			// Suppress "unrecognized parameter" warning:
 			$main->getVal( 'wpCaptchaId' );
@@ -916,7 +931,7 @@ class SimpleCaptcha {
 
 		$word = $main->getVal( 'captchaword' );
 		if ( $word ) {
-			$wgRequest->setVal( 'wpCaptchaWord', $word );
+			$request->setVal( 'wpCaptchaWord', $word );
 
 			// Suppress "unrecognized parameter" warning:
 			$main->getVal( 'wpCaptchaWord' );
@@ -934,7 +949,9 @@ class SimpleCaptcha {
 	 * @return bool: Hook return value
 	 */
 	function addNewAccountApiResult( $apiModule, $loginPage, &$result ) {
-		if ( $result['result'] !== 'Success' && $this->needCreateAccountCaptcha() ) {
+		$user = $loginPage->getContext()->getUser();
+
+		if ( $result['result'] !== 'Success' && $this->needCreateAccountCaptcha( $user ) ) {
 
 			// If we failed a captcha, override the generic 'Warning' result string
 			if ( $result['result'] === 'Warning' && isset( $result['warnings'] ) ) {

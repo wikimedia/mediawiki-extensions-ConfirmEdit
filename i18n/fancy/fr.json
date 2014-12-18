@@ -17,5 +17,7 @@
 	"fancycaptcha-create": "Pour créer la page, veuillez entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha|plus d’informations]]) :",
 	"fancycaptcha-edit": "Pour modifier cette page, veuillez saisir les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’information]]) :",
 	"fancycaptcha-sendemail": "Pour protéger le wiki contre l’envoi automatisé de pourriels, nous vous demandons de bien vouloir entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :",
-	"fancycaptcha-reload-text": "Actualiser"
+	"fancycaptcha-reload-text": "Actualiser",
+	"apihelp-fancycaptchareload-description": "Obtenir un nouveau FancyCaptcha.",
+	"apihelp-fancycaptchareload-example-1": "Obtenir un nouveau FancyCaptcha"
 }

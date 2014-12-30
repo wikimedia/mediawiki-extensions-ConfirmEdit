@@ -199,6 +199,7 @@ $wgHooks['APIGetAllowedParams'][] = 'ConfirmEditHooks::APIGetAllowedParams';
 $wgHooks['APIGetParamDescription'][] = 'ConfirmEditHooks::APIGetParamDescription';
 $wgHooks['AddNewAccountApiForm'][] = 'ConfirmEditHooks::addNewAccountApiForm';
 $wgHooks['AddNewAccountApiResult'][] = 'ConfirmEditHooks::addNewAccountApiResult';
+$wgHooks['UnitTestsList'][] = 'ConfirmEditHooks::onUnitTestsList';
 
 $wgAutoloadClasses['ConfirmEditHooks'] = "$wgConfirmEditIP/ConfirmEditHooks.php";
 $wgAutoloadClasses['SimpleCaptcha'] = "$wgConfirmEditIP/Captcha.php";

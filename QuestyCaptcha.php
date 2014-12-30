@@ -28,8 +28,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
-$dir = __DIR__;
-require_once $dir . '/ConfirmEdit.php';
+require_once __DIR__ . '/ConfirmEdit.php';
 $wgCaptchaClass = 'QuestyCaptcha';
 
 global $wgCaptchaQuestions;
@@ -45,5 +44,5 @@ $wgCaptchaQuestions = array(
 */
 
 $wgMessagesDirs['QuestyCaptcha'] = __DIR__ . '/i18n/questy';
-$wgExtensionMessagesFiles['QuestyCaptcha'] = $dir . '/QuestyCaptcha.i18n.php';
-$wgAutoloadClasses['QuestyCaptcha'] = $dir . '/QuestyCaptcha.class.php';
+$wgExtensionMessagesFiles['QuestyCaptcha'] = __DIR__ . '/QuestyCaptcha.i18n.php';
+$wgAutoloadClasses['QuestyCaptcha'] = __DIR__ . '/QuestyCaptcha.class.php';

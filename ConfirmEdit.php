@@ -214,7 +214,13 @@ $wgAutoloadClasses['CaptchaSpecialPage'] = "$wgConfirmEditIP/ConfirmEditHooks.ph
  * Set up $wgWhitelistRead
  */
 function confirmEditSetup() {
-	global $wgGroupPermissions, $wgCaptchaTriggers;
+	global $wgGroupPermissions, $wgCaptchaTriggers, $wgWikimediaJenkinsCI;
+
+	// There is no need to run (core) tests with enabled ConfirmEdit - bug T44145
+	if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {
+		$wgCaptchaTriggers = false;
+	}
+
 	if ( !$wgGroupPermissions['*']['read'] && $wgCaptchaTriggers['badlogin'] ) {
 		// We need to ensure that the captcha interface is accessible
 		// so that unauthenticated users can actually get in after a

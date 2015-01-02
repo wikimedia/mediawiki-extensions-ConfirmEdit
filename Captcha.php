@@ -561,7 +561,7 @@ class SimpleCaptcha {
 			$wgRequest->setVal( 'wpCaptchaWord', $wgRequest->getVal( 'captchaword' ) );
 		}
 		if ( $this->shouldCheck( $page, $newtext, $section, $isContent ) ) {
-			return $this->passCaptcha();
+			return $this->passCaptchaLimited();
 		} else {
 			wfDebug( "ConfirmEdit: no need to show captcha.\n" );
 			return true;
@@ -619,7 +619,7 @@ class SimpleCaptcha {
 	function confirmUserCreate( $u, &$message, &$status = null ) {
 		if ( $this->needCreateAccountCaptcha() ) {
 			$this->trigger = "new account '" . $u->getName() . "'";
-			if ( !$this->passCaptcha() ) {
+			if ( !$this->passCaptchaLimited() ) {
 				// For older MediaWiki
 				$message = wfMessage( 'captcha-createaccount-fail' )->text();
 				// For MediaWiki 1.23+
@@ -669,7 +669,7 @@ class SimpleCaptcha {
 				return true;
 
 			$this->trigger = "post-badlogin login '" . $u->getName() . "'";
-			if ( !$this->passCaptcha() ) {
+			if ( !$this->passCaptchaLimited() ) {
 				// Emulate a bad-password return to confuse the shit out of attackers
 				$retval = LoginForm::WRONG_PASS;
 				return false;
@@ -704,7 +704,7 @@ class SimpleCaptcha {
 				return false;
 			}
 			$this->trigger = "{$wgUser->getName()} sending email";
-			if ( !$this->passCaptcha() ) {
+			if ( !$this->passCaptchaLimited() ) {
 				$error = wfMessage( 'captcha-sendemail-fail' )->text();
 				return false;
 			}
@@ -747,6 +747,31 @@ class SimpleCaptcha {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Checks, if the user reached the amount of false CAPTCHAs and give him some vacation
+	 * or run self::passCaptcha() and clear counter if correct.
+	 *
+	 * @see self::passCaptcha()
+	 */
+	private function passCaptchaLimited() {
+		global $wgUser;
+
+		// don't increase pingLimiter here, just check, if CAPTCHA limit exceeded
+		if ( $wgUser->pingLimiter( 'badcaptcha', 0 ) ) {
+			// for debugging add an proper error message, the user just see an false captcha error message
+			wfDebug( 'ConfirmEdit: User reached RateLimit, preventing action.' );
+			return false;
+		}
+
+		if ( $this->passCaptcha() ) {
+			return true;
+		}
+
+		// captcha was not solved: increase limit and return false
+		$wgUser->pingLimiter( 'badcaptcha' );
+		return false;
 	}
 
 	/**

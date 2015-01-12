@@ -1,8 +1,6 @@
 <?php
 
 class SimpleCaptcha {
-	private $showEditCaptcha = false;
-
 	/** @var boolean|null Was the CAPTCHA already passed and if yes, with which result? */
 	private $captchaSolved = null;
 
@@ -69,28 +67,12 @@ class SimpleCaptcha {
 		if ( !isset( $page->ConfirmEdit_ActivateCaptcha ) ) {
 			return;
 		}
-		unset( $page->ConfirmEdit_ActivateCaptcha );
-		$out->addHTML(
-			Html::openElement(
-				'div',
-				array(
-					'id' => 'mw-confirmedit-error-area',
-					'class' => 'errorbox'
-				)
-			) .
-			Html::element(
-				'strong',
-				array(),
-				$out->msg( 'errorpagetitle' )->text()
-			) .
-			Html::element(
-				'div',
-				array( 'id' => 'errorbox-body' ),
-				$out->msg( 'captcha-sendemail-fail' )->text()
-			) .
-			Html::closeElement( 'div' )
-		);
-		$this->showEditCaptcha = true;
+
+		if ( $this->action !== 'edit' ) {
+			unset( $page->ConfirmEdit_ActivateCaptcha );
+			$out->addWikiText( $this->getMessage( $this->action ) );
+			$out->addHTML( $this->getForm() );
+		}
 	}
 
 	/**
@@ -102,7 +84,6 @@ class SimpleCaptcha {
 		$page = $editPage->getArticle()->getPage();
 		$out = $context->getOutput();
 		if ( isset( $page->ConfirmEdit_ActivateCaptcha ) ||
-			$this->showEditCaptcha ||
 			$this->shouldCheck( $page, '', '', false )
 		) {
 			$out->addWikiText( $this->getMessage( $this->action ) );

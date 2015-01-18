@@ -134,6 +134,7 @@ class SimpleCaptcha {
 	function injectEmailUser( &$form ) {
 		global $wgCaptchaTriggers, $wgOut, $wgUser;
 		if ( $wgCaptchaTriggers['sendemail'] ) {
+			$this->action = 'sendemail';
 			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
 				return true;
@@ -156,6 +157,7 @@ class SimpleCaptcha {
 	function injectUserCreate( &$template ) {
 		global $wgCaptchaTriggers, $wgOut, $wgUser;
 		if ( $wgCaptchaTriggers['createaccount'] ) {
+			$this->action = 'usercreate';
 			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return true;
@@ -184,6 +186,8 @@ class SimpleCaptcha {
 	function injectUserLogin( &$template ) {
 		if ( $this->isBadLoginTriggered() ) {
 			global $wgOut;
+
+			$this->action = 'badlogin';
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'badlogin' ) ) .
 				$this->getForm() .

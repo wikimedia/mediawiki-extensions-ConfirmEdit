@@ -113,21 +113,21 @@ class FancyCaptcha extends SimpleCaptcha {
 			$captchaReload = '';
 		}
 
-		return "<div class='fancycaptcha-wrapper'><div class='fancycaptcha-image-container'>" .
+		$form = Html::openElement( 'div' ) .
+			Html::element( 'label', array(
+					'for' => 'wpCaptchaWord',
+				),
+				parent::getMessage( 'label' ) . ' ' . wfMessage( 'createacct-captcha' )->text()
+			) .
+			Html::openElement( 'div', array( 'class' => 'mw-createacct-captcha-container' ) ) .
+			Html::openElement( 'div', array( 'class' => 'mw-createacct-captcha-and-reload' ) ) .
+			Html::openElement( 'div', array( 'class' => 'fancycaptcha-image-container' ) ) .
 			Html::element( 'img', array(
 					'class'  => 'fancycaptcha-image',
 					'src'    => $title->getLocalUrl( 'wpCaptchaId=' . urlencode( $index ) ),
 					'alt'    => ''
 				)
-			) .
-			$captchaReload .
-			"</div>\n" .
-			'<p>' .
-			Html::element( 'label', array(
-					'for' => 'wpCaptchaWord',
-				),
-				parent::getMessage( 'label' ) . wfMessage( 'colon-separator' )->text()
-			) .
+			) . $captchaReload . Html::closeElement( 'div' ) . Html::closeElement( 'div' ) . "\n" .
 			Html::element( 'input', array(
 					'name' => 'wpCaptchaWord',
 					'class' => 'mw-ui-input',
@@ -138,18 +138,25 @@ class FancyCaptcha extends SimpleCaptcha {
 					'autocorrect' => 'off',
 					'autocapitalize' => 'off',
 					'required' => 'required',
-					'tabindex' => 1
+					'tabindex' => 1,
+					'placeholder' => wfMessage( 'createacct-imgcaptcha-ph' )
 				)
-			) . // tab in before the edit textarea
-			Html::element( 'input', array(
+			); // tab in before the edit textarea
+			if ( $this->action == 'usercreate' ) {
+				$form .= HTML::element( 'small',array(
+						'class' => 'mw-createacct-captcha-assisted'
+					), wfMessage( 'createacct-imgcaptcha-help' )
+				);
+			}
+			$form .= Html::element( 'input', array(
 					'type'  => 'hidden',
 					'name'  => 'wpCaptchaId',
 					'id'    => 'wpCaptchaId',
 					'value' => $index
 				)
-			) .
-			"</p>\n" .
-			"</div>\n";;
+			) . Html::closeElement( 'div' ) . Html::closeElement( 'div' ) . "\n";
+
+			return $form;
 	}
 
 	/**

@@ -160,11 +160,16 @@ class SimpleCaptcha {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return true;
 			}
-			$template->set( 'header',
-				"<div class='captcha'>" .
+			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
 				$this->getForm() .
-				"</div>\n" );
+				"</div>\n";
+			// for older MediaWiki versions
+			if ( is_callable( array( $template, 'extend' ) ) ) {
+				$template->extend( 'extrafields', $captcha );
+			} else {
+				$template->set( 'header', $captcha );
+			}
 		}
 		return true;
 	}
@@ -179,11 +184,16 @@ class SimpleCaptcha {
 	function injectUserLogin( &$template ) {
 		if ( $this->isBadLoginTriggered() ) {
 			global $wgOut;
-			$template->set( 'header',
-				"<div class='captcha'>" .
+			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'badlogin' ) ) .
 				$this->getForm() .
-				"</div>\n" );
+				"</div>\n";
+			// for older MediaWiki versions
+			if ( is_callable( array( $template, 'extend' ) ) ) {
+				$template->extend( 'extrafields', $captcha );
+			} else {
+				$template->set( 'header', $captcha );
+			}
 		}
 		return true;
 	}

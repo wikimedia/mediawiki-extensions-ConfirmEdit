@@ -36,7 +36,7 @@ abstract class CaptchaStore {
 	/**
 	 * Get somewhere to store captcha data that will persist between requests
 	 *
-	 * @throws MWException
+	 * @throws Exception
 	 * @return CaptchaStore
 	 */
 	public final static function get() {
@@ -45,7 +45,7 @@ abstract class CaptchaStore {
 			if ( in_array( 'CaptchaStore', class_parents( $wgCaptchaStorageClass ) ) ) {
 				self::$instance = new $wgCaptchaStorageClass;
 			} else {
-				throw new MWException( "Invalid CaptchaStore class $wgCaptchaStorageClass" );
+				throw new Exception( "Invalid CaptchaStore class $wgCaptchaStorageClass" );
 			}
 		}
 		return self::$instance;

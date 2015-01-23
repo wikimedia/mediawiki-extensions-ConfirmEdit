@@ -166,7 +166,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	function getCaptchaIndex() {
 		$info = $this->pickImage();
 		if ( !$info ) {
-			throw new MWException( "Ran out of captcha images" );
+			throw new Exception( "Ran out of captcha images" );
 		}
 
 		// Generate a random key for use of this captcha image in this session.
@@ -370,13 +370,13 @@ class FancyCaptcha extends SimpleCaptcha {
 	/**
 	 * @param $basename string
 	 * @return Array (salt, hash)
-	 * @throws MWException
+	 * @throws Exception
 	 */
 	public function hashFromImageName( $basename ) {
 		if ( preg_match( '/^image_([0-9a-f]+)_([0-9a-f]+)\\.png$/', $basename, $matches ) ) {
 			return array( $matches[1], $matches[2] );
 		} else {
-			throw new MWException( "Invalid filename '$basename'.\n" );
+			throw new Exception( "Invalid filename '$basename'.\n" );
 		}
 	}
 

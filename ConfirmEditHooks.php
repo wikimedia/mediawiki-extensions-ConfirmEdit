@@ -80,6 +80,32 @@ class ConfirmEditHooks {
 	public static function APIGetParamDescription( &$module, &$desc ) {
 		return self::getInstance()->APIGetParamDescription( $module, $desc );
 	}
+
+	/**
+	 * Hook to add PHPUnit test cases.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
+	 *
+	 * @param array &$files
+	 * @return boolean
+	 */
+	public static function onUnitTestsList( array &$files ) {
+		// @codeCoverageIgnoreStart
+		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/' );
+
+		/**
+		 * @var SplFileInfo $fileInfo
+		 */
+		$ourFiles = array();
+		foreach ( new RecursiveIteratorIterator( $directoryIterator ) as $fileInfo ) {
+			if ( substr( $fileInfo->getFilename(), -8 ) === 'Test.php' ) {
+				$ourFiles[] = $fileInfo->getPathname();
+			}
+		}
+
+		$files = array_merge( $files, $ourFiles );
+		return true;
+		// @codeCoverageIgnoreEnd
+	}
 }
 
 class CaptchaSpecialPage extends UnlistedSpecialPage {

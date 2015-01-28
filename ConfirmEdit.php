@@ -45,6 +45,7 @@ $wgExtensionCredits['antispam'][] = array(
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ConfirmEdit',
 	'version' => '1.3',
 	'descriptionmsg' => 'captcha-desc',
+	'license-name' => 'GPL-2.0+',
 );
 
 /**

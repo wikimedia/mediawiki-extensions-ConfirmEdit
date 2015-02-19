@@ -5,5 +5,7 @@
 		]
 	},
 	"fancycaptcha-createaccount": "Pe' ve putè pruteggere 'a wiki annanz'a criazione 'utente, pe' piacere mettite ccà abbascio int' 'a casciulella 'e parole ccà ([[Special:Captcha/help|cchiù nfurmaziune]]):",
-	"fancycaptcha-reload-text": "Agghiuorna"
+	"fancycaptcha-reload-text": "Agghiuorna",
+	"apihelp-fancycaptchareload-description": "Pigliateve nu FancyCaptcha nuovo.",
+	"apihelp-fancycaptchareload-example-1": "Pigliateve nu FancyCaptcha nuovo"
 }

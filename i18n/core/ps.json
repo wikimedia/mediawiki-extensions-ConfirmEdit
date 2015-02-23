@@ -4,6 +4,7 @@
 			"Ahmed-Najib-Biabani-Ibrahimkhel"
 		]
 	},
+	"captcha-label": "کپچا",
 	"captcha-create": "ددې لپاره چې نوی ليکنه ترسره کړی، لطفاً د همدغه ساده شمېرو ځواب په ورکړ شوي چوکاټ کې وليکی ([[Special:Captcha/help|نور مالومات]]):",
 	"captchahelp-title": "CAPTCHA لارښود",
 	"captchahelp-cookies-needed": "ددې کړنې د ترسره کېدلو لپاره تاسو ته پکار ده چې د خپل کتنمل (browser) کوکيز (cookies) چارن کړی.",

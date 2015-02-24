@@ -5,6 +5,7 @@
 			"Robin0van0der0vliet"
 		]
 	},
+	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "Jo hawwe keppelings om utens oanpast/taheakke. As ekstra beskerming tsjin automatysk oanmakke reklame (SPAM) wurdt jo frege it antwurd op de ûndersteande som te jaan ([[Special:Captcha/help|meer ynformaasje]]):",
 	"captcha-createaccount": "As beskerming tsjin it automatysk oanmeitsjen fan meidochnammen wurdt jo frege it antwurd op de ûndersteande som te jaan ([[Special:Captcha/help|meer ynformaasje]]):",
 	"captcha-createaccount-fail": "De CAPTCHA ûntbrekt of is ûnkrekt.",

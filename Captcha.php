@@ -93,16 +93,14 @@ class SimpleCaptcha {
 	/**
 	 * Insert the captcha prompt into an edit form.
 	 * @param EditPage $editPage
-	 * @param string $newText
-	 * @param string $section
 	 */
-	function editShowCaptcha( $editPage, $newText = '', $section = '' ) {
+	function editShowCaptcha( $editPage ) {
 		$context = $editPage->getArticle()->getContext();
 		$page = $editPage->getArticle()->getPage();
 		$out = $context->getOutput();
 		if ( isset( $page->ConfirmEdit_ActivateCaptcha ) ||
 			$this->showEditCaptcha ||
-			$this->shouldCheck( $page, $newText, $section )
+			$this->shouldCheck( $page, '', '', false )
 		) {
 			$out->addWikiText( $this->getMessage( $this->action ) );
 			$out->addHTML( $this->getForm() );
@@ -313,8 +311,10 @@ class SimpleCaptcha {
 			} else {
 				$newtext = null;
 			}
+			$isEmpty = $content->isEmpty();
 		} else {
 			$newtext = $content;
+			$isEmpty = $content === '';
 		}
 
 		global $wgUser;
@@ -355,7 +355,7 @@ class SimpleCaptcha {
 			return true;
 		}
 
-		if ( $this->captchaTriggers( $title, 'addurl' ) ) {
+		if ( !$isEmpty && $this->captchaTriggers( $title, 'addurl' ) ) {
 			// Only check edits that add URLs
 			if ( $isContent ) {
 				// Get links from the database

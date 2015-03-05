@@ -13,5 +13,5 @@
 	"fancycaptcha-create": "Da bi se napravila stranica, potrebno je uneti reči koje se nalaze ispod kutije ([[Special:Captcha/help|detaljnije]]):",
 	"fancycaptcha-edit": "Za izmenu ove strane unesi reči koje se nalaze ispod kutije ([[Special:Captcha/help|detaljnije]]):",
 	"fancycaptcha-sendemail": "U cilju zaštite od nepoželjnih poruka, unesite reči sa slike u polje ispod ([[Special:Captcha/help|više informacija]]):",
-	"fancycaptcha-reload-text": "Osveži"
+	"fancycaptcha-reload-text": "osveži"
 }

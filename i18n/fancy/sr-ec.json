@@ -15,5 +15,5 @@
 	"fancycaptcha-create": "Да бисте направили страницу, унесите речи са слике у поље испод ([[Special:Captcha/help|више информација]]):",
 	"fancycaptcha-edit": "Да бисте уредили ову страницу, унесите речи са слике у поље испод ([[Special:Captcha/help|више информација]]):",
 	"fancycaptcha-sendemail": "У циљу заштите од непожељних порука, унесите речи са слике у поље испод ([[Special:Captcha/help|више информација]]):",
-	"fancycaptcha-reload-text": "Освежи"
+	"fancycaptcha-reload-text": "освежи"
 }

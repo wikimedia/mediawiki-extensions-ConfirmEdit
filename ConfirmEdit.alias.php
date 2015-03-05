@@ -101,7 +101,7 @@ $specialPageAliases['ml'] = array(
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎) */
 $specialPageAliases['sr-ec'] = array(
-	'Captcha' => array( 'Потврдни_код' ),
+	'Captcha' => array( 'ПотврдниКод', 'Потврдни_код' ),
 );
 
 /** Turkish (Türkçe) */

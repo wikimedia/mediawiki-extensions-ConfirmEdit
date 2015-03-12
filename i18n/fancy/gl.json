@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Toliño",
-			"Xosé"
+			"Xosé",
+			"Banjo"
 		]
 	},
 	"fancycaptcha-desc": "Xerador de imaxes CAPTCHA para Confirm Edit",
@@ -12,5 +13,7 @@
 	"fancycaptcha-create": "Para crear a páxina, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):",
 	"fancycaptcha-edit": "Para editar esta páxina, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):",
 	"fancycaptcha-sendemail": "Para protexer o wiki contra o spam automático, introduza as palabras que aparecen na caixa ([[Special:Captcha/help|máis información]]):",
-	"fancycaptcha-reload-text": "Refrescar"
+	"fancycaptcha-reload-text": "Refrescar",
+	"apihelp-fancycaptchareload-description": "Novo FancyCaptcha.",
+	"apihelp-fancycaptchareload-example-1": "Novo FancyCaptcha"
 }

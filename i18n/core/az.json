@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vugar 1981"
+			"Vugar 1981",
+			"Dağlı95"
 		]
 	},
+	"captcha-label": "CAPTCHA",
 	"captchahelp-title": "CAPTCHA kömək"
 }

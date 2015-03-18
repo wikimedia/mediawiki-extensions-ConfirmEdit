@@ -346,7 +346,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			) )->isOK();
 		}
 
-		wfHttpError( 500, 'Internal Error', 'Requested bogus captcha image' );
+		wfHttpError( 400, 'Request Error', 'Requested bogus captcha image' );
 		return false;
 	}
 

@@ -121,5 +121,5 @@ $specialPageAliases['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
-	'Captcha' => array( '驗證碼' ),
+	'Captcha' => array( '驗證碼', '認證碼' ),
 );

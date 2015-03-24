@@ -15,7 +15,7 @@
 		]
 	},
 	"captcha-edit": "This message will be shown when editing if the wiki requires solving a captcha for editing.\n{{Related|ConfirmEdit-edit}}",
-	"captcha-desc": "{{desc|name=Confirm Edit|url=http://www.mediawiki.org/wiki/Extension:ConfirmEdit}}",
+	"captcha-desc": "{{desc|name=Confirm Edit|url=https://www.mediawiki.org/wiki/Extension:ConfirmEdit}}",
 	"captcha-label": "Label field for input field shown in forms",
 	"captcha-addurl": "The explanation of CAPTCHA shown to users trying to add new external links.\n{{Related|ConfirmEdit-addurl}}",
 	"captcha-badlogin": "The explanation of CAPTCHA shown to users failed three times to type in correct password.\n{{Related|ConfirmEdit-badlogin}}",

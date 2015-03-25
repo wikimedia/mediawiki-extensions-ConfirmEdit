@@ -319,6 +319,10 @@ class SimpleCaptcha {
 		$this->trigger = '';
 		$user = $context->getUser();
 
+		$flags = $context->getRequest()->wasPosted()
+			? Revision::READ_LATEST
+			: Revision::READ_NORMAL;
+
 		if ( $isContent ) {
 			if ( $content->getModel() == CONTENT_MODEL_WIKITEXT ) {
 				$newtext = $content->getNativeData();
@@ -378,7 +382,7 @@ class SimpleCaptcha {
 				}
 			} else {
 				// Get link changes in the slowest way known to man
-				$oldtext = $this->loadText( $title, $section );
+				$oldtext = $this->loadText( $title, $section, $flags );
 				$oldLinks = $this->findLinks( $title, $oldtext, $user );
 				$newLinks = $this->findLinks( $title, $newtext, $user );
 			}
@@ -400,7 +404,7 @@ class SimpleCaptcha {
 
 		if ( $newtext !== null && $wgCaptchaRegexes ) {
 			// Custom regex checks. Reuse $oldtext if set above.
-			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section );
+			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section, $flags );
 
 			foreach ( $wgCaptchaRegexes as $regex ) {
 				$newMatches = array();
@@ -862,11 +866,12 @@ class SimpleCaptcha {
 	 * Retrieve the current version of the page or section being edited...
 	 * @param Title $title
 	 * @param string $section
+	 * @param integer $flags Flags for Revision loading methods
 	 * @return string
 	 * @access private
 	 */
-	function loadText( $title, $section ) {
-		$rev = Revision::newFromTitle( $title, false, Revision::READ_LATEST );
+	function loadText( $title, $section, $flags = Revision::READ_LATEST ) {
+		$rev = Revision::newFromTitle( $title, false, $flags );
 		if ( is_null( $rev ) ) {
 			return "";
 		} else {

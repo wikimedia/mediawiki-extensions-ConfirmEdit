@@ -310,18 +310,22 @@ class SimpleCaptcha {
 	 * @param $section string
 	 * @param $context IContextSource
 	 * @param $isContent bool If true, $content is a Content object
+	 * @param $oldtext string The content of the revision prior to $content.  When 
+	 *  null this will be loaded from the database.
 	 * @return bool true if the captcha should run
 	 */
-	function shouldCheck( WikiPage $page, $content, $section, IContextSource $context, $isContent = false ) {
+	function shouldCheck( WikiPage $page, $content, $section, IContextSource $context, $isContent = false, $oldtext = null ) {
 		global $wgEmailAuthentication, $ceAllowConfirmedEmail, $wgCaptchaRegexes;
 
 		$title = $page->getTitle();
 		$this->trigger = '';
 		$user = $context->getUser();
 
-		$flags = $context->getRequest()->wasPosted()
-			? Revision::READ_LATEST
-			: Revision::READ_NORMAL;
+		if ( $oldtext === null ) {
+			$loadOldtextFlags = $context->getRequest()->wasPosted()
+				? Revision::READ_LATEST
+				: Revision::READ_NORMAL;
+		}
 
 		if ( $isContent ) {
 			if ( $content->getModel() == CONTENT_MODEL_WIKITEXT ) {
@@ -382,7 +386,7 @@ class SimpleCaptcha {
 				}
 			} else {
 				// Get link changes in the slowest way known to man
-				$oldtext = $this->loadText( $title, $section, $flags );
+				$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section, $loadOldtextFlags );
 				$oldLinks = $this->findLinks( $title, $oldtext, $user );
 				$newLinks = $this->findLinks( $title, $newtext, $user );
 			}
@@ -404,7 +408,7 @@ class SimpleCaptcha {
 
 		if ( $newtext !== null && $wgCaptchaRegexes ) {
 			// Custom regex checks. Reuse $oldtext if set above.
-			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section, $flags );
+			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section, $loadOldtextFlags );
 
 			foreach ( $wgCaptchaRegexes as $regex ) {
 				$newMatches = array();

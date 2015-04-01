@@ -31,7 +31,7 @@ $specialPageAliases['cdo'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
-	'Captcha' => array( 'Kodaİtimadi' ),
+	'Captcha' => array( 'Kodêİtımadi' ),
 );
 
 /** Esperanto (Esperanto) */

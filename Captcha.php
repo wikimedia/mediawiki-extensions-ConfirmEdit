@@ -3,6 +3,9 @@
 class SimpleCaptcha {
 	private $showEditCaptcha = false;
 
+	/** @var boolean|null Was the CAPTCHA already passed and if yes, with which result? */
+	private $captchaSolved = null;
+
 	function getCaptcha() {
 		$a = mt_rand( 0, 100 );
 		$b = mt_rand( 0, 10 );
@@ -803,15 +806,22 @@ class SimpleCaptcha {
 	function passCaptcha() {
 		global $wgRequest;
 
+		// Don't check the same CAPTCHA twice in one session, if the CAPTCHA was already checked - Bug T94276
+		if ( isset( $this->captchaSolved ) ) {
+			return $this->captchaSolved;
+		}
+
 		$info = $this->retrieveCaptcha( $wgRequest );
 		if ( $info ) {
 			if ( $this->keyMatch( $wgRequest->getVal( 'wpCaptchaWord' ), $info ) ) {
 				$this->log( "passed" );
 				$this->clearCaptcha( $info );
+				$this->captchaSolved = true;
 				return true;
 			} else {
 				$this->clearCaptcha( $info );
 				$this->log( "bad form input" );
+				$this->captchaSolved = false;
 				return false;
 			}
 		} else {

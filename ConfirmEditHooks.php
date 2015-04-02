@@ -125,7 +125,7 @@ class CaptchaSpecialPage extends UnlistedSpecialPage {
 				}
 			case "help":
 			default:
-				return $instance->showHelp( $this->getContext()->getOutput() );
+				return $instance->showHelp();
 		}
 	}
 }

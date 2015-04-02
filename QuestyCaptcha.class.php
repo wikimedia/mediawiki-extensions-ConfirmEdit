@@ -71,11 +71,12 @@ class QuestyCaptcha extends SimpleCaptcha {
 		return wfMessage( $name, $text )->isDisabled() ? wfMessage( 'questycaptcha-edit' )->text() : $text;
 	}
 
-	function showHelp( OutputPage $out ) {
-		$out->setPageTitle( wfMessage( 'captchahelp-title' )->text() );
-		$out->addWikiMsg( 'questycaptchahelp-text' );
+	function showHelp() {
+		global $wgOut;
+		$wgOut->setPageTitle( wfMessage( 'captchahelp-title' )->text() );
+		$wgOut->addWikiMsg( 'questycaptchahelp-text' );
 		if ( CaptchaStore::get()->cookiesNeeded() ) {
-			$out->addWikiMsg( 'captchahelp-cookies-needed' );
+			$wgOut->addWikiMsg( 'captchahelp-cookies-needed' );
 		}
 	}
 }

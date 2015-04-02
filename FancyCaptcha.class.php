@@ -327,11 +327,11 @@ class FancyCaptcha extends SimpleCaptcha {
 	}
 
 	function showImage() {
-		global $wgOut, $wgRequest;
+		global $wgOut;
 
 		$wgOut->disable();
 
-		$info = $this->retrieveCaptcha( $wgRequest );
+		$info = $this->retrieveCaptcha();
 		if ( $info ) {
 			$timestamp = new MWTimestamp();
 			$info['viewed'] = $timestamp->getTimestamp();
@@ -400,9 +400,9 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * Delete a solved captcha image, if $wgCaptchaDeleteOnSolve is true.
 	 */
 	function passCaptcha() {
-		global $wgCaptchaDeleteOnSolve, $wgRequest;
+		global $wgCaptchaDeleteOnSolve;
 
-		$info = $this->retrieveCaptcha( $wgRequest ); // get the captcha info before it gets deleted
+		$info = $this->retrieveCaptcha(); // get the captcha info before it gets deleted
 		$pass = parent::passCaptcha();
 
 		if ( $pass && $wgCaptchaDeleteOnSolve ) {

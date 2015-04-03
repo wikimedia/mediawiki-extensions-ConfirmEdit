@@ -383,8 +383,8 @@ class SimpleCaptcha {
 			} else {
 				// Get link changes in the slowest way known to man
 				$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section, $loadOldtextFlags );
-				$oldLinks = $this->findLinks( $title, $oldtext, $user );
-				$newLinks = $this->findLinks( $title, $newtext, $user );
+				$oldLinks = $this->findLinks( $title, $oldtext );
+				$newLinks = $this->findLinks( $title, $newtext );
 			}
 
 			$unknownLinks = array_filter( $newLinks, array( &$this, 'filterLink' ) );

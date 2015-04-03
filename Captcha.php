@@ -312,7 +312,8 @@ class SimpleCaptcha {
 		$this->trigger = '';
 
 		if ( $oldtext === null ) {
-			$loadOldtextFlags = $context->getRequest()->wasPosted()
+			global $wgRequest;
+			$loadOldtextFlags = $wgRequest->wasPosted()
 				? Revision::READ_LATEST
 				: Revision::READ_NORMAL;
 		}

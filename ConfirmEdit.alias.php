@@ -89,6 +89,11 @@ $specialPageAliases['kw'] = array(
 	'Captcha' => array( 'Captcha' ),
 );
 
+/** لوری (لوری) */
+$specialPageAliases['lrc'] = array(
+	'Captcha' => array( 'رازینه_کپچا' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'Captcha' => array( 'Captcha' ),

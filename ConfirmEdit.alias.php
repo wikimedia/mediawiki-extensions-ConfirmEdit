@@ -24,6 +24,11 @@ $specialPageAliases['arz'] = array(
 	'Captcha' => array( 'كابتشا' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'Captcha' => array( 'گپچا' ),
+);
+
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
 $specialPageAliases['cdo'] = array(
 	'Captcha' => array( '驗證碼' ),

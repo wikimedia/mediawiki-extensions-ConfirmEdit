@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Logger\LoggerFactory;
+
 class SimpleCaptcha {
 	/** @var boolean|null Was the CAPTCHA already passed and if yes, with which result? */
 	private $captchaSolved = null;
@@ -144,6 +146,10 @@ class SimpleCaptcha {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return true;
 			}
+			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha shown on account creation', array(
+				'event' => 'captcha.display',
+				'type' => 'accountcreation',
+			) );
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
 				$this->getForm( $wgOut ) .
@@ -169,6 +175,10 @@ class SimpleCaptcha {
 		if ( $this->isBadLoginTriggered() ) {
 			global $wgOut;
 
+			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha shown on login', array(
+				'event' => 'captcha.display',
+				'type' => 'login',
+			) );
 			$this->action = 'badlogin';
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'badlogin' ) ) .
@@ -624,7 +634,13 @@ class SimpleCaptcha {
 	function confirmUserCreate( $u, &$message, &$status = null ) {
 		if ( $this->needCreateAccountCaptcha() ) {
 			$this->trigger = "new account '" . $u->getName() . "'";
-			if ( !$this->passCaptchaLimited() ) {
+			$success = $this->passCaptchaLimited();
+			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha submitted on account creation', array(
+				'event' => 'captcha.submit',
+				'type' => 'accountcreation',
+				'successful' => $success,
+			) );
+			if ( !$success ) {
 				// For older MediaWiki
 				$message = wfMessage( 'captcha-createaccount-fail' )->text();
 				// For MediaWiki 1.23+
@@ -674,7 +690,13 @@ class SimpleCaptcha {
 				return true;
 
 			$this->trigger = "post-badlogin login '" . $u->getName() . "'";
-			if ( !$this->passCaptchaLimited() ) {
+			$success = $this->passCaptchaLimited();
+			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha submitted on login', array(
+				'event' => 'captcha.submit',
+				'type' => 'login',
+				'successful' => $success,
+			) );
+			if ( !$success ) {
 				// Emulate a bad-password return to confuse the shit out of attackers
 				$retval = LoginForm::WRONG_PASS;
 				return false;
@@ -957,6 +979,11 @@ class SimpleCaptcha {
 					if ( $warning['message'] === 'captcha-createaccount-fail' ) {
 						$this->addCaptchaAPI( $result );
 						$result['result'] = 'NeedCaptcha';
+
+						LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha data added in account creation API', array(
+							'event' => 'captcha.display',
+							'type' => 'accountcreation',
+						) );
 					}
 				}
 			}

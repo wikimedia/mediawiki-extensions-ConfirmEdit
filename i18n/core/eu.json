@@ -5,11 +5,13 @@
 			"BrokenArrow",
 			"Kobazulo",
 			"Pi",
-			"Xabier Armendaritz"
+			"Xabier Armendaritz",
+			"Subi"
 		]
 	},
 	"captcha-edit": "Orri hau editatzeko, ebatz ezazu beheko batuketa erraz hau, eta idatz ezazu erantzuna kutxan ([[Special:Captcha/help|argibide gehiago]]):",
 	"captcha-desc": "CAPTCHA teknika erabiltzen ditu, spametik eta pasahitz-asmatzeetatik babesteko",
+	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "Zure aldaketan URL lotura berriak daude; spam-a saihesteko, jarraian dagoen irudiko hitzak idaztea beharrezkoa da:<br /> ([[Special:Captcha/help|Zer da hau?]])",
 	"captcha-createaccount": "Spam-a saihesteko, mesedez, irudian agertzen den hizki edo zenbaki kodea, beheko laukian idatzi zure kontua sortzeko:<br /> ([[Special:Captcha/help|Zer da hau?]])",
 	"captcha-createaccount-fail": "CAPTCHA kodea falta da, edo desegokia da.",

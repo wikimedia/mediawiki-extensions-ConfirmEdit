@@ -768,7 +768,7 @@ class SimpleCaptcha {
 	 *
 	 * @see self::passCaptcha()
 	 */
-	private function passCaptchaLimited() {
+	public function passCaptchaLimited() {
 		global $wgUser;
 
 		// don't increase pingLimiter here, just check, if CAPTCHA limit exceeded

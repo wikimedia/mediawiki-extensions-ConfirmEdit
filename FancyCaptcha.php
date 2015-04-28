@@ -61,6 +61,7 @@ $wgExtensionMessagesFiles['FancyCaptcha'] = $dir . '/FancyCaptcha.i18n.php';
 $wgAutoloadClasses['FancyCaptcha'] = $dir . '/FancyCaptcha.class.php';
 
 $wgResourceModules['ext.confirmEdit.fancyCaptcha.styles'] = array(
+	'position' => 'top',
 	'localBasePath' => $dir . '/resources',
 	'remoteExtPath' => 'ConfirmEdit/resources',
 	'targets' => array( 'mobile', 'desktop' ),

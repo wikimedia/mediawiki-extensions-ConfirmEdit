@@ -3,7 +3,8 @@
 		"authors": [
 			"Melos",
 			"Santu",
-			"Gmelfi"
+			"Gmelfi",
+			"Pippinu"
 		]
 	},
 	"captcha-edit": "Pi mudificaru la pàggina è nicissàriu arisòrviri lu sèmprici càlculu prisintati di sècutu e nziriri lu risurtatu nnâ casedda\n([[Special:Captcha/help|chiossai nfurmazzioni]]):",
@@ -12,7 +13,7 @@
 	"captcha-addurl": "La mudìfica addumannata junci novi lijami di fora a la pàggina; pi pricauzzioni contr'a lu nzirimentu autumàticu di spam, è nicissarii arisòrviri lu sèmprici càlculu prisintatu di sècutu e nziriri lu risurtatu nnâ casedda ([[Special:Captcha/help|chiossai nfurmazzioni]]):",
 	"captcha-badlogin": "Pi pricauzzioni contr'a li tintativi di furzatura autumàtica dâ password, è nicussàriu arisòrviri lu sèmprici càlculu prusuntatu di sècutu e nziriri lu risurtatu nnâ casedda ([[Special:Captcha/help|chiossai nfurmazzioni]]):",
 	"captcha-createaccount": "Pi pricauzzioni contr'a li  tintativi di criazzioni autumàtica di l'account, pi riggistràrisi è nicissàriu arisòrviri lu sèmprici càlculu prisintatu di sècutu e nziriri lu risurtatu nnâ casedda ([[Special:Captcha/help|chiossai nfurmazzioni]]):",
-	"captcha-createaccount-fail": "Còdici di virìfica sbagghiatu o ca manca.",
+	"captcha-createaccount-fail": "CAPTCHA sbagghiatu o ca manca.",
 	"captcha-create": "Pi criari la pàggina è nicissàriu arisòrviri lu sèmprici càlculu prisintatu di sècutu e nziriri lu risurtatu nnâ casedda:<br />\n([[Special:Captcha/help|chiossai nfurmazzioni]]):",
 	"captchahelp-title": "Chi cos'è lu captcha?",
 	"captchahelp-cookies-needed": "È nicissàriu abbilitari li cookie supra lu browser pi jiri avanti",

@@ -598,6 +598,21 @@ class SimpleCaptcha {
 			# The CAPTCHA was already checked and approved
 			return true;
 		}
+		if ( !$context->canUseWikiPage() ) {
+			// we check WikiPage only
+			// try to get an appropriate title for this page
+			$title = $context->getTitle();
+			if ( $title instanceof Title ) {
+				$title = $title->getFullText();
+			} else {
+				// otherwise it's an unknown page where this function is called from
+				$title = 'unknown';
+			}
+			// log this error, it could be a problem in another extension, edits should always have a WikiPage if
+			// they go through EditFilterMergedContent.
+			wfDebug( __METHOD__ . ': Skipped ConfirmEdit check: No WikiPage for title ' . $title );
+			return true;
+		}
 		$page = $context->getWikiPage();
 		if ( !$this->doConfirmEdit( $page, $content, false, true ) ) {
 			if ( $legacyMode ) {

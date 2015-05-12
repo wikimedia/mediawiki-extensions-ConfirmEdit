@@ -19,7 +19,7 @@ $specialPageAliases['ar'] = array(
 	'Captcha' => array( 'كابتشا' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'Captcha' => array( 'كابتشا' ),
 );
@@ -94,7 +94,7 @@ $specialPageAliases['kw'] = array(
 	'Captcha' => array( 'Captcha' ),
 );
 
-/** لوری (لوری) */
+/** لوری مینجایی (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
 	'Captcha' => array( 'رازینه_کپچا' ),
 );

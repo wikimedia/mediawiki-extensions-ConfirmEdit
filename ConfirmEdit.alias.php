@@ -94,7 +94,7 @@ $specialPageAliases['kw'] = array(
 	'Captcha' => array( 'Captcha' ),
 );
 
-/** لوری مینجایی (لوری مینجایی) */
+/** Northern Luri (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
 	'Captcha' => array( 'رازینه_کپچا' ),
 );

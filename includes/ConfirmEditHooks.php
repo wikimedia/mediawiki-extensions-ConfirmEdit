@@ -90,7 +90,7 @@ class ConfirmEditHooks {
 	 */
 	public static function onUnitTestsList( array &$files ) {
 		// @codeCoverageIgnoreStart
-		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/' );
+		$directoryIterator = new RecursiveDirectoryIterator( dirname( __DIR__ ) . '/tests/' );
 
 		/**
 		 * @var SplFileInfo $fileInfo
@@ -106,26 +106,27 @@ class ConfirmEditHooks {
 		return true;
 		// @codeCoverageIgnoreEnd
 	}
-}
 
-class CaptchaSpecialPage extends UnlistedSpecialPage {
-	public function __construct() {
-		parent::__construct( 'Captcha' );
-	}
+	/**
+	 * Set up $wgWhitelistRead
+	 */
+	function confirmEditSetup() {
+		global $wgGroupPermissions, $wgCaptchaTriggers, $wgWikimediaJenkinsCI;
 
-	function execute( $par ) {
-		$this->setHeaders();
+		// There is no need to run (core) tests with enabled ConfirmEdit - bug T44145
+		if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {
+			$wgCaptchaTriggers = false;
+		}
 
-		$instance = ConfirmEditHooks::getInstance();
-
-		switch( $par ) {
-			case "image":
-				if ( method_exists( $instance, 'showImage' ) ) {
-					return $instance->showImage();
-				}
-			case "help":
-			default:
-				return $instance->showHelp();
+		if ( !$wgGroupPermissions['*']['read'] && $wgCaptchaTriggers['badlogin'] ) {
+			// We need to ensure that the captcha interface is accessible
+			// so that unauthenticated users can actually get in after a
+			// mistaken password typing.
+			global $wgWhitelistRead;
+			$image = SpecialPage::getTitleFor( 'Captcha', 'image' );
+			$help = SpecialPage::getTitleFor( 'Captcha', 'help' );
+			$wgWhitelistRead[] = $image->getPrefixedText();
+			$wgWhitelistRead[] = $help->getPrefixedText();
 		}
 	}
 }

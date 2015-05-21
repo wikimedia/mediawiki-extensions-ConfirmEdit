@@ -37,7 +37,6 @@ if ( !defined( 'MW_SUPPORTS_CONTENTHANDLER' ) ) {
 	throw Exception( 'This version of ConfirmEdit requires MediaWiki 1.21 or later' );
 }
 
-$wgExtensionFunctions[] = 'confirmEditSetup';
 $wgExtensionCredits['antispam'][] = array(
 	'path' => __FILE__,
 	'name' => 'ConfirmEdit',
@@ -201,32 +200,11 @@ $wgHooks['AddNewAccountApiForm'][] = 'ConfirmEditHooks::addNewAccountApiForm';
 $wgHooks['AddNewAccountApiResult'][] = 'ConfirmEditHooks::addNewAccountApiResult';
 $wgHooks['UnitTestsList'][] = 'ConfirmEditHooks::onUnitTestsList';
 
-$wgAutoloadClasses['ConfirmEditHooks'] = __DIR__ . '/ConfirmEditHooks.php';
-$wgAutoloadClasses['SimpleCaptcha'] = __DIR__ . '/Captcha.php';
-$wgAutoloadClasses['CaptchaStore'] = __DIR__ . '/CaptchaStore.php';
-$wgAutoloadClasses['CaptchaSessionStore'] = __DIR__ . '/CaptchaStore.php';
-$wgAutoloadClasses['CaptchaCacheStore'] = __DIR__ . '/CaptchaStore.php';
-$wgAutoloadClasses['CaptchaSpecialPage'] = __DIR__ . '/ConfirmEditHooks.php';
+$wgExtensionFunctions[] = 'ConfirmEditHooks::confirmEditSetup';
 
-/**
- * Set up $wgWhitelistRead
- */
-function confirmEditSetup() {
-	global $wgGroupPermissions, $wgCaptchaTriggers, $wgWikimediaJenkinsCI;
-
-	// There is no need to run (core) tests with enabled ConfirmEdit - bug T44145
-	if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {
-		$wgCaptchaTriggers = false;
-	}
-
-	if ( !$wgGroupPermissions['*']['read'] && $wgCaptchaTriggers['badlogin'] ) {
-		// We need to ensure that the captcha interface is accessible
-		// so that unauthenticated users can actually get in after a
-		// mistaken password typing.
-		global $wgWhitelistRead;
-		$image = SpecialPage::getTitleFor( 'Captcha', 'image' );
-		$help = SpecialPage::getTitleFor( 'Captcha', 'help' );
-		$wgWhitelistRead[] = $image->getPrefixedText();
-		$wgWhitelistRead[] = $help->getPrefixedText();
-	}
-}
+$wgAutoloadClasses['ConfirmEditHooks'] = __DIR__ . '/includes/ConfirmEditHooks.php';
+$wgAutoloadClasses['SimpleCaptcha'] = __DIR__ . '/SimpleCaptcha/Captcha.php';
+$wgAutoloadClasses['CaptchaStore'] = __DIR__ . '/includes/CaptchaStore.php';
+$wgAutoloadClasses['CaptchaSessionStore'] = __DIR__ . '/includes/CaptchaStore.php';
+$wgAutoloadClasses['CaptchaCacheStore'] = __DIR__ . '/includes/CaptchaStore.php';
+$wgAutoloadClasses['CaptchaSpecialPage'] = __DIR__ . '/includes/specials/SpecialCaptcha.php';

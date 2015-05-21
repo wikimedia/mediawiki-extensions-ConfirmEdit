@@ -177,10 +177,8 @@ $wgCaptchaRegexes = array();
 /** Register special page */
 $wgSpecialPages['Captcha'] = 'CaptchaSpecialPage';
 
-$wgConfirmEditIP = __DIR__;
-$wgMessagesDirs['ConfirmEdit'] = __DIR__ . '/i18n/core';
-$wgExtensionMessagesFiles['ConfirmEdit'] = "$wgConfirmEditIP/ConfirmEdit.i18n.php";
-$wgExtensionMessagesFiles['ConfirmEditAlias'] = "$wgConfirmEditIP/ConfirmEdit.alias.php";
+$wgMessagesDirs['ConfirmEdit'] = __DIR__ . '/i18n';
+$wgExtensionMessagesFiles['ConfirmEditAlias'] = __DIR__ . "/ConfirmEdit.alias.php";
 
 $wgHooks['EditPageBeforeEditButtons'][] = 'ConfirmEditHooks::confirmEditPage';
 $wgHooks['UserCreateForm'][] = 'ConfirmEditHooks::injectUserCreate';
@@ -203,12 +201,12 @@ $wgHooks['AddNewAccountApiForm'][] = 'ConfirmEditHooks::addNewAccountApiForm';
 $wgHooks['AddNewAccountApiResult'][] = 'ConfirmEditHooks::addNewAccountApiResult';
 $wgHooks['UnitTestsList'][] = 'ConfirmEditHooks::onUnitTestsList';
 
-$wgAutoloadClasses['ConfirmEditHooks'] = "$wgConfirmEditIP/ConfirmEditHooks.php";
-$wgAutoloadClasses['SimpleCaptcha'] = "$wgConfirmEditIP/Captcha.php";
-$wgAutoloadClasses['CaptchaStore'] = "$wgConfirmEditIP/CaptchaStore.php";
-$wgAutoloadClasses['CaptchaSessionStore'] = "$wgConfirmEditIP/CaptchaStore.php";
-$wgAutoloadClasses['CaptchaCacheStore'] = "$wgConfirmEditIP/CaptchaStore.php";
-$wgAutoloadClasses['CaptchaSpecialPage'] = "$wgConfirmEditIP/ConfirmEditHooks.php";
+$wgAutoloadClasses['ConfirmEditHooks'] = __DIR__ . '/ConfirmEditHooks.php';
+$wgAutoloadClasses['SimpleCaptcha'] = __DIR__ . '/Captcha.php';
+$wgAutoloadClasses['CaptchaStore'] = __DIR__ . '/CaptchaStore.php';
+$wgAutoloadClasses['CaptchaSessionStore'] = __DIR__ . '/CaptchaStore.php';
+$wgAutoloadClasses['CaptchaCacheStore'] = __DIR__ . '/CaptchaStore.php';
+$wgAutoloadClasses['CaptchaSpecialPage'] = __DIR__ . '/ConfirmEditHooks.php';
 
 /**
  * Set up $wgWhitelistRead

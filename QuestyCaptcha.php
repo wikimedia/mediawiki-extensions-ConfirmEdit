@@ -43,6 +43,6 @@ $wgCaptchaQuestions = array(
 );
 */
 
-$wgMessagesDirs['QuestyCaptcha'] = __DIR__ . '/i18n/questy';
+$wgMessagesDirs['QuestyCaptcha'] = __DIR__ . '/QuestyCaptcha/i18n';
 $wgExtensionMessagesFiles['QuestyCaptcha'] = __DIR__ . '/QuestyCaptcha.i18n.php';
 $wgAutoloadClasses['QuestyCaptcha'] = __DIR__ . '/QuestyCaptcha.class.php';

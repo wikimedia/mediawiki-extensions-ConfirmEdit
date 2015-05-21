@@ -29,8 +29,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
-$dir = __DIR__;
-require_once $dir . '/ConfirmEdit.php';
+require_once __DIR__ . '/ConfirmEdit.php';
 $wgCaptchaClass = 'FancyCaptcha';
 
 /**
@@ -56,20 +55,20 @@ $wgCaptchaSecret = "CHANGE_THIS_SECRET!";
  */
 $wgCaptchaDeleteOnSolve = false;
 
-$wgMessagesDirs['FancyCaptcha'] = __DIR__ . '/i18n/fancy';
-$wgExtensionMessagesFiles['FancyCaptcha'] = $dir . '/FancyCaptcha.i18n.php';
-$wgAutoloadClasses['FancyCaptcha'] = $dir . '/FancyCaptcha.class.php';
+$wgMessagesDirs['FancyCaptcha'] = __DIR__ . '/FancyCaptcha/i18n';
+$wgExtensionMessagesFiles['FancyCaptcha'] = __DIR__ . '/FancyCaptcha.i18n.php';
+$wgAutoloadClasses['FancyCaptcha'] = __DIR__ . '/FancyCaptcha.class.php';
 
 $wgResourceModules['ext.confirmEdit.fancyCaptcha.styles'] = array(
 	'position' => 'top',
-	'localBasePath' => $dir . '/resources',
+	'localBasePath' => __DIR__ . '/resources',
 	'remoteExtPath' => 'ConfirmEdit/resources',
 	'targets' => array( 'mobile', 'desktop' ),
 	'styles' => 'ext.confirmEdit.fancyCaptcha.css',
 );
 
 $wgResourceModules['ext.confirmEdit.fancyCaptcha'] = array(
-	'localBasePath' => $dir . '/resources',
+	'localBasePath' => __DIR__ . '/resources',
 	'remoteExtPath' => 'ConfirmEdit/resources',
 	'scripts' => 'ext.confirmEdit.fancyCaptcha.js',
 	'dependencies' => 'mediawiki.api',
@@ -78,12 +77,12 @@ $wgResourceModules['ext.confirmEdit.fancyCaptcha'] = array(
 // FIXME: remove, add mobile target to ext.confirmEdit.fancyCaptcha and update
 // MobileFrontend accordingly when bug 57629 is resolved
 $wgResourceModules['ext.confirmEdit.fancyCaptchaMobile'] = array(
-	'localBasePath' => $dir . '/resources',
+	'localBasePath' => __DIR__ . '/resources',
 	'remoteExtPath' => 'ConfirmEdit/resources',
 	'scripts' => 'ext.confirmEdit.fancyCaptcha.js',
 	'targets' => array( 'mobile', 'desktop' ),
 	'dependencies' => 'mobile.startup',
 );
 
-$wgAutoloadClasses['ApiFancyCaptchaReload'] = $dir . '/ApiFancyCaptchaReload.php';
+$wgAutoloadClasses['ApiFancyCaptchaReload'] = __DIR__ . '/ApiFancyCaptchaReload.php';
 $wgAPIModules['fancycaptchareload'] = 'ApiFancyCaptchaReload';

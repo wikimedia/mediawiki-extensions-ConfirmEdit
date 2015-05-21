@@ -35,7 +35,7 @@ class ConfirmEditHooks {
 	static function showEditFormFields( &$editPage, &$out ) {
 		return self::getInstance()->showEditFormFields( $editPage, $out );
 	}
-	
+
 	static function addNewAccountApiForm( $apiModule, $loginForm ) {
 		return self::getInstance()->addNewAccountApiForm( $apiModule, $loginForm );
 	}
@@ -110,7 +110,7 @@ class ConfirmEditHooks {
 	/**
 	 * Set up $wgWhitelistRead
 	 */
-	function confirmEditSetup() {
+	public static function confirmEditSetup() {
 		global $wgGroupPermissions, $wgCaptchaTriggers, $wgWikimediaJenkinsCI;
 
 		// There is no need to run (core) tests with enabled ConfirmEdit - bug T44145

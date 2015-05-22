@@ -90,7 +90,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * Insert the captcha prompt into the edit form.
 	 */
 	function getForm() {
-		global $wgOut, $wgExtensionAssetsPath, $wgEnableAPI;
+		global $wgOut, $wgEnableAPI;
 
 		// Uses addModuleStyles so it is loaded when JS is disabled.
 		$wgOut->addModuleStyles( 'ext.confirmEdit.fancyCaptcha.styles' );

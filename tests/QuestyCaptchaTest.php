@@ -14,7 +14,7 @@ class QuestyCaptchaTest extends MediaWikiTestCase {
 		$this->setMwGlobals( 'wgCaptchaQuestions', $config );
 		$this->mergeMwGlobalArrayValue(
 			'wgAutoloadClasses',
-			array( 'QuestyCaptcha' => __DIR__ . '/../QuestyCaptcha.class.php' )
+			array( 'QuestyCaptcha' => __DIR__ . '/../QuestyCaptcha/QuestyCaptcha.class.php' )
 		);
 
 		$qc = new QuestyCaptcha();

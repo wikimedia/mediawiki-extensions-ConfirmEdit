@@ -1,21 +1,13 @@
 <?php
-
-/**
- * Captcha class using simple sums and the math renderer
- * Not brilliant, but enough to dissuade casual spam bots
- *
- * @file
- * @ingroup Extensions
- * @author Rob Church <robchur@gmail.com>
- * @copyright © 2006 Rob Church
- * @licence GNU General Public Licence 2.0
- */
-
-if ( !defined( 'MEDIAWIKI' ) ) {
-	exit;
+if ( function_exists( 'wfLoadExtension' ) ) {
+	wfLoadExtension( 'ConfirmEdit/MathCaptcha' );
+	// Keep i18n globals so mergeMessageFileList.php doesn't break
+	$wgMessagesDirs['MathCaptcha'] = __DIR__ . '/i18n';
+	/* wfWarn(
+		'Deprecated PHP entry point used for MathCaptcha extension. Please use wfLoadExtension instead, ' .
+		'see https://www.mediawiki.org/wiki/Extension_registration for more details.'
+	); */
+	return;
+} else {
+	die( 'This version of the MathCaptcha extension requires MediaWiki 1.25+' );
 }
-
-require_once dirname( __DIR__ ) . '/ConfirmEdit.php';
-$wgCaptchaClass = 'MathCaptcha';
-
-$wgAutoloadClasses['MathCaptcha'] = __DIR__ . '/MathCaptcha.class.php';

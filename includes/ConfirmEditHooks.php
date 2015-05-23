@@ -139,4 +139,11 @@ class ConfirmEditHooks {
 			$wgCaptchaDirectory = "$wgUploadDirectory/captcha";
 		}
 	}
+	/**
+	 * Callback for extension.json of ReCaptcha to require the recaptcha library php file.
+	 * FIXME: This should be done in a better way, e.g. only load the libraray, if really needed.
+	 */
+	public static function onReCaptchaSetup() {
+		require_once( "ReCaptcha/recaptchalib.php" );
+	}
 }

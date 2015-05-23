@@ -129,4 +129,14 @@ class ConfirmEditHooks {
 			$wgWhitelistRead[] = $help->getPrefixedText();
 		}
 	}
+	/**
+	 * Callback for extension.json of FancyCaptcha to set a default captcha directory,
+	 * which depends on wgUploadDirectory
+	 */
+	public static function onFancyCaptchaSetup() {
+		global $wgCaptchaDirectory, $wgUploadDirectory;
+		if ( !$wgCaptchaDirectory ) {
+			$wgCaptchaDirectory = "$wgUploadDirectory/captcha";
+		}
+	}
 }

@@ -34,7 +34,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 if ( !defined( 'MW_SUPPORTS_CONTENTHANDLER' ) ) {
-	throw Exception( 'This version of ConfirmEdit requires MediaWiki 1.21 or later' );
+	throw new Exception( 'This version of ConfirmEdit requires MediaWiki 1.21 or later' );
 }
 
 $wgExtensionCredits['antispam'][] = array(

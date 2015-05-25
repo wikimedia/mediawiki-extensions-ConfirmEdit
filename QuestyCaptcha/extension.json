@@ -10,6 +10,6 @@
 	},
 	"config": {
 		"CaptchaClass": "QuestyCaptcha",
-		"CaptchaQuestions": [],
+		"CaptchaQuestions": []
 	}
 }

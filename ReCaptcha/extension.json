@@ -17,5 +17,5 @@
 		"ReCaptchaPrivateKey": "",
 		"ReCaptchaTheme": "red"
 	},
-	"callback": "ConfirmEditHooks::onReCaptchaSetup",
+	"callback": "ConfirmEditHooks::onReCaptchaSetup"
 }

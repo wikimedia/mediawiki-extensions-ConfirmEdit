@@ -96,7 +96,7 @@ $specialPageAliases['kw'] = array(
 
 /** Northern Luri (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
-	'Captcha' => array( 'رازینه_کپچا' ),
+	'Captcha' => array( 'رازینە_کأپچا' ),
 );
 
 /** Macedonian (македонски) */

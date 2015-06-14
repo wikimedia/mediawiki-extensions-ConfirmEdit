@@ -4,6 +4,7 @@
 			"Purodha"
 		]
 	},
+	"questycaptcha-desc": "Dä <span style=\"text-transform:uppercase\" title=\"Jät zom Ennjävve, öm ze zeije, dadd ene Minsch vör em Kompjuhter sez\">Kaptscha</span>-Jennerahtor för et Zohsazprojramm  Confirm Edit",
 	"questycaptcha-addurl": "Ding Änderung säz neu Lengks noh ußerhallef vum Wiki.\nÖm uns jäje der automattesch dobeijedonn <i lang=\"en\">SPAM</i> ze hellefe,\nbes esu joot un donn di Frooch be_anntwoode, di heh dronger shteiht.\n([[Special:Captcha/help|Mieh Enfommazjuhne]])",
 	"questycaptcha-badlogin": "Öm uns jäje et automattesche Paßwootknacke ze hellefe,\nbes esu joot un donn di Frooch be_anntwoode, di heh dronge shteiht.\n([[Special:Captcha/help|Mieh Enfommazjuhne]])",
 	"questycaptcha-createaccount": "Öm uns jäje et maßesch automattesch neu Metmaacher Aanlääje ze hellefe,\nbes esu joot un donn di Frooch be_anntwoode, di heh dronger shteiht.\n([[Special:Captcha/help|Mieh Enfommazjuhne]])",

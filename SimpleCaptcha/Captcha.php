@@ -289,6 +289,18 @@ class SimpleCaptcha {
 	 * @return bool true if the captcha should run
 	 */
 	function shouldCheck( WikiPage $page, $content, $section, $isContent = false, $oldtext = null ) {
+		global $wgUser, $ceAllowConfirmedEmail;
+
+		if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
+			return false;
+		} elseif ( $this->isIPWhitelisted() ) {
+			return false;
+		} elseif ( $ceAllowConfirmedEmail && $wgUser->isEmailConfirmed() ) {
+			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );
+			return false;
+		}
+
 		$title = $page->getTitle();
 		$this->trigger = '';
 
@@ -309,22 +321,6 @@ class SimpleCaptcha {
 		} else {
 			$newtext = $content;
 			$isEmpty = $content === '';
-		}
-
-		global $wgUser;
-		if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
-			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
-			return false;
-		}
-		if ( $this->isIPWhitelisted() )
-			return false;
-
-
-		global $wgEmailAuthentication, $ceAllowConfirmedEmail;
-		if ( $wgEmailAuthentication && $ceAllowConfirmedEmail &&
-			$wgUser->isEmailConfirmed() ) {
-			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );
-			return false;
 		}
 
 		if ( $this->captchaTriggers( $title, 'edit' ) ) {

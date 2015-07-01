@@ -71,7 +71,7 @@ class SimpleCaptcha {
 		if ( $this->action !== 'edit' ) {
 			unset( $page->ConfirmEdit_ActivateCaptcha );
 			$out->addWikiText( $this->getMessage( $this->action ) );
-			$out->addHTML( $this->getForm() );
+			$out->addHTML( $this->getForm( $out ) );
 		}
 	}
 
@@ -284,7 +284,7 @@ class SimpleCaptcha {
 	 * @param $content Content|string
 	 * @param $section string
 	 * @param $isContent bool If true, $content is a Content object
-	 * @param $oldtext string The content of the revision prior to $content.  When 
+	 * @param $oldtext string The content of the revision prior to $content.  When
 	 *  null this will be loaded from the database.
 	 * @return bool true if the captcha should run
 	 */

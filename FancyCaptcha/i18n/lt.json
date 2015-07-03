@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Eitvys200",
-			"Hugo.arg"
+			"Hugo.arg",
+			"Albertas"
 		]
 	},
 	"fancycaptcha-createaccount": "Siekiant apsaugoti wiki nuo automatinių paskyrų kūrimo, prašome jus įvesti žodžius, matomus rėmelyje apačioje ([[Special:Captcha/help|plačiau...]]):",
-	"fancycaptcha-reload-text": "Atnaujinti"
+	"fancycaptcha-reload-text": "Atnaujinti",
+	"apihelp-fancycaptchareload-description": "Gauti naują FancyCaptcha.",
+	"apihelp-fancycaptchareload-example-1": "Gauti naują FancyCaptcha"
 }

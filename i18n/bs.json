@@ -3,13 +3,14 @@
 		"authors": [
 			"BrokenArrow",
 			"CERminator",
-			"Palapa"
+			"Palapa",
+			"Semso98"
 		]
 	},
 	"captcha-edit": "Vaša izmjena uključuje nove URL linkove; kao zaštita od automatizovanog vandalizma, moraćete da izračunate zadatak ispod i upišete odgovor u prozor:\n([[Special:Captcha/help|Šta je ovo?]]):",
 	"captcha-desc": "Omogućava CAPTCHA tehnike za zaštitu protiv spama i probijanja šifre",
 	"captcha-label": "CAPTCHA",
-	"captcha-addurl": "Vaša izmjena uključuje nove URL linkove; kao zaštita od automatizovanog vandalizma, moraćete da upišete rezultat prikazane sume u okvir ([[Special:Captcha/help|Šta je ovo?]]):",
+	"captcha-addurl": "Vaša izmjena uključuje nove vanjske linkove.\nKako bi zaštitili wiki od automatizovanog vandalizma, molimo vas da ispod riješite jednostavan zbir i upišete rezultat u kutiju kako bi sačuvali izmjenu ([[Special:Captcha/help|više informacija]]):",
 	"captcha-badlogin": "Da bi ste pomogli protiv automatskog probijanja šifre, molimo riješite jednostavan zadatak sabiranja ispod i unesite rezultat u kutiju ([[Special:Captcha/help|više informacija]]):",
 	"captcha-createaccount": "Kao zaštita od automatizovanog vandalizma, moraćete da ukucate rezultat sume u okvir ispod da biste registrovali nalog:\n<br />([[Special:Captcha/help|Šta je ovo?]])",
 	"captcha-createaccount-fail": "Netačan unos ili nedostajući CAPTCHA.",

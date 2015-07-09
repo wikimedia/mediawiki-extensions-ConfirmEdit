@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Sporeunai"
+			"Sporeunai",
+			"Macofe"
 		]
 	},
-	"recaptcha-edit": "Para ayudar a protegernos contra el spam de ediciones automáticas, seleccione sólo las fotos de gatos en el cuadro siguiente:",
-	"recaptcha-addurl": "La edición incluye nuevos enlaces externos. Para proteger la wiki contra el spam automatizado, le rogamos que escriba las dos palabras que ves en el cuadro siguiente:",
+	"recaptcha-edit": "Para proteger el wiki contra el spam automatizado, te pedimos que escribas las dos palabras que ves en el cuadro siguiente:",
+	"recaptcha-addurl": "Tu edición incluye enlaces externos nuevos. Para proteger el wiki contra el spam automatizado, te pedimos que escribas las dos palabras que ves en el cuadro siguiente:",
 	"recaptcha-badlogin": "Para proteger el wiki contra el robo automatizado de contraseñas, te pedimos por favor que selecciones únicamente las fotos de gatos en el cuadro siguiente:",
 	"recaptcha-createaccount": "Para protegernos de la creación automática de cuentas, escribe las dos palabras que ves en el cuadro de abajo:",
 	"recaptcha-createaccount-fail": "ReCAPTCHA incorrecto o sin responder.",

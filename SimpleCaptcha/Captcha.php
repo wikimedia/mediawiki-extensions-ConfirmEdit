@@ -86,7 +86,7 @@ class SimpleCaptcha {
 		$page = $editPage->getArticle()->getPage();
 		$out = $context->getOutput();
 		if ( isset( $page->ConfirmEdit_ActivateCaptcha ) ||
-			$this->shouldCheck( $page, '', '', false )
+			$this->shouldCheck( $page, '', '', $context )
 		) {
 			$out->addWikiText( $this->getMessage( $this->action ) );
 			$out->addHTML( $this->getForm( $out ) );
@@ -293,20 +293,29 @@ class SimpleCaptcha {
 	 * @param WikiPage $page
 	 * @param $content Content|string
 	 * @param $section string
-	 * @param $isContent bool If true, $content is a Content object
+	 * @param IContextSource $context
 	 * @param $oldtext string The content of the revision prior to $content.  When
 	 *  null this will be loaded from the database.
 	 * @return bool true if the captcha should run
 	 */
-	function shouldCheck( WikiPage $page, $content, $section, $isContent = false, $oldtext = null ) {
-		global $wgUser, $ceAllowConfirmedEmail;
+	function shouldCheck( WikiPage $page, $content, $section, $context, $oldtext = null ) {
+		global $ceAllowConfirmedEmail;
 
-		if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+		if ( !$context instanceof IContextSource ) {
+			$context = RequestContext::getMain();
+		}
+
+		$request = $context->getRequest();
+		$user = $context->getUser();
+
+		// captcha check exceptions, which will return always false
+		if ( $user->isAllowed( 'skipcaptcha' ) ) {
 			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
 			return false;
 		} elseif ( $this->isIPWhitelisted() ) {
+			wfDebug( "ConfirmEdit: user IP is whitelisted" );
 			return false;
-		} elseif ( $ceAllowConfirmedEmail && $wgUser->isEmailConfirmed() ) {
+		} elseif ( $ceAllowConfirmedEmail && $user->isEmailConfirmed() ) {
 			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );
 			return false;
 		}
@@ -314,14 +323,7 @@ class SimpleCaptcha {
 		$title = $page->getTitle();
 		$this->trigger = '';
 
-		if ( $oldtext === null ) {
-			global $wgRequest;
-			$loadOldtextFlags = $wgRequest->wasPosted()
-				? Revision::READ_LATEST
-				: Revision::READ_NORMAL;
-		}
-
-		if ( $isContent ) {
+		if ( $content instanceof Content ) {
 			if ( $content->getModel() == CONTENT_MODEL_WIKITEXT ) {
 				$newtext = $content->getNativeData();
 			} else {
@@ -335,9 +337,8 @@ class SimpleCaptcha {
 
 		if ( $this->captchaTriggers( $title, 'edit' ) ) {
 			// Check on all edits
-			global $wgUser;
 			$this->trigger = sprintf( "edit trigger by '%s' at [[%s]]",
-				$wgUser->getName(),
+				$user->getName(),
 				$title->getPrefixedText() );
 			$this->action = 'edit';
 			wfDebug( "ConfirmEdit: checking all edits...\n" );
@@ -346,18 +347,23 @@ class SimpleCaptcha {
 
 		if ( $this->captchaTriggers( $title, 'create' )  && !$title->exists() ) {
 			// Check if creating a page
-			global $wgUser;
 			$this->trigger = sprintf( "Create trigger by '%s' at [[%s]]",
-				$wgUser->getName(),
+				$user->getName(),
 				$title->getPrefixedText() );
 			$this->action = 'create';
 			wfDebug( "ConfirmEdit: checking on page creation...\n" );
 			return true;
 		}
 
+		// The following checks are expensive and should be done only, if we can assume, that the edit will be saved
+		if ( !$request->wasPosted() ) {
+			wfDebug( "ConfirmEdit: request not posted, assuming that no content will be saved -> no CAPTCHA check" );
+			return false;
+		}
+
 		if ( !$isEmpty && $this->captchaTriggers( $title, 'addurl' ) ) {
 			// Only check edits that add URLs
-			if ( $isContent ) {
+			if ( $content instanceof Content ) {
 				// Get links from the database
 				$oldLinks = $this->getLinksFromTracker( $title );
 				// Share a parse operation with Article::doEdit()
@@ -369,7 +375,7 @@ class SimpleCaptcha {
 				}
 			} else {
 				// Get link changes in the slowest way known to man
-				$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section, $loadOldtextFlags );
+				$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section );
 				$oldLinks = $this->findLinks( $title, $oldtext );
 				$newLinks = $this->findLinks( $title, $newtext );
 			}
@@ -379,10 +385,9 @@ class SimpleCaptcha {
 			$numLinks = count( $addedLinks );
 
 			if ( $numLinks > 0 ) {
-				global $wgUser;
 				$this->trigger = sprintf( "%dx url trigger by '%s' at [[%s]]: %s",
 					$numLinks,
-					$wgUser->getName(),
+					$user->getName(),
 					$title->getPrefixedText(),
 					implode( ", ", $addedLinks ) );
 				$this->action = 'addurl';
@@ -393,7 +398,7 @@ class SimpleCaptcha {
 		global $wgCaptchaRegexes;
 		if ( $newtext !== null && $wgCaptchaRegexes ) {
 			// Custom regex checks. Reuse $oldtext if set above.
-			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section, $loadOldtextFlags );
+			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section );
 
 			foreach ( $wgCaptchaRegexes as $regex ) {
 				$newMatches = array();
@@ -405,11 +410,10 @@ class SimpleCaptcha {
 
 					$numHits = count( $addedMatches );
 					if ( $numHits > 0 ) {
-						global $wgUser;
 						$this->trigger = sprintf( "%dx %s at [[%s]]: %s",
 							$numHits,
 							$regex,
-							$wgUser->getName(),
+							$user->getName(),
 							$title->getPrefixedText(),
 							implode( ", ", $addedMatches ) );
 						$this->action = 'edit';
@@ -549,18 +553,18 @@ class SimpleCaptcha {
 	 * @param WikiPage $page
 	 * @param $newtext string
 	 * @param $section
-	 * @param $isContent bool
+	 * @param IContextSource $context
 	 * @return bool false if the CAPTCHA is rejected, true otherwise
 	 */
-	private function doConfirmEdit( WikiPage $page, $newtext, $section, $isContent = false ) {
-		global $wgRequest;
-		if ( $wgRequest->getVal( 'captchaid' ) ) {
-			$wgRequest->setVal( 'wpCaptchaId', $wgRequest->getVal( 'captchaid' ) );
+	private function doConfirmEdit( WikiPage $page, $newtext, $section, IContextSource $context ) {
+		$request = $context->getRequest();
+		if ( $request->getVal( 'captchaid' ) ) {
+			$request->setVal( 'wpCaptchaId', $request->getVal( 'captchaid' ) );
 		}
-		if ( $wgRequest->getVal( 'captchaword' ) ) {
-			$wgRequest->setVal( 'wpCaptchaWord', $wgRequest->getVal( 'captchaword' ) );
+		if ( $request->getVal( 'captchaword' ) ) {
+			$request->setVal( 'wpCaptchaWord', $request->getVal( 'captchaword' ) );
 		}
-		if ( $this->shouldCheck( $page, $newtext, $section, $isContent ) ) {
+		if ( $this->shouldCheck( $page, $newtext, $section, $context ) ) {
 			return $this->passCaptchaLimited();
 		} else {
 			wfDebug( "ConfirmEdit: no need to show captcha.\n" );
@@ -601,7 +605,7 @@ class SimpleCaptcha {
 			return true;
 		}
 		$page = $context->getWikiPage();
-		if ( !$this->doConfirmEdit( $page, $content, false, true ) ) {
+		if ( !$this->doConfirmEdit( $page, $content, false, $context ) ) {
 			if ( $legacyMode ) {
 				$status->fatal( 'hookaborted' );
 			}
@@ -616,7 +620,7 @@ class SimpleCaptcha {
 
 	function confirmEditAPI( $editPage, $newText, &$resultArr ) {
 		$page = $editPage->getArticle()->getPage();
-		if ( !$this->doConfirmEdit( $page, $newText, false, false ) ) {
+		if ( !$this->doConfirmEdit( $page, $newText, false, $editPage->getArticle()->getContext() ) ) {
 			$this->addCaptchaAPI( $resultArr );
 			return false;
 		}

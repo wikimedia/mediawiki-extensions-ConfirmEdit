@@ -392,6 +392,9 @@ class SimpleCaptcha {
 
 		global $wgCaptchaRegexes;
 		if ( $newtext !== null && $wgCaptchaRegexes ) {
+			if ( !is_array( $wgCaptchaRegexes ) ) {
+				throw new UnexpectedValueException( '$wgCaptchaRegexes is required to be an array, ' . gettype( $wgCaptchaRegexes ) . ' given.' );
+			}
 			// Custom regex checks. Reuse $oldtext if set above.
 			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section, $loadOldtextFlags );
 

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Yueman",
-			"CRCHF"
+			"CRCHF",
+			"Wong128hk"
 		]
 	},
 	"captcha-edit": "要編輯呢一篇文，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):",
@@ -13,7 +14,7 @@
 	"captcha-createaccount": "為咗防止程式自動註冊，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):",
 	"captcha-createaccount-fail": "驗證碼錯咗或者唔見咗。",
 	"captcha-create": "要開呢一版，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):",
-	"captcha-sendemail": "為咗防止自動化嘅濫貼，請答出一個簡單嘅加數和，跟住響個盒度打入 ([[Special:Captcha/help|更多資料]]):",
+	"captcha-sendemail": "為咗防止機械式濫貼，請喺個盒道答以下爾條簡單嘅加數（[[Special:Captcha/help|更多資料]]）︰",
 	"captcha-sendemail-fail": "驗證碼錯咗或者唔見咗。",
 	"captcha-disabledinapi": "呢個動作需要驗證碼，所以唔可以用 API 做。",
 	"captchahelp-title": "Captcha 幫助",

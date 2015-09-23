@@ -5,7 +5,7 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
 	 * Get the captcha form.
 	 * @return string
 	 */
-	function getForm( OutputPage $out ) {
+	function getForm( OutputPage $out, $tabIndex = 1 ) {
 		global $wgReCaptchaSiteKey;
 
 		// Insert reCAPTCHA script.

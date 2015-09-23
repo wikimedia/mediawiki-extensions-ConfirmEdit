@@ -39,7 +39,7 @@ class SimpleCaptcha {
 	 *
 	 * @return string HTML
 	 */
-	function getForm( OutputPage $out ) {
+	function getForm( OutputPage $out, $tabIndex = 1 ) {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
 
@@ -50,7 +50,7 @@ class SimpleCaptcha {
 				'id'   => 'wpCaptchaWord',
 				'size'  => 5,
 				'autocomplete' => 'off',
-				'tabindex' => 1 ) ) . // tab in before the edit textarea
+				'tabindex' => $tabIndex ) ) . // tab in before the edit textarea
 			"</p>\n" .
 			Xml::element( 'input', array(
 				'type'  => 'hidden',
@@ -152,7 +152,11 @@ class SimpleCaptcha {
 			) );
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
-				$this->getForm( $wgOut ) .
+				// FIXME: Hardcoded tab index
+				// Usually, the CAPTCHA is added after the E-Mail address field, which actually has 6 as the tabIndex, but
+				// there may are wikis which allows to mention the "real name", which would have 7 as tabIndex, so increase
+				// 6 by 2 and use it for the CAPTCHA -> 8 (the submit button has a tabIndex of 10)
+				$this->getForm( $wgOut, 8 ) .
 				"</div>\n";
 			// for older MediaWiki versions
 			if ( is_callable( array( $template, 'extend' ) ) ) {

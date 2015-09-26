@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Denö"
+			"Denö",
+			"Mashoi7"
 		]
 	},
-	"captcha-label": "CAPTCHA"
+	"captcha-label": "CAPTCHA",
+	"captcha-sendemail-fail": "CAPTCHA on hairavolline libo sidä ei ole nivouze.",
+	"captchahelp-title": "CAPTCHA-abu"
 }

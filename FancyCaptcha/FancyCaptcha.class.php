@@ -90,7 +90,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * Insert the captcha prompt into the edit form.
 	 * @param OutputPage $out
 	 */
-	function getForm( OutputPage $out ) {
+	function getForm( OutputPage $out, $tabIndex = 1 ) {
 		global $wgOut, $wgEnableAPI;
 
 		// Uses addModuleStyles so it is loaded when JS is disabled.
@@ -139,7 +139,7 @@ class FancyCaptcha extends SimpleCaptcha {
 					'autocorrect' => 'off',
 					'autocapitalize' => 'off',
 					'required' => 'required',
-					'tabindex' => 1,
+					'tabindex' => $tabIndex,
 					'placeholder' => wfMessage( 'createacct-imgcaptcha-ph' )
 				)
 			); // tab in before the edit textarea

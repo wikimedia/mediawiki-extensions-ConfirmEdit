@@ -9,11 +9,11 @@ class ReCaptcha extends SimpleCaptcha {
 	 * If $this->recaptcha_error is set, it will display an error in the widget.
 	 * @param OutputPage $out
 	 */
-	function getForm( OutputPage $out ) {
+	function getForm( OutputPage $out, $tabIndex = 1 ) {
 		global $wgReCaptchaPublicKey, $wgReCaptchaTheme;
 
 		$useHttps = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' );
-		$js = 'var RecaptchaOptions = ' . Xml::encodeJsVar( array( 'theme' => $wgReCaptchaTheme, 'tabindex' => 1  ) );
+		$js = 'var RecaptchaOptions = ' . Xml::encodeJsVar( array( 'theme' => $wgReCaptchaTheme, 'tabindex' => $tabIndex ) );
 
 		return Html::inlineScript( $js ) . recaptcha_get_html( $wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps );
 	}

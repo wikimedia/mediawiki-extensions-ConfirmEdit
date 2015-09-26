@@ -20,12 +20,12 @@ class MathCaptcha extends SimpleCaptcha {
 	 * Produce a nice little form
 	 * @param OutputPage $out
 	 */
-	function getForm( OutputPage $out ) {
+	function getForm( OutputPage $out, $tabIndex = 1 ) {
 		list( $sum, $answer ) = $this->pickSum();
 		$index = $this->storeCaptcha( array( 'answer' => $answer ) );
 
 		$form = '<table><tr><td>' . $this->fetchMath( $sum ) . '</td>';
-		$form .= '<td>' . Html::input( 'wpCaptchaWord', false, false, array( 'tabindex' => '1', 'autocomplete' => 'off', 'required' ) ) . '</td></tr></table>';
+		$form .= '<td>' . Html::input( 'wpCaptchaWord', false, false, array( 'tabindex' => $tabIndex, 'autocomplete' => 'off', 'required' ) ) . '</td></tr></table>';
 		$form .= Html::hidden( 'wpCaptchaId', $index );
 		return $form;
 	}

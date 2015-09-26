@@ -41,7 +41,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 		return array( 'question' => $question, 'answer' => $answer );
 	}
 
-	function getForm( OutputPage $out ) {
+	function getForm( OutputPage $out, $tabIndex = 1 ) {
 		$captcha = $this->getCaptcha();
 		if ( !$captcha ) {
 			die( "No questions found; set some in LocalSettings.php using the format from QuestyCaptcha.php." );
@@ -54,7 +54,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 				'class' => 'mw-ui-input',
 				'required',
 				'autocomplete' => 'off',
-				'tabindex' => 1 ) ) . // tab in before the edit textarea
+				'tabindex' => $tabIndex ) ) . // tab in before the edit textarea
 			"</p>\n" .
 			Xml::element( 'input', array(
 				'type'  => 'hidden',

@@ -1,6 +1,7 @@
-.svn
 *~
 *.kate-swp
 .*.swp
 .idea
 .DS_Store
+node_modules/
+vendor/

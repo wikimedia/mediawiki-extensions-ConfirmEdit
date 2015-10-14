@@ -85,13 +85,13 @@ HTML;
 		$status = $request->execute();
 		if ( !$status->isOK() ) {
 			$this->error = 'http';
-			$this->logStatusError( $status );
+			$this->logCheckError( $status );
 			return false;
 		}
 		$response = FormatJson::decode( $request->getContent(), true );
 		if ( !$response ) {
 			$this->error = 'json';
-			$this->logStatusError( $this->error );
+			$this->logCheckError( $this->error );
 			return false;
 		}
 		if ( isset( $response['error-codes'] ) ) {

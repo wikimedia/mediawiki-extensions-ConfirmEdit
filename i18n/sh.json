@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kolega2357"
+			"Kolega2357",
+			"OC Ripper"
 		]
 	},
+	"captcha-label": "CAPTCHA",
 	"captcha-createaccount-fail": "Netačan unos ili nedostatak koda za potvrđivanje."
 }

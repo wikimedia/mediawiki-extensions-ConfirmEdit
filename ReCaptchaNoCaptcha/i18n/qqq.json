@@ -1,7 +1,5 @@
 {
-	"@metadata": {
-		"authors": []
-	},
+	"@metadata": [],
 	"renocaptcha-edit": "Message above the CAPTCHA for edit action.",
 	"renocaptcha-addurl": "Message above the CAPTCHA for addurl (user added new external links to the page) action.",
 	"renocaptcha-badlogin": "Message above the CAPTCHA for badlogin action.",

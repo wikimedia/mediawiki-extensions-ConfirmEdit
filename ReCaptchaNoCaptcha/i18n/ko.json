@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hwangjy9"
+			"Hwangjy9",
+			"Yearning"
 		]
 	},
 	"renocaptcha-edit": "자동 스팸으로부터 위키를 보호하기 위해 다음 CAPTCHA를 풀어볼 것을 권합니다:",
-	"renocaptcha-addurl": "편집에 새로운 바깥 고리가 포함되어 있습니다. 자동 스팸으로부터 위키를 보호하기 위해 다음 CAPTCHA를 풀어볼 것을 권합니다:",
-	"renocaptcha-badlogin": "자동 비밀번호 크래킹으로부터 위키를 보호하기 위해 다음 CAPTCHA를 풀어볼 것을 권합니다:",
-	"renocaptcha-createaccount": "자동 계정 생성으로부터 위키를 보호하기 위해 다음 CAPTCHA를 풀어볼 것을 권합니다:",
-	"renocaptcha-createaccount-fail": "CAPTCHA를 풀지 못한 것 같습니다.",
-	"renocaptcha-create": "자동 문서 생성으로부터 위키를 보호하기 위해 다음 CAPTCHA를 풀어볼 것을 권합니다:",
-	"renocaptcha-noscript": "불행하게도 당신은 자바스크립트를 비활성화하여 당신이 사람인지 자동으로 판별할 수 없습니다. 위의 CAPTCHA를 풀고 다음 텍스트 영역에 결과를 복사하세요:"
+	"renocaptcha-addurl": "편집에 새로운 바깥 고리가 포함되어 있습니다. 자동 스팸 방지를 위해 다음 보안문자를 입력하세요:",
+	"renocaptcha-badlogin": "자동 비밀번호 크래킹 방지를 위해 다음 보안문자를 입력하세요:",
+	"renocaptcha-createaccount": "자동 계정 생성 방지를 위해 다음 보안문자를 입력하세요:",
+	"renocaptcha-createaccount-fail": "보안문자가 틀렸습니다.",
+	"renocaptcha-create": "자동 문서 생성 방지를 위해 다음 보안문자를 입력하세요:",
+	"renocaptcha-noscript": "당신은 자바스크립트를 비활성화하여 저희는 당신이 사람인지 자동으로 판별하지 못합니다. 다음 글상자에 위 보안문자를 입력하세요:"
 }

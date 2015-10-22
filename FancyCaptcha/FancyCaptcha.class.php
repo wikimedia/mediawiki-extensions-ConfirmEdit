@@ -118,10 +118,10 @@ class FancyCaptcha extends SimpleCaptcha {
 			Html::element( 'label', array(
 					'for' => 'wpCaptchaWord',
 				),
-				parent::getMessage( 'label' ) . ' ' . wfMessage( 'createacct-captcha' )->text()
+				parent::getMessage( 'label' ) . ' ' . wfMessage( 'fancycaptcha-captcha' )->text()
 			) .
-			Html::openElement( 'div', array( 'class' => 'mw-createacct-captcha-container' ) ) .
-			Html::openElement( 'div', array( 'class' => 'mw-createacct-captcha-and-reload' ) ) .
+			Html::openElement( 'div', array( 'class' => 'fancycaptcha-captcha-container' ) ) .
+			Html::openElement( 'div', array( 'class' => 'fancycaptcha-captcha-and-reload' ) ) .
 			Html::openElement( 'div', array( 'class' => 'fancycaptcha-image-container' ) ) .
 			Html::element( 'img', array(
 					'class'  => 'fancycaptcha-image',
@@ -140,7 +140,7 @@ class FancyCaptcha extends SimpleCaptcha {
 					'autocapitalize' => 'off',
 					'required' => 'required',
 					'tabindex' => $tabIndex,
-					'placeholder' => wfMessage( 'createacct-imgcaptcha-ph' )
+					'placeholder' => wfMessage( 'fancycaptcha-imgcaptcha-ph' )
 				)
 			); // tab in before the edit textarea
 			if ( $this->action == 'usercreate' ) {

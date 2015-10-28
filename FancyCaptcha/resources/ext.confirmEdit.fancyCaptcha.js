@@ -1,7 +1,8 @@
 ( function ( $, mw ) {
 	var api = new mw.Api();
 	$( document ).on( 'click', '.fancycaptcha-reload', function () {
-		var $this = $( this ), $root, $captchaImage;
+		var $this = $( this ),
+			$root, $captchaImage;
 
 		$root = $this.closest( '.fancycaptcha-captcha-container' );
 

@@ -618,6 +618,20 @@ class SimpleCaptcha {
 			}
 			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
 			$status->apiHookResult = array();
+			// give an error message for the user to know, what goes wrong here.
+			// this can't be done for addurl trigger, because this requires one "free" save
+			// for the user, which we don't know, when he did it.
+			if ( $this->action === 'edit' ) {
+				$status->fatal(
+					new RawMessage(
+						Html::element(
+							'div',
+							array( 'class' => 'errorbox' ),
+							$context->msg( 'captcha-edit-fail' )->text()
+						)
+					)
+				);
+			}
 			$this->addCaptchaAPI( $status->apiHookResult );
 			$page->ConfirmEdit_ActivateCaptcha = true;
 			return $legacyMode;

@@ -11,6 +11,7 @@
 		]
 	},
 	"captcha-edit": "Zur Bearbeitung der Seite löse die nachfolgende Rechenaufgabe und trage das Ergebnis in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].",
+	"captcha-edit-fail": "Falsches oder fehlendes CAPTCHA.",
 	"captcha-desc": "Ermöglicht verschiedene CAPTCHA-Techniken zum Schutz vor Spam und dem Erraten von Passwörtern",
 	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "Deine Bearbeitung enthält neue externe Links.\nUm das Wiki vor automatisiertem Spam zu schützen, bitten wir dich die untenstehende einfache Rechenaufgabe zu lösen und deine Antwort in das Feld einzugeben, damit deine Bearbeitung gespeichert werden kann ([[Special:Captcha/help|mehr Informationen …]]):",

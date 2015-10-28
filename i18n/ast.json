@@ -6,6 +6,7 @@
 		]
 	},
 	"captcha-edit": "Pa editar esta páxina, por favor resuelvi la suma simple d'embaxo y pon la rempuesta nel caxellu ([[Special:Captcha/help|más información]]):",
+	"captcha-edit-fail": "CAPTCHA incorreutu o ausente.",
 	"captcha-desc": "Ufre téuniques de CAPTCHA pa protexese escontra'l spam y descubrimientu de contraseñes",
 	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "La to edición inclúi nuevos enllaces esternos. Pa protexer la wiki escontra'l spam automatizáu, pidimoste por favor que resuelvas la suma simple d'embaxo y pongas la rempuesta na caxella pa guardar la edición ([[Special:Captcha/help|más información]]):",

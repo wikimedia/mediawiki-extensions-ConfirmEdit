@@ -7,6 +7,7 @@
 		]
 	},
 	"captcha-edit": "Fir dës Säit z'änneren, léist w.e.g. dës Rechenaufgab a gitt d'Resultat an d'Këscht ënnendrënner an ([[Special:Captcha/help|méi Informatiounen]]):",
+	"captcha-edit-fail": "Falschen oder kee CAPTCHA.",
 	"captcha-desc": "Stellt Captcha-Techniken zur Verfügung fir géint Spam an Errode vu Passwierder ze schützen",
 	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "An Ärer Ännerung sinn nei extern Linken.\nFir dës Wiki virun automatiséiertem Spam ze schütze froe mir Iech fir déi folgend einfach Additioun ze léisen an d'Resultat an d'Feld ënnen anzedroen fir Är Ännerung ze späicheren ([[Special:Captcha/help|méi Informatiounen]]):",

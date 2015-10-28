@@ -5,6 +5,7 @@
 		]
 	},
 	"captcha-edit": "Pe' putè cagnà sta paggena, pe' piacere facite sta somma semprice semprice ccà abbascio e mettite 'a risposta int' 'a casciulella 'e testo ([[Special:Captcha/help|cchiù nfurmaziune]]):",
+	"captcha-edit-fail": "Codece 'e cunferma CAPTCHA errato o mancante.",
 	"captcha-desc": "Dàje 'e tecniche CAPTCHA pe' putè pruteggere annanz' 'o spam e 'o futtimento r' 'a password",
 	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "'O cagnamiento tuojo azzecca cullegamiente 'e fore.\nPe' putè aiutà a pruteggere annanz' 'o spam automateco, pe' piacere rispunnette 'e dumanne ca cumpareno abbascio 'a casciulella ([[Special:Captcha/help|cchiù nfurmaziune]]):",

@@ -7,7 +7,8 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		jshint: {
 			all: [
-				'*.js'
+				'**/*.js',
+				'!node_modules/**'
 			]
 		},
 		banana: {

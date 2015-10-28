@@ -145,7 +145,7 @@ class ConfirmEditHooks {
 	 * FIXME: This should be done in a better way, e.g. only load the libraray, if really needed.
 	 */
 	public static function onReCaptchaSetup() {
-		require_once( __DIR__ . '/../ReCaptcha/recaptchalib.php' );
+		require_once ( __DIR__ . '/../ReCaptcha/recaptchalib.php' );
 	}
 
 	/**
@@ -154,7 +154,9 @@ class ConfirmEditHooks {
 	 */
 	public static function efReCaptcha() {
 		global $wgReCaptchaPublicKey, $wgReCaptchaPrivateKey;
+		// @codingStandardsIgnoreStart
 		global $recaptcha_public_key, $recaptcha_private_key;
+		// @codingStandardsIgnoreEnd
 		global $wgServerName;
 
 		// Backwards compatibility
@@ -166,9 +168,10 @@ class ConfirmEditHooks {
 		}
 
 		if ( $wgReCaptchaPublicKey == '' || $wgReCaptchaPrivateKey == '' ) {
-			die ( 'You need to set $wgReCaptchaPrivateKey and $wgReCaptchaPublicKey in LocalSettings.php to ' .
+			die (
+				'You need to set $wgReCaptchaPrivateKey and $wgReCaptchaPublicKey in LocalSettings.php to ' .
 				"use the reCAPTCHA plugin. You can sign up for a key <a href='" .
-				htmlentities( recaptcha_get_signup_url ( $wgServerName, "mediawiki" ) ) . "'>here</a>." );
+				htmlentities( recaptcha_get_signup_url( $wgServerName, "mediawiki" ) ) . "'>here</a>." );
 		}
 	}
 }

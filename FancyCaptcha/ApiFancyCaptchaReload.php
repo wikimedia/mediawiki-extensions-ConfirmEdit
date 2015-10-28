@@ -12,7 +12,7 @@ class ApiFancyCaptchaReload extends ApiBase {
 		$captchaIndex = $captcha->getCaptchaIndex();
 
 		$result = $this->getResult();
-		$result->addValue( null, $this->getModuleName(), array ( 'index' => $captchaIndex ) );
+		$result->addValue( null, $this->getModuleName(), array( 'index' => $captchaIndex ) );
 		return true;
 	}
 

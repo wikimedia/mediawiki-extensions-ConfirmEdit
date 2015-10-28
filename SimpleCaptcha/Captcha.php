@@ -153,8 +153,10 @@ class SimpleCaptcha {
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
 				// FIXME: Hardcoded tab index
-				// Usually, the CAPTCHA is added after the E-Mail address field, which actually has 6 as the tabIndex, but
-				// there may are wikis which allows to mention the "real name", which would have 7 as tabIndex, so increase
+				// Usually, the CAPTCHA is added after the E-Mail address field,
+				// which actually has 6 as the tabIndex, but
+				// there may are wikis which allows to mention the "real name",
+				// which would have 7 as tabIndex, so increase
 				// 6 by 2 and use it for the CAPTCHA -> 8 (the submit button has a tabIndex of 10)
 				$this->getForm( $wgOut, 8 ) .
 				"</div>\n";
@@ -229,7 +231,9 @@ class SimpleCaptcha {
 	 */
 	function isBadLoginTriggered() {
 		global $wgMemc, $wgCaptchaTriggers, $wgCaptchaBadLoginAttempts;
-		return $wgCaptchaTriggers['badlogin'] && intval( $wgMemc->get( $this->badLoginKey() ) ) >= $wgCaptchaBadLoginAttempts;
+		return $wgCaptchaTriggers['badlogin'] && intval(
+			$wgMemc->get( $this->badLoginKey() )
+		) >= $wgCaptchaBadLoginAttempts;
 	}
 
 	/**
@@ -303,7 +307,9 @@ class SimpleCaptcha {
 	 * @return bool true if the captcha should run
 	 */
 	function shouldCheck( WikiPage $page, $content, $section, $context, $oldtext = null ) {
+		// @codingStandardsIgnoreStart
 		global $ceAllowConfirmedEmail;
+		// @codingStandardsIgnoreEnd
 
 		if ( !$context instanceof IContextSource ) {
 			$context = RequestContext::getMain();
@@ -349,7 +355,7 @@ class SimpleCaptcha {
 			return true;
 		}
 
-		if ( $this->captchaTriggers( $title, 'create' )  && !$title->exists() ) {
+		if ( $this->captchaTriggers( $title, 'create' ) && !$title->exists() ) {
 			// Check if creating a page
 			$this->trigger = sprintf( "Create trigger by '%s' at [[%s]]",
 				$user->getName(),
@@ -359,9 +365,12 @@ class SimpleCaptcha {
 			return true;
 		}
 
-		// The following checks are expensive and should be done only, if we can assume, that the edit will be saved
+		// The following checks are expensive and should be done only,
+		// if we can assume, that the edit will be saved
 		if ( !$request->wasPosted() ) {
-			wfDebug( "ConfirmEdit: request not posted, assuming that no content will be saved -> no CAPTCHA check" );
+			wfDebug(
+				"ConfirmEdit: request not posted, assuming that no content will be saved -> no CAPTCHA check"
+			);
 			return false;
 		}
 
@@ -402,7 +411,9 @@ class SimpleCaptcha {
 		global $wgCaptchaRegexes;
 		if ( $newtext !== null && $wgCaptchaRegexes ) {
 			if ( !is_array( $wgCaptchaRegexes ) ) {
-				throw new UnexpectedValueException( '$wgCaptchaRegexes is required to be an array, ' . gettype( $wgCaptchaRegexes ) . ' given.' );
+				throw new UnexpectedValueException(
+					'$wgCaptchaRegexes is required to be an array, ' . gettype( $wgCaptchaRegexes ) . ' given.'
+				);
 			}
 			// Custom regex checks. Reuse $oldtext if set above.
 			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section );
@@ -606,7 +617,8 @@ class SimpleCaptcha {
 				// otherwise it's an unknown page where this function is called from
 				$title = 'unknown';
 			}
-			// log this error, it could be a problem in another extension, edits should always have a WikiPage if
+			// log this error, it could be a problem in another extension,
+			// edits should always have a WikiPage if
 			// they go through EditFilterMergedContent.
 			wfDebug( __METHOD__ . ': Skipped ConfirmEdit check: No WikiPage for title ' . $title );
 			return true;
@@ -660,7 +672,9 @@ class SimpleCaptcha {
 		if ( $this->needCreateAccountCaptcha() ) {
 			$this->trigger = "new account '" . $u->getName() . "'";
 			$success = $this->passCaptchaLimited();
-			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha submitted on account creation', array(
+			LoggerFactory::getInstance(
+				'authmanager'
+			)->info( 'Captcha submitted on account creation', array(
 				'event' => 'captcha.submit',
 				'type' => 'accountcreation',
 				'successful' => $success,
@@ -834,7 +848,8 @@ class SimpleCaptcha {
 	function passCaptcha() {
 		global $wgRequest;
 
-		// Don't check the same CAPTCHA twice in one session, if the CAPTCHA was already checked - Bug T94276
+		// Don't check the same CAPTCHA twice in one session,
+		// if the CAPTCHA was already checked - Bug T94276
 		if ( isset( $this->captchaSolved ) ) {
 			return $this->captchaSolved;
 		}
@@ -1005,7 +1020,9 @@ class SimpleCaptcha {
 						$this->addCaptchaAPI( $result );
 						$result['result'] = 'NeedCaptcha';
 
-						LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha data added in account creation API', array(
+						LoggerFactory::getInstance(
+							'authmanager'
+						)->info( 'Captcha data added in account creation API', array(
 							'event' => 'captcha.display',
 							'type' => 'accountcreation',
 						) );

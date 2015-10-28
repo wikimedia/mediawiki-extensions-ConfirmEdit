@@ -6,26 +6,26 @@ abstract class CaptchaStore {
 	 * @param  $index String
 	 * @param  $info String the captcha result
 	 */
-	public abstract function store( $index, $info );
+	abstract public function store( $index, $info );
 
 	/**
 	 * Retrieve the answer for a given captcha
 	 * @param  $index String
 	 * @return String
 	 */
-	public abstract function retrieve( $index );
+	abstract public function retrieve( $index );
 
 	/**
 	 * Delete a result once the captcha has been used, so it cannot be reused
 	 * @param  $index
 	 */
-	public abstract function clear( $index );
+	abstract public function clear( $index );
 
 	/**
 	 * Whether this type of CaptchaStore needs cookies
 	 * @return Bool
 	 */
-	public abstract function cookiesNeeded();
+	abstract public function cookiesNeeded();
 
 	/**
 	 * The singleton instance
@@ -39,7 +39,7 @@ abstract class CaptchaStore {
 	 * @throws Exception
 	 * @return CaptchaStore
 	 */
-	public final static function get() {
+	final public static function get() {
 		if ( !self::$instance instanceof self ) {
 			global $wgCaptchaStorageClass;
 			if ( in_array( 'CaptchaStore', class_parents( $wgCaptchaStorageClass ) ) ) {
@@ -54,7 +54,8 @@ abstract class CaptchaStore {
 	/**
 	 * Protected constructor: no creating instances except through the factory method above
 	 */
-	protected function __construct() {}
+	protected function __construct() {
+	}
 }
 
 class CaptchaSessionStore extends CaptchaStore {

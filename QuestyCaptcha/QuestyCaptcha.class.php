@@ -31,7 +31,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 	function getCaptcha() {
 		global $wgCaptchaQuestions;
 
-		//Backwards compatibility
+		// Backwards compatibility
 		if ( $wgCaptchaQuestions === array_values( $wgCaptchaQuestions ) ) {
 			return $wgCaptchaQuestions[ mt_rand( 0, count( $wgCaptchaQuestions ) - 1 ) ];
 		}
@@ -44,7 +44,9 @@ class QuestyCaptcha extends SimpleCaptcha {
 	function getForm( OutputPage $out, $tabIndex = 1 ) {
 		$captcha = $this->getCaptcha();
 		if ( !$captcha ) {
-			die( "No questions found; set some in LocalSettings.php using the format from QuestyCaptcha.php." );
+			die(
+				"No questions found; set some in LocalSettings.php using the format from QuestyCaptcha.php."
+			);
 		}
 		$index = $this->storeCaptcha( $captcha );
 		return "<p><label for=\"wpCaptchaWord\">{$captcha['question']}</label> " .
@@ -68,7 +70,9 @@ class QuestyCaptcha extends SimpleCaptcha {
 		$text = wfMessage( $name )->text();
 		# Obtain a more tailored message, if possible, otherwise, fall back to
 		# the default for edits
-		return wfMessage( $name, $text )->isDisabled() ? wfMessage( 'questycaptcha-edit' )->text() : $text;
+		return wfMessage(
+			$name, $text
+		)->isDisabled() ? wfMessage( 'questycaptcha-edit' )->text() : $text;
 	}
 
 	function showHelp() {

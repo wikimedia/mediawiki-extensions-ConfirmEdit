@@ -91,7 +91,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * @param OutputPage $out
 	 */
 	function getForm( OutputPage $out, $tabIndex = 1 ) {
-		global $wgOut, $wgEnableAPI;
+		global $wgEnableAPI;
 
 		// Uses addModuleStyles so it is loaded when JS is disabled.
 		$out->addModuleStyles( 'ext.confirmEdit.fancyCaptcha.styles' );
@@ -145,7 +145,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			); // tab in before the edit textarea
 			if ( $this->action == 'usercreate' ) {
 				// use raw element, because the message can contain links or some other html
-				$form .= HTML::rawelement( 'small',array(
+				$form .= HTML::rawelement( 'small', array(
 						'class' => 'mw-createacct-captcha-assisted'
 					), wfMessage( 'createacct-imgcaptcha-help' )->parse()
 				);
@@ -229,7 +229,8 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		$place = mt_rand( 0, count( $dirs ) - 1 ); // pick a random subdir
 		// In case all dirs are not filled, cycle through next digits...
-		for ( $j = 0; $j < count( $dirs ); $j++ ) {
+		$fancyCount = count( $dirs );
+		for ( $j = 0; $j < $fancyCount; $j++ ) {
 			$char = $dirs[( $place + $j ) % count( $dirs )];
 			$info = $this->pickImageDir( "$directory/$char", $levels - 1, $lockouts );
 			if ( $info ) {
@@ -301,7 +302,8 @@ class FancyCaptcha extends SimpleCaptcha {
 		$backend  = $this->getBackend();
 		$place    = mt_rand( 0, count( $files ) - 1 ); // pick a random file
 		$misses   = 0; // number of files in listing that don't actually exist
-		for ( $j = 0; $j < count( $files ); $j++ ) {
+		$fancyImageCount = count( $files );
+		for ( $j = 0; $j < $fancyImageCount; $j++ ) {
 			$entry = $files[( $place + $j ) % count( $files )];
 			if ( preg_match( '/^image_([0-9a-f]+)_([0-9a-f]+)\\.png$/', $entry, $matches ) ) {
 				if ( $wgCaptchaDeleteOnSolve ) { // captcha will be deleted when solved

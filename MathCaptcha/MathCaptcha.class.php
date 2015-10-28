@@ -25,7 +25,16 @@ class MathCaptcha extends SimpleCaptcha {
 		$index = $this->storeCaptcha( array( 'answer' => $answer ) );
 
 		$form = '<table><tr><td>' . $this->fetchMath( $sum ) . '</td>';
-		$form .= '<td>' . Html::input( 'wpCaptchaWord', false, false, array( 'tabindex' => $tabIndex, 'autocomplete' => 'off', 'required' ) ) . '</td></tr></table>';
+		$form .= '<td>' . Html::input(
+			'wpCaptchaWord',
+			false,
+			false,
+			array(
+				'tabindex' => $tabIndex,
+				'autocomplete' => 'off',
+				'required'
+			)
+		) . '</td></tr></table>';
 		$form .= Html::hidden( 'wpCaptchaId', $index );
 		return $form;
 	}
@@ -45,7 +54,9 @@ class MathCaptcha extends SimpleCaptcha {
 		if ( class_exists( 'MathRenderer' ) ) {
 			$math = MathRenderer::getRenderer( $sum, array(), MW_MATH_PNG );
 		} else {
-			throw new Exception( 'MathCaptcha requires the Math extension for MediaWiki versions 1.18 and above.' );
+			throw new Exception(
+				'MathCaptcha requires the Math extension for MediaWiki versions 1.18 and above.'
+			);
 		}
 		$html = $math->render();
 		return preg_replace( '/alt=".*?"/', '', $html );

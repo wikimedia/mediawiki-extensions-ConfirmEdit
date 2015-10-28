@@ -13,9 +13,13 @@ class ReCaptcha extends SimpleCaptcha {
 		global $wgReCaptchaPublicKey, $wgReCaptchaTheme;
 
 		$useHttps = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' );
-		$js = 'var RecaptchaOptions = ' . Xml::encodeJsVar( array( 'theme' => $wgReCaptchaTheme, 'tabindex' => $tabIndex ) );
+		$js = 'var RecaptchaOptions = ' . Xml::encodeJsVar(
+			array( 'theme' => $wgReCaptchaTheme, 'tabindex' => $tabIndex )
+		);
 
-		return Html::inlineScript( $js ) . recaptcha_get_html( $wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps );
+		return Html::inlineScript(
+			$js
+		) . recaptcha_get_html( $wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps );
 	}
 
 	/**
@@ -27,9 +31,14 @@ class ReCaptcha extends SimpleCaptcha {
 	function passCaptcha() {
 		global $wgReCaptchaPrivateKey, $wgRequest;
 
-		// API is hardwired to return wpCaptchaId and wpCaptchaWord, so use that if the standard two are empty
-		$challenge = $wgRequest->getVal( 'recaptcha_challenge_field', $wgRequest->getVal( 'wpCaptchaId' ) );
-		$response = $wgRequest->getVal( 'recaptcha_response_field', $wgRequest->getVal( 'wpCaptchaWord' ) );
+		// API is hardwired to return wpCaptchaId and wpCaptchaWord,
+		// so use that if the standard two are empty
+		$challenge = $wgRequest->getVal(
+			'recaptcha_challenge_field', $wgRequest->getVal( 'wpCaptchaId' )
+		);
+		$response = $wgRequest->getVal(
+			'recaptcha_response_field', $wgRequest->getVal( 'wpCaptchaWord' )
+		);
 
 		if ( $response === null ) {
 			// new captcha session

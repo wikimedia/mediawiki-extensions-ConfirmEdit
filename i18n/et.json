@@ -7,6 +7,7 @@
 		]
 	},
 	"captcha-edit": "Selle lehekülje muutmiseks lahenda palun lihtne tehe ja sisesta vastus kasti ([[Special:Captcha/help|lisateave]]).",
+	"captcha-edit-fail": "Robotilõksu vastus on vale või puudub.",
 	"captcha-desc": "Pakub robotilõksu abil kaitset rämpspostituste ja paroolide äraarvamise vastu.",
 	"captcha-label": "Robotilõks",
 	"captcha-addurl": "Sinu muudatus sisaldab uusi välislinke.\nPalun lahenda allpool lihtne tehe ja sisesta vastus kasti, et saaksid muudatuse salvestada. Abinõu on viki kaitseks automaadistatud rämpsmuudatuste eest ([[Special:Captcha/help|lisateave]]):",

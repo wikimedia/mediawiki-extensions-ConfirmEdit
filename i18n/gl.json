@@ -4,10 +4,12 @@
 			"Alma",
 			"Elisardojm",
 			"Toliño",
-			"Xosé"
+			"Xosé",
+			"Banjo"
 		]
 	},
 	"captcha-edit": "Para editar esta páxina, resolva a suma que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):",
+	"captcha-edit-fail": "Falta o código de confirmación (CAPTCHA) ou é incorrecto.",
 	"captcha-desc": "Proporciona CAPTCHA como protección fronte ao spam e ao descubrimento de contrasinais",
 	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "A súa edición inclúe novas ligazóns externas.\nPara protexer o wiki contra o spam automático, resolva a suma que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):",

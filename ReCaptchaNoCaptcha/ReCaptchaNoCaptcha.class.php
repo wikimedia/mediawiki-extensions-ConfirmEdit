@@ -50,13 +50,14 @@ HTML;
 
 	protected function logCheckError( $info ) {
 		if ( $info instanceof Status ) {
-			$errors = $status->getErrorsArray();
+			$errors = $info->getErrorsArray();
 			$error = $errors[0][0];
 		} elseif ( is_array( $info ) ) {
 			$error = implode( ',', $info );
 		} else {
 			$error = $info;
 		}
+
 		wfDebugLog( 'captcha', 'Unable to validate response: ' . $error );
 	}
 

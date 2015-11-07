@@ -575,12 +575,17 @@ class SimpleCaptcha {
 	 * @return bool false if the CAPTCHA is rejected, true otherwise
 	 */
 	private function doConfirmEdit( WikiPage $page, $newtext, $section, IContextSource $context ) {
+		global $wgRequest;
 		$request = $context->getRequest();
+		// FIXME: Stop using wgRequest in other parts of ConfirmEdit so we can
+		// stop having to duplicate code for it.
 		if ( $request->getVal( 'captchaid' ) ) {
 			$request->setVal( 'wpCaptchaId', $request->getVal( 'captchaid' ) );
+			$wgRequest->setVal( 'wpCaptchaId', $request->getVal( 'captchaid' ) );
 		}
 		if ( $request->getVal( 'captchaword' ) ) {
 			$request->setVal( 'wpCaptchaWord', $request->getVal( 'captchaword' ) );
+			$wgRequest->setVal( 'wpCaptchaWord', $request->getVal( 'captchaword' ) );
 		}
 		if ( $this->shouldCheck( $page, $newtext, $section, $context ) ) {
 			return $this->passCaptchaLimited();
@@ -856,7 +861,6 @@ class SimpleCaptcha {
 
 		$info = $this->retrieveCaptcha( $wgRequest );
 		if ( $info ) {
-			global $wgRequest;
 			if ( $this->keyMatch( $wgRequest->getVal( 'wpCaptchaWord' ), $info ) ) {
 				$this->log( "passed" );
 				$this->clearCaptcha( $info );

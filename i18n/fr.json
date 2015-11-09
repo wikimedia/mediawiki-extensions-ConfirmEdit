@@ -18,6 +18,7 @@
 		]
 	},
 	"captcha-edit": "Pour modifier cette page, veuillez calculer l’opération simple ci-dessous, inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]), puis cliquer sur le bouton \"Publier\" en bas de page\" :",
+	"captcha-edit-fail": "CAPTCHA incorrect ou manquant.",
 	"captcha-desc": "Offre des techniques CAPTCHA pour protéger contre le pollupostage et la découverte des mots de passe par essais multiples",
 	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "Votre modification inclut de nouveaux liens externes.\nPour nous aider dans la protection contre le pourriel automatisé, veuillez calculer l’opération simple ci-dessous et en inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :",

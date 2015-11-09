@@ -8,6 +8,7 @@
 		]
 	},
 	"captcha-edit": "Abyste mohli editovat tuto stránku, musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])",
+	"captcha-edit-fail": "Chybějící či neplatný potvrzovací kód.",
 	"captcha-desc": "Poskytuje techniky CAPTCHA pro ochranu před spamem a hádáním hesel",
 	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "Vaše editace obsahuje nové externí odkazy.\nV zájmu ochrany této wiki před automatickým spamováním vás prosíme o vyřešení následujícího jednoduchého součtu a napsání výsledku, abychom mohli vaši editaci uložit. ([[Special:Captcha/help|Co tohle znamená?]])",

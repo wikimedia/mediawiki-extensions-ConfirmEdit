@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hosseinblue"
+		]
+	},
+	"fancycaptcha-captcha": "بررسی امنیتی",
+	"fancycaptcha-createaccount": "To protect the wiki against automated account creation, we kindly ask you to enter the words that appear below in the box ([[Special:Captcha/help|more info]]):",
+	"fancycaptcha-imgcaptcha-ph": "متنی را که در بالا می‌بینید، وارد کنید",
+	"fancycaptcha-reload-text": "تازۀآ کِردِن"
+}

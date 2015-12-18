@@ -133,12 +133,22 @@ HTML;
 
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {
 		if ( $flags && $this->isAPICaptchaModule( $module ) ) {
-			$params['g-recaptcha-response'] = null;
+			if ( defined( 'ApiBase::PARAM_HELP_MSG' ) ) {
+				$params['g-recaptcha-response'] = array(
+					ApiBase::PARAM_HELP_MSG => 'renocaptcha-apihelp-param-g-recaptcha-response',
+				);
+			} else {
+				// @todo: Remove this branch when support for MediaWiki < 1.25 is dropped
+				$params['g-recaptcha-response'] = null;
+			}
 		}
 
 		return true;
 	}
 
+	/**
+	 * @deprecated since MediaWiki 1.25
+	 */
 	public function APIGetParamDescription( &$module, &$desc ) {
 		if ( $this->isAPICaptchaModule( $module ) ) {
 			$desc['g-recaptcha-response'] = 'Field from the ReCaptcha widget';

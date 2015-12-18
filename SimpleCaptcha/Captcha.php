@@ -799,14 +799,25 @@ class SimpleCaptcha {
 	 */
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {
 		if ( $this->isAPICaptchaModule( $module ) ) {
-			$params['captchaword'] = null;
-			$params['captchaid'] = null;
+			if ( defined( 'ApiBase::PARAM_HELP_MSG' ) ) {
+				$params['captchaword'] = array(
+					ApiBase::PARAM_HELP_MSG => 'captcha-apihelp-param-captchaword',
+				);
+				$params['captchaid'] = array(
+					ApiBase::PARAM_HELP_MSG => 'captcha-apihelp-param-captchaid',
+				);
+			} else {
+				// @todo: Remove this branch when support for MediaWiki < 1.25 is dropped
+				$params['captchaword'] = null;
+				$params['captchaid'] = null;
+			}
 		}
 
 		return true;
 	}
 
 	/**
+	 * @deprecated Since MediaWiki 1.25
 	 * @param $module ApiBase
 	 * @param $desc array
 	 * @return bool

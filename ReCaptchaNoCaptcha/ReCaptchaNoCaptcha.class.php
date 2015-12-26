@@ -7,12 +7,14 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
 	 */
 	function getForm( OutputPage $out, $tabIndex = 1 ) {
 		global $wgReCaptchaSiteKey;
+		$lang = htmlspecialchars( urlencode( $out->getLanguage()->getCode() ) );
 
-		// Insert reCAPTCHA script.
+		// Insert reCAPTCHA script, in display language, if available.
+		// Language falls back to the browser's display language.
 		// See https://developers.google.com/recaptcha/docs/faq
 		$out->addHeadItem(
 			'g-recaptchascript',
-			'<script src="https://www.google.com/recaptcha/api.js" async defer></script>'
+			"<script src=\"https://www.google.com/recaptcha/api.js?hl={$lang}\" async defer></script>"
 		);
 		$output = Html::element( 'div', array(
 			'class' => array(
@@ -27,7 +29,7 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
   <div style="width: 302px; height: 422px;">
     <div style="width: 302px; height: 422px; position: relative;">
       <div style="width: 302px; height: 422px; position: absolute;">
-        <iframe src="https://www.google.com/recaptcha/api/fallback?k={$htmlUrlencoded}"
+        <iframe src="https://www.google.com/recaptcha/api/fallback?k={$htmlUrlencoded}&hl={$lang}"
                 frameborder="0" scrolling="no"
                 style="width: 302px; height:422px; border-style: none;">
         </iframe>

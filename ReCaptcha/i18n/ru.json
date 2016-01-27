@@ -12,5 +12,6 @@
 	"recaptcha-createaccount": "В целях защиты от автоматического создания учётных записей просим вас ввести два слова, которые вы видите в рамке ниже:",
 	"recaptcha-createaccount-fail": "Ответ reCAPTCHA неправильный или отсутствует.",
 	"recaptcha-create": "В целях защиты от автоматического создания страниц просим вас ввести два слова, которые вы видите в рамке ниже:",
+	"recaptcha-apihelp-param-recaptcha_challenge_field": "Поле в виджете ReCaptcha",
 	"recaptcha-apihelp-param-recaptcha_response_field": "Поле в виджете ReCaptcha"
 }

@@ -12,6 +12,6 @@
 	"captcha-createaccount": "为仔保护本wiki弗畀自动账号创建程序破坏，请答出一个简单个加法，再勒框内输入（[[Special:Captcha/help|更多个资料]]）：",
 	"captcha-createaccount-fail": "验证码错误或落脱。",
 	"captcha-create": "要创建页面，请输入下底简单加法个答案（[[Special:Captcha/help|更多个资料]]）：",
-	"captchahelp-cookies-needed": "侬要开启浏览器上个cookie再好使用迭个工具。",
+	"captchahelp-cookies-needed": "侬要开启浏览器上个cookie才好使用迭个工具。",
 	"captcha-addurl-whitelist": " #<!-- 拿本行保持原样 --> <pre>\n# 语法像下底一样：\n#   * 所有“#”字符开头个行侪是注解\n#   * 所有非空白行是正则表达式片段，只会匹配URL里向个域名\n #</pre> <!-- 拿本行保持原样 -->"
 }

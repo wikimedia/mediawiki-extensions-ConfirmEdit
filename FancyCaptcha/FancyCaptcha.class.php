@@ -145,7 +145,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			); // tab in before the edit textarea
 			if ( $this->action == 'usercreate' ) {
 				// use raw element, because the message can contain links or some other html
-				$form .= HTML::rawelement( 'small', array(
+				$form .= Html::rawElement( 'small', array(
 						'class' => 'mw-createacct-captcha-assisted'
 					), wfMessage( 'createacct-imgcaptcha-help' )->parse()
 				);

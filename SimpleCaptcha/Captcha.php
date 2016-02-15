@@ -264,7 +264,7 @@ class SimpleCaptcha {
 	function badLoginKey() {
 		global $wgRequest;
 		$ip = $wgRequest->getIP();
-		return wfMemcKey( 'captcha', 'badlogin', 'ip', $ip );
+		return wfGlobalCacheKey( 'captcha', 'badlogin', 'ip', $ip );
 	}
 
 	/**

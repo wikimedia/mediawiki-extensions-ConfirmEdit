@@ -13,5 +13,6 @@
 		"ReCaptchaSiteKey": "",
 		"ReCaptchaSecretKey": "",
 		"ReCaptchaSendRemoteIP": false
-	}
+	},
+	"manifest_version": 1
 }

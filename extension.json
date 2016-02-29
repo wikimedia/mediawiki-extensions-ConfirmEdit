@@ -116,14 +116,17 @@
 			"addurl": true,
 			"createaccount": true,
 			"badlogin": true,
+			"badloginperuser": true,
 			"_merge_strategy": "array_plus"
 		},
 		"wgCaptchaTriggersOnNamespace": [],
 		"wgCaptchaStorageClass": "CaptchaSessionStore",
 		"wgCaptchaSessionExpiration": 1800,
 		"wgCaptchaBadLoginExpiration": 300,
+		"wgCaptchaBadLoginPerUserExpiration": 600,
 		"ceAllowConfirmedEmail": false,
 		"wgCaptchaBadLoginAttempts": 3,
+		"wgCaptchaBadLoginPerUserAttempts": 20,
 		"wgCaptchaWhitelist": false,
 		"wgCaptchaRegexes": []
 	},

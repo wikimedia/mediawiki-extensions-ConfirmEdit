@@ -178,12 +178,24 @@ class SimpleCaptcha {
 	 * @return bool true to keep running callbacks
 	 */
 	function injectUserLogin( &$template ) {
-		if ( $this->isBadLoginTriggered() ) {
+		$perUserTriggered = false;
+		$username = $template->get( 'name', '' );
+		if ( $username !== '' ) {
+			// Note: The first time the user attempts to login, they may
+			// get a incorrect password error due to the captcha not being
+			// shown since we don't know that they will attempt to login in
+			// to a captcha-limitted user account, until they actually try.
+			$perUserTriggered = $this->isBadLoginPerUserTriggered( $username );
+		}
+		$perIPTriggered = $this->isBadLoginTriggered();
+		if ( $perIPTriggered || $perUserTriggered ) {
 			global $wgOut;
 
 			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha shown on login', array(
 				'event' => 'captcha.display',
 				'type' => 'login',
+				'perIp' => $perIPTriggered,
+				'perUser' => $perUserTriggered
 			) );
 			$this->action = 'badlogin';
 			$captcha = "<div class='captcha'>" .
@@ -210,15 +222,30 @@ class SimpleCaptcha {
 	 * @return bool true to keep running callbacks
 	 */
 	function triggerUserLogin( $user, $password, $retval ) {
-		global $wgCaptchaTriggers, $wgCaptchaBadLoginExpiration, $wgMemc;
-		if ( $retval == LoginForm::WRONG_PASS && $wgCaptchaTriggers['badlogin'] ) {
-			$key = $this->badLoginKey();
-			$count = $wgMemc->get( $key );
-			if ( !$count ) {
-				$wgMemc->add( $key, 0, $wgCaptchaBadLoginExpiration );
-			}
+		global $wgCaptchaTriggers, $wgCaptchaBadLoginExpiration,
+			$wgMemc, $wgCaptchaBadLoginPerUserExpiration;
+		if ( $retval === LoginForm::WRONG_PASS ) {
+			if ( $wgCaptchaTriggers['badlogin'] ) {
+				$key = $this->badLoginKey();
+				$count = $wgMemc->get( $key );
+				if ( !$count ) {
+					$wgMemc->add( $key, 0, $wgCaptchaBadLoginExpiration );
+				}
 
-			$wgMemc->incr( $key );
+				$wgMemc->incr( $key );
+			}
+			if ( $wgCaptchaTriggers['badloginperuser'] ) {
+				$key = $this->badLoginPerUserKey( $user->getName() );
+				$count = $wgMemc->get( $key );
+				if ( !$count ) {
+					$wgMemc->add( $key, 0, $wgCaptchaBadLoginPerUserExpiration );
+				}
+
+				$wgMemc->incr( $key );
+			}
+		} elseif ( $retval === LoginForm::SUCCESS && $wgCaptchaTriggers['badloginperuser'] ) {
+			// Reset the per-user limit after a succesful login.
+			$wgMemc->delete( $this->badLoginPerUserKey( $user->getName() ) );
 		}
 		return true;
 	}
@@ -234,6 +261,23 @@ class SimpleCaptcha {
 		return $wgCaptchaTriggers['badlogin'] && intval(
 			$wgMemc->get( $this->badLoginKey() )
 		) >= $wgCaptchaBadLoginAttempts;
+	}
+
+	/**
+	 * Is the per-user captcha triggered?
+	 *
+	 * @param $u User|String User object, or name
+	 * @return boolean
+	 */
+	private function isBadLoginPerUserTriggered( $u ) {
+		global $wgMemc, $wgCaptchaTriggers, $wgCaptchaBadLoginPerUserAttempts;
+
+		if ( is_object( $u ) ) {
+			$u = $u->getName();
+		}
+		return $wgCaptchaTriggers['badloginperuser'] && intval(
+			$wgMemc->get( $this->badLoginPerUserKey( $u ) )
+		) >= $wgCaptchaBadLoginPerUserAttempts;
 	}
 
 	/**
@@ -266,6 +310,17 @@ class SimpleCaptcha {
 		$ip = $wgRequest->getIP();
 		return wfGlobalCacheKey( 'captcha', 'badlogin', 'ip', $ip );
 	}
+
+	/*
+	 * Cache key for badloginPerUser checks.
+	 * @param $username string
+	 * @return string
+	 */
+	private function badLoginPerUserKey( $username ) {
+		$username = User::getCanonicalName( $username, 'usable' ) ?: $username;
+		return wfGlobalCacheKey( 'captcha', 'badlogin', 'user', md5( $username ) );
+	}
+
 
 	/**
 	 * Check if the submitted form matches the captcha session data provided
@@ -729,7 +784,7 @@ class SimpleCaptcha {
 	 * @return bool true to continue, false to abort user creation
 	 */
 	function confirmUserLogin( $u, $pass, &$retval ) {
-		if ( $this->isBadLoginTriggered() ) {
+		if ( $this->isBadLoginTriggered() || $this->isBadLoginPerUserTriggered( $u ) ) {
 			if ( $this->isIPWhitelisted() )
 				return true;
 

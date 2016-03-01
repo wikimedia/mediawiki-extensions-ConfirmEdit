@@ -54,5 +54,6 @@
 		"CaptchaDirectoryLevels": 0,
 		"CaptchaSecret": "CHANGE_THIS_SECRET!",
 		"CaptchaDeleteOnSolve": false
-	}
+	},
+	"manifest_version": 1
 }

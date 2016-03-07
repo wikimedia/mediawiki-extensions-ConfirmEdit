@@ -79,6 +79,9 @@
 		"EmailUser": [
 			"ConfirmEditHooks::confirmEmailUser"
 		],
+		"PageContentSaveComplete": [
+			"ConfirmEditHooks::onPageContentSaveComplete"
+		],
 		"EditPage::showEditForm:fields": [
 			"ConfirmEditHooks::showEditFormFields"
 		],

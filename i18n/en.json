@@ -6,6 +6,7 @@
 	"captcha-edit-fail": "Incorrect or missing CAPTCHA.",
 	"captcha-desc": "Provides CAPTCHA techniques to protect against spam and password-guessing",
 	"captcha-label": "CAPTCHA",
+	"captcha-ip-whitelist": "-",
 	"captcha-addurl": "Your edit includes new external links.\nTo protect the wiki against automated spam, we kindly ask you to solve the simple sum below and enter the answer in the box in order to save your edit ([[Special:Captcha/help|more info]]):",
 	"captcha-badlogin": "To protect the wiki against automated password cracking, we kindly ask you to solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):",
 	"captcha-createaccount": "To protect the wiki against automated account creation, we kindly ask you to solve the simple sum below and enter the answer in the box ([[Special:Captcha/help|more info]]):",

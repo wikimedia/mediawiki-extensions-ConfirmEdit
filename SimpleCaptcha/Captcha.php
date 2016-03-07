@@ -281,23 +281,88 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Check if the IP is allowed to skip captchas
+	 * Check if the current IP is allowed to skip captchas. This checks
+	 * the whitelist from two sources.
+	 *  1) From the server-side config array $wgCaptchaWhitelistIP
+	 *  2) From the local [[MediaWiki:Captcha-ip-whitelist]] message
+	 *
+	 * @return bool true if whitelisted, false if not
 	 */
 	function isIPWhitelisted() {
-		global $wgCaptchaWhitelistIP;
+		global $wgCaptchaWhitelistIP, $wgRequest;
+		$ip = $wgRequest->getIP();
 
 		if ( $wgCaptchaWhitelistIP ) {
-			global $wgRequest;
-
-			$ip = $wgRequest->getIP();
-
-			foreach ( $wgCaptchaWhitelistIP as $range ) {
-				if ( IP::isInRange( $ip, $range ) ) {
-					return true;
-				}
+			if ( IP::isInRanges( $ip, $wgCaptchaWhitelistIP ) ) {
+				return true;
 			}
 		}
+
+		$whitelistMsg = wfMessage( 'captcha-ip-whitelist' )->inContentLanguage();
+		if ( !$whitelistMsg->isDisabled() ) {
+			$whitelistedIPs = $this->getWikiIPWhitelist( $whitelistMsg );
+			if ( IP::isInRanges( $ip, $whitelistedIPs ) ) {
+				return true;
+			}
+		}
+
 		return false;
+	}
+
+	/**
+	 * Get the on-wiki IP whitelist stored in [[MediaWiki:Captcha-ip-whitelist]]
+	 * page from cache if possible.
+	 *
+	 * @param Message $msg whitelist Message on wiki
+	 * @return array whitelisted IP addresses or IP ranges, empty array if no whitelist
+	 */
+	private function getWikiIPWhitelist( Message $msg ) {
+		$cache = ObjectCache::getMainWANInstance();
+		$cacheKey = $cache->makeKey( 'confirmedit', 'ipwhitelist' );
+
+		$cachedWhitelist = $cache->get( $cacheKey );
+		if ( $cachedWhitelist === false ) {
+			// Could not retrieve from cache so build the whitelist directly
+			// from the wikipage
+			$whitelist = $this->buildValidIPs(
+				explode( "\n", $msg->plain() )
+			);
+			// And then store it in cache for one day. This cache is cleared on
+			// modifications to the whitelist page.
+			// @see ConfirmEditHooks::onPageContentSaveComplete()
+			$cache->set( $cacheKey, $whitelist, 86400 );
+		} else {
+			// Whitelist from the cache
+			$whitelist = $cachedWhitelist;
+		}
+
+		return $whitelist;
+	}
+
+	/**
+	 * From a list of unvalidated input, get all the valid
+	 * IP addresses and IP ranges from it.
+	 *
+	 * Note that only lines with just the IP address or IP range is considered
+	 * as valid. Whitespace is allowed but if there is any other character on
+	 * the line, it's not considered as a valid entry.
+	 *
+	 * @param string[] $input
+	 * @return string[] of valid IP addresses and IP ranges
+	 */
+	private function buildValidIPs( array $input ) {
+		// Remove whitespace and blank lines first
+		$ips = array_map( 'trim', $input );
+		$ips = array_filter( $ips );
+
+		$validIPs = array();
+		foreach ( $ips as $ip ) {
+			if ( IP::isIPAddress( $ip ) ) {
+				$validIPs[] = $ip;
+			}
+		}
+
+		return $validIPs;
 	}
 
 	/**

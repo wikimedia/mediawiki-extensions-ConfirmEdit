@@ -24,6 +24,36 @@ class ConfirmEditHooks {
 			$user, $minorEdit );
 	}
 
+	/**
+	 * PageContentSaveComplete hook handler.
+	 * Clear IP whitelist cache on page saves for [[MediaWiki:captcha-ip-whitelist]].
+	 *
+	 * @param Page     $wikiPage
+	 * @param User     $user
+	 * @param Content  $content
+	 * @param string   $summary
+	 * @param bool     $isMinor
+	 * @param bool     $isWatch
+	 * @param string   $section
+	 * @param int      $flags
+	 * @param int      $revision
+	 * @param Status   $status
+	 * @param int      $baseRevId
+	 *
+	 * @return bool true
+	 */
+	static function onPageContentSaveComplete( Page $wikiPage, User $user, Content $content, $summary,
+		$isMinor, $isWatch, $section, $flags, $revision, Status $status, $baseRevId
+	) {
+		$title = $wikiPage->getTitle();
+		if ( $title->getText() === 'Captcha-ip-whitelist' && $title->getNamespace() === NS_MEDIAWIKI ) {
+			$cache = ObjectCache::getMainWANInstance();
+			$cache->delete( $cache->makeKey( 'confirmedit', 'ipwhitelist' ) );
+		}
+
+		return true;
+	}
+
 	static function confirmEditPage( $editpage, $buttons, $tabindex ) {
 		self::getInstance()->editShowCaptcha( $editpage );
 	}

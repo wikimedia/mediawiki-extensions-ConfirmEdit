@@ -58,6 +58,16 @@
 		"CaptchaAuthenticationRequest": "includes/auth/CaptchaAuthenticationRequest.php"
 	},
 	"callback": "ConfirmEditHooks::onRegistration",
+	"ResourceModules": {
+		"ext.confirmEdit.editPreview.ipwhitelist.styles": {
+			"position": "top",
+			"styles": "ext.confirmEdit.editPreview.ipwhitelist.styles.css"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "ConfirmEdit/resources"
+	},
 	"Hooks": {
 		"EditPageBeforeEditButtons": "ConfirmEditHooks::confirmEditPage",
 		"EmailUserForm": "ConfirmEditHooks::injectEmailUser",
@@ -67,7 +77,8 @@
 		"EditFilterMergedContent": "ConfirmEditHooks::confirmEditMerged",
 		"APIGetAllowedParams": "ConfirmEditHooks::APIGetAllowedParams",
 		"APIGetParamDescription": "ConfirmEditHooks::APIGetParamDescription",
-		"TitleReadWhitelist": "ConfirmEditHooks::onTitleReadWhitelist"
+		"TitleReadWhitelist": "ConfirmEditHooks::onTitleReadWhitelist",
+		"AlternateEditPreview": "ConfirmEditHooks::onAlternateEditPreview"
 	},
 	"config": {
 		"_prefix": "",

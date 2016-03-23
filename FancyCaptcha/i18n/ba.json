@@ -14,6 +14,8 @@
 	"fancycaptcha-create": "Яңы бит булдырыу өсөн, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):",
 	"fancycaptcha-edit": "Был битте мөхәррирләү өсөн, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):",
 	"fancycaptcha-imgcaptcha-ph": "Өҫтәге тексты индерегеҙ",
-	"fancycaptcha-sendemail": "Автоматик спамдан һаҡлау маҡсатында, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):",
-	"fancycaptcha-reload-text": "Яңыртыу"
+	"fancycaptcha-sendemail": "Автоматик спамдан һаҡлау маҡсатында, аҫта рамка эсендә күрһәтелгән һүҙҙәрҙе керетегеҙ ([[Special:Captcha/ярҙам|тулыраҡ мәғлүмәт]]):",
+	"fancycaptcha-reload-text": "Яңыртыу",
+	"apihelp-fancycaptchareload-description": "Яңы FancyCaptcha алырға.",
+	"apihelp-fancycaptchareload-example-1": "Яңы FancyCaptcha алырға"
 }

@@ -4,7 +4,8 @@
 			"Assele",
 			"Рустам Нурыев",
 			"Sagan",
-			"Янмурза Баки"
+			"Янмурза Баки",
+			"Азат Хәлилов"
 		]
 	},
 	"fancycaptcha-addurl": "Һеҙҙең текстығыҙҙа яңы тышҡы һылтанмалар бар.\nАвтоматик спамдан һаҡлау маҡсатында, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):",
@@ -14,7 +15,7 @@
 	"fancycaptcha-create": "Яңы бит булдырыу өсөн, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):",
 	"fancycaptcha-edit": "Был битте мөхәррирләү өсөн, зинһар, күрһәтелгән һүҙҙәрҙе түбәндәге юлға керетегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):",
 	"fancycaptcha-imgcaptcha-ph": "Өҫтәге тексты индерегеҙ",
-	"fancycaptcha-sendemail": "Автоматик спамдан һаҡлау маҡсатында, аҫта рамка эсендә күрһәтелгән һүҙҙәрҙе керетегеҙ ([[Special:Captcha/ярҙам|тулыраҡ мәғлүмәт]]):",
+	"fancycaptcha-sendemail": "Автоматик спамдан һаҡлау маҡсатында,  түбәндә килтерелгән һорауға яуап бирегеҙ ([[Special:Captcha/help|тулыраҡ мәғлүмәт]]):",
 	"fancycaptcha-reload-text": "Яңыртыу",
 	"apihelp-fancycaptchareload-description": "Яңы FancyCaptcha алырға.",
 	"apihelp-fancycaptchareload-example-1": "Яңы FancyCaptcha алырға"

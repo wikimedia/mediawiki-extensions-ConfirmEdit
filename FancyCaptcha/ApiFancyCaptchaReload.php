@@ -9,7 +9,8 @@ class ApiFancyCaptchaReload extends ApiBase {
 	public function execute() {
 		# Get a new FancyCaptcha form data
 		$captcha = new FancyCaptcha();
-		$captchaIndex = $captcha->getCaptchaIndex();
+		$info = $captcha->getCaptcha();
+		$captchaIndex = $captcha->storeCaptcha( $info );
 
 		$result = $this->getResult();
 		$result->addValue( null, $this->getModuleName(), [ 'index' => $captchaIndex ] );

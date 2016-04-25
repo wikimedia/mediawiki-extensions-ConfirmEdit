@@ -9,6 +9,9 @@
  */
 
 class QuestyCaptcha extends SimpleCaptcha {
+	// used for questycaptcha-edit, questycaptcha-addurl, questycaptcha-badlogin,
+	// questycaptcha-createaccount, questycaptcha-create, questycaptcha-sendemail via getMessage()
+	protected static $messagePrefix = 'questycaptcha-';
 
 	/** Validate a captcha response */
 	function keyMatch( $answer, $info ) {
@@ -22,10 +25,16 @@ class QuestyCaptcha extends SimpleCaptcha {
 	function addCaptchaAPI( &$resultArr ) {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
-		$resultArr['captcha']['type'] = 'question';
-		$resultArr['captcha']['mime'] = 'text/plain';
+		$resultArr['captcha'] = $this->describeCaptchaType();
 		$resultArr['captcha']['id'] = $index;
 		$resultArr['captcha']['question'] = $captcha['question'];
+	}
+
+	public function describeCaptchaType() {
+		return [
+			'type' => 'question',
+			'mime' => 'text/plain',
+		];
 	}
 
 	function getCaptcha() {
@@ -65,16 +74,6 @@ class QuestyCaptcha extends SimpleCaptcha {
 				'value' => $index ] );
 	}
 
-	function getMessage( $action ) {
-		$name = 'questycaptcha-' . $action;
-		$text = wfMessage( $name )->text();
-		# Obtain a more tailored message, if possible, otherwise, fall back to
-		# the default for edits
-		return wfMessage(
-			$name, $text
-		)->isDisabled() ? wfMessage( 'questycaptcha-edit' )->text() : $text;
-	}
-
 	function showHelp() {
 		global $wgOut;
 		$wgOut->setPageTitle( wfMessage( 'captchahelp-title' )->text() );
@@ -82,5 +81,9 @@ class QuestyCaptcha extends SimpleCaptcha {
 		if ( CaptchaStore::get()->cookiesNeeded() ) {
 			$wgOut->addWikiMsg( 'captchahelp-cookies-needed' );
 		}
+	}
+
+	public function getCaptchaInfo( $captchaData, $id ) {
+		return $captchaData['question'];
 	}
 }

@@ -1,5 +1,9 @@
 <?php
 class ReCaptchaNoCaptcha extends SimpleCaptcha {
+	// used for renocaptcha-edit, renocaptcha-addurl, renocaptcha-badlogin, renocaptcha-createaccount,
+	// renocaptcha-create, renocaptcha-sendemail via getMessage()
+	protected static $messagePrefix = 'renocaptcha-';
+
 	private $error = null;
 	/**
 	 * Get the captcha form.
@@ -71,7 +75,7 @@ HTML;
 	 *
 	 * @return boolean
 	 */
-	function passCaptcha() {
+	function passCaptcha( $_, $__ ) {
 		global $wgRequest, $wgReCaptchaSecretKey, $wgReCaptchaSendRemoteIP;
 
 		$url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -107,12 +111,17 @@ HTML;
 	}
 
 	function addCaptchaAPI( &$resultArr ) {
-		global $wgReCaptchaSiteKey;
-
-		$resultArr['captcha']['type'] = 'recaptchanocaptcha';
-		$resultArr['captcha']['mime'] = 'image/png';
-		$resultArr['captcha']['key'] = $wgReCaptchaSiteKey;
+		$resultArr['captcha'] = $this->describeCaptchaType();
 		$resultArr['captcha']['error'] = $this->error;
+	}
+
+	public function describeCaptchaType() {
+		global $wgReCaptchaSiteKey;
+		return [
+			'type' => 'recaptchanocaptcha',
+			'mime' => 'mage/png',
+			'key' => $wgReCaptchaSiteKey,
+		];
 	}
 
 	/**
@@ -122,15 +131,12 @@ HTML;
 	 * @param $action string Action being performed
 	 * @return string Wikitext
 	 */
-	function getMessage( $action ) {
-		$name = 'renocaptcha-' . $action;
-		$msg = wfMessage( $name );
-
-		$text = $msg->isDisabled() ? wfMessage( 'renocaptcha-edit' )->text() : $msg->text();
+	public function getMessage( $action ) {
+		$msg = parent::getMessage( $action );
 		if ( $this->error ) {
-			$text = '<div class="error">' . $text . '</div>';
+			$msg = new RawMessage( '<div class="error">$1</div>', [ $msg ] );
 		}
-		return $text;
+		return $msg;
 	}
 
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {

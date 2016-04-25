@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Auth\AuthenticationRequest;
+
 class MathCaptcha extends SimpleCaptcha {
 
 	/** Validate a captcha response */
@@ -9,11 +11,18 @@ class MathCaptcha extends SimpleCaptcha {
 
 	function addCaptchaAPI( &$resultArr ) {
 		list( $sum, $answer ) = $this->pickSum();
+		$html = $this->fetchMath( $sum );
 		$index = $this->storeCaptcha( [ 'answer' => $answer ] );
-		$resultArr['captcha']['type'] = 'math';
-		$resultArr['captcha']['mime'] = 'text/tex';
+		$resultArr['captcha'] = $this->describeCaptchaType();
 		$resultArr['captcha']['id'] = $index;
-		$resultArr['captcha']['question'] = $sum;
+		$resultArr['captcha']['question'] = $html;
+	}
+
+	public function describeCaptchaType() {
+		return [
+			'type' => 'math',
+			'mime' => 'text/html',
+		];
 	}
 
 	/**
@@ -25,16 +34,11 @@ class MathCaptcha extends SimpleCaptcha {
 		$index = $this->storeCaptcha( [ 'answer' => $answer ] );
 
 		$form = '<table><tr><td>' . $this->fetchMath( $sum ) . '</td>';
-		$form .= '<td>' . Html::input(
-			'wpCaptchaWord',
-			false,
-			false,
-			[
-				'tabindex' => $tabIndex,
-				'autocomplete' => 'off',
-				'required'
-			]
-		) . '</td></tr></table>';
+		$form .= '<td>' . Html::input( 'wpCaptchaWord', false, false, [
+			'tabindex' => $tabIndex,
+			'autocomplete' => 'off',
+			'required'
+		] ) . '</td></tr></table>';
 		$form .= Html::hidden( 'wpCaptchaId', $index );
 		return $form;
 	}
@@ -52,13 +56,37 @@ class MathCaptcha extends SimpleCaptcha {
 	/** Fetch the math */
 	function fetchMath( $sum ) {
 		if ( class_exists( 'MathRenderer' ) ) {
-			$math = MathRenderer::getRenderer( $sum, [], MW_MATH_PNG );
+			$math = MathRenderer::getRenderer( $sum, [], 'png' );
 		} else {
-			throw new Exception(
-				'MathCaptcha requires the Math extension for MediaWiki versions 1.18 and above.'
-			);
+			throw new LogicException(
+				'MathCaptcha requires the Math extension for MediaWiki versions 1.18 and above.' );
 		}
-		$html = $math->render();
+		$math->render();
+		$html = $math->getHtmlOutput();
 		return preg_replace( '/alt=".*?"/', '', $html );
+	}
+
+	public function getCaptcha() {
+		list( $sum, $answer ) = $this->pickSum();
+		return [ 'question' => $sum, 'answer' => $answer ];
+	}
+
+	public function getCaptchaInfo( $captchaData, $id ) {
+		$sum = $captchaData['question'];
+		return $this->fetchMath( $sum );
+	}
+
+	public function onAuthChangeFormFields( array $requests, array $fieldInfo,
+		array &$formDescriptor, $action ) {
+		/** @var CaptchaAuthenticationRequest $req */
+		$req =
+			AuthenticationRequest::getRequestByClass( $requests,
+				CaptchaAuthenticationRequest::class );
+		if ( !$req ) {
+			return;
+		}
+
+		$formDescriptor['captchaInfo']['raw'] = true;
+		$formDescriptor['captchaWord']['label-message'] = null;
 	}
 }

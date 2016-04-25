@@ -18,6 +18,7 @@
 	},
 	"AutoloadClasses": {
 		"FancyCaptcha": "FancyCaptcha.class.php",
+		"HTMLFancyCaptchaField": "HTMLFancyCaptchaField.php",
 		"ApiFancyCaptchaReload": "ApiFancyCaptchaReload.php"
 	},
 	"ResourceModules": {

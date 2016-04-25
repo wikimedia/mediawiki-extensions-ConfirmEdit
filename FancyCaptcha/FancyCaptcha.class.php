@@ -1,6 +1,13 @@
 <?php
 
+use MediaWiki\Auth\AuthenticationRequest;
+use MediaWiki\Auth\AuthManager;
+
 class FancyCaptcha extends SimpleCaptcha {
+	// used for fancycaptcha-edit, fancycaptcha-addurl, fancycaptcha-badlogin,
+	// fancycaptcha-createaccount, fancycaptcha-create, fancycaptcha-sendemail via getMessage()
+	protected static $messagePrefix = 'fancycaptcha-';
+
 	/**
 	 * @return FileBackend
 	 */
@@ -80,10 +87,16 @@ class FancyCaptcha extends SimpleCaptcha {
 		}
 		$index = $this->storeCaptcha( $info );
 		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
-		$resultArr['captcha']['type'] = 'image';
-		$resultArr['captcha']['mime'] = 'image/png';
+		$resultArr['captcha'] = $this->describeCaptchaType();
 		$resultArr['captcha']['id'] = $index;
 		$resultArr['captcha']['url'] = $title->getLocalUrl( 'wpCaptchaId=' . urlencode( $index ) );
+	}
+
+	public function describeCaptchaType() {
+		return [
+			'type' => 'image',
+			'mime' => 'image/png',
+		];
 	}
 
 	/**
@@ -97,7 +110,8 @@ class FancyCaptcha extends SimpleCaptcha {
 		$out->addModuleStyles( 'ext.confirmEdit.fancyCaptcha.styles' );
 
 		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
-		$index = $this->getCaptchaIndex();
+		$info = $this->getCaptcha();
+		$index = $this->storeCaptcha( $info );
 
 		if ( $wgEnableAPI ) {
 			// Loaded only if JS is enabled
@@ -118,7 +132,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			Html::element( 'label', [
 					'for' => 'wpCaptchaWord',
 				],
-				parent::getMessage( 'label' ) . ' ' . wfMessage( 'fancycaptcha-captcha' )->text()
+				wfMessage( 'captcha-label' )->text() . ' ' . wfMessage( 'fancycaptcha-captcha' )->text()
 			) .
 			Html::openElement( 'div', [ 'class' => 'fancycaptcha-captcha-container' ] ) .
 			Html::openElement( 'div', [ 'class' => 'fancycaptcha-captcha-and-reload' ] ) .
@@ -143,7 +157,7 @@ class FancyCaptcha extends SimpleCaptcha {
 					'placeholder' => wfMessage( 'fancycaptcha-imgcaptcha-ph' )
 				]
 			); // tab in before the edit textarea
-			if ( $this->action == 'usercreate' ) {
+			if ( $this->action == 'createaccount' ) {
 				// use raw element, because the message can contain links or some other html
 				$form .= Html::rawElement( 'small', [
 						'class' => 'mw-createacct-captcha-assisted'
@@ -159,24 +173,6 @@ class FancyCaptcha extends SimpleCaptcha {
 			) . Html::closeElement( 'div' ) . Html::closeElement( 'div' ) . "\n";
 
 			return $form;
-	}
-
-	/**
-	 * Get captcha index key
-	 * @return string captcha ID key
-	 */
-	function getCaptchaIndex() {
-		$info = $this->pickImage();
-		if ( !$info ) {
-			throw new Exception( "Ran out of captcha images" );
-		}
-
-		// Generate a random key for use of this captcha image in this session.
-		// This is needed so multiple edits in separate tabs or windows can
-		// go through without extra pain.
-		$index = $this->storeCaptcha( $info );
-
-		return $index;
 	}
 
 	/**
@@ -331,11 +327,12 @@ class FancyCaptcha extends SimpleCaptcha {
 	}
 
 	function showImage() {
-		global $wgOut;
+		global $wgOut, $wgRequest;
 
 		$wgOut->disable();
 
-		$info = $this->retrieveCaptcha();
+		$index = $wgRequest->getVal( 'wpCaptchaId' );
+		$info = $this->retrieveCaptcha( $index );
 		if ( $info ) {
 			$timestamp = new MWTimestamp();
 			$info['viewed'] = $timestamp->getTimestamp();
@@ -385,29 +382,14 @@ class FancyCaptcha extends SimpleCaptcha {
 	}
 
 	/**
-	 * Show a message asking the user to enter a captcha on edit
-	 * The result will be treated as wiki text
-	 *
-	 * @param $action string Action being performed
-	 * @return string
-	 */
-	function getMessage( $action ) {
-		$name = 'fancycaptcha-' . $action;
-		$text = wfMessage( $name )->text();
-		# Obtain a more tailored message, if possible, otherwise, fall back to
-		# the default for edits
-		return wfMessage( $name, $text )->isDisabled() ?
-			wfMessage( 'fancycaptcha-edit' )->text() : $text;
-	}
-
-	/**
 	 * Delete a solved captcha image, if $wgCaptchaDeleteOnSolve is true.
+	 * @inheritdoc
 	 */
-	function passCaptcha() {
+	protected function passCaptcha( $index, $word ) {
 		global $wgCaptchaDeleteOnSolve;
 
-		$info = $this->retrieveCaptcha(); // get the captcha info before it gets deleted
-		$pass = parent::passCaptcha();
+		$info = $this->retrieveCaptcha( $index ); // get the captcha info before it gets deleted
+		$pass = parent::passCaptcha( $index, $word );
 
 		if ( $pass && $wgCaptchaDeleteOnSolve ) {
 			$this->getBackend()->quickDelete( [
@@ -416,5 +398,49 @@ class FancyCaptcha extends SimpleCaptcha {
 		}
 
 		return $pass;
+	}
+
+	/**
+	 * Returns an array with 'salt' and 'hash' keys. Hash is
+	 * md5( $wgCaptchaSecret . $salt . $answer . $wgCaptchaSecret . $salt )[0..15]
+	 * @return array
+	 * @throws Exception When a captcha image cannot be produced.
+	 */
+	public function getCaptcha() {
+		$info = $this->pickImage();
+		if ( !$info ) {
+			throw new UnderflowException( 'Ran out of captcha images' );
+		}
+		return $info;
+	}
+
+	public function getCaptchaInfo( $captchaData, $id ) {
+		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
+		return $title->getLocalURL( 'wpCaptchaId=' . urlencode( $id ) );
+	}
+
+	public function onAuthChangeFormFields(
+		array $requests, array $fieldInfo, array &$formDescriptor, $action
+	) {
+		/** @var CaptchaAuthenticationRequest $req */
+		$req =
+			AuthenticationRequest::getRequestByClass( $requests,
+				CaptchaAuthenticationRequest::class );
+		if ( !$req ) {
+			return;
+		}
+
+		// HTMLFancyCaptchaField will include this
+		unset( $formDescriptor['captchaInfo' ] );
+
+		$formDescriptor['captchaWord'] = [
+			'class' => HTMLFancyCaptchaField::class,
+			'imageUrl' => $this->getCaptchaInfo( $req->captchaData, $req->captchaId ),
+			'label-message' => $this->getMessage( $this->action ),
+			'showCreateHelp' => in_array( $action, [
+				AuthManager::ACTION_CREATE,
+				AuthManager::ACTION_CREATE_CONTINUE
+			], true ),
+		] + $formDescriptor['captchaWord'];
 	}
 }

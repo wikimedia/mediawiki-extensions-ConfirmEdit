@@ -1,22 +1,50 @@
 <?php
 
+use MediaWiki\Auth\AuthManager;
+
 class ConfirmEditHooks {
+	protected static $instanceCreated = false;
+
 	/**
 	 * Get the global Captcha instance
 	 *
 	 * @return SimpleCaptcha
 	 */
-	static function getInstance() {
+	public static function getInstance() {
 		global $wgCaptcha, $wgCaptchaClass;
 
-		static $done = false;
-
-		if ( !$done ) {
-			$done = true;
+		if ( !static::$instanceCreated ) {
+			static::$instanceCreated = true;
 			$wgCaptcha = new $wgCaptchaClass;
 		}
 
 		return $wgCaptcha;
+	}
+
+	/**
+	 * Registers conditional hooks.
+	 */
+	public static function onRegistration() {
+		global $wgDisableAuthManager, $wgAuthManagerAutoConfig, $wgCaptchaClass;
+
+		$supportsAuthManager = in_array( $wgCaptchaClass, [ SimpleCaptcha::class,
+			QuestyCaptcha::class, MathCaptcha::class, FancyCaptcha::class ], true );
+
+		if ( class_exists( AuthManager::class ) && !$wgDisableAuthManager && $supportsAuthManager ) {
+			$wgAuthManagerAutoConfig['preauth'][CaptchaPreAuthenticationProvider::class] = [
+				'class' => CaptchaPreAuthenticationProvider::class,
+				'sort'=> 10, // run after preauth providers not requiring user input
+			];
+			Hooks::register( 'AuthChangeFormFields', 'ConfirmEditHooks::onAuthChangeFormFields' );
+		} else {
+			Hooks::register( 'UserCreateForm', 'ConfirmEditHooks::injectUserCreate' );
+			Hooks::register( 'AbortNewAccount', 'ConfirmEditHooks::confirmUserCreate' );
+			Hooks::register( 'LoginAuthenticateAudit', 'ConfirmEditHooks::triggerUserLogin' );
+			Hooks::register( 'UserLoginForm', 'ConfirmEditHooks::injectUserLogin' );
+			Hooks::register( 'AbortLogin', 'ConfirmEditHooks::confirmUserLogin' );
+			Hooks::register( 'AddNewAccountApiForm', 'ConfirmEditHooks::addNewAccountApiForm' );
+			Hooks::register( 'AddNewAccountApiResult', 'ConfirmEditHooks::addNewAccountApiResult' );
+		}
 	}
 
 	static function confirmEditMerged( $context, $content, $status, $summary, $user, $minorEdit ) {
@@ -111,6 +139,12 @@ class ConfirmEditHooks {
 		return self::getInstance()->APIGetParamDescription( $module, $desc );
 	}
 
+	public static function onAuthChangeFormFields(
+		array $requests, array $fieldInfo, array &$formDescriptor, $action
+	) {
+		self::getInstance()->onAuthChangeFormFields( $requests, $fieldInfo, $formDescriptor, $action );
+	}
+
 	/**
 	 * Hook to add PHPUnit test cases.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
@@ -145,7 +179,7 @@ class ConfirmEditHooks {
 
 		// There is no need to run (core) tests with enabled ConfirmEdit - bug T44145
 		if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {
-			$wgCaptchaTriggers = false;
+			$wgCaptchaTriggers = array_fill_keys( array_keys( $wgCaptchaTriggers ), false );
 		}
 
 		if ( !$wgGroupPermissions['*']['read'] && $wgCaptchaTriggers['badlogin'] ) {

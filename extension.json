@@ -52,26 +52,15 @@
 		"CaptchaStore": "includes/CaptchaStore.php",
 		"CaptchaSessionStore": "includes/CaptchaStore.php",
 		"CaptchaCacheStore": "includes/CaptchaStore.php",
-		"CaptchaSpecialPage": "includes/specials/SpecialCaptcha.php"
+		"CaptchaHashStore": "includes/CaptchaStore.php",
+		"CaptchaSpecialPage": "includes/specials/SpecialCaptcha.php",
+		"CaptchaPreAuthenticationProvider": "includes/auth/CaptchaPreAuthenticationProvider.php",
+		"CaptchaAuthenticationRequest": "includes/auth/CaptchaAuthenticationRequest.php"
 	},
+	"callback": "ConfirmEditHooks::onRegistration",
 	"Hooks": {
 		"EditPageBeforeEditButtons": [
 			"ConfirmEditHooks::confirmEditPage"
-		],
-		"UserCreateForm": [
-			"ConfirmEditHooks::injectUserCreate"
-		],
-		"AbortNewAccount": [
-			"ConfirmEditHooks::confirmUserCreate"
-		],
-		"LoginAuthenticateAudit": [
-			"ConfirmEditHooks::triggerUserLogin"
-		],
-		"UserLoginForm": [
-			"ConfirmEditHooks::injectUserLogin"
-		],
-		"AbortLogin": [
-			"ConfirmEditHooks::confirmUserLogin"
 		],
 		"EmailUserForm": [
 			"ConfirmEditHooks::injectEmailUser"
@@ -93,12 +82,6 @@
 		],
 		"APIGetParamDescription": [
 			"ConfirmEditHooks::APIGetParamDescription"
-		],
-		"AddNewAccountApiForm": [
-			"ConfirmEditHooks::addNewAccountApiForm"
-		],
-		"AddNewAccountApiResult": [
-			"ConfirmEditHooks::addNewAccountApiResult"
 		],
 		"APIEditBeforeSave": [
 			"ConfirmEditHooks::confirmEditAPI"

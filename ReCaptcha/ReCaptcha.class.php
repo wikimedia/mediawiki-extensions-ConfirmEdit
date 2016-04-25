@@ -1,6 +1,10 @@
 <?php
 
 class ReCaptcha extends SimpleCaptcha {
+	// used for recaptcha-edit, recaptcha-addurl, recaptcha-badlogin, recaptcha-createaccount,
+	// recaptcha-create, recaptcha-sendemail via getMessage()
+	protected static $messagePrefix = 'recaptcha-';
+
 	// reCAPTHCA error code returned from recaptcha_check_answer
 	private $recaptcha_error = null;
 
@@ -28,7 +32,7 @@ class ReCaptcha extends SimpleCaptcha {
 	 * @return boolean
 	 *
 	 */
-	function passCaptcha() {
+	function passCaptcha( $_, $__ ) {
 		global $wgReCaptchaPrivateKey, $wgRequest;
 
 		// API is hardwired to return wpCaptchaId and wpCaptchaWord,
@@ -66,28 +70,17 @@ class ReCaptcha extends SimpleCaptcha {
 	}
 
 	function addCaptchaAPI( &$resultArr ) {
-		global $wgReCaptchaPublicKey;
-
-		$resultArr['captcha']['type'] = 'recaptcha';
-		$resultArr['captcha']['mime'] = 'image/png';
-		$resultArr['captcha']['key'] = $wgReCaptchaPublicKey;
+		$resultArr['captcha'] = $this->describeCaptchaType();
 		$resultArr['captcha']['error'] = $this->recaptcha_error;
 	}
 
-	/**
-	 * Show a message asking the user to enter a captcha on edit
-	 * The result will be treated as wiki text
-	 *
-	 * @param $action string Action being performed
-	 * @return string
-	 */
-	function getMessage( $action ) {
-		$name = 'recaptcha-' . $action;
-		$text = wfMessage( $name )->text();
-
-		# Obtain a more tailored message, if possible, otherwise, fall back to
-		# the default for edits
-		return wfMessage( $name, $text )->isDisabled() ? wfMessage( 'recaptcha-edit' )->text() : $text;
+	public function describeCaptchaType() {
+		global $wgReCaptchaPublicKey;
+		return [
+			'type' => 'recaptcha',
+			'mime' => 'image/png',
+			'key' => $wgReCaptchaPublicKey,
+		];
 	}
 
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {

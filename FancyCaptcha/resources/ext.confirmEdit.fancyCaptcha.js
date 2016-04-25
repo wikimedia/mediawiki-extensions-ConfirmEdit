@@ -28,8 +28,8 @@
 				$captchaImage.attr( 'src', imgSrc );
 
 				// replace index key with a new one for hidden tag
-				$root.find( '[name="wpCaptchaId"]' ).val( captchaIndex );
-				$root.find( '[name="wpCaptchaWord"]' ).val( '' ).focus();
+				$( '#mw-input-captchaId' ).val( captchaIndex );
+				$( '#mw-input-wpcaptchaWord' ).val( '' ).focus();
 			}
 		} )
 		.always( function () {

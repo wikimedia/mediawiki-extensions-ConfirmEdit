@@ -1150,7 +1150,8 @@ class SimpleCaptcha {
 
 			// If we failed a captcha, override the generic 'Warning' result string
 			if ( $result['result'] === 'Warning' && isset( $result['warnings'] ) ) {
-				foreach ( $result['warnings'] as $warning ) {
+				$warnings = ApiResult::stripMetadataNonRecursive( $result['warnings'] );
+				foreach ( $warnings as $warning ) {
 					if ( $warning['message'] === 'captcha-createaccount-fail' ) {
 						$this->addCaptchaAPI( $result );
 						$result['result'] = 'NeedCaptcha';
@@ -1161,6 +1162,8 @@ class SimpleCaptcha {
 							'event' => 'captcha.display',
 							'type' => 'accountcreation',
 						) );
+
+						break;
 					}
 				}
 			}

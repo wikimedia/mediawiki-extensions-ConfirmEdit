@@ -3,6 +3,10 @@
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthManager;
 
+/**
+ * Generic captcha authentication request class. A captcha consist some data stored in the session
+ * (e.g. a question and its answer), an ID that references the data, and a solution.
+ */
 class CaptchaAuthenticationRequest extends AuthenticationRequest {
 	/** @var string Identifier of the captcha. Used internally to remember which captcha was used. */
 	public $captchaId;

@@ -31,6 +31,7 @@
 	"captcha-sendemail": "Used as footer text.\n{{Related|ConfirmEdit-sendemail}}",
 	"captcha-sendemail-fail": "Used as failure message.\n\nSee also:\n* {{msg-mw|Captcha-createaccount-fail}}",
 	"captcha-disabledinapi": "Used as error message when in the API mode.",
+	"captcha-error": "Error message shown when a CAPTCHA check failed for reasons the user cannot do anything about (e.g. the server could not contact the captcha provider). $1 is the error message.",
 	"captchahelp-title": "The page title of [[Special:Captcha/help]]",
 	"captchahelp-cookies-needed": "The page title for this message is {{msg-mw|Captchahelp-title}}.\n\nThis message follows the following help message:\n* {{msg-mw|Captchahelp-text}}.",
 	"captchahelp-text": "This is the help text shown on [[Special:Captcha/help]].",

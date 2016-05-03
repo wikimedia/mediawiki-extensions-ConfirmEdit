@@ -25,12 +25,9 @@ class ConfirmEditHooks {
 	 * Registers conditional hooks.
 	 */
 	public static function onRegistration() {
-		global $wgDisableAuthManager, $wgAuthManagerAutoConfig, $wgCaptchaClass;
+		global $wgDisableAuthManager, $wgAuthManagerAutoConfig;
 
-		$supportsAuthManager = in_array( $wgCaptchaClass, [ SimpleCaptcha::class,
-			QuestyCaptcha::class, MathCaptcha::class, FancyCaptcha::class ], true );
-
-		if ( class_exists( AuthManager::class ) && !$wgDisableAuthManager && $supportsAuthManager ) {
+		if ( class_exists( AuthManager::class ) && !$wgDisableAuthManager ) {
 			$wgAuthManagerAutoConfig['preauth'][CaptchaPreAuthenticationProvider::class] = [
 				'class' => CaptchaPreAuthenticationProvider::class,
 				'sort'=> 10, // run after preauth providers not requiring user input

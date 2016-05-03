@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\Auth\AuthenticationRequest;
+
 class ReCaptchaNoCaptcha extends SimpleCaptcha {
 	// used for renocaptcha-edit, renocaptcha-addurl, renocaptcha-badlogin, renocaptcha-createaccount,
 	// renocaptcha-create, renocaptcha-sendemail via getMessage()
@@ -30,7 +33,7 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
 		$htmlUrlencoded = htmlspecialchars( urlencode( $wgReCaptchaSiteKey ) );
 		$output .= <<<HTML
 <noscript>
-  <div style="width: 302px; height: 422px;">
+  <div>
     <div style="width: 302px; height: 422px; position: relative;">
       <div style="width: 302px; height: 422px; position: absolute;">
         <iframe src="https://www.google.com/recaptcha/api/fallback?k={$htmlUrlencoded}&hl={$lang}"
@@ -38,15 +41,15 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
                 style="width: 302px; height:422px; border-style: none;">
         </iframe>
       </div>
-      <div style="width: 300px; height: 60px; border-style: none;
-                  bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px;
-                  background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px;">
-        <textarea id="g-recaptcha-response" name="g-recaptcha-response"
-                  class="g-recaptcha-response"
-                  style="width: 250px; height: 40px; border: 1px solid #c1c1c1;
-                         margin: 10px 25px; padding: 0px; resize: none;" >
-        </textarea>
-      </div>
+    </div>
+    <div style="width: 300px; height: 60px; border-style: none;
+                bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px;
+                background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px;">
+      <textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                class="g-recaptcha-response"
+                style="width: 250px; height: 40px; border: 1px solid #c1c1c1;
+                       margin: 10px 25px; padding: 0px; resize: none;" >
+      </textarea>
     </div>
   </div>
 </noscript>
@@ -67,22 +70,31 @@ HTML;
 		wfDebugLog( 'captcha', 'Unable to validate response: ' . $error );
 	}
 
+	public function passCaptchaLimitedFromRequest( WebRequest $request, User $user ) {
+		$index = 'not used'; // ReCaptchaNoCaptcha combines captcha ID + solution into a single value
+		// API is hardwired to return captchaWord, so use that if the standard isempty
+		$response = $request->getVal( 'g-recaptcha-response', $request->getVal( 'captchaWord' ) );
+		return $this->passCaptchaLimited( $index, $response, $user );
+	}
+
 	/**
 	 * Check, if the user solved the captcha.
 	 *
 	 * Based on reference implementation:
 	 * https://github.com/google/recaptcha#php
 	 *
+	 * @param $_ mixed Not used (ReCaptcha v2 puts index and solution in a single string)
+	 * @param $word string captcha solution
 	 * @return boolean
 	 */
-	function passCaptcha( $_, $__ ) {
+	function passCaptcha( $_, $word ) {
 		global $wgRequest, $wgReCaptchaSecretKey, $wgReCaptchaSendRemoteIP;
 
 		$url = 'https://www.google.com/recaptcha/api/siteverify';
 		// Build data to append to request
 		$data = [
 			'secret' => $wgReCaptchaSecretKey,
-			'response' => $wgRequest->getVal( 'g-recaptcha-response' ),
+			'response' => $word,
 		];
 		if ( $wgReCaptchaSendRemoteIP ) {
 			$data['remoteip'] = $wgRequest->getIP();
@@ -163,5 +175,54 @@ HTML;
 		}
 
 		return true;
+	}
+
+	public function getError() {
+		return $this->error;
+	}
+
+	public function storeCaptcha( $info ) {
+		// ReCaptcha is stored by Google; the ID will be generated at that time as well, and
+		// the one returned here won't be used. Just pretend this worked.
+		return 'not used';
+	}
+
+	public function retrieveCaptcha( $index ) {
+		// just pretend it worked
+		return [ 'index' => $index ];
+	}
+
+	public function getCaptcha() {
+		// ReCaptcha is handled by frontend code + an external provider; nothing to do here.
+		return [];
+	}
+
+	public function getCaptchaInfo( $captchaData, $id ) {
+		return wfMessage( 'renocaptcha-info' );
+	}
+
+	public function createAuthenticationRequest() {
+		return new ReCaptchaNoCaptchaAuthenticationRequest();
+	}
+
+	public function onAuthChangeFormFields(
+		array $requests, array $fieldInfo, array &$formDescriptor, $action
+	) {
+		global $wgReCaptchaSiteKey;
+
+		$req = AuthenticationRequest::getRequestByClass( $requests,
+			CaptchaAuthenticationRequest::class, true );
+		if ( !$req ) {
+			return;
+		}
+
+		// ugly way to retrieve error information
+		$captcha = ConfirmEditHooks::getInstance();
+
+		$formDescriptor['captchaWord'] = [
+			'class' => HTMLReCaptchaNoCaptchaField::class,
+			'key' => $wgReCaptchaSiteKey,
+			'error' => $captcha->getError(),
+		] + $formDescriptor['captchaWord'];
 	}
 }

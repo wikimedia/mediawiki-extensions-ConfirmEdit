@@ -57,7 +57,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		}
 
 		if ( $needed ) {
-			return [ $this->createRequest( $captcha, $action ) ];
+			return [ $captcha->createAuthenticationRequest() ];
 		} else {
 			return [];
 		}
@@ -88,7 +88,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 		// Make brute force attacks harder by not telling whether the password or the
 		// captcha failed.
-		return $success ? Status::newGood() : Status::newFatal( 'wrongpassword' );
+		return $success ? Status::newGood() : $this->makeError( 'wrongpassword', $captcha );
 	}
 
 	public function testForAccountCreation( $user, $creator, array $reqs ) {
@@ -104,7 +104,9 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				'type' => 'accountcreation',
 				'successful' => $success,
 			] );
-			return $success ? Status::newGood() : Status::newFatal( 'captcha-createaccount-fail' );
+			if ( !$success ) {
+				return $this->makeError( 'captcha-createaccount-fail', $captcha );
+			}
 		}
 		return Status::newGood();
 	}
@@ -125,17 +127,6 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 	}
 
 	/**
-	 * @param SimpleCaptcha $captcha
-	 * @param string $action One of the AuthManager::ACTION_* constants.
-	 * @return CaptchaAuthenticationRequest
-	 */
-	protected function createRequest( SimpleCaptcha $captcha, $action ) {
-		$captchaData = $captcha->getCaptcha();
-		$id = $captcha->storeCaptcha( $captchaData );
-		return new CaptchaAuthenticationRequest( $id, $captchaData );
-	}
-
-	/**
 	 * Verify submitted captcha.
 	 * Assumes that the user has to pass the capctha (permission checks are caller's responsibility).
 	 * @param SimpleCaptcha $captcha
@@ -145,10 +136,24 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 	 */
 	protected function verifyCaptcha( SimpleCaptcha $captcha, array $reqs, User $user ) {
 		/** @var CaptchaAuthenticationRequest $req */
-		$req = AuthenticationRequest::getRequestByClass( $reqs, CaptchaAuthenticationRequest::class );
+		$req = AuthenticationRequest::getRequestByClass( $reqs,
+			CaptchaAuthenticationRequest::class, true );
 		if ( !$req ) {
 			return false;
 		}
 		return $captcha->passCaptchaLimited( $req->captchaId, $req->captchaWord, $user );
+	}
+
+	/**
+	 * @param string $message Message key
+	 * @param SimpleCaptcha $captcha
+	 * @return Status
+	 */
+	protected function makeError( $message, SimpleCaptcha $captcha ) {
+		$error = $captcha->getError();
+		if ( $error ) {
+			return Status::newFatal( wfMessage( 'captcha-error', $error ) );
+		}
+		return Status::newFatal( $message );
 	}
 }

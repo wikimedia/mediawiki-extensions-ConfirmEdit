@@ -9,7 +9,10 @@
 		]
 	},
 	"AutoloadClasses": {
-		"ReCaptcha": "ReCaptcha.class.php"
+		"ReCaptcha": "ReCaptcha.class.php",
+		"HTMLReCaptchaField": "HTMLReCaptchaField.php",
+		"HTMLSubmittedValueField": "HTMLSubmittedValueField.php",
+		"ReCaptchaAuthenticationRequest": "ReCaptchaAuthenticationRequest.php"
 	},
 	"config": {
 		"CaptchaClass": "ReCaptcha",

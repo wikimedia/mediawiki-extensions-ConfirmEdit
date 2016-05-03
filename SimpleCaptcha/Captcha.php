@@ -28,6 +28,15 @@ class SimpleCaptcha {
 	}
 
 	/**
+	 * Return the error from the last passCaptcha* call.
+	 * Not implemented but needed by some child classes.
+	 * @return
+	 */
+	public function getError() {
+		return null;
+	}
+
+	/**
 	 * Returns an array with 'question' and 'answer' keys.
 	 * Subclasses might use different structure.
 	 * Since MW 1.27 all subclasses must implement this method.
@@ -1277,6 +1286,15 @@ class SimpleCaptcha {
 			}
 		}
 		return true;
+	}
+
+	/**
+	 * @return CaptchaAuthenticationRequest
+	 */
+	public function createAuthenticationRequest() {
+		$captchaData = $this->getCaptcha();
+		$id = $this->storeCaptcha( $captchaData );
+		return new CaptchaAuthenticationRequest( $id, $captchaData );
 	}
 
 	/**

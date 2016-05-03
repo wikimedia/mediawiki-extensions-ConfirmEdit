@@ -425,7 +425,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		/** @var CaptchaAuthenticationRequest $req */
 		$req =
 			AuthenticationRequest::getRequestByClass( $requests,
-				CaptchaAuthenticationRequest::class );
+				CaptchaAuthenticationRequest::class, true );
 		if ( !$req ) {
 			return;
 		}

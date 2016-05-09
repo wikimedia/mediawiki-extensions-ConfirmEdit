@@ -18,7 +18,7 @@ class SimpleCaptcha {
 		// directionality.
 		$test = "$a$op$b";
 		$answer = ( $op == '+' ) ? ( $a + $b ) : ( $a - $b );
-		return array( 'question' => $test, 'answer' => $answer );
+		return [ 'question' => $test, 'answer' => $answer ];
 	}
 
 	function addCaptchaAPI( &$resultArr ) {
@@ -44,19 +44,19 @@ class SimpleCaptcha {
 		$index = $this->storeCaptcha( $captcha );
 
 		return "<p><label for=\"wpCaptchaWord\">{$captcha['question']} = </label>" .
-			Xml::element( 'input', array(
+			Xml::element( 'input', [
 				'name' => 'wpCaptchaWord',
 				'class' => 'mw-ui-input',
 				'id'   => 'wpCaptchaWord',
 				'size'  => 5,
 				'autocomplete' => 'off',
-				'tabindex' => $tabIndex ) ) . // tab in before the edit textarea
+				'tabindex' => $tabIndex ] ) . // tab in before the edit textarea
 			"</p>\n" .
-			Xml::element( 'input', array(
+			Xml::element( 'input', [
 				'type'  => 'hidden',
 				'name'  => 'wpCaptchaId',
 				'id'    => 'wpCaptchaId',
-				'value' => $index ) );
+				'value' => $index ] );
 	}
 
 	/**
@@ -146,10 +146,10 @@ class SimpleCaptcha {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return true;
 			}
-			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha shown on account creation', array(
+			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha shown on account creation', [
 				'event' => 'captcha.display',
 				'type' => 'accountcreation',
-			) );
+			] );
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'createaccount' ) ) .
 				// FIXME: Hardcoded tab index
@@ -161,7 +161,7 @@ class SimpleCaptcha {
 				$this->getForm( $wgOut, 8 ) .
 				"</div>\n";
 			// for older MediaWiki versions
-			if ( is_callable( array( $template, 'extend' ) ) ) {
+			if ( is_callable( [ $template, 'extend' ] ) ) {
 				$template->extend( 'extrafields', $captcha );
 			} else {
 				$template->set( 'header', $captcha );
@@ -191,19 +191,19 @@ class SimpleCaptcha {
 		if ( $perIPTriggered || $perUserTriggered ) {
 			global $wgOut;
 
-			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha shown on login', array(
+			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha shown on login', [
 				'event' => 'captcha.display',
 				'type' => 'login',
 				'perIp' => $perIPTriggered,
 				'perUser' => $perUserTriggered
-			) );
+			] );
 			$this->action = 'badlogin';
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'badlogin' ) ) .
 				$this->getForm( $wgOut ) .
 				"</div>\n";
 			// for older MediaWiki versions
-			if ( is_callable( array( $template, 'extend' ) ) ) {
+			if ( is_callable( [ $template, 'extend' ] ) ) {
 				$template->extend( 'extrafields', $captcha );
 			} else {
 				$template->set( 'header', $captcha );
@@ -355,7 +355,7 @@ class SimpleCaptcha {
 		$ips = array_map( 'trim', $input );
 		$ips = array_filter( $ips );
 
-		$validIPs = array();
+		$validIPs = [];
 		foreach ( $ips as $ip ) {
 			if ( IP::isIPAddress( $ip ) ) {
 				$validIPs[] = $ip;
@@ -386,7 +386,6 @@ class SimpleCaptcha {
 		return wfGlobalCacheKey( 'captcha', 'badlogin', 'user', md5( $username ) );
 	}
 
-
 	/**
 	 * Check if the submitted form matches the captcha session data provided
 	 * by the plugin when the form was generated.
@@ -411,8 +410,9 @@ class SimpleCaptcha {
 	function captchaTriggers( $title, $action ) {
 		global $wgCaptchaTriggers, $wgCaptchaTriggersOnNamespace;
 		// Special config for this NS?
-		if ( isset( $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action] ) )
+		if ( isset( $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action] ) ) {
 			return $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action];
+	 }
 
 		return ( !empty( $wgCaptchaTriggers[$action] ) ); // Default
 	}
@@ -504,7 +504,7 @@ class SimpleCaptcha {
 				if ( $editInfo->output ) {
 					$newLinks = array_keys( $editInfo->output->getExternalLinks() );
 				} else {
-					$newLinks = array();
+					$newLinks = [];
 				}
 			} else {
 				// Get link changes in the slowest way known to man
@@ -513,7 +513,7 @@ class SimpleCaptcha {
 				$newLinks = $this->findLinks( $title, $newtext );
 			}
 
-			$unknownLinks = array_filter( $newLinks, array( &$this, 'filterLink' ) );
+			$unknownLinks = array_filter( $newLinks, [ &$this, 'filterLink' ] );
 			$addedLinks = array_diff( $unknownLinks, $oldLinks );
 			$numLinks = count( $addedLinks );
 
@@ -539,9 +539,9 @@ class SimpleCaptcha {
 			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section );
 
 			foreach ( $wgCaptchaRegexes as $regex ) {
-				$newMatches = array();
+				$newMatches = [];
 				if ( preg_match_all( $regex, $newtext, $newMatches ) ) {
-					$oldMatches = array();
+					$oldMatches = [];
 					preg_match_all( $regex, $oldtext, $oldMatches );
 
 					$addedMatches = array_diff( $newMatches[0], $oldMatches[0] );
@@ -578,7 +578,7 @@ class SimpleCaptcha {
 			$source = wfMessage( 'captcha-addurl-whitelist' )->inContentLanguage();
 
 			$regexes = $source->isDisabled()
-				? array()
+				? []
 				: $this->buildRegexes( explode( "\n", $source->plain() ) );
 
 			if ( $wgCaptchaWhitelist !== false ) {
@@ -611,26 +611,26 @@ class SimpleCaptcha {
 		# No lines, don't make a regex which will match everything
 		if ( count( $lines ) == 0 ) {
 			wfDebug( "No lines\n" );
-			return array();
+			return [];
 		} else {
 			# Make regex
 			# It's faster using the S modifier even though it will usually only be run once
 			// $regex = 'http://+[a-z0-9_\-.]*(' . implode( '|', $lines ) . ')';
 			// return '/' . str_replace( '/', '\/', preg_replace('|\\\*/|', '/', $regex) ) . '/Si';
-			$regexes = array();
-			$regexStart = array(
+			$regexes = [];
+			$regexStart = [
 				'normal' => '/^(?:https?:)?\/\/+[a-z0-9_\-.]*(?:',
 				'noprotocol' => '/^(?:',
-			);
-			$regexEnd = array(
+			];
+			$regexEnd = [
 				'normal' => ')/Si',
 				'noprotocol' => ')/Si',
-			);
+			];
 			$regexMax = 4096;
-			$build = array();
+			$build = [];
 			foreach ( $lines as $line ) {
 				# Extract flags from the line
-				$options = array();
+				$options = [];
 				if ( preg_match( '/^(.*?)\s*<([^<>]*)>$/', $line, $matches ) ) {
 					if ( $matches[1] === '' ) {
 						wfDebug( "Line with empty regex\n" );
@@ -677,9 +677,9 @@ class SimpleCaptcha {
 	function getLinksFromTracker( $title ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$id = $title->getArticleID(); // should be zero queries
-		$res = $dbr->select( 'externallinks', array( 'el_to' ),
-			array( 'el_from' => $id ), __METHOD__ );
-		$links = array();
+		$res = $dbr->select( 'externallinks', [ 'el_to' ],
+			[ 'el_from' => $id ], __METHOD__ );
+		$links = [];
 		foreach ( $res as $row ) {
 			$links[] = $row->el_to;
 		}
@@ -754,7 +754,7 @@ class SimpleCaptcha {
 				$status->fatal( 'hookaborted' );
 			}
 			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
-			$status->apiHookResult = array();
+			$status->apiHookResult = [];
 			// give an error message for the user to know, what goes wrong here.
 			// this can't be done for addurl trigger, because this requires one "free" save
 			// for the user, which we don't know, when he did it.
@@ -763,7 +763,7 @@ class SimpleCaptcha {
 					new RawMessage(
 						Html::element(
 							'div',
-							array( 'class' => 'errorbox' ),
+							[ 'class' => 'errorbox' ],
 							$context->msg( 'captcha-edit-fail' )->text()
 						)
 					)
@@ -799,11 +799,11 @@ class SimpleCaptcha {
 			$success = $this->passCaptchaLimited();
 			LoggerFactory::getInstance(
 				'authmanager'
-			)->info( 'Captcha submitted on account creation', array(
+			)->info( 'Captcha submitted on account creation', [
 				'event' => 'captcha.submit',
 				'type' => 'accountcreation',
 				'successful' => $success,
-			) );
+			] );
 			if ( !$success ) {
 				// For older MediaWiki
 				$message = wfMessage( 'captcha-createaccount-fail' )->text();
@@ -850,16 +850,17 @@ class SimpleCaptcha {
 	 */
 	function confirmUserLogin( $u, $pass, &$retval ) {
 		if ( $this->isBadLoginTriggered() || $this->isBadLoginPerUserTriggered( $u ) ) {
-			if ( $this->isIPWhitelisted() )
+			if ( $this->isIPWhitelisted() ) {
 				return true;
+	  }
 
 			$this->trigger = "post-badlogin login '" . $u->getName() . "'";
 			$success = $this->passCaptchaLimited();
-			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha submitted on login', array(
+			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha submitted on login', [
 				'event' => 'captcha.submit',
 				'type' => 'login',
 				'successful' => $success,
-			) );
+			] );
 			if ( !$success ) {
 				// Emulate a bad-password return to confuse the shit out of attackers
 				$retval = LoginForm::WRONG_PASS;
@@ -885,8 +886,9 @@ class SimpleCaptcha {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
 				return true;
 			}
-			if ( $this->isIPWhitelisted() )
+			if ( $this->isIPWhitelisted() ) {
 				return true;
+	  }
 
 			if ( defined( 'MW_API' ) ) {
 				# API mode
@@ -920,12 +922,12 @@ class SimpleCaptcha {
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {
 		if ( $this->isAPICaptchaModule( $module ) ) {
 			if ( defined( 'ApiBase::PARAM_HELP_MSG' ) ) {
-				$params['captchaword'] = array(
+				$params['captchaword'] = [
 					ApiBase::PARAM_HELP_MSG => 'captcha-apihelp-param-captchaword',
-				);
-				$params['captchaid'] = array(
+				];
+				$params['captchaid'] = [
 					ApiBase::PARAM_HELP_MSG => 'captcha-apihelp-param-captchaid',
-				);
+				];
 			} else {
 				// @todo: Remove this branch when support for MediaWiki < 1.25 is dropped
 				$params['captchaword'] = null;
@@ -1158,10 +1160,10 @@ class SimpleCaptcha {
 
 						LoggerFactory::getInstance(
 							'authmanager'
-						)->info( 'Captcha data added in account creation API', array(
+						)->info( 'Captcha data added in account creation API', [
 							'event' => 'captcha.display',
 							'type' => 'accountcreation',
-						) );
+						] );
 
 						break;
 					}

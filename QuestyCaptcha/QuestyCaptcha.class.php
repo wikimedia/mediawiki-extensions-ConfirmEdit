@@ -38,7 +38,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 
 		$question = array_rand( $wgCaptchaQuestions, 1 );
 		$answer = $wgCaptchaQuestions[ $question ];
-		return array( 'question' => $question, 'answer' => $answer );
+		return [ 'question' => $question, 'answer' => $answer ];
 	}
 
 	function getForm( OutputPage $out, $tabIndex = 1 ) {
@@ -50,19 +50,19 @@ class QuestyCaptcha extends SimpleCaptcha {
 		}
 		$index = $this->storeCaptcha( $captcha );
 		return "<p><label for=\"wpCaptchaWord\">{$captcha['question']}</label> " .
-			Html::element( 'input', array(
+			Html::element( 'input', [
 				'name' => 'wpCaptchaWord',
 				'id'   => 'wpCaptchaWord',
 				'class' => 'mw-ui-input',
 				'required',
 				'autocomplete' => 'off',
-				'tabindex' => $tabIndex ) ) . // tab in before the edit textarea
+				'tabindex' => $tabIndex ] ) . // tab in before the edit textarea
 			"</p>\n" .
-			Xml::element( 'input', array(
+			Xml::element( 'input', [
 				'type'  => 'hidden',
 				'name'  => 'wpCaptchaId',
 				'id'    => 'wpCaptchaId',
-				'value' => $index ) );
+				'value' => $index ] );
 	}
 
 	function getMessage( $action ) {

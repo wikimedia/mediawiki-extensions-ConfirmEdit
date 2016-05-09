@@ -14,7 +14,7 @@ class ReCaptcha extends SimpleCaptcha {
 
 		$useHttps = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' );
 		$js = 'var RecaptchaOptions = ' . Xml::encodeJsVar(
-			array( 'theme' => $wgReCaptchaTheme, 'tabindex' => $tabIndex )
+			[ 'theme' => $wgReCaptchaTheme, 'tabindex' => $tabIndex ]
 		);
 
 		return Html::inlineScript(
@@ -93,12 +93,12 @@ class ReCaptcha extends SimpleCaptcha {
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {
 		if ( $flags && $this->isAPICaptchaModule( $module ) ) {
 			if ( defined( 'ApiBase::PARAM_HELP_MSG' ) ) {
-				$params['recaptcha_challenge_field'] = array(
+				$params['recaptcha_challenge_field'] = [
 					ApiBase::PARAM_HELP_MSG => 'recaptcha-apihelp-param-recaptcha_challenge_field',
-				);
-				$params['recaptcha_response_field'] = array(
+				];
+				$params['recaptcha_response_field'] = [
 					ApiBase::PARAM_HELP_MSG => 'recaptcha-apihelp-param-recaptcha_response_field',
-				);
+				];
 			} else {
 				// @todo: Remove this branch when support for MediaWiki < 1.25 is dropped
 				$params['recaptcha_challenge_field'] = null;

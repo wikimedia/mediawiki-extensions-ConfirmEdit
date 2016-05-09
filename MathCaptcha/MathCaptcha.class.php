@@ -9,7 +9,7 @@ class MathCaptcha extends SimpleCaptcha {
 
 	function addCaptchaAPI( &$resultArr ) {
 		list( $sum, $answer ) = $this->pickSum();
-		$index = $this->storeCaptcha( array( 'answer' => $answer ) );
+		$index = $this->storeCaptcha( [ 'answer' => $answer ] );
 		$resultArr['captcha']['type'] = 'math';
 		$resultArr['captcha']['mime'] = 'text/tex';
 		$resultArr['captcha']['id'] = $index;
@@ -22,18 +22,18 @@ class MathCaptcha extends SimpleCaptcha {
 	 */
 	function getForm( OutputPage $out, $tabIndex = 1 ) {
 		list( $sum, $answer ) = $this->pickSum();
-		$index = $this->storeCaptcha( array( 'answer' => $answer ) );
+		$index = $this->storeCaptcha( [ 'answer' => $answer ] );
 
 		$form = '<table><tr><td>' . $this->fetchMath( $sum ) . '</td>';
 		$form .= '<td>' . Html::input(
 			'wpCaptchaWord',
 			false,
 			false,
-			array(
+			[
 				'tabindex' => $tabIndex,
 				'autocomplete' => 'off',
 				'required'
-			)
+			]
 		) . '</td></tr></table>';
 		$form .= Html::hidden( 'wpCaptchaId', $index );
 		return $form;
@@ -46,13 +46,13 @@ class MathCaptcha extends SimpleCaptcha {
 		$op = mt_rand( 0, 1 ) ? '+' : '-';
 		$sum = "{$a} {$op} {$b} = ";
 		$ans = $op == '+' ? ( $a + $b ) : ( $a - $b );
-		return array( $sum, $ans );
+		return [ $sum, $ans ];
 	}
 
 	/** Fetch the math */
 	function fetchMath( $sum ) {
 		if ( class_exists( 'MathRenderer' ) ) {
-			$math = MathRenderer::getRenderer( $sum, array(), MW_MATH_PNG );
+			$math = MathRenderer::getRenderer( $sum, [], MW_MATH_PNG );
 		} else {
 			throw new Exception(
 				'MathCaptcha requires the Math extension for MediaWiki versions 1.18 and above.'

@@ -125,7 +125,7 @@ class ConfirmEditHooks {
 		/**
 		 * @var SplFileInfo $fileInfo
 		 */
-		$ourFiles = array();
+		$ourFiles = [];
 		foreach ( new RecursiveIteratorIterator( $directoryIterator ) as $fileInfo ) {
 			if ( substr( $fileInfo->getFilename(), -8 ) === 'Test.php' ) {
 				$ourFiles[] = $fileInfo->getPathname();

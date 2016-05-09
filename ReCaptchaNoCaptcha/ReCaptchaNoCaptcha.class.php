@@ -16,13 +16,13 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
 			'g-recaptchascript',
 			"<script src=\"https://www.google.com/recaptcha/api.js?hl={$lang}\" async defer></script>"
 		);
-		$output = Html::element( 'div', array(
-			'class' => array(
+		$output = Html::element( 'div', [
+			'class' => [
 				'g-recaptcha',
 				'mw-confirmedit-captcha-fail' => !!$this->error,
-			),
+			],
 			'data-sitekey' => $wgReCaptchaSiteKey
-		) );
+		] );
 		$htmlUrlencoded = htmlspecialchars( urlencode( $wgReCaptchaSiteKey ) );
 		$output .= <<<HTML
 <noscript>
@@ -76,15 +76,15 @@ HTML;
 
 		$url = 'https://www.google.com/recaptcha/api/siteverify';
 		// Build data to append to request
-		$data = array(
+		$data = [
 			'secret' => $wgReCaptchaSecretKey,
 			'response' => $wgRequest->getVal( 'g-recaptcha-response' ),
-		);
+		];
 		if ( $wgReCaptchaSendRemoteIP ) {
 			$data['remoteip'] = $wgRequest->getIP();
 		}
 		$url = wfAppendQuery( $url, $data );
-		$request = MWHttpRequest::factory( $url, array( 'method' => 'GET' ) );
+		$request = MWHttpRequest::factory( $url, [ 'method' => 'GET' ] );
 		$status = $request->execute();
 		if ( !$status->isOK() ) {
 			$this->error = 'http';
@@ -136,9 +136,9 @@ HTML;
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {
 		if ( $flags && $this->isAPICaptchaModule( $module ) ) {
 			if ( defined( 'ApiBase::PARAM_HELP_MSG' ) ) {
-				$params['g-recaptcha-response'] = array(
+				$params['g-recaptcha-response'] = [
 					ApiBase::PARAM_HELP_MSG => 'renocaptcha-apihelp-param-g-recaptcha-response',
-				);
+				];
 			} else {
 				// @todo: Remove this branch when support for MediaWiki < 1.25 is dropped
 				$params['g-recaptcha-response'] = null;

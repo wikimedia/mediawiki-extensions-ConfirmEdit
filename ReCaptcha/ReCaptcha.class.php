@@ -27,13 +27,12 @@ class ReCaptcha extends SimpleCaptcha {
 			   recaptcha_get_html( $wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps );
 	}
 
-	function passCaptchaLimitedFromRequest( WebRequest $request, User $user ) {
+	protected function getCaptchaParamsFromRequest( WebRequest $request ) {
 		// API is hardwired to return captchaId and captchaWord,
 		// so use that if the standard two are empty
 		$challenge = $request->getVal( 'recaptcha_challenge_field', $request->getVal( 'captchaId' ) );
 		$response = $request->getVal( 'recaptcha_response_field', $request->getVal( 'captchaWord' ) );
-
-		return $this->passCaptchaLimited( $challenge, $response, $user );
+		return [ $challenge, $response ];
 	}
 
 	/**

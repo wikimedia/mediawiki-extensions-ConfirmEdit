@@ -1059,10 +1059,18 @@ class SimpleCaptcha {
 	 * @return bool
 	 */
 	public function passCaptchaLimitedFromRequest( WebRequest $request, User $user ) {
+		list( $index, $word ) = $this->getCaptchaParamsFromRequest( $request );
+		return $this->passCaptchaLimited( $index, $word, $user );
+	}
+
+	/**
+	 * @param WebRequest $request
+	 * @return array [ captcha ID, captcha solution ]
+	 */
+	protected function getCaptchaParamsFromRequest( WebRequest $request ) {
 		$index = $request->getVal( 'wpCaptchaId' );
 		$word = $request->getVal( 'wpCaptchaWord' );
-
-		return $this->passCaptchaLimited( $index, $word, $user );
+		return [ $index, $word ];
 	}
 
 	/**
@@ -1090,6 +1098,18 @@ class SimpleCaptcha {
 		// captcha was not solved: increase limit and return false
 		$user->pingLimiter( 'badcaptcha' );
 		return false;
+	}
+
+	/**
+	 * Given a required captcha run, test form input for correct
+	 * input on the open session.
+	 * @param WebRequest $request
+	 * @param User $user
+	 * @return bool if passed, false if failed or new session
+	 */
+	public function passCaptchaFromRequest( WebRequest $request, User $user ) {
+		list( $index, $word ) = $this->getCaptchaParamsFromRequest( $request );
+		return $this->passCaptcha( $index, $word, $user );
 	}
 
 	/**

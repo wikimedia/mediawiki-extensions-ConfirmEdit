@@ -70,11 +70,11 @@ HTML;
 		wfDebugLog( 'captcha', 'Unable to validate response: ' . $error );
 	}
 
-	public function passCaptchaLimitedFromRequest( WebRequest $request, User $user ) {
+	protected function getCaptchaParamsFromRequest( WebRequest $request ) {
 		$index = 'not used'; // ReCaptchaNoCaptcha combines captcha ID + solution into a single value
 		// API is hardwired to return captchaWord, so use that if the standard isempty
 		$response = $request->getVal( 'g-recaptcha-response', $request->getVal( 'captchaWord' ) );
-		return $this->passCaptchaLimited( $index, $response, $user );
+		return [ $index, $response ];
 	}
 
 	/**

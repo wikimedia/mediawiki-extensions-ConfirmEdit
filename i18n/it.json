@@ -12,6 +12,7 @@
 	"captcha-edit-fail": "Codice di verifica errato o mancante.",
 	"captcha-desc": "Fornisce tecniche CAPTCHA per la protezione contro lo spam e l'individuazione delle password",
 	"captcha-label": "CAPTCHA",
+	"captcha-help": "Soluzione del CAPTCHA.",
 	"captcha-addurl": "La modifica richiesta aggiunge dei nuovi collegamenti esterni alla pagina; come misura precauzionale contro l'inserimento automatico di spam, si prega di risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|come funziona?]]):",
 	"captcha-badlogin": "Come misura precauzionale contro i tentativi di forzatura automatica della password, si prega di risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|come funziona?]]):",
 	"captcha-createaccount": "Come misura precauzionale contro i tentativi di registrazione automatica, si prega di risolvere il semplice calcolo presentato di seguito e inserire il risultato nella casella ([[Special:Captcha/help|come funziona?]]):",

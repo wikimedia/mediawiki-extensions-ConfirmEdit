@@ -17,6 +17,7 @@
 	"captcha-edit": "För att redigera den här sidan måste du först lösa följande enkla räkneuppgift och skriva svaret i rutan ([[Special:Captcha/help|mer information]]):",
 	"captcha-desc": "Tillhandahåller CAPTCHA-metoder för att skydda mot spam och lösenordsgissning",
 	"captcha-label": "CAPTCHA",
+	"captcha-id-label": "CAPTCHA-ID",
 	"captcha-addurl": "Din ändring innebär nya externa länkar i texten. För att skydda wikin mot automatisk spam måste du lösa följande enkla räkneuppgift och ange svaret i rutan ([[Special:Captcha/help|mer information]]):",
 	"captcha-badlogin": "För att skydda wikin mot försök att knäcka lösenord på automatisk väg, måste du lösa följande enkla räkneuppgift och ange svaret i rutan ([[Special:Captcha/help|mer information]]):",
 	"captcha-createaccount": "För att skydda wikin mot automatiskt skapade användarkonton, måste du lösa följande enkla räkneuppgift och ange svaret i rutan ([[Special:Captcha/help|mer information]]):",

@@ -14,7 +14,7 @@
 	"fancycaptcha-createaccount": "Để giúp chúng tôi tránh mở tài khoản tự động, xin vui lòng nhập những chữ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):",
 	"fancycaptcha-create": "Để tạo trang, xin hãy nhập những chữ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):",
 	"fancycaptcha-edit": "Để sửa trang này, xin hãy nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):",
-	"fancycaptcha-imgcaptcha-ph": "Nhập dòng chữ bạn thấy ở bên trên",
+	"fancycaptcha-imgcaptcha-ph": "Nhập dòng chữ bạn thấy ở trong hình",
 	"fancycaptcha-sendemail": "Để giúp chúng tôi chống lại spam tự động, xin vui lòng nhập những từ xuất hiện ở dưới vào ô ([[Special:Captcha/help|thông tin thêm]]):",
 	"fancycaptcha-reload-text": "Làm tươi",
 	"apihelp-fancycaptchareload-description": "Lấy FancyCaptcha mới.",

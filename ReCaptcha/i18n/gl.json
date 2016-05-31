@@ -13,5 +13,9 @@
 	"recaptcha-createaccount-fail": "Falta a resposta ao reCAPTCHA ou esta é incorrecta.",
 	"recaptcha-create": "Para protexer o wiki contra a creación automática de páxinas, introduza as palabras que vexa na caixa:",
 	"recaptcha-apihelp-param-recaptcha_challenge_field": "Campo do formulario ReCaptcha",
-	"recaptcha-apihelp-param-recaptcha_response_field": "Campo do formulario ReCaptcha"
+	"recaptcha-apihelp-param-recaptcha_response_field": "Campo do formulario ReCaptcha",
+	"recaptcha-id-label": "Reto ReCaptcha",
+	"recaptcha-id-help": "Valor do reto ReCaptcha",
+	"recaptcha-label": "Solución do ReCaptcha",
+	"recaptcha-help": "Valor da solución ReCaptcha"
 }

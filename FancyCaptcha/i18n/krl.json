@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Likopiän tyttö"
+			"Likopiän tyttö",
+			"Varvana"
 		]
 	},
+	"fancycaptcha-captcha": "Turvatarkissuš",
 	"fancycaptcha-reload-text": "Vaiha"
 }

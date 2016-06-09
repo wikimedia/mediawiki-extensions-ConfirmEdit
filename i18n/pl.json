@@ -17,6 +17,7 @@
 	"captcha-label": "CAPTCHA",
 	"captcha-help": "Rozwiązanie CAPTCHA.",
 	"captcha-info-help": "Opis CAPTCHA.",
+	"captcha-id-label": "Identyfikator CAPTCHA",
 	"captcha-id-help": "Ta wartość powinna zostać wysyłana z powrotem bez zmiany.",
 	"captcha-addurl": "Twoje zmiany zawierają nowe linki zewnętrzne.\nZe względu na ochronę przed zautomatyzowanym spamem prosimy o wykonanie prostego działania matematycznego i wpisanie wyniku w pole obok, zanim twoja edycja zostanie zapisana ([[Special:Captcha/help|więcej informacji]]):",
 	"captcha-badlogin": "Zabezpieczenie przed automatycznym łamaniem hasełm, wpisz w pole poniżej wynik prostego działania matematycznego ([[Special:Captcha/help|pomoc]]):",

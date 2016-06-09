@@ -29,7 +29,11 @@
 
 				// replace index key with a new one for hidden tag
 				$( '#mw-input-captchaId' ).val( captchaIndex );
-				$( '#mw-input-wpcaptchaWord' ).val( '' ).focus();
+				$( '#mw-input-captchaWord' ).val( '' ).focus();
+
+				// now do the same with a selector that works for pre-1.27 login forms
+				$root.find( '[name="wpCaptchaId"]' ).val( captchaIndex );
+				$root.find( '[name="wpCaptchaWord"]' ).val( '' ).focus();
 			}
 		} )
 		.always( function () {

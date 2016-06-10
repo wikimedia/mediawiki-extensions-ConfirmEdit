@@ -11,7 +11,7 @@
 	"fancycaptcha-createaccount": "Mer schöze uns Wiki dojäje, dat mer en Masse automatesch\nMetmaacher aanmeldt.\nDröm beß esu joot un\ndon di Wööt onge en dat Käßje endraare. ([[Special:Captcha/help|Verklierung]])",
 	"fancycaptcha-create": "Öm di Sigg neu aanzelääje, don di Wööt onge en dat Käßje endraare. (Verklierung)",
 	"fancycaptcha-edit": "Öm de Sigg ze ändere, don di Wööt onge en dat Käßje endraare. ([[Special:Captcha/help|Verklierung]])",
-	"fancycaptcha-imgcaptcha-ph": "Jiv dä Täx en, dä De heh drövver sühs! <!-- https://phabricator.wikimedia.org/T135818 -->",
+	"fancycaptcha-imgcaptcha-ph": "Jiv dä Täx en, dä De op däm Beld heh sühs!",
 	"fancycaptcha-sendemail": "Öm et Wiki jääje automattesch enjedraare <code lang=\"en\" xml:lang=\"en\">SPAM</code> ze schötze,\nbes esu joot, donn di Wööter enjävve, di en däm Käßje heh dronger shtonn.\n([[Special:Captcha/help|Mieh Enfommazjuhne]])",
 	"fancycaptcha-reload-text": "Nöü Aanzeije!",
 	"apihelp-fancycaptchareload-description": "Maach en neu <i lang=\"en\" xml:lang=\"en\">FancyCaptcha</i>.",

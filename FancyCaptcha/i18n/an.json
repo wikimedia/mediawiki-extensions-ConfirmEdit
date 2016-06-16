@@ -10,5 +10,6 @@
 	"fancycaptcha-createaccount": "Ta aduyar a protecher contra a creyación automatica de cuentas, escriba por favor en o quatrón as parolas que amaneixen debaixo ([[Special:Captcha/help|más información]]):",
 	"fancycaptcha-create": "Ta creyar a pachina, escriba por favor as parolas que amaneixen en a caixa d'o cobaixo\n([[Special:Captcha/help|más información]]):",
 	"fancycaptcha-edit": "Ta editar ista pachina, escriba por favor as parolas que amaneixen en a caixa d'o cobaixo\n([[Special:Captcha/help|más información]]):",
+	"fancycaptcha-imgcaptcha-ph": "Escribe o texto d'alto",
 	"fancycaptcha-sendemail": "Ta protecher-nos contra o spam automatizau por favor escriba as parolas que amaneixen en o siguient quadro ([[Special:Captcha/help|mas información]]):"
 }

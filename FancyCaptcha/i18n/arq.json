@@ -4,6 +4,8 @@
 			"Oldstoneage"
 		]
 	},
+	"fancycaptcha-captcha": "تحقق أمني",
 	"fancycaptcha-createaccount": "باش نحافظو على الويكي من الحسابات الّي ينخلقو من عند نواضم داتيّة، نطلبو منّك باش تنقل فل قبيسة هنا، الكلمة المكتوبة لتحت. ([[Special:Captcha/help|زيد شوف شي معلومات]]):",
+	"fancycaptcha-imgcaptcha-ph": "دخّل النصّ الّي راك تشوفهُ لفوق",
 	"fancycaptcha-reload-text": "عاود شارجي الصفحة"
 }

@@ -83,10 +83,6 @@ class ConfirmEditHooks {
 		self::getInstance()->editShowCaptcha( $editpage );
 	}
 
-	static function confirmEditAPI( $editPage, $newtext, &$resultArr ) {
-		return self::getInstance()->confirmEditAPI( $editPage, $newtext, $resultArr );
-	}
-
 	static function showEditFormFields( &$editPage, &$out ) {
 		return self::getInstance()->showEditFormFields( $editPage, $out );
 	}

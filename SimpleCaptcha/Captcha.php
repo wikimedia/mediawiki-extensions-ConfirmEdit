@@ -773,7 +773,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Backend function for confirmEdit() and confirmEditAPI()
+	 * Backend function for confirmEditMerged()
 	 * @param WikiPage $page
 	 * @param $newtext string
 	 * @param $section
@@ -813,12 +813,6 @@ class SimpleCaptcha {
 	 * @return bool
 	 */
 	function confirmEditMerged( $context, $content, $status, $summary, $user, $minorEdit ) {
-		$legacyMode = !defined( 'MW_EDITFILTERMERGED_SUPPORTS_API' );
-		if ( defined( 'MW_API' ) && $legacyMode ) {
-			# API mode
-			# The CAPTCHA was already checked and approved
-			return true;
-		}
 		if ( !$context->canUseWikiPage() ) {
 			// we check WikiPage only
 			// try to get an appropriate title for this page
@@ -837,9 +831,6 @@ class SimpleCaptcha {
 		}
 		$page = $context->getWikiPage();
 		if ( !$this->doConfirmEdit( $page, $content, false, $context ) ) {
-			if ( $legacyMode ) {
-				$status->fatal( 'hookaborted' );
-			}
 			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
 			$status->apiHookResult = [];
 			// give an error message for the user to know, what goes wrong here.
@@ -858,18 +849,8 @@ class SimpleCaptcha {
 			}
 			$this->addCaptchaAPI( $status->apiHookResult );
 			$page->ConfirmEdit_ActivateCaptcha = true;
-			return $legacyMode;
-		}
-		return true;
-	}
-
-	function confirmEditAPI( $editPage, $newText, &$resultArr ) {
-		$page = $editPage->getArticle()->getPage();
-		if ( !$this->doConfirmEdit( $page, $newText, false, $editPage->getArticle()->getContext() ) ) {
-			$this->addCaptchaAPI( $resultArr );
 			return false;
 		}
-
 		return true;
 	}
 

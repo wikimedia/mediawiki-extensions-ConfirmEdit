@@ -5,7 +5,7 @@ use MediaWiki\Auth\AuthManager;
 
 class FancyCaptcha extends SimpleCaptcha {
 	// used for fancycaptcha-edit, fancycaptcha-addurl, fancycaptcha-badlogin,
-	// fancycaptcha-createaccount, fancycaptcha-create, fancycaptcha-sendemail via getMessage()
+	// fancycaptcha-accountcreate, fancycaptcha-create, fancycaptcha-sendemail via getMessage()
 	protected static $messagePrefix = 'fancycaptcha-';
 
 	/**

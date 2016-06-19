@@ -4,7 +4,8 @@
 			"Hamilton Abreu",
 			"Malafaya",
 			"SandroHc",
-			"Fúlvio"
+			"Fúlvio",
+			"Vitorvicentevalente"
 		]
 	},
 	"fancycaptcha-desc": "Gerador sofisticado de captcha para o Confirm Edit",
@@ -14,7 +15,7 @@
 	"fancycaptcha-createaccount": "Para proteger esta wiki contra a criação de contas automatizada, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):",
 	"fancycaptcha-create": "Para criar a página, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):",
 	"fancycaptcha-edit": "Para editar esta página, por favor, introduza na caixa abaixo as palavras apresentadas ([[Special:Captcha/help|mais informações]]):",
-	"fancycaptcha-imgcaptcha-ph": "Digite o texto que vê acima",
+	"fancycaptcha-imgcaptcha-ph": "Digite o texto que vê na imagem",
 	"fancycaptcha-sendemail": "Para proteger esta wiki contra o spam automatizado, por favor, introduza na caixa as palavras que aparecem abaixo ([[Special:Captcha/help|mais informações]]):",
 	"fancycaptcha-reload-text": "Atualizar",
 	"apihelp-fancycaptchareload-description": "Gerar novo FancyCaptcha.",

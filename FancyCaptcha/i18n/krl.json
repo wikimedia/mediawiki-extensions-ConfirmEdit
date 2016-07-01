@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Likopiän tyttö",
-			"Varvana"
+			"Varvana",
+			"Mashoi7"
 		]
 	},
 	"fancycaptcha-captcha": "Turvatarkissuš",
+	"fancycaptcha-accountcreate": "Ku šuojata wikie automuattisesti luajittuloista tililöistä, kysymmä sinuo kirjuttamah alla olijat šanat ramkah ([[Special:Captcha/help|lisätietuo]]):",
+	"fancycaptcha-imgcaptcha-ph": "Kirjuta ylähän olija teksta",
 	"fancycaptcha-reload-text": "Vaiha"
 }

@@ -99,15 +99,9 @@ class FancyCaptcha extends SimpleCaptcha {
 		];
 	}
 
-	/**
-	 * Insert the captcha prompt into the edit form.
-	 * @param OutputPage $out
-	 */
-	function getForm( OutputPage $out, $tabIndex = 1 ) {
+	function getFormInformation( $tabIndex = 1 ) {
 		global $wgEnableAPI;
-
-		// Uses addModuleStyles so it is loaded when JS is disabled.
-		$out->addModuleStyles( 'ext.confirmEdit.fancyCaptcha.styles' );
+		$modules = [];
 
 		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
 		$info = $this->getCaptcha();
@@ -115,7 +109,7 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		if ( $wgEnableAPI ) {
 			// Loaded only if JS is enabled
-			$out->addModules( 'ext.confirmEdit.fancyCaptcha' );
+			$modules[] = 'ext.confirmEdit.fancyCaptcha';
 
 			$captchaReload = Html::element(
 				'small',
@@ -172,7 +166,12 @@ class FancyCaptcha extends SimpleCaptcha {
 				]
 			) . Html::closeElement( 'div' ) . Html::closeElement( 'div' ) . "\n";
 
-			return $form;
+		return [
+			'html' => $form,
+			'modules' => $modules,
+			// Uses addModuleStyles so it is loaded when JS is disabled.
+			'modulestyles' => [ 'ext.confirmEdit.fancyCaptcha.styles' ],
+		];
 	}
 
 	/**

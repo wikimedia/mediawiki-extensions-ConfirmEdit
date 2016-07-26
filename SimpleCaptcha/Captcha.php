@@ -3,6 +3,9 @@
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Logger\LoggerFactory;
 
+/**
+ * Demo CAPTCHA (not for production usage) and base class for real CAPTCHAs
+ */
 class SimpleCaptcha {
 	protected static $messagePrefix = 'captcha-';
 
@@ -84,26 +87,84 @@ class SimpleCaptcha {
 	 *
 	 * Override this!
 	 *
-	 * @return string HTML
+	 * It is not guaranteed that the CAPTCHA will load synchronously with the main page
+	 * content. So you can not rely on registering handlers before page load. E.g.:
+	 *
+	 * NOT SAFE: $( window ).on( 'load', handler )
+	 * SAFE: $( handler )
+	 *
+	 * However, if the HTML is loaded dynamically via AJAX, the following order will
+	 * be used.
+	 *
+	 * headitems => modulestyles + modules => add main HTML to DOM when modulestyles +
+	 * modules are ready.
+	 *
+	 * @param int $tabIndex Tab index to start from
+	 *
+	 * @return array Associative array with the following keys:
+	 *   string html - Main HTML
+	 *   array modules (optional) - Array of ResourceLoader module names
+	 *   array modulestyles (optional) - Array of ResourceLoader module names to be
+	 *		included as style-only modules.
+	 *   array headitems (optional) - Head items (see OutputPage::addHeadItems), as a numeric array
+	 * 		of raw HTML strings. Do not use unless no other option is feasible.
 	 */
-	function getForm( OutputPage $out, $tabIndex = 1 ) {
+	public function getFormInformation( $tabIndex = 1 ) {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
 
-		return "<p><label for=\"wpCaptchaWord\">{$captcha['question']} = </label>" .
-			Xml::element( 'input', [
-				'name' => 'wpCaptchaWord',
-				'class' => 'mw-ui-input',
-				'id'   => 'wpCaptchaWord',
-				'size'  => 5,
-				'autocomplete' => 'off',
-				'tabindex' => $tabIndex ] ) . // tab in before the edit textarea
-			"</p>\n" .
-			Xml::element( 'input', [
-				'type'  => 'hidden',
-				'name'  => 'wpCaptchaId',
-				'id'    => 'wpCaptchaId',
-				'value' => $index ] );
+		return [
+			'html' => "<p><label for=\"wpCaptchaWord\">{$captcha['question']} = </label>" .
+				Xml::element( 'input', [
+					'name' => 'wpCaptchaWord',
+					'class' => 'mw-ui-input',
+					'id'   => 'wpCaptchaWord',
+					'size'  => 5,
+					'autocomplete' => 'off',
+					'tabindex' => $tabIndex ] ) . // tab in before the edit textarea
+				"</p>\n" .
+				Xml::element( 'input', [
+					'type'  => 'hidden',
+					'name'  => 'wpCaptchaId',
+					'id'    => 'wpCaptchaId',
+					'value' => $index ] )
+		];
+	}
+
+	/**
+	 * Uses getFormInformation() to get the CAPTCHA form and adds it to the given
+	 * OutputPage object.
+	 *
+	 * @param OutputPage $out The OutputPage object to which the form should be added
+	 * @param integer $tabIndex See self::getFormInformation
+	 */
+	public function addFormToOutput( OutputPage $out, $tabIndex = 1 ) {
+		$this->addFormInformationToOutput( $out, $this->getFormInformation( $tabIndex ) );
+	}
+
+	/**
+	 * Processes the given $formInformation array and adds the options (see getFormInformation())
+	 * to the given OutputPage object.
+	 *
+	 * @param OutputPage $out The OutputPage object to which the form should be added
+	 * @param array $formInformation
+	 */
+	public function addFormInformationToOutput( OutputPage $out, array $formInformation ) {
+		if ( !$formInformation ) {
+			return;
+		}
+		if ( isset( $formInformation['html'] ) ) {
+			$out->addHTML( $formInformation['html'] );
+		}
+		if ( isset( $formInformation['modules'] ) ) {
+			$out->addModules( $formInformation['modules'] );
+		}
+		if ( isset( $formInformation['modulestyles'] ) ) {
+			$out->addModuleStyles( $formInformation['modulestyles'] );
+		}
+		if ( isset( $formInformation['headitems'] ) ) {
+			$out->addHeadItems( $formInformation['headitems'] );
+		}
 	}
 
 	/**
@@ -129,7 +190,7 @@ class SimpleCaptcha {
 		if ( $this->action !== 'edit' ) {
 			unset( $page->ConfirmEdit_ActivateCaptcha );
 			$out->addWikiText( $this->getMessage( $this->action )->text() );
-			$out->addHTML( $this->getForm( $out ) );
+			$this->addFormToOutput( $out );
 		}
 	}
 
@@ -145,7 +206,7 @@ class SimpleCaptcha {
 			$this->shouldCheck( $page, '', '', $context )
 		) {
 			$out->addWikiText( $this->getMessage( $this->action )->text() );
-			$out->addHTML( $this->getForm( $out ) );
+			$this->addFormToOutput( $out );
 		}
 		unset( $page->ConfirmEdit_ActivateCaptcha );
 	}
@@ -174,17 +235,23 @@ class SimpleCaptcha {
 	 * @return bool true to keep running callbacks
 	 */
 	function injectEmailUser( &$form ) {
-		global $wgCaptchaTriggers, $wgOut, $wgUser;
+		global $wgCaptchaTriggers;
+		$out = $form->getOutput();
+		$user = $form->getUser();
 		if ( $wgCaptchaTriggers['sendemail'] ) {
 			$this->action = 'sendemail';
-			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
+			if ( $user->isAllowed( 'skipcaptcha' ) ) {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
 				return true;
 			}
+			$formInformation = $this->getFormInformation();
+			$formMetainfo = $formInformation;
+			unset( $formMetainfo['html'] );
+			$this->addFormInformationToOutput( $out, $formMetainfo );
 			$form->addFooterText(
 				"<div class='captcha'>" .
-				$wgOut->parse( $this->getMessage( 'sendemail' )->text() ) .
-				$this->getForm( $wgOut ) .
+				$out->parse( $this->getMessage( 'sendemail' )->text() ) .
+				$formInformation['html'] .
 				"</div>\n" );
 		}
 		return true;
@@ -209,6 +276,10 @@ class SimpleCaptcha {
 				'event' => 'captcha.display',
 				'type' => 'accountcreation',
 			] );
+			$formInformation = $this->getFormInformation( 8 );
+			$formMetainfo = $formInformation;
+			unset( $formMetainfo['html'] );
+			$this->addFormInformationToOutput( $wgOut, $formMetainfo );
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'createaccount' )->text() ) .
 				// FIXME: Hardcoded tab index
@@ -217,7 +288,7 @@ class SimpleCaptcha {
 				// there may are wikis which allows to mention the "real name",
 				// which would have 7 as tabIndex, so increase
 				// 6 by 2 and use it for the CAPTCHA -> 8 (the submit button has a tabIndex of 10)
-				$this->getForm( $wgOut, 8 ) .
+				$formInformation['html'] .
 				"</div>\n";
 			// for older MediaWiki versions
 			if ( is_callable( [ $template, 'extend' ] ) ) {
@@ -258,9 +329,13 @@ class SimpleCaptcha {
 				'perUser' => $perUserTriggered
 			] );
 			$this->action = 'badlogin';
+			$formInformation = $this->getFormInformation();
+			$formMetainfo = $formInformation;
+			unset( $formMetainfo['html'] );
+			$this->addFormInformationToOutput( $wgOut, $formMetainfo );
 			$captcha = "<div class='captcha'>" .
 				$wgOut->parse( $this->getMessage( 'badlogin' )->text() ) .
-				$this->getForm( $wgOut ) .
+				$formInformation['html'] .
 				"</div>\n";
 			// for older MediaWiki versions
 			if ( is_callable( [ $template, 'extend' ] ) ) {

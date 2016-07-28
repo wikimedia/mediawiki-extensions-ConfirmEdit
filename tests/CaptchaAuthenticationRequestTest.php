@@ -10,6 +10,7 @@ class CaptchaAuthenticationRequestTest extends AuthenticationRequestTestCase {
 			'wgCaptchaClass' => 'SimpleCaptcha',
 			'wgCaptchaStorageClass' => CaptchaHashStore::class,
 		] );
+		CaptchaStore::unsetInstanceForTests();
 		CaptchaStore::get()->clearAll();
 		CaptchaStore::get()->store( '345', [ 'question' => '2+2', 'answer' => '4' ] );
 	}

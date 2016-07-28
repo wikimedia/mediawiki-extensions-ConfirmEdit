@@ -21,6 +21,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 			'wgCaptchaStorageClass' => CaptchaHashStore::class,
 			'wgMainCacheType' => __METHOD__,
 		] );
+		CaptchaStore::unsetInstanceForTests();
 		CaptchaStore::get()->clearAll();
 		ObjectCache::$instances[__METHOD__] = new HashBagOStuff();
 	}

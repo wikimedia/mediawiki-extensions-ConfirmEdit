@@ -10,19 +10,12 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
 	private $error = null;
 	/**
 	 * Get the captcha form.
-	 * @return string
+	 * @return array
 	 */
-	function getForm( OutputPage $out, $tabIndex = 1 ) {
-		global $wgReCaptchaSiteKey;
-		$lang = htmlspecialchars( urlencode( $out->getLanguage()->getCode() ) );
+	function getFormInformation( $tabIndex = 1 ) {
+		global $wgReCaptchaSiteKey, $wgLang;
+		$lang = htmlspecialchars( urlencode( $wgLang->getCode() ) );
 
-		// Insert reCAPTCHA script, in display language, if available.
-		// Language falls back to the browser's display language.
-		// See https://developers.google.com/recaptcha/docs/faq
-		$out->addHeadItem(
-			'g-recaptchascript',
-			"<script src=\"https://www.google.com/recaptcha/api.js?hl={$lang}\" async defer></script>"
-		);
 		$output = Html::element( 'div', [
 			'class' => [
 				'g-recaptcha',
@@ -54,7 +47,15 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
   </div>
 </noscript>
 HTML;
-		return $output;
+		return [
+			'html' => $output,
+			'headitems' => [
+				// Insert reCAPTCHA script, in display language, if available.
+				// Language falls back to the browser's display language.
+				// See https://developers.google.com/recaptcha/docs/faq
+				"<script src=\"https://www.google.com/recaptcha/api.js?hl={$lang}\" async defer></script>"
+			]
+		];
 	}
 
 	protected function logCheckError( $info ) {

@@ -2,7 +2,7 @@
 
 use MediaWiki\Auth\AuthenticationRequestTestCase;
 
-require_once __DIR__ . '/../ReCaptcha/ReCaptchaAuthenticationRequest.php';
+require_once __DIR__ . '/../../ReCaptcha/ReCaptchaAuthenticationRequest.php';
 
 class ReCaptchaAuthenticationRequestTest extends AuthenticationRequestTestCase {
 	protected function getInstance( array $args = [] ) {

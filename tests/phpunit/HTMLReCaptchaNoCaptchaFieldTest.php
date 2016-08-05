@@ -1,22 +1,22 @@
 <?php
 
-require_once __DIR__ . '/../ReCaptcha/HTMLSubmittedValueField.php';
+require_once __DIR__ . '/../../ReCaptchaNoCaptcha/HTMLReCaptchaNoCaptchaField.php';
 
-class HTMLSubmittedValueFieldTest extends PHPUnit_Framework_TestCase {
+class HTMLReCaptchaNoCaptchaFieldTest extends PHPUnit_Framework_TestCase {
 	public function testSubmit() {
 		$form = new HTMLForm( [
 			'foo' => [
-				'class' => HTMLSubmittedValueField::class,
-				'name' => 'bar',
+				'class' => HTMLReCaptchaNoCaptchaField::class,
+				'key' => '123',
 			],
 		] );
 		$request = new FauxRequest( [
-			'foo' => '123',
-			'bar' => '456',
+			'foo' => 'abc',
+			'g-recaptcha-response' => 'def',
 		], true );
 		$mockClosure = $this->getMockBuilder( 'object' )->setMethods( [ '__invoke' ] )->getMock();
 		$mockClosure->expects( $this->once() )->method( '__invoke' )
-			->with( [ 'foo' => '456' ] )->willReturn( true );
+			->with( [ 'foo' => 'def' ] )->willReturn( true );
 
 		$context = new DerivativeContext( RequestContext::getMain() );
 		$context->setRequest( $request );

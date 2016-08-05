@@ -2,7 +2,7 @@
 
 use MediaWiki\Auth\AuthenticationRequestTestCase;
 
-require_once __DIR__ . '/../ReCaptchaNoCaptcha/ReCaptchaNoCaptchaAuthenticationRequest.php';
+require_once __DIR__ . '/../../ReCaptchaNoCaptcha/ReCaptchaNoCaptchaAuthenticationRequest.php';
 
 class ReCaptchaNoCaptchaAuthenticationRequestTest extends AuthenticationRequestTestCase {
 	protected function getInstance( array $args = [] ) {

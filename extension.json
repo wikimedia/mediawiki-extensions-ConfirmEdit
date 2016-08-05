@@ -82,9 +82,6 @@
 		],
 		"APIGetParamDescription": [
 			"ConfirmEditHooks::APIGetParamDescription"
-		],
-		"UnitTestsList": [
-			"ConfirmEditHooks::onUnitTestsList"
 		]
 	},
 	"config": {

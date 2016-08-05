@@ -139,32 +139,6 @@ class ConfirmEditHooks {
 	}
 
 	/**
-	 * Hook to add PHPUnit test cases.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
-	 *
-	 * @param array &$files
-	 * @return boolean
-	 */
-	public static function onUnitTestsList( array &$files ) {
-		// @codeCoverageIgnoreStart
-		$directoryIterator = new RecursiveDirectoryIterator( dirname( __DIR__ ) . '/tests/' );
-
-		/**
-		 * @var SplFileInfo $fileInfo
-		 */
-		$ourFiles = [];
-		foreach ( new RecursiveIteratorIterator( $directoryIterator ) as $fileInfo ) {
-			if ( substr( $fileInfo->getFilename(), -8 ) === 'Test.php' ) {
-				$ourFiles[] = $fileInfo->getPathname();
-			}
-		}
-
-		$files = array_merge( $files, $ourFiles );
-		return true;
-		// @codeCoverageIgnoreEnd
-	}
-
-	/**
 	 * Set up $wgWhitelistRead
 	 */
 	public static function confirmEditSetup() {

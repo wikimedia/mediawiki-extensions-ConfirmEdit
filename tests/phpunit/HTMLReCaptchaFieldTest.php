@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../ReCaptcha/HTMLReCaptchaField.php';
+require_once __DIR__ . '/../../ReCaptcha/HTMLReCaptchaField.php';
 
 class HTMLReCaptchaFieldTest extends PHPUnit_Framework_TestCase {
 	public function testSubmit() {

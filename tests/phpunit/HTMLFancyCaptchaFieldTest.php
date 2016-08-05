@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../FancyCaptcha/HTMLFancyCaptchaField.php';
+require_once __DIR__ . '/../../FancyCaptcha/HTMLFancyCaptchaField.php';
 
 class HTMLFancyCaptchaFieldTest extends PHPUnit_Framework_TestCase {
 	public function testGetHTML() {

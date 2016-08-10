@@ -272,7 +272,7 @@ class SimpleCaptcha {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return true;
 			}
-			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha shown on account creation', [
+			LoggerFactory::getInstance( 'authevents' )->info( 'Captcha shown on account creation', [
 				'event' => 'captcha.display',
 				'type' => 'accountcreation',
 			] );
@@ -322,7 +322,7 @@ class SimpleCaptcha {
 		if ( $perIPTriggered || $perUserTriggered ) {
 			global $wgOut;
 
-			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha shown on login', [
+			LoggerFactory::getInstance( 'authevents' )->info( 'Captcha shown on login', [
 				'event' => 'captcha.display',
 				'type' => 'login',
 				'perIp' => $perIPTriggered,
@@ -943,9 +943,7 @@ class SimpleCaptcha {
 		if ( $this->needCreateAccountCaptcha() ) {
 			$this->trigger = "new account '" . $u->getName() . "'";
 			$success = $this->passCaptchaLimitedFromRequest( $wgRequest, $wgUser );
-			LoggerFactory::getInstance(
-				'authmanager'
-			)->info( 'Captcha submitted on account creation', [
+			LoggerFactory::getInstance( 'authevents' )->info( 'Captcha submitted on account creation', [
 				'event' => 'captcha.submit',
 				'type' => 'accountcreation',
 				'successful' => $success,
@@ -1008,7 +1006,7 @@ class SimpleCaptcha {
 
 			$this->trigger = "post-badlogin login '" . $u->getName() . "'";
 			$success = $this->passCaptchaLimitedFromRequest( $wgRequest, $wgUser );
-			LoggerFactory::getInstance( 'authmanager' )->info( 'Captcha submitted on login', [
+			LoggerFactory::getInstance( 'authevents' )->info( 'Captcha submitted on login', [
 				'event' => 'captcha.submit',
 				'type' => 'login',
 				'successful' => $success,
@@ -1349,12 +1347,11 @@ class SimpleCaptcha {
 						$this->addCaptchaAPI( $result );
 						$result['result'] = 'NeedCaptcha';
 
-						LoggerFactory::getInstance(
-							'authmanager'
-						)->info( 'Captcha data added in account creation API', [
-							'event' => 'captcha.display',
-							'type' => 'accountcreation',
-						] );
+						LoggerFactory::getInstance( 'authevents' )
+							->info( 'Captcha data added in account creation API', [
+								'event' => 'captcha.display',
+								'type' => 'accountcreation',
+							] );
 
 						break;
 					}

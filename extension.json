@@ -59,33 +59,15 @@
 	},
 	"callback": "ConfirmEditHooks::onRegistration",
 	"Hooks": {
-		"EditPageBeforeEditButtons": [
-			"ConfirmEditHooks::confirmEditPage"
-		],
-		"EmailUserForm": [
-			"ConfirmEditHooks::injectEmailUser"
-		],
-		"EmailUser": [
-			"ConfirmEditHooks::confirmEmailUser"
-		],
-		"PageContentSaveComplete": [
-			"ConfirmEditHooks::onPageContentSaveComplete"
-		],
-		"EditPage::showEditForm:fields": [
-			"ConfirmEditHooks::showEditFormFields"
-		],
-		"EditFilterMergedContent": [
-			"ConfirmEditHooks::confirmEditMerged"
-		],
-		"APIGetAllowedParams": [
-			"ConfirmEditHooks::APIGetAllowedParams"
-		],
-		"APIGetParamDescription": [
-			"ConfirmEditHooks::APIGetParamDescription"
-		],
-		"TitleReadWhitelist": [
-			"ConfirmEditHooks::onTitleReadWhitelist"
-		]
+		"EditPageBeforeEditButtons": "ConfirmEditHooks::confirmEditPage",
+		"EmailUserForm": "ConfirmEditHooks::injectEmailUser",
+		"EmailUser": "ConfirmEditHooks::confirmEmailUser",
+		"PageContentSaveComplete": "ConfirmEditHooks::onPageContentSaveComplete",
+		"EditPage::showEditForm:fields": "ConfirmEditHooks::showEditFormFields",
+		"EditFilterMergedContent": "ConfirmEditHooks::confirmEditMerged",
+		"APIGetAllowedParams": "ConfirmEditHooks::APIGetAllowedParams",
+		"APIGetParamDescription": "ConfirmEditHooks::APIGetParamDescription",
+		"TitleReadWhitelist": "ConfirmEditHooks::onTitleReadWhitelist"
 	},
 	"config": {
 		"_prefix": "",

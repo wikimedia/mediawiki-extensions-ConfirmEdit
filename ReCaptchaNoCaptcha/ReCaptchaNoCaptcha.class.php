@@ -132,7 +132,7 @@ HTML;
 		global $wgReCaptchaSiteKey;
 		return [
 			'type' => 'recaptchanocaptcha',
-			'mime' => 'mage/png',
+			'mime' => 'image/png',
 			'key' => $wgReCaptchaSiteKey,
 		];
 	}

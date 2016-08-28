@@ -33,5 +33,11 @@
 	"captcha-addurl-whitelist": " #<!-- Diese Zeile darf nicht verändert werden! --> <pre>\n#  Syntax:\n#   * Alles von einem #-Zeichen bis zum Ende der Zeile ist ein Kommentar\n#   * Jede nicht-leere Zeile ist ein Regex-Fragment, das gegenüber den Hostnamen einer URL geprüft wird\n #</pre> <!-- Diese Zeile darf nicht verändert werden! -->",
 	"right-skipcaptcha": "Überspringen der CAPTCHA-Eingabe",
 	"captcha-apihelp-param-captchaword": "Antwort an das CAPTCHA",
-	"captcha-apihelp-param-captchaid": "CAPTCHA-Kennung der vorherigen Anfrage"
+	"captcha-apihelp-param-captchaid": "CAPTCHA-Kennung der vorherigen Anfrage",
+	"confirmedit-preview-line": "Zeilennummer",
+	"confirmedit-preview-content": "Inhalt",
+	"confirmedit-preview-validity": "Gültigkeit",
+	"confirmedit-preview-valid": "gültig",
+	"confirmedit-preview-invalid": "ungültig",
+	"confirmedit-preview-description": "Die folgende Tabelle zeigt die Liste der Zeilen auf dieser Seite an und ob es eine gültige IP-Adresse oder ein gültiger IP-Adressbereich ist. Falls die Zeile eine gültige IP-Adresse oder ein gültiger IP-Adressbereich ist, wird sie/er für das CAPTCHA weißgelistet, aber ungültige Zeilen werden ignoriert. Ein Beispiel für einen gültigen IP-Adressbereich wäre 69.208.0.0/16, der von 69.208.0.0 bis 69.208.255.255 geht. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Weitere Informationen] zur Berechnung eines IP-Adressbereichs."
 }

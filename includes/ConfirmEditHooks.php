@@ -211,4 +211,85 @@ class ConfirmEditHooks {
 				htmlentities( recaptcha_get_signup_url( $wgServerName, "mediawiki" ) ) . "'>here</a>." );
 		}
 	}
+
+	/**
+	 * AlternateEditPreview hook handler.
+	 *
+	 * Replaces the preview with a check of all lines for the [[MediaWiki:Captcha-ip-whitelist]]
+	 * interface message, if it validates as an IP address.
+	 *
+	 * @param EditPage $editor
+	 * @param Content &$content
+	 * @param string &$html
+	 * @param ParserOutput &$po
+	 * @return bool
+	 */
+	public static function onAlternateEditPreview( EditPage $editor, &$content, &$html, &$po ) {
+		$title = $editor->getTitle();
+		$exceptionTitle = Title::makeTitle( NS_MEDIAWIKI, 'Captcha-ip-whitelist' );
+
+		if ( !$title->equals( $exceptionTitle ) ) {
+			return true;
+		}
+
+		$ctx = $editor->getArticle()->getContext();
+		$out = $ctx->getOutput();
+		$lang = $ctx->getLanguage();
+
+		$lines = explode( "\n", $content->getNativeData() );
+		$html .= Html::rawElement(
+				'div',
+				[ 'class' => 'warningbox' ],
+				$ctx->msg( 'confirmedit-preview-description' )->parse()
+			) .
+			Html::openElement(
+				'table',
+				[ 'class' => 'wikitable sortable' ]
+			) .
+			Html::openElement( 'thead' ) .
+			Html::element( 'th', [], $ctx->msg( 'confirmedit-preview-line' )->text() ) .
+			Html::element( 'th', [], $ctx->msg( 'confirmedit-preview-content' )->text() ) .
+			Html::element( 'th', [], $ctx->msg( 'confirmedit-preview-validity' )->text() ) .
+			Html::closeElement( 'thead' );
+
+		foreach ( $lines as $count => $line ) {
+			$ip = trim( $line );
+			if ( $ip === '' || strpos( $ip, '#' ) !== false ) {
+				continue;
+			}
+			if ( IP::isIPAddress( $ip ) ) {
+				$validity = $ctx->msg( 'confirmedit-preview-valid' )->escaped();
+				$css = 'valid';
+			} else {
+				$validity = $ctx->msg( 'confirmedit-preview-invalid' )->escaped();
+				$css = 'notvalid';
+			}
+			$html .= Html::openElement( 'tr' ) .
+				Html::element(
+					'td',
+					[],
+					$lang->formatNum( $count + 1 )
+				) .
+				Html::element(
+					'td',
+					[],
+					// IPv6 max length: 8 groups * 4 digits + 7 delimiter = 39
+					// + 11 chars for safety
+					$lang->truncate( $ip, 50 )
+				) .
+				Html::rawElement(
+					'td',
+					// possible values:
+					// mw-confirmedit-ip-valid
+					// mw-confirmedit-ip-notvalid
+					[ 'class' => 'mw-confirmedit-ip-' . $css ],
+					$validity
+				) .
+				Html::closeElement( 'tr' );
+		}
+		$html .= Html::closeElement( 'table' );
+		$out->addModuleStyles( 'ext.confirmEdit.editPreview.ipwhitelist.styles' );
+
+		return false;
+	}
 }

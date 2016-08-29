@@ -32,5 +32,10 @@
 	"captcha-addurl-whitelist": " #<!-- non modificare in alcun modo questa riga --> <pre>\n# La sintassi è la seguente:\n#  * Tutto ciò che segue un carattere \"#\" è un commento, fino al termine della riga\n#  * Tutte le righe non vuote sono frammenti di espressioni regolari che si applicano al solo nome dell'host nelle URL\n  #</pre> <!-- non modificare in alcun modo questa riga -->",
 	"right-skipcaptcha": "Compie le azioni che attiverebbero il captcha senza dover passare per il captcha",
 	"captcha-apihelp-param-captchaword": "Risposta al CAPTCHA",
-	"captcha-apihelp-param-captchaid": "ID CAPTCHA dalla precedente richiesta"
+	"captcha-apihelp-param-captchaid": "ID CAPTCHA dalla precedente richiesta",
+	"confirmedit-preview-line": "Numero di riga",
+	"confirmedit-preview-content": "Contenuto",
+	"confirmedit-preview-validity": "Validità",
+	"confirmedit-preview-valid": "valido",
+	"confirmedit-preview-invalid": "non valido"
 }

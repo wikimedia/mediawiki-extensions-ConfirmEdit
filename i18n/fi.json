@@ -33,5 +33,6 @@
 	"captcha-addurl-whitelist": " #<!-- jätä tämä rivi juuri näin kuin se on --> <pre>\n# Syntaksi on seuraava:\n#  * Kaikki #-merkistä eteenpäin on kommenttia\n#  * Jokainen ei-tyhjä rivi on säännöllisen lausekkeen osa, joka suoritetaan vain linkeissä esiintyville verkkonimille.\n  #</pre> <!-- jätä tämä rivi juuri näin kuin se on -->",
 	"right-skipcaptcha": "Suorittaa ilman CAPTCHA-kysymystä toimintoja, jotka normaalisti vaatisivat tarkastusta",
 	"captcha-apihelp-param-captchaword": "Vastaus CAPTCHAan",
-	"captcha-apihelp-param-captchaid": "CAPTCHA ID edellisestä pyynnöstä"
+	"captcha-apihelp-param-captchaid": "CAPTCHA ID edellisestä pyynnöstä",
+	"confirmedit-preview-content": "Sisältö"
 }

@@ -35,5 +35,11 @@
 	"captcha-addurl-whitelist": " #<!-- 请将本行保持原样 --> <pre>\n# 语法如下：\n#   * 所有以“#”字符开头的行都是注释\n#   * 所有非空白行是正则表达式片段，只会对URL中的内容进行匹配\n #</pre> <!-- 请将本行保持原样 -->",
 	"right-skipcaptcha": "执行触发验证码的操作时无需验证",
 	"captcha-apihelp-param-captchaword": "回答验证码",
-	"captcha-apihelp-param-captchaid": "之前请求的验证码ID"
+	"captcha-apihelp-param-captchaid": "之前请求的验证码ID",
+	"confirmedit-preview-line": "行号",
+	"confirmedit-preview-content": "内容",
+	"confirmedit-preview-validity": "有效性",
+	"confirmedit-preview-valid": "有效",
+	"confirmedit-preview-invalid": "无效",
+	"confirmedit-preview-description": "以下表格显示此页面的行列表，以及是否为有效IP地址或IP地址段。如果某一行是有效IP地址或IP地址段，它将从验证码程序中被白名单，但无效行将被忽略。举一个有效IP地址段的例子：69.208.0.0/16，这是从69.208.0.0至69.208.255.255。更多有关计算IP地址段的[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix 信息]。"
 }

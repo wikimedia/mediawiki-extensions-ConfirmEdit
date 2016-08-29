@@ -28,5 +28,10 @@
 	"captcha-addurl-whitelist": "  #<!-- leave this line exactly as it is --> <pre>\n# Опис на синтаксата:\n#  * Сето она што стои по знакот „#“, па до крајот на редот е коментар\n#  * Секој непразен ред се смета за фрагмент од регуларен израз кој одговара само на имиња во URL адреси\n  #</pre> <!-- leave this line exactly as it is -->",
 	"right-skipcaptcha": "Изведување на дејства кои повикуваат сликичка без да одат преку нејзиниот систем",
 	"captcha-apihelp-param-captchaword": "Одговор на сликичката",
-	"captcha-apihelp-param-captchaid": "Назнака на сликичката од претходно барање"
+	"captcha-apihelp-param-captchaid": "Назнака на сликичката од претходно барање",
+	"confirmedit-preview-line": "Број редот",
+	"confirmedit-preview-content": "Содржина",
+	"confirmedit-preview-validity": "Полноважност",
+	"confirmedit-preview-valid": "важечка",
+	"confirmedit-preview-invalid": "неважечка"
 }

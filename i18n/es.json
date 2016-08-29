@@ -36,5 +36,10 @@
 	"captcha-addurl-whitelist": " #<!-- deje esta línea exactamente como está --> <pre>\n# La sintaxis es la siguiente:\n#  * Todo desde un carácter \"#\" hasta el final de la línea, es un comentario\n#  * Toda línea que no esté en blanco, es un fragmento de expresión regular que solo coincidirá con equipos dentro de URL\n #</pre> <!-- deje esta línea exactamente como está -->",
 	"right-skipcaptcha": "Realiza acciones que despliegan un captcha sin tener que confirmar el captcha",
 	"captcha-apihelp-param-captchaword": "Respuesta a la CAPTCHA",
-	"captcha-apihelp-param-captchaid": "CAPTCHA de IDENTIFICACIÓN de la solicitud anterior"
+	"captcha-apihelp-param-captchaid": "CAPTCHA de IDENTIFICACIÓN de la solicitud anterior",
+	"confirmedit-preview-line": "Número de línea",
+	"confirmedit-preview-content": "Contenido",
+	"confirmedit-preview-validity": "Validez",
+	"confirmedit-preview-valid": "válida",
+	"confirmedit-preview-invalid": "no válida"
 }

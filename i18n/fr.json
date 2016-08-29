@@ -42,5 +42,11 @@
 	"captcha-addurl-whitelist": " #<!-- laissez cette ligne exactement telle quelle --><pre>\n# La syntaxe est la suivante :\n#  * Tout caractère depuis « # » jusqu’à la fin de la ligne est interprété comme un commentaire.\n#  * Toute ligne non vide est un fragment d’expression rationnelle qui ne correspondra qu’aux hôtes dans les liens hypertextes.\n  #</pre><!-- laissez cette ligne exactement telle quelle -->",
 	"right-skipcaptcha": "Réaliser des actions qui déclenchent un captcha sans avoir à passer celui-ci",
 	"captcha-apihelp-param-captchaword": "Réponse au CAPTCHA",
-	"captcha-apihelp-param-captchaid": "Identifiant de CAPTCHA de la requête précédente"
+	"captcha-apihelp-param-captchaid": "Identifiant de CAPTCHA de la requête précédente",
+	"confirmedit-preview-line": "Numéro de ligne",
+	"confirmedit-preview-content": "Contenu",
+	"confirmedit-preview-validity": "Validité",
+	"confirmedit-preview-valid": "valide",
+	"confirmedit-preview-invalid": "non valide",
+	"confirmedit-preview-description": "Le tableau suivant montre la liste des lignes de cette page et si c’est une adresse ou une plage d’adresses IP valide. Si la ligne est une adresse ou une plage d’adresses IP valide, elle sera en liste blanche pour CAPTCHA, mais les lignes non valides seront ignorées. Un exemple de plage d’adresse IP valide est : 69.208.0.0/16 qui va de 69.208.0.0 à 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Plus d’information] sur le calcul d’une plage d’adresse IP."
 }

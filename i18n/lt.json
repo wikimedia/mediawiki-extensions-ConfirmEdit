@@ -5,7 +5,8 @@
 			"Garas",
 			"Homo",
 			"Matasg",
-			"Albertas"
+			"Albertas",
+			"Zygimantus"
 		]
 	},
 	"captcha-edit": "Kad redaguotumėte šį straipsnį, apskaičiuokite šią paprastą sumą ir įveskite atsakymą į laukelį ([[Special:Captcha/help|daugiau informacijos]]):",
@@ -30,5 +31,10 @@
 	"captcha-addurl-whitelist": " #<!-- palikite šią eilutę tiksliai tokią, kokia ji yra --> <pre>\n# Sintaksė tokia:\n#   * Viskas nuo \"#\" simbolio iki eilutės pabaigos yra komentaras\n#   * Kiekviena netuščia eilutė yra reguliariosios išraiškos fragmentas, kuris atitinka tik serverių vardus esančius URL adresuose\n #</pre> <!-- palikite šią eilutę tiksliai tokią, kokia ji yra -->",
 	"right-skipcaptcha": "Atlikti apsaugos teksto reikalaujančius veiksmus, nereikalaujant nurodyti apsaugos teksto",
 	"captcha-apihelp-param-captchaword": "Atsakyti į CAPTCHA",
-	"captcha-apihelp-param-captchaid": "CAPTCHA ID iš prieš tai buvusios užklausos"
+	"captcha-apihelp-param-captchaid": "CAPTCHA ID iš prieš tai buvusios užklausos",
+	"confirmedit-preview-line": "Eilutės numeris",
+	"confirmedit-preview-content": "Turinys",
+	"confirmedit-preview-validity": "Galiojimas",
+	"confirmedit-preview-valid": "galiojantis",
+	"confirmedit-preview-invalid": "neteisingas"
 }

@@ -33,5 +33,10 @@
 	"captcha-addurl-whitelist": "  #<!-- leave this line exactly as it is --> <pre>\n#Sîntaks ze ena yo: \n#  * Nişanê \"#\" ra nişanê ke bînê xetî de pêran piya xulasa yo\n#  * Her xetî ke veng niyo fragmento regex u teyna URLan de hostan match keno\n  #</pre> <!-- leave this line exactly as it is -->",
 	"right-skipcaptcha": "Herekatanê captcha trigger perform bike ke ti ser captcha meşo",
 	"captcha-apihelp-param-captchaword": "Cewabê CAPTCHA",
-	"captcha-apihelp-param-captchaid": "CAPTCHA ID Ra waştışê verêni"
+	"captcha-apihelp-param-captchaid": "CAPTCHA ID Ra waştışê verêni",
+	"confirmedit-preview-line": "Nımrey xet",
+	"confirmedit-preview-content": "Zerrek",
+	"confirmedit-preview-validity": "Ravêrdış",
+	"confirmedit-preview-valid": "ravêrde",
+	"confirmedit-preview-invalid": "Nêravêrde"
 }

@@ -34,9 +34,10 @@
 	"right-skipcaptcha": "Herekatanê captcha trigger perform bike ke ti ser captcha meşo",
 	"captcha-apihelp-param-captchaword": "Cewabê CAPTCHA",
 	"captcha-apihelp-param-captchaid": "CAPTCHA ID Ra waştışê verêni",
-	"confirmedit-preview-line": "Nımrey xet",
+	"confirmedit-preview-line": "Numreyê xete",
 	"confirmedit-preview-content": "Zerrek",
 	"confirmedit-preview-validity": "Ravêrdış",
 	"confirmedit-preview-valid": "ravêrde",
-	"confirmedit-preview-invalid": "Nêravêrde"
+	"confirmedit-preview-invalid": "Nêravêrde",
+	"confirmedit-preview-description": "Tabloy cêri, listanê satıranê ena perer asne no u ravêrde ju IP yana adresa IP wa bı bo. Çıkı CAPTHCA de sıpe listed bê se xizi do peygos bê \n\nMesela ena IP bena: 69.208.0.0 ra  69.208.255.255 hetana 69.208.0.0/16 şına. \n\n[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix deha na zaf malumat]  bıvinê."
 }

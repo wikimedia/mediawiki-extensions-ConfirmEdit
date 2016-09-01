@@ -30,5 +30,6 @@
 	"right-skipcaptcha": "CAPTCHAが必要な場面でCAPTCHAをスキップして操作を実行",
 	"captcha-apihelp-param-captchaword": "CAPTCHAに答える",
 	"confirmedit-preview-line": "行番号",
-	"confirmedit-preview-valid": "有効"
+	"confirmedit-preview-valid": "有効",
+	"confirmedit-preview-invalid": "無効"
 }

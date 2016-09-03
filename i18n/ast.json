@@ -28,5 +28,11 @@
 	"captcha-addurl-whitelist": " #<!-- dexa esta llinia exautamente como ta --> <pre>\n# La sintaxis ye como sigue:\n#  * Too dende'l carauter \"#\" hasta la fin de la llinia ye un comentariu\n#  * Toa llinia non vacia ye un fragmentu regex que namái buscará hosts n'URLs\n  #</pre> <!-- dexa esta llinia exautamente como ta -->",
 	"right-skipcaptcha": "Facer les acciones que requieren captcha ensin tener que lu introducir",
 	"captcha-apihelp-param-captchaword": "Respuesta al CAPTCHA",
-	"captcha-apihelp-param-captchaid": "Identificador de CAPTCHA de la consulta anterior"
+	"captcha-apihelp-param-captchaid": "Identificador de CAPTCHA de la consulta anterior",
+	"confirmedit-preview-line": "Númberu de llinia",
+	"confirmedit-preview-content": "Conteníu",
+	"confirmedit-preview-validity": "Validez",
+	"confirmedit-preview-valid": "válida",
+	"confirmedit-preview-invalid": "non válida",
+	"confirmedit-preview-description": "La tabla siguiente amuesa la llista de llinies d'esta páxina y si ye una direición o rangu de direiciones IP válida. Si la llinia ye una direición o rangu de direiciones IP válida, pondráse na llista blanca de CAPTCHA, pero les llinies inválides van inorase. Un exemplu d'un rangu de direiciones IP válidu sedría: 69.208.0.0/16 que va de 69.208.0.0 fasta 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Más información] tocante a cómo calcular un rangu de direiciones IP."
 }

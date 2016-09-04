@@ -23,7 +23,12 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 		] );
 		CaptchaStore::unsetInstanceForTests();
 		CaptchaStore::get()->clearAll();
-		ObjectCache::$instances[__METHOD__] = new HashBagOStuff();
+		$services = \MediaWiki\MediaWikiServices::getInstance();
+		if ( method_exists( $services, 'getLocalClusterObjectCache' ) ) {
+			$this->setService( 'LocalClusterObjectCache', new HashBagOStuff() );
+		} else {
+			ObjectCache::$instances[__METHOD__] = new HashBagOStuff();
+		}
 	}
 
 	public function tearDown() {

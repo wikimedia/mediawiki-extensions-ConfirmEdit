@@ -37,5 +37,7 @@
 	"captcha-addurl-whitelist": " #<!-- leave this line exactly as it is --> <pre>\n# Описание синтаксиса:\n#  * Всё, начиная с символа \"#\" и до конца строки считается комментарием\n#  * Каждая непустая строка считается фрагментом регулярного выражения соответствующего имени узла в URL\n  #</pre> <!-- leave this line exactly as it is -->",
 	"right-skipcaptcha": "выполнение требующих CAPTCHA-проверки действий без прохождения CAPTCHA",
 	"captcha-apihelp-param-captchaword": "Ответ на капчу",
-	"captcha-apihelp-param-captchaid": "CAPTCHA ID из предыдущего запроса"
+	"captcha-apihelp-param-captchaid": "CAPTCHA ID из предыдущего запроса",
+	"confirmedit-preview-line": "Номер строки",
+	"confirmedit-preview-content": "Содержание"
 }

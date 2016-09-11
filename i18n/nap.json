@@ -29,5 +29,8 @@
 	"captcha-apihelp-param-captchaword": "Rispunne a 'o CAPTCHA",
 	"captcha-apihelp-param-captchaid": "ID CAPTCHA d' 'o request 'e primma",
 	"confirmedit-preview-line": "Nummero 'e riga",
-	"confirmedit-preview-content": "Cuntenute"
+	"confirmedit-preview-content": "Cuntenute",
+	"confirmedit-preview-validity": "Validità",
+	"confirmedit-preview-valid": "valido",
+	"confirmedit-preview-invalid": "nun valido"
 }

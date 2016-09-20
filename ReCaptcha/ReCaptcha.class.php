@@ -83,30 +83,12 @@ class ReCaptcha extends SimpleCaptcha {
 
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {
 		if ( $flags && $this->isAPICaptchaModule( $module ) ) {
-			if ( defined( 'ApiBase::PARAM_HELP_MSG' ) ) {
-				$params['recaptcha_challenge_field'] = [
-					ApiBase::PARAM_HELP_MSG => 'recaptcha-apihelp-param-recaptcha_challenge_field',
-				];
-				$params['recaptcha_response_field'] = [
-					ApiBase::PARAM_HELP_MSG => 'recaptcha-apihelp-param-recaptcha_response_field',
-				];
-			} else {
-				// @todo: Remove this branch when support for MediaWiki < 1.25 is dropped
-				$params['recaptcha_challenge_field'] = null;
-				$params['recaptcha_response_field'] = null;
-			}
-		}
-
-		return true;
-	}
-
-	/**
-	 * @deprecated since MediaWiki 1.25
-	 */
-	public function APIGetParamDescription( &$module, &$desc ) {
-		if ( $this->isAPICaptchaModule( $module ) ) {
-			$desc['recaptcha_challenge_field'] = 'Field from the ReCaptcha widget';
-			$desc['recaptcha_response_field'] = 'Field from the ReCaptcha widget';
+			$params['recaptcha_challenge_field'] = [
+				ApiBase::PARAM_HELP_MSG => 'recaptcha-apihelp-param-recaptcha_challenge_field',
+			];
+			$params['recaptcha_response_field'] = [
+				ApiBase::PARAM_HELP_MSG => 'recaptcha-apihelp-param-recaptcha_response_field',
+			];
 		}
 
 		return true;

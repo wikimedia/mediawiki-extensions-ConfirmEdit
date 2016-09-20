@@ -1072,33 +1072,12 @@ class SimpleCaptcha {
 	 */
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {
 		if ( $this->isAPICaptchaModule( $module ) ) {
-			if ( defined( 'ApiBase::PARAM_HELP_MSG' ) ) {
-				$params['captchaword'] = [
-					ApiBase::PARAM_HELP_MSG => 'captcha-apihelp-param-captchaword',
-				];
-				$params['captchaid'] = [
-					ApiBase::PARAM_HELP_MSG => 'captcha-apihelp-param-captchaid',
-				];
-			} else {
-				// @todo: Remove this branch when support for MediaWiki < 1.25 is dropped
-				$params['captchaword'] = null;
-				$params['captchaid'] = null;
-			}
-		}
-
-		return true;
-	}
-
-	/**
-	 * @deprecated Since MediaWiki 1.25
-	 * @param $module ApiBase
-	 * @param $desc array
-	 * @return bool
-	 */
-	public function APIGetParamDescription( &$module, &$desc ) {
-		if ( $this->isAPICaptchaModule( $module ) ) {
-			$desc['captchaid'] = 'CAPTCHA ID from previous request';
-			$desc['captchaword'] = 'Answer to the CAPTCHA';
+			$params['captchaword'] = [
+				ApiBase::PARAM_HELP_MSG => 'captcha-apihelp-param-captchaword',
+			];
+			$params['captchaid'] = [
+				ApiBase::PARAM_HELP_MSG => 'captcha-apihelp-param-captchaid',
+			];
 		}
 
 		return true;

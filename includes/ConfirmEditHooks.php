@@ -128,10 +128,6 @@ class ConfirmEditHooks {
 		return self::getInstance()->APIGetAllowedParams( $module, $params, $flags );
 	}
 
-	public static function APIGetParamDescription( &$module, &$desc ) {
-		return self::getInstance()->APIGetParamDescription( $module, $desc );
-	}
-
 	public static function onAuthChangeFormFields(
 		array $requests, array $fieldInfo, array &$formDescriptor, $action
 	) {

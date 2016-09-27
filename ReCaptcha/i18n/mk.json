@@ -15,7 +15,7 @@
 	"recaptcha-apihelp-param-recaptcha_challenge_field": "Поле од поср. елемент ReCaptcha",
 	"recaptcha-apihelp-param-recaptcha_response_field": "Поле од поср. елемент ReCaptcha",
 	"recaptcha-id-label": "ReCaptcha-предизвик",
-	"recaptcha-id-help": "Вреднсот од ReCaptcha-предизвикот",
+	"recaptcha-id-help": "Вредност од ReCaptcha-предизвикот",
 	"recaptcha-label": "Решение од ReCaptcha",
 	"recaptcha-help": "Вредност на решението од ReCaptcha"
 }

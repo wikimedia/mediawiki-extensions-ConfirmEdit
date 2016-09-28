@@ -21,10 +21,12 @@ class FancyCaptcha extends SimpleCaptcha {
 			if ( !$backend ) {
 				$backend = new FSFileBackend( [
 					'name'           => 'captcha-backend',
-					'wikiId'         => wfWikiId(),
+					'wikiId'         => wfWikiID(),
 					'lockManager'    => new NullLockManager( [] ),
 					'containerPaths' => [ 'captcha-render' => $wgCaptchaDirectory ],
-					'fileMode'       => 777
+					'fileMode'       => 777,
+					'obResetFunc'    => 'wfResetOutputBuffers',
+					'streamMimeFunc' => [ 'StreamFile', 'contentTypeFromPath' ]
 				] );
 			}
 			return $backend;

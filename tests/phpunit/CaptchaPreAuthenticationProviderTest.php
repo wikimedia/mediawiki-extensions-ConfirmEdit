@@ -216,7 +216,14 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 	 * @dataProvider providePingLimiter
 	 */
 	public function testPingLimiter( array $attempts ) {
-		$this->mergeMwGlobalArrayValue( 'wgRateLimits', [ 'badcaptcha' => 1 ] );
+		$this->mergeMwGlobalArrayValue(
+			'wgRateLimits',
+			[
+				'badcaptcha' => [
+					'user' => [ 1, 1 ],
+				],
+			]
+		);
 		$provider = new CaptchaPreAuthenticationProvider();
 		$provider->setManager( AuthManager::singleton() );
 		$providerAccess = TestingAccessWrapper::newFromObject( $provider );

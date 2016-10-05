@@ -8,6 +8,8 @@
  * @ingroup Extensions
  */
 
+use MediaWiki\Auth\AuthenticationRequest;
+
 class QuestyCaptcha extends SimpleCaptcha {
 	// used for questycaptcha-edit, questycaptcha-addurl, questycaptcha-badlogin,
 	// questycaptcha-createaccount, questycaptcha-create, questycaptcha-sendemail via getMessage()
@@ -33,7 +35,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 	public function describeCaptchaType() {
 		return [
 			'type' => 'question',
-			'mime' => 'text/plain',
+			'mime' => 'text/html',
 		];
 	}
 
@@ -85,5 +87,20 @@ class QuestyCaptcha extends SimpleCaptcha {
 
 	public function getCaptchaInfo( $captchaData, $id ) {
 		return $captchaData['question'];
+	}
+
+	public function onAuthChangeFormFields( array $requests, array $fieldInfo,
+		array &$formDescriptor, $action ) {
+		/** @var CaptchaAuthenticationRequest $req */
+		$req =
+			AuthenticationRequest::getRequestByClass( $requests,
+				CaptchaAuthenticationRequest::class, true );
+		if ( !$req ) {
+			return;
+		}
+
+		// declare RAW HTML output.
+		$formDescriptor['captchaInfo']['raw'] = true;
+		$formDescriptor['captchaWord']['label-message'] = null;
 	}
 }

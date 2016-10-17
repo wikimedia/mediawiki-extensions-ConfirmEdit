@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Vitorvicentevalente",
-			"Fúlvio"
+			"Fúlvio",
+			"Hamilton Abreu"
 		]
 	},
 	"renocaptcha-edit": "Para proteger a wiki contra a edição automatizada de spam, pedimos gentilmente que resolva o seguinte código CAPTCHA:",
@@ -11,5 +12,7 @@
 	"renocaptcha-createaccount": "Para proteger a wiki contra a criação automatizada de conta, pedimos que resolva o seguinte código CAPTCHA:",
 	"renocaptcha-createaccount-fail": "Parece que não resolveu o código CAPTCHA ainda.",
 	"renocaptcha-create": "Para proteger a wiki contra a criação automatizada de páginas novas, pedimos que resolva o seguinte código CAPTCHA:",
-	"renocaptcha-noscript": "Infelizmente desativou o JavaScript, o que nos impossibilita de reconhecer automaticamente se é um humano ou não. Por favor, resolva o código CAPTCHA abaixo e copie o resultado para o campo de texto seguinte:"
+	"renocaptcha-noscript": "Infelizmente desativou o JavaScript, o que nos impossibilita de reconhecer automaticamente se é um humano ou não. Por favor, resolva o código CAPTCHA abaixo e copie o resultado para o campo de texto seguinte:",
+	"renocaptcha-help": "Resolva um desafio ReCaptcha NoCaptcha e devolva o valor da resposta como captchaWord.",
+	"renocaptcha-apihelp-param-g-recaptcha-response": "Campo do <i>widget</i> ReCaptcha."
 }

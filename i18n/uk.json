@@ -37,5 +37,11 @@
 	"captcha-addurl-whitelist": "#<!-- leave this line exactly as it is --> <pre>\n# Опис синтаксису:\n#  * Все, що починається з символу \"#\" до кінця рядка, вважається коментарем\n#  * Кожний непорожній рядок вважається фрагментом регулярного виразу відповідної назви вузла в URL\n   #</pre> <!-- leave this line exactly as it is -->",
 	"right-skipcaptcha": "виконання дій, що вимагають CAPTCHA-перевірки, без проходження CAPTCHA",
 	"captcha-apihelp-param-captchaword": "Відповідь на CAPTCHA",
-	"captcha-apihelp-param-captchaid": "Ідентифікатор CAPTCHA з попереднього запиту"
+	"captcha-apihelp-param-captchaid": "Ідентифікатор CAPTCHA з попереднього запиту",
+	"confirmedit-preview-line": "Номер рядка",
+	"confirmedit-preview-content": "Вміст",
+	"confirmedit-preview-validity": "Перевірка",
+	"confirmedit-preview-valid": "дійсна",
+	"confirmedit-preview-invalid": "недійсна",
+	"confirmedit-preview-description": "Подана таблиця відображає список рядків на цій сторінці, і чи це дійсна IP-адреси, чи діапазон IP-адрес. Якщо рядок є дійсною IP-адресою або діапазоном, він потрапить у білий список для CAPTCHA, тоді як недійсні адреси будуть проігноровані. Прикладом дійсного діапазону IP-адрес може бути: 69.208.0.0/16, який починається з 69.208.0.0 і закінчується 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Більше інформації] про вираховування діапазону IP-адрес."
 }

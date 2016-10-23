@@ -5,7 +5,7 @@
 		]
 	},
 	"fancycaptcha-captcha": "თხილუაშ კონტროლი",
-	"fancycaptcha-createaccount": "ვიკიშ ანგარიშეფიშ ავტომატური რეგისტრაციაშე თხილუაშ ღანკით, ჩქი ალაიჩანთ, გენშიჸონათ მოჩამილი სიმბოლოეფი ტექსტურ ველს ([[Special:Captcha/help|დეტალურო]]):",
+	"fancycaptcha-accountcreate": "ვიკიშ ანგარიშეფიშ ავტომატური რეგისტრაციაშე თხილუაშ ღანკით, ჩქი ალაიჩანთ, გენშიჸონათ მოჩამილი სიმბოლოეფი ტექსტურ ველს ([[Special:Captcha/help|დეტალურო]]):",
 	"fancycaptcha-imgcaptcha-ph": "გემშიონით ჟი მოჩამილი ტექსტი",
 	"fancycaptcha-reload-text": "გოახალაფა"
 }

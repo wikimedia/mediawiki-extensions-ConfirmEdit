@@ -18,7 +18,7 @@
 	"captcha-id-label": "Identificador do CAPTCHA",
 	"captcha-id-help": "Este valor deve ser devolvido inalterado.",
 	"captcha-addurl": "A sua edição introduziu links externos novos.\nPara proteger a wiki contra sistemas automatizados de inserção de <i>spam</i>, antes de gravar a sua edição pedimos que resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):",
-	"captcha-badlogin": "Para proteger a wiki contra sistemas automatizados de descoberta de palavras-chave, pedimos que resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):",
+	"captcha-badlogin": "Para proteger a wiki contra sistemas automatizados de descoberta de palavras-passe, pedimos que resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):",
 	"captcha-createaccount": "Para proteger a wiki contra sistemas automatizados de criação de contas, pedimos que resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):",
 	"captcha-createaccount-fail": "O código CAPTCHA está incorreto ou não foi preenchido.",
 	"captcha-create": "Para criar a página, resolva a soma simples apresentada abaixo e introduza a resposta na caixa ([[Special:Captcha/help|mais informações]]):",

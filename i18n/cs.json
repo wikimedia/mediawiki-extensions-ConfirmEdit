@@ -31,5 +31,11 @@
 	"captcha-addurl-whitelist": " #<!-- Nechte tento řádek přesně tak jak je --> <pre>\n# Syntaxe je následující:\n#  * Všechno od znaku „#“ do konce řádku je komentář\n#  * Každý neprázdný řádek je fragment regulárního výrazu, který se aplikuje pouze na název stroje v URL\n #</pre> <!-- Nechte tento řádek přesně tak jak je -->",
 	"right-skipcaptcha": "Vykonávání akcí spojených s CAPTCHA bez nutnosti jejího řešení",
 	"captcha-apihelp-param-captchaword": "Odpověď na CAPTCHA",
-	"captcha-apihelp-param-captchaid": "ID CAPTCHA z předchozího požadavku"
+	"captcha-apihelp-param-captchaid": "ID CAPTCHA z předchozího požadavku",
+	"confirmedit-preview-line": "Číslo řádku",
+	"confirmedit-preview-content": "Obsah",
+	"confirmedit-preview-validity": "Platnost",
+	"confirmedit-preview-valid": "platný",
+	"confirmedit-preview-invalid": "neplatný",
+	"confirmedit-preview-description": "Následující tabulka zobrazuje seznam řádků na této stránce a zda se jedná o platné IP adresy či rozsahy adres. Pokud je řádka platná IP adresa nebo rozsah, bude osvobozena od CAPTCHA, ale neplatné řádky budou ignorovány. Příkladem platného rozsahu IP adres by bylo 69.208.0.0/16, což pokrývá adresy od 69.208.0.0 do 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Více informací] k počítání rozsahů IP adres."
 }

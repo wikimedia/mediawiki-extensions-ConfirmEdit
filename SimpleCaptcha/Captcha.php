@@ -1044,12 +1044,12 @@ class SimpleCaptcha {
 			if ( defined( 'MW_API' ) ) {
 				# API mode
 				# Asking for captchas in the API is really silly
-				$error = wfMessage( 'captcha-disabledinapi' )->text();
+				$error = Status::newFatal( 'captcha-disabledinapi' );
 				return false;
 			}
 			$this->trigger = "{$wgUser->getName()} sending email";
 			if ( !$this->passCaptchaLimitedFromRequest( $wgRequest, $wgUser ) ) {
-				$error = wfMessage( 'captcha-sendemail-fail' )->text();
+				$error = Status::newFatal( 'captcha-sendemail-fail' );
 				return false;
 			}
 		}

@@ -44,6 +44,10 @@ class GenerateFancyCaptchas extends Maintenance {
 		$this->addOption( "blacklist", "A blacklist of words that should not be used", false, true );
 		$this->addOption( "fill", "Fill the captcha container to N files", true, true );
 		$this->addOption( "verbose", "Show debugging information" );
+		$this->addOption(
+			"oldcaptcha",
+			"Whether to use captcha-old.py which doesn't have OCR fighting improvements"
+		);
 		$this->mDescription = "Generate new captchas and move them into storage";
 	}
 
@@ -72,8 +76,15 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$e = null; // exception
 		try {
+
+			$captchaScript = 'captcha.py';
+
+			if ( $this->hasOption( 'oldcaptcha' ) ) {
+				$captchaScript = 'captcha-old.py';
+			}
+
 			$cmd = sprintf( "python %s --key %s --output %s --count %s --dirs %s",
-				wfEscapeShellArg( __DIR__ . '/../captcha.py' ),
+				wfEscapeShellArg( dirname( __DIR__ ) . '/' . $captchaScript ),
 				wfEscapeShellArg( $wgCaptchaSecret ),
 				wfEscapeShellArg( $tmpDir ),
 				wfEscapeShellArg( $countGen ),

@@ -48,6 +48,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			"oldcaptcha",
 			"Whether to use captcha-old.py which doesn't have OCR fighting improvements"
 		);
+		$this->addOption( "delete", "Delete the old captches" );
 		$this->mDescription = "Generate new captchas and move them into storage";
 	}
 
@@ -60,10 +61,15 @@ class GenerateFancyCaptchas extends Maintenance {
 		}
 		$backend = $instance->getBackend();
 
-		$countAct = $instance->estimateCaptchaCount();
-		$this->output( "Estimated number of captchas is $countAct.\n" );
+		$deleteOldCaptchas = $this->getOption( 'delete' );
 
-		$countGen = (int)$this->getOption( 'fill' ) - $countAct;
+		$countGen = (int)$this->getOption( 'fill' );
+		if ( !$deleteOldCaptchas ) {
+			$countAct = $instance->estimateCaptchaCount();
+			$this->output( "Estimated number of current captchas is $countAct.\n" );
+			$countGen -= $countAct;
+		}
+
 		if ( $countGen <= 0 ) {
 			$this->output( "No need to generate anymore captchas.\n" );
 			return;
@@ -110,6 +116,21 @@ class GenerateFancyCaptchas extends Maintenance {
 				RecursiveIteratorIterator::CHILD_FIRST // include dirs
 			);
 
+			$this->output( "Done.\n" );
+
+			$originalFiles = [];
+			if ( $deleteOldCaptchas ) {
+				$this->output( "Getting a list of old captchas...\n" );
+				foreach (
+					$backend->getFileList(
+						[ 'dir' => $backend->getRootStoragePath() . '/captcha-render' ]
+					) as $file
+				) {
+					$originalFiles[] = $file;
+				}
+				$this->output( "Done.\n" );
+			}
+
 			$this->output( "Copying the new captchas to storage...\n" );
 			foreach ( $iter as $fileInfo ) {
 				if ( !$fileInfo->isFile() ) {
@@ -125,6 +146,16 @@ class GenerateFancyCaptchas extends Maintenance {
 				if ( !$status->isOK() ) {
 					$this->error( "Could not save file '{$fileInfo->getPathname()}'.\n" );
 				}
+			}
+			$this->output( "Done.\n" );
+
+			if ( $deleteOldCaptchas ) {
+				$numOriginalFiles = count( $originalFiles );
+				$this->output( "Deleting {$numOriginalFiles} old captchas...\n" );
+				foreach ( $originalFiles as $file ) {
+					$backend->quickDelete( [ 'src' => $file ] );
+				}
+				$this->output( "Done.\n" );
 			}
 		} catch ( Exception $e ) {
 			wfRecursiveRemoveDir( $tmpDir );

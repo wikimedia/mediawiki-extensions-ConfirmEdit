@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Irus"
+			"Irus",
+			"Wadorgurt"
 		]
 	},
-	"fancycaptcha-accountcreate": "Курелэ тӥ понна кылын гожъямъёсыз пыр предотвращение учётной пусъён автоматической, лапег возьматэ ортчоз ([[Special:Captcha/help|поч...]]):"
+	"fancycaptcha-accountcreate": "Курелэ тӥ понна кылын гожъямъёсыз пыр предотвращение учётной пусъён автоматической, лапег возьматэ ортчоз ([[Special:Captcha/help|поч...]]):",
+	"fancycaptcha-reload-text": "Выльдыны"
 }

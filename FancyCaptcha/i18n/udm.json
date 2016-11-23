@@ -5,6 +5,8 @@
 			"Wadorgurt"
 		]
 	},
+	"fancycaptcha-captcha": "Кышкыттэмлыкез эскерон",
 	"fancycaptcha-accountcreate": "Курелэ тӥ понна кылын гожъямъёсыз пыр предотвращение учётной пусъён автоматической, лапег возьматэ ортчоз ([[Special:Captcha/help|поч...]]):",
+	"fancycaptcha-imgcaptcha-ph": "Гожтэ текстэз, кудзэ тӥ суредын адӟиськоды",
 	"fancycaptcha-reload-text": "Выльдыны"
 }

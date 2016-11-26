@@ -274,7 +274,7 @@ class SimpleCaptcha {
 			}
 			LoggerFactory::getInstance( 'authevents' )->info( 'Captcha shown on account creation', [
 				'event' => 'captcha.display',
-				'type' => 'accountcreation',
+				'eventType' => 'accountcreation',
 			] );
 			$formInformation = $this->getFormInformation( 8 );
 			$formMetainfo = $formInformation;
@@ -324,7 +324,7 @@ class SimpleCaptcha {
 
 			LoggerFactory::getInstance( 'authevents' )->info( 'Captcha shown on login', [
 				'event' => 'captcha.display',
-				'type' => 'login',
+				'eventType' => 'login',
 				'perIp' => $perIPTriggered,
 				'perUser' => $perUserTriggered
 			] );
@@ -945,7 +945,7 @@ class SimpleCaptcha {
 			$success = $this->passCaptchaLimitedFromRequest( $wgRequest, $wgUser );
 			LoggerFactory::getInstance( 'authevents' )->info( 'Captcha submitted on account creation', [
 				'event' => 'captcha.submit',
-				'type' => 'accountcreation',
+				'eventType' => 'accountcreation',
 				'successful' => $success,
 			] );
 			if ( !$success ) {
@@ -1008,7 +1008,7 @@ class SimpleCaptcha {
 			$success = $this->passCaptchaLimitedFromRequest( $wgRequest, $wgUser );
 			LoggerFactory::getInstance( 'authevents' )->info( 'Captcha submitted on login', [
 				'event' => 'captcha.submit',
-				'type' => 'login',
+				'eventType' => 'login',
 				'successful' => $success,
 			] );
 			if ( !$success ) {
@@ -1329,7 +1329,7 @@ class SimpleCaptcha {
 						LoggerFactory::getInstance( 'authevents' )
 							->info( 'Captcha data added in account creation API', [
 								'event' => 'captcha.display',
-								'type' => 'accountcreation',
+								'eventType' => 'accountcreation',
 							] );
 
 						break;

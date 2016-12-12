@@ -1233,10 +1233,11 @@ class SimpleCaptcha {
 	 */
 	function loadText( $title, $section, $flags = Revision::READ_LATEST ) {
 		$rev = Revision::newFromTitle( $title, false, $flags );
+		$content = $rev->getContent();
 		if ( is_null( $rev ) ) {
 			return "";
 		} else {
-			$text = $rev->getText();
+			$text = ContentHandler::getContentText( $content );
 			if ( $section != '' ) {
 				global $wgParser;
 				return $wgParser->getSection( $text, $section );

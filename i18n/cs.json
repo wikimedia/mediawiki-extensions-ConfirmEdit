@@ -8,7 +8,7 @@
 			"Dvorapa"
 		]
 	},
-	"captcha-edit": "Abyste mohli editovat tuto stránku, musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])",
+	"captcha-edit": "Abyste mohli editovat tuto stránku, musíte vyřešit následující úkol níže a napsat výsledek do políčka ([[Special:Captcha/help|Co tohle znamená?]]):",
 	"captcha-edit-fail": "Chybějící či neplatný potvrzovací kód.",
 	"captcha-desc": "Poskytuje techniky CAPTCHA pro ochranu před spamem a hádáním hesel",
 	"captcha-label": "CAPTCHA",
@@ -20,7 +20,7 @@
 	"captcha-badlogin": "V zájmu ochrany této wiki proti automatickým pokusům uhodnout heslo vás prosíme o vyřešení následujícího úkolu a napsání výsledku. ([[Special:Captcha/help|Co tohle znamená?]])",
 	"captcha-createaccount": "V zájmu ochrany této wiki před automatickým vytvářením účtů vás prosíme o vyřešení následujícího úkolu a napsání výsledku. ([[Special:Captcha/help|Co tohle znamená?]])",
 	"captcha-createaccount-fail": "Chybějící či neplatný potvrzovací kód.",
-	"captcha-create": "Abyste mohli založit stránku, musíte vyřešit následující jednoduchý součet a napsat výsledek. ([[Special:Captcha/help|Co tohle znamená?]])",
+	"captcha-create": "Abyste mohli založit stránku, musíte vyřešit následující úkol níže a napsat výsledek do políčka ([[Special:Captcha/help|Co tohle znamená?]]):",
 	"captcha-sendemail": "V zájmu ochrany této wiki před automatickým spamováním vás prosíme o vyřešení následujícího úkolu a napsání výsledku. ([[Special:Captcha/help|Co tohle znamená?]])",
 	"captcha-sendemail-fail": "Chybějící či neplatný potvrzovací kód.",
 	"captcha-disabledinapi": "Tato operace vyžaduje splnění CAPTCHA, takže ji nelze provést prostřednictvím API.",

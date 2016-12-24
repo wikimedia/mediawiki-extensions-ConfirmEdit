@@ -16,7 +16,8 @@
 			"Luis Felipe Schenone",
 			"Macofe",
 			"Lemondoge",
-			"Sophivorus"
+			"Sophivorus",
+			"Dgstranz"
 		]
 	},
 	"captcha-edit": "Para editar esta página, resuelve la siguiente suma y escribe el resultado en la casilla ([[Special:Captcha/help|más información]]):",
@@ -26,6 +27,7 @@
 	"captcha-help": "Solución del CAPTCHA.",
 	"captcha-info-help": "Descripción del CAPTCHA.",
 	"captcha-id-label": "Identificador del CAPTCHA",
+	"captcha-id-help": "Este valor debería devolverse sin cambios.",
 	"captcha-addurl": "Tu edición incluye nuevos enlaces externos.\nPara proteger el wiki contra el spam automatizado, resuelve la siguiente suma y escribe el resultado en la casilla para poder guardar tu edición ([[Special:Captcha/help|más información]]):",
 	"captcha-badlogin": "Para proteger el wiki del descifrado de contraseñas automatizado, por favor resuelve la siguiente suma e ingresa la respuesta en la casilla ([[Special:Captcha/help|más información]]):",
 	"captcha-createaccount": "Para proteger el wiki de la creación automática de cuentas, resuelve la siguiente suma y escribe el resultado en la casilla ([[Special:Captcha/help|más información]]):",

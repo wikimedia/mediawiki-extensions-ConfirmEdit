@@ -27,7 +27,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = __DIR__.'/../../..';
 }
 
-require_once ( "$IP/maintenance/Maintenance.php" );
+require_once ( "$IP/core/maintenance/Maintenance.php" );
 
 /**
  * Maintenance script to change the password of a given user.

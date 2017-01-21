@@ -1232,19 +1232,20 @@ class SimpleCaptcha {
 	 * @access private
 	 */
 	function loadText( $title, $section, $flags = Revision::READ_LATEST ) {
+		global $wgParser;
+
 		$rev = Revision::newFromTitle( $title, false, $flags );
 		if ( is_null( $rev ) ) {
 			return "";
-		} else {
-			$content = $rev->getContent();
-			$text = ContentHandler::getContentText( $content );
-			if ( $section != '' ) {
-				global $wgParser;
-				return $wgParser->getSection( $text, $section );
-			} else {
-				return $text;
-			}
 		}
+
+		$content = $rev->getContent();
+		$text = ContentHandler::getContentText( $content );
+		if ( $section !== '' ) {
+			return $wgParser->getSection( $text, $section );
+		}
+
+		return $text;
 	}
 
 	/**

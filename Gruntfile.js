@@ -1,5 +1,7 @@
 /* eslint-env node */
 module.exports = function ( grunt ) {
+	var conf = grunt.file.readJSON( 'extension.json' );
+
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
@@ -18,12 +20,7 @@ module.exports = function ( grunt ) {
 				'!node_modules/**'
 			]
 		},
-		banana: {
-			all: [
-				'i18n/',
-				'**/i18n/'
-			]
-		},
+		banana: conf.MessagesDirs,
 		jsonlint: {
 			all: [
 				'*.json',

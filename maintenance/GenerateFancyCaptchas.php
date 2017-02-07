@@ -24,7 +24,7 @@
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$IP = __DIR__.'/../../..';
+	$IP = __DIR__ . '/../../..';
 }
 
 require_once ( "$IP/maintenance/Maintenance.php" );
@@ -37,6 +37,7 @@ require_once ( "$IP/maintenance/Maintenance.php" );
 class GenerateFancyCaptchas extends Maintenance {
 	public function __construct() {
 		parent::__construct();
+
 		// See captcha.py for argument usage
 		$this->addOption( "wordlist", 'A list of words', true, true );
 		$this->addOption( "font", "The font to use", true, true );
@@ -66,8 +67,8 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$countGen = (int)$this->getOption( 'fill' );
 		if ( !$deleteOldCaptchas ) {
-			$countAct = $instance->estimateCaptchaCount();
-			$this->output( "Estimated number of current captchas is $countAct.\n" );
+			$countAct = $instance->getCaptchaCount();
+			$this->output( "Current number of captchas is $countAct.\n" );
 			$countGen -= $countAct;
 		}
 

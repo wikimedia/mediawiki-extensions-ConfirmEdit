@@ -41,22 +41,16 @@ class CountCaptchas extends Maintenance {
 	}
 
 	public function execute() {
-
 		$instance = ConfirmEditHooks::getInstance();
 		if ( !( $instance instanceof FancyCaptcha ) ) {
 			$this->error( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
 		}
-		$backend = $instance->getBackend();
 
 		$countEst = $instance->estimateCaptchaCount();
 		$this->output( "Estimated number of current captchas is $countEst.\n" );
 
-		$files = $backend->getFileList(
-			[ 'dir' => $backend->getRootStoragePath() . '/captcha-render' ]
-		);
-
-		$count = iterator_count( $files );
-		$this->output( "Actual number of current captchas is $count.\n" );
+		$countAct = $instance->getCaptchaCount();
+		$this->output( "Current number of captchas is $countAct.\n" );
 	}
 }
 

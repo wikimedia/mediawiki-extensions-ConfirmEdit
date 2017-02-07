@@ -34,28 +34,24 @@ class FancyCaptcha extends SimpleCaptcha {
 	}
 
 	/**
-	 * @return integer Estimate of the number of captchas files
+	 * @deprecated Use getCaptchaCount instead for an accurate figure
+	 * @return int Number of captcha files
 	 */
 	public function estimateCaptchaCount() {
-		global $wgCaptchaDirectoryLevels;
+		wfDeprecated( __METHOD__ );
+		return $this->getCaptchaCount();
+	}
 
-		$factor = 1;
-		$sampleDir = $this->getBackend()->getRootStoragePath() . '/captcha-render';
-		if ( $wgCaptchaDirectoryLevels >= 1 ) { // 1/16 sample if 16 shards
-			$sampleDir .= '/' . dechex( mt_rand( 0, 15 ) );
-			$factor = 16;
-		}
-		if ( $wgCaptchaDirectoryLevels >= 3 ) { // 1/256 sample if 4096 shards
-			$sampleDir .= '/' . dechex( mt_rand( 0, 15 ) );
-			$factor = 256;
-		}
+	/**
+	 * @return int Number of captcha files
+	 */
+	public function getCaptchaCount() {
+		$backend = $this->getBackend();
+		$files = $backend->getFileList(
+			[ 'dir' => $backend->getRootStoragePath() . '/captcha-render' ]
+		);
 
-		$count = 0;
-		foreach ( $this->getBackend()->getFileList( [ 'dir' => $sampleDir ] ) as $file ) {
-			++$count;
-		}
-
-		return ( $count * $factor );
+		return iterator_count( $files );
 	}
 
 	/**

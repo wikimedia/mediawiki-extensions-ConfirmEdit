@@ -1,7 +1,7 @@
 {
 	"@doc": "Please read README.md",
 	"name": "ConfirmEdit",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"author": [
 		"Brion Vibber",
 		"Florian Schmidt",

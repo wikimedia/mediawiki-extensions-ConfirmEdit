@@ -30,7 +30,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once ( "$IP/maintenance/Maintenance.php" );
 
 /**
- * Maintenance script to change the password of a given user.
+ * Maintenance script to generate captchas using a python script and copy them into storage.
  *
  * @ingroup Maintenance
  */

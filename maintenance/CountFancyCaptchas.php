@@ -46,9 +46,6 @@ class CountCaptchas extends Maintenance {
 			$this->error( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
 		}
 
-		$countEst = $instance->estimateCaptchaCount();
-		$this->output( "Estimated number of current captchas is $countEst.\n" );
-
 		$countAct = $instance->getCaptchaCount();
 		$this->output( "Current number of captchas is $countAct.\n" );
 	}

@@ -1120,7 +1120,7 @@ class SimpleCaptcha {
 		// don't increase pingLimiter here, just check, if CAPTCHA limit exceeded
 		if ( $user->pingLimiter( 'badcaptcha', 0 ) ) {
 			// for debugging add an proper error message, the user just see an false captcha error message
-			$this->log( 'User reached RateLimit, preventing action.' );
+			$this->log( 'User reached RateLimit, preventing action' );
 			return false;
 		}
 

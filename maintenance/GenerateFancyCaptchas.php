@@ -51,11 +51,14 @@ class GenerateFancyCaptchas extends Maintenance {
 		);
 		$this->addOption( "delete", "Delete the old captches" );
 		$this->mDescription = "Generate new captchas and move them into storage";
+
 		$this->requireExtension( "FancyCaptcha" );
 	}
 
 	public function execute() {
 		global $wgCaptchaSecret, $wgCaptchaDirectoryLevels;
+
+		$totalTime = -microtime( true );
 
 		$instance = ConfirmEditHooks::getInstance();
 		if ( !( $instance instanceof FancyCaptcha ) ) {
@@ -84,7 +87,6 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$e = null; // exception
 		try {
-
 			$captchaScript = 'captcha.py';
 
 			if ( $this->hasOption( 'oldcaptcha' ) ) {
@@ -104,25 +106,29 @@ class GenerateFancyCaptchas extends Maintenance {
 				}
 			}
 
-			$this->output( "Generating $countGen new captchas...\n" );
+			$this->output( "Generating $countGen new captchas.." );
 			$retVal = 1;
+			$captchaTime = -microtime( true );
 			wfShellExec( $cmd, $retVal, [], [ 'time' => 0 ] );
 			if ( $retVal != 0 ) {
 				wfRecursiveRemoveDir( $tmpDir );
 				$this->error( "Could not run generation script.\n", 1 );
 			}
 
-			$flags = FilesystemIterator::SKIP_DOTS;
-			$iter = new RecursiveIteratorIterator(
-				new RecursiveDirectoryIterator( $tmpDir, $flags ),
-				RecursiveIteratorIterator::CHILD_FIRST // include dirs
-			);
+			$captchaTime += microtime( true );
+			$this->output( " Done.\n" );
 
-			$this->output( "Done.\n" );
+			$this->output(
+				sprintf(
+					"\nGenerated %d captchas in %.1f seconds\n",
+					$countGen,
+					$captchaTime
+				)
+			);
 
 			$originalFiles = [];
 			if ( $deleteOldCaptchas ) {
-				$this->output( "Getting a list of old captchas...\n" );
+				$this->output( "Getting a list of old captchas..." );
 				foreach (
 					$backend->getFileList(
 						[ 'dir' => $backend->getRootStoragePath() . '/captcha-render' ]
@@ -130,10 +136,21 @@ class GenerateFancyCaptchas extends Maintenance {
 				) {
 					$originalFiles[] = $file;
 				}
-				$this->output( "Done.\n" );
+				$this->output( " Done.\n" );
 			}
 
-			$this->output( "Copying the new captchas to storage...\n" );
+			$this->output( "Copying the new captchas to storage..." );
+
+			$storeTime = -microtime( true );
+			$iter = new RecursiveIteratorIterator(
+				new RecursiveDirectoryIterator(
+					$tmpDir,
+					FilesystemIterator::SKIP_DOTS
+				),
+				RecursiveIteratorIterator::CHILD_FIRST // include dirs
+			);
+
+			$captchasGenerated = iterator_count( $iter );
 			foreach ( $iter as $fileInfo ) {
 				if ( !$fileInfo->isFile() ) {
 					continue;
@@ -149,24 +166,50 @@ class GenerateFancyCaptchas extends Maintenance {
 					$this->error( "Could not save file '{$fileInfo->getPathname()}'.\n" );
 				}
 			}
-			$this->output( "Done.\n" );
+			$storeTime += microtime( true );
+			$this->output( " Done.\n" );
+
+			$this->output(
+				sprintf(
+					"\nCopied %d captchas to storage in %.1f seconds\n",
+					$captchasGenerated,
+					$storeTime
+				)
+			);
 
 			if ( $deleteOldCaptchas ) {
 				$numOriginalFiles = count( $originalFiles );
 				$this->output( "Deleting {$numOriginalFiles} old captchas...\n" );
+				$deleteTime = -microtime( true );
 				foreach ( $originalFiles as $file ) {
 					$backend->quickDelete( [ 'src' => $file ] );
 				}
+				$deleteTime += microtime( true );
 				$this->output( "Done.\n" );
+				$this->output(
+					sprintf(
+						"\nDeleted %d old captchas in %.1f seconds\n",
+						count( $originalFiles ),
+						$deleteTime
+					)
+				);
 			}
 		} catch ( Exception $e ) {
 			wfRecursiveRemoveDir( $tmpDir );
 			throw $e;
 		}
 
-		$this->output( "Removing temporary files...\n" );
+		$this->output( "Removing temporary files..." );
 		wfRecursiveRemoveDir( $tmpDir );
-		$this->output( "Done.\n" );
+		$this->output( " Done.\n" );
+
+		$totalTime += microtime( true );
+		$this->output(
+			sprintf(
+				"\nWhole captchas generation process took %.1f seconds\n",
+				$totalTime
+			)
+		);
 	}
 }
 

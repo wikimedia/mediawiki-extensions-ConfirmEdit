@@ -50,6 +50,8 @@ class GenerateFancyCaptchas extends Maintenance {
 			"Whether to use captcha-old.py which doesn't have OCR fighting improvements"
 		);
 		$this->addOption( "delete", "Delete the old captches" );
+		$this->addOption( "threads", "The number of threads to use to generate the images",
+			false, true );
 		$this->mDescription = "Generate new fancy captchas and move them into storage";
 
 		$this->requireExtension( "FancyCaptcha" );
@@ -98,7 +100,9 @@ class GenerateFancyCaptchas extends Maintenance {
 			wfEscapeShellArg( $countGen ),
 			wfEscapeShellArg( $wgCaptchaDirectoryLevels )
 		);
-		foreach ( [ 'wordlist', 'font', 'font-size', 'blacklist', 'verbose' ] as $par ) {
+		foreach (
+			[ 'wordlist', 'font', 'font-size', 'blacklist', 'verbose', 'threads' ] as $par
+		) {
 			if ( $this->hasOption( $par ) ) {
 				$cmd .= " --$par " . wfEscapeShellArg( $this->getOption( $par ) );
 			}

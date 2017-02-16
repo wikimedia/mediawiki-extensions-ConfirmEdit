@@ -1,6 +1,6 @@
 <?php
 /**
- * Counts the number of captchas remaining.
+ * Counts the number of fancy captchas remaining.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,10 +33,10 @@ require_once ( "$IP/maintenance/Maintenance.php" );
  *
  * @ingroup Maintenance
  */
-class CountCaptchas extends Maintenance {
+class CountFancyCaptchas extends Maintenance {
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "Counts the number of captchas in storage";
+		$this->mDescription = "Counts the number of fancy aptchas in storage";
 		$this->requireExtension( "FancyCaptcha" );
 	}
 
@@ -51,5 +51,5 @@ class CountCaptchas extends Maintenance {
 	}
 }
 
-$maintClass = "CountCaptchas";
+$maintClass = "CountFancyCaptchas";
 require_once ( RUN_MAINTENANCE_IF_MAIN );

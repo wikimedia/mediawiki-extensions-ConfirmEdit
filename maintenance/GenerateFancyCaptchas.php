@@ -1,6 +1,6 @@
 <?php
 /**
- * Generate captchas using a python script and copy them into storage.
+ * Generate fancy captchas using a python script and copy them into storage.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once ( "$IP/maintenance/Maintenance.php" );
 
 /**
- * Maintenance script to generate captchas using a python script and copy them into storage.
+ * Maintenance script to generate fancy captchas using a python script and copy them into storage.
  *
  * @ingroup Maintenance
  */
@@ -50,7 +50,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			"Whether to use captcha-old.py which doesn't have OCR fighting improvements"
 		);
 		$this->addOption( "delete", "Delete the old captches" );
-		$this->mDescription = "Generate new captchas and move them into storage";
+		$this->mDescription = "Generate new fancy captchas and move them into storage";
 
 		$this->requireExtension( "FancyCaptcha" );
 	}

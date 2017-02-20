@@ -12,7 +12,7 @@
 	"descriptionmsg": "captcha-desc",
 	"license-name": "GPL-2.0+",
 	"type": "antispam",
-	"require": {
+	"requires": {
 		"MediaWiki": ">= 1.28"
 	},
 	"GroupPermissions": {

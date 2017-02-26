@@ -126,15 +126,15 @@ class GenerateFancyCaptchas extends Maintenance {
 				)
 			);
 
-			$originalFiles = [];
+			$filesToDelete = [];
 			if ( $deleteOldCaptchas ) {
-				$this->output( "Getting a list of old captchas..." );
-				foreach (
-					$backend->getFileList(
-						[ 'dir' => $backend->getRootStoragePath() . '/captcha-render' ]
-					) as $file
-				) {
-					$originalFiles[] = $file;
+				$this->output( "Getting a list of old captchas to delete..." );
+				$path = $backend->getRootStoragePath() . '/captcha-render';
+				foreach ( $backend->getFileList( [ 'dir' => $path ] ) as $file ) {
+					$filesToDelete[] = [
+						'op' => 'delete',
+						'src' => $path . '/' . $file,
+					];
 				}
 				$this->output( " Done.\n" );
 			}
@@ -151,6 +151,10 @@ class GenerateFancyCaptchas extends Maintenance {
 			);
 
 			$captchasGenerated = iterator_count( $iter );
+			$filesToStore = [];
+			/**
+			 * @var $fileInfo SplFileInfo
+			 */
 			foreach ( $iter as $fileInfo ) {
 				if ( !$fileInfo->isFile() ) {
 					continue;
@@ -158,41 +162,53 @@ class GenerateFancyCaptchas extends Maintenance {
 				list( $salt, $hash ) = $instance->hashFromImageName( $fileInfo->getBasename() );
 				$dest = $instance->imagePath( $salt, $hash );
 				$backend->prepare( [ 'dir' => dirname( $dest ) ] );
-				$status = $backend->quickStore( [
+				$filesToStore[] = [
+					'op' => 'store',
 					'src' => $fileInfo->getPathname(),
-					'dst' => $dest
-				] );
-				if ( !$status->isOK() ) {
-					$this->error( "Could not save file '{$fileInfo->getPathname()}'.\n" );
-				}
+					'dst' => $dest,
+				];
 			}
+
+			$ret = $backend->doQuickOperations( $filesToStore );
+
 			$storeTime += microtime( true );
-			$this->output( " Done.\n" );
 
-			$this->output(
-				sprintf(
-					"\nCopied %d captchas to storage in %.1f seconds\n",
-					$captchasGenerated,
-					$storeTime
-				)
-			);
-
-			if ( $deleteOldCaptchas ) {
-				$numOriginalFiles = count( $originalFiles );
-				$this->output( "Deleting {$numOriginalFiles} old captchas...\n" );
-				$deleteTime = -microtime( true );
-				foreach ( $originalFiles as $file ) {
-					$backend->quickDelete( [ 'src' => $file ] );
-				}
-				$deleteTime += microtime( true );
-				$this->output( "Done.\n" );
+			if ( $ret->isOK() ) {
+				$this->output( " Done.\n" );
 				$this->output(
 					sprintf(
-						"\nDeleted %d old captchas in %.1f seconds\n",
-						count( $originalFiles ),
-						$deleteTime
+						"\nCopied %d captchas to storage in %.1f seconds\n",
+						$captchasGenerated,
+						$storeTime
 					)
 				);
+			} else {
+				$this->output( "Errored.\n" );
+				$this->output( implode( "\n", $ret->getErrors() ) );
+			}
+
+			if ( $deleteOldCaptchas ) {
+				$numOriginalFiles = count( $filesToDelete );
+				$this->output( "Deleting {$numOriginalFiles} old captchas...\n" );
+				$deleteTime = -microtime( true );
+				$ret = $backend->doQuickOperations( $filesToDelete );
+
+				$deleteTime += microtime( true );
+				if ( $ret->isOK() ) {
+
+					$this->output( "Done.\n" );
+					$this->output(
+						sprintf(
+							"\nDeleted %d old captchas in %.1f seconds\n",
+							$numOriginalFiles,
+							$deleteTime
+						)
+					);
+				} else {
+					$this->output( "Errored.\n" );
+					$this->output( implode( "\n", $ret->getErrors() ) );
+				}
+
 			}
 		} catch ( Exception $e ) {
 			wfRecursiveRemoveDir( $tmpDir );

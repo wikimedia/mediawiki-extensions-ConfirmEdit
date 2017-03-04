@@ -178,10 +178,20 @@ class GenerateFancyCaptchas extends Maintenance {
 				$this->output(
 					sprintf(
 						"\nCopied %d captchas to storage in %.1f seconds\n",
-						$captchasGenerated,
+						$ret->successCount,
 						$storeTime
 					)
 				);
+				if ( $ret->failCount ) {
+					$this->output( sprintf( "\nFailed to copy %d captchas\n", $ret->failCount ) );
+				}
+				if ( $ret->successCount + $ret->failCount !== $captchasGenerated ) {
+					$this->output(
+						sprintf( "Internal error: captchasGenerated: %d, successCount: %d, failCount: %d\n",
+							$captchasGenerated, $ret->successCount, $ret->failCount
+						)
+					);
+				}
 			} else {
 				$this->output( "Errored.\n" );
 				$this->output( implode( "\n", $ret->getErrors() ) );

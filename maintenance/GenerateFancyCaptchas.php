@@ -194,7 +194,7 @@ class GenerateFancyCaptchas extends Maintenance {
 				}
 			} else {
 				$this->output( "Errored.\n" );
-				$this->output( implode( "\n", $ret->getErrors() ) );
+				$this->output( implode( "\n", Status::wrap( $ret )->getWikiText( null, null, 'en' ) ) );
 			}
 
 			if ( $deleteOldCaptchas ) {
@@ -216,7 +216,7 @@ class GenerateFancyCaptchas extends Maintenance {
 					);
 				} else {
 					$this->output( "Errored.\n" );
-					$this->output( implode( "\n", $ret->getErrors() ) );
+					$this->output( implode( "\n", Status::wrap( $ret )->getWikiText( null, null, 'en' ) ) );
 				}
 
 			}

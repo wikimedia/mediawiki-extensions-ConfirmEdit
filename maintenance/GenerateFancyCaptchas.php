@@ -147,7 +147,7 @@ class GenerateFancyCaptchas extends Maintenance {
 					$tmpDir,
 					FilesystemIterator::SKIP_DOTS
 				),
-				RecursiveIteratorIterator::CHILD_FIRST // include dirs
+				RecursiveIteratorIterator::LEAVES_ONLY
 			);
 
 			$captchasGenerated = iterator_count( $iter );

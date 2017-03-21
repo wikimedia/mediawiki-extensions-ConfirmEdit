@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Ninmeka",
-			"Jeannette Coocoo"
+			"Jeannette Coocoo",
+			"Benoit Rochon"
 		]
 	},
 	"fancycaptcha-captcha": "e nanakatcitakaniwok",
-	"fancycaptcha-accountcreate": "Aka kata piciworakaniwitc wiki ka nicike pitakesinohitisonaniwok,ki ntoweritamatinan kata pitakesinahamam nohwe itewin ke pe nokok nitc ([[Special:Captcha/help|more info]]):"
+	"fancycaptcha-accountcreate": "Aka kata piciworakaniwitc wiki ka nicike pitakesinohitisonaniwok,ki ntoweritamatinan kata pitakesinahamam nohwe itewin ke pe nokok nitc ([[Special:Captcha/help|more info]]):",
+	"fancycaptcha-imgcaptcha-ph": "Tapisinaha ka wapataman e masinatek masinasowinik"
 }

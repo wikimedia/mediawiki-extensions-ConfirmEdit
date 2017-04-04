@@ -7,6 +7,7 @@
 			"Liuxinyu970226"
 		]
 	},
+	"recaptcha-desc": "用于确认编辑的reCAPTCHA模块",
 	"recaptcha-edit": "为了避免垃圾用户自动编辑，请键入框中的单词。",
 	"recaptcha-addurl": "您的编辑包含新的外部链接。为了避免垃圾用户自动编辑，请键入框中的单词。",
 	"recaptcha-badlogin": "为避免自动密码破解，请键入框中的单词。",

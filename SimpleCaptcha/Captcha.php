@@ -487,9 +487,7 @@ class SimpleCaptcha {
 	 * @return bool true if the captcha should run
 	 */
 	function shouldCheck( WikiPage $page, $content, $section, $context, $oldtext = null ) {
-		// @codingStandardsIgnoreStart
-		global $ceAllowConfirmedEmail;
-		// @codingStandardsIgnoreEnd
+		global $wgAllowConfirmedEmail;
 
 		if ( !$context instanceof IContextSource ) {
 			$context = RequestContext::getMain();
@@ -505,7 +503,7 @@ class SimpleCaptcha {
 		} elseif ( $this->isIPWhitelisted() ) {
 			wfDebug( "ConfirmEdit: user IP is whitelisted" );
 			return false;
-		} elseif ( $ceAllowConfirmedEmail && $user->isEmailConfirmed() ) {
+		} elseif ( $wgAllowConfirmedEmail && $user->isEmailConfirmed() ) {
 			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );
 			return false;
 		}

@@ -28,7 +28,7 @@ class ConfirmEditHooks {
 
 	/**
 	 * PageContentSaveComplete hook handler.
-	 * Clear IP whitelist cache on page saves for [[MediaWiki:captcha-ip-whitelist]].
+	 * Clear IP whitelist cache on page saves for [[MediaWiki:Captcha-ip-whitelist]].
 	 *
 	 * @param WikiPage $wikiPage
 	 * @param User     $user
@@ -88,8 +88,8 @@ class ConfirmEditHooks {
 	 */
 	public static function confirmEditSetup() {
 		// @codingStandardsIgnoreStart MediaWiki.NamingConventions.ValidGlobalName.wgPrefix
-		global $wgCaptchaTriggers, $wgWikimediaJenkinsCI, $ceAllowConfirmedEmail,
-		       $wgAllowConfirmedEmail;
+		global $wgCaptchaTriggers, $wgAllowConfirmedEmail,
+			$wgWikimediaJenkinsCI, $ceAllowConfirmedEmail;
 		// @codingStandardsIgnoreEnd
 
 		// There is no need to run (core) tests with enabled ConfirmEdit - bug T44145

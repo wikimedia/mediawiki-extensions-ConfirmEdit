@@ -16,5 +16,6 @@
 	"recaptcha-apihelp-param-recaptcha_challenge_field": "Поле зь віджэту ReCaptcha",
 	"recaptcha-apihelp-param-recaptcha_response_field": "Поле зь віджэту ReCaptcha",
 	"recaptcha-id-label": "Заданьне ReCaptcha",
-	"recaptcha-id-help": "Значэньне заданьня ReCaptcha"
+	"recaptcha-id-help": "Значэньне заданьня ReCaptcha",
+	"recaptcha-label": "Разьвязаньне ReCaptcha"
 }

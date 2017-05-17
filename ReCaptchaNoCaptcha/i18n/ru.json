@@ -1,9 +1,15 @@
 {
 	"@metadata": {
-		"authors": [
-			"Okras"
+        	"authors": [
+			"Chimit"
 		]
 	},
-	"renocaptcha-createaccount-fail": "Похоже, вы не разгадали капчу.",
-	"renocaptcha-apihelp-param-g-recaptcha-response": "Поле от виджета ReCaptcha."
+	"renocaptcha-edit": "В целях защиты от автоматического спама в правках просим вас пройти проверку CAPTCHA ниже:",
+	"renocaptcha-addurl": "Ваша правка содержит новые внешние ссылки. В целях защиты от автоматического спама просим вас пройти проверку CAPTCHA ниже:",
+	"renocaptcha-badlogin": "В целях защиты от автоматического подбора пароля просим вас пройти проверку CAPTCHA ниже:",
+	"renocaptcha-createaccount": "В целях защиты от автоматического создания учётных записей просим вас пройти проверку CAPTCHA ниже:",
+	"renocaptcha-createaccount-fail": "Вам не удалось пройти проверку CAPTCHA.",
+	"renocaptcha-create": "В целях защиты от автоматического создания страниц просим вас пройти проверку CAPTCHA ниже:",
+	"renocaptcha-noscript": "К сожалению, у вас отключена поддержка JavaScript, потому мы не можем распознать автоматически, человек вы или робот. Пожалуйста, решите проверочную задачу CAPTCHA и скопируйте полученный текст в поле ниже:",
+	"renocaptcha-apihelp-param-g-recaptcha-response": "Поле виджета ReCaptcha."
 }

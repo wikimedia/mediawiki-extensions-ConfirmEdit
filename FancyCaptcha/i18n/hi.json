@@ -7,7 +7,6 @@
 			"Sfic"
 		]
 	},
-	"fancycaptcha-desc": "Fancy CAPTCHA generator for Confirm Edit",
 	"fancycaptcha-addurl": "आपके सम्पादन में नई बाहरी कड़ियाँ हैं।\nस्वचालित स्पॅम से बचाव में सहायता के लिये नीचे दिये हुए शब्द बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):",
 	"fancycaptcha-badlogin": "स्वचालित कूटशब्द चोरी से बचाव में सहायता के लिये नीचे दिये हुए शब्द बक्से में लिखें ([[Special:Captcha/help|अधिक जानकारी]]):",
 	"fancycaptcha-captcha": "सुरक्षा जाँच",

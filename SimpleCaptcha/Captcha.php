@@ -274,7 +274,7 @@ class SimpleCaptcha {
 	 */
 	public function increaseBadLoginCounter( $username ) {
 		global $wgCaptchaTriggers, $wgCaptchaBadLoginExpiration,
-			   $wgCaptchaBadLoginPerUserExpiration;
+			$wgCaptchaBadLoginPerUserExpiration;
 		$cache = ObjectCache::getLocalClusterInstance();
 
 		if ( $wgCaptchaTriggers['badlogin'] ) {
@@ -472,7 +472,7 @@ class SimpleCaptcha {
 		// Special config for this NS?
 		if ( isset( $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action] ) ) {
 			return $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action];
-	 }
+		}
 
 		return ( !empty( $wgCaptchaTriggers[$action] ) ); // Default
 	}

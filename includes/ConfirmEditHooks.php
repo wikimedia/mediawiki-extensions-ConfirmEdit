@@ -139,7 +139,7 @@ class ConfirmEditHooks {
 	 * FIXME: This should be done in a better way, e.g. only load the libraray, if really needed.
 	 */
 	public static function onReCaptchaSetup() {
-		require_once ( __DIR__ . '/../ReCaptcha/recaptchalib.php' );
+		require_once __DIR__ . '/../ReCaptcha/recaptchalib.php';
 	}
 
 	/**

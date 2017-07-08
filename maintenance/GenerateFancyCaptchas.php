@@ -27,7 +27,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = __DIR__ . '/../../..';
 }
 
-require_once ( "$IP/maintenance/Maintenance.php" );
+require_once "$IP/maintenance/Maintenance.php";
 
 /**
  * Maintenance script to generate fancy captchas using a python script and copy them into storage.
@@ -260,4 +260,4 @@ class GenerateFancyCaptchas extends Maintenance {
 }
 
 $maintClass = "GenerateFancyCaptchas";
-require_once ( RUN_MAINTENANCE_IF_MAIN );
+require_once RUN_MAINTENANCE_IF_MAIN;

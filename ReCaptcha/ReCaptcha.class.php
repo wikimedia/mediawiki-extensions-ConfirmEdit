@@ -69,7 +69,6 @@ class ReCaptcha extends SimpleCaptcha {
 		$recaptcha_error = null;
 
 		return true;
-
 	}
 
 	/**

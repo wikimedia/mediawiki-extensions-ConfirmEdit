@@ -16,6 +16,7 @@
 	"captcha-edit-fail": "Código CAPTCHA incorreto ou não preenchido.",
 	"captcha-desc": "Fornece técnicas captcha para proteção contra spam e tentativas de obtenção de senhas",
 	"captcha-label": "CAPTCHA",
+	"captcha-help": "Solução do CAPTCHA.",
 	"captcha-info-help": "Descrição do CAPTCHA.",
 	"captcha-id-label": "ID DO CAPTCHA",
 	"captcha-addurl": "Sua edição inclui novos links externos.\nComo prevenção contra sistemas automatizados que inserem spam, será necessário resolver a simples soma abaixo e inserir sua resposta no respectivo campo ([[Special:Captcha/help|detalhes]]):",

@@ -19,6 +19,7 @@
 	"captcha-help": "Solução do CAPTCHA.",
 	"captcha-info-help": "Descrição do CAPTCHA.",
 	"captcha-id-label": "ID DO CAPTCHA",
+	"captcha-id-help": "Esse valor deve ser enviado de volta sem alteração.",
 	"captcha-addurl": "Sua edição inclui novos links externos.\nComo prevenção contra sistemas automatizados que inserem spam, será necessário resolver a simples soma abaixo e inserir sua resposta no respectivo campo ([[Special:Captcha/help|detalhes]]):",
 	"captcha-badlogin": "Para proteger a wiki contra a quebra automática de senha, nós gentilmente pedimos que resolva a seguinte tarefa abaixo e digite a resposta na caixa ([[Special:Captcha/help|mais informações]]):",
 	"captcha-createaccount": "Para proteger a wiki contra sistemas automatizados de criação de contas, nós genteilmente pedimos que você resolva a seguinte tarefa abaixo e digite a resposta na caixa ([[Special:Captcha/help|mais informações]]):",
@@ -39,5 +40,6 @@
 	"confirmedit-preview-content": "Conteúdo",
 	"confirmedit-preview-validity": "Validade",
 	"confirmedit-preview-valid": "válido",
-	"confirmedit-preview-invalid": "inválido"
+	"confirmedit-preview-invalid": "inválido",
+	"confirmedit-preview-description": "A tabela a seguir mostra a lista de linhas nesta página e se é um endereço IP válido ou um intervalo de endereço IP. Se a linha for um endereço IP válido ou um intervalo de endereço IP, ele será listado na lista branca de CAPTCHA, mas as linhas inválidas serão ignoradas. Um exemplo de um intervalo de endereço IP válido seria: 69.208.0.0/16 que vai de 69.208.0.0 a 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Mais informações] sobre o cálculo de um intervalo de endereços IP."
 }

@@ -4,5 +4,7 @@
 			"Saraiki"
 		]
 	},
-	"captcha-label": "کیپچا"
+	"captcha-label": "کیپچا",
+	"captcha-id-label": "کیپچا آئی ڈی",
+	"confirmedit-preview-content": "شامل حصے"
 }

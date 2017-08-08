@@ -6,5 +6,10 @@
 	},
 	"captcha-label": "کیپچا",
 	"captcha-id-label": "کیپچا آئی ڈی",
-	"confirmedit-preview-content": "شامل حصے"
+	"captchahelp-title": "کیپچا مدد",
+	"confirmedit-preview-line": "لکیر عدد",
+	"confirmedit-preview-content": "شامل حصے",
+	"confirmedit-preview-validity": "جواز",
+	"confirmedit-preview-valid": "جائز",
+	"confirmedit-preview-invalid": "غلط"
 }

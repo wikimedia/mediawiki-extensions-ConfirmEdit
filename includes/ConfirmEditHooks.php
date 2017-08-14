@@ -13,9 +13,13 @@ class ConfirmEditHooks {
 	public static function getInstance() {
 		global $wgCaptcha, $wgCaptchaClass;
 
+		$class = $wgCaptchaClass;
+		if ( $class == null ) {
+			$class = 'SimpleCaptcha';
+		}
 		if ( !static::$instanceCreated ) {
 			static::$instanceCreated = true;
-			$wgCaptcha = new $wgCaptchaClass;
+			$wgCaptcha = new $class;
 		}
 
 		return $wgCaptcha;
@@ -83,9 +87,6 @@ class ConfirmEditHooks {
 		self::getInstance()->onAuthChangeFormFields( $requests, $fieldInfo, $formDescriptor, $action );
 	}
 
-	/**
-	 * Set up $wgWhitelistRead
-	 */
 	public static function confirmEditSetup() {
 		// @codingStandardsIgnoreStart MediaWiki.NamingConventions.ValidGlobalName.wgPrefix
 		global $wgCaptchaTriggers, $wgAllowConfirmedEmail,

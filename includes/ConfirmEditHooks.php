@@ -162,7 +162,7 @@ class ConfirmEditHooks {
 		}
 
 		if ( $wgReCaptchaPublicKey == '' || $wgReCaptchaPrivateKey == '' ) {
-			die (
+			die(
 				'You need to set $wgReCaptchaPrivateKey and $wgReCaptchaPublicKey in LocalSettings.php to ' .
 				"use the reCAPTCHA plugin. You can sign up for a key <a href='" .
 				htmlentities( recaptcha_get_signup_url( $wgServerName, "mediawiki" ) ) .

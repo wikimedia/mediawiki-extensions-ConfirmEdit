@@ -234,7 +234,7 @@ class SimpleCaptcha {
 		$msg = wfMessage( $name );
 		// obtain a more tailored message, if possible, otherwise, fall back to
 		// the default for edits
-		return $msg->isDisabled() ? wfMessage( static::$messagePrefix . 'edit' )  : $msg;
+		return $msg->isDisabled() ? wfMessage( static::$messagePrefix . 'edit' ) : $msg;
 	}
 
 	/**

@@ -31,16 +31,16 @@ class ConfirmEditHooks {
 	 * Clear IP whitelist cache on page saves for [[MediaWiki:Captcha-ip-whitelist]].
 	 *
 	 * @param WikiPage $wikiPage
-	 * @param User     $user
-	 * @param Content  $content
-	 * @param string   $summary
-	 * @param bool     $isMinor
-	 * @param bool     $isWatch
-	 * @param string   $section
-	 * @param int      $flags
-	 * @param int      $revision
-	 * @param Status   $status
-	 * @param int      $baseRevId
+	 * @param User $user
+	 * @param Content $content
+	 * @param string $summary
+	 * @param bool $isMinor
+	 * @param bool $isWatch
+	 * @param string $section
+	 * @param int $flags
+	 * @param int $revision
+	 * @param Status $status
+	 * @param int $baseRevId
 	 *
 	 * @return bool true
 	 */

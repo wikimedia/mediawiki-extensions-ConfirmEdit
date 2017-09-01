@@ -46,7 +46,7 @@ class ReCaptcha extends SimpleCaptcha {
 	 * Sets $this->recaptcha_error if the user is incorrect.
 	 * @param string $challenge Challenge value
 	 * @param string $response Response value
-	 * @return boolean
+	 * @return bool
 	 */
 	function passCaptcha( $challenge, $response ) {
 		global $wgReCaptchaPrivateKey, $wgRequest;

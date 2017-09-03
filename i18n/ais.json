@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Benel"
+			"Benel",
+			"Bunukwiki"
 		]
 	},
-	"captcha-label": "CAPTCHA"
+	"captcha-label": "CAPTCHA",
+	"captchahelp-title": "CAPTCHA buhci tu kamu",
+	"confirmedit-preview-content": "lacul"
 }

@@ -6,6 +6,8 @@
 		]
 	},
 	"captcha-label": "CAPTCHA",
+	"captcha-id-label": "yincenma ID",
 	"captchahelp-title": "CAPTCHA buhci tu kamu",
+	"captcha-apihelp-param-captchaword": "patukil ku yincenma",
 	"confirmedit-preview-content": "lacul"
 }

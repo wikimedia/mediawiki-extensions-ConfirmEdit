@@ -5,27 +5,27 @@ use MediaWiki\Session\SessionManager;
 abstract class CaptchaStore {
 	/**
 	 * Store the correct answer for a given captcha
-	 * @param  $index String
-	 * @param  $info String the captcha result
+	 * @param string $index
+	 * @param string $info the captcha result
 	 */
 	abstract public function store( $index, $info );
 
 	/**
 	 * Retrieve the answer for a given captcha
-	 * @param  $index String
-	 * @return String|false
+	 * @param string $index
+	 * @return string|false
 	 */
 	abstract public function retrieve( $index );
 
 	/**
 	 * Delete a result once the captcha has been used, so it cannot be reused
-	 * @param  $index
+	 * @param string $index
 	 */
 	abstract public function clear( $index );
 
 	/**
 	 * Whether this type of CaptchaStore needs cookies
-	 * @return Bool
+	 * @return bool
 	 */
 	abstract public function cookiesNeeded();
 

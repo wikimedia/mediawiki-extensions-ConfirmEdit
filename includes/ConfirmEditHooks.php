@@ -110,7 +110,7 @@ class ConfirmEditHooks {
 	 *
 	 * @param Title $title
 	 * @param User $user
-	 * @param $whitelisted
+	 * @param bool &$whitelisted
 	 */
 	public static function onTitleReadWhitelist( Title $title, User $user, &$whitelisted ) {
 		$image = SpecialPage::getTitleFor( 'Captcha', 'image' );

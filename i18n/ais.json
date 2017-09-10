@@ -6,6 +6,7 @@
 		]
 	},
 	"captcha-label": "CAPTCHA",
+	"captcha-help": "patukil nu yincenma",
 	"captcha-id-label": "yincenma ID",
 	"captchahelp-title": "CAPTCHA buhci tu kamu",
 	"captcha-apihelp-param-captchaword": "patukil ku yincenma",

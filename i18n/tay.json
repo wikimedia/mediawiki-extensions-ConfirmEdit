@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Translatealcd"
+			"Translatealcd",
+			"Hitaypayan"
 		]
 	},
-	"captcha-label": "CAPTCHA"
+	"captcha-label": "CAPTCHA",
+	"confirmedit-preview-content": "Tay qsahuy"
 }

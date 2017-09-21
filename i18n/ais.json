@@ -11,5 +11,6 @@
 	"captcha-id-help": "yasulyang manakanca panukas akapasumad.",
 	"captchahelp-title": "CAPTCHA buhci tu kamu",
 	"captcha-apihelp-param-captchaword": "patukil ku yincenma",
+	"captcha-apihelp-param-captchaid": "milunguc nuayaway a kodo nu ID",
 	"confirmedit-preview-content": "lacul"
 }

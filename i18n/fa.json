@@ -5,13 +5,15 @@
 			"Huji",
 			"Mjbmr",
 			"Reza1615",
-			"Wayiran"
+			"Wayiran",
+			"Ladsgroup"
 		]
 	},
 	"captcha-edit": "برای ویرایش این مقاله، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):",
 	"captcha-edit-fail": "کد تائیدی نادرست یا ناموجود",
 	"captcha-desc": "روش‌های مبتنی بر CAPTCHA برای مقابله با هرزنگاری و کشف گذرواژه فراهم می‌کند",
 	"captcha-label": "کپچا",
+	"captcha-id-label": "شناسه کپچا",
 	"captcha-addurl": "ویرایش شما شامل پیوندهای تازه‌ای به بیرون است.\nبرای کمک به جلوگیری از ارسال خودکار هرزنامه‌ها، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):",
 	"captcha-badlogin": "برای کمک به جلوگیری از شکستن خودکار گذرواژه، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):",
 	"captcha-createaccount": "برای جلوگیری از ایجاد خودکار حساب کاربری، لطفاً حاصل جمع زیر را حساب کنید و نتیجه را در جعبه وارد کنید ([[Special:Captcha/help|اطلاعات بیشتر]]):",
@@ -26,5 +28,10 @@
 	"captcha-addurl-whitelist": " #<!-- این سطر را همان‌گونه که هست رها کنید --> <pre>\n# قواعد به این شکل است:\n#  * همه‌چیز از «#» تا آخر سطر یک توضیح در نظر گرفته می‌شود.\n#  * هر سطری که خالی نباشد یک قطعه در نظر گرفته می‌شود که فقط با نام میزبان اینترنتی سنجیده می‌شود.\n  #</pre> <!-- این سطر را همان‌گونه که هست رها کنید -->",
 	"right-skipcaptcha": "انجام کارهایی که CAPTCHA را فعال می‌کنند بدون نیاز به گذر از CAPTCHA",
 	"captcha-apihelp-param-captchaword": "پاسخ کپچا را بدهید",
-	"captcha-apihelp-param-captchaid": "شناسهٔ کپچا از درخواست قبلی"
+	"captcha-apihelp-param-captchaid": "شناسهٔ کپچا از درخواست قبلی",
+	"confirmedit-preview-line": "شماره خط",
+	"confirmedit-preview-content": "محتوا",
+	"confirmedit-preview-validity": "اعتبار",
+	"confirmedit-preview-valid": "معتبر",
+	"confirmedit-preview-invalid": "نامعتبر"
 }

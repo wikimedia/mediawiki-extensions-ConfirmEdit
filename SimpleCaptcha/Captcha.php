@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Auth\AuthenticationRequest;
-use MediaWiki\Logger\LoggerFactory;
 
 /**
  * Demo CAPTCHA (not for production usage) and base class for real CAPTCHAs
@@ -733,7 +732,7 @@ class SimpleCaptcha {
 	 * @return array
 	 */
 	function getLinksFromTracker( $title ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$id = $title->getArticleID(); // should be zero queries
 		$res = $dbr->select( 'externallinks', [ 'el_to' ],
 			[ 'el_from' => $id ], __METHOD__ );

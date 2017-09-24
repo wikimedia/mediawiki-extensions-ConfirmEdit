@@ -396,7 +396,7 @@ class FancyCaptcha extends SimpleCaptcha {
 
 	/**
 	 * Delete a solved captcha image, if $wgCaptchaDeleteOnSolve is true.
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	protected function passCaptcha( $index, $word ) {
 		global $wgCaptchaDeleteOnSolve;

@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Auth\AuthManager;
-
 class ConfirmEditHooks {
 	protected static $instanceCreated = false;
 

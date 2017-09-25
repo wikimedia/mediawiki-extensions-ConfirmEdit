@@ -5,10 +5,13 @@
 			"Bunukwiki"
 		]
 	},
+	"captcha-edit-fail": "CAPTCHA mungangaw saca mahedaw.",
 	"captcha-label": "CAPTCHA",
 	"captcha-help": "patukil nu yincenma",
 	"captcha-id-label": "yincenma ID",
 	"captcha-id-help": "yasulyang manakanca panukas akapasumad.",
+	"captcha-createaccount-fail": "CAPTCHA mungangaw saca mahedaw.",
+	"captcha-sendemail-fail": "CAPTCHA mungangaw saca mahedaw.",
 	"captchahelp-title": "CAPTCHA buhci tu kamu",
 	"captcha-apihelp-param-captchaword": "patukil ku yincenma",
 	"captcha-apihelp-param-captchaid": "milunguc nuayaway a kodo nu ID",

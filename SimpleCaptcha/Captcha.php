@@ -38,7 +38,7 @@ class SimpleCaptcha {
 	/**
 	 * Return the error from the last passCaptcha* call.
 	 * Not implemented but needed by some child classes.
-	 * @return
+	 * @return mixed
 	 */
 	public function getError() {
 		return null;
@@ -66,7 +66,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * @param array $resultArr
+	 * @param array &$resultArr
 	 */
 	function addCaptchaAPI( &$resultArr ) {
 		$captcha = $this->getCaptcha();
@@ -186,8 +186,8 @@ class SimpleCaptcha {
 
 	/**
 	 * Show error message for missing or incorrect captcha on EditPage.
-	 * @param EditPage $editPage
-	 * @param OutputPage $out
+	 * @param EditPage &$editPage
+	 * @param OutputPage &$out
 	 */
 	function showEditFormFields( &$editPage, &$out ) {
 		$page = $editPage->getArticle()->getPage();
@@ -223,7 +223,7 @@ class SimpleCaptcha {
 	 * Show a message asking the user to enter a captcha on edit
 	 * The result will be treated as wiki text
 	 *
-	 * @param $action string Action being performed
+	 * @param string $action Action being performed
 	 * @return Message
 	 */
 	public function getMessage( $action ) {
@@ -239,7 +239,7 @@ class SimpleCaptcha {
 	/**
 	 * Inject whazawhoo
 	 * @fixme if multiple thingies insert a header, could break
-	 * @param $form HTMLForm
+	 * @param HTMLForm &$form
 	 * @return bool true to keep running callbacks
 	 */
 	function injectEmailUser( &$form ) {
@@ -326,7 +326,7 @@ class SimpleCaptcha {
 	/**
 	 * Is the per-user captcha triggered?
 	 *
-	 * @param $u User|String User object, or name
+	 * @param User|string $u User object, or name
 	 * @return bool|null False: no, null: no, but it will be triggered next time
 	 */
 	public function isBadLoginPerUserTriggered( $u ) {
@@ -478,10 +478,10 @@ class SimpleCaptcha {
 
 	/**
 	 * @param WikiPage $page
-	 * @param $content Content|string
-	 * @param $section string
+	 * @param Content|string $content
+	 * @param string $section
 	 * @param IContextSource $context
-	 * @param oldtext string The content of the revision prior to $content When
+	 * @param string $oldtext The content of the revision prior to $content When
 	 *  null this will be loaded from the database.
 	 * @return bool true if the captcha should run
 	 */
@@ -623,7 +623,7 @@ class SimpleCaptcha {
 
 	/**
 	 * Filter callback function for URL whitelisting
-	 * @param $url string to check
+	 * @param string $url string to check
 	 * @return bool true if unknown, false if whitelisted
 	 * @access private
 	 */
@@ -654,7 +654,7 @@ class SimpleCaptcha {
 
 	/**
 	 * Build regex from whitelist
-	 * @param $lines string from [[MediaWiki:Captcha-addurl-whitelist]]
+	 * @param string $lines string from [[MediaWiki:Captcha-addurl-whitelist]]
 	 * @return array Regexes
 	 * @access private
 	 */
@@ -728,7 +728,7 @@ class SimpleCaptcha {
 
 	/**
 	 * Load external links from the externallinks table
-	 * @param $title Title
+	 * @param Title $title
 	 * @return array
 	 */
 	function getLinksFromTracker( $title ) {
@@ -746,8 +746,8 @@ class SimpleCaptcha {
 	/**
 	 * Backend function for confirmEditMerged()
 	 * @param WikiPage $page
-	 * @param $newtext string
-	 * @param $section
+	 * @param string $newtext
+	 * @param string $section
 	 * @param IContextSource $context
 	 * @return bool false if the CAPTCHA is rejected, true otherwise
 	 */
@@ -778,9 +778,9 @@ class SimpleCaptcha {
 	 * @param RequestContext $context
 	 * @param Content $content
 	 * @param Status $status
-	 * @param $summary
-	 * @param $user
-	 * @param $minorEdit
+	 * @param string $summary
+	 * @param User $user
+	 * @param bool $minorEdit
 	 * @return bool
 	 */
 	function confirmEditMerged( $context, $content, $status, $summary, $user, $minorEdit ) {
@@ -851,12 +851,12 @@ class SimpleCaptcha {
 
 	/**
 	 * Check the captcha on Special:EmailUser
-	 * @param $from MailAddress
-	 * @param $to MailAddress
-	 * @param $subject String
-	 * @param $text String
-	 * @param $error String reference
-	 * @return Bool true to continue saving, false to abort and show a captcha form
+	 * @param MailAddress $from
+	 * @param MailAddress $to
+	 * @param string $subject
+	 * @param string $text
+	 * @param string &$error
+	 * @return bool true to continue saving, false to abort and show a captcha form
 	 */
 	function confirmEmailUser( $from, $to, $subject, $text, &$error ) {
 		global $wgCaptchaTriggers, $wgUser, $wgRequest;
@@ -886,7 +886,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * @param $module ApiBase
+	 * @param ApiBase $module
 	 * @return bool
 	 */
 	protected function isAPICaptchaModule( $module ) {
@@ -894,9 +894,9 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * @param $module ApiBase
-	 * @param $params array
-	 * @param $flags int
+	 * @param ApiBase &$module
+	 * @param array &$params
+	 * @param int $flags
 	 * @return bool
 	 */
 	public function APIGetAllowedParams( &$module, &$params, $flags ) {
@@ -1047,6 +1047,7 @@ class SimpleCaptcha {
 	/**
 	 * Clear out existing captcha info from the session, to ensure
 	 * it can't be reused.
+	 * @param string $index
 	 */
 	public function clearCaptcha( $index ) {
 		CaptchaStore::get()->clear( $index );
@@ -1079,8 +1080,8 @@ class SimpleCaptcha {
 
 	/**
 	 * Extract a list of all recognized HTTP links in the text.
-	 * @param $title Title
-	 * @param $text string
+	 * @param Title $title
+	 * @param string $text
 	 * @return array of strings
 	 */
 	function findLinks( $title, $text ) {
@@ -1118,7 +1119,7 @@ class SimpleCaptcha {
 	 * Modify the apprearance of the captcha field
 	 * @param AuthenticationRequest[] $requests
 	 * @param array $fieldInfo Field description as given by AuthenticationRequest::mergeFieldInfo
-	 * @param array $formDescriptor A form descriptor suitable for the HTMLForm constructor
+	 * @param array &$formDescriptor A form descriptor suitable for the HTMLForm constructor
 	 * @param string $action One of the AuthManager::ACTION_* constants
 	 */
 	public function onAuthChangeFormFields(

@@ -12,6 +12,7 @@
 	"captcha-id-help": "yasulyang manakanca panukas akapasumad.",
 	"captcha-createaccount-fail": "CAPTCHA mungangaw saca mahedaw.",
 	"captcha-sendemail-fail": "CAPTCHA mungangaw saca mahedaw.",
+	"captcha-error": "nay labuay a mungangaw，yincenma-mima malucek mungangaw: $1",
 	"captchahelp-title": "CAPTCHA buhci tu kamu",
 	"captcha-apihelp-param-captchaword": "patukil ku yincenma",
 	"captcha-apihelp-param-captchaid": "milunguc nuayaway a kodo nu ID",

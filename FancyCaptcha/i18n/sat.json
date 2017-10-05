@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Albinus"
+			"Albinus",
+			"Ramjit Tudu"
 		]
 	},
 	"fancycaptcha-captcha": "Security biḍao",
+	"fancycaptcha-accountcreate": "ᱟᱡᱛᱮ ᱠᱷᱟᱛᱟ ᱛᱮᱭᱟᱨ ᱠᱷᱚᱱ ᱣᱤᱠᱤ ᱵᱟᱧᱪᱟᱣ ᱞᱟᱹᱜᱤᱫᱛᱮ, ᱞᱟᱛᱟᱨ ᱨᱮ ᱧᱮᱞᱚᱜ-ᱠᱟᱱ ᱵᱟᱠᱥᱟ ᱨᱮᱱᱟᱜ ᱚᱞ ᱟᱫᱮᱨ ᱞᱟᱹᱜᱤᱫ ᱞᱮ ᱱᱮᱦᱚᱸᱨᱮᱫ ᱢᱮᱭᱟ ([[Special:Captcha/help|ᱵᱟᱹᱲᱛᱤ ᱠᱟᱛᱷᱟ]]):",
 	"fancycaptcha-imgcaptcha-ph": "Chubire okaṭakem ńelńamet́kan ona olme",
 	"fancycaptcha-reload-text": "Phạryạo"
 }

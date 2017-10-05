@@ -14,6 +14,7 @@
 	"captcha-sendemail-fail": "CAPTCHA mungangaw saca mahedaw.",
 	"captcha-error": "nay labuay a mungangaw，yincenma-mima malucek mungangaw: $1",
 	"captchahelp-title": "CAPTCHA buhci tu kamu",
+	"right-skipcaptcha": "mileku amateka’ yincenma-mima a saungay amana milawat yincenma-mama cyinyin",
 	"captcha-apihelp-param-captchaword": "patukil ku yincenma",
 	"captcha-apihelp-param-captchaid": "milunguc nuayaway a kodo nu ID",
 	"confirmedit-preview-content": "lacul"

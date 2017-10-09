@@ -6,6 +6,7 @@
 		]
 	},
 	"captcha-edit-fail": "CAPTCHA mungangaw saca mahedaw.",
+	"captcha-desc": "nipabeli CAPTCHA sitaneng sapikawa babakahen a sulit atu mizatneg tu mima",
 	"captcha-label": "CAPTCHA",
 	"captcha-help": "patukil nu yincenma",
 	"captcha-id-label": "yincenma ID",
@@ -14,6 +15,7 @@
 	"captcha-sendemail-fail": "CAPTCHA mungangaw saca mahedaw.",
 	"captcha-error": "nay labuay a mungangaw，yincenma-mima malucek mungangaw: $1",
 	"captchahelp-title": "CAPTCHA buhci tu kamu",
+	"captchahelp-cookies-needed": "maydih kisu miwawah saazihay-sakaluk a Cookies kya kapah pisaungay tina sasahicaan.",
 	"right-skipcaptcha": "mileku amateka’ yincenma-mima a saungay amana milawat yincenma-mama cyinyin",
 	"captcha-apihelp-param-captchaword": "patukil ku yincenma",
 	"captcha-apihelp-param-captchaid": "milunguc nuayaway a kodo nu ID",

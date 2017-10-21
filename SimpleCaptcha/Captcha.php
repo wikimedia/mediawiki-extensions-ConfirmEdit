@@ -113,7 +113,7 @@ class SimpleCaptcha {
 	 *   string html - Main HTML
 	 *   array modules (optional) - Array of ResourceLoader module names
 	 *   array modulestyles (optional) - Array of ResourceLoader module names to be
-	 *		included as style-only modules.
+	 * 		included as style-only modules.
 	 *   array headitems (optional) - Head items (see OutputPage::addHeadItems), as a numeric array
 	 * 		of raw HTML strings. Do not use unless no other option is feasible.
 	 */

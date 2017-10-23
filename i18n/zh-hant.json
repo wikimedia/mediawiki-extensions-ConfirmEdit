@@ -10,7 +10,8 @@
 			"Cwlin0416",
 			"LNDDYL",
 			"Liuxinyu970226",
-			"Bowleerin"
+			"Bowleerin",
+			"Wbxshiori"
 		]
 	},
 	"captcha-edit": "要編輯這篇文章，請答出一個簡單的加法，然後在框內輸入  ([[Special:Captcha/help|更多資料]]) :",
@@ -36,5 +37,7 @@
 	"captcha-addurl-whitelist": " #<!-- 請勿更動此行 --> <pre>\n# 語法格式如下：\n#   * 任何以 \"#\" 字元開頭至結尾代表註解\n#   * 任何非空白行代表部份正規表示法，會用來比對 URL 中的主機\n #</pre> <!-- 請勿更動此行 -->",
 	"right-skipcaptcha": "執行會觸發驗證碼的動作時無需經過驗證碼檢驗",
 	"captcha-apihelp-param-captchaword": "回答驗證碼",
-	"captcha-apihelp-param-captchaid": "之前請求的驗證碼ID"
+	"captcha-apihelp-param-captchaid": "之前請求的驗證碼ID",
+	"confirmedit-preview-line": "行號",
+	"confirmedit-preview-invalid": "無效"
 }

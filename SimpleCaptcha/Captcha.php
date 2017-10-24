@@ -243,10 +243,9 @@ class SimpleCaptcha {
 	 * @return bool true to keep running callbacks
 	 */
 	function injectEmailUser( &$form ) {
-		global $wgCaptchaTriggers;
 		$out = $form->getOutput();
 		$user = $form->getUser();
-		if ( $wgCaptchaTriggers['sendemail'] ) {
+		if ( $this->triggersCaptcha( CaptchaTriggers::SENDEMAIL ) ) {
 			$this->action = 'sendemail';
 			if ( $user->isAllowed( 'skipcaptcha' ) ) {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
@@ -272,11 +271,11 @@ class SimpleCaptcha {
 	 * TODO use Throttler
 	 */
 	public function increaseBadLoginCounter( $username ) {
-		global $wgCaptchaTriggers, $wgCaptchaBadLoginExpiration,
-			$wgCaptchaBadLoginPerUserExpiration;
+		global $wgCaptchaBadLoginExpiration, $wgCaptchaBadLoginPerUserExpiration;
+
 		$cache = ObjectCache::getLocalClusterInstance();
 
-		if ( $wgCaptchaTriggers['badlogin'] ) {
+		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN ) ) {
 			$key = $this->badLoginKey();
 			$count = ObjectCache::getLocalClusterInstance()->get( $key );
 			if ( !$count ) {
@@ -286,7 +285,7 @@ class SimpleCaptcha {
 			$cache->incr( $key );
 		}
 
-		if ( $wgCaptchaTriggers['badloginperuser'] && $username ) {
+		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN_PER_USER ) && $username ) {
 			$key = $this->badLoginPerUserKey( $username );
 			$count = $cache->get( $key );
 			if ( !$count ) {
@@ -302,9 +301,7 @@ class SimpleCaptcha {
 	 * @param string $username
 	 */
 	public function resetBadLoginCounter( $username ) {
-		global $wgCaptchaTriggers;
-
-		if ( $wgCaptchaTriggers['badloginperuser'] && $username ) {
+		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN_PER_USER ) && $username ) {
 			$cache = ObjectCache::getLocalClusterInstance();
 			$cache->delete( $this->badLoginPerUserKey( $username ) );
 		}
@@ -317,9 +314,10 @@ class SimpleCaptcha {
 	 * @access private
 	 */
 	public function isBadLoginTriggered() {
-		global $wgCaptchaTriggers, $wgCaptchaBadLoginAttempts;
+		global $wgCaptchaBadLoginAttempts;
+
 		$cache = ObjectCache::getLocalClusterInstance();
-		return $wgCaptchaTriggers['badlogin']
+		return $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN )
 			&& (int)$cache->get( $this->badLoginKey() ) >= $wgCaptchaBadLoginAttempts;
 	}
 
@@ -330,13 +328,14 @@ class SimpleCaptcha {
 	 * @return bool|null False: no, null: no, but it will be triggered next time
 	 */
 	public function isBadLoginPerUserTriggered( $u ) {
-		global $wgCaptchaTriggers, $wgCaptchaBadLoginPerUserAttempts;
+		global $wgCaptchaBadLoginPerUserAttempts;
+
 		$cache = ObjectCache::getLocalClusterInstance();
 
 		if ( is_object( $u ) ) {
 			$u = $u->getName();
 		}
-		return $wgCaptchaTriggers['badloginperuser']
+		return $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN_PER_USER )
 			&& (int)$cache->get( $this->badLoginPerUserKey( $u ) ) >= $wgCaptchaBadLoginPerUserAttempts;
 	}
 
@@ -465,15 +464,45 @@ class SimpleCaptcha {
 	 * @param Title $title
 	 * @param string $action (edit/create/addurl...)
 	 * @return bool true if action triggers captcha on $title's namespace
+	 * @deprecated since 1.5.1 Use triggersCaptcha instead
 	 */
-	function captchaTriggers( $title, $action ) {
+	public function captchaTriggers( $title, $action ) {
+		return $this->triggersCaptcha( $action, $title );
+	}
+
+	/**
+	 * Checks, whether the passed action should trigger a CAPTCHA. The optional $title parameter
+	 * will be used to check namespace specific CAPTCHA triggers.
+	 *
+	 * @param string $action The CAPTCHA trigger to check (see CaptchaTriggers for ConfirmEdit
+	 * built-in triggers)
+	 * @param Title|null $title An optional Title object, if the namespace specific triggers
+	 * should be checked, too.
+	 * @return bool True, if the action should trigger a CAPTCHA, false otherwise
+	 */
+	public function triggersCaptcha( $action, $title = null ) {
 		global $wgCaptchaTriggers, $wgCaptchaTriggersOnNamespace;
-		// Special config for this NS?
-		if ( isset( $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action] ) ) {
-			return $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action];
+
+		$result = false;
+		$triggers = $wgCaptchaTriggers;
+		$attributeCaptchaTriggers = ExtensionRegistry::getInstance()
+			->getAttribute( CaptchaTriggers::EXT_REG_ATTRIBUTE_NAME );
+		if ( is_array( $attributeCaptchaTriggers ) ) {
+			$triggers += $attributeCaptchaTriggers;
 		}
 
-		return ( !empty( $wgCaptchaTriggers[$action] ) ); // Default
+		if ( isset( $triggers[$action] ) ) {
+			$result = $triggers[$action];
+		}
+
+		if (
+			$title !== null &&
+			isset( $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action] )
+		) {
+			$result = $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action];
+		}
+
+		return $result;
 	}
 
 	/**
@@ -522,7 +551,7 @@ class SimpleCaptcha {
 			$isEmpty = $content === '';
 		}
 
-		if ( $this->captchaTriggers( $title, 'edit' ) ) {
+		if ( $this->triggersCaptcha( 'edit', $title ) ) {
 			// Check on all edits
 			$this->trigger = sprintf( "edit trigger by '%s' at [[%s]]",
 				$user->getName(),
@@ -532,7 +561,7 @@ class SimpleCaptcha {
 			return true;
 		}
 
-		if ( $this->captchaTriggers( $title, 'create' ) && !$title->exists() ) {
+		if ( $this->triggersCaptcha( 'create', $title ) && !$title->exists() ) {
 			// Check if creating a page
 			$this->trigger = sprintf( "Create trigger by '%s' at [[%s]]",
 				$user->getName(),
@@ -551,7 +580,7 @@ class SimpleCaptcha {
 			return false;
 		}
 
-		if ( !$isEmpty && $this->captchaTriggers( $title, 'addurl' ) ) {
+		if ( !$isEmpty && $this->triggersCaptcha( 'addurl', $title ) ) {
 			// Only check edits that add URLs
 			if ( $content instanceof Content ) {
 				// Get links from the database
@@ -833,10 +862,10 @@ class SimpleCaptcha {
 	 * @return bool true to show captcha, false to skip captcha
 	 */
 	public function needCreateAccountCaptcha( User $creatingUser = null ) {
-		global $wgCaptchaTriggers, $wgUser;
+		global $wgUser;
 		$creatingUser = $creatingUser ?: $wgUser;
 
-		if ( $wgCaptchaTriggers['createaccount'] ) {
+		if ( $this->triggersCaptcha( CaptchaTriggers::CREATE_ACCOUNT ) ) {
 			if ( $creatingUser->isAllowed( 'skipcaptcha' ) ) {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
 				return false;
@@ -859,9 +888,9 @@ class SimpleCaptcha {
 	 * @return bool true to continue saving, false to abort and show a captcha form
 	 */
 	function confirmEmailUser( $from, $to, $subject, $text, &$error ) {
-		global $wgCaptchaTriggers, $wgUser, $wgRequest;
+		global $wgUser, $wgRequest;
 
-		if ( $wgCaptchaTriggers['sendemail'] ) {
+		if ( $this->triggersCaptcha( CaptchaTriggers::SENDEMAIL ) ) {
 			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
 				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
 				return true;

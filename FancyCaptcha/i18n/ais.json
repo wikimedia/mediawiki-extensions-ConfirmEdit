@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Benel"
+			"Benel",
+			"Bunukwiki"
 		]
 	},
 	"fancycaptcha-captcha": "kazahkezan kinsa",
 	"fancycaptcha-accountcreate": "payni satena’ lunuk pangangan cengse, pakalibut kami kisuan misuzu i sasaay sahakuay paazihay tu nisulitan. ([[Special:Captcha/help|yadah cesyun]]):",
+	"fancycaptcha-edit": "amahica amikawaway-kalumyiti uyni a kasabelih, pisulittan isasa’ay a sahakuay paazihay a masatekeday sulit ([[Special:Captcha/help|yadah cesyun]])",
 	"fancycaptcha-imgcaptcha-ph": "pisuliti kisu i zunga maazihay i cudad",
 	"fancycaptcha-reload-text": "miliyaw misulimet",
 	"apihelp-fancycaptchareload-description": "maala baluhay FancyCaptcha",

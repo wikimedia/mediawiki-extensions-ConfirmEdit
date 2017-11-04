@@ -14,6 +14,7 @@
 	"captcha-id-help": "yasulyang manakanca panukas akapasumad.",
 	"captcha-createaccount-fail": "CAPTCHA mungangaw saca mahedaw.",
 	"captcha-sendemail-fail": "CAPTCHA mungangaw saca mahedaw.",
+	"captcha-disabledinapi": "tina saungay maydih pisaungay CAPTCHA sawantan, sisa la’cus micaliw API misaungay.",
 	"captcha-error": "nay labuay a mungangaw, CAPTCHA ID malucek mungangaw: $1",
 	"captchahelp-title": "CAPTCHA buhci tu kamu",
 	"captchahelp-cookies-needed": "maydih kisu miwawah saazihay-sakaluk a Cookies kya kapah pisaungay tina sasahicaan.",

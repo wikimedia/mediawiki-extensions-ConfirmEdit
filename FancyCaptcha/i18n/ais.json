@@ -15,5 +15,6 @@
 	"fancycaptcha-sendemail": "saka mitena’ tatuni’ mikawaway-kalumyiti a cense, maydih kisu pisuliti isasa’ay sahakuay maazihay a masatekeday-sulit ([[Special:Captcha/help| kayadahay a cesyun]]):",
 	"fancycaptcha-reload-text": "miliyaw misulimet",
 	"apihelp-fancycaptchareload-description": "maala baluhay FancyCaptcha",
+	"apihelp-fancycaptchareload-summary": "maala baluhay FancyCaptcha",
 	"apihelp-fancycaptchareload-example-1": "maala baluhay FancyCaptcha"
 }

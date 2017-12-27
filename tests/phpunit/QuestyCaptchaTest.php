@@ -1,6 +1,16 @@
 <?php
 
 class QuestyCaptchaTest extends MediaWikiTestCase {
+
+	public function setUp() {
+		parent::setUp();
+
+		$this->mergeMwGlobalArrayValue(
+			'wgAutoloadClasses',
+			[ 'QuestyCaptcha' => __DIR__ . '/../../QuestyCaptcha/QuestyCaptcha.class.php' ]
+		);
+	}
+
 	/**
 	 * @covers QuestyCaptcha::getCaptcha
 	 * @dataProvider provideGetCaptcha
@@ -11,10 +21,6 @@ class QuestyCaptchaTest extends MediaWikiTestCase {
 			$GLOBALS['wgCaptchaQuestions'] = [];
 		}
 		$this->setMwGlobals( 'wgCaptchaQuestions', $config );
-		$this->mergeMwGlobalArrayValue(
-			'wgAutoloadClasses',
-			[ 'QuestyCaptcha' => __DIR__ . '/../../QuestyCaptcha/QuestyCaptcha.class.php' ]
-		);
 
 		$qc = new QuestyCaptcha();
 		$this->assertEquals( $expected, $qc->getCaptcha() );

@@ -15,6 +15,7 @@
 	"captcha-edit-fail": "CAPTCHA が正しくない、または入力されていません。",
 	"captcha-desc": "スパム攻撃やパスワード推定攻撃を防ぐための CAPTCHA 技術を提供する",
 	"captcha-label": "CAPTCHA",
+	"captcha-id-label": "CAPTCHA ID",
 	"captcha-addurl": "あなたは新しい外部リンクを追加しようとしています。\n自動でのスパム攻撃を防ぐため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):",
 	"captcha-badlogin": "自動でのパスワードクラック攻撃からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|詳細]]):",
 	"captcha-createaccount": "アカウントの自動登録からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):",

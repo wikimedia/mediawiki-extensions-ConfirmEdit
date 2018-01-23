@@ -2,6 +2,9 @@
 
 use MediaWiki\Auth\AuthenticationRequestTestCase;
 
+/**
+ * @covers CaptchaAuthenticationRequest
+ */
 class CaptchaAuthenticationRequestTest extends AuthenticationRequestTestCase {
 	public function setUp() {
 		parent::setUp();

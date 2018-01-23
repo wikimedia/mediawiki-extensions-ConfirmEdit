@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers QuestyCaptcha
+ */
 class QuestyCaptchaTest extends MediaWikiTestCase {
 
 	public function setUp() {

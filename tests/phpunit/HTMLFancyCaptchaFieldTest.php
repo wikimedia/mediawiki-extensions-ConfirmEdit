@@ -2,6 +2,9 @@
 
 require_once __DIR__ . '/../../FancyCaptcha/HTMLFancyCaptchaField.php';
 
+/**
+ * @covers HTMLFancyCaptchaField
+ */
 class HTMLFancyCaptchaFieldTest extends PHPUnit_Framework_TestCase {
 	public function testGetHTML() {
 		$html = $this->getForm( [ 'imageUrl' => 'https://example.com/' ] )->getHTML( false );

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers SimpleCaptcha
+ */
 class CaptchaTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider provideSimpleTriggersCaptcha

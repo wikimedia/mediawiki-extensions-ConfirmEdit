@@ -5,6 +5,7 @@ use MediaWiki\Auth\UsernameAuthenticationRequest;
 use Wikimedia\TestingAccessWrapper;
 
 /**
+ * @covers CaptchaPreAuthenticationProvider
  * @group Database
  */
 class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {

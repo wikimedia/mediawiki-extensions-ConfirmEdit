@@ -63,7 +63,6 @@
 	},
 	"ResourceModules": {
 		"ext.confirmEdit.editPreview.ipwhitelist.styles": {
-			"position": "top",
 			"styles": "ext.confirmEdit.editPreview.ipwhitelist.styles.css"
 		}
 	},

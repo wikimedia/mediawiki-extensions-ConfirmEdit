@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arsenekoumyk"
+			"Arsenekoumyk",
+			"ArslanX"
 		]
 	},
+	"fancycaptcha-captcha": "Къавупсузлукъ тергевю",
+	"fancycaptcha-imgcaptcha-ph": "Суратда гёреген текстни бер",
 	"fancycaptcha-reload-text": "Янгыртмакъ"
 }

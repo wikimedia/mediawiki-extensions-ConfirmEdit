@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../ReCaptchaNoCaptcha/HTMLReCaptchaNoCaptchaField.ph
 /**
  * @covers HTMLReCaptchaNoCaptchaField
  */
-class HTMLReCaptchaNoCaptchaFieldTest extends PHPUnit_Framework_TestCase {
+class HTMLReCaptchaNoCaptchaFieldTest extends PHPUnit\Framework\TestCase {
 	public function testSubmit() {
 		$form = new HTMLForm( [
 			'foo' => [

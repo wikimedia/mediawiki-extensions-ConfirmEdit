@@ -111,27 +111,22 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * @return array
 	 */
 	function getFormInformation( $tabIndex = 1 ) {
-		global $wgEnableAPI;
 		$modules = [];
 
 		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
 		$info = $this->getCaptcha();
 		$index = $this->storeCaptcha( $info );
 
-		if ( $wgEnableAPI ) {
-			// Loaded only if JS is enabled
-			$modules[] = 'ext.confirmEdit.fancyCaptcha';
+		// Loaded only for clients with JS enabled
+		$modules[] = 'ext.confirmEdit.fancyCaptcha';
 
-			$captchaReload = Html::element(
-				'small',
-				[
-					'class' => 'confirmedit-captcha-reload fancycaptcha-reload'
-				],
-				wfMessage( 'fancycaptcha-reload-text' )->text()
-			);
-		} else {
-			$captchaReload = '';
-		}
+		$captchaReload = Html::element(
+			'small',
+			[
+				'class' => 'confirmedit-captcha-reload fancycaptcha-reload'
+			],
+			wfMessage( 'fancycaptcha-reload-text' )->text()
+		);
 
 		$form = Html::openElement( 'div' ) .
 			Html::element( 'label', [

@@ -247,8 +247,7 @@ class SimpleCaptcha {
 		$user = $form->getUser();
 		if ( $this->triggersCaptcha( CaptchaTriggers::SENDEMAIL ) ) {
 			$this->action = 'sendemail';
-			if ( $user->isAllowed( 'skipcaptcha' ) ) {
-				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
+			if ( $this->canSkipCaptcha( $user, $form->getConfig() ) ) {
 				return true;
 			}
 			$formInformation = $this->getFormInformation();
@@ -515,8 +514,6 @@ class SimpleCaptcha {
 	 * @return bool true if the captcha should run
 	 */
 	function shouldCheck( WikiPage $page, $content, $section, $context, $oldtext = null ) {
-		global $wgAllowConfirmedEmail;
-
 		if ( !$context instanceof IContextSource ) {
 			$context = RequestContext::getMain();
 		}
@@ -524,15 +521,7 @@ class SimpleCaptcha {
 		$request = $context->getRequest();
 		$user = $context->getUser();
 
-		// captcha check exceptions, which will return always false
-		if ( $user->isAllowed( 'skipcaptcha' ) ) {
-			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
-			return false;
-		} elseif ( $this->isIPWhitelisted() ) {
-			wfDebug( "ConfirmEdit: user IP is whitelisted" );
-			return false;
-		} elseif ( $wgAllowConfirmedEmail && $user->isEmailConfirmed() ) {
-			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );
+		if ( $this->canSkipCaptcha( $user, $context->getConfig() ) ) {
 			return false;
 		}
 
@@ -866,11 +855,8 @@ class SimpleCaptcha {
 		$creatingUser = $creatingUser ?: $wgUser;
 
 		if ( $this->triggersCaptcha( CaptchaTriggers::CREATE_ACCOUNT ) ) {
-			if ( $creatingUser->isAllowed( 'skipcaptcha' ) ) {
-				wfDebug( "ConfirmEdit: user group allows skipping captcha on account creation\n" );
-				return false;
-			}
-			if ( $this->isIPWhitelisted() ) {
+			if ( $this->canSkipCaptcha( $creatingUser,
+				\MediaWiki\MediaWikiServices::getInstance()->getMainConfig() ) ) {
 				return false;
 			}
 			return true;
@@ -891,11 +877,8 @@ class SimpleCaptcha {
 		global $wgUser, $wgRequest;
 
 		if ( $this->triggersCaptcha( CaptchaTriggers::SENDEMAIL ) ) {
-			if ( $wgUser->isAllowed( 'skipcaptcha' ) ) {
-				wfDebug( "ConfirmEdit: user group allows skipping captcha on email sending\n" );
-				return true;
-			}
-			if ( $this->isIPWhitelisted() ) {
+			if ( $this->canSkipCaptcha( $wgUser,
+				\MediaWiki\MediaWikiServices::getInstance()->getMainConfig() ) ) {
 				return true;
 			}
 
@@ -1145,7 +1128,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Modify the apprearance of the captcha field
+	 * Modify the appearance of the captcha field
 	 * @param AuthenticationRequest[] $requests
 	 * @param array $fieldInfo Field description as given by AuthenticationRequest::mergeFieldInfo
 	 * @param array &$formDescriptor A form descriptor suitable for the HTMLForm constructor
@@ -1166,5 +1149,33 @@ class SimpleCaptcha {
 			'persistent' => false,
 			'required' => true,
 		] + $formDescriptor['captchaWord'];
+	}
+
+	/**
+	 * Check whether the user provided / IP making the request is allowed to skip captchas
+	 * @param User $user
+	 * @param Config $config
+	 * @return bool
+	 * @throws ConfigException
+	 */
+	public function canSkipCaptcha( $user, Config $config ) {
+		$allowConfirmEmail = $config->get( 'AllowConfirmedEmail' );
+
+		if ( $user->isAllowed( 'skipcaptcha' ) ) {
+			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
+			return true;
+		}
+
+		if ( $this->isIPWhitelisted() ) {
+			wfDebug( "ConfirmEdit: user IP is whitelisted" );
+			return true;
+		}
+
+		if ( $allowConfirmEmail && $user->isEmailConfirmed() ) {
+			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );
+			return true;
+		}
+
+		return false;
 	}
 }

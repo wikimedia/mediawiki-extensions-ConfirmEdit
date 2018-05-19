@@ -22,6 +22,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Hooks;
 
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\User\User;
 
 /**
  * Run hooks provided by ConfirmEdit.
@@ -29,7 +30,8 @@ use MediaWiki\Page\PageIdentity;
  * @author Zabe
  */
 class HookRunner implements
-	ConfirmEditTriggersCaptchaHook
+	ConfirmEditTriggersCaptchaHook,
+	ConfirmEditCanUserSkipCaptchaHook
 {
 	private HookContainer $hookContainer;
 
@@ -51,6 +53,17 @@ class HookRunner implements
 			[
 				$action,
 				$page,
+				&$result
+			]
+		);
+	}
+
+	/** @inheritDoc */
+	public function onConfirmEditCanUserSkipCaptcha( User $user, bool &$result ) {
+		$this->hookContainer->run(
+			'ConfirmEditCanUserSkipCaptcha',
+			[
+				$user,
 				&$result
 			]
 		);

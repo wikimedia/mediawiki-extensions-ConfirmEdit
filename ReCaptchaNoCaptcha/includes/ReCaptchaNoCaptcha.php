@@ -13,7 +13,7 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
 	 * @param int $tabIndex
 	 * @return array
 	 */
-	function getFormInformation( $tabIndex = 1 ) {
+	public function getFormInformation( $tabIndex = 1 ) {
 		global $wgReCaptchaSiteKey, $wgLang;
 		$lang = htmlspecialchars( urlencode( $wgLang->getCode() ) );
 
@@ -80,8 +80,9 @@ HTML;
 	 * @return array
 	 */
 	protected function getCaptchaParamsFromRequest( WebRequest $request ) {
-		$index = 'not used'; // ReCaptchaNoCaptcha combines captcha ID + solution into a single value
+		// ReCaptchaNoCaptcha combines captcha ID + solution into a single value
 		// API is hardwired to return captchaWord, so use that if the standard isempty
+		$index = 'not used';
 		$response = $request->getVal( 'g-recaptcha-response', $request->getVal( 'captchaWord' ) );
 		return [ $index, $response ];
 	}
@@ -96,7 +97,7 @@ HTML;
 	 * @param string $word captcha solution
 	 * @return bool
 	 */
-	function passCaptcha( $_, $word ) {
+	protected function passCaptcha( $_, $word ) {
 		global $wgRequest, $wgReCaptchaSecretKey, $wgReCaptchaSendRemoteIP;
 
 		$url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -134,7 +135,7 @@ HTML;
 	/**
 	 * @param array &$resultArr
 	 */
-	function addCaptchaAPI( &$resultArr ) {
+	protected function addCaptchaAPI( &$resultArr ) {
 		$resultArr['captcha'] = $this->describeCaptchaType();
 		$resultArr['captcha']['error'] = $this->error;
 	}
@@ -172,7 +173,7 @@ HTML;
 	 * @param int $flags
 	 * @return bool
 	 */
-	public function APIGetAllowedParams( &$module, &$params, $flags ) {
+	public function apiGetAllowedParams( &$module, &$params, $flags ) {
 		if ( $flags && $this->isAPICaptchaModule( $module ) ) {
 			$params['g-recaptcha-response'] = [
 				ApiBase::PARAM_HELP_MSG => 'renocaptcha-apihelp-param-g-recaptcha-response',

@@ -233,7 +233,7 @@ class ConfirmEditHooks {
 					[],
 					// IPv6 max length: 8 groups * 4 digits + 7 delimiter = 39
 					// + 11 chars for safety
-					$lang->truncate( $ip, 50 )
+					$lang->truncateForVisual( $ip, 50 )
 				) .
 				Html::rawElement(
 					'td',

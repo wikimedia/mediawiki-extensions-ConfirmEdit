@@ -514,7 +514,7 @@ class SimpleCaptcha {
 	 *  null this will be loaded from the database.
 	 * @return bool true if the captcha should run
 	 */
-	private function shouldCheck( WikiPage $page, $content, $section, $context, $oldtext = null ) {
+	public function shouldCheck( WikiPage $page, $content, $section, $context, $oldtext = null ) {
 		if ( !$context instanceof IContextSource ) {
 			$context = RequestContext::getMain();
 		}

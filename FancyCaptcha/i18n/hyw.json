@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"ArmenBakkalian"
+			"ArmenBakkalian",
+			"Rajemian"
 		]
 	},
+	"fancycaptcha-captcha": "Ապահովութեան ստուգում",
 	"fancycaptcha-accountcreate": "Պաշտպանելու համար Ուիքին մեքենական ինքնագործ հաշիւներու ստեղծումէն, կը խնդրուի տուփիկին մէջ նշուած բառերը գրել: [[Special:Captcha/help|յաւելեալ տեղեկութիւն]]",
+	"fancycaptcha-imgcaptcha-ph": "մուտքագրել նկարին մէջ երեւցող գրութիւնը",
 	"fancycaptcha-reload-text": "Թարմացնել"
 }

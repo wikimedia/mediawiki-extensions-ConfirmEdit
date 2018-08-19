@@ -156,7 +156,7 @@ class FancyCaptcha extends SimpleCaptcha {
 					'required' => 'required',
 					// tab in before the edit textarea
 					'tabindex' => $tabIndex,
-					'placeholder' => wfMessage( 'fancycaptcha-imgcaptcha-ph' )
+					'placeholder' => wfMessage( 'fancycaptcha-imgcaptcha-ph' )->text()
 				]
 			);
 		if ( $this->action == 'createaccount' ) {

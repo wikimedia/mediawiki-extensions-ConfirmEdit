@@ -178,7 +178,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			'html' => $form,
 			'modules' => $modules,
 			// Uses addModuleStyles so it is loaded when JS is disabled.
-			'modulestyles' => [ 'ext.confirmEdit.fancyCaptcha.styles' ],
+			'modulestyles' => [ 'mediawiki.ui.input', 'ext.confirmEdit.fancyCaptcha.styles' ],
 		];
 	}
 

@@ -1,6 +1,7 @@
 <?php
 
 use Wikimedia\ScopedCallback;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers SimpleCaptcha
@@ -67,6 +68,18 @@ class CaptchaTest extends MediaWikiTestCase {
 	}
 
 	private function setCaptchaTriggersAttribute( $trigger, $value ) {
+		// XXX This is really hacky, but is needed to stop extensions from
+		// being clobbered in subsequent tests. This should be fixed properly
+		// by making extension registration happen in services instead of
+		// globals.
+		$keys =
+			TestingAccessWrapper::newFromClass( ExtensionProcessor::class )->globalSettings;
+		$globalsToStash = [];
+		foreach ( $keys as $key ) {
+			$globalsToStash["wg$key"] = $GLOBALS["wg$key"];
+		}
+		$this->setMwGlobals( $globalsToStash );
+
 		$info = [
 			'globals' => [],
 			'callbacks' => [],

@@ -198,7 +198,7 @@ class SimpleCaptcha {
 
 		if ( $this->action !== 'edit' ) {
 			unset( $page->ConfirmEdit_ActivateCaptcha );
-			$out->addWikiText( $this->getMessage( $this->action )->text() );
+			$out->addWikiText( $this->getMessage( $this->action )->plain() );
 			$this->addFormToOutput( $out );
 		}
 	}
@@ -214,7 +214,7 @@ class SimpleCaptcha {
 		if ( isset( $page->ConfirmEdit_ActivateCaptcha ) ||
 			$this->shouldCheck( $page, '', '', $context )
 		) {
-			$out->addWikiText( $this->getMessage( $this->action )->text() );
+			$out->addWikiText( $this->getMessage( $this->action )->plain() );
 			$this->addFormToOutput( $out );
 		}
 		unset( $page->ConfirmEdit_ActivateCaptcha );
@@ -257,7 +257,7 @@ class SimpleCaptcha {
 			$this->addFormInformationToOutput( $out, $formMetainfo );
 			$form->addFooterText(
 				"<div class='captcha'>" .
-				$out->parse( $this->getMessage( 'sendemail' )->text() ) .
+				$out->parse( $this->getMessage( 'sendemail' )->plain() ) .
 				$formInformation['html'] .
 				"</div>\n" );
 		}

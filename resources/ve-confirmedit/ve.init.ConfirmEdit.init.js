@@ -1,4 +1,3 @@
-// Extension:ConfirmEdit
 // Captcha "errors" usually aren't errors. We simply don't know about them ahead of time,
 // so we save once, then (if required) we get an error with a captcha back and try again after
 // the user solved the captcha.
@@ -62,10 +61,7 @@ mw.libs.ve.targetLoader.addPlugin( function () {
 			// ext.confirmEdit.fancyCaptcha.js in the ConfirmEdit extension.
 			mw.loader.load( 'ext.confirmEdit.fancyCaptcha' );
 			$captchaDiv.addClass( 'fancycaptcha-captcha-container' );
-			$captchaParagraph.append(
-				$( $.parseHTML( mw.message( 'fancycaptcha-edit' ).parse() ) )
-					.filter( 'a' ).attr( 'target', '_blank' ).end()
-			);
+			$captchaParagraph.append( mw.message( 'fancycaptcha-edit' ).parseDom() );
 			$captchaImg = $( '<img>' )
 				.attr( 'src', captchaData.url )
 				.addClass( 'fancycaptcha-image' )
@@ -96,10 +92,11 @@ mw.libs.ve.targetLoader.addPlugin( function () {
 						setTimeout( onCaptchaLoad );
 						break;
 				}
-				$captchaParagraph.append( mw.message( msg ).parse(), '<br>', question );
+				$captchaParagraph.append( mw.message( msg ).parseDom(), '<br>', question );
 			}
 		}
 
+		ve.targetLinksToNewWindow( $captchaParagraph[ 0 ] );
 		$captchaDiv.append( captchaInput.$element );
 
 		// ProcessDialog's error system isn't great for this yet.

@@ -1,8 +1,3 @@
-.fancycaptcha-wrapper {
-	display: table;
-	background-color: #fff;
-}
-
 /* Prevents the size of the container from changing, affecting page
 layout, for normal CAPTCHA sizes. */
 .fancycaptcha-image-container {

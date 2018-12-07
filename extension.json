@@ -73,6 +73,9 @@
 		},
 		"ext.confirmEdit.visualEditor": {
 			"scripts": "ve-confirmedit/ve.init.mw.CaptchaSaveErrorHandler.js"
+		},
+		"ext.confirmEdit.simpleCaptcha": {
+			"styles": "../SimpleCaptcha/resources/ext.confirmEdit.simpleCaptcha.css"
 		}
 	},
 	"VisualEditorPluginModules": [

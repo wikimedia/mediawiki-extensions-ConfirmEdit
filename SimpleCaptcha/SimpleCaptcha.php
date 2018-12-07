@@ -122,21 +122,30 @@ class SimpleCaptcha {
 		$index = $this->storeCaptcha( $captcha );
 
 		return [
-			'html' => "<p><label for=\"wpCaptchaWord\">{$captcha['question']} = </label>" .
-				Xml::element( 'input', [
-					'name' => 'wpCaptchaWord',
-					'class' => 'mw-ui-input',
-					'id'   => 'wpCaptchaWord',
-					'size'  => 5,
-					'autocomplete' => 'off',
-					// tab in before the edit textarea
-					'tabindex' => $tabIndex ] ) .
-				"</p>\n" .
-				Xml::element( 'input', [
-					'type'  => 'hidden',
-					'name'  => 'wpCaptchaId',
-					'id'    => 'wpCaptchaId',
-					'value' => $index ] )
+			'html' =>
+				new OOUI\FieldLayout(
+					new OOUI\NumberInputWidget( [
+						'name' => 'wpCaptchaWord',
+						'classes' => [ 'simplecaptcha-answer' ],
+						'id' => 'wpCaptchaWord',
+						'autocomplete' => 'off',
+						// tab in before the edit textarea
+						'tabIndex' => $tabIndex
+					] ),
+					[
+						'align' => 'left',
+						'label' => $captcha['question'] . ' = ',
+						'classes' => [ 'simplecaptcha-field' ],
+					]
+				) .
+				new OOUI\HiddenInputWidget( [
+					'name' => 'wpCaptchaId',
+					'id' => 'wpCaptchaId',
+					'value' => $index
+				] ),
+			'modulestyles' => [
+				'ext.confirmEdit.simpleCaptcha'
+			]
 		];
 	}
 

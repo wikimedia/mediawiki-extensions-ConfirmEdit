@@ -13,8 +13,8 @@ mw.libs.ve.targetLoader.addPlugin( function () {
 
 	ve.init.mw.CaptchaSaveErrorHandler.static.name = 'confirmEditCaptchas';
 
-	ve.init.mw.CaptchaSaveErrorHandler.static.matchFunction = function ( editApi ) {
-		var captchaData = editApi.captcha;
+	ve.init.mw.CaptchaSaveErrorHandler.static.matchFunction = function ( data ) {
+		var captchaData = ve.getProp( data, 'visualeditoredit', 'edit', 'captcha' );
 
 		return !!( captchaData && (
 			captchaData.url ||
@@ -24,10 +24,10 @@ mw.libs.ve.targetLoader.addPlugin( function () {
 		) );
 	};
 
-	ve.init.mw.CaptchaSaveErrorHandler.static.process = function ( editApi, target ) {
+	ve.init.mw.CaptchaSaveErrorHandler.static.process = function ( data, target ) {
 		var $captchaImg, msg, question,
 			captchaInput, $captchaDiv, $captchaParagraph,
-			captchaData = editApi.captcha;
+			captchaData = ve.getProp( data, 'visualeditoredit', 'edit', 'captcha' );
 
 		captchaInput = new OO.ui.TextInputWidget( { classes: [ 've-ui-saveDialog-captchaInput' ] } );
 

@@ -7,13 +7,14 @@
 			"Stryn",
 			"McSalama",
 			"01miki10",
-			"Alluk."
+			"Alluk.",
+			"Kyykaarme"
 		]
 	},
 	"fancycaptcha-addurl": "Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):",
 	"fancycaptcha-badlogin": "Automatisoidun salasanan murtamisen estämiseksi kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):",
 	"fancycaptcha-captcha": "Roskapostisuojaus",
-	"fancycaptcha-accountcreate": "Automaattisen käyttäjätunnusten luonnin estämiseksi ratkaise alla oleva laskutoimitus ja kirjoita se kenttään ([[Special:Captcha/help|lisätietoa]]):",
+	"fancycaptcha-accountcreate": "Suojellaksemme wikiä automaattisilta rekisteröitymisiltä pyydämme sinua kirjoittamaan kuvassa näkyvät kirjaimet alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoa]]):",
 	"fancycaptcha-create": "Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):",
 	"fancycaptcha-edit": "Muokkauksesi sisältää uusia linkkejä muille sivuille. Kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):",
 	"fancycaptcha-imgcaptcha-ph": "Kirjoita kuvassa oleva teksti",

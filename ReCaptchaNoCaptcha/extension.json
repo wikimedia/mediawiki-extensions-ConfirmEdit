@@ -1,5 +1,12 @@
 {
 	"name": "ReCaptchaNoCaptcha",
+	"author": [
+		"..."
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:ConfirmEdit#ReCaptcha_(NoCaptcha)",
+	"descriptionmsg": "renocaptcha-desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "antispam",
 	"MessagesDirs": {
 		"ReCaptchaNoCaptcha": [
 			"i18n"

@@ -14,7 +14,6 @@ layout, for normal CAPTCHA sizes. */
 .fancycaptcha-reload {
 	/* @embed */
 	background: url( images/fancycaptcha-reload-icon.png ) no-repeat scroll left center transparent;
-
 	margin: 0 0 0 3px;
 	padding: 1px 2px 1px 12px;
 	color: #0645ad;

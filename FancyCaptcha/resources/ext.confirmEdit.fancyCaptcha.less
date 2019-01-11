@@ -1,3 +1,5 @@
+@import 'mediawiki.mixins.less';
+
 /* Prevents the size of the container from changing, affecting page
 layout, for normal CAPTCHA sizes. */
 .fancycaptcha-image-container {
@@ -7,8 +9,10 @@ layout, for normal CAPTCHA sizes. */
 }
 
 .fancycaptcha-reload {
-	/* @embed */
-	background: url( images/fancycaptcha-reload-icon.png ) no-repeat scroll left center transparent;
+	.background-image( 'images/refresh.svg' );
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 12px 12px;
 	margin: 0 0 0 3px;
 	padding: 1px 2px 1px 12px;
 	color: #0645ad;

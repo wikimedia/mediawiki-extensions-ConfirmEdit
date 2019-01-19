@@ -1,9 +1,21 @@
 <?php
 
+use Wikimedia\ScopedCallback;
+
 /**
  * @covers SimpleCaptcha
  */
 class CaptchaTest extends MediaWikiTestCase {
+
+	/** @var ScopedCallback[] */
+	private $hold = [];
+
+	public function tearDown() {
+		// Destroy any ScopedCallbacks being held
+		$this->hold = [];
+		parent::tearDown();
+	}
+
 	/**
 	 * @dataProvider provideSimpleTriggersCaptcha
 	 */
@@ -67,14 +79,9 @@ class CaptchaTest extends MediaWikiTestCase {
 			],
 			'autoloaderPaths' => []
 		];
-		$registry = new ExtensionRegistry();
-		$class = new ReflectionClass( 'ExtensionRegistry' );
-		$instanceProperty = $class->getProperty( 'instance' );
-		$instanceProperty->setAccessible( true );
-		$instanceProperty->setValue( $registry );
-		$method = $class->getMethod( 'exportExtractedData' );
-		$method->setAccessible( true );
-		$method->invokeArgs( $registry, [ $info ] );
+		$this->hold[] = ExtensionRegistry::getInstance()->setAttributeForTest(
+			'CaptchaTriggers', [ $trigger => $value ]
+		);
 	}
 
 	/**

@@ -20,7 +20,7 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
 		$output = Html::element( 'div', [
 			'class' => [
 				'g-recaptcha',
-				'mw-confirmedit-captcha-fail' => !!$this->error,
+				'mw-confirmedit-captcha-fail' => (bool)$this->error,
 			],
 			'data-sitekey' => $wgReCaptchaSiteKey
 		] );

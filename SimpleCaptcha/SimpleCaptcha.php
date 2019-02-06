@@ -320,7 +320,7 @@ class SimpleCaptcha {
 	 * Check if a bad login has already been registered for this
 	 * IP address. If so, require a captcha.
 	 * @return bool
-	 * @access private
+	 * @private
 	 */
 	public function isBadLoginTriggered() {
 		global $wgCaptchaBadLoginAttempts;
@@ -683,7 +683,7 @@ class SimpleCaptcha {
 	 * Build regex from whitelist
 	 * @param string $lines string from [[MediaWiki:Captcha-addurl-whitelist]]
 	 * @return array Regexes
-	 * @access private
+	 * @private
 	 */
 	private function buildRegexes( $lines ) {
 		# Code duplicated from the SpamBlacklist extension (r19197)
@@ -1081,7 +1081,7 @@ class SimpleCaptcha {
 	 * @param string $section
 	 * @param int $flags Flags for Revision loading methods
 	 * @return string
-	 * @access private
+	 * @private
 	 */
 	private function loadText( $title, $section, $flags = Revision::READ_LATEST ) {
 		global $wgParser;

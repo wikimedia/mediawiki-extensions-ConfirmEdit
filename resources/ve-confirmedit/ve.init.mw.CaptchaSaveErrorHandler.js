@@ -3,8 +3,8 @@
 // the user solved the captcha.
 // TODO: ConfirmEdit API is horrible, there is no reliable way to know whether it is a "math",
 // "question" or "fancy" type of captcha. They all expose differently named properties in the
-// API for different things in the UI. At this point we only support the SimpleCaptcha and FancyCaptcha
-// which we very intuitively detect by the presence of a "url" property.
+// API for different things in the UI. At this point we only support the SimpleCaptcha and
+// FancyCaptcha which we very intuitively detect by the presence of a "url" property.
 mw.libs.ve.targetLoader.addPlugin( function () {
 
 	ve.init.mw.CaptchaSaveErrorHandler = function () {};

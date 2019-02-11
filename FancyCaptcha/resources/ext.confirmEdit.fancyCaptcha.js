@@ -1,3 +1,4 @@
+/* eslint-disable jquery/no-global-selector */
 $( document ).on( 'click', '.fancycaptcha-reload', function () {
 	var $this = $( this ),
 		$root = $this.closest( '.fancycaptcha-captcha-container' ),
@@ -16,11 +17,11 @@ $( document ).on( 'click', '.fancycaptcha-reload', function () {
 
 			// replace index key with a new one for hidden tag
 			$( '#mw-input-captchaId' ).val( captchaIndex );
-			$( '#mw-input-captchaWord' ).val( '' ).focus();
+			$( '#mw-input-captchaWord' ).val( '' ).trigger( 'focus' );
 
 			// now do the same with a selector that works for pre-1.27 login forms
 			$root.find( '[name="wpCaptchaId"]' ).val( captchaIndex );
-			$root.find( '[name="wpCaptchaWord"]' ).val( '' ).focus();
+			$root.find( '[name="wpCaptchaWord"]' ).val( '' ).trigger( 'focus' );
 		}
 	} )
 		.always( function () {

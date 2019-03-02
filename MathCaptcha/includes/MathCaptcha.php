@@ -73,7 +73,7 @@ class MathCaptcha extends SimpleCaptcha {
 	 * @return string
 	 */
 	private function fetchMath( $sum ) {
-		if ( class_exists( 'MathRenderer' ) ) {
+		if ( class_exists( MathRenderer::class ) ) {
 			$math = MathRenderer::getRenderer( $sum, [], 'png' );
 		} else {
 			throw new LogicException(

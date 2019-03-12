@@ -593,7 +593,9 @@ class SimpleCaptcha {
 				}
 			} else {
 				// Get link changes in the slowest way known to man
-				$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section );
+				if ( $oldtext === null ) {
+					$oldtext = $this->loadText( $title, $section );
+				}
 				$oldLinks = $this->findLinks( $title, $oldtext );
 				$newLinks = $this->findLinks( $title, $newtext );
 			}
@@ -621,7 +623,9 @@ class SimpleCaptcha {
 				);
 			}
 			// Custom regex checks. Reuse $oldtext if set above.
-			$oldtext = isset( $oldtext ) ? $oldtext : $this->loadText( $title, $section );
+			if ( $oldtext === null ) {
+				$oldtext = $this->loadText( $title, $section );
+			}
 
 			foreach ( $wgCaptchaRegexes as $regex ) {
 				$newMatches = [];

@@ -39,7 +39,7 @@ mw.libs.ve.targetLoader.addPlugin( function () {
 
 		// Register extra fields
 		target.saveFields.wpCaptchaWord = function () {
-			// eslint-disable-next-line jquery/no-global-selector
+			// eslint-disable-next-line no-jquery/no-global-selector
 			return $( '#g-recaptcha-response' ).val();
 		};
 

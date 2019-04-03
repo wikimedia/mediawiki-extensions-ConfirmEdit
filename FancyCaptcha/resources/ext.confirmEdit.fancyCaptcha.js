@@ -1,4 +1,4 @@
-/* eslint-disable jquery/no-global-selector */
+/* eslint-disable no-jquery/no-global-selector */
 $( document ).on( 'click', '.fancycaptcha-reload', function () {
 	var $this = $( this ),
 		$root = $this.closest( '.fancycaptcha-captcha-container' ),

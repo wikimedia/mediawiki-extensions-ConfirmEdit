@@ -7,7 +7,7 @@ This extension provides various CAPTCHA tools for MediaWiki, to allow
 for protection against spambots and other automated tools.
 
 For more information, see the extension homepage at:
-http://www.mediawiki.org/wiki/Extension:ConfirmEdit
+https://www.mediawiki.org/wiki/Extension:ConfirmEdit
 
 ### Overview
 

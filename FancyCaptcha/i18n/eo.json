@@ -3,7 +3,8 @@
 		"authors": [
 			"Yekrats",
 			"Tlustulimu",
-			"NMaia"
+			"NMaia",
+			"Mirin"
 		]
 	},
 	"fancycaptcha-addurl": "Via redakto inkluzivas novajn eksterajn ligilojn.\nPor preventi aŭtomatan spamon, bonvolu enigi la jenajn vortojn en la skatolo ([[Special:Captcha/help|plia informo]]):",
@@ -16,5 +17,6 @@
 	"fancycaptcha-sendemail": "Por helpi protekti kontraŭ aŭtomata spamado, bonvolu enigi la jenajn vortojn de la skatolo ([[Special:Captcha/help|plia informo]]):",
 	"fancycaptcha-reload-text": "Refreŝigi",
 	"apihelp-fancycaptchareload-description": "Akiri novan FancyCaptcha.",
+	"apihelp-fancycaptchareload-summary": "Akiri novan FancyCaptcha.",
 	"apihelp-fancycaptchareload-example-1": "Akiri novan FancyCaptcha"
 }

@@ -6,5 +6,4 @@
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc"/>
 	<arg name="encoding" value="UTF-8"/>
-	<exclude-pattern>ReCaptcha/includes/recaptchalib\.php</exclude-pattern>
 </ruleset>

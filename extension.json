@@ -52,9 +52,7 @@
 	"AutoloadClasses": {
 		"ConfirmEditHooks": "includes/ConfirmEditHooks.php",
 		"HTMLFancyCaptchaField": "FancyCaptcha/includes/HTMLFancyCaptchaField.php",
-		"HTMLReCaptchaField": "ReCaptcha/includes/HTMLReCaptchaField.php",
 		"HTMLReCaptchaNoCaptchaField": "ReCaptchaNoCaptcha/includes/HTMLReCaptchaNoCaptchaField.php",
-		"HTMLSubmittedValueField": "ReCaptcha/includes/HTMLSubmittedValueField.php",
 		"SimpleCaptcha": "SimpleCaptcha/SimpleCaptcha.php",
 		"CaptchaStore": "includes/store/CaptchaStore.php",
 		"CaptchaSessionStore": "includes/store/CaptchaSessionStore.php",
@@ -64,7 +62,6 @@
 		"SpecialCaptcha": "includes/specials/SpecialCaptcha.php",
 		"CaptchaPreAuthenticationProvider": "includes/auth/CaptchaPreAuthenticationProvider.php",
 		"CaptchaAuthenticationRequest": "includes/auth/CaptchaAuthenticationRequest.php",
-		"ReCaptchaAuthenticationRequest": "ReCaptcha/includes/ReCaptchaAuthenticationRequest.php",
 		"ReCaptchaNoCaptchaAuthenticationRequest": "ReCaptchaNoCaptcha/includes/ReCaptchaNoCaptchaAuthenticationRequest.php"
 	},
 	"ResourceModules": {

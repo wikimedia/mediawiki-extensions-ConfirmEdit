@@ -833,7 +833,7 @@ class SimpleCaptcha {
 			return true;
 		}
 		$page = $context->getWikiPage();
-		if ( !$this->doConfirmEdit( $page, $content, false, $context ) ) {
+		if ( !$this->doConfirmEdit( $page, $content, '', $context ) ) {
 			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
 			$status->apiHookResult = [];
 			// give an error message for the user to know, what goes wrong here.

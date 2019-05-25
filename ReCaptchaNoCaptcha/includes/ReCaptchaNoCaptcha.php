@@ -161,7 +161,7 @@ HTML;
 	 * The result will be treated as wiki text
 	 *
 	 * @param string $action Action being performed
-	 * @return string Wikitext
+	 * @return Message
 	 */
 	public function getMessage( $action ) {
 		$msg = parent::getMessage( $action );

@@ -685,8 +685,8 @@ class SimpleCaptcha {
 
 	/**
 	 * Build regex from whitelist
-	 * @param string $lines string from [[MediaWiki:Captcha-addurl-whitelist]]
-	 * @return array Regexes
+	 * @param string[] $lines string from [[MediaWiki:Captcha-addurl-whitelist]]
+	 * @return string[] Regexes
 	 * @private
 	 */
 	private function buildRegexes( $lines ) {
@@ -778,7 +778,7 @@ class SimpleCaptcha {
 	/**
 	 * Backend function for confirmEditMerged()
 	 * @param WikiPage $page
-	 * @param string $newtext
+	 * @param Content|string $newtext
 	 * @param string $section
 	 * @param IContextSource $context
 	 * @return bool false if the CAPTCHA is rejected, true otherwise

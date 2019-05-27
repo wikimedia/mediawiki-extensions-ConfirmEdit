@@ -18,9 +18,6 @@ class ReCaptchaAuthenticationRequest extends CaptchaAuthenticationRequest {
 
 	public function getFieldInfo() {
 		$fieldInfo = parent::getFieldInfo();
-		if ( !$fieldInfo ) {
-			return false;
-		}
 
 		return array_merge( $fieldInfo, [
 			'captchaId' => [

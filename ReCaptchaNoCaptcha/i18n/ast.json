@@ -4,6 +4,7 @@
 			"Xuacu"
 		]
 	},
+	"renocaptcha-desc": "Módulu reCAPTCHA NoCAPTCHA pa Confirmar Edición",
 	"renocaptcha-edit": "Pa protexer la wiki escontra'l spam d'ediciones automatizáu, pidímoste que resuelvas el siguiente CAPTCHA:",
 	"renocaptcha-addurl": "La to edición incluye enllaces esternos nuevos. Pa protexer la wiki escontra'l spam automáticu, pidímoste que resuelvas el siguiente CAPTCHA:",
 	"renocaptcha-badlogin": "Para protexer la wiki escontra'l frayamientu automáticu de contraseñes, pidímoste amablemente que resuelvas el siguiente CAPTCHA:",

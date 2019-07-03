@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ConfirmEditHooks {
 	protected static $instanceCreated = false;
 
@@ -62,7 +64,7 @@ class ConfirmEditHooks {
 	) {
 		$title = $wikiPage->getTitle();
 		if ( $title->getText() === 'Captcha-ip-whitelist' && $title->getNamespace() === NS_MEDIAWIKI ) {
-			$cache = ObjectCache::getMainWANInstance();
+			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 			$cache->delete( $cache->makeKey( 'confirmedit', 'ipwhitelist' ) );
 		}
 

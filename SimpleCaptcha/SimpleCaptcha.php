@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Auth\AuthenticationRequest;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Demo CAPTCHA (not for production usage) and base class for real CAPTCHAs
@@ -385,7 +386,7 @@ class SimpleCaptcha {
 	 * @return array whitelisted IP addresses or IP ranges, empty array if no whitelist
 	 */
 	private function getWikiIPWhitelist( Message $msg ) {
-		$cache = ObjectCache::getMainWANInstance();
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$cacheKey = $cache->makeKey( 'confirmedit', 'ipwhitelist' );
 
 		$cachedWhitelist = $cache->get( $cacheKey );

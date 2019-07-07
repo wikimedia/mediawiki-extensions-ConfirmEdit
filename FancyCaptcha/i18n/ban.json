@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Joseagush",
-			"NoiX180"
+			"NoiX180",
+			"Kadek Ayu Sulastri"
 		]
 	},
+	"fancycaptcha-captcha": "Pamréksa kaamanan",
 	"fancycaptcha-imgcaptcha-ph": "Dagingin sesuratan sané cingakin jero ring gegambaran",
 	"fancycaptcha-reload-text": "Nganyarin"
 }

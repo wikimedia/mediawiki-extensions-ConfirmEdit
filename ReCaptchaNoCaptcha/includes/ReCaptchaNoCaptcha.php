@@ -8,6 +8,7 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
 	protected static $messagePrefix = 'renocaptcha-';
 
 	private $error = null;
+
 	/**
 	 * Get the captcha form.
 	 * @param int $tabIndex

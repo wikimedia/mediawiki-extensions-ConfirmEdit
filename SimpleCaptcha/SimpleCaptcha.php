@@ -286,7 +286,7 @@ class SimpleCaptcha {
 		$cache = ObjectCache::getLocalClusterInstance();
 
 		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN ) ) {
-			$key = $this->badLoginKey();
+			$key = $this->badLoginKey( $cache );
 			$count = ObjectCache::getLocalClusterInstance()->get( $key );
 			if ( !$count ) {
 				$cache->add( $key, 0, $wgCaptchaBadLoginExpiration );
@@ -296,7 +296,7 @@ class SimpleCaptcha {
 		}
 
 		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN_PER_USER ) && $username ) {
-			$key = $this->badLoginPerUserKey( $username );
+			$key = $this->badLoginPerUserKey( $username, $cache );
 			$count = $cache->get( $key );
 			if ( !$count ) {
 				$cache->add( $key, 0, $wgCaptchaBadLoginPerUserExpiration );
@@ -313,7 +313,7 @@ class SimpleCaptcha {
 	public function resetBadLoginCounter( $username ) {
 		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN_PER_USER ) && $username ) {
 			$cache = ObjectCache::getLocalClusterInstance();
-			$cache->delete( $this->badLoginPerUserKey( $username ) );
+			$cache->delete( $this->badLoginPerUserKey( $username, $cache ) );
 		}
 	}
 
@@ -328,7 +328,7 @@ class SimpleCaptcha {
 
 		$cache = ObjectCache::getLocalClusterInstance();
 		return $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN )
-			&& (int)$cache->get( $this->badLoginKey() ) >= $wgCaptchaBadLoginAttempts;
+			&& (int)$cache->get( $this->badLoginKey( $cache ) ) >= $wgCaptchaBadLoginAttempts;
 	}
 
 	/**
@@ -345,8 +345,9 @@ class SimpleCaptcha {
 		if ( is_object( $u ) ) {
 			$u = $u->getName();
 		}
+		$badLoginPerUserKey = $this->badLoginPerUserKey( $u, $cache );
 		return $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN_PER_USER )
-			&& (int)$cache->get( $this->badLoginPerUserKey( $u ) ) >= $wgCaptchaBadLoginPerUserAttempts;
+			&& (int)$cache->get( $badLoginPerUserKey ) >= $wgCaptchaBadLoginPerUserAttempts;
 	}
 
 	/**
@@ -436,22 +437,28 @@ class SimpleCaptcha {
 
 	/**
 	 * Internal cache key for badlogin checks.
+	 * @param BagOStuff $cache
 	 * @return string
 	 */
-	private function badLoginKey() {
+	private function badLoginKey( BagOStuff $cache ) {
 		global $wgRequest;
 		$ip = $wgRequest->getIP();
-		return wfGlobalCacheKey( 'captcha', 'badlogin', 'ip', $ip );
+
+		return $cache->makeGlobalKey( 'captcha', 'badlogin', 'ip', $ip );
 	}
 
 	/**
 	 * Cache key for badloginPerUser checks.
 	 * @param string $username
+	 * @param BagOStuff $cache
 	 * @return string
 	 */
-	private function badLoginPerUserKey( $username ) {
+	private function badLoginPerUserKey( $username, BagOStuff $cache ) {
 		$username = User::getCanonicalName( $username, 'usable' ) ?: $username;
-		return wfGlobalCacheKey( 'captcha', 'badlogin', 'user', md5( $username ) );
+
+		return $cache->makeGlobalKey(
+			'captcha', 'badlogin', 'user', md5( $username )
+		);
 	}
 
 	/**

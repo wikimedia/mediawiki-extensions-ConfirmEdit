@@ -6,7 +6,8 @@
 			"Esketti",
 			"Sjoerddebruin",
 			"Dinosaur918",
-			"Mar(c)"
+			"Mar(c)",
+			"Romaine"
 		]
 	},
 	"fancycaptcha-desc": "Generator voor opgedirkte captcha's voor ConfirmEdit",
@@ -20,5 +21,6 @@
 	"fancycaptcha-sendemail": "Voer de woorden die hieronder getoond worden in het invoerveld in als bescherming tegen spam ([[Special:Captcha/help|meer informatie]]):",
 	"fancycaptcha-reload-text": "Vernieuwen",
 	"apihelp-fancycaptchareload-description": "Een nieuwe FancyCaptcha ophalen.",
+	"apihelp-fancycaptchareload-summary": "Een nieuwe FancyCaptcha ophalen.",
 	"apihelp-fancycaptchareload-example-1": "Een nieuwe FancyCaptcha ophalen"
 }

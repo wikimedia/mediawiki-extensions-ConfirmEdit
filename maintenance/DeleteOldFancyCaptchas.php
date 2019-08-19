@@ -36,7 +36,7 @@ require_once "$IP/maintenance/Maintenance.php";
 class DeleteOldFancyCaptchas extends Maintenance {
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "Deletes old fancy captchas from storage";
+		$this->addDescription( "Deletes old fancy captchas from storage" );
 		$this->addOption(
 			"date",
 			'Delete fancy captchas that were created before this date (e.g. 20170101000000)',

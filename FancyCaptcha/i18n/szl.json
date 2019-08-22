@@ -7,7 +7,7 @@
 		]
 	},
 	"fancycaptcha-captcha": "Kōntrola bezpieczyństwa",
-	"fancycaptcha-accountcreate": "Coby chrōnić Wikipedyjõ ôd automatycznygo tworzyniŏ kōnt proszymy , wkludź tekst kery widzisz niżyj we tekstowy plac ([[Special:Captcha/help|wiyncyj informacyji]])",
+	"fancycaptcha-accountcreate": "Coby chrōnić Wikipedyjõ ôd automatycznygo tworzyniŏ kōnt proszymy, wkludź do pola słowa, co sōm pokŏzane niżyj ([[Special:Captcha/help|wiyncyj informacyji]]):",
 	"fancycaptcha-imgcaptcha-ph": "Wkludź tekst, co go widzisz na ôbrŏzku",
-	"fancycaptcha-reload-text": "Uodśwjyż"
+	"fancycaptcha-reload-text": "Ôdświyż"
 }

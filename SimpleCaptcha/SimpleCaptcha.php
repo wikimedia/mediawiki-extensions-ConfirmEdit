@@ -287,22 +287,12 @@ class SimpleCaptcha {
 
 		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN ) ) {
 			$key = $this->badLoginKey( $cache );
-			$count = ObjectCache::getLocalClusterInstance()->get( $key );
-			if ( !$count ) {
-				$cache->add( $key, 0, $wgCaptchaBadLoginExpiration );
-			}
-
-			$cache->incr( $key );
+			$cache->incrWithInit( $key, $wgCaptchaBadLoginExpiration );
 		}
 
 		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN_PER_USER ) && $username ) {
 			$key = $this->badLoginPerUserKey( $username, $cache );
-			$count = $cache->get( $key );
-			if ( !$count ) {
-				$cache->add( $key, 0, $wgCaptchaBadLoginPerUserExpiration );
-			}
-
-			$cache->incr( $key );
+			$cache->incrWithInit( $key, $wgCaptchaBadLoginPerUserExpiration );
 		}
 	}
 

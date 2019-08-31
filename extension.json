@@ -43,7 +43,8 @@
 	},
 	"MessagesDirs": {
 		"ConfirmEdit": [
-			"i18n"
+			"i18n",
+			"i18n/api"
 		]
 	},
 	"ExtensionMessagesFiles": {

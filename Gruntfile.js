@@ -27,7 +27,9 @@ module.exports = function ( grunt ) {
 		banana: {
 			all: [
 				'i18n/',
-				'**/i18n/'
+				'i18n/api/',
+				'**/i18n/',
+				'**/i18n/api/'
 			]
 		}
 	} );

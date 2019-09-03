@@ -14,8 +14,5 @@
 	"fancycaptcha-edit": "ഈ താൾ തിരുത്തുവാൻ ദയവായി താഴെ കാണുന്ന വാക്കുകൾ പെട്ടിയിൽ ടൈപ്പു ചെയ്യുക ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):",
 	"fancycaptcha-imgcaptcha-ph": "ചിത്രത്തിൽ കാണുന്ന എഴുത്ത് ഇവിടെ നൽകുക",
 	"fancycaptcha-sendemail": "യാന്ത്രികമായ പാഴെഴുത്ത് ഉൾപ്പെടുത്തലിനുള്ള വിക്കിയിലെ പ്രതിരോധമെന്ന നിലയിൽ, താഴെ കാണുന്ന വാക്കുകൾ പെട്ടിയിൽ ടൈപ്പ് ചെയ്യുക ([[Special:Captcha/help|കൂടുതൽ വിവരങ്ങൾ]]):",
-	"fancycaptcha-reload-text": "പുതുക്കുക",
-	"apihelp-fancycaptchareload-description": "പുതിയ ഫാൻസി‌കാപ്ച എടുക്കുക.",
-	"apihelp-fancycaptchareload-summary": "പുതിയ ഫാൻസി‌കാപ്ച എടുക്കുക.",
-	"apihelp-fancycaptchareload-example-1": "പുതിയ ഫാൻസി‌കാപ്ച എടുക്കുക."
+	"fancycaptcha-reload-text": "പുതുക്കുക"
 }

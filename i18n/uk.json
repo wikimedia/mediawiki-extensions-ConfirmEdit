@@ -39,8 +39,6 @@
 	"captcha-addurl-whitelist": "#<!-- leave this line exactly as it is --> <pre>\n# Опис синтаксису:\n#  * Все, що починається з символу \"#\" до кінця рядка, вважається коментарем\n#  * Кожний непорожній рядок вважається фрагментом регулярного виразу відповідної назви вузла в URL\n   #</pre> <!-- leave this line exactly as it is -->",
 	"right-skipcaptcha": "виконання дій, що зазвичай запускають CAPTCHA-перевірку, без необхідності проходження цієї перевірки",
 	"action-skipcaptcha": "виконання дій, що запускають CAPTCHA-перевірку, без необхідності проходження цієї перевірки",
-	"captcha-apihelp-param-captchaword": "Відповідь на CAPTCHA",
-	"captcha-apihelp-param-captchaid": "Ідентифікатор CAPTCHA з попереднього запиту",
 	"confirmedit-preview-line": "Номер рядка",
 	"confirmedit-preview-content": "Вміст",
 	"confirmedit-preview-validity": "Перевірка",

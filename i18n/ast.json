@@ -28,8 +28,6 @@
 	"captcha-addurl-whitelist": " #<!-- dexa esta llinia exautamente como ta --> <pre>\n# La sintaxis ye como sigue:\n#  * Too dende'l carauter \"#\" hasta la fin de la llinia ye un comentariu\n#  * Toa llinia non vacia ye un fragmentu regex que namái buscará hosts n'URLs\n  #</pre> <!-- dexa esta llinia exautamente como ta -->",
 	"right-skipcaptcha": "Facer les aiciones que disparen los captchas ensin tener que pasar pol CAPTCHA",
 	"action-skipcaptcha": "facer les aiciones d'activación de CAPTCHA ensin tener de pasar pel CAPTCHA",
-	"captcha-apihelp-param-captchaword": "Respuesta al CAPTCHA",
-	"captcha-apihelp-param-captchaid": "Identificador de CAPTCHA de la consulta anterior",
 	"confirmedit-preview-line": "Númberu de llinia",
 	"confirmedit-preview-content": "Conteníu",
 	"confirmedit-preview-validity": "Validez",

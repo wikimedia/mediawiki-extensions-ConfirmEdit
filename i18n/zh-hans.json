@@ -36,8 +36,6 @@
 	"captcha-addurl-whitelist": " #<!-- 请将本行保持原样 --> <pre>\n# 语法如下：\n#   * 所有以“#”字符开头的行都是注释\n#   * 所有非空白行是正则表达式片段，只会对URL中的内容进行匹配\n #</pre> <!-- 请将本行保持原样 -->",
 	"right-skipcaptcha": "执行触发验证码的操作时无需验证",
 	"action-skipcaptcha": "免验证码执行需验证码的操作",
-	"captcha-apihelp-param-captchaword": "回答验证码",
-	"captcha-apihelp-param-captchaid": "之前请求的验证码ID",
 	"confirmedit-preview-line": "行号",
 	"confirmedit-preview-content": "内容",
 	"confirmedit-preview-validity": "有效性",

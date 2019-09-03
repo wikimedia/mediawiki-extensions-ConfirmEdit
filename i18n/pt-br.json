@@ -35,8 +35,6 @@
 	"captcha-addurl-whitelist": "#<!-- deixe este linha exatamente como está --> <pre>\n# A sintaxe é a que se segue:\n# * Tudo desde o caractere \"#\" até ao fim da linha é um comentário\n# * Qualquer linha não vazia é um fragmento de regex que irá apenas verificar o servidor dentro das URLs\n #</pre> <!-- deixe este linha exatamente como está -->",
 	"right-skipcaptcha": "Executar ações disparadoras de captcha sem ter que passar pelo captcha",
 	"action-skipcaptcha": "executar ações desencadeadoras de CAPTCHA sem ter que passar pelo CAPTCHA",
-	"captcha-apihelp-param-captchaword": "Responder ao CAPTCHA",
-	"captcha-apihelp-param-captchaid": "CAPTCHA ID do pedido anterior",
 	"confirmedit-preview-line": "Número de linha",
 	"confirmedit-preview-content": "Conteúdo",
 	"confirmedit-preview-validity": "Validade",

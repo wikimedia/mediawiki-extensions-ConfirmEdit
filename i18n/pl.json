@@ -36,8 +36,6 @@
 	"captcha-addurl-whitelist": " #<!-- nie modyfikuj tej linii --> <pre>\n# Składnia jest następująca:\n#   * Linie zaczynające się od znaku „#” są komentarzami\n#   * Każda linia, która nie jest pusta, jest wyrażeniem regularnym, które ma pasować do adresu serwera (fragmentu URL)\n  #</pre> <!-- nie modyfikuj tej linii -->",
 	"right-skipcaptcha": "Pominięcie zabezpieczenia CAPTCHA",
 	"action-skipcaptcha": "wykonywania operacji wywołujących CAPTCHA bez konieczności przechodzenia CAPTCHA",
-	"captcha-apihelp-param-captchaword": "Rozwiąż CAPTCHA",
-	"captcha-apihelp-param-captchaid": "CAPTCHA ID z poprzedniego żądania",
 	"confirmedit-preview-line": "Numer linii",
 	"confirmedit-preview-content": "Treść",
 	"confirmedit-preview-validity": "Poprawność",

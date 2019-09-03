@@ -37,8 +37,6 @@
 	"captcha-addurl-whitelist": " #<!-- この行は変更しないでください --> <pre>\n# 構文は以下の通りです:\n#  * 「#」文字から行末まではコメントとして扱われます\n#  * 空白を含まない行は、URLに含まれるホスト名との一致を検出する正規表現です\n  #</pre> <!-- この行は変更しないでください -->",
 	"right-skipcaptcha": "CAPTCHAが必要な場面でCAPTCHAをスキップして操作を実行",
 	"action-skipcaptcha": "CAPTCHAが必要な場面でCAPTCHAをスキップして操作を実行",
-	"captcha-apihelp-param-captchaword": "CAPTCHAに答える",
-	"captcha-apihelp-param-captchaid": "以前のリクエストのCAPTCHA ID",
 	"confirmedit-preview-line": "行番号",
 	"confirmedit-preview-content": "内容",
 	"confirmedit-preview-validity": "検証",

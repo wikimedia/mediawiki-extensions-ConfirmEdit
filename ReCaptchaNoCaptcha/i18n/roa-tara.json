@@ -12,6 +12,5 @@
 	"renocaptcha-createaccount-fail": "Pare ca non g'e resolte 'u CAPTCHA.",
 	"renocaptcha-create": "Pe proteggere condre le ccrejaziune automatece de le pàggene, de le rummate, te cercame de resolvere stu CAPTCHA:",
 	"renocaptcha-noscript": "Ne despiace ca è disabbilitate 'u JavaScript, accussì non ge putime sape automatecamende ce sì umane o 'nu robbot. Pe piacere resolve stu CAPTCHA aqquà sus e copie 'u teste d'u resultate jndr'à st'arèe de teste:",
-	"renocaptcha-help": "Pe piacere resolve sta sfide ReCaptcha NoCaptcha e tuèrne 'u valore d'a resposte cumme captchaWord.",
-	"renocaptcha-apihelp-param-g-recaptcha-response": "Cambe da 'u uigget ReCaptcha."
+	"renocaptcha-help": "Pe piacere resolve sta sfide ReCaptcha NoCaptcha e tuèrne 'u valore d'a resposte cumme captchaWord."
 }

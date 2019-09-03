@@ -39,8 +39,6 @@
 	"captcha-addurl-whitelist": " #<!-- lämna denna rad precis som den är --> <pre>\n# Syntaxen är följande:\n#   * Allting från ett \"#\"-tecken till slutet av en rad är en kommentar\n#   * Varje icke-tom rad är ett fragment av ett reguljärt uttryck som endast matchar domänen i en URL\n #</pre> <!-- lämna denna rad precis som den är -->",
 	"right-skipcaptcha": "Utföra CAPTCHA-utlösande handlingar utan att behöva gå igenom CAPTCHA",
 	"action-skipcaptcha": "utföra captcha-utlösande åtgärder utan att gå genom captchan",
-	"captcha-apihelp-param-captchaword": "Svar till CAPTCHA",
-	"captcha-apihelp-param-captchaid": "CAPTCHA-ID från föregående begäran",
 	"confirmedit-preview-line": "Radnummer",
 	"confirmedit-preview-content": "Innehåll",
 	"confirmedit-preview-validity": "Giltighet",

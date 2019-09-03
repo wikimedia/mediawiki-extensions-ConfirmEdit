@@ -37,8 +37,6 @@
 	"captcha-addurl-whitelist": " #<!-- اترك هذا السطر تماما كما هو --> <pre>\n# الصيغة كما يلي:\n#  * كل شيء من علامة \"#\" لنهاية السطر تعليق\n#  * كل سطر غير فارغ هو جزء تعبير نمطي والذي سوف يطابق فقط المضيفين داخل العناوين\n  #</pre> <!-- اترك هذا السطر تماما كما هو -->",
 	"right-skipcaptcha": "تنفيذ إجراءات إثارة كابتشا دون الحاجة إلى المرور عبر اختبار كابتشا",
 	"action-skipcaptcha": "تنفيذ إجراءات اختبار كابتشا دون الحاجة إلى المرور عبر اختبار كابتشا",
-	"captcha-apihelp-param-captchaword": "الإجابة على الكابتشا",
-	"captcha-apihelp-param-captchaid": "معرف الكابتشا من طلب سابق",
 	"confirmedit-preview-line": "رقم السطر",
 	"confirmedit-preview-content": "محتوى",
 	"confirmedit-preview-validity": "الصلاحية",

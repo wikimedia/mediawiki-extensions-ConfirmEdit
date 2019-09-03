@@ -33,8 +33,6 @@
 	"captcha-addurl-whitelist": " #<!-- leave this line exactly as it is --> <pre>\n# Syntaksen er som følger:\n#  * Alle linjer som begynner med «#» er kommentarer\n#  * Alle linjer som ikke er blanke er fragmenter av regulære uttrykk som sjekker verter i URL-er\n  #</pre> <!-- leave this line exactly as it is -->",
 	"right-skipcaptcha": "Utføre handlinger som normalt krever «captcha»-bekreftelse uten å bruke «captcha»",
 	"action-skipcaptcha": "utføre handlinger som utløser CAPTCHA uten å gjennomføre CAPTCHA-en",
-	"captcha-apihelp-param-captchaword": "Svar på CAPTCHA-en",
-	"captcha-apihelp-param-captchaid": "CAPTCHA-ID fra forrige forespørsel",
 	"confirmedit-preview-line": "Linjenummer",
 	"confirmedit-preview-content": "Innhold",
 	"confirmedit-preview-validity": "Gyldighet",

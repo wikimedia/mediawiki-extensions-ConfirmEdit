@@ -38,8 +38,6 @@
 	"captcha-addurl-whitelist": " #<!-- 請勿更動此行 --> <pre>\n# 語法格式如下：\n#   * 任何以 \"#\" 字元開頭至結尾代表註解\n#   * 任何非空白行代表部份正規表示法，會用來比對 URL 中的主機\n #</pre> <!-- 請勿更動此行 -->",
 	"right-skipcaptcha": "執行會觸發到驗證碼的操作時，無需透過驗證碼檢驗",
 	"action-skipcaptcha": "執行會觸發到驗證碼的操作時，無需透過驗證碼檢驗",
-	"captcha-apihelp-param-captchaword": "回答驗證碼",
-	"captcha-apihelp-param-captchaid": "之前請求的驗證碼ID",
 	"confirmedit-preview-line": "行號",
 	"confirmedit-preview-content": "內容",
 	"confirmedit-preview-validity": "有效性",

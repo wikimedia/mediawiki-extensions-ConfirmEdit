@@ -15,8 +15,5 @@
 	"fancycaptcha-edit": "Por redakti ĉi tiun paĝon, bonvolu enigi la vortojn jenajn en la kesto ([[Special:Captcha/help|plua informo]]):",
 	"fancycaptcha-imgcaptcha-ph": "Entajpu la tekston, kiun vi vidas en la bildo.",
 	"fancycaptcha-sendemail": "Por helpi protekti kontraŭ aŭtomata spamado, bonvolu enigi la jenajn vortojn de la skatolo ([[Special:Captcha/help|plia informo]]):",
-	"fancycaptcha-reload-text": "Refreŝigi",
-	"apihelp-fancycaptchareload-description": "Akiri novan FancyCaptcha.",
-	"apihelp-fancycaptchareload-summary": "Akiri novan FancyCaptcha.",
-	"apihelp-fancycaptchareload-example-1": "Akiri novan FancyCaptcha"
+	"fancycaptcha-reload-text": "Refreŝigi"
 }

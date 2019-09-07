@@ -201,6 +201,7 @@ class SimpleCaptcha {
 	 * @param OutputPage &$out
 	 */
 	public function showEditFormFields( &$editPage, &$out ) {
+		$out->enableOOUI();
 		$page = $editPage->getArticle()->getPage();
 		if ( !isset( $page->ConfirmEdit_ActivateCaptcha ) ) {
 			return;

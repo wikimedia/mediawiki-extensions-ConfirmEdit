@@ -79,10 +79,10 @@ class ConfirmEditHooks {
 	}
 
 	/**
-	 * @param EditPage &$editPage
+	 * @param EditPage $editPage
 	 * @param OutputPage &$out
 	 */
-	public static function showEditFormFields( &$editPage, &$out ) {
+	public static function showEditFormFields( $editPage, &$out ) {
 		self::getInstance()->showEditFormFields( $editPage, $out );
 	}
 

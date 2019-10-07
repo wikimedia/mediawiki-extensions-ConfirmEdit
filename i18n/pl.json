@@ -11,7 +11,8 @@
 			"Chrumps",
 			"Woytecr",
 			"Railfail536",
-			"Rail"
+			"Rail",
+			"FunPL"
 		]
 	},
 	"captcha-edit": "Aby edytować tę stronę, najpierw musisz rozwiązać poniższe zadanie i wpisać odpowiedź do pola tekstowego ([[Special:Captcha/help|więcej informacji]]):",
@@ -22,12 +23,12 @@
 	"captcha-info-help": "Opis CAPTCHA.",
 	"captcha-id-label": "Identyfikator CAPTCHA",
 	"captcha-id-help": "Ta wartość powinna zostać wysyłana z powrotem bez zmiany.",
-	"captcha-addurl": "Twoje zmiany zawierają nowe linki zewnętrzne.\nAby chronić wiki przed zautomatyzowanym spamowaniem i zapisać twoją edycję prosimy o rozwiązanie poniższego zadania i wpisanie odpowiedzi poniżej ([[Special:Captcha/help|więcej informacji]]):",
-	"captcha-badlogin": "Aby chronić wiki przed zautomatyzowanym łamaniem haseł prosimy o rozwiązanie poniższego zadania i wpisanie odpowiedzi poniżej ([[Special:Captcha/help|więcej informacji]]):",
-	"captcha-createaccount": "Aby chronić wiki przed zautomatyzowanym tworzeniem kont prosimy o rozwiązanie poniższego zadania i wpisanie odpowiedzi poniżej ([[Special:Captcha/help|więcej informacji]]):",
+	"captcha-addurl": "Twoje zmiany zawierają nowe linki zewnętrzne.\nW celu ochrony wiki przed zautomatyzowanym spamowaniem prosimy o rozwiązanie poniższego zadania, aby zapisać twoją edycję ([[Special:Captcha/help|więcej informacji]]):",
+	"captcha-badlogin": "W celu ochrony wiki przed zautomatyzowanym łamaniem haseł prosimy o rozwiązanie poniższego zadania i wpisanie odpowiedzi poniżej ([[Special:Captcha/help|więcej informacji]]):",
+	"captcha-createaccount": "W celu ochrony wiki przed zautomatyzowanym tworzeniem kont prosimy o rozwiązanie poniższego zadania i wpisanie odpowiedzi poniżej ([[Special:Captcha/help|więcej informacji]]):",
 	"captcha-createaccount-fail": "Nieprawidłowy kod lub brak kodu potwierdzającego.",
 	"captcha-create": "Aby utworzyć stronę, najpierw musisz rozwiązać poniższe zadanie i wpisać odpowiedź do pola tekstowego ([[Special:Captcha/help|więcej informacji]]):",
-	"captcha-sendemail": "Aby chronić wiki przed zautomatyzowanym spamowaniem prosimy o rozwiązanie poniższego zadania i wpisanie odpowiedzi poniżej ([[Special:Captcha/help|więcej informacji]]):",
+	"captcha-sendemail": "W celu ochrony wiki przed zautomatyzowanym spamowaniem prosimy o rozwiązanie poniższego zadania i wpisanie odpowiedzi poniżej ([[Special:Captcha/help|więcej informacji]]):",
 	"captcha-sendemail-fail": "Nieprawidłowy kod lub brak kodu potwierdzającego.",
 	"captcha-disabledinapi": "Ta czynność wymaga potwierdzenia capcha i z tego względu nie może być przeprowadzona z użyciem API.",
 	"captcha-error": "Weryfikacja CAPTCHA nie powiodła się z powodu wewnętrznego błędu: $1",

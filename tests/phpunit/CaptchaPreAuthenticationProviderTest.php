@@ -9,7 +9,7 @@ use Wikimedia\TestingAccessWrapper;
  * @group Database
  */
 class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->setMwGlobals( [
 			'wgCaptchaClass' => SimpleCaptcha::class,
@@ -28,7 +28,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 		}
 	}
 
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		// make sure $wgCaptcha resets between tests
 		TestingAccessWrapper::newFromClass( ConfirmEditHooks::class )->instanceCreated = false;

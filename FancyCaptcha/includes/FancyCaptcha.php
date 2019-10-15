@@ -37,15 +37,6 @@ class FancyCaptcha extends SimpleCaptcha {
 	}
 
 	/**
-	 * @deprecated Use getCaptchaCount instead for an accurate figure
-	 * @return int Number of captcha files
-	 */
-	public function estimateCaptchaCount() {
-		wfDeprecated( __METHOD__ );
-		return $this->getCaptchaCount();
-	}
-
-	/**
 	 * @return int Number of captcha files
 	 */
 	public function getCaptchaCount() {

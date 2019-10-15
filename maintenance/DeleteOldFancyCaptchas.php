@@ -77,6 +77,8 @@ class DeleteOldFancyCaptchas extends Maintenance {
 			return;
 		}
 
+		$this->output( "$count old fancy captchas to be deleted.\n" );
+
 		$ret = $backend->doQuickOperations( $filesToDelete );
 
 		if ( $ret->isOK() ) {

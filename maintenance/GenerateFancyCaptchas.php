@@ -44,12 +44,15 @@ class GenerateFancyCaptchas extends Maintenance {
 		$this->addOption( "font-size", "The font size ", false, true );
 		$this->addOption( "blacklist", "A blacklist of words that should not be used", false, true );
 		$this->addOption( "fill", "Fill the captcha container to N files", true, true );
-		$this->addOption( "verbose", "Show debugging information" );
+		$this->addOption(
+			"verbose",
+			"Show debugging information when running the captcha python script"
+		);
 		$this->addOption(
 			"oldcaptcha",
 			"Whether to use captcha-old.py which doesn't have OCR fighting improvements"
 		);
-		$this->addOption( "delete", "Delete the old captches" );
+		$this->addOption( "delete", "Deletes all the old captchas" );
 		$this->addOption( "threads", "The number of threads to use to generate the images",
 			false, true );
 		$this->addDescription( "Generate new fancy captchas and move them into storage" );

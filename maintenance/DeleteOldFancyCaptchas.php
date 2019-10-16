@@ -61,7 +61,7 @@ class DeleteOldFancyCaptchas extends Maintenance {
 		$filesToDelete = [];
 		$deleteDate = $this->getOption( 'date' );
 		foreach (
-			$backend->getFileList( [ 'dir' => $dir ] ) as $file
+			$backend->getFileList( [ 'dir' => $dir, 'adviseStat' => true ] ) as $file
 		) {
 			$fullPath = $dir . '/' . $file;
 			$timestamp = $backend->getFileTimestamp( [ 'src' => $fullPath ] );

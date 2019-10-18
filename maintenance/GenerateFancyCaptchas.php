@@ -116,8 +116,9 @@ class GenerateFancyCaptchas extends Maintenance {
 		$captchaTime = -microtime( true );
 		wfShellExec( $cmd, $retVal, [], [ 'time' => 0 ] );
 		if ( $retVal != 0 ) {
+			$this->output( " Failed.\n" );
 			wfRecursiveRemoveDir( $tmpDir );
-			$this->error( "Could not run generation script.\n", 1 );
+			$this->error( "An error occured when running $captchaScript.\n", 1 );
 		}
 
 		$captchaTime += microtime( true );

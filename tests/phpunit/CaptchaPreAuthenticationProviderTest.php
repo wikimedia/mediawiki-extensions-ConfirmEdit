@@ -107,8 +107,9 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 			return false;
 		} );
 		CaptchaStore::get()->store( '345', [ 'question' => '2+2', 'answer' => '4' ] );
-		$captcha = $this->getMock( SimpleCaptcha::class,
-			[ 'isBadLoginTriggered', 'isBadLoginPerUserTriggered' ] );
+		$captcha = $this->getMockBuilder( SimpleCaptcha::class )
+			->setMethods( [ 'isBadLoginTriggered', 'isBadLoginPerUserTriggered' ] )
+			->getMock();
 		$captcha->expects( $this->any() )->method( 'isBadLoginTriggered' )
 			->willReturn( $isBadLoginTriggered );
 		$captcha->expects( $this->any() )->method( 'isBadLoginPerUserTriggered' )

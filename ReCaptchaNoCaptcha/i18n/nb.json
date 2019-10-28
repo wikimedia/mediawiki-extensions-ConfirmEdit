@@ -4,6 +4,7 @@
 			"Jon Harald Søby"
 		]
 	},
+	"renocaptcha-desc": "reCAPTCHA-NoCAPTCHA-modul for Confirm Edit",
 	"renocaptcha-edit": "For å beskytte wikien mot automatisk redigeringsspam ber vi deg å løse følgende CAPTCHA:",
 	"renocaptcha-addurl": "Redigeringen din inneholder nye eksterne lenker. For å beskytte wikien mot automatisk spam ber vi deg løse følgende CAPTCHA:",
 	"renocaptcha-badlogin": "For å beskytte wikien mot automatisk passordknekking ber vi deg løse følgende CAPTCHA:",

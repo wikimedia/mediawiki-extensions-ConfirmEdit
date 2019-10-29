@@ -1087,8 +1087,6 @@ class SimpleCaptcha {
 	 * @private
 	 */
 	private function loadText( $title, $section, $flags = Revision::READ_LATEST ) {
-		global $wgParser;
-
 		$rev = Revision::newFromTitle( $title, false, $flags );
 		if ( is_null( $rev ) ) {
 			return "";
@@ -1097,7 +1095,8 @@ class SimpleCaptcha {
 		$content = $rev->getContent();
 		$text = ContentHandler::getContentText( $content );
 		if ( $section !== '' ) {
-			return $wgParser->getSection( $text, $section );
+			return MediaWikiServices::getInstance()->getParser()
+				->getSection( $text, $section );
 		}
 
 		return $text;
@@ -1110,11 +1109,12 @@ class SimpleCaptcha {
 	 * @return array of strings
 	 */
 	private function findLinks( $title, $text ) {
-		global $wgParser, $wgUser;
+		global $wgUser;
 
+		$parser = MediaWikiServices::getInstance()->getParser();
 		$options = new ParserOptions();
-		$text = $wgParser->preSaveTransform( $text, $title, $wgUser, $options );
-		$out = $wgParser->parse( $text, $title, $options );
+		$text = $parser->preSaveTransform( $text, $title, $wgUser, $options );
+		$out = $parser->parse( $text, $title, $options );
 
 		return array_keys( $out->getExternalLinks() );
 	}

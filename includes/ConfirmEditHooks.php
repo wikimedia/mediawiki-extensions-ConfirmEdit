@@ -80,17 +80,17 @@ class ConfirmEditHooks {
 
 	/**
 	 * @param EditPage $editPage
-	 * @param OutputPage &$out
+	 * @param OutputPage $out
 	 */
-	public static function showEditFormFields( $editPage, &$out ) {
+	public static function showEditFormFields( EditPage $editPage, OutputPage $out ) {
 		self::getInstance()->showEditFormFields( $editPage, $out );
 	}
 
 	/**
-	 * @param HTMLForm &$form
+	 * @param HTMLForm $form
 	 * @return bool
 	 */
-	public static function injectEmailUser( &$form ) {
+	public static function injectEmailUser( $form ) {
 		return self::getInstance()->injectEmailUser( $form );
 	}
 
@@ -109,12 +109,12 @@ class ConfirmEditHooks {
 	/**
 	 * APIGetAllowedParams hook handler
 	 * Default $flags to 1 for backwards-compatible behavior
-	 * @param ApiBase &$module
+	 * @param ApiBase $module
 	 * @param array &$params
 	 * @param int $flags
 	 * @return bool
 	 */
-	public static function onAPIGetAllowedParams( &$module, &$params, $flags = 1 ) {
+	public static function onAPIGetAllowedParams( ApiBase $module, &$params, $flags = 1 ) {
 		return self::getInstance()->apiGetAllowedParams( $module, $params, $flags );
 	}
 
@@ -185,12 +185,17 @@ class ConfirmEditHooks {
 	 * interface message, if it validates as an IP address.
 	 *
 	 * @param EditPage $editor
-	 * @param Content &$content
+	 * @param Content $content
 	 * @param string &$html
-	 * @param ParserOutput &$po
+	 * @param ?ParserOutput $parserOutput
 	 * @return bool
 	 */
-	public static function onAlternateEditPreview( EditPage $editor, &$content, &$html, &$po ) {
+	public static function onAlternateEditPreview(
+		EditPage $editor,
+		Content $content,
+		&$html,
+		$parserOutput
+	) {
 		$title = $editor->getTitle();
 		$exceptionTitle = Title::makeTitle( NS_MEDIAWIKI, 'Captcha-ip-whitelist' );
 

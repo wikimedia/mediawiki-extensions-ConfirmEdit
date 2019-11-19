@@ -142,7 +142,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 	 * @dataProvider provideTestForAccountCreation
 	 */
 	public function testTestForAccountCreation( $req, $creator, $result, $disableTrigger = false ) {
-		$this->setMwHook( 'PingLimiter', function ( &$user, $action, &$result ) {
+		$this->setMwHook( 'PingLimiter', function ( $user, $action, &$result ) {
 			$result = false;
 			return false;
 		} );

@@ -6,9 +6,11 @@
 			"Runningfridgesrule",
 			"Stultiwikia",
 			"Arystanbek",
-			"Kumkumuk"
+			"Kumkumuk",
+			"BaRaN6161 TURK"
 		]
 	},
+	"fancycaptcha-desc": "Onayla Düzenle için süslü CAPTCHA üreteci",
 	"fancycaptcha-addurl": "Değişikliğiniz yeni dış bağlantılar içeriyor.\nVikiyi otomatik spamdan korumak için, aşağıdaki sözcükleri kutunun içine yazmanızı rica ediyoruz ([[Special:Captcha/help|ayrıntılı bilgi]]):",
 	"fancycaptcha-badlogin": "Vikiyi otomatik parola kırma yöntemine karşı korumak için, aşağıdaki sözcükleri kutunun içine yazmanızı rica ediyoruz ([[Special:Captcha/help|ayrıntılı bilgi]]):",
 	"fancycaptcha-captcha": "Güvenlik kontrolü",

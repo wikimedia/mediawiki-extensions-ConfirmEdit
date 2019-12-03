@@ -192,7 +192,7 @@ class SimpleCaptcha {
 	 * @return string Description of the captcha. Format is not specified; could be text, HTML, URL...
 	 */
 	public function getCaptchaInfo( $captchaData, $id ) {
-		return $captchaData['question'] . ' =';
+		return array_key_exists( 'question', $captchaData ) ? ( $captchaData['question'] . ' =' ) : '';
 	}
 
 	/**

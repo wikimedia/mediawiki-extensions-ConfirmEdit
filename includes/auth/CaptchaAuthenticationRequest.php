@@ -18,6 +18,10 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 	/** @var string Captcha solution submitted by the user. */
 	public $captchaWord;
 
+	/**
+	 * @param string $id
+	 * @param array $data
+	 */
 	public function __construct( $id, $data ) {
 		$this->captchaId = $id;
 		$this->captchaData = $data;
@@ -83,7 +87,7 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 	}
 
 	public static function __set_state( $data ) {
-		$ret = new static( null, null );
+		$ret = new static( '', [] );
 		foreach ( $data as $k => $v ) {
 			$ret->$k = $v;
 		}

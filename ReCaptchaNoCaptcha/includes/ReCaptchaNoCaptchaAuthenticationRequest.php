@@ -8,7 +8,7 @@ use MediaWiki\Auth\AuthenticationRequest;
  */
 class ReCaptchaNoCaptchaAuthenticationRequest extends CaptchaAuthenticationRequest {
 	public function __construct() {
-		parent::__construct( null, null );
+		parent::__construct( '', [] );
 	}
 
 	public function loadFromSubmission( array $data ) {

@@ -192,7 +192,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			if ( !$ret->isGood() ) {
 				$this->output(
 					"Non fatal errors:\n" .
-					Status::wrap( $ret )->getWikiText( null, null, 'en' ) .
+					Status::wrap( $ret )->getWikiText( false, false, 'en' ) .
 					"\n"
 				);
 			}
@@ -212,7 +212,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			$storeSucceeded = false;
 			$this->output( "Errored.\n" );
 			$this->error(
-				Status::wrap( $ret )->getWikiText( null, null, 'en' ) .
+				Status::wrap( $ret )->getWikiText( false, false, 'en' ) .
 				"\n"
 			);
 		}
@@ -236,14 +236,14 @@ class GenerateFancyCaptchas extends Maintenance {
 				if ( !$ret->isGood() ) {
 					$this->output(
 						"Non fatal errors:\n" .
-						Status::wrap( $ret )->getWikiText( null, null, 'en' ) .
+						Status::wrap( $ret )->getWikiText( false, false, 'en' ) .
 						"\n"
 					);
 				}
 			} else {
 				$this->output( "Errored.\n" );
 				$this->error(
-					Status::wrap( $ret )->getWikiText( null, null, 'en' ) .
+					Status::wrap( $ret )->getWikiText( false, false, 'en' ) .
 					"\n"
 				);
 			}

@@ -45,7 +45,7 @@ class MathCaptcha extends SimpleCaptcha {
 		$index = $this->storeCaptcha( [ 'answer' => $answer ] );
 
 		$form = '<table><tr><td>' . $this->fetchMath( $sum ) . '</td>';
-		$form .= '<td>' . Html::input( 'wpCaptchaWord', false, false, [
+		$form .= '<td>' . Html::input( 'wpCaptchaWord', '', '', [
 			'tabindex' => $tabIndex,
 			'autocomplete' => 'off',
 			'required'
@@ -69,7 +69,7 @@ class MathCaptcha extends SimpleCaptcha {
 
 	/**
 	 * Fetch the math
-	 * @param int $sum
+	 * @param string $sum
 	 * @return string
 	 */
 	private function fetchMath( $sum ) {

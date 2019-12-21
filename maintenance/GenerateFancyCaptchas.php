@@ -100,7 +100,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			wfEscapeShellArg( dirname( __DIR__ ) . '/' . $captchaScript ),
 			wfEscapeShellArg( $wgCaptchaSecret ),
 			wfEscapeShellArg( $tmpDir ),
-			wfEscapeShellArg( $countGen ),
+			wfEscapeShellArg( (string)$countGen ),
 			wfEscapeShellArg( $wgCaptchaDirectoryLevels )
 		);
 		foreach (

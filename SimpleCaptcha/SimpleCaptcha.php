@@ -1087,7 +1087,7 @@ class SimpleCaptcha {
 	 * @private
 	 */
 	private function loadText( $title, $section, $flags = Revision::READ_LATEST ) {
-		$rev = Revision::newFromTitle( $title, false, $flags );
+		$rev = Revision::newFromTitle( $title, 0, $flags );
 		if ( is_null( $rev ) ) {
 			return "";
 		}

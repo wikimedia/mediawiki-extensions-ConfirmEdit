@@ -58,11 +58,6 @@ $specialPageAliases['fi'] = [
 	'Captcha' => [ 'Ihmiskäyttäjävarmistus' ],
 ];
 
-/** Galician (galego) */
-$specialPageAliases['gl'] = [
-	'Captcha' => [ 'Captcha' ],
-];
-
 /** Hawaiian (Hawai`i) */
 $specialPageAliases['haw'] = [
 	'Captcha' => [ 'Kapakā', 'Kapaka' ],
@@ -88,19 +83,9 @@ $specialPageAliases['ksh'] = [
 	'Captcha' => [ 'Kaptscha' ],
 ];
 
-/** Cornish (kernowek) */
-$specialPageAliases['kw'] = [
-	'Captcha' => [ 'Captcha' ],
-];
-
 /** Northern Luri (لۊری شومالی) */
 $specialPageAliases['lrc'] = [
 	'Captcha' => [ 'رازینە_کأپچا' ],
-];
-
-/** Macedonian (македонски) */
-$specialPageAliases['mk'] = [
-	'Captcha' => [ 'Captcha' ],
 ];
 
 /** Malayalam (മലയാളം) */

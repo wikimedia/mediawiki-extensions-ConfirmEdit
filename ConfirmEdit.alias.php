@@ -98,6 +98,11 @@ $specialPageAliases['sr-ec'] = [
 	'Captcha' => [ 'ПотврдниКод', 'Потврдни_код' ],
 ];
 
+/** Serbian (Latin script) (srpski (latinica)‎) */
+$specialPageAliases['sr-el'] = [
+	'Captcha' => [ 'PotvrdniKod', 'Potvrdni_kod' ],
+];
+
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = [
 	'Captcha' => [ 'GüvenlikKodu' ],

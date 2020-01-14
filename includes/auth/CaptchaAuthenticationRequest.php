@@ -12,7 +12,8 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 	public $captchaId;
 
 	/** @var array Information about the captcha (e.g. question text; solution). Exact semantics
-	 *    differ between types. */
+	 *    differ between types.
+	 */
 	public $captchaData;
 
 	/** @var string Captcha solution submitted by the user. */

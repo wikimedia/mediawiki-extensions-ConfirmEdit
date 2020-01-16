@@ -780,10 +780,17 @@ class SimpleCaptcha {
 	 * @param Content|string $newtext
 	 * @param string $section
 	 * @param IContextSource $context
+	 * @param User $user
 	 * @return bool false if the CAPTCHA is rejected, true otherwise
 	 */
-	private function doConfirmEdit( WikiPage $page, $newtext, $section, IContextSource $context ) {
-		global $wgUser, $wgRequest;
+	private function doConfirmEdit(
+		WikiPage $page,
+		$newtext,
+		$section,
+		IContextSource $context,
+		User $user
+	) {
+		global $wgRequest;
 		$request = $context->getRequest();
 
 		// FIXME: Stop using wgRequest in other parts of ConfirmEdit so we can
@@ -797,7 +804,7 @@ class SimpleCaptcha {
 			$wgRequest->setVal( 'wpCaptchaWord', $request->getVal( 'captchaword' ) );
 		}
 		if ( $this->shouldCheck( $page, $newtext, $section, $context ) ) {
-			return $this->passCaptchaLimitedFromRequest( $wgRequest, $wgUser );
+			return $this->passCaptchaLimitedFromRequest( $wgRequest, $user );
 		} else {
 			wfDebug( "ConfirmEdit: no need to show captcha.\n" );
 			return true;
@@ -832,7 +839,7 @@ class SimpleCaptcha {
 			return true;
 		}
 		$page = $context->getWikiPage();
-		if ( !$this->doConfirmEdit( $page, $content, '', $context ) ) {
+		if ( !$this->doConfirmEdit( $page, $content, '', $context, $user ) ) {
 			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
 			$status->apiHookResult = [];
 			// give an error message for the user to know, what goes wrong here.
@@ -860,13 +867,10 @@ class SimpleCaptcha {
 	 * Logic to check if we need to pass a captcha for the current user
 	 * to create a new account, or not
 	 *
-	 * @param User|null $creatingUser
+	 * @param User $creatingUser
 	 * @return bool true to show captcha, false to skip captcha
 	 */
-	public function needCreateAccountCaptcha( User $creatingUser = null ) {
-		global $wgUser;
-		$creatingUser = $creatingUser ?: $wgUser;
-
+	public function needCreateAccountCaptcha( User $creatingUser ) {
 		if ( $this->triggersCaptcha( CaptchaTriggers::CREATE_ACCOUNT ) ) {
 			if ( $this->canSkipCaptcha( $creatingUser,
 				\MediaWiki\MediaWikiServices::getInstance()->getMainConfig() ) ) {
@@ -887,10 +891,11 @@ class SimpleCaptcha {
 	 * @return bool true to continue saving, false to abort and show a captcha form
 	 */
 	public function confirmEmailUser( $from, $to, $subject, $text, &$error ) {
-		global $wgUser, $wgRequest;
+		global $wgRequest;
 
+		$user = RequestContext::getMain()->getUser();
 		if ( $this->triggersCaptcha( CaptchaTriggers::SENDEMAIL ) ) {
-			if ( $this->canSkipCaptcha( $wgUser,
+			if ( $this->canSkipCaptcha( $user,
 				\MediaWiki\MediaWikiServices::getInstance()->getMainConfig() ) ) {
 				return true;
 			}
@@ -901,8 +906,8 @@ class SimpleCaptcha {
 				$error = Status::newFatal( 'captcha-disabledinapi' );
 				return false;
 			}
-			$this->trigger = "{$wgUser->getName()} sending email";
-			if ( !$this->passCaptchaLimitedFromRequest( $wgRequest, $wgUser ) ) {
+			$this->trigger = "{$user->getName()} sending email";
+			if ( !$this->passCaptchaLimitedFromRequest( $wgRequest, $user ) ) {
 				$error = Status::newFatal( 'captcha-sendemail-fail' );
 				return false;
 			}
@@ -1109,11 +1114,10 @@ class SimpleCaptcha {
 	 * @return array of strings
 	 */
 	private function findLinks( $title, $text ) {
-		global $wgUser;
-
 		$parser = MediaWikiServices::getInstance()->getParser();
 		$options = new ParserOptions();
-		$text = $parser->preSaveTransform( $text, $title, $wgUser, $options );
+		$user = $parser->getUser();
+		$text = $parser->preSaveTransform( $text, $title, $user, $options );
 		$out = $parser->parse( $text, $title, $options );
 
 		return array_keys( $out->getExternalLinks() );

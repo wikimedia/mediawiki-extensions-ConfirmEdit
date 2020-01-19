@@ -197,10 +197,10 @@ class SimpleCaptcha {
 
 	/**
 	 * Show error message for missing or incorrect captcha on EditPage.
-	 * @param EditPage &$editPage
-	 * @param OutputPage &$out
+	 * @param EditPage $editPage
+	 * @param OutputPage $out
 	 */
-	public function showEditFormFields( &$editPage, &$out ) {
+	public function showEditFormFields( EditPage $editPage, OutputPage $out ) {
 		$out->enableOOUI();
 		$page = $editPage->getArticle()->getPage();
 		if ( !isset( $page->ConfirmEdit_ActivateCaptcha ) ) {
@@ -251,10 +251,10 @@ class SimpleCaptcha {
 	/**
 	 * Inject whazawhoo
 	 * @fixme if multiple thingies insert a header, could break
-	 * @param HTMLForm &$form
+	 * @param HTMLForm $form
 	 * @return bool true to keep running callbacks
 	 */
-	public function injectEmailUser( &$form ) {
+	public function injectEmailUser( HTMLForm $form ) {
 		$out = $form->getOutput();
 		$user = $form->getUser();
 		if ( $this->triggersCaptcha( CaptchaTriggers::SENDEMAIL ) ) {
@@ -924,12 +924,12 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * @param ApiBase &$module
+	 * @param ApiBase $module
 	 * @param array &$params
 	 * @param int $flags
 	 * @return bool
 	 */
-	public function apiGetAllowedParams( &$module, &$params, $flags ) {
+	public function apiGetAllowedParams( ApiBase $module, &$params, $flags ) {
 		if ( $this->isAPICaptchaModule( $module ) ) {
 			$params['captchaword'] = [
 				ApiBase::PARAM_HELP_MSG => 'captcha-apihelp-param-captchaword',

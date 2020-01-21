@@ -20,10 +20,18 @@
 		"ReCaptchaNoCaptchaAuthenticationRequest": "includes/ReCaptchaNoCaptchaAuthenticationRequest.php"
 	},
 	"config": {
-		"CaptchaClass": "ReCaptchaNoCaptcha",
-		"ReCaptchaSiteKey": "",
-		"ReCaptchaSecretKey": "",
-		"ReCaptchaSendRemoteIP": false
+		"CaptchaClass": {
+			"value": "ReCaptchaNoCaptcha"
+		},
+		"ReCaptchaSiteKey": {
+			"value": ""
+		},
+		"ReCaptchaSecretKey": {
+			"value": ""
+		},
+		"ReCaptchaSendRemoteIP": {
+			"value": false
+		}
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "resources",
@@ -32,7 +40,10 @@
 	"ResourceModules": {
 		"ext.confirmEdit.reCaptchaNoCaptcha.visualEditor": {
 			"scripts": "ve-confirmedit-reCaptchaNoCaptcha/ve.init.mw.NoCaptchaReCaptchaSaveErrorHandler.js",
-			"targets": [ "desktop", "mobile" ]
+			"targets": [
+				"desktop",
+				"mobile"
+			]
 		}
 	},
 	"Hooks": {
@@ -41,5 +52,5 @@
 	"VisualEditorPluginModules": [
 		"ext.confirmEdit.reCaptchaNoCaptcha.visualEditor"
 	],
-	"manifest_version": 1
+	"manifest_version": 2
 }

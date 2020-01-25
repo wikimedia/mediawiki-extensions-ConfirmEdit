@@ -2,6 +2,7 @@
 
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\IPUtils;
 
 /**
  * Demo CAPTCHA (not for production usage) and base class for real CAPTCHAs
@@ -354,7 +355,7 @@ class SimpleCaptcha {
 		$ip = $wgRequest->getIP();
 
 		if ( $wgCaptchaWhitelistIP ) {
-			if ( IP::isInRanges( $ip, $wgCaptchaWhitelistIP ) ) {
+			if ( IPUtils::isInRanges( $ip, $wgCaptchaWhitelistIP ) ) {
 				return true;
 			}
 		}
@@ -362,7 +363,7 @@ class SimpleCaptcha {
 		$whitelistMsg = wfMessage( 'captcha-ip-whitelist' )->inContentLanguage();
 		if ( !$whitelistMsg->isDisabled() ) {
 			$whitelistedIPs = $this->getWikiIPWhitelist( $whitelistMsg );
-			if ( IP::isInRanges( $ip, $whitelistedIPs ) ) {
+			if ( IPUtils::isInRanges( $ip, $whitelistedIPs ) ) {
 				return true;
 			}
 		}
@@ -418,7 +419,7 @@ class SimpleCaptcha {
 
 		$validIPs = [];
 		foreach ( $ips as $ip ) {
-			if ( IP::isIPAddress( $ip ) ) {
+			if ( IPUtils::isIPAddress( $ip ) ) {
 				$validIPs[] = $ip;
 			}
 		}

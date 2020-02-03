@@ -25,12 +25,7 @@ class CaptchaCacheStore extends CaptchaStore {
 
 	public function retrieve( $index ) {
 		$cache = $this->cache;
-		$info = $cache->get( $cache->makeKey( 'captcha', $index ) );
-		if ( $info ) {
-			return $info;
-		} else {
-			return false;
-		}
+		return $cache->get( $cache->makeKey( 'captcha', $index ) ) ?: false;
 	}
 
 	public function clear( $index ) {

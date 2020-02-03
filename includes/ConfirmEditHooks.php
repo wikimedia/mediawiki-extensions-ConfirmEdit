@@ -13,12 +13,9 @@ class ConfirmEditHooks {
 	public static function getInstance() {
 		global $wgCaptcha, $wgCaptchaClass;
 
-		$class = $wgCaptchaClass;
-		if ( $class == null ) {
-			$class = 'SimpleCaptcha';
-		}
 		if ( !static::$instanceCreated ) {
 			static::$instanceCreated = true;
+			$class = $wgCaptchaClass ?: SimpleCaptcha::class;
 			$wgCaptcha = new $class;
 		}
 

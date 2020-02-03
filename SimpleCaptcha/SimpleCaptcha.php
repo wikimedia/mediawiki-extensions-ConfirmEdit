@@ -749,7 +749,7 @@ class SimpleCaptcha {
 			}
 			foreach ( $build as $key => $value ) {
 				$regexes[] = $regexStart[$key] .
-					str_replace( '/', '\/', preg_replace( '|\\\*/|', '/', $build[$key] ) ) .
+					str_replace( '/', '\/', preg_replace( '|\\\*/|', '/', $value ) ) .
 					$regexEnd[$key];
 			}
 			return $regexes;
@@ -1111,7 +1111,7 @@ class SimpleCaptcha {
 	 * Extract a list of all recognized HTTP links in the text.
 	 * @param Title $title
 	 * @param string $text
-	 * @return array of strings
+	 * @return string[]
 	 */
 	private function findLinks( $title, $text ) {
 		$parser = MediaWikiServices::getInstance()->getParser();

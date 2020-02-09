@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use Wikimedia\IPUtils;
 
 class ConfirmEditHooks {
 	protected static $instanceCreated = false;
@@ -228,7 +229,7 @@ class ConfirmEditHooks {
 			if ( $ip === '' || strpos( $ip, '#' ) !== false ) {
 				continue;
 			}
-			if ( IP::isIPAddress( $ip ) ) {
+			if ( IPUtils::isIPAddress( $ip ) ) {
 				$validity = $ctx->msg( 'confirmedit-preview-valid' )->escaped();
 				$css = 'valid';
 			} else {

@@ -83,8 +83,7 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 	}
 
 	public function getMetadata() {
-		$captcha = ConfirmEditHooks::getInstance();
-		return $captcha->describeCaptchaType();
+		return ( ConfirmEditHooks::getInstance() )->describeCaptchaType();
 	}
 
 	public static function __set_state( $data ) {

@@ -14,13 +14,18 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		$needed = false;
 		switch ( $action ) {
 			case AuthManager::ACTION_CREATE:
-				$needed = $captcha->needCreateAccountCaptcha( $user ?: new User() );
+				$u = $user ?: new User();
+				$needed = $captcha->needCreateAccountCaptcha( $u );
 				if ( $needed ) {
 					$captcha->setAction( 'accountcreate' );
-					LoggerFactory::getInstance( 'authevents' )
-						->info( 'Captcha shown on account creation', [
+					// This is debug level simply because generally
+					// captchas are either always or never triggered on
+					// view of create account, so it gets pretty noisy
+					LoggerFactory::getInstance( 'captcha' )
+						->debug( 'Captcha shown on account creation for {user}', [
 							'event' => 'captcha.display',
 							'eventType' => 'accountcreation',
+							'user' => $u->getName()
 						] );
 				}
 				break;
@@ -46,10 +51,12 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				) {
 					$needed = true;
 					$captcha->setAction( 'badlogin' );
-					LoggerFactory::getInstance( 'authevents' )
-						->info( 'Captcha shown on account creation', [
+					LoggerFactory::getInstance( 'captcha' )
+						->info( 'Captcha shown on login by {ip} for {suggestedUser}', [
 							'event' => 'captcha.display',
 							'eventType' => 'accountcreation',
+							'suggestedUser' => $suggestedUsername,
+							'ip' => $this->manager->getRequest()->getIP()
 						] );
 					break;
 				}
@@ -74,10 +81,13 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 			$captcha->setAction( 'badlogin' );
 			$captcha->setTrigger( "post-badlogin login '$username'" );
 			$success = $this->verifyCaptcha( $captcha, $reqs, new User() );
-			LoggerFactory::getInstance( 'authevents' )->info( 'Captcha submitted on login', [
+			$ip = $this->manager->getRequest()->getIP();
+			LoggerFactory::getInstance( 'captcha' )->info( 'Captcha submitted on login for {user}', [
 				'event' => 'captcha.submit',
 				'eventType' => 'login',
 				'successful' => $success,
+				'user' => $username,
+				'ip' => $ip
 			] );
 		}
 
@@ -99,11 +109,16 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 			$captcha->setAction( 'accountcreate' );
 			$captcha->setTrigger( "new account '$username'" );
 			$success = $this->verifyCaptcha( $captcha, $reqs, $user );
-			LoggerFactory::getInstance( 'authevents' )->info( 'Captcha submitted on account creation', [
-				'event' => 'captcha.submit',
-				'eventType' => 'accountcreation',
-				'successful' => $success,
-			] );
+			$ip = $this->manager->getRequest()->getIP();
+			LoggerFactory::getInstance( 'captcha' )->info(
+				'Captcha submitted on account creation for {user}', [
+					'event' => 'captcha.submit',
+					'eventType' => 'accountcreation',
+					'successful' => $success,
+					'user' => $username,
+					'ip' => $ip
+				]
+			);
 			if ( !$success ) {
 				return $this->makeError( 'captcha-createaccount-fail', $captcha );
 			}

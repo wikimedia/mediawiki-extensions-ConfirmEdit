@@ -9,10 +9,11 @@
 			"Urhixidur",
 			"Verdy p",
 			"Wladek92",
-			"Thibaut120094"
+			"Thibaut120094",
+			"Framawiki"
 		]
 	},
-	"fancycaptcha-desc": "Générateur d’images ''captcha'' anti-robots demandant une confirmation humaine des modifications.",
+	"fancycaptcha-desc": "Générateur d’images CAPTCHA anti-robots demandant une confirmation humaine des modifications.",
 	"fancycaptcha-addurl": "Votre modification inclut de nouveaux liens externes.\nPour protéger le wiki contre les pourriels automatisés, nous vous demandons de bien vouloir entrer les mots qui apparaissent ci-dessous dans la boîte ([[Special:Captcha/help|plus d’informations]]) :",
 	"fancycaptcha-badlogin": "Pour protéger le wiki contre le forçage des mots de passe par des automates, nous vous demandons de bien vouloir entrer les mots qui apparaissent dans la boîte ci-dessous ([[Special:Captcha/help|plus d’informations]]) :",
 	"fancycaptcha-captcha": "Contrôle de sécurité",

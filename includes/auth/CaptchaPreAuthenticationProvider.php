@@ -52,11 +52,11 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 					$needed = true;
 					$captcha->setAction( 'badlogin' );
 					LoggerFactory::getInstance( 'captcha' )
-						->info( 'Captcha shown on login by {ip} for {suggestedUser}', [
+						->info( 'Captcha shown on login by {clientip} for {suggestedUser}', [
 							'event' => 'captcha.display',
 							'eventType' => 'accountcreation',
 							'suggestedUser' => $suggestedUsername,
-							'ip' => $this->manager->getRequest()->getIP()
+							'clientip' => $this->manager->getRequest()->getIP()
 						] );
 					break;
 				}
@@ -87,7 +87,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				'eventType' => 'login',
 				'successful' => $success,
 				'user' => $username,
-				'ip' => $ip
+				'clientip' => $ip
 			] );
 		}
 
@@ -116,7 +116,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 					'eventType' => 'accountcreation',
 					'successful' => $success,
 					'user' => $username,
-					'ip' => $ip
+					'clientip' => $ip
 				]
 			);
 			if ( !$success ) {

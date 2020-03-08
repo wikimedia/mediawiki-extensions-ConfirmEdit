@@ -129,23 +129,11 @@ class ConfirmEditHooks {
 	}
 
 	public static function confirmEditSetup() {
-		// @codingStandardsIgnoreStart MediaWiki.NamingConventions.ValidGlobalName.wgPrefix
-		global $wgCaptchaTriggers, $wgAllowConfirmedEmail,
-			$wgWikimediaJenkinsCI, $ceAllowConfirmedEmail;
-		// @codingStandardsIgnoreEnd
+		global $wgCaptchaTriggers, $wgWikimediaJenkinsCI;
 
 		// There is no need to run (core) tests with enabled ConfirmEdit - bug T44145
 		if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {
 			$wgCaptchaTriggers = array_fill_keys( array_keys( $wgCaptchaTriggers ), false );
-		}
-
-		// $ceAllowConfirmedEmail is deprecated and should be replaced by $wgAllowConfirmedEmail.
-		// For backward-compatibility, keep the value for some time. T162641
-		if ( isset( $ceAllowConfirmedEmail ) ) {
-			wfDeprecated(
-				'Using $ceAllowConfirmedEmail is deprecated, ' .
-				'please migrate to $wgAllowConfirmedEmail as a replacement.' );
-			$wgAllowConfirmedEmail = $ceAllowConfirmedEmail;
 		}
 	}
 

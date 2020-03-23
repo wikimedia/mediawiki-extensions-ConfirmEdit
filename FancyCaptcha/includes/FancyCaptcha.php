@@ -399,7 +399,7 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		$file = $this->getBackend()->getRootStoragePath() . '/captcha-render/';
 		for ( $i = 0; $i < $wgCaptchaDirectoryLevels; $i++ ) {
-			$file .= $hash{ $i } . '/';
+			$file .= $hash[ $i ] . '/';
 		}
 		$file .= "image_{$salt}_{$hash}.png";
 

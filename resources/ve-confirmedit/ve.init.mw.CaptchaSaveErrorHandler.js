@@ -110,7 +110,7 @@ mw.libs.ve.targetLoader.addPlugin( function () {
 
 		// ProcessDialog's error system isn't great for this yet.
 		target.saveDialog.clearMessage( 'api-save-error' );
-		target.saveDialog.showMessage( 'api-save-error', $captchaDiv );
+		target.saveDialog.showMessage( 'api-save-error', $captchaDiv, { wrap: false } );
 		target.saveDialog.popPending();
 
 		// Emit event for tracking. TODO: This is a bad design

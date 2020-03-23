@@ -48,7 +48,7 @@ mw.libs.ve.targetLoader.addPlugin( function () {
 				if ( self.widgetId ) {
 					window.grecaptcha.reset( self.widgetId );
 				} else {
-					target.saveDialog.showMessage( 'api-save-error', $container );
+					target.saveDialog.showMessage( 'api-save-error', $container, { wrap: false } );
 					self.widgetId = window.grecaptcha.render( $container[ 0 ], {
 						sitekey: siteKey,
 						callback: function () {

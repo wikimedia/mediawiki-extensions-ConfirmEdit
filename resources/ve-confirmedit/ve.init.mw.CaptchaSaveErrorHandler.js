@@ -44,7 +44,8 @@ mw.libs.ve.targetLoader.addPlugin( function () {
 
 		// Register extra fields
 		target.saveFields.wpCaptchaId = function () {
-			return captchaData.id;
+			// 'ext.confirmEdit.fancyCaptcha' can update this value if the "Refresh" button is used
+			return $captchaImg ? $captchaImg.data( 'captchaId' ) : captchaData.id;
 		};
 		target.saveFields.wpCaptchaWord = function () {
 			return captchaInput.getValue();
@@ -71,6 +72,7 @@ mw.libs.ve.targetLoader.addPlugin( function () {
 			$captchaParagraph.append( mw.message( 'fancycaptcha-edit' ).parseDom() );
 			$captchaImg = $( '<img>' )
 				.attr( 'src', captchaData.url )
+				.data( 'captchaId', captchaData.id )
 				.addClass( 'fancycaptcha-image' )
 				.on( 'load', onCaptchaLoad );
 			$captchaDiv.append(

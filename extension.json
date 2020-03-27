@@ -35,6 +35,11 @@
 	"AvailableRights": [
 		"skipcaptcha"
 	],
+	"GrantPermissions": {
+		"basic": {
+			"skipcaptcha": true
+		}
+	},
 	"ExtensionFunctions": [
 		"ConfirmEditHooks::confirmEditSetup"
 	],

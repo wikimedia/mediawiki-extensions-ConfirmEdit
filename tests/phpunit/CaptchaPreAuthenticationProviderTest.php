@@ -101,7 +101,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 	public function testTestForAuthentication( $req, $isBadLoginTriggered,
 		$isBadLoginPerUserTriggered, $result
 	) {
-		$this->setMwHook( 'PingLimiter', function ( $user, $action, &$result ) {
+		$this->setTemporaryHook( 'PingLimiter', function ( $user, $action, &$result ) {
 			$result = false;
 			return false;
 		} );
@@ -141,7 +141,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 	 * @dataProvider provideTestForAccountCreation
 	 */
 	public function testTestForAccountCreation( $req, $creator, $result, $disableTrigger = false ) {
-		$this->setMwHook( 'PingLimiter', function ( $user, $action, &$result ) {
+		$this->setTemporaryHook( 'PingLimiter', function ( $user, $action, &$result ) {
 			$result = false;
 			return false;
 		} );
@@ -225,17 +225,18 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 		$provider->setManager( AuthManager::singleton() );
 		$providerAccess = TestingAccessWrapper::newFromObject( $provider );
 
-		foreach ( $attempts as $attempt ) {
-			if ( !empty( $attempts[3] ) ) {
-				$this->setMwHook( 'PingLimiter', function ( &$user, $action, &$result ) {
+		$disablePingLimiter = false;
+		$this->setTemporaryHook( 'PingLimiter',
+			function ( &$user, $action, &$result ) use ( &$disablePingLimiter ) {
+				if ( $disablePingLimiter ) {
 					$result = false;
 					return false;
-				} );
-			} else {
-				$this->setMwHook( 'PingLimiter', function () {
-				} );
+				}
+				return null;
 			}
-
+		);
+		foreach ( $attempts as $attempt ) {
+			$disablePingLimiter = !empty( $attempts[3] );
 			$captcha = new SimpleCaptcha();
 			CaptchaStore::get()->store( '345', [ 'question' => '7+7', 'answer' => '14' ] );
 			$success = $providerAccess->verifyCaptcha( $captcha, [ $attempts[0] ], $attempts[1] );
@@ -292,13 +293,4 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 		$this->setMwGlobals( 'wgCaptchaTriggers', $captchaTriggers );
 	}
 
-	/**
-	 * Set a $wgHooks handler for a given hook and remove all other handlers (though not ones
-	 * set via Hooks::register). The original state will be restored after the test.
-	 * @param string $hook Hook name
-	 * @param callable $callback Hook method
-	 */
-	protected function setMwHook( $hook, callable $callback ) {
-		$this->mergeMwGlobalArrayValue( 'wgHooks', [ $hook => $callback ] );
-	}
 }

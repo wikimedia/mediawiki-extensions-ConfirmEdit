@@ -2,6 +2,7 @@
 
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthManager;
+use MediaWiki\MediaWikiServices;
 
 /**
  * FancyCaptcha for displaying captchas precomputed by captcha.py
@@ -18,7 +19,8 @@ class FancyCaptcha extends SimpleCaptcha {
 		global $wgCaptchaFileBackend, $wgCaptchaDirectory;
 
 		if ( $wgCaptchaFileBackend ) {
-			return FileBackendGroup::singleton()->get( $wgCaptchaFileBackend );
+			return MediaWikiServices::getInstance()->getFileBackendGroup()
+				->get( $wgCaptchaFileBackend );
 		} else {
 			static $backend = null;
 			if ( !$backend ) {

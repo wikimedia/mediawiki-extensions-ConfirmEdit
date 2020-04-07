@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"1917 Ekim Devrimi",
 			"Gorizon",
-			"Mirzali",
-			"Xoser",
-			"Kumkumuk",
 			"Gırd",
-			"1917 Ekim Devrimi"
+			"Kumkumuk",
+			"Mirzali",
+			"Xoser"
 		]
 	},
 	"fancycaptcha-desc": "Generatorê CAPTCHA ra vurnayışan raşt kerê",

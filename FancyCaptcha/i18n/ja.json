@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"2nd-player",
+			"Afaz",
 			"Aotake",
 			"Fryed-peach",
 			"Marine-Blue",
 			"Shirayuki",
 			"Takot",
-			"2nd-player",
-			"Whym",
-			"Afaz"
+			"Whym"
 		]
 	},
 	"fancycaptcha-desc": "Confirm Edit 用の装飾的な CAPTCHA ジェネレーター",

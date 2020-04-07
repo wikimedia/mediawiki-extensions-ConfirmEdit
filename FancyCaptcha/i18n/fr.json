@@ -2,15 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Crochet.david",
+			"Framawiki",
 			"Gomoko",
 			"IAlex",
 			"Metroitendo",
 			"Sherbrooke",
+			"Thibaut120094",
 			"Urhixidur",
 			"Verdy p",
-			"Wladek92",
-			"Thibaut120094",
-			"Framawiki"
+			"Wladek92"
 		]
 	},
 	"fancycaptcha-desc": "Générateur d’images CAPTCHA anti-robots demandant une confirmation humaine des modifications.",

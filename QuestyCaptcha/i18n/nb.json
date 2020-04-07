@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helland",
-			"Nghtwlkr",
-			"Simny",
 			"Danmichaelo",
-			"Jon Harald Søby"
+			"Helland",
+			"Jon Harald Søby",
+			"Nghtwlkr",
+			"Simny"
 		]
 	},
 	"questycaptcha-desc": "Questy CAPTCHA-generator for Confirm Edit",

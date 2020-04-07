@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cwlin0416",
 			"Horacewai2",
 			"Justincheng12345",
-			"Liuxinyu970226",
-			"Waihorace",
-			"Cwlin0416",
+			"Kly",
 			"LNDDYL",
+			"Liuxinyu970226",
 			"Suchichi02",
-			"Kly"
+			"Waihorace"
 		]
 	},
 	"fancycaptcha-desc": "用於確認編輯的花俏型驗證碼產生器",

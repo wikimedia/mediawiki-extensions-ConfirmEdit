@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Albertas",
 			"Eitvys200",
 			"Garas",
 			"Homo",
 			"Matasg",
-			"Albertas",
-			"Zygimantus",
-			"Tomasdd"
+			"Tomasdd",
+			"Zygimantus"
 		]
 	},
 	"captcha-edit": "Kad redaguotumėte šį straipsnį, išspręskite pateiktą užduotį ir įveskite atsakymą į laukelį ([[Special:Captcha/help|daugiau informacijos]]):",

@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Athena in Wonderland",
 			"Crazymadlover",
-			"Giro720",
-			"Hamilton Abreu",
 			"Fúlvio",
-			"Athena in Wonderland"
+			"Giro720",
+			"Hamilton Abreu"
 		]
 	},
 	"questycaptcha-desc": "Gerador de Questy CAPTCHA para Confirm Edit",

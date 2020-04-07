@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Framawiki",
 			"Gomoko",
 			"IAlex",
 			"Nicolas NALLET",
-			"Verdy p",
 			"Urhixidur",
-			"Framawiki"
+			"Verdy p"
 		]
 	},
 	"questycaptcha-desc": "Générateur de questions CAPTCHA pour confirmer les modifications",

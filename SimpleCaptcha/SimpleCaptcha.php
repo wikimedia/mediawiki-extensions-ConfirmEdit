@@ -2,6 +2,9 @@
 
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionAccessException;
+use MediaWiki\Revision\RevisionLookup;
+use MediaWiki\Revision\SlotRecord;
 use Wikimedia\IPUtils;
 
 /**
@@ -1092,13 +1095,21 @@ class SimpleCaptcha {
 	 * @return string
 	 * @private
 	 */
-	private function loadText( $title, $section, $flags = Revision::READ_LATEST ) {
-		$rev = Revision::newFromTitle( $title, 0, $flags );
-		if ( $rev === null ) {
+	private function loadText( $title, $section, $flags = RevisionLookup::READ_LATEST ) {
+		$revRecord = MediaWikiServices::getInstance()
+			->getRevisionLookup()
+			->getRevisionByTitle( $title, 0, $flags );
+
+		if ( $revRecord === null ) {
 			return "";
 		}
 
-		$content = $rev->getContent();
+		try {
+			$content = $revRecord->getContent( SlotRecord::MAIN );
+		} catch ( RevisionAccessException $e ) {
+			return '';
+		}
+
 		$text = ContentHandler::getContentText( $content );
 		if ( $section !== '' ) {
 			return MediaWikiServices::getInstance()->getParser()

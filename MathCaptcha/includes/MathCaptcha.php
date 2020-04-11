@@ -109,7 +109,7 @@ class MathCaptcha extends SimpleCaptcha {
 		$req = AuthenticationRequest::getRequestByClass(
 			$requests,
 			CaptchaAuthenticationRequest::class,
-				true
+			true
 		);
 		if ( !$req ) {
 			return;

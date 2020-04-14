@@ -12,6 +12,9 @@ class CaptchaCacheStore extends CaptchaStore {
 		$this->cache = MediaWikiServices::getInstance()->getMainObjectStash();
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function store( $index, $info ) {
 		global $wgCaptchaSessionExpiration;
 
@@ -23,11 +26,17 @@ class CaptchaCacheStore extends CaptchaStore {
 		);
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function retrieve( $index ) {
 		$cache = $this->cache;
 		return $cache->get( $cache->makeKey( 'captcha', $index ) ) ?: false;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function clear( $index ) {
 		$cache = $this->cache;
 		$cache->delete( $cache->makeKey( 'captcha', $index ) );

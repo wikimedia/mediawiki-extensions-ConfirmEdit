@@ -188,21 +188,33 @@ HTML;
 		return true;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getError() {
 		return $this->error;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function storeCaptcha( $info ) {
 		// ReCaptcha is stored by Google; the ID will be generated at that time as well, and
 		// the one returned here won't be used. Just pretend this worked.
 		return 'not used';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function retrieveCaptcha( $index ) {
 		// just pretend it worked
 		return [ 'index' => $index ];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getCaptcha() {
 		// ReCaptcha is handled by frontend code + an external provider; nothing to do here.
 		return [];

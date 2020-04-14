@@ -7,6 +7,9 @@ use MediaWiki\Auth\AuthManager;
 use MediaWiki\Logger\LoggerFactory;
 
 class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider {
+	/**
+	 * @inheritDoc
+	 */
 	public function getAuthenticationRequests( $action, array $options ) {
 		$captcha = ConfirmEditHooks::getInstance();
 		$user = User::newFromName( $options['username'] );
@@ -70,6 +73,9 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function testForAuthentication( array $reqs ) {
 		$captcha = ConfirmEditHooks::getInstance();
 		$username = AuthenticationRequest::getUsernameFromRequests( $reqs );
@@ -101,6 +107,9 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		return $success ? Status::newGood() : $this->makeError( 'wrongpassword', $captcha );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function testForAccountCreation( $user, $creator, array $reqs ) {
 		$captcha = ConfirmEditHooks::getInstance();
 
@@ -126,6 +135,9 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		return Status::newGood();
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function postAuthentication( $user, AuthenticationResponse $response ) {
 		$captcha = ConfirmEditHooks::getInstance();
 		switch ( $response->status ) {

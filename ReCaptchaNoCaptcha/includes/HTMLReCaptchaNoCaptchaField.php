@@ -27,6 +27,9 @@ class HTMLReCaptchaNoCaptchaField extends HTMLFormField {
 		$this->mName = 'g-recaptcha-response';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getInputHTML( $value ) {
 		$out = $this->mParent->getOutput();
 		$lang = htmlspecialchars( urlencode( $this->mParent->getLanguage()->getCode() ) );

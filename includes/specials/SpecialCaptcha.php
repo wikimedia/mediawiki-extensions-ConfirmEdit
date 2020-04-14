@@ -5,6 +5,9 @@ class SpecialCaptcha extends UnlistedSpecialPage {
 		parent::__construct( 'Captcha' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $par ) {
 		$this->setHeaders();
 

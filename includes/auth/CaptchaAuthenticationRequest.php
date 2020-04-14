@@ -28,6 +28,9 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 		$this->captchaData = $data;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function loadFromSubmission( array $data ) {
 		$success = parent::loadFromSubmission( $data );
 		if ( $success ) {
@@ -82,10 +85,17 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 		return $fields;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getMetadata() {
 		return ( ConfirmEditHooks::getInstance() )->describeCaptchaType();
 	}
 
+	/**
+	 * @param array $data
+	 * @return CaptchaAuthenticationRequest
+	 */
 	public static function __set_state( $data ) {
 		$ret = new static( '', [] );
 		foreach ( $data as $k => $v ) {

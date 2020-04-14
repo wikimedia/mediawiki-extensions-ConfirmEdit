@@ -11,11 +11,17 @@ class ReCaptchaNoCaptchaAuthenticationRequest extends CaptchaAuthenticationReque
 		parent::__construct( '', [] );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function loadFromSubmission( array $data ) {
 		// unhack the hack in parent
 		return AuthenticationRequest::loadFromSubmission( $data );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getFieldInfo() {
 		$fieldInfo = parent::getFieldInfo();
 

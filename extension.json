@@ -76,6 +76,7 @@
 		},
 		"ext.confirmEdit.visualEditor": {
 			"scripts": "ve-confirmedit/ve.init.mw.CaptchaSaveErrorHandler.js",
+			"dependencies": "ext.confirmEdit.CaptchaInputWidget",
 			"targets": [
 				"desktop",
 				"mobile"
@@ -106,7 +107,8 @@
 		"APIGetAllowedParams": "ConfirmEditHooks::onAPIGetAllowedParams",
 		"TitleReadWhitelist": "ConfirmEditHooks::onTitleReadWhitelist",
 		"AlternateEditPreview": "ConfirmEditHooks::onAlternateEditPreview",
-		"AuthChangeFormFields": "ConfirmEditHooks::onAuthChangeFormFields"
+		"AuthChangeFormFields": "ConfirmEditHooks::onAuthChangeFormFields",
+		"ResourceLoaderRegisterModules": "ConfirmEditHooks::onResourceLoaderRegisterModules"
 	},
 	"AuthManagerAutoConfig": {
 		"preauth": {

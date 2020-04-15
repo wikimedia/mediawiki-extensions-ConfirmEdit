@@ -249,4 +249,41 @@ class ConfirmEditHooks {
 
 		return false;
 	}
+
+	/**
+	 * ResourceLoaderRegisterModules hook handler.
+	 *
+	 * @param ResourceLoader $resourceLoader
+	 */
+	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
+		$extensionRegistry = ExtensionRegistry::getInstance();
+		$messages = [];
+
+		$messages[] = 'colon-separator';
+		$messages[] = 'captcha-edit';
+		$messages[] = 'captcha-label';
+
+		if ( $extensionRegistry->isLoaded( 'QuestyCaptcha' ) ) {
+			$messages[] = 'questycaptcha-edit';
+		}
+
+		if ( $extensionRegistry->isLoaded( 'FancyCaptcha' ) ) {
+			$messages[] = 'fancycaptcha-edit';
+			$messages[] = 'fancycaptcha-reload-text';
+			$messages[] = 'fancycaptcha-imgcaptcha-ph';
+		}
+
+		$resourceLoader->register( [
+			'ext.confirmEdit.CaptchaInputWidget' => [
+				'localBasePath' => dirname( __DIR__ ),
+				'remoteExtPath' => 'ConfirmEdit',
+				'scripts' => 'resources/libs/ext.confirmEdit.CaptchaInputWidget.js',
+				'styles' => 'resources/libs/ext.confirmEdit.CaptchaInputWidget.less',
+				'messages' => $messages,
+				'dependencies' => 'oojs-ui-core',
+				'targets' => [ 'desktop', 'mobile' ],
+			]
+		] );
+	}
+
 }

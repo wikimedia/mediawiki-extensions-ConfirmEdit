@@ -22,6 +22,7 @@ in a stylized way
 questions defined by the administrator(s)
 * ReCaptchaNoCaptcha - users have to solve different types of visually or
 audially tasks.
+* hCaptcha - users have to solve visual tasks
 
 ### License
 

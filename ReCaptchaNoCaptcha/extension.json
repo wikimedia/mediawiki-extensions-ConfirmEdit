@@ -49,8 +49,12 @@
 	"Hooks": {
 		"ResourceLoaderGetConfigVars": "ReCaptchaNoCaptchaHooks::onResourceLoaderGetConfigVars"
 	},
-	"VisualEditorPluginModules": [
-		"ext.confirmEdit.reCaptchaNoCaptcha.visualEditor"
-	],
+	"attributes": {
+		"VisualEditor": {
+			"PluginModules": [
+				"ext.confirmEdit.reCaptchaNoCaptcha.visualEditor"
+			]
+		}
+	},
 	"manifest_version": 2
 }

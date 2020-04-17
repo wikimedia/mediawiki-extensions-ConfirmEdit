@@ -221,15 +221,6 @@ HTML;
 	}
 
 	/**
-	 * @param array $captchaData
-	 * @param string $id
-	 * @return Message
-	 */
-	public function getCaptchaInfo( $captchaData, $id ) {
-		return wfMessage( 'renocaptcha-info' );
-	}
-
-	/**
 	 * @return ReCaptchaNoCaptchaAuthenticationRequest
 	 */
 	public function createAuthenticationRequest() {

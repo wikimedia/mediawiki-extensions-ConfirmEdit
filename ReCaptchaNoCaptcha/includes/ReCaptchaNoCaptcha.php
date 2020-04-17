@@ -31,9 +31,10 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
   <div>
     <div style="width: 302px; height: 422px; position: relative;">
       <div style="width: 302px; height: 422px; position: absolute;">
-        <iframe src="https://www.google.com/recaptcha/api/fallback?k={$htmlUrlencoded}&hl={$lang}"
-                frameborder="0" scrolling="no"
-                style="width: 302px; height:422px; border-style: none;">
+        <iframe
+        	src="https://www.recaptcha.net/recaptcha/api/fallback?k={$htmlUrlencoded}&hl={$lang}"
+            frameborder="0" scrolling="no"
+            style="width: 302px; height:422px; border-style: none;">
         </iframe>
       </div>
     </div>
@@ -55,7 +56,7 @@ HTML;
 				// Insert reCAPTCHA script, in display language, if available.
 				// Language falls back to the browser's display language.
 				// See https://developers.google.com/recaptcha/docs/faq
-				"<script src=\"https://www.google.com/recaptcha/api.js?hl={$lang}\" async defer></script>"
+				"<script src=\"https://www.recaptcha.net/recaptcha/api.js?hl={$lang}\" async defer></script>"
 			]
 		];
 	}
@@ -105,7 +106,7 @@ HTML;
 	protected function passCaptcha( $_, $word ) {
 		global $wgRequest, $wgReCaptchaSecretKey, $wgReCaptchaSendRemoteIP;
 
-		$url = 'https://www.google.com/recaptcha/api/siteverify';
+		$url = 'https://www.recaptcha.net/recaptcha/api/siteverify';
 		// Build data to append to request
 		$data = [
 			'secret' => $wgReCaptchaSecretKey,

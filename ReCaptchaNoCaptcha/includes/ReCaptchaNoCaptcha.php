@@ -63,6 +63,13 @@ HTML;
 	}
 
 	/**
+	 * @return string[]
+	 */
+	public static function getCSPUrls() {
+		return [ 'https://www.recaptcha.net/recaptcha/api.js' ];
+	}
+
+	/**
 	 * @param Status|array|string $info
 	 */
 	protected function logCheckError( $info ) {

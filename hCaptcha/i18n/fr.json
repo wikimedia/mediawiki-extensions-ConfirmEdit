@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gomoko",
+			"Wladek92"
+		]
+	},
+	"hcaptcha-desc": "Module [https://www.hcaptcha.com/ hCaptcha]pour Confirm Edit",
+	"hcaptcha-edit": "Pour protéger le wiki contre les modifications pourries automatisées, nous vous prions de bien vouloir résoudre le hCaptcha suivant :",
+	"hcaptcha-addurl": "Votre modification inclut de nouveaux liens externes. Pour protéger le wiki contre le pourriel automatisé, nous vous prions de bien vouloir résoudre le CAPTCHA suivant :",
+	"hcaptcha-badlogin": "Pour protéger le wiki contre les tentatives de cassage de mot de passe automatisées, nous vous prions de bien vouloir résoudre le hCaptcha suivant :",
+	"hcaptcha-createaccount-fail": "Il semble que vous n'ayiez pas résolu le hCAPTCHA.",
+	"hcaptcha-create": "Afin de protéger le wiki contre la création automatique des pages, nous vous demandons de bien vouloir résoudre le hCaptcha suivant :"
+}

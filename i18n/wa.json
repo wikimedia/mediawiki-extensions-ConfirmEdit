@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"BrokenArrow",
+			"Reptilien.19831209BE1",
 			"Srtxg"
 		]
 	},
 	"captcha-edit": "Po candjî cisse pådje ci, vos dvoz fé l' carcul simpe chal pa dzo eyet scrire li rzultat dins l' boesse ([[Special:Captcha/help|pus di racsegnes]]):",
 	"captcha-edit-fail": "Côde d' acertinaedje (CAPTCHA) ki manke ou nén corek.",
 	"captcha-desc": "Fornixh des tecnikes di waerantixhaedje pa passete d' acertinaedje (''captcha'')  siconte les spams et les sayes d' advinaedje di screts.",
-	"captcha-label": "Côde d' acertinaedje (CAPTCHA)",
+	"captcha-label": "Côde d’&nbsp;acertinaedje (CAPTCHA)",
 	"captcha-addurl": "Dins vos candjmints i gn a des dfoûtrinnès hårdêyes (URL).\nPo mete li wiki a houte des robots di spam, nos vs dimandans di bén vleur acertiner ki vos estoz bén ene djin, po çoula dinez l' rizultat di ç' carcul simpe ci po poleur schaper l' pådje ([[Special:Captcha/help|pus di racsegnes]]):",
 	"captcha-badlogin": "Po mete li wiki a houte des des robots ki sayèt d' adviner les screts, nos  vs dimandans d' bén vleur acertiner ki vos estoz bén ene djin, po çoula dinez l' rizultat di ç' carcul simpe ci ([[Special:Captcha/help|pus di racsegnes]]):",
 	"captcha-createaccount": "Po mete li wiki a houte des des robots k' ahivèt des contes otomaticmint, nos  vs dimandans d' bén vleur acertiner ki vos estoz bén ene djin, po çoula dinez l' rizultat di ç' carcul simpe ci ([[Special:Captcha/help|pus di racsegnes]]):",

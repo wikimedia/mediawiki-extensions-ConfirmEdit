@@ -20,6 +20,10 @@
 		"CaptchaClass": {
 			"value": "MediaWiki\\Extensions\\ConfirmEdit\\hCaptcha\\HCaptcha"
 		},
+		"HCaptchaProxy" : {
+			"description": "Proxy to use for outbound PHP web requests to hCaptcha servers",
+			"value": false
+		},
 		"HCaptchaSiteKey": {
 			"description": "Sitekey from hCaptcha (requires creating an account)",
 			"value": ""

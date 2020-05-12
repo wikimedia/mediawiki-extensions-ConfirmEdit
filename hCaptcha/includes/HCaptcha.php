@@ -8,8 +8,8 @@ use ConfirmEditHooks;
 use FormatJson;
 use Html;
 use MediaWiki\Auth\AuthenticationRequest;
+use MediaWiki\MediaWikiServices;
 use Message;
-use MWHttpRequest;
 use RawMessage;
 use SimpleCaptcha;
 use Status;
@@ -82,7 +82,7 @@ class HCaptcha extends SimpleCaptcha {
 	 * @return bool
 	 */
 	protected function passCaptcha( $_, $token ) {
-		global $wgRequest, $wgHCaptchaSecretKey, $wgHCaptchaSendRemoteIP;
+		global $wgRequest, $wgHCaptchaSecretKey, $wgHCaptchaSendRemoteIP, $wgHCaptchaProxy;
 
 		$url = 'https://hcaptcha.com/siteverify';
 		$data = [
@@ -92,13 +92,19 @@ class HCaptcha extends SimpleCaptcha {
 		if ( $wgHCaptchaSendRemoteIP ) {
 			$data['remoteip'] = $wgRequest->getIP();
 		}
-		$request = MWHttpRequest::factory(
-			$url,
-			[
-				'method' => 'POST',
-				'postData' => $data,
-			]
-		);
+
+		$options = [
+			'method' => 'POST',
+			'postData' => $data,
+		];
+
+		if ( $wgHCaptchaProxy ) {
+			$options['proxy'] = $wgHCaptchaProxy;
+		}
+
+		$request = MediaWikiServices::getInstance()->getHttpRequestFactory()
+			->create( $url, $options, __METHOD__ );
+
 		$status = $request->execute();
 		if ( !$status->isOK() ) {
 			$this->error = 'http';

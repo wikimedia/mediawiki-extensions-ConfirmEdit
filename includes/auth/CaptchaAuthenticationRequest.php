@@ -46,7 +46,6 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 
 	/**
 	 * @inheritDoc
-	 * @suppress SecurityCheck-DoubleEscaped T202112
 	 */
 	public function getFieldInfo() {
 		$captcha = ConfirmEditHooks::getInstance();

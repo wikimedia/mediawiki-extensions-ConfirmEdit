@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Auth\AuthenticationRequest;
+use MediaWiki\MediaWikiServices;
 
 class ReCaptchaNoCaptcha extends SimpleCaptcha {
 	// used for renocaptcha-edit, renocaptcha-addurl, renocaptcha-badlogin, renocaptcha-createaccount,
@@ -116,7 +117,8 @@ HTML;
 			$data['remoteip'] = $wgRequest->getIP();
 		}
 		$url = wfAppendQuery( $url, $data );
-		$request = MWHttpRequest::factory( $url, [ 'method' => 'GET' ] );
+		$request = MediaWikiServices::getInstance()->getHttpRequestFactory()
+			->create( $url, [ 'method' => 'GET' ], __METHOD__ );
 		$status = $request->execute();
 		if ( !$status->isOK() ) {
 			$this->error = 'http';

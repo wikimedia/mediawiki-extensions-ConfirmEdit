@@ -394,7 +394,7 @@ class SimpleCaptcha {
 			);
 			// And then store it in cache for one day. This cache is cleared on
 			// modifications to the whitelist page.
-			// @see ConfirmEditHooks::onPageContentSaveComplete()
+			// @see ConfirmEditHooks::onPageSaveComplete()
 			$cache->set( $cacheKey, $whitelist, 86400 );
 		} else {
 			// Whitelist from the cache

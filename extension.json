@@ -101,7 +101,7 @@
 		"EditPageBeforeEditButtons": "ConfirmEditHooks::confirmEditPage",
 		"EmailUserForm": "ConfirmEditHooks::injectEmailUser",
 		"EmailUser": "ConfirmEditHooks::confirmEmailUser",
-		"PageContentSaveComplete": "ConfirmEditHooks::onPageContentSaveComplete",
+		"PageSaveComplete": "ConfirmEditHooks::onPageSaveComplete",
 		"EditPage::showEditForm:fields": "ConfirmEditHooks::showEditFormFields",
 		"EditFilterMergedContent": "ConfirmEditHooks::confirmEditMerged",
 		"APIGetAllowedParams": "ConfirmEditHooks::onAPIGetAllowedParams",

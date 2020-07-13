@@ -1,8 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cedric31",
-			"Nicolas Eynaud"
+			"Cedric31"
 		]
 	},
 	"captcha-edit": "Per modificar aquesta pagina, vos cal efectuar lo calcul çaijós e n'inscriure lo resultat dins lo camp ([[Special:Captcha/help|Mai d’entresenhas]]) :",

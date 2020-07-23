@@ -510,7 +510,7 @@ class SimpleCaptcha {
 	 * @param Content|string $content
 	 * @param string $section
 	 * @param IContextSource $context
-	 * @param string $oldtext The content of the revision prior to $content When
+	 * @param string|null $oldtext The content of the revision prior to $content When
 	 *  null this will be loaded from the database.
 	 * @return bool true if the captcha should run
 	 */
@@ -858,7 +858,7 @@ class SimpleCaptcha {
 	 * Logic to check if we need to pass a captcha for the current user
 	 * to create a new account, or not
 	 *
-	 * @param User $creatingUser
+	 * @param User|null $creatingUser
 	 * @return bool true to show captcha, false to skip captcha
 	 */
 	public function needCreateAccountCaptcha( User $creatingUser = null ) {

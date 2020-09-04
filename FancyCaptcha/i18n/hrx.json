@@ -1,7 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Iohanen"
+		]
 	},
-	"fancycaptcha-captcha": "Sicherheitsprüfung",
-	"fancycaptcha-imgcaptcha-ph": "Geb den Text ren, den wo du uwe siehst."
+	"fancycaptcha-captcha": "Sicherheitspriefung",
+	"fancycaptcha-imgcaptcha-ph": "Gebb de Text en, de du uff dem Bild siehst."
 }

@@ -67,7 +67,7 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$instance = ConfirmEditHooks::getInstance();
 		if ( !( $instance instanceof FancyCaptcha ) ) {
-			$this->error( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
+			$this->fatalError( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
 		}
 		$backend = $instance->getBackend();
 
@@ -87,7 +87,7 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$tmpDir = wfTempDir() . '/mw-fancycaptcha-' . time() . '-' . wfRandomString( 6 );
 		if ( !wfMkdirParents( $tmpDir ) ) {
-			$this->error( "Could not create temp directory.\n", 1 );
+			$this->fatalError( "Could not create temp directory.\n", 1 );
 		}
 
 		$captchaScript = 'captcha.py';
@@ -118,7 +118,7 @@ class GenerateFancyCaptchas extends Maintenance {
 		if ( $retVal != 0 ) {
 			$this->output( " Failed.\n" );
 			wfRecursiveRemoveDir( $tmpDir );
-			$this->error( "An error occured when running $captchaScript.\n", 1 );
+			$this->fatalError( "An error occured when running $captchaScript.\n", 1 );
 		}
 
 		$captchaTime += microtime( true );

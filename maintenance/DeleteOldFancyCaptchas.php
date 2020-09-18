@@ -49,7 +49,7 @@ class DeleteOldFancyCaptchas extends Maintenance {
 	public function execute() {
 		$instance = ConfirmEditHooks::getInstance();
 		if ( !( $instance instanceof FancyCaptcha ) ) {
-			$this->error( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
+			$this->fatalError( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
 		}
 
 		$countAct = $instance->getCaptchaCount();

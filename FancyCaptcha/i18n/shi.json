@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amara-Amaziɣ"
+			"Amara-Amaziɣ",
+			"Ayour2002",
+			"Lhoussine AIT TAYFST"
 		]
 	},
-	"fancycaptcha-reload-text": "ⵙⵎⴰⵢⵏⵓ"
+	"fancycaptcha-captcha": "Ssided sselamt",
+	"fancycaptcha-imgcaptcha-ph": "Ssekcem aḍṛiṣ atsaqqult g tisfawt",
+	"fancycaptcha-reload-text": "Smaynu"
 }

@@ -109,7 +109,7 @@ HTML;
 			$data['remoteip'] = $wgRequest->getIP();
 		}
 		$url = wfAppendQuery( $url, $data );
-		$request = MWHttpRequest::factory( $url, [ 'method' => 'GET' ] );
+		$request = MWHttpRequest::factory( $url, [ 'method' => 'POST' ] );
 		$status = $request->execute();
 		if ( !$status->isOK() ) {
 			$this->error = 'http';

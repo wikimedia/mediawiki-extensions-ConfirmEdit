@@ -13,7 +13,7 @@ use Wikimedia\IPUtils;
 class SimpleCaptcha {
 	protected static $messagePrefix = 'captcha-';
 
-	/** @var boolean|null Was the CAPTCHA already passed and if yes, with which result? */
+	/** @var bool|null Was the CAPTCHA already passed and if yes, with which result? */
 	private $captchaSolved = null;
 
 	/**

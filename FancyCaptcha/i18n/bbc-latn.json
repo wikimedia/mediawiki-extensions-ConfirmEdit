@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Herryz",
 			"Salomo Christian Hutajulu"
 		]
 	},
-	"fancycaptcha-imgcaptcha-ph": "Pamasukhon hamu ma teks na idaonmu di bagasan gambar"
+	"fancycaptcha-captcha": "Paresohon keamanan",
+	"fancycaptcha-imgcaptcha-ph": "Pamasukhon hamu ma teks na idaonmu di bagasan gambar",
+	"fancycaptcha-reload-text": "Paulak muse"
 }

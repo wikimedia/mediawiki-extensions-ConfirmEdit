@@ -224,7 +224,6 @@ class ConfirmEditHooks {
 				$validity = $ctx->msg( 'confirmedit-preview-invalid' )->escaped();
 				$css = 'notvalid';
 			}
-			// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 			$html .= Html::openElement( 'tr' ) .
 				Html::element(
 					'td',

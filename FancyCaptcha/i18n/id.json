@@ -9,6 +9,7 @@
 			"Rachmat04"
 		]
 	},
+	"fancycaptcha-desc": "Generator Fancy CAPTCHA untuk Confirm Edit",
 	"fancycaptcha-addurl": "Suntingan Anda mencantumkan pranala luar baru. Untuk melindung wiki ini dari spam otomatis, kami memohon Anda memasukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):",
 	"fancycaptcha-badlogin": "Untuk melindungi wiki dari pemecah kata kunci otomatis, kami memohon Anda memasukkan kata di bawah ini ke dalam kotak yang tersedia ([[Special:Captcha/help|info lengkap]]):",
 	"fancycaptcha-captcha": "Pemeriksaan keamanan",

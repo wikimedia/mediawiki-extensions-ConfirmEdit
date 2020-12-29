@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Lancine.kounfantoh.fofana",
 			"Lanciné.kounfantoh.fofana"
 		]
 	},
-	"captcha-label": "ߛߏ߰ߙߏ߬ߛߊ߯ߙߊ"
+	"captcha-label": "ߛߏ߰ߙߏ߬ߛߊ߯ߙߊ",
+	"confirmedit-preview-content": "ߞߣߐߘߐ",
+	"confirmedit-preview-validity": "ߛߕߊ",
+	"confirmedit-preview-valid": "ߓߍ߲߬ߣߍ߲",
+	"confirmedit-preview-invalid": "ߓߍ߲߬ߓߊߟߌ"
 }

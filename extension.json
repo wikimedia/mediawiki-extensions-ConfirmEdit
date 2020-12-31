@@ -97,18 +97,24 @@
 		"localBasePath": "resources",
 		"remoteExtPath": "ConfirmEdit/resources"
 	},
+	"HookHandlers": {
+		"ConfirmEditHooks": {
+			"class": "ConfirmEditHooks"
+		}
+	},
 	"Hooks": {
-		"EditPageBeforeEditButtons": "ConfirmEditHooks::confirmEditPage",
-		"EmailUserForm": "ConfirmEditHooks::injectEmailUser",
-		"EmailUser": "ConfirmEditHooks::confirmEmailUser",
-		"PageSaveComplete": "ConfirmEditHooks::onPageSaveComplete",
+		"EditPageBeforeEditButtons": "ConfirmEditHooks",
+		"EmailUserForm": "ConfirmEditHooks",
+		"EmailUser": "ConfirmEditHooks",
+		"PageSaveComplete": "ConfirmEditHooks",
+		"TitleReadWhitelist": "ConfirmEditHooks",
+		"AlternateEditPreview": "ConfirmEditHooks",
+		"ResourceLoaderRegisterModules": "ConfirmEditHooks",
+
 		"EditPage::showEditForm:fields": "ConfirmEditHooks::showEditFormFields",
 		"EditFilterMergedContent": "ConfirmEditHooks::confirmEditMerged",
 		"APIGetAllowedParams": "ConfirmEditHooks::onAPIGetAllowedParams",
-		"TitleReadWhitelist": "ConfirmEditHooks::onTitleReadWhitelist",
-		"AlternateEditPreview": "ConfirmEditHooks::onAlternateEditPreview",
-		"AuthChangeFormFields": "ConfirmEditHooks::onAuthChangeFormFields",
-		"ResourceLoaderRegisterModules": "ConfirmEditHooks::onResourceLoaderRegisterModules"
+		"AuthChangeFormFields": "ConfirmEditHooks::onAuthChangeFormFields"
 	},
 	"AuthManagerAutoConfig": {
 		"preauth": {

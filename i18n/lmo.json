@@ -4,7 +4,7 @@
 			"Salvemm el lombard"
 		]
 	},
-	"captcha-edit": "Per modifegà quela pagina chì a gh'è besogn de risolv l'atività chì de sota e met denter la risposta ind la casella ([[Special:Captcha/help|per savenn pussee]]):",
+	"captcha-edit": "Per modifegà quella pagina chì a gh'è besogn de risolv l'atività chì de sota e met denter la risposta ind la casella ([[Special:Captcha/help|per savenn pussee]]):",
 	"captcha-edit-fail": "Codes de verifica sbagliad o mancant",
 	"captcha-desc": "El forniss di tecnich CAPTCHA per la protezzion contra del spam e 'l tentatif de induvinà la parola d'ordin",
 	"captcha-label": "CAPTCHA",
@@ -32,5 +32,5 @@
 	"confirmedit-preview-validity": "Validità",
 	"confirmedit-preview-valid": "valid",
 	"confirmedit-preview-invalid": "minga valid",
-	"confirmedit-preview-description": "Quella tabella chì la fà vedè la lista di linei in su quela pagina chì e, se l'è un adress IP o un grup de adress IP valid. Se la linea l'è un adress IP valid o un interval de adress IP valid, el vegnarà miss  ind la lista bianca del CAPTCHA, ma i linei minga valid i vegnarann ignorade. Un esempi de interval de adress IP valid el podaria vesser: 69.208.0.0/16 che 'l va de 69.208.0.0 a 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Per savenn pussee]  sora 'l calcol d'un interval de adress IP."
+	"confirmedit-preview-description": "Quella tabella chì la fà vedè la lista di linei in su quella pagina chì e, se l'è un adress IP o un grup de adress IP valid. Se la linea l'è un adress IP valid o un interval de adress IP valid, el vegnarà miss  ind la lista bianca del CAPTCHA, ma i linei minga valid i vegnarann ignorade. Un esempi de interval de adress IP valid el podaria vesser: 69.208.0.0/16 che 'l va de 69.208.0.0 a 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Per savenn pussee]  sora 'l calcol d'un interval de adress IP."
 }

@@ -5,6 +5,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionAccessException;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\User\UserNameUtils;
 use Wikimedia\IPUtils;
 
 /**
@@ -472,7 +473,8 @@ class SimpleCaptcha {
 	 * @return string
 	 */
 	private function badLoginPerUserKey( $username, BagOStuff $cache ) {
-		$username = User::getCanonicalName( $username, 'usable' ) ?: $username;
+		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
+		$username = $userNameUtils->getCanonical( $username, UserNameUtils::RIGOR_USABLE ) ?: $username;
 
 		return $cache->makeGlobalKey(
 			'captcha', 'badlogin', 'user', md5( $username )

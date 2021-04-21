@@ -876,7 +876,6 @@ class SimpleCaptcha {
 			// for the user, which we don't know, when he did it.
 			if ( $this->action === 'edit' ) {
 				$status->fatal(
-					// @phan-suppress-next-line SecurityCheck-DoubleEscaped False positive
 					new RawMessage(
 						Html::element(
 							'div',

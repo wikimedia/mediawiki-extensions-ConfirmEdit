@@ -102,13 +102,13 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 	public function testTestForAuthentication( $req, $isBadLoginTriggered,
 		$isBadLoginPerUserTriggered, $result
 	) {
-		$this->setTemporaryHook( 'PingLimiter', function ( $user, $action, &$result ) {
+		$this->setTemporaryHook( 'PingLimiter', static function ( $user, $action, &$result ) {
 			$result = false;
 			return false;
 		} );
 		CaptchaStore::get()->store( '345', [ 'question' => '2+2', 'answer' => '4' ] );
 		$captcha = $this->getMockBuilder( SimpleCaptcha::class )
-			->setMethods( [ 'isBadLoginTriggered', 'isBadLoginPerUserTriggered' ] )
+			->onlyMethods( [ 'isBadLoginTriggered', 'isBadLoginPerUserTriggered' ] )
 			->getMock();
 		$captcha->expects( $this->any() )->method( 'isBadLoginTriggered' )
 			->willReturn( $isBadLoginTriggered );
@@ -142,7 +142,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 	 * @dataProvider provideTestForAccountCreation
 	 */
 	public function testTestForAccountCreation( $req, $creator, $result, $disableTrigger = false ) {
-		$this->setTemporaryHook( 'PingLimiter', function ( $user, $action, &$result ) {
+		$this->setTemporaryHook( 'PingLimiter', static function ( $user, $action, &$result ) {
 			$result = false;
 			return false;
 		} );
@@ -228,7 +228,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 
 		$disablePingLimiter = false;
 		$this->setTemporaryHook( 'PingLimiter',
-			function ( &$user, $action, &$result ) use ( &$disablePingLimiter ) {
+			static function ( &$user, $action, &$result ) use ( &$disablePingLimiter ) {
 				if ( $disablePingLimiter ) {
 					$result = false;
 					return false;
@@ -288,7 +288,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 	protected function setTriggers( $triggers ) {
 		$types = [ 'edit', 'create', 'sendemail', 'addurl', 'createaccount', 'badlogin',
 			'badloginperuser' ];
-		$captchaTriggers = array_combine( $types, array_map( function ( $type ) use ( $triggers ) {
+		$captchaTriggers = array_combine( $types, array_map( static function ( $type ) use ( $triggers ) {
 			return in_array( $type, $triggers, true );
 		}, $types ) );
 		$this->setMwGlobals( 'wgCaptchaTriggers', $captchaTriggers );

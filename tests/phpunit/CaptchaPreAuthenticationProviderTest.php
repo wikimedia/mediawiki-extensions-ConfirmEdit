@@ -2,14 +2,16 @@
 
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Auth\UsernameAuthenticationRequest;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Tests\Unit\Auth\AuthenticationProviderTestTrait;
 use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers CaptchaPreAuthenticationProvider
  * @group Database
  */
-class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
+class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase {
+	use AuthenticationProviderTestTrait;
+
 	public function setUp() : void {
 		parent::setUp();
 		$this->setMwGlobals( [
@@ -51,7 +53,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 		$request->setCookie( 'UserName', $username );
 
 		$provider = new CaptchaPreAuthenticationProvider();
-		$provider->setManager( MediaWikiServices::getInstance()->getAuthManager() );
+		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 		$reqs = $provider->getAuthenticationRequests( $action, [ 'username' => $username ] );
 		if ( $needsCaptcha ) {
 			$this->assertCount( 1, $reqs );
@@ -83,7 +85,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 		$this->setTriggers( [ 'createaccount' ] );
 		$captcha = new SimpleCaptcha();
 		$provider = new CaptchaPreAuthenticationProvider();
-		$provider->setManager( MediaWikiServices::getInstance()->getAuthManager() );
+		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$reqs = $provider->getAuthenticationRequests( AuthManager::ACTION_CREATE,
 			[ 'username' => 'Foo' ] );
@@ -117,7 +119,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 		$this->setMwGlobals( 'wgCaptcha', $captcha );
 		TestingAccessWrapper::newFromClass( ConfirmEditHooks::class )->instanceCreated = true;
 		$provider = new CaptchaPreAuthenticationProvider();
-		$provider->setManager( MediaWikiServices::getInstance()->getAuthManager() );
+		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$status = $provider->testForAuthentication( $req ? [ $req ] : [] );
 		$this->assertEquals( $result, $status->isGood() );
@@ -150,7 +152,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 		CaptchaStore::get()->store( '345', [ 'question' => '2+2', 'answer' => '4' ] );
 		$user = User::newFromName( 'Foo' );
 		$provider = new CaptchaPreAuthenticationProvider();
-		$provider->setManager( MediaWikiServices::getInstance()->getAuthManager() );
+		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$status = $provider->testForAccountCreation( $user, $creator, $req ? [ $req ] : [] );
 		$this->assertEquals( $result, $status->isGood() );
@@ -176,7 +178,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 		$user = User::newFromName( 'Foo' );
 		$anotherUser = User::newFromName( 'Bar' );
 		$provider = new CaptchaPreAuthenticationProvider();
-		$provider->setManager( MediaWikiServices::getInstance()->getAuthManager() );
+		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$this->assertFalse( $captcha->isBadLoginTriggered() );
 		$this->assertFalse( $captcha->isBadLoginPerUserTriggered( $user ) );
@@ -198,7 +200,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 		$captcha = new SimpleCaptcha();
 		$user = User::newFromName( 'Foo' );
 		$provider = new CaptchaPreAuthenticationProvider();
-		$provider->setManager( MediaWikiServices::getInstance()->getAuthManager() );
+		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$this->assertFalse( $captcha->isBadLoginTriggered() );
 		$this->assertFalse( $captcha->isBadLoginPerUserTriggered( $user ) );
@@ -223,7 +225,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiTestCase {
 			]
 		);
 		$provider = new CaptchaPreAuthenticationProvider();
-		$provider->setManager( MediaWikiServices::getInstance()->getAuthManager() );
+		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 		$providerAccess = TestingAccessWrapper::newFromObject( $provider );
 
 		$disablePingLimiter = false;

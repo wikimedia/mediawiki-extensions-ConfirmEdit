@@ -9,7 +9,7 @@
 		<exclude name="Squiz.Scope.MethodScope.Missing" />
 	</rule>
 	<file>.</file>
-	<arg name="extensions" value="php,php5,inc"/>
+	<arg name="extensions" value="php"/>
 	<arg name="encoding" value="UTF-8"/>
 	<exclude-pattern>ReCaptcha/recaptchalib\.php</exclude-pattern>
 </ruleset>

@@ -1135,7 +1135,7 @@ class SimpleCaptcha {
 			return '';
 		}
 
-		$text = ContentHandler::getContentText( $content );
+		$text = ( $content instanceof TextContent ) ? $content->getText() : null;
 		if ( $section !== '' ) {
 			return MediaWikiServices::getInstance()->getParser()
 				->getSection( $text, $section );

@@ -4,5 +4,8 @@
 			"Adehertogh"
 		]
 	},
-	"fancycaptcha-accountcreate": "Bije ochrana le automatizovanoskero spamoske majines te irinel o lava so hin sikhade pe kada čitros, akor ejla phundrado nevo astalipen ([[Special:Captcha/help|buter informaciji]]):"
+	"fancycaptcha-captcha": "Bidarangitňi kontrola",
+	"fancycaptcha-accountcreate": "Bije ochrana le automatizovanoskero spamoske majines te irinel o lava so hin sikhade pe kada čitros, akor ejla phundrado nevo astalipen ([[Special:Captcha/help|buter informaciji]]):",
+	"fancycaptcha-imgcaptcha-ph": "Irin o tekstos so dikhes pro čitrado",
+	"fancycaptcha-reload-text": "Aver čitrišaga"
 }

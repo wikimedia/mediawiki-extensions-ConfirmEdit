@@ -613,7 +613,7 @@ class SimpleCaptcha {
 				// Get links from the database
 				$oldLinks = $this->getLinksFromTracker( $title );
 				// Share a parse operation with Article::doEdit()
-				$editInfo = $page->prepareContentForEdit( $content );
+				$editInfo = $page->prepareContentForEdit( $content, null, $user );
 				if ( $editInfo->output ) {
 					$newLinks = array_keys( $editInfo->output->getExternalLinks() );
 				} else {

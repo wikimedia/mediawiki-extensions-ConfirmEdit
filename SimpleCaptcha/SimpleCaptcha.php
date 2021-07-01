@@ -851,10 +851,10 @@ class SimpleCaptcha {
 	 * @return bool
 	 */
 	public function confirmEditMerged( $context, $content, $status, $summary, $user, $minorEdit ) {
-		$title = $context->getTitle();
-		if ( !$title->canExist() ) {
+		if ( !$context->canUseWikiPage() ) {
 			// we check WikiPage only
 			// try to get an appropriate title for this page
+			$title = $context->getTitle();
 			if ( $title instanceof Title ) {
 				$title = $title->getFullText();
 			} else {
@@ -867,8 +867,7 @@ class SimpleCaptcha {
 			wfDebug( __METHOD__ . ': Skipped ConfirmEdit check: No WikiPage for title ' . $title );
 			return true;
 		}
-
-		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+		$page = $context->getWikiPage();
 		if ( !$this->doConfirmEdit( $page, $content, '', $context, $user ) ) {
 			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
 			$status->apiHookResult = [];

@@ -12,7 +12,7 @@ use Wikimedia\TestingAccessWrapper;
 class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase {
 	use AuthenticationProviderTestTrait;
 
-	public function setUp() : void {
+	public function setUp(): void {
 		parent::setUp();
 		$this->setMwGlobals( [
 			'wgCaptchaClass' => SimpleCaptcha::class,
@@ -30,7 +30,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		ObjectCache::$instances[__METHOD__] = new HashBagOStuff();
 	}
 
-	public function tearDown() : void {
+	public function tearDown(): void {
 		parent::tearDown();
 		// make sure $wgCaptcha resets between tests
 		TestingAccessWrapper::newFromClass( ConfirmEditHooks::class )->instanceCreated = false;

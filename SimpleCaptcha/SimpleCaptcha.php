@@ -1152,7 +1152,7 @@ class SimpleCaptcha {
 	 */
 	private function findLinks( $title, $text ) {
 		$parser = MediaWikiServices::getInstance()->getParser();
-		$user = $parser->getUser();
+		$user = $parser->getUserIdentity();
 		$options = new ParserOptions( $user );
 		$text = $parser->preSaveTransform( $text, $title, $user, $options );
 		$out = $parser->parse( $text, $title, $options );

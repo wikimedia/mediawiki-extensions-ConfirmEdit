@@ -6,7 +6,7 @@ use Wikimedia\TestingAccessWrapper;
 /**
  * @covers SimpleCaptcha
  */
-class CaptchaTest extends MediaWikiTestCase {
+class CaptchaTest extends MediaWikiIntegrationTestCase {
 
 	/** @var ScopedCallback[] */
 	private $hold = [];

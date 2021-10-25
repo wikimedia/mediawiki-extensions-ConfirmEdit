@@ -876,8 +876,10 @@ class SimpleCaptcha {
 			// for the user, which we don't know, when he did it.
 			if ( $this->action === 'edit' ) {
 				$status->fatal(
+					// T293818 - only worried about $content here
+					// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 					new RawMessage(
-						Html::element(
+						Html::rawElement(
 							'div',
 							[ 'class' => 'errorbox' ],
 							$context->msg( 'captcha-edit-fail' )->text()

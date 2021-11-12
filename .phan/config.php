@@ -21,7 +21,4 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 	]
 );
 
-// WikiPage->ConfirmEdit_ActivateCaptcha
-$cfg['suppress_issue_types'][] = 'PhanUndeclaredProperty';
-
 return $cfg;

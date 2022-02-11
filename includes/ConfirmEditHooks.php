@@ -242,7 +242,6 @@ class ConfirmEditHooks implements
 					[],
 					$lang->formatNum( $count + 1 )
 				) .
-				/** @phan-suppress-next-line SecurityCheck-DoubleEscaped */
 				Html::element(
 					'td',
 					[],

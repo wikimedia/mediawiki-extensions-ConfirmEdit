@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Malikxan",
 			"Sociologist"
 		]
 	},
 	"fancycaptcha-captcha": "Xavfsizlik tekshiruvi",
-	"fancycaptcha-imgcaptcha-ph": "Yuqoridagi yozuvni bu yerga kiriting",
+	"fancycaptcha-imgcaptcha-ph": "Yuqoridagi matnni bu yerga kiriting",
 	"fancycaptcha-reload-text": "Yangilash"
 }

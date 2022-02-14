@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Riverman",
 			"Монгуш Салим"
 		]
 	},
+	"fancycaptcha-captcha": "Айыыл чок хынаары",
+	"fancycaptcha-accountcreate": "Викини автоматиктиг аккаунт чаяаашкынындан камгалаарда куду шөлде көстүр сөстерни киирерин дилеп тур бис\n([[Special:Captcha/help|тодаргай инфо]]):",
+	"fancycaptcha-imgcaptcha-ph": "Чурукта көрүп турар сөзүглелиңер киириңер",
 	"fancycaptcha-reload-text": "Чаартыр"
 }

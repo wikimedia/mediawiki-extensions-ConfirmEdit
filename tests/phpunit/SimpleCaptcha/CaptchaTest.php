@@ -1,7 +1,6 @@
 <?php
 
 use Wikimedia\ScopedCallback;
-use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers SimpleCaptcha
@@ -68,30 +67,9 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	private function setCaptchaTriggersAttribute( $trigger, $value ) {
-		// XXX This is really hacky, but is needed to stop extensions from
-		// being clobbered in subsequent tests. This should be fixed properly
-		// by making extension registration happen in services instead of
-		// globals.
-		$keys =
-			TestingAccessWrapper::newFromClass( ExtensionProcessor::class )->globalSettings;
-		$globalsToStash = [];
-		foreach ( $keys as $key ) {
-			$globalsToStash["wg$key"] = $GLOBALS["wg$key"];
-		}
-		$this->setMwGlobals( $globalsToStash );
+		// Avoid clobbering captcha triggers registered by other extensions
+		$this->setMwGlobals( 'wgCaptchaTriggers', $GLOBALS['wgCaptchaTriggers'] );
 
-		$info = [
-			'globals' => [],
-			'callbacks' => [],
-			'defines' => [],
-			'credits' => [],
-			'attributes' => [
-				'CaptchaTriggers' => [
-					$trigger => $value
-				]
-			],
-			'autoloaderPaths' => []
-		];
 		$this->hold[] = ExtensionRegistry::getInstance()->setAttributeForTest(
 			'CaptchaTriggers', [ $trigger => $value ]
 		);
@@ -117,11 +95,7 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider provideAttributeOverwritten
 	 */
 	public function testCaptchaTriggersAttributeGetsOverwritten( $trigger, $expected ) {
-		$this->setMwGlobals( [
-			'wgCaptchaTriggers' => [
-				$trigger => $expected
-			]
-		] );
+		$this->setMwGlobals( 'wgCaptchaTriggers', [ $trigger => $expected ] );
 		$this->setCaptchaTriggersAttribute( $trigger, !$expected );
 		$captcha = new SimpleCaptcha();
 		$this->assertEquals( $expected, $captcha->triggersCaptcha( $trigger ) );

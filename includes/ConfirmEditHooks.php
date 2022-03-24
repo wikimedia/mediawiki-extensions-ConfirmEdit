@@ -208,9 +208,7 @@ class ConfirmEditHooks implements
 		$lang = $ctx->getLanguage();
 
 		$lines = explode( "\n", $content->getNativeData() );
-		$previewHTML .= Html::rawElement(
-				'div',
-				[ 'class' => 'warningbox' ],
+		$previewHTML .= Html::warningBox(
 				$ctx->msg( 'confirmedit-preview-description' )->parse()
 			) .
 			Html::openElement(

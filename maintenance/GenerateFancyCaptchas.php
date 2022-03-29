@@ -48,7 +48,6 @@ class GenerateFancyCaptchas extends Maintenance {
 		$this->addOption( "font", "The font to use", true, true );
 		$this->addOption( "font-size", "The font size ", false, true );
 		$this->addOption( "badwordlist", "A list of words that should not be used", false, true );
-		$this->addOption( "blacklist", "DEPRECATED: A list of words that should not be used", false, true );
 		$this->addOption( "fill", "Fill the captcha container to N files", true, true );
 		$this->addOption(
 			"verbose",
@@ -128,7 +127,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			$wgCaptchaDirectoryLevels
 		];
 		foreach (
-			[ 'wordlist', 'font', 'font-size', 'blacklist', 'badwordlist', 'verbose', 'threads' ] as $par
+			[ 'wordlist', 'font', 'font-size', 'badwordlist', 'verbose', 'threads' ] as $par
 		) {
 			if ( $this->hasOption( $par ) ) {
 				$cmd[] = "--$par";

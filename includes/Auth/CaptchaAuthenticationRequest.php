@@ -1,7 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Auth;
+
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthManager;
+use MediaWiki\Extension\ConfirmEdit\Hooks;
 
 /**
  * Generic captcha authentication request class. A captcha consist some data stored in the session
@@ -35,7 +38,7 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 		$success = parent::loadFromSubmission( $data );
 		if ( $success ) {
 			// captchaId and captchaWord was set from the submission but captchaData was not.
-			$captcha = ConfirmEditHooks::getInstance();
+			$captcha = Hooks::getInstance();
 			$this->captchaData = $captcha->retrieveCaptcha( $this->captchaId );
 			if ( !$this->captchaData ) {
 				return false;
@@ -48,7 +51,7 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 	 * @inheritDoc
 	 */
 	public function getFieldInfo() {
-		$captcha = ConfirmEditHooks::getInstance();
+		$captcha = Hooks::getInstance();
 
 		// doesn't actually exist but *Captcha::getMessage will handle that
 		$action = 'generic';
@@ -88,7 +91,7 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 	 * @inheritDoc
 	 */
 	public function getMetadata() {
-		return ( ConfirmEditHooks::getInstance() )->describeCaptchaType();
+		return ( Hooks::getInstance() )->describeCaptchaType();
 	}
 
 	/**

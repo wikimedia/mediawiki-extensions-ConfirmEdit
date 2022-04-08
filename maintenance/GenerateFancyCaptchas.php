@@ -29,6 +29,8 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\Extension\ConfirmEdit\Hooks;
+
 /**
  * Maintenance script to generate fancy captchas using a python script and copy them into storage.
  *
@@ -66,7 +68,7 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$totalTime = -microtime( true );
 
-		$instance = ConfirmEditHooks::getInstance();
+		$instance = Hooks::getInstance();
 		if ( !( $instance instanceof FancyCaptcha ) ) {
 			$this->fatalError( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
 		}

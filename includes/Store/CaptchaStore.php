@@ -1,5 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Store;
+
+use Exception;
+use MWException;
+
 abstract class CaptchaStore {
 	/**
 	 * Store the correct answer for a given captcha
@@ -42,7 +47,7 @@ abstract class CaptchaStore {
 	final public static function get() {
 		global $wgCaptchaStorageClass;
 		if ( !self::$instance instanceof self ) {
-			if ( in_array( 'CaptchaStore', class_parents( $wgCaptchaStorageClass ) ) ) {
+			if ( in_array( self::class, class_parents( $wgCaptchaStorageClass ) ) ) {
 				self::$instance = new $wgCaptchaStorageClass;
 			} else {
 				throw new Exception( "Invalid CaptchaStore class $wgCaptchaStorageClass" );

@@ -1,5 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Specials;
+
+use MediaWiki\Extension\ConfirmEdit\Hooks;
+use UnlistedSpecialPage;
+
 class SpecialCaptcha extends UnlistedSpecialPage {
 	public function __construct() {
 		parent::__construct( 'Captcha' );
@@ -11,7 +16,7 @@ class SpecialCaptcha extends UnlistedSpecialPage {
 	public function execute( $par ) {
 		$this->setHeaders();
 
-		$instance = ConfirmEditHooks::getInstance();
+		$instance = Hooks::getInstance();
 
 		if ( $par === 'image' && method_exists( $instance, 'showImage' ) ) {
 			// @todo: Do this in a more OOP way

@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Store;
+
 class CaptchaHashStore extends CaptchaStore {
 	protected $data = [];
 

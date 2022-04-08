@@ -1,17 +1,23 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Auth;
+
 use MediaWiki\Auth\AbstractPreAuthenticationProvider;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthenticationResponse;
 use MediaWiki\Auth\AuthManager;
+use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Logger\LoggerFactory;
+use Status;
+use User;
 
 class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider {
 	/**
 	 * @inheritDoc
 	 */
 	public function getAuthenticationRequests( $action, array $options ) {
-		$captcha = ConfirmEditHooks::getInstance();
+		$captcha = Hooks::getInstance();
 		$user = User::newFromName( $options['username'] );
 
 		$needed = false;
@@ -77,7 +83,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 	 * @inheritDoc
 	 */
 	public function testForAuthentication( array $reqs ) {
-		$captcha = ConfirmEditHooks::getInstance();
+		$captcha = Hooks::getInstance();
 		$username = AuthenticationRequest::getUsernameFromRequests( $reqs );
 		$success = true;
 		$isBadLoginPerUserTriggered = $username ?
@@ -111,7 +117,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 	 * @inheritDoc
 	 */
 	public function testForAccountCreation( $user, $creator, array $reqs ) {
-		$captcha = ConfirmEditHooks::getInstance();
+		$captcha = Hooks::getInstance();
 
 		if ( $captcha->needCreateAccountCaptcha( $creator ) ) {
 			$username = $user->getName();
@@ -139,7 +145,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 	 * @inheritDoc
 	 */
 	public function postAuthentication( $user, AuthenticationResponse $response ) {
-		$captcha = ConfirmEditHooks::getInstance();
+		$captcha = Hooks::getInstance();
 		switch ( $response->status ) {
 			case AuthenticationResponse::PASS:
 			case AuthenticationResponse::RESTART:

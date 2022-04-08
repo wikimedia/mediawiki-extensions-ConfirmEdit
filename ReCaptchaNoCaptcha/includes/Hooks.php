@@ -1,6 +1,8 @@
 <?php
 
-class ReCaptchaNoCaptchaHooks {
+namespace MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha;
+
+class Hooks {
 	/**
 	 * Adds extra variables to the global config
 	 *

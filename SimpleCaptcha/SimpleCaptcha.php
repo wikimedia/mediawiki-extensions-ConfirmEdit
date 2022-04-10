@@ -2,6 +2,7 @@
 
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Cache\CacheKeyHelper;
+use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionAccessException;
 use MediaWiki\Revision\RevisionLookup;
@@ -552,6 +553,11 @@ class SimpleCaptcha {
 		) {
 			$result = $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action];
 		}
+
+		$hookRunner = new HookRunner(
+			MediaWikiServices::getInstance()->getHookContainer()
+		);
+		$hookRunner->onConfirmEditTriggersCaptcha( $action, $title, $result );
 
 		return $result;
 	}

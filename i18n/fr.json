@@ -21,13 +21,13 @@
 			"Zetud"
 		]
 	},
-	"captcha-edit": "Pour modifier cette page, résolvez la tâche ci-dessous et  inscrivez le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]):",
+	"captcha-edit": "Pour modifier cette page, résolvez la tâche ci-dessous et inscrivez la réponse dans le champ ([[Special:Captcha/help|plus d’informations]]) :",
 	"captcha-edit-fail": "CAPTCHA incorrect ou manquant.",
-	"captcha-desc": "Offre des techniques CAPTCHA pour protéger contre le pollupostage et la découverte des mots de passe par essais multiples",
+	"captcha-desc": "Fournit les techniques CAPTCHA pour protéger contre le pollupostage et la découverte des mots de passe",
 	"captcha-label": "CAPTCHA",
 	"captcha-help": "Solution du CAPTCHA.",
 	"captcha-info-help": "Description du CAPTCHA.",
-	"captcha-id-label": "Identificateur CAPTCHA",
+	"captcha-id-label": "Identifiant du CAPTCHA",
 	"captcha-id-help": "Cette valeur devrait être retournée non modifiée.",
 	"captcha-addurl": "Votre modification inclut de nouveaux liens externes.\nPour protéger le wiki contre le pourriel automatisé, veuillez résoudre la tâche suivante et inscrire le résultat dans le champ pour sauvegarder vos modifications  ([[Special:Captcha/help|plus d’informations]]) :",
 	"captcha-badlogin": "Pour protéger le wiki contre la découverte automatique des mots de passe, nous vous demandons de bien vouloir résoudre la tâche ci_dessous et d'écrire la réponse dans le champ ([[Special:Captcha/help|plus d’informations]]) :",

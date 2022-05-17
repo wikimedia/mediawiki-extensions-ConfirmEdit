@@ -4,5 +4,7 @@
 			"Samatics"
 		]
 	},
+	"fancycaptcha-captcha": "Security check",
+	"fancycaptcha-imgcaptcha-ph": "Enta di text wey you see for di image",
 	"fancycaptcha-reload-text": "Refresh"
 }

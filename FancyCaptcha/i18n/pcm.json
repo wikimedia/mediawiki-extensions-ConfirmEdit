@@ -5,6 +5,7 @@
 		]
 	},
 	"fancycaptcha-captcha": "Security check",
+	"fancycaptcha-accountcreate": "We wan protect di wiki from robot wey dey mek akaunt, abeg mek you enta di word-dem wey you see for di box ([[Special:Captcha/help|more info]]):",
 	"fancycaptcha-imgcaptcha-ph": "Enta di text wey you see for di image",
 	"fancycaptcha-reload-text": "Refresh"
 }

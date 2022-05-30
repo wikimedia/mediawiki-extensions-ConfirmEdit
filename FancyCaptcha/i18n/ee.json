@@ -1,7 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Amire80"
+		]
 	},
 	"fancycaptcha-captcha": "Dedienɔnɔ ƒe dodokpɔ",
-	"fancycaptcha-imgcaptcha-ph": "Ŋlɔ nya siwo le etame"
+	"fancycaptcha-imgcaptcha-ph": "Ŋlɔ nya siwo le etame",
+	"fancycaptcha-reload-text": "Gbugbɔ"
 }

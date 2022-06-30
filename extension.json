@@ -55,6 +55,9 @@
 	"ExtensionMessagesFiles": {
 		"ConfirmEditAlias": "ConfirmEdit.alias.php"
 	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\ConfirmEdit\\": "includes/"
+	},
 	"AutoloadClasses": {
 		"ConfirmEditHooks": "includes/ConfirmEditHooks.php",
 		"SimpleCaptcha": "SimpleCaptcha/SimpleCaptcha.php",

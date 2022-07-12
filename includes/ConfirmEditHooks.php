@@ -152,7 +152,7 @@ class ConfirmEditHooks implements
 		global $wgCaptchaTriggers, $wgWikimediaJenkinsCI;
 
 		// There is no need to run (core) tests with enabled ConfirmEdit - bug T44145
-		if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {
+		if ( defined( 'MW_PHPUNIT_TEST' ) || ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) ) {
 			$wgCaptchaTriggers = array_fill_keys( array_keys( $wgCaptchaTriggers ), false );
 		}
 	}

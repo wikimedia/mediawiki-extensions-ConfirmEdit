@@ -46,14 +46,14 @@ class HookRunner implements
 	 */
 	public function onConfirmEditTriggersCaptcha(
 		string $action,
-		?PageIdentity $title,
+		?PageIdentity $page,
 		bool &$result
 	) {
 		$this->hookContainer->run(
-			'ConfirmEditTriggersCaptchaHook',
+			'ConfirmEditTriggersCaptcha',
 			[
 				$action,
-				$title,
+				$page,
 				&$result
 			]
 		);

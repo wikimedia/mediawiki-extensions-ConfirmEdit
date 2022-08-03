@@ -1,20 +1,46 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit;
+
+use ApiBase;
+use Content;
+use EditPage;
+use ExtensionRegistry;
+use Html;
+use HTMLForm;
+use MailAddress;
+use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
+use MediaWiki\Hook\AlternateEditPreviewHook;
+use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
+use MediaWiki\Hook\EmailUserFormHook;
+use MediaWiki\Hook\EmailUserHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\Hook\TitleReadWhitelistHook;
+use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
+use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\User\UserIdentity;
+use MessageSpecifier;
+use OutputPage;
+use ParserOutput;
+use RequestContext;
+use SpecialPage;
+use Status;
+use Title;
+use User;
 use Wikimedia\IPUtils;
+use WikiPage;
 
-class ConfirmEditHooks implements
-	\MediaWiki\Hook\AlternateEditPreviewHook,
-	\MediaWiki\Hook\EditPageBeforeEditButtonsHook,
-	\MediaWiki\Hook\EmailUserFormHook,
-	\MediaWiki\Hook\EmailUserHook,
-	\MediaWiki\Permissions\Hook\TitleReadWhitelistHook,
-	\MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook,
-	\MediaWiki\Storage\Hook\PageSaveCompleteHook
+class Hooks implements
+	AlternateEditPreviewHook,
+	EditPageBeforeEditButtonsHook,
+	EmailUserFormHook,
+	EmailUserHook,
+	TitleReadWhitelistHook,
+	ResourceLoaderRegisterModulesHook,
+	PageSaveCompleteHook
 {
 
 	protected static $instanceCreated = false;
@@ -301,3 +327,5 @@ class ConfirmEditHooks implements
 	}
 
 }
+
+class_alias( Hooks::class, 'ConfirmEditHooks' );

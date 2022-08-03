@@ -1,5 +1,8 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Store;
+
+use BagOStuff;
 use MediaWiki\MediaWikiServices;
 
 class CaptchaCacheStore extends CaptchaStore {
@@ -46,3 +49,5 @@ class CaptchaCacheStore extends CaptchaStore {
 		return false;
 	}
 }
+
+class_alias( CaptchaCacheStore::class, 'CaptchaCacheStore' );

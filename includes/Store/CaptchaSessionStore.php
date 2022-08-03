@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Store;
+
 use MediaWiki\Session\SessionManager;
 
 class CaptchaSessionStore extends CaptchaStore {

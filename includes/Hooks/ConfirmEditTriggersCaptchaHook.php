@@ -24,7 +24,7 @@ use MediaWiki\Page\PageIdentity;
 
 /**
  * This is a hook handler interface, see docs/Hooks.md in core.
- * Use the hook name "ConfirmEditTriggersCaptchaHook" to register handlers implementing this interface.
+ * Use the hook name "ConfirmEditTriggersCaptcha" to register handlers implementing this interface.
  *
  * @author Zabe
  * @stable to implement

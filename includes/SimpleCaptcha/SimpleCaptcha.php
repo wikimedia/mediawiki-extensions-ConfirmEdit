@@ -8,6 +8,7 @@ use MediaWiki\Api\ApiEditPage;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Content\Content;
 use MediaWiki\Content\TextContent;
+use MediaWiki\Content\WikitextContent;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
@@ -569,7 +570,7 @@ class SimpleCaptcha {
 
 		if ( $content instanceof Content ) {
 			if ( $content->getModel() == CONTENT_MODEL_WIKITEXT ) {
-				'@phan-var TextContent $content';
+				'@phan-var WikitextContent $content';
 				$newtext = $content->getText();
 			} else {
 				$newtext = null;

@@ -6,6 +6,7 @@ use BadMethodCallException;
 use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Content\Content;
+use MediaWiki\Content\TextContent;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
@@ -285,8 +286,10 @@ class Hooks implements
 		$ctx = $editPage->getArticle()->getContext();
 		$out = $ctx->getOutput();
 		$lang = $ctx->getLanguage();
+		/** @var TextContent $content */
+		'@phan-var TextContent $content';
 
-		$lines = explode( "\n", $content->getNativeData() );
+		$lines = explode( "\n", $content->getText() );
 		$previewHTML .= Html::warningBox(
 				$ctx->msg( 'confirmedit-preview-description' )->parse()
 			) .

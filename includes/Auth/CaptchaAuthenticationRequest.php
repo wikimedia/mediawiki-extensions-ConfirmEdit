@@ -31,6 +31,11 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 		$this->captchaData = $data;
 	}
 
+	/** @inheritDoc */
+	public function getUniqueId() {
+		return 'CaptchaAuthenticationRequest';
+	}
+
 	/**
 	 * @inheritDoc
 	 */

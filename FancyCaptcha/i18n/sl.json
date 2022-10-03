@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Eleassar"
 		]
 	},
+	"fancycaptcha-desc": "Domiseln generator CAPTCHA za potrditev urejanja",
 	"fancycaptcha-addurl": "Vaše urejanje vključuje nove zunanje povezave.\nZaradi zaščite wikija pred samodejnim smetjem vas prijazno naprošamo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):",
 	"fancycaptcha-badlogin": "Zaradi zaščite wikija pred samodejnim ugotavljanjem gesel vas prijazno naprošamo, da vnesete spodnje besede v polje ([[Special:Captcha/help|več informacij]]):",
 	"fancycaptcha-captcha": "Varnostno preverjanje",

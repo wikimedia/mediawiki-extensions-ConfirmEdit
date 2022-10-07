@@ -3,18 +3,18 @@
 /**
  * @covers HTMLFancyCaptchaField
  */
-class HTMLFancyCaptchaFieldTest extends PHPUnit\Framework\TestCase {
+class HTMLFancyCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 	public function testGetHTML() {
 		$html = $this->getForm( [ 'imageUrl' => 'https://example.com/' ] )->getHTML( false );
-		$this->assertRegExp( '/"fancycaptcha-image"/', $html );
-		$this->assertRegExp( '#src="https://example.com/"#', $html );
+		$this->assertMatchesRegularExpression( '/"fancycaptcha-image"/', $html );
+		$this->assertMatchesRegularExpression( '#src="https://example.com/"#', $html );
 		$this->assertNotRegExp( '/"mw-createacct-captcha-assisted"/', $html );
 
 		$html = $this->getForm( [ 'imageUrl' => '', 'showCreateHelp' => true ] )->getHTML( false );
-		$this->assertRegExp( '/"mw-createacct-captcha-assisted"/', $html );
+		$this->assertMatchesRegularExpression( '/"mw-createacct-captcha-assisted"/', $html );
 
 		$html = $this->getForm( [ 'imageUrl' => '', 'label' => 'FooBarBaz' ] )->getHTML( false );
-		$this->assertRegExp( '/FooBarBaz/', $html );
+		$this->assertMatchesRegularExpression( '/FooBarBaz/', $html );
 	}
 
 	public function testValue() {

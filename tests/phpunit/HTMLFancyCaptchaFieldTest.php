@@ -8,7 +8,7 @@ class HTMLFancyCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$html = $this->getForm( [ 'imageUrl' => 'https://example.com/' ] )->getHTML( false );
 		$this->assertMatchesRegularExpression( '/"fancycaptcha-image"/', $html );
 		$this->assertMatchesRegularExpression( '#src="https://example.com/"#', $html );
-		$this->assertNotRegExp( '/"mw-createacct-captcha-assisted"/', $html );
+		$this->assertDoesNotMatchRegularExpression( '/"mw-createacct-captcha-assisted"/', $html );
 
 		$html = $this->getForm( [ 'imageUrl' => '', 'showCreateHelp' => true ] )->getHTML( false );
 		$this->assertMatchesRegularExpression( '/"mw-createacct-captcha-assisted"/', $html );

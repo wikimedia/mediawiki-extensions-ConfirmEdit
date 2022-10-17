@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cakkaparla",
+			"Tejoebāsa"
+		]
+	},
+	"fancycaptcha-captcha": "အစောင့်တိကိုစစ်ပါ",
+	"fancycaptcha-accountcreate": "အလိုအလျောက်အကောင့်ဖန်တီးခြင်းမှ wiki ကိုကာကွယ်ရန်၊ အကွက်ထဲတွင် အောက်ပါအတိုင်းပေါ်လာရေ စကားလုံးတိကို ရိုက်ထည့်ရန် သင့်အား ငရို့တိ ကြင်နာစွာ တောင်းဆိုပါသည် ([[Special:Captcha/help|more info]])",
+	"fancycaptcha-imgcaptcha-ph": "ပုံထက်မှာမင်းမြင်ရေစာသားကိုရိုက်ထည့်ပါ",
+	"fancycaptcha-reload-text": "ပြန်လို့စလုပ်ပါ"
+}

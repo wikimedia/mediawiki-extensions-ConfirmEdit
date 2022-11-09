@@ -8,7 +8,16 @@
 	},
 	"captcha-edit": "Da biste uredili ovu stranicu potrebno je da nađite rješenje zadatka postavljenog ispod i da upišite odgovor u polje ([[Special:Captcha/help|više info]]):",
 	"captcha-edit-fail": "Netačan unos ili nedostatak koda za potvrđivanje.",
+	"captcha-desc": "Omogućava CAPTCHA tehnike za zaštitu protiv spama i probijanja lozinke",
 	"captcha-label": "CAPTCHA",
 	"captcha-createaccount-fail": "Netačan unos ili nedostatak koda za potvrđivanje.",
-	"captcha-sendemail": "Da bi zaštitli wiki od automatskog spamiranja, ljubazno vas molimo da riješite jednostavno sabiranje/zbrajanje ispod i odgovor unesete u kutijicu ([[Special:Captcha/help|više informacija]]):"
+	"captcha-sendemail": "Da bismo zaštitili se od automatskog spamiranja, ljubazno vas molimo da riješite naredni zadatak ispod i odgovor unesete u kutijicu ([[Special:Captcha/help|više informacija]]):",
+	"captcha-sendemail-fail": "Netačan unos ili nedostajući CAPTCHA.",
+	"captcha-disabledinapi": "Ova radnja traži captchu, tako da se ne može izvršiti preko iavršnik.",
+	"captchahelp-title": "Pomoć u vezi s CAPTCHA-om",
+	"captchahelp-cookies-needed": "Da bi ovo mogli raditi, potrebno je da omogućite kolačiće (cookies).",
+	"confirmedit-preview-line": "Broj reda",
+	"confirmedit-preview-content": "Sadržaj",
+	"confirmedit-preview-valid": "važeći",
+	"confirmedit-preview-invalid": "nevažeći"
 }

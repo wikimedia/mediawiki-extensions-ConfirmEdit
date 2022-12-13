@@ -6,6 +6,7 @@ $cfg['directory_list'] = array_merge(
 	$cfg['directory_list'],
 	[
 		'FancyCaptcha/',
+		'hCaptcha/',
 		'MathCaptcha/',
 		'QuestyCaptcha/',
 		'ReCaptchaNoCaptcha/',

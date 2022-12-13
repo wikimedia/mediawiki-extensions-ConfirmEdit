@@ -11,7 +11,7 @@ class ReCaptchaNoCaptchaHooks {
 		global $wgReCaptchaSiteKey;
 		global $wgCaptchaClass;
 
-		if ( $wgCaptchaClass === 'ReCaptchaNoCaptcha' ) {
+		if ( $wgCaptchaClass === ReCaptchaNoCaptcha::class ) {
 			$vars['wgConfirmEditConfig'] = [
 				'reCaptchaSiteKey' => $wgReCaptchaSiteKey,
 				'reCaptchaScriptURL' => 'https://www.recaptcha.net/recaptcha/api.js'

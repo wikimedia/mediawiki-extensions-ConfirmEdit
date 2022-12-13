@@ -1,9 +1,24 @@
 <?php
 
+use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\HTMLFancyCaptchaField;
+
 /**
- * @covers HTMLFancyCaptchaField
+ * @covers \MediaWiki\Extension\ConfirmEdit\FancyCaptcha\HTMLFancyCaptchaField
  */
 class HTMLFancyCaptchaFieldTest extends MediaWikiIntegrationTestCase {
+
+	public function setUp(): void {
+		parent::setUp();
+
+		$this->mergeMwGlobalArrayValue(
+			'wgAutoloadClasses',
+			[
+				'MediaWiki\\Extension\\ConfirmEdit\\FancyCaptcha\\HTMLFancyCaptchaField'
+					=> __DIR__ . '/../../FancyCaptcha/includes/HTMLFancyCaptchaField.php'
+			]
+		);
+	}
+
 	public function testGetHTML() {
 		$html = $this->getForm( [ 'imageUrl' => 'https://example.com/' ] )->getHTML( false );
 		$this->assertMatchesRegularExpression( '/"fancycaptcha-image"/', $html );

@@ -14,7 +14,7 @@
 		]
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\": "includes/ReCaptchaNoCaptcha.php"
+		"MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\": "includes/"
 	},
 	"config": {
 		"CaptchaClass": {

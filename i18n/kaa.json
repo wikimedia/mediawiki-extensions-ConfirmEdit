@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Atabek"
+			"Atabek",
+			"Nurlan"
 		]
 	},
-	"captcha-createaccount-fail": "Tastıyıqlawshı kodın'ız nadurıs yamasa jazılmag'an"
+	"captcha-createaccount-fail": "CAPTCHA kodı nadurıs yamasa jazılmaǵan."
 }

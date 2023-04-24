@@ -20,6 +20,7 @@ use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
+use MediaWiki\ExternalLinks\ExternalLinksLookup;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionAccessException;
 use MediaWiki\Revision\RevisionLookup;
@@ -663,7 +664,11 @@ class SimpleCaptcha {
 			// Only check edits that add URLs
 			if ( $content instanceof Content ) {
 				// Get links from the database
-				$oldLinks = $this->getLinksFromTracker( $title );
+				$oldLinks = ExternalLinksLookup::getExternalLinksForPage(
+					$title->getArticleID(),
+					wfGetDB( DB_REPLICA ),
+					__METHOD__
+				);
 				// Share a parse operation with Article::doEdit()
 				$editInfo = $page->prepareContentForEdit( $content, null, $user );
 				if ( $editInfo->output ) {
@@ -838,24 +843,6 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Load external links from the externallinks table
-	 * @param Title $title
-	 * @return array
-	 */
-	private function getLinksFromTracker( $title ) {
-		$dbr = wfGetDB( DB_REPLICA );
-		// should be zero queries
-		$id = $title->getArticleID();
-		$res = $dbr->select( 'externallinks', [ 'el_to' ],
-			[ 'el_from' => $id ], __METHOD__ );
-		$links = [];
-		foreach ( $res as $row ) {
-			$links[] = $row->el_to;
-		}
-		return $links;
-	}
-
-	/**
 	 * Backend function for confirmEditMerged()
 	 * @param WikiPage $page
 	 * @param Content|string $newtext
@@ -1026,7 +1013,7 @@ class SimpleCaptcha {
 	 * @return bool
 	 */
 	public function passCaptchaLimitedFromRequest( WebRequest $request, User $user ) {
-		list( $index, $word ) = $this->getCaptchaParamsFromRequest( $request );
+		[ $index, $word ] = $this->getCaptchaParamsFromRequest( $request );
 		return $this->passCaptchaLimited( $index, $word, $user );
 	}
 
@@ -1075,7 +1062,7 @@ class SimpleCaptcha {
 	 * @return bool if passed, false if failed or new session
 	 */
 	public function passCaptchaFromRequest( WebRequest $request, User $user ) {
-		list( $index, $word ) = $this->getCaptchaParamsFromRequest( $request );
+		[ $index, $word ] = $this->getCaptchaParamsFromRequest( $request );
 		return $this->passCaptcha( $index, $word );
 	}
 

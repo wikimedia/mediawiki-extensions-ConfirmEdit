@@ -4,5 +4,7 @@
 			"Masiziva"
 		]
 	},
-	"fancycaptcha-accountcreate": "Kudzivirira wiki kubva kukusikwa kwe akaundi rechimota, tinokumbirawo kuti muisa mashoko anobuda pazasi mubhokisi ([[Special:Captcha/help|imwe horokodzo]]):"
+	"fancycaptcha-accountcreate": "Kudzivirira wiki kubva kukusikwa kwe akawundi rechimota, tinokumbirawo kuti muisa mashoko anobuda pazasi mubhokisi ([[Special:Captcha/help|imwe horokodzo]]):",
+	"fancycaptcha-imgcaptcha-ph": "Isa chinyorwa chaurikuona pamufananidzo",
+	"fancycaptcha-reload-text": "Gwangunudza"
 }

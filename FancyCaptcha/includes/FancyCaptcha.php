@@ -11,13 +11,13 @@ use MediaWiki\Auth\AuthManager;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\WikiMap\WikiMap;
 use MWTimestamp;
 use NullLockManager;
 use ObjectCache;
 use SpecialPage;
 use StatusValue;
 use UnderflowException;
-use WikiMap;
 
 /**
  * FancyCaptcha for displaying captchas precomputed by captcha.py

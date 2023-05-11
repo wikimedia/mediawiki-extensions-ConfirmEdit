@@ -4,11 +4,11 @@ namespace MediaWiki\Extension\ConfirmEdit;
 
 use ApiBase;
 use Content;
-use EditPage;
 use ExtensionRegistry;
 use Html;
 use HTMLForm;
 use MailAddress;
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Hook\AlternateEditPreviewHook;
 use MediaWiki\Hook\EditPageBeforeEditButtonsHook;

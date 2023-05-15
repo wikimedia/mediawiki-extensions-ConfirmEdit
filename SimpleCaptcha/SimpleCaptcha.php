@@ -1197,11 +1197,12 @@ class SimpleCaptcha {
 	 * Show a page explaining what this wacky thing is.
 	 */
 	public function showHelp() {
-		global $wgOut;
-		$wgOut->setPageTitle( wfMessage( 'captchahelp-title' )->text() );
-		$wgOut->addWikiMsg( 'captchahelp-text' );
+		$context = RequestContext::getMain();
+		$out = $context->getOutput();
+		$out->setPageTitle( $context->msg( 'captchahelp-title' )->text() );
+		$out->addWikiMsg( 'captchahelp-text' );
 		if ( CaptchaStore::get()->cookiesNeeded() ) {
-			$wgOut->addWikiMsg( 'captchahelp-cookies-needed' );
+			$out->addWikiMsg( 'captchahelp-cookies-needed' );
 		}
 	}
 

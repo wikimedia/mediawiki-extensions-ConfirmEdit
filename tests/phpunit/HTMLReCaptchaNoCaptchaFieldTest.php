@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\HTMLReCaptchaNoCaptchaField;
+use MediaWiki\Request\FauxRequest;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\HTMLReCaptchaNoCaptchaField

@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\HTMLFancyCaptchaField;
+use MediaWiki\Request\FauxRequest;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\FancyCaptcha\HTMLFancyCaptchaField

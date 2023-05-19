@@ -9,6 +9,7 @@ use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaHashStore;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Request\FauxRequest;
 use MediaWiki\Tests\Unit\Auth\AuthenticationProviderTestTrait;
 use Wikimedia\TestingAccessWrapper;
 

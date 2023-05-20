@@ -71,7 +71,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		}
 	}
 
-	public function provideGetAuthenticationRequests() {
+	public static function provideGetAuthenticationRequests() {
 		return [
 			[ AuthManager::ACTION_LOGIN, null, [], false ],
 			[ AuthManager::ACTION_LOGIN, null, [ 'badlogin' ], false ],
@@ -133,7 +133,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$this->assertEquals( $result, $status->isGood() );
 	}
 
-	public function provideTestForAuthentication() {
+	public static function provideTestForAuthentication() {
 		$fallback = new UsernameAuthenticationRequest();
 		$fallback->username = 'Foo';
 		return [
@@ -142,9 +142,9 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			'badlogin' => [ $fallback, true, false, false ],
 			'badloginperuser, no username' => [ null, false, true, true ],
 			'badloginperuser' => [ $fallback, false, true, false ],
-			'non-existent captcha' => [ $this->getCaptchaRequest( '123', '4' ), true, true, false ],
-			'wrong captcha' => [ $this->getCaptchaRequest( '345', '6' ), true, true, false ],
-			'correct captcha' => [ $this->getCaptchaRequest( '345', '4' ), true, true, true ],
+			'non-existent captcha' => [ self::getCaptchaRequest( '123', '4' ), true, true, false ],
+			'wrong captcha' => [ self::getCaptchaRequest( '345', '6' ), true, true, false ],
+			'correct captcha' => [ self::getCaptchaRequest( '345', '4' ), true, true, true ],
 		];
 	}
 
@@ -166,15 +166,15 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$this->assertEquals( $result, $status->isGood() );
 	}
 
-	public function provideTestForAccountCreation() {
+	public static function provideTestForAccountCreation() {
 		$user = User::newFromName( 'Bar' );
 		$sysop = User::newFromName( 'UTSysop' );
 		return [
 			// [ auth request, creator, result, disable trigger? ]
 			'no captcha' => [ null, $user, false ],
-			'non-existent captcha' => [ $this->getCaptchaRequest( '123', '4' ), $user, false ],
-			'wrong captcha' => [ $this->getCaptchaRequest( '345', '6' ), $user, false ],
-			'correct captcha' => [ $this->getCaptchaRequest( '345', '4' ), $user, true ],
+			'non-existent captcha' => [ self::getCaptchaRequest( '123', '4' ), $user, false ],
+			'wrong captcha' => [ self::getCaptchaRequest( '345', '6' ), $user, false ],
+			'correct captcha' => [ self::getCaptchaRequest( '345', '4' ), $user, true ],
 			'user is exempt' => [ null, $sysop, true ],
 			'disabled' => [ null, $user, true, 'disable' ],
 		];
@@ -255,30 +255,30 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		}
 	}
 
-	public function providePingLimiter() {
+	public static function providePingLimiter() {
 		$sysop = User::newFromName( 'UTSysop' );
 		return [
 			// sequence of [ auth request, user, result, disable ping limiter? ]
 			'no failure' => [
-				[ $this->getCaptchaRequest( '345', '14' ), new User(), true ],
-				[ $this->getCaptchaRequest( '345', '14' ), new User(), true ],
+				[ self::getCaptchaRequest( '345', '14' ), new User(), true ],
+				[ self::getCaptchaRequest( '345', '14' ), new User(), true ],
 			],
 			'limited' => [
-				[ $this->getCaptchaRequest( '345', '33' ), new User(), false ],
-				[ $this->getCaptchaRequest( '345', '14' ), new User(), false ],
+				[ self::getCaptchaRequest( '345', '33' ), new User(), false ],
+				[ self::getCaptchaRequest( '345', '14' ), new User(), false ],
 			],
 			'exempt user' => [
-				[ $this->getCaptchaRequest( '345', '33' ), $sysop, false ],
-				[ $this->getCaptchaRequest( '345', '14' ), $sysop, true ],
+				[ self::getCaptchaRequest( '345', '33' ), $sysop, false ],
+				[ self::getCaptchaRequest( '345', '14' ), $sysop, true ],
 			],
 			'pinglimiter disabled' => [
-				[ $this->getCaptchaRequest( '345', '33' ), new User(), false, 'disable' ],
-				[ $this->getCaptchaRequest( '345', '14' ), new User(), true, 'disable' ],
+				[ self::getCaptchaRequest( '345', '33' ), new User(), false, 'disable' ],
+				[ self::getCaptchaRequest( '345', '14' ), new User(), true, 'disable' ],
 			],
 		];
 	}
 
-	protected function getCaptchaRequest( $id, $word, $username = null ) {
+	protected static function getCaptchaRequest( $id, $word, $username = null ) {
 		$req = new CaptchaAuthenticationRequest( $id, [ 'question' => '?', 'answer' => $word ] );
 		$req->captchaWord = $word;
 		$req->username = $username;

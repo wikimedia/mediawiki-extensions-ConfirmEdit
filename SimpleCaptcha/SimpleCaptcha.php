@@ -20,6 +20,7 @@ use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\ExternalLinks\ExternalLinksLookup;
+use MediaWiki\ExternalLinks\LinkFilter;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Revision\RevisionAccessException;
@@ -672,7 +673,9 @@ class SimpleCaptcha {
 				// Share a parse operation with Article::doEdit()
 				$editInfo = $page->prepareContentForEdit( $content, null, $user );
 				if ( $editInfo->output ) {
-					$newLinks = array_keys( $editInfo->output->getExternalLinks() );
+					$newLinks = LinkFilter::getIndexedUrlsNonReversed(
+						array_keys( $editInfo->output->getExternalLinks() )
+					);
 				} else {
 					$newLinks = [];
 				}

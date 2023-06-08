@@ -34,7 +34,7 @@
 	"right-skipcaptcha": "執行captcha引發嘅動作時唔需要經過captcha",
 	"confirmedit-preview-line": "行數",
 	"confirmedit-preview-content": "內容",
-	"confirmedit-preview-validity": "有效性",
+	"confirmedit-preview-validity": "有無效",
 	"confirmedit-preview-valid": "有效",
 	"confirmedit-preview-invalid": "無效"
 }

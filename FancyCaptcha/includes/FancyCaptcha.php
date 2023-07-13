@@ -128,6 +128,8 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		// Loaded only for clients with JS enabled
 		$modules[] = 'ext.confirmEdit.fancyCaptcha';
+		// FIXME: This should be removed (works around T341525)
+		$modules[] = 'mediawiki.ui.input';
 
 		$captchaReload = Html::element(
 			'small',
@@ -152,6 +154,7 @@ class FancyCaptcha extends SimpleCaptcha {
 					'alt'    => ''
 				]
 			) . $captchaReload . Html::closeElement( 'div' ) . Html::closeElement( 'div' ) . "\n" .
+			// FIXME: This should use CodexHTMLForm rather than Html::element
 			Html::element( 'input', [
 					'name' => 'wpCaptchaWord',
 					'class' => 'mw-ui-input',

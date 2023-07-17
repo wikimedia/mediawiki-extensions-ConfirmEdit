@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Irus",
-			"Wadorgurt"
+			"Wadorgurt",
+			"Света Поторочина"
 		]
 	},
 	"fancycaptcha-captcha": "Кышкыттэмлыкез эскерон",
-	"fancycaptcha-accountcreate": "Учётной записьёсыз автоматической кылдытонлэсь викиез возьман понна куриськомы тӥледыз гожтыны кылъёсыз, кудъёсыз адӟиськизы улӥ рамкаын ([[Special:Captcha/help|тупенгес…]]):",
-	"fancycaptcha-imgcaptcha-ph": "Гожтэ текстэз, кудзэ тӥ суредын адӟиськоды",
+	"fancycaptcha-accountcreate": "Викиез чакласькытэк пырон ним кылдытонлэсь утён понна, туж куриськом тӥледыз гожтыны кылъёсты, кудъёсыз возьматӥсько улӥ рамкаын. ([[Special:Captcha/help|more info]]):",
+	"fancycaptcha-imgcaptcha-ph": "Гожтэ текстэз, кудзэ тӥ суредысь адӟиськоды",
 	"fancycaptcha-reload-text": "Выльдыны"
 }

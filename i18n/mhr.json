@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lifeway"
+		]
+	},
+	"captcha-id-label": "CAPTCHA ID",
+	"confirmedit-preview-valid": "чын",
+	"confirmedit-preview-invalid": "чын огыл"
+}

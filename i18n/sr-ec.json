@@ -32,5 +32,6 @@
 	"action-skipcaptcha": "прескочите CAPTCHA сигурносну проверу",
 	"confirmedit-preview-line": "Број линије",
 	"confirmedit-preview-content": "Садржај",
+	"confirmedit-preview-valid": "валидна",
 	"confirmedit-preview-invalid": "неважеће"
 }

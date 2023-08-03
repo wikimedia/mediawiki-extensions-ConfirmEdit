@@ -1107,7 +1107,12 @@ class SimpleCaptcha {
 	 * @param string $message
 	 */
 	protected function log( $message ) {
-		wfDebugLog( 'captcha', 'ConfirmEdit: ' . $message . '; ' . $this->trigger );
+		wfDebugLog(
+			'captcha',
+			'ConfirmEdit: ' . $message . '; {trigger}',
+			'all',
+			[ 'trigger' => $this->trigger ]
+		);
 	}
 
 	/**

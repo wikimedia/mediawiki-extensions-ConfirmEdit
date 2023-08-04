@@ -5,6 +5,7 @@ use MediaWiki\Request\FauxRequest;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\FancyCaptcha\HTMLFancyCaptchaField
+ * @group Database
  */
 class HTMLFancyCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 

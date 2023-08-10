@@ -1207,7 +1207,7 @@ class SimpleCaptcha {
 	public function showHelp() {
 		$context = RequestContext::getMain();
 		$out = $context->getOutput();
-		$out->setPageTitle( $context->msg( 'captchahelp-title' )->text() );
+		$out->setPageTitle( $context->msg( 'captchahelp-title' ) );
 		$out->addWikiMsg( 'captchahelp-text' );
 		if ( CaptchaStore::get()->cookiesNeeded() ) {
 			$out->addWikiMsg( 'captchahelp-cookies-needed' );

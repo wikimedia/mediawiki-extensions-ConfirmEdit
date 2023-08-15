@@ -884,7 +884,7 @@ class SimpleCaptcha {
 
 	/**
 	 * An efficient edit filter callback based on the text after section merging
-	 * @param RequestContext $context
+	 * @param IContextSource $context
 	 * @param Content $content
 	 * @param Status $status
 	 * @param string $summary

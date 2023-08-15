@@ -7,6 +7,7 @@ use Content;
 use ExtensionRegistry;
 use Html;
 use HTMLForm;
+use IContextSource;
 use MailAddress;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
@@ -25,7 +26,6 @@ use MediaWiki\User\UserIdentity;
 use MessageSpecifier;
 use OutputPage;
 use ParserOutput;
-use RequestContext;
 use SpecialPage;
 use Status;
 use Title;
@@ -63,7 +63,7 @@ class Hooks implements
 	}
 
 	/**
-	 * @param RequestContext $context
+	 * @param IContextSource $context
 	 * @param Content $content
 	 * @param Status $status
 	 * @param string $summary

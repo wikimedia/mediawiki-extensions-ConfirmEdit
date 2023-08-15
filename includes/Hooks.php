@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 namespace MediaWiki\Extension\ConfirmEdit;
 
 use ApiBase;
@@ -9,9 +11,12 @@ use Html;
 use HTMLForm;
 use IContextSource;
 use MailAddress;
+use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Hook\AlternateEditPreviewHook;
+use MediaWiki\Hook\EditFilterMergedContentHook;
+use MediaWiki\Hook\EditPage__showEditForm_fieldsHook;
 use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
 use MediaWiki\Hook\EmailUserFormHook;
 use MediaWiki\Hook\EmailUserHook;
@@ -20,6 +25,7 @@ use MediaWiki\Permissions\Hook\TitleReadWhitelistHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\SpecialPage\Hook\AuthChangeFormFieldsHook;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\User\UserIdentity;
@@ -40,7 +46,11 @@ class Hooks implements
 	EmailUserHook,
 	TitleReadWhitelistHook,
 	ResourceLoaderRegisterModulesHook,
-	PageSaveCompleteHook
+	PageSaveCompleteHook,
+	EditPage__showEditForm_fieldsHook,
+	EditFilterMergedContentHook,
+	APIGetAllowedParamsHook,
+	AuthChangeFormFieldsHook
 {
 
 	protected static $instanceCreated = false;
@@ -71,8 +81,8 @@ class Hooks implements
 	 * @param bool $minorEdit
 	 * @return bool
 	 */
-	public static function confirmEditMerged( $context, $content, $status, $summary, $user,
-		$minorEdit
+	public function onEditFilterMergedContent( IContextSource $context, Content $content, Status $status,
+		$summary, User $user, $minorEdit
 	) {
 		return self::getInstance()->confirmEditMerged( $context, $content, $status, $summary,
 			$user, $minorEdit );
@@ -121,7 +131,7 @@ class Hooks implements
 	 * @param EditPage $editPage
 	 * @param OutputPage $out
 	 */
-	public static function showEditFormFields( EditPage $editPage, OutputPage $out ) {
+	public function onEditPage__showEditForm_fields( $editPage, $out ) {
 		self::getInstance()->showEditFormFields( $editPage, $out );
 	}
 
@@ -158,7 +168,7 @@ class Hooks implements
 	 * @param int $flags
 	 * @return bool
 	 */
-	public static function onAPIGetAllowedParams( ApiBase $module, &$params, $flags = 1 ) {
+	public function onAPIGetAllowedParams( $module, &$params, $flags ) {
 		return self::getInstance()->apiGetAllowedParams( $module, $params, $flags );
 	}
 
@@ -168,8 +178,8 @@ class Hooks implements
 	 * @param array &$formDescriptor
 	 * @param string $action
 	 */
-	public static function onAuthChangeFormFields(
-		array $requests, array $fieldInfo, array &$formDescriptor, $action
+	public function onAuthChangeFormFields(
+		$requests, $fieldInfo, &$formDescriptor, $action
 	) {
 		self::getInstance()->onAuthChangeFormFields( $requests, $fieldInfo, $formDescriptor, $action );
 	}

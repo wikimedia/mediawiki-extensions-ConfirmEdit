@@ -185,10 +185,10 @@ class Hooks implements
 	}
 
 	public static function confirmEditSetup() {
-		global $wgCaptchaTriggers, $wgWikimediaJenkinsCI;
+		global $wgCaptchaTriggers;
 
 		// There is no need to run (core) tests with enabled ConfirmEdit - bug T44145
-		if ( defined( 'MW_PHPUNIT_TEST' ) || ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) ) {
+		if ( defined( 'MW_PHPUNIT_TEST' ) || defined( 'MW_QUIBBLE_CI' ) ) {
 			$wgCaptchaTriggers = array_fill_keys( array_keys( $wgCaptchaTriggers ), false );
 		}
 	}

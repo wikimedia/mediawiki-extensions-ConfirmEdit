@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\HTMLReCaptchaNoCaptchaField;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\Title\Title;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\HTMLReCaptchaNoCaptchaField

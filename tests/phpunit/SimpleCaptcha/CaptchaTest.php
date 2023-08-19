@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
+use MediaWiki\Title\Title;
 use Wikimedia\ScopedCallback;
 
 /**

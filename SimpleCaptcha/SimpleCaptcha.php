@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\ConfirmEdit\SimpleCaptcha;
 
 use ApiBase;
 use ApiEditPage;
-use BagOStuff;
 use Content;
 use ExtensionRegistry;
 use HTMLForm;
@@ -31,9 +30,7 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use MediaWiki\User\UserNameUtils;
 use Message;
-use ObjectCache;
 use OOUI\FieldLayout;
 use OOUI\HiddenInputWidget;
 use OOUI\NumberInputWidget;
@@ -353,72 +350,6 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Increase bad login counter after a failed login.
-	 * The user might be required to solve a captcha if the count is high.
-	 * @param string $username
-	 * TODO use Throttler
-	 */
-	public function increaseBadLoginCounter( $username ) {
-		global $wgCaptchaBadLoginExpiration, $wgCaptchaBadLoginPerUserExpiration;
-
-		$cache = ObjectCache::getLocalClusterInstance();
-
-		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN ) ) {
-			$key = $this->badLoginKey( $cache );
-			$cache->incrWithInit( $key, $wgCaptchaBadLoginExpiration );
-		}
-
-		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN_PER_USER ) && $username ) {
-			$key = $this->badLoginPerUserKey( $username, $cache );
-			$cache->incrWithInit( $key, $wgCaptchaBadLoginPerUserExpiration );
-		}
-	}
-
-	/**
-	 * Reset bad login counter after a successful login.
-	 * @param string $username
-	 */
-	public function resetBadLoginCounter( $username ) {
-		if ( $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN_PER_USER ) && $username ) {
-			$cache = ObjectCache::getLocalClusterInstance();
-			$cache->delete( $this->badLoginPerUserKey( $username, $cache ) );
-		}
-	}
-
-	/**
-	 * Check if a bad login has already been registered for this
-	 * IP address. If so, require a captcha.
-	 * @return bool
-	 * @private
-	 */
-	public function isBadLoginTriggered() {
-		global $wgCaptchaBadLoginAttempts;
-
-		$cache = ObjectCache::getLocalClusterInstance();
-		return $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN )
-			&& (int)$cache->get( $this->badLoginKey( $cache ) ) >= $wgCaptchaBadLoginAttempts;
-	}
-
-	/**
-	 * Is the per-user captcha triggered?
-	 *
-	 * @param User|string $u User object, or name
-	 * @return bool
-	 */
-	public function isBadLoginPerUserTriggered( $u ) {
-		global $wgCaptchaBadLoginPerUserAttempts;
-
-		$cache = ObjectCache::getLocalClusterInstance();
-
-		if ( is_object( $u ) ) {
-			$u = $u->getName();
-		}
-		$badLoginPerUserKey = $this->badLoginPerUserKey( $u, $cache );
-		return $this->triggersCaptcha( CaptchaTriggers::BAD_LOGIN_PER_USER )
-			&& (int)$cache->get( $badLoginPerUserKey ) >= $wgCaptchaBadLoginPerUserAttempts;
-	}
-
-	/**
 	 * Check if the current IP is allowed to skip captchas. This checks
 	 * the whitelist from two sources.
 	 *  1) From the server-side config array $wgCaptchaWhitelistIP
@@ -501,33 +432,6 @@ class SimpleCaptcha {
 		}
 
 		return $validIPs;
-	}
-
-	/**
-	 * Internal cache key for badlogin checks.
-	 * @param BagOStuff $cache
-	 * @return string
-	 */
-	private function badLoginKey( BagOStuff $cache ) {
-		global $wgRequest;
-		$ip = $wgRequest->getIP();
-
-		return $cache->makeGlobalKey( 'captcha', 'badlogin', 'ip', $ip );
-	}
-
-	/**
-	 * Cache key for badloginPerUser checks.
-	 * @param string $username
-	 * @param BagOStuff $cache
-	 * @return string
-	 */
-	private function badLoginPerUserKey( $username, BagOStuff $cache ) {
-		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
-		$username = $userNameUtils->getCanonical( $username, UserNameUtils::RIGOR_USABLE ) ?: $username;
-
-		return $cache->makeGlobalKey(
-			'captcha', 'badlogin', 'user', md5( $username )
-		);
 	}
 
 	/**

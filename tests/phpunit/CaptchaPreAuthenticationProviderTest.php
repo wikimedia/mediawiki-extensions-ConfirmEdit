@@ -4,6 +4,7 @@ use MediaWiki\Auth\AuthManager;
 use MediaWiki\Auth\UsernameAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaPreAuthenticationProvider;
+use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounter;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaHashStore;
@@ -125,19 +126,20 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			return false;
 		} );
 		CaptchaStore::get()->store( '345', [ 'question' => '2+2', 'answer' => '4' ] );
-		$captcha = $this->getMockBuilder( SimpleCaptcha::class )
+		$loginAttemptCounter = $this->getMockBuilder( LoginAttemptCounter::class )
 			->onlyMethods( [ 'isBadLoginTriggered', 'isBadLoginPerUserTriggered' ] )
+			->disableOriginalConstructor()
 			->getMock();
-		$captcha->expects( $this->any() )->method( 'isBadLoginTriggered' )
+		$loginAttemptCounter->expects( $this->any() )->method( 'isBadLoginTriggered' )
 			->willReturn( $isBadLoginTriggered );
-		$captcha->expects( $this->any() )->method( 'isBadLoginPerUserTriggered' )
+		$loginAttemptCounter->expects( $this->any() )->method( 'isBadLoginPerUserTriggered' )
 			->willReturn( $isBadLoginPerUserTriggered );
-		$this->setMwGlobals( 'wgCaptcha', $captcha );
-		TestingAccessWrapper::newFromClass( Hooks::class )->instanceCreated = true;
-		$provider = new CaptchaPreAuthenticationProvider();
+		$provider = $this->getProvider();
+		$provider->loginAttemptCounter = $loginAttemptCounter;
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$status = $provider->testForAuthentication( $req ? [ $req ] : [] );
+
 		$this->assertEquals( $result, $status->isGood() );
 	}
 
@@ -192,39 +194,43 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$captcha = new SimpleCaptcha();
 		$user = User::newFromName( 'Foo' );
 		$anotherUser = User::newFromName( 'Bar' );
-		$provider = new CaptchaPreAuthenticationProvider();
+		$provider = $this->getProvider();
+		$loginAttemptCounter = new LoginAttemptCounter( $captcha );
+		$provider->loginAttemptCounter = $loginAttemptCounter;
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
-		$this->assertFalse( $captcha->isBadLoginTriggered() );
-		$this->assertFalse( $captcha->isBadLoginPerUserTriggered( $user ) );
+		$this->assertFalse( $loginAttemptCounter->isBadLoginTriggered() );
+		$this->assertFalse( $loginAttemptCounter->isBadLoginPerUserTriggered( $user ) );
 
 		$provider->postAuthentication( $user, \MediaWiki\Auth\AuthenticationResponse::newFail(
 			wfMessage( '?' ) ) );
 
-		$this->assertTrue( $captcha->isBadLoginTriggered() );
-		$this->assertTrue( $captcha->isBadLoginPerUserTriggered( $user ) );
-		$this->assertFalse( $captcha->isBadLoginPerUserTriggered( $anotherUser ) );
+		$this->assertTrue( $loginAttemptCounter->isBadLoginTriggered() );
+		$this->assertTrue( $loginAttemptCounter->isBadLoginPerUserTriggered( $user ) );
+		$this->assertFalse( $loginAttemptCounter->isBadLoginPerUserTriggered( $anotherUser ) );
 
 		$provider->postAuthentication( $user, \MediaWiki\Auth\AuthenticationResponse::newPass( 'Foo' ) );
 
-		$this->assertFalse( $captcha->isBadLoginPerUserTriggered( $user ) );
+		$this->assertFalse( $loginAttemptCounter->isBadLoginPerUserTriggered( $user ) );
 	}
 
 	public function testPostAuthentication_disabled() {
 		$this->setTriggers( [] );
 		$captcha = new SimpleCaptcha();
+		$loginAttemptCounter = new LoginAttemptCounter( $captcha );
 		$user = User::newFromName( 'Foo' );
-		$provider = new CaptchaPreAuthenticationProvider();
+		$provider = $this->getProvider();
+		$provider->loginAttemptCounter = $loginAttemptCounter;
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
-		$this->assertFalse( $captcha->isBadLoginTriggered() );
-		$this->assertFalse( $captcha->isBadLoginPerUserTriggered( $user ) );
+		$this->assertFalse( $loginAttemptCounter->isBadLoginTriggered() );
+		$this->assertFalse( $loginAttemptCounter->isBadLoginPerUserTriggered( $user ) );
 
 		$provider->postAuthentication( $user, \MediaWiki\Auth\AuthenticationResponse::newFail(
 			wfMessage( '?' ) ) );
 
-		$this->assertFalse( $captcha->isBadLoginTriggered() );
-		$this->assertFalse( $captcha->isBadLoginPerUserTriggered( $user ) );
+		$this->assertFalse( $loginAttemptCounter->isBadLoginTriggered() );
+		$this->assertFalse( $loginAttemptCounter->isBadLoginPerUserTriggered( $user ) );
 	}
 
 	/**
@@ -293,8 +299,8 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 	}
 
 	protected function blockLogin( $username ) {
-		$captcha = new SimpleCaptcha();
-		$captcha->increaseBadLoginCounter( $username );
+		$counter = new LoginAttemptCounter( new SimpleCaptcha() );
+		$counter->increaseBadLoginCounter( $username );
 	}
 
 	protected function flagSession() {
@@ -309,6 +315,16 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			return in_array( $type, $triggers, true );
 		}, $types ) );
 		$this->setMwGlobals( 'wgCaptchaTriggers', $captchaTriggers );
+	}
+
+	private function getProvider(): CaptchaPreAuthenticationProvider {
+		return new class() extends CaptchaPreAuthenticationProvider {
+			public ?LoginAttemptCounter $loginAttemptCounter = null;
+
+			protected function getLoginAttemptCounter( SimpleCaptcha $captcha ): LoginAttemptCounter {
+				return $this->loginAttemptCounter ?: parent::getLoginAttemptCounter( $captcha );
+			}
+		};
 	}
 
 }

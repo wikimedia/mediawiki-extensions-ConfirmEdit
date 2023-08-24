@@ -403,7 +403,7 @@ class SimpleCaptcha {
 	 * Is the per-user captcha triggered?
 	 *
 	 * @param User|string $u User object, or name
-	 * @return bool|null False: no, null: no, but it will be triggered next time
+	 * @return bool
 	 */
 	public function isBadLoginPerUserTriggered( $u ) {
 		global $wgCaptchaBadLoginPerUserAttempts;

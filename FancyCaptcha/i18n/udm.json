@@ -8,7 +8,7 @@
 		]
 	},
 	"fancycaptcha-captcha": "Кышкыттэмлыкез эскерон",
-	"fancycaptcha-accountcreate": "Автомат амалэн кылдытэм регистрациослэсь Викиез утён понна, туж куриськом тӥледыз гожтыны кылъёсты, кудъёссэ тӥ адӟиськоды улӥысь рамкаын. ([[Special:Captcha/help|more info]]):",
-	"fancycaptcha-imgcaptcha-ph": "Гожтэ текстэз, кудзэ тӥ суредысь адӟиськоды",
-	"fancycaptcha-reload-text": "Выльдытыны"
+	"fancycaptcha-accountcreate": "Асэрказ пыронним кылдытонъёслэсь Викиез утён понна,  куриськом тӥледыз гожтыны улӥяз потӥсь кылъёсты  ([[Special:Captcha/help|пыр-почгес]]):",
+	"fancycaptcha-imgcaptcha-ph": "Суред вылын возьматэм кылэз гожтэ",
+	"fancycaptcha-reload-text": "Выльдоно"
 }

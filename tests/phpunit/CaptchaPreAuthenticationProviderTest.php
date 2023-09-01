@@ -48,8 +48,15 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 	 * @dataProvider provideGetAuthenticationRequests
 	 */
 	public function testGetAuthenticationRequests(
-		$action, $username, $triggers, $needsCaptcha, $preTestCallback = null
+		$action, $useExistingUserOrNull, $triggers, $needsCaptcha, $preTestCallback = null
 	) {
+		if ( $useExistingUserOrNull === true ) {
+			$username = $this->getTestSysop()->getUserIdentity()->getName();
+		} elseif ( $useExistingUserOrNull === false ) {
+			$username = 'Foo';
+		} else {
+			$username = null;
+		}
 		$this->setTriggers( $triggers );
 		if ( $preTestCallback ) {
 			$fn = array_shift( $preTestCallback );
@@ -77,12 +84,12 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			[ AuthManager::ACTION_LOGIN, null, [ 'badlogin' ], false ],
 			[ AuthManager::ACTION_LOGIN, null, [ 'badlogin' ], true, [ 'blockLogin', 'Foo' ] ],
 			[ AuthManager::ACTION_LOGIN, null, [ 'badloginperuser' ], false, [ 'blockLogin', 'Foo' ] ],
-			[ AuthManager::ACTION_LOGIN, 'Foo', [ 'badloginperuser' ], false, [ 'blockLogin', 'Bar' ] ],
-			[ AuthManager::ACTION_LOGIN, 'Foo', [ 'badloginperuser' ], true, [ 'blockLogin', 'Foo' ] ],
+			[ AuthManager::ACTION_LOGIN, false, [ 'badloginperuser' ], false, [ 'blockLogin', 'Bar' ] ],
+			[ AuthManager::ACTION_LOGIN, false, [ 'badloginperuser' ], true, [ 'blockLogin', 'Foo' ] ],
 			[ AuthManager::ACTION_LOGIN, null, [ 'badloginperuser' ], true, [ 'flagSession' ] ],
 			[ AuthManager::ACTION_CREATE, null, [], false ],
 			[ AuthManager::ACTION_CREATE, null, [ 'createaccount' ], true ],
-			[ AuthManager::ACTION_CREATE, 'UTSysop', [ 'createaccount' ], false ],
+			[ AuthManager::ACTION_CREATE, true, [ 'createaccount' ], false ],
 			[ AuthManager::ACTION_LINK, null, [], false ],
 			[ AuthManager::ACTION_CHANGE, null, [], false ],
 			[ AuthManager::ACTION_REMOVE, null, [], false ],
@@ -151,7 +158,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 	/**
 	 * @dataProvider provideTestForAccountCreation
 	 */
-	public function testTestForAccountCreation( $req, $creator, $result, $disableTrigger = false ) {
+	public function testTestForAccountCreation( $req, $creatorIsSysop, $result, $disableTrigger = false ) {
 		$this->setTemporaryHook( 'PingLimiter', static function ( $user, $action, &$result ) {
 			$result = false;
 			return false;
@@ -162,21 +169,20 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$provider = new CaptchaPreAuthenticationProvider();
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
+		$creator = $creatorIsSysop ? $this->getTestSysop()->getUser() : User::newFromName( 'Bar' );
 		$status = $provider->testForAccountCreation( $user, $creator, $req ? [ $req ] : [] );
 		$this->assertEquals( $result, $status->isGood() );
 	}
 
 	public static function provideTestForAccountCreation() {
-		$user = User::newFromName( 'Bar' );
-		$sysop = User::newFromName( 'UTSysop' );
 		return [
 			// [ auth request, creator, result, disable trigger? ]
-			'no captcha' => [ null, $user, false ],
-			'non-existent captcha' => [ self::getCaptchaRequest( '123', '4' ), $user, false ],
-			'wrong captcha' => [ self::getCaptchaRequest( '345', '6' ), $user, false ],
-			'correct captcha' => [ self::getCaptchaRequest( '345', '4' ), $user, true ],
-			'user is exempt' => [ null, $sysop, true ],
-			'disabled' => [ null, $user, true, 'disable' ],
+			'no captcha' => [ null, false, false ],
+			'non-existent captcha' => [ self::getCaptchaRequest( '123', '4' ), false, false ],
+			'wrong captcha' => [ self::getCaptchaRequest( '345', '6' ), false, false ],
+			'correct captcha' => [ self::getCaptchaRequest( '345', '4' ), false, true ],
+			'user is exempt' => [ null, true, true ],
+			'disabled' => [ null, false, true, 'disable' ],
 		];
 	}
 

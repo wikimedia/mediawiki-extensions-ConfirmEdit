@@ -1,8 +1,8 @@
 /* eslint-env node */
 module.exports = function ( grunt ) {
-	var messagesDirs = grunt.file.readJSON( 'extension.json' ).MessagesDirs;
+	const messagesDirs = grunt.file.readJSON( 'extension.json' ).MessagesDirs;
 
-	var subExtensions = [
+	const subExtensions = [
 		'QuestyCaptcha',
 		'ReCaptchaNoCaptcha',
 		'FancyCaptcha',

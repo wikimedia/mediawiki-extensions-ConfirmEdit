@@ -23,6 +23,8 @@ questions defined by the administrator(s)
 * ReCaptchaNoCaptcha - users have to solve different types of visually or
 audially tasks.
 * hCaptcha - users have to solve visual tasks
+* Turnstile - users check a box, which runs some client-side JS
+heuristics
 
 ### License
 

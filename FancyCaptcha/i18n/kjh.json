@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"AlexandrL714"
+			"AlexandrL714",
+			"Oxianboal"
 		]
 	},
 	"fancycaptcha-captcha": "Хорғыс чох сыныхтаа",
+	"fancycaptcha-accountcreate": "Автоматическай  оңдайнаң кирiлчеткен аккаунттарны чох идер ӱчӱн, алтында кӧзіділген сӧстерні([[Special:Captcha/help|подробнее]]): пазыңар",
 	"fancycaptcha-imgcaptcha-ph": "Сомда кӧрінген пічікті пазыңар",
 	"fancycaptcha-reload-text": "Наалирға"
 }

@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ukhant Erdemt"
+			"Ukhant Erdemt",
+			"Алия"
 		]
 	},
 	"fancycaptcha-captcha": "Аюл уга бәәдлин шалһлт",
-	"fancycaptcha-accountcreate": "Wiki-г автоматҗулсн данс үүскхәс хамһалхин төлә бидн дор һарч ирх үгмүдиг хәәрцгт орулхиг танас күсч бәәнәвидн ([[Special:Captcha/help|more info]]):",
+	"fancycaptcha-accountcreate": "Автоматар бүрткл үүскхәс урдчлн сергәлн, дорк күрәд орсн үгмүдиг орулхитн күсчәнәвидн ([[Special:Captcha/help|more info]]):",
 	"fancycaptcha-imgcaptcha-ph": "Зург деер үзгдҗәх текстиг орултн",
 	"fancycaptcha-reload-text": "Сергәҗ шинрүлх"
 }

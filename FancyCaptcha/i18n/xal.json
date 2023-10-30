@@ -7,6 +7,6 @@
 	},
 	"fancycaptcha-captcha": "Аюл уга бәәдлин шалһлт",
 	"fancycaptcha-accountcreate": "Автоматар бүрткл үүскхәс урдчлн сергәлн, дорк күрәд орсн үгмүдиг орулхитн күсчәнәвидн ([[Special:Captcha/help|more info]]):",
-	"fancycaptcha-imgcaptcha-ph": "Зург деер үзгдҗәх текстиг орултн",
-	"fancycaptcha-reload-text": "Сергәҗ шинрүлх"
+	"fancycaptcha-imgcaptcha-ph": "Зург деер үзсн текстән орултн",
+	"fancycaptcha-reload-text": "Дәкн ацалх"
 }

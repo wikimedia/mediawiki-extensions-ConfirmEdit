@@ -5,8 +5,8 @@
 			"Oxianboal"
 		]
 	},
-	"fancycaptcha-captcha": "Хорғыс чох сыныхтаа",
-	"fancycaptcha-accountcreate": "Автоматическай  оңдайнаң кирiлчеткен аккаунттарны чох идер ӱчӱн, алтында кӧзіділген сӧстерні([[Special:Captcha/help|подробнее]]): пазыңар",
-	"fancycaptcha-imgcaptcha-ph": "Сомда кӧрінген пічікті пазыңар",
-	"fancycaptcha-reload-text": "Наалирға"
+	"fancycaptcha-captcha": "Хорғысты хыйыстырар сыныхтағ",
+	"fancycaptcha-accountcreate": "Автоматическай  оңдайнаң кирiлчеткен аккаунттарны чох идер ӱчӱн, алтында кӧзіділген сӧстерні пазыңар([[Special:Captcha/help|подробнее]]):",
+	"fancycaptcha-imgcaptcha-ph": "Сомда кӧрчеткен пічікті пазыңар",
+	"fancycaptcha-reload-text": "Наачылирға"
 }

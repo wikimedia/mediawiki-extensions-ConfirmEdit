@@ -10,6 +10,7 @@
 	"captcha-edit": "Za izmenu ove strane, rešite sledeći zadatak ispod i unesite odgovor u kutiju ([[Special:Captcha/help|detaljnije]]):",
 	"captcha-edit-fail": "Pogrešan ili nepostojeći kod za potvrdu.",
 	"captcha-desc": "Pruža zaštitu protiv nepoželjnih poruka u vidu potvrdnog koda",
+	"captcha-label": "CAPTCHA",
 	"captcha-addurl": "Vaša izmena sadrži nove spoljašnje veze.\nU cilju zaštite od nepoželjnih poruka, rešite sledeći zadatak ispod i unesite odgovor u polje ([[Special:Captcha/help|više informacija]]):",
 	"captcha-badlogin": "U cilju zaštite od probijanja lozinki, rešite sledeći zadatak ispod i unesite odgovor u polje ([[Special:Captcha/help|više informacija]]):",
 	"captcha-createaccount": "U cilju zaštite od automatizovanog vandalizma, rešite sledeći zadatak ispod i unesite odgovor u polje ([[Special:Captcha/help|više informacija]]):",

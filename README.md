@@ -94,8 +94,8 @@ $wgCaptchaTriggersOnNamespace = [];
  * 'CaptchaSessionStore' uses PHP's session storage, which is cookie-based
  * and may fail for anons with cookies disabled.
  *
- * 'CaptchaCacheStore' uses MW's object cache (specifically, MediaWikiServices::getMainObjectStash),
- * which avoids the cookie dependency, but may be fragile depending on the cache backend.
+ * 'CaptchaCacheStore' uses MediaWiki core's MicroStash,
+ * for storing captch data with a TTL eviction strategy.
  */
 $wgCaptchaStorageClass = 'CaptchaSessionStore';
 

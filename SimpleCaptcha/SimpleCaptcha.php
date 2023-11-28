@@ -923,14 +923,14 @@ class SimpleCaptcha {
 		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 		if ( !$this->doConfirmEdit( $page, $content, '', $context, $user ) ) {
 			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
-			$status->apiHookResult = [];
+			$status->statusData = [];
 			// give an error message for the user to know, what goes wrong here.
 			// this can't be done for addurl trigger, because this requires one "free" save
 			// for the user, which we don't know, when he did it.
 			if ( $this->action === 'edit' ) {
 				$status->fatal( 'captcha-edit-fail' );
 			}
-			$this->addCaptchaAPI( $status->apiHookResult );
+			$this->addCaptchaAPI( $status->statusData );
 			$key = CacheKeyHelper::getKeyForPage( $page );
 			$this->activatedCaptchas[$key] = true;
 			return false;

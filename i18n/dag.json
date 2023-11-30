@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dnshitobu"
+			"Dnshitobu",
+			"Attah Mohammed"
 		]
 	},
-	"captcha-label": "CAPTCHA"
+	"captcha-label": "CAPTCHA",
+	"confirmedit-preview-content": "Din be di puuni",
+	"confirmedit-preview-valid": "Nyɛ yɛlimaŋli",
+	"confirmedit-preview-invalid": "Pa yɛlimaŋli"
 }

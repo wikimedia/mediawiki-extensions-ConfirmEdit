@@ -5,7 +5,7 @@
 			"Soumaya"
 		]
 	},
-	"captcha-edit": "Y sã n dat n toeem seb-kãngã, bɩ y welg tʋʋm-kãngã n ning y leokrã zĩ-gũbrẽ wã ([[Special:Captcha/help to learn more info]]):",
+	"captcha-edit": "Y sã n dat n toeem seb-kãngã, bɩ y welg tʋʋm-kãngã n ning y leokrã zĩ-gũbrẽ wã ([[Special:Captcha/help to learn more info]])",
 	"captcha-edit-fail": "CAPTCHA sẽn pa zems bɩ sẽn pa tar ye.",
 	"captcha-desc": "B kõo CAPTCHA sɛb sẽn na yɩl n kogl ne spam la loogr sõssã",
 	"captcha-label": "CAPTCHA",
@@ -17,7 +17,7 @@
 	"captcha-badlogin": "Sẽn na yɩl n kogl wiki wã ne loogr sẽn pa tõe n kɩt tɩ b kʋ kʋ kʋɩl-dãmbã, d kot-y lame tɩ y welg tʋʋm-kãngã n gʋls sokrã zĩiga ([[Special:Captcha/help | more 9:17]]):",
 	"captcha-createaccount": "Gũ wiki ni otomatiki kõnte naane, tõnd bõose ti fo kẽ gom-biisi ning n yi kade tenga ([[Special:Captcha/help|paas kibaare]]):",
 	"captcha-createaccount-fail": "CAPTCHA sẽn pa zems bɩ sẽn pa tar ye.",
-	"captcha-create": "Y sã n dat n naan seb-kãngã, bɩ y welg tʋʋm-kãngã n ning y leokrã zĩ-gũbrẽ wã ([[Special:Captcha/help to learn more info]]):",
+	"captcha-create": "Y sã n dat n naan seb-kãngã, bɩ y welg tʋʋm-kãngã n ning y leokrã zĩ-gũbrẽ wã ([[Special:Captcha/help to learn more info]])",
 	"captcha-sendemail": "Gũ wiki ni otomatiki kõnte naane, tõnd bõose ti fo kẽ gom-biisi ning n yi kade tenga ([[Special:Captcha/help|paas kibaare]]):",
 	"captcha-sendemail-fail": "CAPTCHA sẽn pa zems bɩ sẽn pa tar ye.",
 	"captcha-disabledinapi": "Tʋʋm-kãngã baoodame tɩ b maan CAPTCHA, tɩ rẽ yĩnga, b pa tõe n maan-a ne API wã ye.",

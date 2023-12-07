@@ -6,7 +6,7 @@
 		]
 	},
 	"fancycaptcha-captcha": "Хорғысты хыйыстырар сыныхтағ",
-	"fancycaptcha-accountcreate": "Автоматическай  оңдайнаң кирiлчеткен аккаунттарны чох идер ӱчӱн, алтында кӧзіділген сӧстерні пазыңар([[Special:Captcha/help|подробнее]]):",
-	"fancycaptcha-imgcaptcha-ph": "Сомда кӧрчеткен пічікті пазыңар",
+	"fancycaptcha-accountcreate": "Ӧнетін программа хоостыра кирiлчеткен аккаунттарны чох идер ӱчӱн, алтында кӧзіділген сӧстерні пазыңар([[Special:Captcha/help|подробнее]]):",
+	"fancycaptcha-imgcaptcha-ph": "Сомда кӧрчеткен тексттi пазыңар",
 	"fancycaptcha-reload-text": "Наачылирға"
 }

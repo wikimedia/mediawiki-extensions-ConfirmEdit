@@ -11,6 +11,7 @@ use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Tests\Unit\Auth\AuthenticationProviderTestTrait;
+use MediaWiki\User\User;
 use Wikimedia\TestingAccessWrapper;
 
 /**

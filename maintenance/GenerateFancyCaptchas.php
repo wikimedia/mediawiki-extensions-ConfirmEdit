@@ -31,6 +31,7 @@ require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Status\Status;
 
 /**
  * Maintenance script to generate fancy captchas using a python script and copy them into storage.

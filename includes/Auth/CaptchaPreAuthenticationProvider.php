@@ -9,8 +9,8 @@ use MediaWiki\Auth\AuthManager;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Logger\LoggerFactory;
-use Status;
-use User;
+use MediaWiki\Status\Status;
+use MediaWiki\User\User;
 
 class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider {
 	/**

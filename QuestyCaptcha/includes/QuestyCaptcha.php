@@ -10,11 +10,11 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\QuestyCaptcha;
 
-use Html;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
+use MediaWiki\Html\Html;
 use RequestContext;
 use Xml;
 

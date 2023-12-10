@@ -30,6 +30,7 @@ require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Status\Status;
 
 /**
  * Maintenance script that deletes old fancy captchas from storage

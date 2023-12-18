@@ -11,7 +11,7 @@
 	"captcha-label": "CAPTCHA.",
 	"captcha-addurl": "Yer eedit incluids new ootby airtins.\nTae protect the wiki again autæmatit spam, we kyndlie speir that ye solve the simple sum ablo n enter the answer in the kist in order tae hain yer eedit ([[Special:Captcha/help|mair info]]):",
 	"captcha-badlogin": "Tae protect the wiki fae autæmatit passwaird crackin, we kyndlie request that ye solve the simple sum ablo n enter the answer in the kist ([[Special:Captcha/help|mair info]]):",
-	"captcha-createaccount": "Tae protect the wiki fae autæmatit accoont cræftin, we kyndlie request that ye solve the simple sum ablo n enter the answer in the kist ([[Special:Captcha/help|mair info]]):",
+	"captcha-createaccount": "Tae fend the wiki agin automatit accoont makins, we kindly speir fur ye tae solve the follaein task ablo an enter the answer in the field ([[Special:Captcha/help|mair info]]):",
 	"captcha-createaccount-fail": "Oncorrect or missing CAPTCHA.",
 	"captcha-create": "Tae mak the page, please dae the follaein task ablo an put the answer in the field ([[Special:Captcha/help|mair info]]):",
 	"captcha-sendemail": "Tae protect the wiki fae autæmatit spammin, we kyndlie request that ye solve the simple sum ablo n enter the answer in the kist ([[Special:Captcha/help|mair info]]):",

@@ -7,17 +7,13 @@ use MediaWiki\MediaWikiServices;
 
 class CaptchaCacheStore extends CaptchaStore {
 	/** @var BagOStuff */
-	private $mainStashStore;
-
-	/** @var BagOStuff */
-	private $microStashStore;
+	private $store;
 
 	public function __construct() {
 		parent::__construct();
 
 		$services = MediaWikiServices::getInstance();
-		$this->mainStashStore = $services->getMainObjectStash();
-		$this->microStashStore = $services->getMicroStash();
+		$this->store = $services->getMicroStash();
 	}
 
 	/**
@@ -26,14 +22,14 @@ class CaptchaCacheStore extends CaptchaStore {
 	public function store( $index, $info ) {
 		global $wgCaptchaSessionExpiration;
 
-		$microStashStore = $this->microStashStore;
-		$microStashStore->set(
-			$microStashStore->makeKey( 'captcha', $index ),
+		$store = $this->store;
+		$store->set(
+			$store->makeKey( 'captcha', $index ),
 			$info,
 			$wgCaptchaSessionExpiration,
 			// Assume the write will reach the master DC before the user sends the
 			// HTTP POST request attempted to solve the captcha and perform an action
-			$microStashStore::WRITE_BACKGROUND
+			$store::WRITE_BACKGROUND
 		);
 	}
 
@@ -41,26 +37,17 @@ class CaptchaCacheStore extends CaptchaStore {
 	 * @inheritDoc
 	 */
 	public function retrieve( $index ) {
-		$microStashStore = $this->microStashStore;
-		$data = $microStashStore->get( $microStashStore->makeKey( 'captcha', $index ) );
+		$store = $this->store;
 
-		if ( !$data ) {
-			$mainStashStore = $this->mainStashStore;
-			$data = $mainStashStore->get( $mainStashStore->makeKey( 'captcha', $index ) );
-		}
-
-		return $data;
+		return $store->get( $store->makeKey( 'captcha', $index ) );
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function clear( $index ) {
-		$mainStashStore = $this->mainStashStore;
-		$mainStashStore->delete( $mainStashStore->makeKey( 'captcha', $index ) );
-
-		$microStashStore = $this->microStashStore;
-		$microStashStore->delete( $microStashStore->makeKey( 'captcha', $index ) );
+		$store = $this->store;
+		$store->delete( $store->makeKey( 'captcha', $index ) );
 	}
 
 	public function cookiesNeeded() {

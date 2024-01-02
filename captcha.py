@@ -47,6 +47,11 @@ except:
 
 nonalpha = re.compile('[^a-z]') # regex to test for suitability of words
 
+# Pillow 9.2 added getbbox to replace getsize, and getsize() was removed in Pillow 10
+# https://pillow.readthedocs.io/en/stable/releasenotes/10.0.0.html#font-size-and-offset-methods
+# We don't have a requirements.txt, and therefore don't declare any specific supported or min version...
+IMAGEFONT_HAS_GETBBOX = hasattr(ImageFont.ImageFont, "getbbox")
+
 # Does X-axis wobbly copy, sandwiched between two rotates
 def wobbly_copy(src, wob, col, scale, ang):
 	x, y = src.size
@@ -80,8 +85,13 @@ def gen_captcha(text, fontname, fontsize, file_name):
 	fgcolor = 0xffffff
 	# create a font object
 	font = ImageFont.truetype(fontname,fontsize)
+
 	# determine dimensions of the text
-	dim = font.getsize(text)
+	if IMAGEFONT_HAS_GETBBOX:
+		dim = font.getbbox(text)[2:]
+	else:
+		dim = font.getsize(text)
+
 	# create a new image significantly larger that the text
 	edge = max(dim[0], dim[1]) + 2*min(dim[0], dim[1])
 	im = Image.new('RGB', (edge, edge), bgcolor)

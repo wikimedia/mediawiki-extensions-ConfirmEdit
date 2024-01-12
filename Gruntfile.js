@@ -8,9 +8,12 @@ module.exports = function ( grunt ) {
 		'MathCaptcha',
 		'hCaptcha'
 	] ) {
+		// eslint-disable-next-line security/detect-non-literal-require
 		messagesDirs[ subExtension ] = require( './' + subExtension + '/extension.json' )
 			.MessagesDirs[ subExtension ]
-			.map( function ( path ) { return subExtension + '/' + path; } );
+			.map( function ( path ) {
+				return subExtension + '/' + path;
+			} );
 	}
 
 	grunt.loadNpmTasks( 'grunt-banana-checker' );

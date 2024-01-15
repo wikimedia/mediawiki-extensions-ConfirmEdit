@@ -205,7 +205,7 @@ def read_wordlist(filename):
 	return words
 
 def run_in_thread(object):
-	count = object[0];
+	count = object[0]
 	words = object[1]
 	badwordlist = object[2]
 	opts = object[3]
@@ -300,7 +300,7 @@ if __name__ == '__main__':
 	else:
 		chunks = (count // threads)
 
-	p = multiprocessing.Pool(threads);
+	p = multiprocessing.Pool(threads)
 	data = []
 	print("Generating %s CAPTCHA images separated in %s image(s) per chunk run by %s threads..." % (count, chunks, threads))
 	for i in range(0, threads):

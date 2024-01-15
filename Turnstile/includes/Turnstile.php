@@ -246,9 +246,9 @@ class Turnstile extends SimpleCaptcha {
 		$captcha = Hooks::getInstance();
 
 		$formDescriptor['captchaWord'] = [
-				'class' => HTMLTurnstileField::class,
-				'key' => $wgTurnstileSiteKey,
-				'error' => $captcha->getError(),
-			] + $formDescriptor['captchaWord'];
+			'class' => HTMLTurnstileField::class,
+			'key' => $wgTurnstileSiteKey,
+			'error' => $captcha->getError(),
+		] + $formDescriptor['captchaWord'];
 	}
 }

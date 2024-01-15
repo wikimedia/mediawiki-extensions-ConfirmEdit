@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Turnstile;
 
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 
 class Hooks implements ResourceLoaderGetConfigVarsHook {

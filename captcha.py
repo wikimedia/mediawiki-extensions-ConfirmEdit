@@ -104,12 +104,12 @@ def gen_captcha(text, fontname, fontsize, file_name):
 		d.text((x/2-dim[0]/2+offset, y/2-dim[1]/2+random.uniform(-3,7)), c, font=font, fill=fgcolor)
 		offset += font.getsize( c )[0] - random.uniform(5,6)
 
-	for i in range(5):
+	for i in range(10):
 		d.arc((
-			int(offset*(i-1)/5+x/2-dim[0]/2+random.uniform(0,10)),
-			int(y/2-dim[1]/2+30+random.uniform(-10,15)),
-			int(offset*i/5+x/2-dim[0]/2+random.uniform(-5,5)),
-			int(y/2-dim[1]/2+30+random.uniform(-10,30))
+			int(offset*((i/2)-1)/5+x/2-dim[0]/2+random.uniform(0,10)),
+			int(y/2-dim[1]+30+random.uniform(-10,15)),
+			int(offset*i/7+x/2-dim[0]/2+random.uniform(-5,5)),
+			int(y/2-dim[1]+30+random.uniform(-10,30))
 		),int(random.uniform(-30,30)), int(random.uniform(160,300)),fill=fgcolor )
 
 	# now get the bounding box of the nonzero parts of the image
@@ -208,7 +208,7 @@ def run_in_thread(object):
 		word = pick_word(words, badwordlist, opts.verbose, opts.number_words, opts.min_length, opts.max_length)
 		salt = "%08x" % random.randrange(2**32)
 		# 64 bits of hash is plenty for this purpose
-		md5hash = hashlib.md5((key+salt+word+key+salt).encode('utf-8')).hexdigest()[:16]
+		md5hash = hashlib.md5((opts.key+salt+word+opts.key+salt).encode('utf-8')).hexdigest()[:16]
 		filename = "image_%s_%s.png" % (salt, md5hash)
 		if dirs:
 			subdir = gen_subdir(output, md5hash, dirs)

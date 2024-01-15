@@ -17,9 +17,12 @@ class ApiFancyCaptchaReload extends ApiBase {
 		return true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
+	public function isInternal() {
+		return true;
+	}
+
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [];
 	}

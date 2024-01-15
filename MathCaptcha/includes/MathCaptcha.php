@@ -125,5 +125,3 @@ class MathCaptcha extends SimpleCaptcha {
 		$formDescriptor['captchaWord']['label-message'] = null;
 	}
 }
-
-class_alias( MathCaptcha::class, 'MathCaptcha' );

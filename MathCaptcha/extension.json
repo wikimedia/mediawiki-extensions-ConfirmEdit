@@ -17,10 +17,6 @@
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"MathCaptcha": "includes/MathCaptcha.php",
-		"MediaWiki\\Extension\\ConfirmEdit\\MathCaptcha\\MathCaptcha": "includes/MathCaptcha.php"
-	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\ConfirmEdit\\MathCaptcha\\": "includes/"
 	},

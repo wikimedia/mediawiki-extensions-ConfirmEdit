@@ -33,7 +33,6 @@ import os
 import sys
 import re
 import multiprocessing
-import time
 
 try:
 	from PIL import Image
@@ -46,7 +45,7 @@ except:
 	sys.exit("This script requires the Python Imaging Library - http://www.pythonware.com/products/pil/")
 
 nonalpha = re.compile('[^a-z]') # regex to test for suitability of words
-
+confusedletters = re.compile( '[ijtlr][ijtl]|r[nompqr]|[il]' ) # when il beside each other, hard to read.
 # Pillow 9.2 added getbbox to replace getsize, and getsize() was removed in Pillow 10
 # https://pillow.readthedocs.io/en/stable/releasenotes/10.0.0.html#font-size-and-offset-methods
 # We don't have a requirements.txt, and therefore don't declare any specific supported or min version...
@@ -57,7 +56,7 @@ def wobbly_copy(src, wob, col, scale, ang):
 	x, y = src.size
 	f = random.uniform(4*scale, 5*scale)
 	p = random.uniform(0, math.pi*2)
-	rr = ang+random.uniform(-10, 10) # vary, but not too much
+	rr = ang+random.uniform(-30, 30) # vary, but not too much
 	int_d = Image.new('RGB', src.size, 0) # a black rectangle
 	rot = src.rotate(rr, Image.BILINEAR)
 	# Do a cheap bounding-box op here to try to limit work below
@@ -98,38 +97,25 @@ def gen_captcha(text, fontname, fontsize, file_name):
 	d = ImageDraw.Draw(im)
 	x, y = im.size
 	# add the text to the image
-	d.text((x/2-dim[0]/2, y/2-dim[1]/2), text, font=font, fill=fgcolor)
-	k = 2
-	wob = 0.09*dim[1]
-	rot = 45
-	# Apply lots of small stirring operations, rather than a few large ones
-	# in order to get some uniformity of treatment, whilst
-	# maintaining randomness
-	for i in range(k):
-		im = wobbly_copy(im, wob, bgcolor, i*2+3, rot+0)
-		im = wobbly_copy(im, wob, bgcolor, i*2+1, rot+45)
-		im = wobbly_copy(im, wob, bgcolor, i*2+2, rot+90)
-		rot += 30
+	# Using between 5-6 pixels of negative kerning seemed
+	# enough to confuse tesseract but still be very readable
+	offset = 0
+	for c in text:
+		d.text((x/2-dim[0]/2+offset, y/2-dim[1]/2+random.uniform(-3,7)), c, font=font, fill=fgcolor)
+		offset += font.getsize( c )[0] - random.uniform(5,6)
+
+	for i in range(5):
+		d.arc((
+			int(offset*(i-1)/5+x/2-dim[0]/2+random.uniform(0,10)),
+			int(y/2-dim[1]/2+30+random.uniform(-10,15)),
+			int(offset*i/5+x/2-dim[0]/2+random.uniform(-5,5)),
+			int(y/2-dim[1]/2+30+random.uniform(-10,30))
+		),int(random.uniform(-30,30)), int(random.uniform(160,300)),fill=fgcolor )
 
 	# now get the bounding box of the nonzero parts of the image
 	bbox = im.getbbox()
 	bord = min(dim[0], dim[1])/4 # a bit of a border
 	im = im.crop((bbox[0]-bord, bbox[1]-bord, bbox[2]+bord, bbox[3]+bord))
-
-	# Create noise
-	nblock = 4
-	nsize = (im.size[0] // nblock, im.size[1] // nblock)
-	noise = Image.new('L', nsize, bgcolor)
-	data = noise.load()
-	for x in range(nsize[0]):
-		for y in range(nsize[1]):
-			r = random.randint(0, 65)
-			gradient = 70 * x // nsize[0]
-			data[x, y] = r + gradient
-	# Turn speckles into blobs
-	noise = noise.resize(im.size, Image.BILINEAR)
-	# Add to the image
-	im = ImageMath.eval('convert(convert(a, "L") / 3 + b, "RGB")', a=im, b=noise)
 
 	# and turn into black on white
 	im = ImageOps.invert(im)
@@ -183,6 +169,10 @@ def try_pick_word(words, badwordlist, verbose, nwords, min_length, max_length):
 		if verbose:
 			print("skipping word pair '%s' because it contains non-alphabetic characters" % word)
 		return None
+	if confusedletters.search(word):
+		if verbose:
+			print("skipping word pair '%s' because it contains confusing letters beside each other" % word)
+		return None
 
 	for naughty in badwordlist:
 		if naughty in word:
@@ -207,7 +197,7 @@ def read_wordlist(filename):
 	return words
 
 def run_in_thread(object):
-	count = object[0];
+	count = object[0]
 	words = object[1]
 	badwordlist = object[2]
 	opts = object[3]
@@ -215,7 +205,7 @@ def run_in_thread(object):
 	fontsize = object[5]
 
 	for i in range(count):
-		word = pick_word(words, badwordlist, verbose, opts.number_words, opts.min_length, opts.max_length)
+		word = pick_word(words, badwordlist, opts.verbose, opts.number_words, opts.min_length, opts.max_length)
 		salt = "%08x" % random.randrange(2**32)
 		# 64 bits of hash is plenty for this purpose
 		md5hash = hashlib.md5((key+salt+word+key+salt).encode('utf-8')).hexdigest()[:16]
@@ -223,7 +213,7 @@ def run_in_thread(object):
 		if dirs:
 			subdir = gen_subdir(output, md5hash, dirs)
 			filename = os.path.join(subdir, filename)
-		if verbose:
+		if opts.verbose:
 			print(filename)
 		gen_captcha(word, font, fontsize, os.path.join(output, filename))
 
@@ -302,7 +292,7 @@ if __name__ == '__main__':
 	else:
 		chunks = (count // threads)
 
-	p = multiprocessing.Pool(threads);
+	p = multiprocessing.Pool(threads)
 	data = []
 	print("Generating %s CAPTCHA images separated in %s image(s) per chunk run by %s threads..." % (count, chunks, threads))
 	for i in range(0, threads):

@@ -47,6 +47,12 @@ class DeleteOldFancyCaptchas extends Maintenance {
 			true,
 			true
 		);
+		$this->addOption(
+			'captchastoragedir',
+			'Overrides the value of $wgCaptchaStorageDirectory',
+			false,
+			true
+		);
 		$this->requireExtension( "FancyCaptcha" );
 	}
 
@@ -56,11 +62,17 @@ class DeleteOldFancyCaptchas extends Maintenance {
 			$this->fatalError( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
 		}
 
+		// Overrides $wgCaptchaStorageDirectory for this script run
+		if ( $this->hasOption( 'captchastoragedir' ) ) {
+			global $wgCaptchaStorageDirectory;
+			$wgCaptchaStorageDirectory = $this->getOption( 'captchastoragedir' );
+		}
+
 		$countAct = $instance->getCaptchaCount();
 		$this->output( "Current number of captchas is $countAct.\n" );
 
 		$backend = $instance->getBackend();
-		$dir = $backend->getRootStoragePath() . '/captcha-render';
+		$dir = $backend->getRootStoragePath() . '/' . $instance->getStorageDir();
 
 		$filesToDelete = [];
 		$deleteDate = $this->getOption( 'date' );

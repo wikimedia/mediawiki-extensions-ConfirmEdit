@@ -37,21 +37,22 @@ class FancyCaptcha extends SimpleCaptcha {
 		if ( $wgCaptchaFileBackend ) {
 			return MediaWikiServices::getInstance()->getFileBackendGroup()
 				->get( $wgCaptchaFileBackend );
-		} else {
-			static $backend = null;
-			if ( !$backend ) {
-				$backend = new FSFileBackend( [
-					'name'           => 'captcha-backend',
-					'wikiId'         => WikiMap::getCurrentWikiId(),
-					'lockManager'    => new NullLockManager( [] ),
-					'containerPaths' => [ 'captcha-render' => $wgCaptchaDirectory ],
-					'fileMode'       => 777,
-					'obResetFunc'    => 'wfResetOutputBuffers',
-					'streamMimeFunc' => [ 'StreamFile', 'contentTypeFromPath' ]
-				] );
-			}
-			return $backend;
 		}
+
+		static $backend = null;
+		if ( !$backend ) {
+			$backend = new FSFileBackend( [
+				'name'           => 'captcha-backend',
+				'wikiId'         => WikiMap::getCurrentWikiId(),
+				'lockManager'    => new NullLockManager( [] ),
+				'containerPaths' => [ $this->getStorageDir() => $wgCaptchaDirectory ],
+				'fileMode'       => 777,
+				'obResetFunc'    => 'wfResetOutputBuffers',
+				'streamMimeFunc' => [ 'StreamFile', 'contentTypeFromPath' ]
+			] );
+		}
+
+		return $backend;
 	}
 
 	/**
@@ -60,10 +61,18 @@ class FancyCaptcha extends SimpleCaptcha {
 	public function getCaptchaCount() {
 		$backend = $this->getBackend();
 		$files = $backend->getFileList(
-			[ 'dir' => $backend->getRootStoragePath() . '/captcha-render' ]
+			[ 'dir' => $backend->getRootStoragePath() . '/' . $this->getStorageDir() ]
 		);
 
 		return iterator_count( $files );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getStorageDir() {
+		global $wgCaptchaStorageDirectory;
+		return $wgCaptchaStorageDirectory;
 	}
 
 	/**
@@ -203,7 +212,7 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		// number of times another process claimed a file before this one
 		$lockouts = 0;
-		$baseDir = $this->getBackend()->getRootStoragePath() . '/captcha-render';
+		$baseDir = $this->getBackend()->getRootStoragePath() . '/' . $this->getStorageDir();
 		return $this->pickImageDir( $baseDir, $wgCaptchaDirectoryLevels, $lockouts );
 	}
 
@@ -417,7 +426,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	public function imagePath( $salt, $hash ) {
 		global $wgCaptchaDirectoryLevels;
 
-		$file = $this->getBackend()->getRootStoragePath() . '/captcha-render/';
+		$file = $this->getBackend()->getRootStoragePath() . '/' . $this->getStorageDir();
 		for ( $i = 0; $i < $wgCaptchaDirectoryLevels; $i++ ) {
 			$file .= $hash[ $i ] . '/';
 		}

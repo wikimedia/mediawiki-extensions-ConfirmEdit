@@ -60,6 +60,10 @@
 		},
 		"CaptchaDeleteOnSolve": {
 			"value": false
+		},
+		"CaptchaStorageDirectory": {
+			"description": "The directory that captchas will be stored in on the CaptchaFileBackend. You probably don't need to change this!",
+			"value": "captcha-render"
 		}
 	},
 	"manifest_version": 2

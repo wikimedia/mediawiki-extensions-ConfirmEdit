@@ -220,10 +220,10 @@ def run_in_thread(object):
 		# 64 bits of hash is plenty for this purpose
 		md5hash = hashlib.md5((key+salt+word+key+salt).encode('utf-8')).hexdigest()[:16]
 		filename = "image_%s_%s.png" % (salt, md5hash)
-		if dirs:
+		if opts.dirs:
 			subdir = gen_subdir(output, md5hash, dirs)
 			filename = os.path.join(subdir, filename)
-		if verbose:
+		if opts.verbose:
 			print(filename)
 		gen_captcha(word, font, fontsize, os.path.join(output, filename))
 
@@ -278,8 +278,6 @@ if __name__ == '__main__':
 	badwordlist = read_wordlist(opts.blacklist) + read_wordlist(opts.badwordlist)
 	count = opts.count
 	fill = opts.fill
-	dirs = opts.dirs
-	verbose = opts.verbose
 	fontsize = opts.font_size
 	threads = opts.threads
 

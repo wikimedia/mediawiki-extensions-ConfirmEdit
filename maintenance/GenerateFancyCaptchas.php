@@ -30,6 +30,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Shell\Shell;
 
 /**
  * Maintenance script to generate fancy captchas using a python script and copy them into storage.
@@ -99,29 +100,38 @@ class GenerateFancyCaptchas extends Maintenance {
 			$captchaScript = 'captcha-old.py';
 		}
 
-		$cmd = sprintf( "python3 %s --key %s --output %s --count %s --dirs %s",
-			wfEscapeShellArg( dirname( __DIR__ ) . '/' . $captchaScript ),
-			wfEscapeShellArg( $wgCaptchaSecret ),
-			wfEscapeShellArg( $tmpDir ),
-			wfEscapeShellArg( (string)$countGen ),
-			wfEscapeShellArg( $wgCaptchaDirectoryLevels )
-		);
+		$cmd = [
+			"python3",
+			dirname( __DIR__ ) . '/' . $captchaScript,
+			"--key",
+			$wgCaptchaSecret,
+			"--output",
+			$tmpDir,
+			"--count",
+			(string)$countGen,
+			"--dirs",
+			$wgCaptchaDirectoryLevels
+		];
 		foreach (
 			[ 'wordlist', 'font', 'font-size', 'blacklist', 'badwordlist', 'verbose', 'threads' ] as $par
 		) {
 			if ( $this->hasOption( $par ) ) {
-				$cmd .= " --$par " . wfEscapeShellArg( $this->getOption( $par ) );
+				$cmd[] = "--$par";
+				$cmd[] = $this->getOption( $par );
 			}
 		}
 
 		$this->output( "Generating $countGen new captchas.." );
-		$retVal = 1;
 		$captchaTime = -microtime( true );
-		wfShellExec( $cmd, $retVal, [], [ 'time' => 0 ] );
-		if ( $retVal != 0 ) {
+		$result = Shell::command( [] )
+			->unsafeParams( $cmd )
+			->limits( [ 'time' => 0 ] )
+			->restrict( Shell::RESTRICT_NONE )
+			->execute();
+		if ( $result->getExitCode() != 0 ) {
 			$this->output( " Failed.\n" );
 			wfRecursiveRemoveDir( $tmpDir );
-			$this->fatalError( "An error occured when running $captchaScript.\n", 1 );
+			$this->fatalError( "An error occurred when running $captchaScript.\n", 1 );
 		}
 
 		$captchaTime += microtime( true );
@@ -168,7 +178,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			if ( !$fileInfo->isFile() ) {
 				continue;
 			}
-			list( $salt, $hash ) = $instance->hashFromImageName( $fileInfo->getBasename() );
+			[ $salt, $hash ] = $instance->hashFromImageName( $fileInfo->getBasename() );
 			$dest = $instance->imagePath( $salt, $hash );
 			$backend->prepare( [ 'dir' => dirname( $dest ) ] );
 			$filesToStore[] = [

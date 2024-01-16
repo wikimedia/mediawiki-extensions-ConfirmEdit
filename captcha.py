@@ -33,7 +33,6 @@ import os
 import sys
 import re
 import multiprocessing
-import time
 
 try:
 	from PIL import Image
@@ -215,13 +214,13 @@ def run_in_thread(object):
 	fontsize = object[5]
 
 	for i in range(count):
-		word = pick_word(words, badwordlist, verbose, opts.number_words, opts.min_length, opts.max_length)
+		word = pick_word(words, badwordlist, opts.verbose, opts.number_words, opts.min_length, opts.max_length)
 		salt = "%08x" % random.randrange(2**32)
 		# 64 bits of hash is plenty for this purpose
 		md5hash = hashlib.md5((key+salt+word+key+salt).encode('utf-8')).hexdigest()[:16]
 		filename = "image_%s_%s.png" % (salt, md5hash)
 		if opts.dirs:
-			subdir = gen_subdir(opts.output, md5hash, dirs)
+			subdir = gen_subdir(opts.output, md5hash, opts.dirs)
 			filename = os.path.join(subdir, filename)
 		if opts.verbose:
 			print(filename)

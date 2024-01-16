@@ -40,7 +40,6 @@ try:
 	from PIL import ImageDraw
 	from PIL import ImageEnhance
 	from PIL import ImageOps
-	from PIL import ImageMath
 except:
 	sys.exit("This script requires the Python Imaging Library - http://www.pythonware.com/products/pil/")
 
@@ -211,7 +210,7 @@ def run_in_thread(object):
 		md5hash = hashlib.md5((opts.key+salt+word+opts.key+salt).encode('utf-8')).hexdigest()[:16]
 		filename = "image_%s_%s.png" % (salt, md5hash)
 		if opts.dirs:
-			subdir = gen_subdir(opts.output, md5hash, dirs)
+			subdir = gen_subdir(opts.output, md5hash, opts.dirs)
 			filename = os.path.join(subdir, filename)
 		if opts.verbose:
 			print(filename)

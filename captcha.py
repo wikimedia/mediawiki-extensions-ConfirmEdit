@@ -221,11 +221,11 @@ def run_in_thread(object):
 		md5hash = hashlib.md5((key+salt+word+key+salt).encode('utf-8')).hexdigest()[:16]
 		filename = "image_%s_%s.png" % (salt, md5hash)
 		if opts.dirs:
-			subdir = gen_subdir(output, md5hash, dirs)
+			subdir = gen_subdir(opts.output, md5hash, dirs)
 			filename = os.path.join(subdir, filename)
 		if opts.verbose:
 			print(filename)
-		gen_captcha(word, font, fontsize, os.path.join(output, filename))
+		gen_captcha(word, font, fontsize, os.path.join(opts.output, filename))
 
 if __name__ == '__main__':
 	"""This grabs random words from the dictionary 'words' (one

@@ -514,3 +514,5 @@ class FancyCaptcha extends SimpleCaptcha {
 		] + $formDescriptor['captchaWord'];
 	}
 }
+
+class_alias( FancyCaptcha::class, 'FancyCaptcha' );

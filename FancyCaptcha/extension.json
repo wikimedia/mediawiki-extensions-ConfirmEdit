@@ -17,6 +17,10 @@
 			"i18n/api"
 		]
 	},
+	"AutoloadClasses": {
+		"FancyCaptcha": "includes/FancyCaptcha.php",
+		"MediaWiki\\Extension\\ConfirmEdit\\FancyCaptcha\\FancyCaptcha": "includes/FancyCaptcha.php"
+	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\ConfirmEdit\\FancyCaptcha\\": "includes/"
 	},

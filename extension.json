@@ -55,15 +55,15 @@
 	"ExtensionMessagesFiles": {
 		"ConfirmEditAlias": "ConfirmEdit.alias.php"
 	},
+	"AutoloadClasses": {
+		"CaptchaCacheStore": "includes/Store/CaptchaCacheStore.php",
+		"ConfirmEditHooks": "includes/Hooks.php",
+		"MediaWiki\\Extension\\ConfirmEdit\\Hooks": "includes/Hooks.php",
+		"MediaWiki\\Extension\\ConfirmEdit\\Store\\CaptchaCacheStore": "includes/Store/CaptchaCacheStore.php"
+	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\ConfirmEdit\\": "includes/",
 		"MediaWiki\\Extension\\ConfirmEdit\\SimpleCaptcha\\": "SimpleCaptcha/"
-	},
-	"TestAutoloadClasses": {
-		"MediaWiki\\Extension\\ConfirmEdit\\FancyCaptcha\\HTMLFancyCaptchaField": "FancyCaptcha/includes/HTMLFancyCaptchaField.php",
-		"MediaWiki\\Extension\\ConfirmEdit\\QuestyCaptcha\\QuestyCaptcha": "QuestyCaptcha/includes/QuestyCaptcha.php",
-		"MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\HTMLReCaptchaNoCaptchaField": "ReCaptchaNoCaptcha/includes/HTMLReCaptchaNoCaptchaField.php",
-		"MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\ReCaptchaNoCaptchaAuthenticationRequest": "ReCaptchaNoCaptcha/includes/ReCaptchaNoCaptchaAuthenticationRequest.php"
 	},
 	"ResourceModules": {
 		"ext.confirmEdit.editPreview.ipwhitelist.styles": {

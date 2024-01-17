@@ -337,3 +337,5 @@ class Hooks implements
 	}
 
 }
+
+class_alias( Hooks::class, 'ConfirmEditHooks' );

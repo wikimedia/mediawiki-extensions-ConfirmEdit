@@ -49,13 +49,12 @@ class HTMLTurnstileField extends HTMLFormField {
 		);
 		Turnstile::addCSPSources( $out->getCSP() );
 
-		$output = Html::element( 'div', [
+		return Html::element( 'div', [
 			'class' => [
 				'cf-turnstile',
 				'mw-confirmedit-captcha-fail' => (bool)$this->error,
 			],
 			'data-sitekey' => $this->key,
 		] );
-		return $output;
 	}
 }

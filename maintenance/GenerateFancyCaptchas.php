@@ -124,9 +124,8 @@ class GenerateFancyCaptchas extends Maintenance {
 		$this->output( "Generating $countGen new captchas.." );
 		$captchaTime = -microtime( true );
 		$result = Shell::command( [] )
-			->unsafeParams( $cmd )
+			->params( $cmd )
 			->limits( [ 'time' => 0 ] )
-			->restrict( Shell::RESTRICT_NONE )
 			->execute();
 		if ( $result->getExitCode() != 0 ) {
 			$this->output( " Failed.\n" );

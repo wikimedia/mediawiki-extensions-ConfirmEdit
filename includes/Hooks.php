@@ -331,7 +331,6 @@ class Hooks implements
 				'styles' => 'resources/libs/ext.confirmEdit.CaptchaInputWidget.less',
 				'messages' => $messages,
 				'dependencies' => 'oojs-ui-core',
-				'targets' => [ 'desktop', 'mobile' ],
 			]
 		] );
 	}

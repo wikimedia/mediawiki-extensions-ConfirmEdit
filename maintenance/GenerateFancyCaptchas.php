@@ -126,6 +126,7 @@ class GenerateFancyCaptchas extends Maintenance {
 		$result = Shell::command( [] )
 			->params( $cmd )
 			->limits( [ 'time' => 0 ] )
+			->disableSandbox()
 			->execute();
 		if ( $result->getExitCode() != 0 ) {
 			$this->output( " Failed.\n" );

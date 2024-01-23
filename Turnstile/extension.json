@@ -37,11 +37,7 @@
 	},
 	"ResourceModules": {
 		"ext.confirmEdit.turnstile.visualEditor": {
-			"scripts": "ve-confirmedit-turnstile/ve.init.mw.TurnstileSaveErrorHandler.js",
-			"targets": [
-				"desktop",
-				"mobile"
-			]
+			"scripts": "ve-confirmedit-turnstile/ve.init.mw.TurnstileSaveErrorHandler.js"
 		}
 	},
 	"HookHandlers": {

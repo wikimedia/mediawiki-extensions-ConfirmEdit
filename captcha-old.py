@@ -40,12 +40,13 @@ try:
     from PIL import ImageDraw
     from PIL import ImageEnhance
     from PIL import ImageOps
-except:
+except ImportError:
     sys.exit(
         "This script requires the Python Imaging Library - http://www.pythonware.com/products/pil/"
     )
 
-nonalpha = re.compile("[^a-z]")  # regex to test for suitability of words
+# regex to test for suitability of words
+nonalpha = re.compile("[^a-z]")
 
 # Pillow 9.2 added getbbox to replace getsize, and getsize() was removed in Pillow 10
 # https://pillow.readthedocs.io/en/stable/releasenotes/10.0.0.html#font-size-and-offset-methods
@@ -63,7 +64,7 @@ def wobbly_copy(src, wob, col, scale, ang):
     rot = src.rotate(rr, Image.BILINEAR)
     # Do a cheap bounding-box op here to try to limit work below
     bbx = rot.getbbox()
-    if bbx == None:
+    if bbx is None:
         return src
     else:
         l, t, r, b = bbx

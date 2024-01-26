@@ -426,7 +426,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	public function imagePath( $salt, $hash ) {
 		global $wgCaptchaDirectoryLevels;
 
-		$file = $this->getBackend()->getRootStoragePath() . '/' . $this->getStorageDir();
+		$file = $this->getBackend()->getRootStoragePath() . '/' . $this->getStorageDir() . '/';
 		for ( $i = 0; $i < $wgCaptchaDirectoryLevels; $i++ ) {
 			$file .= $hash[ $i ] . '/';
 		}

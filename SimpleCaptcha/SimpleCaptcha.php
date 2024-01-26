@@ -8,6 +8,7 @@ use Content;
 use ExtensionRegistry;
 use HTMLForm;
 use IContextSource;
+use IDBAccessObject;
 use MailAddress;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Cache\CacheKeyHelper;
@@ -25,7 +26,6 @@ use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Revision\RevisionAccessException;
-use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
@@ -1065,7 +1065,7 @@ class SimpleCaptcha {
 	 * @return string
 	 * @private
 	 */
-	private function loadText( $title, $section, $flags = RevisionLookup::READ_LATEST ) {
+	private function loadText( $title, $section, $flags = IDBAccessObject::READ_LATEST ) {
 		$revRecord = MediaWikiServices::getInstance()
 			->getRevisionLookup()
 			->getRevisionByTitle( $title, 0, $flags );

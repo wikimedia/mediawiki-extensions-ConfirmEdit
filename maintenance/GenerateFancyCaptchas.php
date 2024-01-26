@@ -61,6 +61,12 @@ class GenerateFancyCaptchas extends Maintenance {
 		$this->addOption( "delete", "Deletes all the old captchas" );
 		$this->addOption( "threads", "The number of threads to use to generate the images",
 			false, true );
+		$this->addOption(
+			'captchastoragedir',
+			'Overrides the value of $wgCaptchaStorageDirectory',
+			false,
+			true
+		);
 		$this->addDescription( "Generate new fancy captchas and move them into storage" );
 
 		$this->requireExtension( "FancyCaptcha" );
@@ -75,6 +81,13 @@ class GenerateFancyCaptchas extends Maintenance {
 		if ( !( $instance instanceof FancyCaptcha ) ) {
 			$this->fatalError( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
 		}
+
+		// Overrides $wgCaptchaStorageDirectory for this script run
+		if ( $this->hasOption( 'captchastoragedir' ) ) {
+			global $wgCaptchaStorageDirectory;
+			$wgCaptchaStorageDirectory = $this->getOption( 'captchastoragedir' );
+		}
+
 		$backend = $instance->getBackend();
 
 		$deleteOldCaptchas = $this->getOption( 'delete' );
@@ -87,7 +100,7 @@ class GenerateFancyCaptchas extends Maintenance {
 		}
 
 		if ( $countGen <= 0 ) {
-			$this->output( "No need to generate anymore captchas.\n" );
+			$this->output( "No need to generate any extra captchas.\n" );
 			return;
 		}
 
@@ -150,7 +163,7 @@ class GenerateFancyCaptchas extends Maintenance {
 		$filesToDelete = [];
 		if ( $deleteOldCaptchas ) {
 			$this->output( "Getting a list of old captchas to delete..." );
-			$path = $backend->getRootStoragePath() . '/captcha-render';
+			$path = $backend->getRootStoragePath() . '/' . $instance->getStorageDir();
 			foreach ( $backend->getFileList( [ 'dir' => $path ] ) as $file ) {
 				$filesToDelete[] = [
 					'op' => 'delete',

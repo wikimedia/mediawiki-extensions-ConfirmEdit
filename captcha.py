@@ -322,12 +322,6 @@ if __name__ == "__main__":
         default=os.path.join(script_dir, "badwordlist"),
     )
     parser.add_option(
-        "--blacklist",
-        help="DEPRECATED: list of words that should not be used",
-        metavar="FILE",
-        default=os.path.join(script_dir, "blacklist"),
-    )
-    parser.add_option(
         "--fill",
         help="Fill the output directory to contain N files, overrides count, cannot be used with --dirs",
         metavar="N",
@@ -388,7 +382,7 @@ if __name__ == "__main__":
     else:
         sys.exit("Need to specify the location of a font")
 
-    badwordlist = read_wordlist(opts.blacklist) + read_wordlist(opts.badwordlist)
+    badwordlist = read_wordlist(opts.badwordlist)
     count = opts.count
     fill = opts.fill
     fontsize = opts.font_size

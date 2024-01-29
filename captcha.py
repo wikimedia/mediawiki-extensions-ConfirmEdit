@@ -115,7 +115,12 @@ def gen_captcha(text, fontname, fontsize, file_name):
             font=font,
             fill=fgcolor,
         )
-        offset += font.getsize(c)[0] - random.uniform(5, 6)
+        if IMAGEFONT_HAS_GETBBOX:
+            offset += font.getbbox(c)[2:][0]
+        else:
+            offset += font.getsize(c)[0]
+
+        offset -= random.uniform(5, 6)
 
     for i in range(10):
         d.arc(

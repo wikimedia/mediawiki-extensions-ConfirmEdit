@@ -129,16 +129,9 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * @return array
 	 */
 	public function getFormInformation( $tabIndex = 1 ) {
-		$modules = [];
-
 		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
 		$info = $this->getCaptcha();
 		$index = $this->storeCaptcha( $info );
-
-		// Loaded only for clients with JS enabled
-		$modules[] = 'ext.confirmEdit.fancyCaptcha';
-		// FIXME: This should be removed (works around T341525)
-		$modules[] = 'mediawiki.ui.input';
 
 		$captchaReload = Html::element(
 			'small',
@@ -164,9 +157,10 @@ class FancyCaptcha extends SimpleCaptcha {
 				]
 			) . $captchaReload . Html::closeElement( 'div' ) . Html::closeElement( 'div' ) . "\n" .
 			// FIXME: This should use CodexHTMLForm rather than Html::element
+			Html::openElement( 'div', [ 'class' => 'cdx-text-input' ] ) .
 			Html::element( 'input', [
 					'name' => 'wpCaptchaWord',
-					'class' => 'mw-ui-input',
+					'class' => 'cdx-text-input__input',
 					'id'   => 'wpCaptchaWord',
 					'type' => 'text',
 					// max_length in captcha.py plus fudge factor
@@ -179,7 +173,7 @@ class FancyCaptcha extends SimpleCaptcha {
 					'tabindex' => $tabIndex,
 					'placeholder' => wfMessage( 'fancycaptcha-imgcaptcha-ph' )->text()
 				]
-			);
+			) . Html::closeElement( 'div' );
 		if ( $this->action == 'createaccount' ) {
 			// use raw element, because the message can contain links or some other html
 			$form .= Html::rawElement( 'small', [
@@ -197,9 +191,9 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		return [
 			'html' => $form,
-			'modules' => $modules,
+			'modules' => [ 'ext.confirmEdit.fancyCaptcha' ],
 			// Uses addModuleStyles so it is loaded when JS is disabled.
-			'modulestyles' => [ 'mediawiki.ui.input', 'ext.confirmEdit.fancyCaptcha.styles' ],
+			'modulestyles' => [ 'codex-styles', 'ext.confirmEdit.fancyCaptcha.styles' ],
 		];
 	}
 

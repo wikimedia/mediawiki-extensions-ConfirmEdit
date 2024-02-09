@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\FancyCaptcha;
 
-use Exception;
 use FileBackend;
 use FSFileBackend;
+use InvalidArgumentException;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
@@ -432,13 +432,12 @@ class FancyCaptcha extends SimpleCaptcha {
 	/**
 	 * @param string $basename
 	 * @return array (salt, hash)
-	 * @throws Exception
 	 */
 	public function hashFromImageName( $basename ) {
 		if ( preg_match( '/^image_([0-9a-f]+)_([0-9a-f]+)\\.png$/', $basename, $matches ) ) {
 			return [ $matches[1], $matches[2] ];
 		} else {
-			throw new Exception( "Invalid filename '$basename'.\n" );
+			throw new InvalidArgumentException( "Invalid filename '$basename'.\n" );
 		}
 	}
 
@@ -466,7 +465,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * Returns an array with 'salt' and 'hash' keys. Hash is
 	 * md5( $wgCaptchaSecret . $salt . $answer . $wgCaptchaSecret . $salt )[0..15]
 	 * @return array
-	 * @throws Exception When a captcha image cannot be produced.
+	 * @throws UnderflowException When a captcha image cannot be produced.
 	 */
 	public function getCaptcha() {
 		$info = $this->pickImage();

@@ -4,7 +4,8 @@
 			"S.Örvarr.S",
 			"Snævar",
 			"Sveinki",
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"Stefán Örvar Sigmundsson"
 		]
 	},
 	"captcha-edit": "Til að breyta þessari síðu, vinsamlegast leystu verkefnið að neðan og skrifaðu svarið í\nreitinn ([[Special:Captcha/help|frekari upplýsingar]]):",
@@ -14,7 +15,7 @@
 	"captcha-badlogin": "Til að verjast sjálfvirkum leyniorðaárásum, biðjum við þig vinsamlegast að leysa verkefnið að neðan og skrifa svarið í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):",
 	"captcha-createaccount": "Til að verjast sjálfvirkri stofnun aðganga, biðjum þig vinsamlegast að leysa verkefnið að neðan og skrifa svarið í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):",
 	"captcha-createaccount-fail": "Staðfestingarkóðinn var rangur eða ekki til staðar.",
-	"captcha-create": "Til að búa síðuna til, vinsamlegast leystu verkefnið að neðan og skrifaðu svarið í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):",
+	"captcha-create": "Til að búa til síðuna, vinsamlegast leystu verkefnið fyrir neðan og skrifaðu svarið í reitinn ([[Special:Captcha/help|frekari upplýsingar]]):",
 	"captcha-sendemail": "Til að verjast sjálfvirkri gerð aðganga, biðjum við þig vinsamlegast að leysa verkefnið að neðan og skrifa svarið í kassann ([[Special:Captcha/help|frekari upplýsingar]]):",
 	"captcha-sendemail-fail": "Staðfestingarkóðinn var rangur eða ekki til staðar.",
 	"captcha-disabledinapi": "Þessi aðgerð þarfnast kæfuvarnar og því er ekki hægt að framkvæma hana í gegnum API.",

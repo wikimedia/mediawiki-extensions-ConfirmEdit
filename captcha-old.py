@@ -352,6 +352,8 @@ if __name__ == "__main__":
     else:
         sys.exit("Need to specify the location of a font")
 
+    print("captcha-old.py is deprecated and will be removed in the future!")
+
     badwordlist = read_wordlist(opts.badwordlist)
     count = opts.count
     fill = opts.fill

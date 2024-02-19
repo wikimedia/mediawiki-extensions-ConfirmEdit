@@ -55,7 +55,7 @@ class GenerateFancyCaptchas extends Maintenance {
 		);
 		$this->addOption(
 			"oldcaptcha",
-			"Whether to use captcha-old.py which doesn't have OCR fighting improvements"
+			"DEPRECATED: Whether to use captcha-old.py which doesn't have OCR fighting improvements"
 		);
 		$this->addOption( "delete", "Deletes all the old captchas" );
 		$this->addOption( "threads", "The number of threads to use to generate the images",
@@ -111,6 +111,7 @@ class GenerateFancyCaptchas extends Maintenance {
 		$captchaScript = 'captcha.py';
 
 		if ( $this->hasOption( 'oldcaptcha' ) ) {
+			$this->output( "Using --oldcaptcha is deprecated, and captcha-old.py will be removed in the future!" );
 			$captchaScript = 'captcha-old.py';
 		}
 

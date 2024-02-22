@@ -13,7 +13,7 @@
 	"captcha-createaccount-fail": "CAPTCHA salah atawa masing kosong.",
 	"captcha-sendemail-fail": "CAPTCHA salah atawa masing kosong.",
 	"captcha-disabledinapi": "Ni piil mbutuhin CAPTCHA, jadinya kaga' bisa dilakonin liwat API.",
-	"captcha-error": "Tahkik CAPTCHA gagal lantaran kengabluan dalem: $1",
+	"captcha-error": "Pemastian CAPTCHA gagal lantaran kengabluan dalem: $1",
 	"captchahelp-title": "Pertulungan CAPTCHA",
 	"captchahelp-cookies-needed": "Lu bakal kudu nyalain kuki di lu punya pengorag biar bisa ni begawé.",
 	"confirmedit-preview-line": "Nomer baris",

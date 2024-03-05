@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dnshitobu"
+			"Dnshitobu",
+			"Akakiiri"
 		]
 	},
-	"captcha-label": "CAPTCHA"
+	"captcha-label": "CAPTCHA",
+	"confirmedit-preview-line": "Beene kanlɛ",
+	"confirmedit-preview-content": "Yelezuo",
+	"confirmedit-preview-validity": "'Validity'",
+	"confirmedit-preview-valid": "'Valid'",
+	"confirmedit-preview-invalid": "'Invalid'"
 }

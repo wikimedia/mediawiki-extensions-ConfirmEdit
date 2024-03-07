@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"MacOS Weed"
+		]
+	},
+	"turnstile-createaccount-fail": "Il semble que vous n’ayez pas résolu le CAPTCHA."
+}

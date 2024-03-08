@@ -9,7 +9,6 @@ use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaHashStore;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Tests\Unit\Auth\AuthenticationProviderTestTrait;
 use MediaWiki\User\User;
@@ -29,15 +28,10 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			'wgCaptchaBadLoginAttempts' => 1,
 			'wgCaptchaBadLoginPerUserAttempts' => 1,
 			'wgCaptchaStorageClass' => CaptchaHashStore::class,
-			'wgMainCacheType' => __METHOD__,
+			'wgMainCacheType' => 'hash',
 		] );
 		CaptchaStore::unsetInstanceForTests();
 		CaptchaStore::get()->clearAll();
-		$services = MediaWikiServices::getInstance();
-		if ( method_exists( $services, 'getLocalClusterObjectCache' ) ) {
-			$this->setService( 'LocalClusterObjectCache', new HashBagOStuff() );
-		}
-		ObjectCache::$instances[__METHOD__] = new HashBagOStuff();
 	}
 
 	public function tearDown(): void {

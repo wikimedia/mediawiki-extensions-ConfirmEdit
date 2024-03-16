@@ -571,7 +571,9 @@ class SimpleCaptcha {
 				// Get links from the database
 				$oldLinks = ExternalLinksLookup::getExternalLinksForPage(
 					$title->getArticleID(),
-					wfGetDB( DB_REPLICA ),
+					MediaWikiServices::getInstance()
+						->getConnectionProvider()
+						->getReplicaDatabase(),
 					__METHOD__
 				);
 				// Share a parse operation with Article::doEdit()

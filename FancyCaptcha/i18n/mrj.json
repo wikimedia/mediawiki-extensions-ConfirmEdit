@@ -4,7 +4,8 @@
 			"Nadezhda"
 		]
 	},
-	"fancycaptcha-captcha": "Лӱдӹкшӹ укелыкым тергӹмӓш",
+	"fancycaptcha-captcha": "Лӱдӹш уке ылмым тергӹмӓш",
+	"fancycaptcha-accountcreate": "Аккаунтым тӧрӧк ӹштӹмӹ гӹц перегӓш манын, тӹньӹм ӱлнӹ [[Special:Captcha/help|more info]] рамкышты анжыктымы шамаквлӓм пырташ ядына.",
 	"fancycaptcha-imgcaptcha-ph": "Изображеништы ылшы текстым пырты",
 	"fancycaptcha-reload-text": "Уэмдӓш"
 }

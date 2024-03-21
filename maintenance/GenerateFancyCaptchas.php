@@ -143,10 +143,14 @@ class GenerateFancyCaptchas extends Maintenance {
 			->limits( [ 'time' => 0 ] )
 			->disableSandbox()
 			->execute();
-		if ( $result->getExitCode() != 0 ) {
+		if ( $result->getExitCode() !== 0 ) {
 			$this->output( " Failed.\n" );
 			wfRecursiveRemoveDir( $tmpDir );
-			$this->fatalError( "An error occurred when running $captchaScript.\n", 1 );
+
+			$this->fatalError(
+				"An error occurred when running $captchaScript:\n{$result->getStderr()}\n",
+				1
+			);
 		}
 
 		$captchaTime += microtime( true );

@@ -59,7 +59,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				if (
 					$loginCounter->isBadLoginTriggered()
 					|| $userProbablyNeedsCaptcha
-					|| $suggestedUsername && $loginCounter->isBadLoginPerUserTriggered( $suggestedUsername )
+					|| ( $suggestedUsername && $loginCounter->isBadLoginPerUserTriggered( $suggestedUsername ) )
 				) {
 					$needed = true;
 					$captcha->setAction( 'badlogin' );

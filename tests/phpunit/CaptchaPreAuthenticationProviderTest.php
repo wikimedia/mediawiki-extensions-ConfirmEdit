@@ -28,7 +28,6 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			'wgCaptchaBadLoginAttempts' => 1,
 			'wgCaptchaBadLoginPerUserAttempts' => 1,
 			'wgCaptchaStorageClass' => CaptchaHashStore::class,
-			'wgMainCacheType' => 'hash',
 		] );
 		CaptchaStore::unsetInstanceForTests();
 		CaptchaStore::get()->clearAll();

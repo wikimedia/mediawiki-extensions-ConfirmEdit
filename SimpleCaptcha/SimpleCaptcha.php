@@ -985,7 +985,7 @@ class SimpleCaptcha {
 	protected function passCaptcha( $index, $word ) {
 		// Don't check the same CAPTCHA twice in one session,
 		// if the CAPTCHA was already checked - Bug T94276
-		if ( isset( $this->captchaSolved ) ) {
+		if ( $this->captchaSolved !== null ) {
 			return $this->captchaSolved;
 		}
 

@@ -14,8 +14,6 @@ https://www.mediawiki.org/wiki/Extension:ConfirmEdit
 The following modules are included in ConfirmEdit:
 
 * SimpleCaptcha - users have to solve an arithmetic math problem
-* MathCaptcha - users have to solve a math problem that's displayed as
-an image
 * FancyCaptcha - users have to identify a series of characters, displayed
 in a stylized way
 * QuestyCaptcha - users have to answer a question, out of a series of
@@ -33,9 +31,7 @@ ConfirmEdit is published under the GPL license.
 ### Authors
 
 The main framework, and the SimpleCaptcha and FancyCaptcha modules, were
-written by Brion Vibber.
-
-The MathCaptcha module was written by Rob Church.
+written by Brooke Vibber.
 
 The QuestyCaptcha module was written by Benjamin Lees.
 

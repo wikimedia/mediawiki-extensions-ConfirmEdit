@@ -5,7 +5,6 @@ module.exports = function ( grunt ) {
 		'QuestyCaptcha',
 		'ReCaptchaNoCaptcha',
 		'FancyCaptcha',
-		'MathCaptcha',
 		'hCaptcha'
 	] ) {
 		// eslint-disable-next-line security/detect-non-literal-require

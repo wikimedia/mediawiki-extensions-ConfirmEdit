@@ -90,7 +90,10 @@
 	},
 	"HookHandlers": {
 		"ConfirmEditHooks": {
-			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks"
+			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks",
+			"services": [
+				"MainWANObjectCache"
+			]
 		}
 	},
 	"Hooks": {

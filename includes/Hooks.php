@@ -20,7 +20,6 @@ use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
 use MediaWiki\Hook\EmailUserFormHook;
 use MediaWiki\Hook\EmailUserHook;
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Permissions\Hook\TitleReadWhitelistHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
@@ -36,6 +35,7 @@ use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use MessageSpecifier;
 use ParserOutput;
+use WANObjectCache;
 use Wikimedia\IPUtils;
 use WikiPage;
 
@@ -54,6 +54,14 @@ class Hooks implements
 {
 
 	protected static $instanceCreated = false;
+
+	private WANObjectCache $cache;
+
+	public function __construct(
+		WANObjectCache $cache
+	) {
+		$this->cache = $cache;
+	}
 
 	/**
 	 * Get the global Captcha instance
@@ -109,8 +117,7 @@ class Hooks implements
 	) {
 		$title = $wikiPage->getTitle();
 		if ( $title->getText() === 'Captcha-ip-whitelist' && $title->getNamespace() === NS_MEDIAWIKI ) {
-			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-			$cache->delete( $cache->makeKey( 'confirmedit', 'ipwhitelist' ) );
+			$this->cache->delete( $this->cache->makeKey( 'confirmedit', 'ipwhitelist' ) );
 		}
 
 		return true;

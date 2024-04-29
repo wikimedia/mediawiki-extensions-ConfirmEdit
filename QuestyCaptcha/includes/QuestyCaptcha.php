@@ -91,7 +91,6 @@ class QuestyCaptcha extends SimpleCaptcha {
 				Html::element( 'input', [
 					'name' => 'wpCaptchaWord',
 					'id'   => 'wpCaptchaWord',
-					'class' => 'mw-ui-input',
 					'required',
 					'autocomplete' => 'off',
 					// tab in before the edit textarea

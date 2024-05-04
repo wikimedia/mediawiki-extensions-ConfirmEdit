@@ -94,6 +94,9 @@
 			"services": [
 				"MainWANObjectCache"
 			]
+		},
+		"AbuseFilterHooks": {
+			"class": "MediaWiki\\Extension\\ConfirmEdit\\AbuseFilterHooks"
 		}
 	},
 	"Hooks": {
@@ -107,7 +110,8 @@
 		"EditPage::showEditForm:fields": "ConfirmEditHooks",
 		"EditFilterMergedContent": "ConfirmEditHooks",
 		"APIGetAllowedParams": "ConfirmEditHooks",
-		"AuthChangeFormFields": "ConfirmEditHooks"
+		"AuthChangeFormFields": "ConfirmEditHooks",
+		"AbuseFilterCustomActions": "AbuseFilterHooks"
 	},
 	"AuthManagerAutoConfig": {
 		"preauth": {

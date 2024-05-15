@@ -92,7 +92,12 @@ class Hooks implements
 	public function onEditFilterMergedContent( IContextSource $context, Content $content, Status $status,
 		$summary, User $user, $minorEdit
 	) {
-		return self::getInstance()->confirmEditMerged( $context, $content, $status, $summary,
+		$simpleCaptcha = self::getInstance();
+		// Set a flag indicating that ConfirmEdit's implementation of
+		// EditFilterMergedContent ran. This can be checked by other extensions
+		// e.g. AbuseFilter.
+		$simpleCaptcha->setEditFilterMergedContentHandlerInvoked();
+		return $simpleCaptcha->confirmEditMerged( $context, $content, $status, $summary,
 			$user, $minorEdit );
 	}
 

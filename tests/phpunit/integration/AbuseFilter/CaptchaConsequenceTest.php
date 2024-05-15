@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Test\Integration\AbuseFilter;
 
-use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\AbuseFilter\Consequences\Parameters;
 use MediaWiki\Extension\ConfirmEdit\AbuseFilter\CaptchaConsequence;
+use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -16,16 +16,10 @@ class CaptchaConsequenceTest extends MediaWikiIntegrationTestCase {
 		$parameters = $this->createMock( Parameters::class );
 		$parameters->method( 'getAction' )->willReturn( 'edit' );
 		$captchaConsequence = new CaptchaConsequence( $parameters );
-		$request = RequestContext::getMain();
-		$this->assertNull( $request->getRequest()->getVal(
-			CaptchaConsequence::FLAG
-		) );
+		$simpleCaptcha = Hooks::getInstance();
+		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
 		$captchaConsequence->execute();
-		$this->assertTrue(
-			$request->getRequest()->getBool(
-				CaptchaConsequence::FLAG
-			)
-		);
+		$this->assertTrue( $simpleCaptcha->shouldForceShowCaptcha() );
 	}
 
 }

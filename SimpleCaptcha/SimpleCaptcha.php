@@ -47,8 +47,14 @@ use WikiPage;
 class SimpleCaptcha {
 	protected static $messagePrefix = 'captcha-';
 
+	/** @var bool Override to force showing the CAPTCHA to users who don't have "skipcaptcha" right. */
+	private bool $forceShowCaptcha = false;
+
 	/** @var bool|null Was the CAPTCHA already passed and if yes, with which result? */
-	private $captchaSolved = null;
+	private ?bool $captchaSolved = null;
+
+	/** @var bool Flag to indicate whether the onEditFilterMergedContent hook was invoked. */
+	private bool $editFilterMergedContentHandlerCalled = false;
 
 	/** @var bool[] Activate captchas status list for a pages by key */
 	private $activatedCaptchas = [];
@@ -471,6 +477,11 @@ class SimpleCaptcha {
 	 * @return bool True, if the action should trigger a CAPTCHA, false otherwise
 	 */
 	public function triggersCaptcha( $action, $title = null ) {
+		// Captcha was already solved, we don't need to check anything else.
+		if ( $this->isCaptchaSolved() ) {
+			return false;
+		}
+
 		global $wgCaptchaTriggers, $wgCaptchaTriggersOnNamespace;
 
 		$result = false;
@@ -490,6 +501,12 @@ class SimpleCaptcha {
 			isset( $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action] )
 		) {
 			$result = $wgCaptchaTriggersOnNamespace[$title->getNamespace()][$action];
+		}
+
+		// SimpleCaptcha has been instructed to force showing the CAPTCHA, no need to
+		// check what other hook implementations think.
+		if ( $this->shouldForceShowCaptcha() ) {
+			return true;
 		}
 
 		$hookRunner = new HookRunner(
@@ -645,6 +662,49 @@ class SimpleCaptcha {
 		}
 
 		return false;
+	}
+
+	public function isCaptchaSolved(): ?bool {
+		return $this->captchaSolved;
+	}
+
+	protected function setCaptchaSolved( ?bool $captchaSolved ): void {
+		$this->captchaSolved = $captchaSolved;
+	}
+
+	/**
+	 * @return bool True if an override is set to force showing a CAPTCHA
+	 *  to the user. Note that users with "skipcaptcha" right may still
+	 *  bypass this override.
+	 */
+	public function shouldForceShowCaptcha(): bool {
+		return $this->forceShowCaptcha;
+	}
+
+	/**
+	 * @param bool $forceShowCaptcha True if the caller wants to force showing
+	 *  a CAPTCHA to the user. Note that users with "skipcaptcha" right may
+	 *  still bypass this override.
+	 * @return void
+	 */
+	public function setForceShowCaptcha( bool $forceShowCaptcha ): void {
+		$this->forceShowCaptcha = $forceShowCaptcha;
+	}
+
+	/**
+	 * @return bool Was the EditFilterMergedContent hook implementation already
+	 * invoked?
+	 */
+	public function editFilterMergedContentHandlerAlreadyInvoked(): bool {
+		return $this->editFilterMergedContentHandlerCalled;
+	}
+
+	/**
+	 * @return void Set a flag on the class stating that EditFilterMergedContent handler
+	 * was already run.
+	 */
+	public function setEditFilterMergedContentHandlerInvoked(): void {
+		$this->editFilterMergedContentHandlerCalled = true;
 	}
 
 	/**
@@ -985,8 +1045,8 @@ class SimpleCaptcha {
 	protected function passCaptcha( $index, $word ) {
 		// Don't check the same CAPTCHA twice in one session,
 		// if the CAPTCHA was already checked - Bug T94276
-		if ( $this->captchaSolved !== null ) {
-			return $this->captchaSolved;
+		if ( $this->isCaptchaSolved() !== null ) {
+			return (bool)$this->isCaptchaSolved();
 		}
 
 		$info = $this->retrieveCaptcha( $index );
@@ -994,12 +1054,12 @@ class SimpleCaptcha {
 			if ( $this->keyMatch( $word, $info ) ) {
 				$this->log( "passed" );
 				$this->clearCaptcha( $index );
-				$this->captchaSolved = true;
+				$this->setCaptchaSolved( true );
 				return true;
 			} else {
 				$this->clearCaptcha( $index );
 				$this->log( "bad form input" );
-				$this->captchaSolved = false;
+				$this->setCaptchaSolved( false );
 				return false;
 			}
 		} else {

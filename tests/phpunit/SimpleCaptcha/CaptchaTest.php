@@ -8,6 +8,7 @@ use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use Wikimedia\ScopedCallback;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha
@@ -185,5 +186,34 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 			[ '127.0.0.1', [], false ]
 		]
 		);
+	}
+
+	public function testTriggersCaptchaReturnsEarlyIfCaptchaSolved() {
+		$this->setMwGlobals( [
+			'wgCaptchaTriggers' => [
+				'edit' => true,
+			]
+		] );
+		$testObject = new SimpleCaptcha();
+		/** @var SimpleCaptcha|TestingAccessWrapper $wrapper */
+		$wrapper = TestingAccessWrapper::newFromObject( $testObject );
+		$wrapper->captchaSolved = true;
+		$this->assertFalse( $wrapper->triggersCaptcha( 'edit' ), 'CAPTCHA is not triggered if already solved' );
+	}
+
+	public function testForceShowCaptcha() {
+		$this->setMwGlobals( [
+			'wgCaptchaTriggers' => [
+				'edit' => false,
+			]
+		] );
+		$testObject = new SimpleCaptcha();
+		/** @var SimpleCaptcha|TestingAccessWrapper $wrapper */
+		$wrapper = TestingAccessWrapper::newFromObject( $testObject );
+		$this->assertFalse(
+			$wrapper->triggersCaptcha( 'edit' ), 'CAPTCHA is not triggered by edit action in this configuration'
+		);
+		$wrapper->setForceShowCaptcha( true );
+		$this->assertTrue( $wrapper->triggersCaptcha( 'edit' ), 'Force showing a CAPTCHA if flag is set' );
 	}
 }

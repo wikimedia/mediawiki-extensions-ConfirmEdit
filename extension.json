@@ -96,7 +96,10 @@
 			]
 		},
 		"AbuseFilterHooks": {
-			"class": "MediaWiki\\Extension\\ConfirmEdit\\AbuseFilterHooks"
+			"class": "MediaWiki\\Extension\\ConfirmEdit\\AbuseFilterHooks",
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"Hooks": {
@@ -169,6 +172,10 @@
 			"value": false
 		},
 		"CaptchaRegexes": {
+			"value": []
+		},
+		"ConfirmEditEnabledAbuseFilterCustomActions": {
+			"description": "Feature flag to toggle list of available custom actions to enable in AbuseFilter. See AbuseFilterHooks::onAbuseFilterCustomActions",
 			"value": []
 		}
 	},

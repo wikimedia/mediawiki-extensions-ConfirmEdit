@@ -1,5 +1,5 @@
-mw.loader.using( 'ext.visualEditor.targetLoader' ).then( function () {
-	mw.libs.ve.targetLoader.addPlugin( function () {
+mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
+	mw.libs.ve.targetLoader.addPlugin( () => {
 		ve.init.mw.HCaptchaSaveErrorHandler = function () {};
 
 		OO.inheritClass( ve.init.mw.HCaptchaSaveErrorHandler, ve.init.mw.SaveErrorHandler );
@@ -42,7 +42,7 @@ mw.loader.using( 'ext.visualEditor.targetLoader' ).then( function () {
 			};
 
 			this.getReadyPromise()
-				.then( function () {
+				.then( () => {
 					// ProcessDialog's error system isn't great for this yet.
 					target.saveDialog.clearMessage( 'api-save-error' );
 					target.saveDialog.showMessage( 'api-save-error', $container, { wrap: false } );

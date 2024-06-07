@@ -10,9 +10,7 @@ module.exports = function ( grunt ) {
 		// eslint-disable-next-line security/detect-non-literal-require
 		messagesDirs[ subExtension ] = require( './' + subExtension + '/extension.json' )
 			.MessagesDirs[ subExtension ]
-			.map( function ( path ) {
-				return subExtension + '/' + path;
-			} );
+			.map( ( path ) => subExtension + '/' + path );
 	}
 
 	grunt.loadNpmTasks( 'grunt-banana-checker' );

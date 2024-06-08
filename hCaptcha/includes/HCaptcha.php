@@ -5,17 +5,17 @@ namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 use ApiBase;
 use FormatJson;
 use MediaWiki\Auth\AuthenticationRequest;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Message\Message;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Status\Status;
-use Message;
-use RequestContext;
 
 class HCaptcha extends SimpleCaptcha {
 	// used for hcaptcha-edit, hcaptcha-addurl, hcaptcha-badlogin, hcaptcha-createaccount,

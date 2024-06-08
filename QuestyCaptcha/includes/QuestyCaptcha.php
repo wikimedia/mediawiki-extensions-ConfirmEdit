@@ -11,11 +11,11 @@
 namespace MediaWiki\Extension\ConfirmEdit\QuestyCaptcha;
 
 use MediaWiki\Auth\AuthenticationRequest;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\Html\Html;
-use RequestContext;
 use Xml;
 
 class QuestyCaptcha extends SimpleCaptcha {

@@ -1,5 +1,5 @@
-mw.loader.using( 'ext.visualEditor.targetLoader' ).then( function () {
-	mw.libs.ve.targetLoader.addPlugin( function () {
+mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
+	mw.libs.ve.targetLoader.addPlugin( () => {
 
 		ve.init.mw.NoCaptchaReCaptchaSaveErrorHandler = function () {};
 
@@ -45,7 +45,7 @@ mw.loader.using( 'ext.visualEditor.targetLoader' ).then( function () {
 			};
 
 			this.getReadyPromise()
-				.then( function () {
+				.then( () => {
 					if ( self.widgetId ) {
 						window.grecaptcha.reset( self.widgetId );
 					} else {

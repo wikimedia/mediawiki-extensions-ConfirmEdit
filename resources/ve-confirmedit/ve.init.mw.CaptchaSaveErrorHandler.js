@@ -5,8 +5,8 @@
 // or "fancy" type of captcha. They all expose differently named properties in the
 // API for different things in the UI. At this point we only support the SimpleCaptcha and
 // FancyCaptcha which we very intuitively detect by the presence of a "url" property.
-mw.loader.using( 'ext.visualEditor.targetLoader' ).then( function () {
-	mw.libs.ve.targetLoader.addPlugin( function () {
+mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
+	mw.libs.ve.targetLoader.addPlugin( () => {
 
 		ve.init.mw.CaptchaSaveErrorHandler = function () {};
 
@@ -38,7 +38,7 @@ mw.loader.using( 'ext.visualEditor.targetLoader' ).then( function () {
 
 			captchaInput.on( 'load', onCaptchaLoad );
 			// Save when pressing 'Enter' in captcha field as it is single line.
-			captchaInput.on( 'enter', function () {
+			captchaInput.on( 'enter', () => {
 				target.saveDialog.executeAction( 'save' );
 			} );
 
@@ -50,7 +50,7 @@ mw.loader.using( 'ext.visualEditor.targetLoader' ).then( function () {
 				return captchaInput.getCaptchaWord();
 			};
 			// Unregister extra fields on save attempt
-			target.saveDialog.once( 'save', function () {
+			target.saveDialog.once( 'save', () => {
 				delete target.saveFields.wpCaptchaId;
 				delete target.saveFields.wpCaptchaWord;
 			} );

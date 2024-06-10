@@ -16,7 +16,6 @@ use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
 use NullLockManager;
-use ObjectCache;
 use StatusValue;
 use UnderflowException;
 
@@ -223,7 +222,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		}
 
 		$backend = $this->getBackend();
-		$cache = ObjectCache::getLocalClusterInstance();
+		$cache = MediaWikiServices::getInstance()->getObjectCacheFactory()->getLocalClusterInstance();
 
 		$key = $cache->makeGlobalKey(
 			'fancycaptcha-dirlist',
@@ -283,7 +282,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	 */
 	protected function pickImageFromDir( $directory, &$lockouts ) {
 		$backend = $this->getBackend();
-		$cache = ObjectCache::getLocalClusterInstance();
+		$cache = MediaWikiServices::getInstance()->getObjectCacheFactory()->getLocalClusterInstance();
 
 		$key = $cache->makeGlobalKey(
 			'fancycaptcha-filelist',
@@ -341,7 +340,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		}
 
 		$backend = $this->getBackend();
-		$cache = ObjectCache::getLocalClusterInstance();
+		$cache = MediaWikiServices::getInstance()->getObjectCacheFactory()->getLocalClusterInstance();
 
 		// pick a random file
 		$place = mt_rand( 0, count( $files ) - 1 );

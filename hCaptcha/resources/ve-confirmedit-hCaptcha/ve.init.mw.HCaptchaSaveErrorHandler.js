@@ -14,7 +14,7 @@ mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
 				deferred = $.Deferred();
 				scriptURL = new mw.Uri( require( './config.json' ).hCaptchaScriptURL );
 				params = { onload: onLoadFn, render: 'explicit' };
-				scriptURL.query = $.extend( scriptURL.query, params );
+				scriptURL.query = Object.assign( scriptURL.query, params );
 
 				this.readyPromise = deferred.promise();
 				window[ onLoadFn ] = deferred.resolve;

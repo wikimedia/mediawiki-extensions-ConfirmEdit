@@ -24,16 +24,19 @@ class QuestyCaptcha extends SimpleCaptcha {
 	protected static $messagePrefix = 'questycaptcha-';
 
 	/**
-	 * Validate a captcha response
+	 * Validate a CAPTCHA response
+	 *
+	 * @note Trimming done as per T368112
+	 *
 	 * @param string $answer
 	 * @param array $info
 	 * @return bool
 	 */
 	protected function keyMatch( $answer, $info ) {
 		if ( is_array( $info['answer'] ) ) {
-			return in_array( strtolower( $answer ), array_map( 'strtolower', $info['answer'] ) );
+			return in_array( strtolower( trim( $answer ) ), array_map( 'strtolower', $info['answer'] ) );
 		} else {
-			return strtolower( $answer ) == strtolower( $info['answer'] );
+			return strtolower( trim( $answer ) ) == strtolower( $info['answer'] );
 		}
 	}
 

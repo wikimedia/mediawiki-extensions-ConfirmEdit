@@ -4,11 +4,13 @@
 			"Умар"
 		]
 	},
+	"captcha-edit": "ХӀара агӀо хийца, лахахь гайтина тӀедиллинарг кхочушдина а, жоп йазде текстан меттигехь ([[Special:Captcha/help|подробнее]]):",
 	"captcha-edit-fail": "Бакъдаран код нийса йац йа йан а йац.",
 	"captcha-desc": "Спамах ларо а, пароль харжа а CAPTCHA таронаш хуьлуьйту",
 	"captcha-help": "CAPTCHA сацам.",
 	"captcha-info-help": "CAPTCHA хаам.",
 	"captcha-id-label": "CAPTCHA идентификатор.",
+	"captcha-id-help": "ХӀара маьӀна хийца ца хуьйцуш йуха дӀадахьийта деза.",
 	"captchahelp-title": "CAPTCHA гӀо",
 	"right-skipcaptcha": "CAPTCHA-хьажар кхочушдар, CAPTCHA чекхдалар доцуш",
 	"confirmedit-preview-line": "МогӀанан лоьмар",

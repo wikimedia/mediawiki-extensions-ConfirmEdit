@@ -884,7 +884,24 @@ class SimpleCaptcha {
 			// this can't be done for addurl trigger, because this requires one "free" save
 			// for the user, which we don't know, when he did it.
 			if ( $this->action === 'edit' ) {
-				$status->fatal( 'captcha-edit-fail' );
+				// Default message is that the user failed a CAPTCHA, so show 'captcha-edit-fail'.
+				$message = 'captcha-edit-fail';
+				if ( $this->shouldForceShowCaptcha() ) {
+					// If an extension set the forceShowCaptcha property, then it likely means
+					// that the user already submitted an edit, and so the 'captcha-edit'
+					// message is more appropriate.
+					$message = 'captcha-edit';
+					[ $_index, $word ] = $this->getCaptchaParamsFromRequest(
+						RequestContext::getMain()->getRequest()
+					);
+					// But if there's a word supplied in the request, then we should
+					// use 'captcha-edit-fail' as it indicates a failed attempt
+					// at solving the CAPTCHA by the user.
+					if ( $word ) {
+						$message = 'captcha-edit-fail';
+					}
+				}
+				$status->fatal( $message );
 			}
 			$this->addCaptchaAPI( $status->statusData );
 			$key = CacheKeyHelper::getKeyForPage( $page );

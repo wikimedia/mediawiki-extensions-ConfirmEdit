@@ -16,7 +16,6 @@ use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
 use NullLockManager;
-use StatusValue;
 use UnderflowException;
 
 /**
@@ -385,7 +384,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	}
 
 	/**
-	 * @return bool|StatusValue
+	 * @return bool
 	 */
 	public function showImage() {
 		$context = RequestContext::getMain();

@@ -33,6 +33,7 @@ import os
 import sys
 import re
 import multiprocessing
+import json
 
 try:
     from PIL import Image
@@ -262,6 +263,7 @@ def run_in_thread(object):
     opts = object[3]
     font = object[4]
     fontsize = object[5]
+    jsonmap = object[6]
 
     for i in range(count):
         word = pick_word(
@@ -283,6 +285,9 @@ def run_in_thread(object):
             filename = os.path.join(subdir, filename)
         if opts.verbose:
             print(filename)
+        if opts.jsonmap:
+            jsonmap[filename] = word
+
         gen_captcha(word, font, fontsize, os.path.join(opts.output, filename))
 
 
@@ -379,9 +384,14 @@ if __name__ == "__main__":
     )
     parser.add_option(
         "--threads",
-        help="Maximum number of threads to be used to generate captchas.",
+        help="Maximum number of threads to be used to generate captchas",
         type="int",
         default=1,
+    )
+    parser.add_option(
+        "--jsonmap",
+        help="Outputs \"filename\": \"word\" mapping for test/debug purposes",
+        action="store_true"
     )
 
     opts, args = parser.parse_args()
@@ -438,7 +448,13 @@ if __name__ == "__main__":
         "Generating %s CAPTCHA images separated in %s image(s) per chunk run by %s threads..."
         % (count, chunks, threads)
     )
+    jsonmap = multiprocessing.Manager().dict()
     for i in range(0, threads):
-        data.append([chunks, words, badwordlist, opts, font, fontsize])
+        data.append([chunks, words, badwordlist, opts, font, fontsize, jsonmap])
 
-    p.map(run_in_thread, data)
+    result = p.map_async(run_in_thread, data)
+    result.wait()
+
+    if opts.jsonmap:
+        with open("map.json", "w") as outfile:
+            json.dump(jsonmap.copy(), outfile, indent=4)

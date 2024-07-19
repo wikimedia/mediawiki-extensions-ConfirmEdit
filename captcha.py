@@ -25,22 +25,18 @@
 # Tweaks by Greg Sabino Mullane <greg@turnstep.com>:
 # 2008-01-06: Add regex check to skip words containing other than a-z
 
-import random
-import math
-import hashlib
 from optparse import OptionParser
-import os
-import sys
-import re
-import multiprocessing
+import hashlib
 import json
+import math
+import multiprocessing
+import os
+import random
+import re
+import sys
 
 try:
-    from PIL import Image
-    from PIL import ImageFont
-    from PIL import ImageDraw
-    from PIL import ImageEnhance
-    from PIL import ImageOps
+    from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps
 except ImportError:
     sys.exit(
         "This script requires the Python Imaging Library - http://www.pythonware.com/products/pil/"

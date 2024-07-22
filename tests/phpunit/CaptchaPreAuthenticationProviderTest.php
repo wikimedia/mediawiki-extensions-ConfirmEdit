@@ -24,11 +24,11 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 
 	public function setUp(): void {
 		parent::setUp();
-		$this->setMwGlobals( [
-			'wgCaptchaClass' => SimpleCaptcha::class,
-			'wgCaptchaBadLoginAttempts' => 1,
-			'wgCaptchaBadLoginPerUserAttempts' => 1,
-			'wgCaptchaStorageClass' => CaptchaHashStore::class,
+		$this->overrideConfigValues( [
+			'CaptchaClass' => SimpleCaptcha::class,
+			'CaptchaBadLoginAttempts' => 1,
+			'CaptchaBadLoginPerUserAttempts' => 1,
+			'CaptchaStorageClass' => CaptchaHashStore::class,
 		] );
 		CaptchaStore::unsetInstanceForTests();
 		CaptchaStore::get()->clearAll();
@@ -308,7 +308,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$captchaTriggers = array_combine( $types, array_map( static function ( $type ) use ( $triggers ) {
 			return in_array( $type, $triggers, true );
 		}, $types ) );
-		$this->setMwGlobals( 'wgCaptchaTriggers', $captchaTriggers );
+		$this->overrideConfigValue( 'CaptchaTriggers', $captchaTriggers );
 	}
 
 	private function getProvider(): CaptchaPreAuthenticationProvider {

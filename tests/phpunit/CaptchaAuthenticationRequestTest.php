@@ -12,9 +12,9 @@ use MediaWiki\Tests\Auth\AuthenticationRequestTestCase;
 class CaptchaAuthenticationRequestTest extends AuthenticationRequestTestCase {
 	public function setUp(): void {
 		parent::setUp();
-		$this->setMwGlobals( [
-			'wgCaptchaClass' => SimpleCaptcha::class,
-			'wgCaptchaStorageClass' => CaptchaHashStore::class,
+		$this->overrideConfigValues( [
+			'CaptchaClass' => SimpleCaptcha::class,
+			'CaptchaStorageClass' => CaptchaHashStore::class,
 		] );
 		CaptchaStore::unsetInstanceForTests();
 		CaptchaStore::get()->clearAll();

@@ -297,7 +297,9 @@ if __name__ == "__main__":
     script_dir = os.path.dirname(os.path.realpath(__file__))
     parser = OptionParser()
     parser.add_option(
-        "--wordlist", help="A list of words (required)", metavar="WORDS.txt"
+        "--wordlist",
+        help="A list of words (required)",
+        metavar="WORDS.txt"
     )
     parser.add_option(
         "--random",
@@ -305,14 +307,20 @@ if __name__ == "__main__":
         action="store_true",
     )
     parser.add_option(
-        "--key", help="The passphrase set as $wgCaptchaSecret (required)", metavar="KEY"
+        "--key",
+        help="The passphrase set as $wgCaptchaSecret (required)",
+        metavar="KEY"
     )
     parser.add_option(
         "--output",
         help="The directory to put the images in - $wgCaptchaDirectory (required)",
         metavar="DIR",
     )
-    parser.add_option("--font", help="The font to use (required)", metavar="FONT.ttf")
+    parser.add_option(
+        "--font",
+        help="The font to use (required)",
+        metavar="FONT.ttf"
+    )
     parser.add_option(
         "--font-size",
         help="The font size (default 40)",
@@ -346,7 +354,10 @@ if __name__ == "__main__":
         type="int",
     )
     parser.add_option(
-        "--verbose", "-v", help="Show debugging information", action="store_true"
+        "--verbose",
+        "-v",
+        help="Show debugging information",
+        action="store_true"
     )
     parser.add_option(
         "--number-words",

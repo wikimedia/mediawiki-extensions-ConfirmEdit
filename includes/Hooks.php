@@ -34,9 +34,9 @@ use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use MessageSpecifier;
 use WANObjectCache;
 use Wikimedia\IPUtils;
+use Wikimedia\Message\MessageSpecifier;
 use WikiPage;
 
 class Hooks implements

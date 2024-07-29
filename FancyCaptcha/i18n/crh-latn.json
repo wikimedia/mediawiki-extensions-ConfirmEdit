@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"TayfunEt."
+			"TayfunEt.",
+			"Don Alessandro",
+			"Zolgoyo"
 		]
 	},
 	"fancycaptcha-captcha": "Telükesizlik kontroli",
+	"fancycaptcha-accountcreate": "Vikide qullanıcı esabı avtomatik yaratıluvına qarşı qorumaq içün, aşağıdaki qutuda kösterilgen sözlerni yazmağa rica etemiz ([[Special:Captcha/help|tafsilâtlı malümat]]):",
 	"fancycaptcha-imgcaptcha-ph": "Resimde körgen metniñizni yazıñız",
 	"fancycaptcha-reload-text": "Yañart"
 }

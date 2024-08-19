@@ -16,10 +16,13 @@ use MediaWiki\Request\WebRequest;
 use MediaWiki\Status\Status;
 
 class Turnstile extends SimpleCaptcha {
-	// used for turnstile-edit, turnstile-addurl, turnstile-badlogin, turnstile-createaccount,
-	// turnstile-create, turnstile-sendemail via getMessage()
+	/**
+	 * @var string used for turnstile-edit, turnstile-addurl, turnstile-badlogin, turnstile-createaccount,
+	 * turnstile-create, turnstile-sendemail via getMessage()
+	 */
 	protected static $messagePrefix = 'turnstile-';
 
+	/** @var string|null */
 	private $error = null;
 
 	/**

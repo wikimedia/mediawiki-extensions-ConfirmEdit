@@ -16,6 +16,7 @@ class HTMLFancyCaptchaField extends HTMLFormField {
 	/** @var bool */
 	protected $showCreateHelp;
 
+	/** @var string */
 	protected $mClass = 'captcha';
 
 	/**

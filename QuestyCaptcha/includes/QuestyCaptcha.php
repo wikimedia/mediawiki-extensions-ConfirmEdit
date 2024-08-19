@@ -19,8 +19,10 @@ use MediaWiki\Html\Html;
 use Xml;
 
 class QuestyCaptcha extends SimpleCaptcha {
-	// used for questycaptcha-edit, questycaptcha-addurl, questycaptcha-badlogin,
-	// questycaptcha-createaccount, questycaptcha-create, questycaptcha-sendemail via getMessage()
+	/**
+	 * @var string used for questycaptcha-edit, questycaptcha-addurl, questycaptcha-badlogin,
+	 * questycaptcha-createaccount, questycaptcha-create, questycaptcha-sendemail via getMessage()
+	 */
 	protected static $messagePrefix = 'questycaptcha-';
 
 	/**

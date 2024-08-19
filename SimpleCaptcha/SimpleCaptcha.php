@@ -45,6 +45,7 @@ use WikiPage;
  * Demo CAPTCHA (not for production usage) and base class for real CAPTCHAs
  */
 class SimpleCaptcha {
+	/** @var string */
 	protected static $messagePrefix = 'captcha-';
 
 	/** @var bool Override to force showing the CAPTCHA to users who don't have "skipcaptcha" right. */

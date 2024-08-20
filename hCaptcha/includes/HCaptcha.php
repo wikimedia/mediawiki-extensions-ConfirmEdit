@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 use ApiBase;
 use FormatJson;
 use MediaWiki\Auth\AuthenticationRequest;
+use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
@@ -18,14 +19,19 @@ use MediaWiki\Request\WebRequest;
 use MediaWiki\Status\Status;
 
 class HCaptcha extends SimpleCaptcha {
-	// used for hcaptcha-edit, hcaptcha-addurl, hcaptcha-badlogin, hcaptcha-createaccount,
-	// hcaptcha-create, hcaptcha-sendemail via getMessage()
+	/**
+	 * @var string used for hcaptcha-edit, hcaptcha-addurl, hcaptcha-badlogin, hcaptcha-createaccount,
+	 * hcaptcha-create, hcaptcha-sendemail via getMessage()
+	 */
 	protected static $messagePrefix = 'hcaptcha-';
 
+	/** @var string|null */
 	private $error = null;
 
+	/** @var Config */
 	private $hCaptchaConfig;
 
+	/** @var string */
 	private $siteKey;
 
 	public function __construct() {

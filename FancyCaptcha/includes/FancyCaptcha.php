@@ -22,8 +22,10 @@ use UnderflowException;
  * FancyCaptcha for displaying captchas precomputed by captcha.py
  */
 class FancyCaptcha extends SimpleCaptcha {
-	// used for fancycaptcha-edit, fancycaptcha-addurl, fancycaptcha-badlogin,
-	// fancycaptcha-accountcreate, fancycaptcha-create, fancycaptcha-sendemail via getMessage()
+	/**
+	 * @var string used for fancycaptcha-edit, fancycaptcha-addurl, fancycaptcha-badlogin,
+	 * fancycaptcha-accountcreate, fancycaptcha-create, fancycaptcha-sendemail via getMessage()
+	 */
 	protected static $messagePrefix = 'fancycaptcha-';
 
 	/**

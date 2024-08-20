@@ -53,6 +53,7 @@ class Hooks implements
 	AuthChangeFormFieldsHook
 {
 
+	/** @var bool */
 	protected static $instanceCreated = false;
 
 	private WANObjectCache $cache;

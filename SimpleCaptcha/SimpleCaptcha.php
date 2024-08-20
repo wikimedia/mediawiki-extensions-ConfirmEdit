@@ -631,7 +631,7 @@ class SimpleCaptcha {
 		if ( $newtext !== null && $wgCaptchaRegexes ) {
 			if ( !is_array( $wgCaptchaRegexes ) ) {
 				throw new UnexpectedValueException(
-					'$wgCaptchaRegexes is required to be an array, ' . gettype( $wgCaptchaRegexes ) . ' given.'
+					'$wgCaptchaRegexes is required to be an array, ' . get_debug_type( $wgCaptchaRegexes ) . ' given.'
 				);
 			}
 			// Custom regex checks. Reuse $oldtext if set above.

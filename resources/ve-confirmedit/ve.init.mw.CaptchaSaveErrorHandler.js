@@ -49,11 +49,6 @@ mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
 			target.saveFields.wpCaptchaWord = function () {
 				return captchaInput.getCaptchaWord();
 			};
-			// Unregister extra fields on save attempt
-			target.saveDialog.once( 'save', () => {
-				delete target.saveFields.wpCaptchaId;
-				delete target.saveFields.wpCaptchaWord;
-			} );
 
 			// ProcessDialog's error system isn't great for this yet.
 			target.saveDialog.clearMessage( 'api-save-error' );

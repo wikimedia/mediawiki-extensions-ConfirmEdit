@@ -1,6 +1,6 @@
 <?php
 
-use MediaWiki\Config\Config;
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
@@ -142,8 +142,7 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 		$testObject = new SimpleCaptcha();
 		$user = $this->createMock( User::class );
 		$user->method( 'isEmailConfirmed' )->willReturn( $userIsMailConfirmed );
-		$config = $this->createMock( Config::class );
-		$config->method( 'get' )->willReturn( $allowUserConfirmEmail );
+		$config = new HashConfig( [ 'AllowConfirmedEmail' => $allowUserConfirmEmail ] );
 
 		$actual = $testObject->canSkipCaptcha( $user, $config );
 
@@ -164,7 +163,7 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testCanSkipCaptchaIPWhitelisted( $requestIP, $IPWhitelist, $expected ) {
 		$testObject = new SimpleCaptcha();
-		$config = $this->createMock( Config::class );
+		$config = new HashConfig( [ 'AllowConfirmedEmail' => false ] );
 		$request = $this->createMock( WebRequest::class );
 		$request->method( 'getIP' )->willReturn( $requestIP );
 

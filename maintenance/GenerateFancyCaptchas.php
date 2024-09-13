@@ -190,9 +190,7 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$captchasGenerated = iterator_count( $iter );
 		$filesToStore = [];
-		/**
-		 * @var $fileInfo SplFileInfo
-		 */
+		/** @var SplFileInfo $fileInfo */
 		foreach ( $iter as $fileInfo ) {
 			if ( !$fileInfo->isFile() ) {
 				continue;

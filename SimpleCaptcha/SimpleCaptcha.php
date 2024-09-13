@@ -282,7 +282,7 @@ class SimpleCaptcha {
 	public function showEditFormFields( EditPage $editPage, OutputPage $out ) {
 		$out->enableOOUI();
 		$page = $editPage->getArticle()->getPage();
-		$key = $key = CacheKeyHelper::getKeyForPage( $page );
+		$key = CacheKeyHelper::getKeyForPage( $page );
 		if ( !isset( $this->activatedCaptchas[$key] ) ) {
 			return;
 		}
@@ -605,9 +605,7 @@ class SimpleCaptcha {
 				}
 			} else {
 				// Get link changes in the slowest way known to man
-				if ( $oldtext === null ) {
-					$oldtext = $this->loadText( $title, $section );
-				}
+				$oldtext ??= $this->loadText( $title, $section );
 				$oldLinks = $this->findLinks( $title, $oldtext );
 				$newLinks = $this->findLinks( $title, $newtext );
 			}
@@ -635,9 +633,7 @@ class SimpleCaptcha {
 				);
 			}
 			// Custom regex checks. Reuse $oldtext if set above.
-			if ( $oldtext === null ) {
-				$oldtext = $this->loadText( $title, $section );
-			}
+			$oldtext ??= $this->loadText( $title, $section );
 
 			foreach ( $wgCaptchaRegexes as $regex ) {
 				$newMatches = [];

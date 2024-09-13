@@ -36,8 +36,10 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 
 	public function tearDown(): void {
 		parent::tearDown();
+		/** @var Hooks $req */
+		$req = TestingAccessWrapper::newFromClass( Hooks::class );
 		// make sure $wgCaptcha resets between tests
-		TestingAccessWrapper::newFromClass( Hooks::class )->instanceCreated = false;
+		$req->instanceCreated = false;
 	}
 
 	/**
@@ -102,10 +104,12 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			[ 'username' => 'Foo' ] );
 
 		$this->assertCount( 1, $reqs );
-		$this->assertInstanceOf( CaptchaAuthenticationRequest::class, $reqs[0] );
+		/** @var CaptchaAuthenticationRequest $req */
+		$req = $reqs[0];
+		$this->assertInstanceOf( CaptchaAuthenticationRequest::class, $req );
 
-		$id = $reqs[0]->captchaId;
-		$data = TestingAccessWrapper::newFromObject( $reqs[0] )->captchaData;
+		$id = $req->captchaId;
+		$data = $req->captchaData;
 		$this->assertEquals( $captcha->retrieveCaptcha( $id ), $data + [ 'index' => $id ] );
 	}
 
@@ -241,6 +245,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		);
 		$provider = new CaptchaPreAuthenticationProvider();
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
+		/** @var CaptchaPreAuthenticationProvider $providerAccess */
 		$providerAccess = TestingAccessWrapper::newFromObject( $provider );
 
 		$disablePingLimiter = false;

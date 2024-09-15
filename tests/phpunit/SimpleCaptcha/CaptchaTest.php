@@ -47,9 +47,10 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider provideNamespaceOverwrites
+	 * @dataProvider provideBooleans
 	 */
-	public function testNamespaceTriggersOverwrite( $trigger, $expected ) {
+	public function testNamespaceTriggersOverwrite( bool $expected ) {
+		$trigger = 'edit';
 		$captcha = new SimpleCaptcha();
 		$this->overrideConfigValues( [
 			'CaptchaTriggers' => [
@@ -65,13 +66,6 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, $captcha->triggersCaptcha( $trigger, $title ) );
 	}
 
-	public static function provideNamespaceOverwrites() {
-		return [
-			[ 'edit', true ],
-			[ 'edit', false ],
-		];
-	}
-
 	private function setCaptchaTriggersAttribute( $trigger, $value ) {
 		// Avoid clobbering captcha triggers registered by other extensions
 		$this->overrideConfigValue( 'CaptchaTriggers', $GLOBALS['wgCaptchaTriggers'] );
@@ -82,56 +76,42 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider provideAttributeSet
+	 * @dataProvider provideBooleans
 	 */
-	public function testCaptchaTriggersAttributeSetTrue( $trigger, $value ) {
+	public function testCaptchaTriggersAttributeSetTrue( bool $value ) {
+		$trigger = 'test';
 		$this->setCaptchaTriggersAttribute( $trigger, $value );
 		$captcha = new SimpleCaptcha();
 		$this->assertEquals( $value, $captcha->triggersCaptcha( $trigger ) );
 	}
 
-	public static function provideAttributeSet() {
-		return [
-			[ 'test', true ],
-			[ 'test', false ],
-		];
-	}
-
 	/**
-	 * @dataProvider provideAttributeOverwritten
+	 * @dataProvider provideBooleans
 	 */
-	public function testCaptchaTriggersAttributeGetsOverwritten( $trigger, $expected ) {
+	public function testCaptchaTriggersAttributeGetsOverwritten( bool $expected ) {
+		$trigger = 'edit';
 		$this->overrideConfigValue( 'CaptchaTriggers', [ $trigger => $expected ] );
 		$this->setCaptchaTriggersAttribute( $trigger, !$expected );
 		$captcha = new SimpleCaptcha();
 		$this->assertEquals( $expected, $captcha->triggersCaptcha( $trigger ) );
 	}
 
-	public static function provideAttributeOverwritten() {
-		return [
-			[ 'edit', true ],
-			[ 'edit', false ],
-		];
-	}
-
 	/**
-	 * @dataProvider provideCanSkipCaptchaUserright
+	 * @dataProvider provideBooleans
 	 */
-	public function testCanSkipCaptchaUserright( $userIsAllowed, $expected ) {
+	public function testCanSkipCaptchaUserright( bool $userIsAllowed ) {
 		$testObject = new SimpleCaptcha();
 		$user = $this->createMock( User::class );
 		$user->method( 'isAllowed' )->willReturn( $userIsAllowed );
 
 		$actual = $testObject->canSkipCaptcha( $user, RequestContext::getMain()->getConfig() );
 
-		$this->assertEquals( $expected, $actual );
+		$this->assertEquals( $userIsAllowed, $actual );
 	}
 
-	public static function provideCanSkipCaptchaUserright() {
-		return [
-			[ true, true ],
-			[ false, false ]
-		];
+	public static function provideBooleans() {
+		yield [ true ];
+		yield [ false ];
 	}
 
 	/**

@@ -170,10 +170,10 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 			'edit' => true,
 		] );
 		$testObject = new SimpleCaptcha();
-		/** @var SimpleCaptcha|TestingAccessWrapper $wrapper */
+		/** @var SimpleCaptcha $wrapper */
 		$wrapper = TestingAccessWrapper::newFromObject( $testObject );
 		$wrapper->captchaSolved = true;
-		$this->assertFalse( $wrapper->triggersCaptcha( 'edit' ), 'CAPTCHA is not triggered if already solved' );
+		$this->assertFalse( $testObject->triggersCaptcha( 'edit' ), 'CAPTCHA is not triggered if already solved' );
 	}
 
 	public function testForceShowCaptcha() {
@@ -181,12 +181,10 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 			'edit' => false,
 		] );
 		$testObject = new SimpleCaptcha();
-		/** @var SimpleCaptcha|TestingAccessWrapper $wrapper */
-		$wrapper = TestingAccessWrapper::newFromObject( $testObject );
 		$this->assertFalse(
-			$wrapper->triggersCaptcha( 'edit' ), 'CAPTCHA is not triggered by edit action in this configuration'
+			$testObject->triggersCaptcha( 'edit' ), 'CAPTCHA is not triggered by edit action in this configuration'
 		);
-		$wrapper->setForceShowCaptcha( true );
-		$this->assertTrue( $wrapper->triggersCaptcha( 'edit' ), 'Force showing a CAPTCHA if flag is set' );
+		$testObject->setForceShowCaptcha( true );
+		$this->assertTrue( $testObject->triggersCaptcha( 'edit' ), 'Force showing a CAPTCHA if flag is set' );
 	}
 }

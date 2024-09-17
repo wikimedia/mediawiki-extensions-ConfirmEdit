@@ -7,14 +7,13 @@ mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
 		ve.init.mw.HCaptchaSaveErrorHandler.static.name = 'confirmEditHCaptcha';
 
 		ve.init.mw.HCaptchaSaveErrorHandler.static.getReadyPromise = function () {
-			const onLoadFn = 'onHcaptchaLoadCallback' + Date.now();
-			let deferred, scriptURL, params;
-
 			if ( !this.readyPromise ) {
-				deferred = $.Deferred();
-				scriptURL = new mw.Uri( require( './config.json' ).hCaptchaScriptURL );
-				params = { onload: onLoadFn, render: 'explicit' };
-				scriptURL.query = Object.assign( scriptURL.query, params );
+				const deferred = $.Deferred();
+				const config = require( './config.json' );
+				const scriptURL = new URL( config.hCaptchaScriptURL, location.href );
+				const onLoadFn = 'onHcaptchaLoadCallback' + Date.now();
+				scriptURL.searchParams.set( 'onload', onLoadFn );
+				scriptURL.searchParams.set( 'render', 'explicit' );
 
 				this.readyPromise = deferred.promise();
 				window[ onLoadFn ] = deferred.resolve;

@@ -89,13 +89,13 @@ $wgCaptchaTriggersOnNamespace = [];
  * Indicate how to store per-session data required to match up the
  * internal captcha data with the editor.
  *
- * 'CaptchaSessionStore' uses PHP's session storage, which is cookie-based
+ * 'MediaWiki\Extension\ConfirmEdit\Store\CaptchaSessionStore' uses PHP's session storage, which is cookie-based
  * and may fail for anons with cookies disabled.
  *
  * 'CaptchaCacheStore' uses MediaWiki core's MicroStash,
  * for storing captch data with a TTL eviction strategy.
  */
-$wgCaptchaStorageClass = 'CaptchaSessionStore';
+$wgCaptchaStorageClass = 'MediaWiki\Extension\ConfirmEdit\Store\CaptchaSessionStore';
 
 /**
  * Number of seconds a captcha session should last in the data cache

@@ -4,11 +4,10 @@
 
 namespace MediaWiki\Extension\ConfirmEdit;
 
-use ApiBase;
-use Content;
-use ExtensionRegistry;
 use MailAddress;
+use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
+use MediaWiki\Content\Content;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
@@ -23,6 +22,7 @@ use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Permissions\Hook\TitleReadWhitelistHook;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RevisionRecord;
@@ -34,9 +34,9 @@ use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use WANObjectCache;
 use Wikimedia\IPUtils;
 use Wikimedia\Message\MessageSpecifier;
+use Wikimedia\ObjectCache\WANObjectCache;
 use WikiPage;
 
 class Hooks implements

@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Auth;
 
-use BagOStuff;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\User;
 use MediaWiki\User\UserNameUtils;
+use Wikimedia\ObjectCache\BagOStuff;
 
 /**
  * Helper to count login attempts per IP and per username.

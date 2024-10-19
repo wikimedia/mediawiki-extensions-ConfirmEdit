@@ -16,7 +16,7 @@ use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\Html\Html;
-use Xml;
+use MediaWiki\Xml\Xml;
 
 class QuestyCaptcha extends SimpleCaptcha {
 	/**

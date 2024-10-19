@@ -2,16 +2,15 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\SimpleCaptcha;
 
-use ApiBase;
-use ApiEditPage;
-use Content;
-use ExtensionRegistry;
-use IDBAccessObject;
 use MailAddress;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiEditPage;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigException;
+use MediaWiki\Content\Content;
+use MediaWiki\Content\TextContent;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
@@ -25,6 +24,8 @@ use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Parser\ParserOptions;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Revision\RevisionAccessException;
@@ -35,10 +36,9 @@ use MediaWiki\User\User;
 use OOUI\FieldLayout;
 use OOUI\HiddenInputWidget;
 use OOUI\NumberInputWidget;
-use ParserOptions;
-use TextContent;
 use UnexpectedValueException;
 use Wikimedia\IPUtils;
+use Wikimedia\Rdbms\IDBAccessObject;
 use WikiPage;
 
 /**

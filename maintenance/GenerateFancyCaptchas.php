@@ -31,6 +31,7 @@ require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Shell\Shell;
 use MediaWiki\Status\Status;
 

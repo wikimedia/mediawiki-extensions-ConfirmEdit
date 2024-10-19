@@ -2,8 +2,6 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\FancyCaptcha;
 
-use FileBackend;
-use FSFileBackend;
 use InvalidArgumentException;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthManager;
@@ -17,6 +15,8 @@ use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
 use NullLockManager;
 use UnderflowException;
+use Wikimedia\FileBackend\FileBackend;
+use Wikimedia\FileBackend\FSFileBackend;
 
 /**
  * FancyCaptcha for displaying captchas precomputed by captcha.py

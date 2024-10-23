@@ -15,7 +15,7 @@ class ReCaptchaNoCaptchaAuthenticationRequestTest extends AuthenticationRequestT
 			'wgAutoloadClasses',
 			[
 				'MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\ReCaptchaNoCaptchaAuthenticationRequest'
-					=> __DIR__ . '/../../ReCaptchaNoCaptcha/includes/ReCaptchaNoCaptchaAuthenticationRequest.php'
+					=> __DIR__ . '/../..//includes/ReCaptchaNoCaptcha/ReCaptchaNoCaptchaAuthenticationRequest.php'
 			]
 		);
 	}

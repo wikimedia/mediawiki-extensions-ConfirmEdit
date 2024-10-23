@@ -48,5 +48,3 @@ class CaptchaCacheStore extends CaptchaStore {
 		return false;
 	}
 }
-
-class_alias( CaptchaCacheStore::class, 'CaptchaCacheStore' );

@@ -443,12 +443,12 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * Delete a solved captcha image, if $wgCaptchaDeleteOnSolve is true.
 	 * @inheritDoc
 	 */
-	protected function passCaptcha( $index, $word ) {
+	protected function passCaptcha( $index, $word, $user ) {
 		global $wgCaptchaDeleteOnSolve;
 
 		// get the captcha info before it gets deleted
 		$info = $this->retrieveCaptcha( $index );
-		$pass = parent::passCaptcha( $index, $word );
+		$pass = parent::passCaptcha( $index, $word, $user );
 
 		if ( $pass && $wgCaptchaDeleteOnSolve ) {
 			$this->getBackend()->quickDelete( [

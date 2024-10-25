@@ -14,6 +14,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Status\Status;
+use MediaWiki\User\UserIdentity;
 
 class Turnstile extends SimpleCaptcha {
 	/**
@@ -98,9 +99,10 @@ class Turnstile extends SimpleCaptcha {
 	 *
 	 * @param mixed $_ Not used
 	 * @param string $word captcha solution
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	protected function passCaptcha( $_, $word ) {
+	protected function passCaptcha( $_, $word, $user ) {
 		global $wgRequest, $wgTurnstileSecretKey, $wgTurnstileSendRemoteIP;
 
 		$url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';

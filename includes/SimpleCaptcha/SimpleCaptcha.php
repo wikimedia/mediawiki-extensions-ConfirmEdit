@@ -1026,7 +1026,7 @@ class SimpleCaptcha {
 			return false;
 		}
 
-		if ( $this->passCaptcha( $index, $word ) ) {
+		if ( $this->passCaptcha( $index, $word, $user ) ) {
 			return true;
 		}
 
@@ -1044,17 +1044,18 @@ class SimpleCaptcha {
 	 */
 	public function passCaptchaFromRequest( WebRequest $request, User $user ) {
 		[ $index, $word ] = $this->getCaptchaParamsFromRequest( $request );
-		return $this->passCaptcha( $index, $word );
+		return $this->passCaptcha( $index, $word, $user );
 	}
 
 	/**
 	 * Given a required captcha run, test form input for correct
 	 * input on the open session.
-	 * @param string $index Captcha idenitifier
+	 * @param string $index Captcha identifier
 	 * @param string $word Captcha solution
+	 * @param User $user
 	 * @return bool if passed, false if failed or new session
 	 */
-	protected function passCaptcha( $index, $word ) {
+	protected function passCaptcha( $index, $word, $user ) {
 		// Don't check the same CAPTCHA twice in one session,
 		// if the CAPTCHA was already checked - Bug T94276
 		if ( $this->isCaptchaSolved() !== null ) {

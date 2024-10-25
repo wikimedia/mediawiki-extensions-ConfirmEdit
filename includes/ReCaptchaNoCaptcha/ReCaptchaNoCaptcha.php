@@ -14,6 +14,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Status\Status;
+use MediaWiki\User\UserIdentity;
 
 class ReCaptchaNoCaptcha extends SimpleCaptcha {
 	/**
@@ -122,9 +123,10 @@ HTML;
 	 *
 	 * @param mixed $_ Not used (ReCaptcha v2 puts index and solution in a single string)
 	 * @param string $word captcha solution
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	protected function passCaptcha( $_, $word ) {
+	protected function passCaptcha( $_, $word, $user ) {
 		global $wgRequest, $wgReCaptchaSecretKey, $wgReCaptchaSendRemoteIP;
 
 		$url = 'https://www.recaptcha.net/recaptcha/api/siteverify';

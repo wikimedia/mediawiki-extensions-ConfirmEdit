@@ -12,11 +12,13 @@ use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Html\Html;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\Language\RawMessage;
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Status\Status;
+use MediaWiki\User\UserIdentity;
 
 class HCaptcha extends SimpleCaptcha {
 	/**
@@ -119,9 +121,10 @@ class HCaptcha extends SimpleCaptcha {
 	 *
 	 * @param mixed $_ Not used
 	 * @param string $token token from the POST data
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	protected function passCaptcha( $_, $token ) {
+	protected function passCaptcha( $_, $token, $user ) {
 		$webRequest = RequestContext::getMain()->getRequest();
 
 		$secretKey = $this->hCaptchaConfig->get( 'HCaptchaSecretKey' );
@@ -155,7 +158,8 @@ class HCaptcha extends SimpleCaptcha {
 			$this->logCheckError( $status );
 			return false;
 		}
-		$response = FormatJson::decode( $request->getContent(), true );
+		$json = $request->getContent();
+		$response = FormatJson::decode( $json, true );
 		if ( !$response ) {
 			$this->error = 'json';
 			$this->logCheckError( $this->error );
@@ -166,6 +170,14 @@ class HCaptcha extends SimpleCaptcha {
 			$this->logCheckError( $response['error-codes'] );
 			return false;
 		}
+
+		LoggerFactory::getInstance( 'captcha' )
+			->debug( 'Captcha solution attempt for {user}', [
+				'event' => 'captcha.solve',
+				'user' => $user->getName(),
+				'success' => $response['success'],
+				'blob' => $json,
+			] );
 
 		return $response['success'];
 	}

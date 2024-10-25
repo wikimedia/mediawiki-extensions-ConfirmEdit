@@ -56,10 +56,11 @@ class HCaptcha extends SimpleCaptcha {
 			'data-sitekey' => $this->siteKey
 		] );
 
+		$url = $this->hCaptchaConfig->get( 'HCaptchaApiUrl' );
 		return [
 			'html' => $output,
 			'headitems' => [
-				"<script src=\"https://hcaptcha.com/1/api.js\" async defer></script>"
+				"<script src=\"$url\" async defer></script>"
 			]
 		];
 	}
@@ -131,7 +132,7 @@ class HCaptcha extends SimpleCaptcha {
 		$sendRemoteIp = $this->hCaptchaConfig->get( 'HCaptchaSendRemoteIP' );
 		$proxy = $this->hCaptchaConfig->get( 'HCaptchaProxy' );
 
-		$url = 'https://hcaptcha.com/siteverify';
+		$url = $this->hCaptchaConfig->get( 'HCaptchaVerifyUrl' );
 		$data = [
 			'secret' => $secretKey,
 			'response' => $token,

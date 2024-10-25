@@ -18,7 +18,7 @@
 			"value": "MediaWiki\\Extension\\ConfirmEdit\\hCaptcha\\HCaptcha"
 		},
 		"HCaptchaProxy": {
-			"description": "Proxy to use for outbound PHP web requests to hCaptcha servers",
+			"description": "Proxy to use for outbound PHP web requests to hCaptcha servers (HCaptchaVerifyUrl)",
 			"value": false
 		},
 		"HCaptchaSiteKey": {
@@ -32,6 +32,14 @@
 		"HCaptchaSendRemoteIP": {
 			"description": "Whether to send the client's IP address to hCaptcha",
 			"value": false
+		},
+		"HCaptchaApiUrl": {
+			"description": "Url that the hCaptcha JS is loaded from; may want to use https://cn1.hcaptcha.com/1/api.js?endpoint=https://cn1.hcaptcha.com&assethost=https://assets-cn1.hcaptcha.com&imghost=https://imgs-cn1.hcaptcha.com&reportapi=https://reportapi-cn1.hcaptcha.com for Chinese visitors",
+			"value": "https://js.hcaptcha.com/1/api.js"
+		},
+		"HCaptchaVerifyUrl": {
+			"description": "Url that the hCaptcha requested is verified against; may want to use https://cn1.hcaptcha.com/siteverify if server is in China",
+			"value": "https://api.hcaptcha.com/siteverify"
 		}
 	},
 	"ConfigRegistry": {

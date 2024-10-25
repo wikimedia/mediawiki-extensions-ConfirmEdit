@@ -20,7 +20,7 @@ class ResourceLoaderHooks {
 	) {
 		return [
 			'hCaptchaSiteKey' => $config->get( 'HCaptchaSiteKey' ),
-			'hCaptchaScriptURL' => 'https://js.hcaptcha.com/1/api.js',
+			'hCaptchaScriptURL' => $config->get( 'HCaptchaApiUrl' )
 		];
 	}
 }

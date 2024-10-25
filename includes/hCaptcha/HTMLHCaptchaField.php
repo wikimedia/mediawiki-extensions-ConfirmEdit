@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLFormField;
 
@@ -15,7 +16,7 @@ class HTMLHCaptchaField extends HTMLFormField {
 	/**
 	 * Parameters:
 	 * - key: (string, required) Public key
-	 * - error: (string) Error from previous round
+	 * - error: (string) Error from the previous captcha round
 	 * @param array $params
 	 */
 	public function __construct( array $params ) {
@@ -32,9 +33,11 @@ class HTMLHCaptchaField extends HTMLFormField {
 	public function getInputHTML( $value ) {
 		$out = $this->mParent->getOutput();
 
+		// TODO: Inject config/similar...
+		$url = RequestContext::getMain()->getConfig()->get( 'HCaptchaApiUrl' );
 		$out->addHeadItem(
 			'h-captcha',
-			"<script src=\"https://hcaptcha.com/1/api.js\" async defer></script>"
+			"<script src=\"$url\" async defer></script>"
 		);
 		HCaptcha::addCSPSources( $out->getCSP() );
 		return Html::element( 'div', [

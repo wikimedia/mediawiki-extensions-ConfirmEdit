@@ -13,9 +13,7 @@ use MediaWiki\Status\Status;
 use MediaWiki\User\User;
 
 class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider {
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getAuthenticationRequests( $action, array $options ) {
 		$captcha = Hooks::getInstance();
 		$user = User::newFromName( $options['username'] );
@@ -47,7 +45,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				// failed login attempt using a username that needs a captcha, set a session flag
 				// to display a captcha on login from that point on. This will result in confusing
 				// error messages if the browser cannot persist the session (because we'll never show
-				// a required captcha field), but then login would be impossible anyway so no big deal.
+				// a required captcha field), but then login would be impossible anyway, so no big deal.
 
 				// If the username ends to be one that does not trigger the captcha, that will
 				// result in weird behavior (if the user leaves the captcha field empty, they get
@@ -57,8 +55,8 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				$userProbablyNeedsCaptcha = $session->get( 'ConfirmEdit:loginCaptchaPerUserTriggered' );
 				$suggestedUsername = $session->suggestLoginUsername();
 				if (
-					$loginCounter->isBadLoginTriggered()
-					|| $userProbablyNeedsCaptcha
+					$userProbablyNeedsCaptcha
+					|| $loginCounter->isBadLoginTriggered()
 					|| ( $suggestedUsername && $loginCounter->isBadLoginPerUserTriggered( $suggestedUsername ) )
 				) {
 					$needed = true;
@@ -77,21 +75,18 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 		if ( $needed ) {
 			return [ $captcha->createAuthenticationRequest() ];
-		} else {
-			return [];
 		}
+
+		return [];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function testForAuthentication( array $reqs ) {
 		$captcha = Hooks::getInstance();
 		$username = AuthenticationRequest::getUsernameFromRequests( $reqs );
 		$loginCounter = $this->getLoginAttemptCounter( $captcha );
 		$success = true;
-		$isBadLoginPerUserTriggered = $username ?
-			$loginCounter->isBadLoginPerUserTriggered( $username ) : false;
+		$isBadLoginPerUserTriggered = $username && $loginCounter->isBadLoginPerUserTriggered( $username );
 
 		if ( $loginCounter->isBadLoginTriggered() || $isBadLoginPerUserTriggered ) {
 			$captcha->setAction( 'badlogin' );
@@ -118,9 +113,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		return $success ? Status::newGood() : $this->makeError( 'wrongpassword', $captcha );
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function testForAccountCreation( $user, $creator, array $reqs ) {
 		$captcha = Hooks::getInstance();
 
@@ -146,9 +139,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		return Status::newGood();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function postAuthentication( $user, AuthenticationResponse $response ) {
 		$captcha = Hooks::getInstance();
 		$loginCounter = $this->getLoginAttemptCounter( $captcha );
@@ -167,7 +158,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 	/**
 	 * Verify submitted captcha.
-	 * Assumes that the user has to pass the capctha (permission checks are caller's responsibility).
+	 * Assumes that the user has to pass the captcha (permission checks are caller's responsibility).
 	 * @param SimpleCaptcha $captcha
 	 * @param AuthenticationRequest[] $reqs
 	 * @param User $user

@@ -42,20 +42,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 		}
 	}
 
-	/**
-	 * @param array &$resultArr
-	 */
-	protected function addCaptchaAPI( &$resultArr ) {
-		$captcha = $this->getCaptcha();
-		$index = $this->storeCaptcha( $captcha );
-		$resultArr['captcha'] = $this->describeCaptchaType();
-		$resultArr['captcha']['id'] = $index;
-		$resultArr['captcha']['question'] = $captcha['question'];
-	}
-
-	/**
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function describeCaptchaType() {
 		return [
 			'type' => 'question',
@@ -63,9 +50,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 		];
 	}
 
-	/**
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function getCaptcha() {
 		global $wgCaptchaQuestions;
 

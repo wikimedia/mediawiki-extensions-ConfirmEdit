@@ -13,17 +13,13 @@ class TurnstileAuthenticationRequest extends CaptchaAuthenticationRequest {
 		parent::__construct( '', [] );
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function loadFromSubmission( array $data ) {
 		// unhack the hack in parent
 		return AuthenticationRequest::loadFromSubmission( $data );
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getFieldInfo() {
 		$fieldInfo = parent::getFieldInfo();
 

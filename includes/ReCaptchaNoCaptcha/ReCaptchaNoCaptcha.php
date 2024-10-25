@@ -77,9 +77,7 @@ HTML;
 		];
 	}
 
-	/**
-	 * @return string[]
-	 */
+	/** @inheritDoc */
 	public static function getCSPUrls() {
 		return [ 'https://www.recaptcha.net/recaptcha/api.js' ];
 	}
@@ -213,33 +211,25 @@ HTML;
 		return true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getError() {
 		return $this->error;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function storeCaptcha( $info ) {
 		// ReCaptcha is stored by Google; the ID will be generated at that time as well, and
 		// the one returned here won't be used. Just pretend this worked.
 		return 'not used';
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function retrieveCaptcha( $index ) {
 		// just pretend it worked
 		return [ 'index' => $index ];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getCaptcha() {
 		// ReCaptcha is handled by frontend code + an external provider; nothing to do here.
 		return [];

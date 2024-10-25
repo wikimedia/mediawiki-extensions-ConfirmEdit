@@ -12,7 +12,6 @@ use MediaWiki\Api\ApiBase;
  */
 class ApiFancyCaptchaReload extends ApiBase {
 	public function execute() {
-		# Get a new FancyCaptcha form data
 		$captcha = new FancyCaptcha();
 		$info = $captcha->getCaptcha();
 		$captchaIndex = $captcha->storeCaptcha( $info );

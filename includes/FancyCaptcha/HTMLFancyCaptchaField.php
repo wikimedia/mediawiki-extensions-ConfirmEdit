@@ -31,9 +31,7 @@ class HTMLFancyCaptchaField extends HTMLFormField {
 		$this->showCreateHelp = !empty( $params['showCreateHelp'] );
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getInputHTML( $value ) {
 		$out = $this->mParent->getOutput();
 
@@ -54,7 +52,7 @@ class HTMLFancyCaptchaField extends HTMLFormField {
 			'id'   => $this->mID,
 			'name' => $this->mName,
 			'class' => 'cdx-text-input__input',
-			// max_length in captcha.py plus fudge factor
+			// max_length in captcha.py plus a fudge factor
 			'size' => '12',
 			'dir' => $this->mDir,
 			'autocomplete' => 'off',
@@ -76,7 +74,7 @@ class HTMLFancyCaptchaField extends HTMLFormField {
 			. Html::element( 'input', $attribs ) . Html::closeElement( 'div' );
 
 		if ( $this->showCreateHelp ) {
-			// use raw element, the message will contain a link
+			// use a raw element, the message will contain a link
 			$html .= Html::rawElement( 'small', [
 				'class' => 'mw-createacct-captcha-assisted'
 			], $this->mParent->msg( 'createacct-imgcaptcha-help' )->parse() );
@@ -87,9 +85,7 @@ class HTMLFancyCaptchaField extends HTMLFormField {
 		return $html;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getLabel() {
 		// slight abuse of what getLabel() should mean; $mLabel is used for the pre-label text
 		// as the actual label is always the same
@@ -97,13 +93,11 @@ class HTMLFancyCaptchaField extends HTMLFormField {
 			. $this->mParent->msg( 'fancycaptcha-captcha' )->text();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getLabelHtml( $cellAttributes = [] ) {
 		$labelHtml = parent::getLabelHtml( $cellAttributes );
 		if ( $this->mLabel ) {
-			// use raw element, the message will contain a link
+			// use a raw element, the message will contain a link
 			$labelHtml = Html::rawElement( 'p', [], $this->mLabel ) . $labelHtml;
 		}
 		return $labelHtml;

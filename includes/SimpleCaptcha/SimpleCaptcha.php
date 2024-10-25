@@ -115,7 +115,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Returns a list of activate captchas for a page by key.
+	 * Returns a list of activated captchas for a page by key.
 	 * @return bool[]
 	 */
 	public function getActivatedCaptchas() {
@@ -153,7 +153,7 @@ class SimpleCaptcha {
 	 * Override this!
 	 *
 	 * It is not guaranteed that the CAPTCHA will load synchronously with the main page
-	 * content. So you can not rely on registering handlers before page load. E.g.:
+	 * content. So you cannot rely on registering handlers before page load. E.g.:
 	 *
 	 * NOT SAFE: $( window ).on( 'load', handler )
 	 * SAFE: $( handler )
@@ -214,7 +214,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Adds the CSP policies necessary for the captcha module to work in a CSP enforced
+	 * Adds the necessary CSP policies for the captcha module to work in a CSP enforced
 	 * setup.
 	 *
 	 * @param ContentSecurityPolicy $csp The CSP instance to add the policies to, usually
@@ -275,7 +275,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Show error message for missing or incorrect captcha on EditPage.
+	 * Show the error message for missing or incorrect captcha on EditPage.
 	 * @param EditPage $editPage
 	 * @param OutputPage $out
 	 */
@@ -420,7 +420,7 @@ class SimpleCaptcha {
 	 * IP addresses and IP ranges from it.
 	 *
 	 * Note that only lines with just the IP address or IP range is considered
-	 * as valid. Whitespace is allowed but if there is any other character on
+	 * as valid. Whitespace is allowed, but if there is any other character on
 	 * the line, it's not considered as a valid entry.
 	 *
 	 * @param string[] $input
@@ -645,6 +645,7 @@ class SimpleCaptcha {
 
 					$numHits = count( $addedMatches );
 					if ( $numHits > 0 ) {
+						// TODO: last parameter to sprintf() isn't used
 						$this->trigger = sprintf( "%dx %s at [[%s]]: %s",
 							$numHits,
 							$regex,
@@ -751,61 +752,62 @@ class SimpleCaptcha {
 		if ( count( $lines ) == 0 ) {
 			wfDebug( "No lines\n" );
 			return [];
-		} else {
-			# Make regex
-			# It's faster using the S modifier even though it will usually only be run once
-			// $regex = 'http://+[a-z0-9_\-.]*(' . implode( '|', $lines ) . ')';
-			// return '/' . str_replace( '/', '\/', preg_replace('|\\\*/|', '/', $regex) ) . '/Si';
-			$regexes = [];
-			$regexStart = [
-				'normal' => '/^(?:https?:)?\/\/+[a-z0-9_\-.]*(?:',
-				'noprotocol' => '/^(?:',
-			];
-			$regexEnd = [
-				'normal' => ')/Si',
-				'noprotocol' => ')/Si',
-			];
-			$regexMax = 4096;
-			$build = [];
-			foreach ( $lines as $line ) {
-				# Extract flags from the line
-				$options = [];
-				if ( preg_match( '/^(.*?)\s*<([^<>]*)>$/', $line, $matches ) ) {
-					if ( $matches[1] === '' ) {
-						wfDebug( "Line with empty regex\n" );
-						continue;
-					}
-					$line = $matches[1];
-					$opts = preg_split( '/\s*\|\s*/', trim( $matches[2] ) );
-					foreach ( $opts as $opt ) {
-						$opt = strtolower( $opt );
-						if ( $opt == 'noprotocol' ) {
-							$options['noprotocol'] = true;
-						}
-					}
-				}
-
-				$key = isset( $options['noprotocol'] ) ? 'noprotocol' : 'normal';
-
-				// FIXME: not very robust size check, but should work. :)
-				if ( !isset( $build[$key] ) ) {
-					$build[$key] = $line;
-				} elseif ( strlen( $build[$key] ) + strlen( $line ) > $regexMax ) {
-					$regexes[] = $regexStart[$key] .
-						str_replace( '/', '\/', preg_replace( '|\\\*/|', '/', $build[$key] ) ) .
-						$regexEnd[$key];
-					$build[$key] = $line;
-				} else {
-					$build[$key] .= '|' . $line;
-				}
-			}
-			foreach ( $build as $key => $value ) {
-				$regexes[] = $regexStart[$key] .
-					str_replace( '/', '\/', preg_replace( '|\\\*/|', '/', $value ) ) .
-					$regexEnd[$key];
-			}
-			return $regexes;
 		}
+
+	# Make regex
+		# It's faster using the S modifier even though it will usually only be run once
+		// $regex = 'http://+[a-z0-9_\-.]*(' . implode( '|', $lines ) . ')';
+		// return '/' . str_replace( '/', '\/', preg_replace('|\\\*/|', '/', $regex) ) . '/Si';
+		$regexes = [];
+		$regexStart = [
+			'normal' => '/^(?:https?:)?\/\/+[a-z0-9_\-.]*(?:',
+			'noprotocol' => '/^(?:',
+		];
+		$regexEnd = [
+			'normal' => ')/Si',
+			'noprotocol' => ')/Si',
+		];
+		$regexMax = 4096;
+		$build = [];
+		foreach ( $lines as $line ) {
+			# Extract flags from the line
+			$options = [];
+			if ( preg_match( '/^(.*?)\s*<([^<>]*)>$/', $line, $matches ) ) {
+				if ( $matches[1] === '' ) {
+					wfDebug( "Line with empty regex\n" );
+					continue;
+				}
+				$line = $matches[1];
+				$opts = preg_split( '/\s*\|\s*/', trim( $matches[2] ) );
+				foreach ( $opts as $opt ) {
+					$opt = strtolower( $opt );
+					if ( $opt == 'noprotocol' ) {
+						$options['noprotocol'] = true;
+					}
+				}
+			}
+
+			$key = isset( $options['noprotocol'] ) ? 'noprotocol' : 'normal';
+
+			// FIXME: not very robust size check, but should work. :)
+			if ( !isset( $build[$key] ) ) {
+				$build[$key] = $line;
+			} elseif ( strlen( $build[$key] ) + strlen( $line ) > $regexMax ) {
+				$regexes[] = $regexStart[$key] .
+					str_replace( '/', '\/', preg_replace( '|\\\*/|', '/', $build[$key] ) ) .
+					$regexEnd[$key];
+				$build[$key] = $line;
+			} else {
+				$build[$key] .= '|' . $line;
+			}
+		}
+		foreach ( $build as $key => $value ) {
+			$regexes[] = $regexStart[$key] .
+				str_replace( '/', '\/', preg_replace( '|\\\*/|', '/', $value ) ) .
+				$regexEnd[$key];
+		}
+
+		return $regexes;
 	}
 
 	/**
@@ -839,10 +841,10 @@ class SimpleCaptcha {
 		}
 		if ( $this->shouldCheck( $page, $newtext, $section, $context ) ) {
 			return $this->passCaptchaLimitedFromRequest( $wgRequest, $user );
-		} else {
-			wfDebug( "ConfirmEdit: no need to show captcha.\n" );
-			return true;
 		}
+
+		wfDebug( "ConfirmEdit: no need to show captcha.\n" );
+		return true;
 	}
 
 	/**
@@ -857,7 +859,7 @@ class SimpleCaptcha {
 	 */
 	public function confirmEditMerged( $context, $content, $status, $summary, $user, $minorEdit ) {
 		$title = $context->getTitle();
-		if ( !( $title->canExist() ) ) {
+		if ( !$title->canExist() ) {
 			// we check WikiPage only
 			// try to get an appropriate title for this page
 			$title = $context->getTitle();
@@ -888,7 +890,7 @@ class SimpleCaptcha {
 					// that the user already submitted an edit, and so the 'captcha-edit'
 					// message is more appropriate.
 					$message = 'captcha-edit';
-					[ $_index, $word ] = $this->getCaptchaParamsFromRequest(
+					[ , $word ] = $this->getCaptchaParamsFromRequest(
 						RequestContext::getMain()->getRequest()
 					);
 					// But if there's a word supplied in the request, then we should
@@ -917,11 +919,7 @@ class SimpleCaptcha {
 	 */
 	public function needCreateAccountCaptcha( User $creatingUser ) {
 		if ( $this->triggersCaptcha( CaptchaTriggers::CREATE_ACCOUNT ) ) {
-			if ( $this->canSkipCaptcha( $creatingUser,
-				\MediaWiki\MediaWikiServices::getInstance()->getMainConfig() ) ) {
-				return false;
-			}
-			return true;
+			return !$this->canSkipCaptcha( $creatingUser, MediaWikiServices::getInstance()->getMainConfig() );
 		}
 		return false;
 	}
@@ -941,7 +939,7 @@ class SimpleCaptcha {
 		$user = RequestContext::getMain()->getUser();
 		if ( $this->triggersCaptcha( CaptchaTriggers::SENDEMAIL ) ) {
 			if ( $this->canSkipCaptcha( $user,
-				\MediaWiki\MediaWikiServices::getInstance()->getMainConfig() ) ) {
+				MediaWikiServices::getInstance()->getMainConfig() ) ) {
 				return true;
 			}
 
@@ -988,7 +986,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Checks, if the user reached the amount of false CAPTCHAs and give him some vacation
+	 * Checks, if the user reached the number of false CAPTCHAs and give him some vacation
 	 * or run self::passCaptcha() and clear counter if correct.
 	 *
 	 * @param WebRequest $request
@@ -1011,7 +1009,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Checks, if the user reached the amount of false CAPTCHAs and give him some vacation
+	 * Checks, if the user reached the number of false CAPTCHAs and give him some vacation
 	 * or run self::passCaptcha() and clear counter if correct.
 	 *
 	 * @param string $index Captcha idenitifier
@@ -1023,7 +1021,7 @@ class SimpleCaptcha {
 	public function passCaptchaLimited( $index, $word, User $user ) {
 		// don't increase pingLimiter here, just check, if CAPTCHA limit exceeded
 		if ( $user->pingLimiter( 'badcaptcha', 0 ) ) {
-			// for debugging add an proper error message, the user just see an false captcha error message
+			// for debugging add a proper error message, the user will just see a false captcha error message
 			$this->log( 'User reached RateLimit, preventing action' );
 			return false;
 		}
@@ -1032,7 +1030,7 @@ class SimpleCaptcha {
 			return true;
 		}
 
-		// captcha was not solved: increase limit and return false
+		// captcha was not solved: increase the limit and return false
 		$user->pingLimiter( 'badcaptcha' );
 		return false;
 	}

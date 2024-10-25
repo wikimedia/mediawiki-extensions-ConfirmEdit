@@ -8,7 +8,6 @@ use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
 class QuestyCaptchaTest extends MediaWikiIntegrationTestCase {
 
 	/**
-	 * @covers \MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha::getCaptcha
 	 * @dataProvider provideGetCaptcha
 	 */
 	public function testGetCaptcha( $config, $expected ) {

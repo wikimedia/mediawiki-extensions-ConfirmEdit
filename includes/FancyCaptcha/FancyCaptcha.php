@@ -19,7 +19,7 @@ use Wikimedia\FileBackend\FileBackend;
 use Wikimedia\FileBackend\FSFileBackend;
 
 /**
- * FancyCaptcha for displaying captchas precomputed by captcha.py
+ * FancyCaptcha for displaying captcha images precomputed by captcha.py
  */
 class FancyCaptcha extends SimpleCaptcha {
 	/**
@@ -114,9 +114,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		$resultArr['captcha']['url'] = $title->getLocalURL( 'wpCaptchaId=' . urlencode( $index ) );
 	}
 
-	/**
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function describeCaptchaType() {
 		return [
 			'type' => 'image',
@@ -124,10 +122,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		];
 	}
 
-	/**
-	 * @param int $tabIndex
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function getFormInformation( $tabIndex = 1 ) {
 		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
 		$info = $this->getCaptcha();
@@ -163,7 +158,7 @@ class FancyCaptcha extends SimpleCaptcha {
 					'class' => 'cdx-text-input__input',
 					'id'   => 'wpCaptchaWord',
 					'type' => 'text',
-					// max_length in captcha.py plus fudge factor
+					// max_length in captcha.py plus some fudge factor
 					'size' => '12',
 					'autocomplete' => 'off',
 					'autocorrect' => 'off',
@@ -175,7 +170,7 @@ class FancyCaptcha extends SimpleCaptcha {
 				]
 			) . Html::closeElement( 'div' );
 		if ( $this->action == 'createaccount' ) {
-			// use raw element, because the message can contain links or some other html
+			// use a raw element, because the message can contain links or some other html
 			$form .= Html::rawElement( 'small', [
 					'class' => 'mw-createacct-captcha-assisted'
 				], wfMessage( 'createacct-imgcaptcha-help' )->parse()
@@ -236,7 +231,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		if ( !is_array( $dirs ) || !count( $dirs ) ) {
 			// cache miss
 			$dirs = [];
-			// subdirs actually present...
+			// subdirs are actually present...
 			foreach ( $backend->getTopDirectoryList( [ 'dir' => $directory ] ) as $entry ) {
 				if ( ctype_xdigit( $entry ) && strlen( $entry ) == 1 ) {
 					$dirs[] = $entry;
@@ -249,7 +244,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		}
 
 		if ( !count( $dirs ) ) {
-			// Remove this directory if empty so callers don't keep looking here
+			// Remove this directory if empty, so callers don't keep looking here
 			$backend->clean( [ 'dir' => $directory ] );
 			// none found
 			return false;
@@ -257,7 +252,7 @@ class FancyCaptcha extends SimpleCaptcha {
 
 		// pick a random subdir
 		$place = mt_rand( 0, count( $dirs ) - 1 );
-		// In case all dirs are not filled, cycle through next digits...
+		// In case all dirs are not filled, cycle through the next digits...
 		$fancyCount = count( $dirs );
 		for ( $j = 0; $j < $fancyCount; $j++ ) {
 			$char = $dirs[( $place + $j ) % count( $dirs )];
@@ -311,7 +306,7 @@ class FancyCaptcha extends SimpleCaptcha {
 		}
 
 		if ( !count( $files ) ) {
-			// Remove this directory if empty so callers don't keep looking here
+			// Remove this directory if empty, so callers don't keep looking here
 			$backend->clean( [ 'dir' => $directory ] );
 			return false;
 		}
@@ -370,7 +365,7 @@ class FancyCaptcha extends SimpleCaptcha {
 						// listing cache too stale? break out so it will be cleared
 						break;
 					}
-					// try next file
+					// try the next file
 					continue;
 				}
 				return [
@@ -434,11 +429,14 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * @return array (salt, hash)
 	 */
 	public function hashFromImageName( $basename ) {
-		if ( preg_match( '/^image_([0-9a-f]+)_([0-9a-f]+)\\.png$/', $basename, $matches ) ) {
-			return [ $matches[1], $matches[2] ];
-		} else {
+		if ( !preg_match( '/^image_([0-9a-f]+)_([0-9a-f]+)\\.png$/', $basename, $matches ) ) {
 			throw new InvalidArgumentException( "Invalid filename '$basename'.\n" );
 		}
+
+		return [
+			$matches[1],
+			$matches[2]
+		];
 	}
 
 	/**
@@ -481,8 +479,8 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * @return string
 	 */
 	public function getCaptchaInfo( $captchaData, $id ) {
-		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
-		return $title->getLocalURL( 'wpCaptchaId=' . urlencode( $id ) );
+		return SpecialPage::getTitleFor( 'Captcha', 'image' )
+			->getLocalURL( 'wpCaptchaId=' . urlencode( $id ) );
 	}
 
 	/**

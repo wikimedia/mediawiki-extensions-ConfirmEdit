@@ -62,18 +62,16 @@ class HCaptcha extends SimpleCaptcha {
 		];
 	}
 
-	/**
-	 * @return string[]
-	 */
+	/** @inheritDoc */
 	public static function getCSPUrls() {
 		return [ 'https://hcaptcha.com', 'https://*.hcaptcha.com' ];
 	}
 
 	/**
-	 * Adds the CSP policies necessary for the captcha module to work in a CSP enforced
+	 * Adds the CSP policies that are necessary for the captcha module to work in a CSP enforced
 	 * setup.
 	 *
-	 * @param ContentSecurityPolicy $csp The CSP instance to add the policies to, usually
+	 * @param ContentSecurityPolicy $csp The CSP instance to add the policies to, this is usually to be
 	 * obtained from {@link OutputPage::getCSP()}
 	 */
 	public static function addCSPSources( ContentSecurityPolicy $csp ) {
@@ -216,35 +214,27 @@ class HCaptcha extends SimpleCaptcha {
 		return true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getError() {
 		return $this->error;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function storeCaptcha( $info ) {
 		// hCaptcha is stored externally, the ID will be generated at that time as well, and
 		// the one returned here won't be used. Just pretend this worked.
 		return 'not used';
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function retrieveCaptcha( $index ) {
-		// just pretend it worked
+		// Just pretend it worked
 		return [ 'index' => $index ];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getCaptcha() {
-		// hCaptcha is handled by frontend code + an external provider; nothing to do here.
+		// hCaptcha is handled by frontend code, and an external provider; nothing to do here.
 		return [];
 	}
 

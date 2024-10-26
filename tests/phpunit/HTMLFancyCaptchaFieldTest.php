@@ -51,7 +51,7 @@ class HTMLFancyCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$form->trySubmit();
 	}
 
-	protected function getForm( $params = [], WebRequest $request = null ) {
+	protected function getForm( $params = [], ?WebRequest $request = null ) {
 		if ( $request ) {
 			$context = new DerivativeContext( RequestContext::getMain() );
 			$context->setRequest( $request );

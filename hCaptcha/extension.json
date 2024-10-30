@@ -13,9 +13,6 @@
 			"i18n"
 		]
 	},
-	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\ConfirmEdit\\hCaptcha\\": "../includes/hCaptcha/"
-	},
 	"config": {
 		"CaptchaClass": {
 			"value": "MediaWiki\\Extension\\ConfirmEdit\\hCaptcha\\HCaptcha"

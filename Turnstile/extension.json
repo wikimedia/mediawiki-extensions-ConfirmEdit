@@ -14,9 +14,6 @@
 			"i18n/api"
 		]
 	},
-	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\ConfirmEdit\\Turnstile\\": "../includes/Turnstile/"
-	},
 	"config": {
 		"CaptchaClass": {
 			"value": "MediaWiki\\Extension\\ConfirmEdit\\Turnstile\\Turnstile"

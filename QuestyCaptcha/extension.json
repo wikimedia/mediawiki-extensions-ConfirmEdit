@@ -12,9 +12,6 @@
 			"i18n"
 		]
 	},
-	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\ConfirmEdit\\QuestyCaptcha\\": "../includes/QuestyCaptcha/"
-	},
 	"config": {
 		"CaptchaClass": {
 			"value": "MediaWiki\\Extension\\ConfirmEdit\\QuestyCaptcha\\QuestyCaptcha"

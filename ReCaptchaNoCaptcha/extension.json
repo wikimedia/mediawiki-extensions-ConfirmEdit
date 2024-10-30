@@ -13,9 +13,6 @@
 			"i18n/api"
 		]
 	},
-	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\": "../includes/ReCaptchaNoCaptcha/"
-	},
 	"config": {
 		"CaptchaClass": {
 			"value": "MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\ReCaptchaNoCaptcha"

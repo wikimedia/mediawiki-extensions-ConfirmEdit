@@ -150,5 +150,3 @@ class QuestyCaptcha extends SimpleCaptcha {
 		$formDescriptor['captchaWord']['label-message'] = null;
 	}
 }
-
-class_alias( QuestyCaptcha::class, 'QuestyCaptcha' );

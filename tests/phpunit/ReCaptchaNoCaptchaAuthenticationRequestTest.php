@@ -8,18 +8,6 @@ use MediaWiki\Tests\Auth\AuthenticationRequestTestCase;
  */
 class ReCaptchaNoCaptchaAuthenticationRequestTest extends AuthenticationRequestTestCase {
 
-	public function setUp(): void {
-		parent::setUp();
-
-		$this->mergeMwGlobalArrayValue(
-			'wgAutoloadClasses',
-			[
-				'MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\ReCaptchaNoCaptchaAuthenticationRequest'
-					=> __DIR__ . '/../..//includes/ReCaptchaNoCaptcha/ReCaptchaNoCaptchaAuthenticationRequest.php'
-			]
-		);
-	}
-
 	protected function getInstance( array $args = [] ) {
 		return new ReCaptchaNoCaptchaAuthenticationRequest();
 	}

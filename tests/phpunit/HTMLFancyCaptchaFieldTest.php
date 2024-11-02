@@ -21,7 +21,7 @@ class HTMLFancyCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			'wgAutoloadClasses',
 			[
 				'MediaWiki\\Extension\\ConfirmEdit\\FancyCaptcha\\HTMLFancyCaptchaField'
-					=> __DIR__ . '/../../FancyCaptcha/includes/HTMLFancyCaptchaField.php'
+					=> __DIR__ . '/../../includes/FancyCaptcha/HTMLFancyCaptchaField.php'
 			]
 		);
 	}

@@ -19,7 +19,7 @@ class HTMLReCaptchaNoCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			'wgAutoloadClasses',
 			[
 				'MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\HTMLReCaptchaNoCaptchaField'
-					=> __DIR__ . '/../../ReCaptchaNoCaptcha/includes/HTMLReCaptchaNoCaptchaField.php'
+					=> __DIR__ . '/../../includes/ReCaptchaNoCaptcha/HTMLReCaptchaNoCaptchaField.php'
 			]
 		);
 	}

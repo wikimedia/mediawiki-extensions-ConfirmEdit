@@ -13,7 +13,7 @@ class QuestyCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->mergeMwGlobalArrayValue(
 			'wgAutoloadClasses',
 			[ 'MediaWiki\\Extension\\ConfirmEdit\\QuestyCaptcha\\QuestyCaptcha'
-				=> __DIR__ . '/../../QuestyCaptcha/includes/QuestyCaptcha.php' ]
+				=> __DIR__ . '/../../includes/QuestyCaptcha/QuestyCaptcha.php' ]
 		);
 	}
 

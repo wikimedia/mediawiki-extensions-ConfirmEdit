@@ -14,7 +14,7 @@
 		]
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\ConfirmEdit\\hCaptcha\\": "includes/"
+		"MediaWiki\\Extension\\ConfirmEdit\\hCaptcha\\": "../includes/hCaptcha/"
 	},
 	"config": {
 		"CaptchaClass": {
@@ -42,7 +42,7 @@
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "resources",
-		"remoteExtPath": "ConfirmEdit/hCaptcha/resources"
+		"remoteExtPath": "ConfirmEdit/resources/hCaptcha"
 	},
 	"ResourceModules": {
 		"ext.confirmEdit.hCaptcha.visualEditor": {

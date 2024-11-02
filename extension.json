@@ -62,8 +62,7 @@
 		"MediaWiki\\Extension\\ConfirmEdit\\Store\\CaptchaCacheStore": "includes/Store/CaptchaCacheStore.php"
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\ConfirmEdit\\": "includes/",
-		"MediaWiki\\Extension\\ConfirmEdit\\SimpleCaptcha\\": "SimpleCaptcha/"
+		"MediaWiki\\Extension\\ConfirmEdit\\": "includes/"
 	},
 	"ResourceModules": {
 		"ext.confirmEdit.editPreview.ipwhitelist.styles": {
@@ -74,7 +73,7 @@
 			"dependencies": "ext.confirmEdit.CaptchaInputWidget"
 		},
 		"ext.confirmEdit.simpleCaptcha": {
-			"styles": "../SimpleCaptcha/resources/ext.confirmEdit.simpleCaptcha.css"
+			"styles": "ext.confirmEdit.simpleCaptcha.css"
 		}
 	},
 	"attributes": {

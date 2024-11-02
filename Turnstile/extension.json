@@ -15,7 +15,7 @@
 		]
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\ConfirmEdit\\Turnstile\\": "includes/"
+		"MediaWiki\\Extension\\ConfirmEdit\\Turnstile\\": "../includes/Turnstile/"
 	},
 	"config": {
 		"CaptchaClass": {
@@ -33,7 +33,7 @@
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "resources",
-		"remoteExtPath": "ConfirmEdit/Turnstile/resources"
+		"remoteExtPath": "ConfirmEdit/resources"
 	},
 	"ResourceModules": {
 		"ext.confirmEdit.turnstile.visualEditor": {

@@ -5,11 +5,6 @@ $cfg = require __DIR__ . '/../vendor/mediawiki/mediawiki-phan-config/src/config.
 $cfg['directory_list'] = array_merge(
 	$cfg['directory_list'],
 	[
-		'FancyCaptcha/',
-		'hCaptcha/',
-		'QuestyCaptcha/',
-		'ReCaptchaNoCaptcha/',
-		'SimpleCaptcha/',
 		'../../extensions/AbuseFilter',
 	]
 );

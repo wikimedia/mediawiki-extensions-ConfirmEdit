@@ -7,7 +7,6 @@
 	"captcha-edit": "ХӀара агӀо хийца, лахахь гайтина тӀедиллинарг кхочушдина а, жоп йазде текстан меттигехь ([[Special:Captcha/help|подробнее]]):",
 	"captcha-edit-fail": "Бакъдаран код нийса йац йа йан а йац.",
 	"captcha-desc": "Спамах ларо а, пароль харжа а CAPTCHA таронаш хуьлуьйту",
-	"captcha-label": "CAPTCHA",
 	"captcha-help": "CAPTCHA сацам.",
 	"captcha-info-help": "CAPTCHA хаам.",
 	"captcha-id-label": "CAPTCHA идентификатор.",

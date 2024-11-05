@@ -41,8 +41,8 @@
 		"hcaptcha": "GlobalVarConfig::newInstance"
 	},
 	"ResourceFileModulePaths": {
-		"localBasePath": "resources",
-		"remoteExtPath": "ConfirmEdit/resources/hCaptcha"
+		"localBasePath": "../resources",
+		"remoteExtPath": "ConfirmEdit/resources"
 	},
 	"ResourceModules": {
 		"ext.confirmEdit.hCaptcha.visualEditor": {

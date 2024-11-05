@@ -32,7 +32,7 @@
 		}
 	},
 	"ResourceFileModulePaths": {
-		"localBasePath": "resources",
+		"localBasePath": "../resources",
 		"remoteExtPath": "ConfirmEdit/resources"
 	},
 	"ResourceModules": {

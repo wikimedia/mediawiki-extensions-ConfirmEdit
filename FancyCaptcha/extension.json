@@ -33,7 +33,7 @@
 		}
 	},
 	"ResourceFileModulePaths": {
-		"localBasePath": "resources",
+		"localBasePath": "../resources",
 		"remoteExtPath": "ConfirmEdit/resources"
 	},
 	"callback": "MediaWiki\\Extension\\ConfirmEdit\\Hooks::onFancyCaptchaSetup",

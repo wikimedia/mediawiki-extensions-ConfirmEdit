@@ -17,9 +17,6 @@
 			"i18n/api"
 		]
 	},
-	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\ConfirmEdit\\FancyCaptcha\\": "../includes/FancyCaptcha/"
-	},
 	"ResourceModules": {
 		"ext.confirmEdit.fancyCaptcha.styles": {
 			"styles": "ext.confirmEdit.fancyCaptcha.less"

@@ -198,9 +198,9 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider provideCanSkipCaptchaIPWhitelisted
+	 * @dataProvider provideCanSkipCaptchaBypassIPList
 	 */
-	public function testCanSkipCaptchaIPWhitelisted( $requestIP, $IPWhitelist, $expected ) {
+	public function testCanSkipCaptchaBypassIP( $requestIP, $list, $expected ) {
 		$testObject = new SimpleCaptcha();
 		$config = new HashConfig( [ 'AllowConfirmedEmail' => false ] );
 		$request = $this->createMock( WebRequest::class );
@@ -209,14 +209,14 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->setMwGlobals( [
 			'wgRequest' => $request,
 		] );
-		$this->overrideConfigValue( 'CaptchaWhitelistIP', $IPWhitelist );
+		$this->overrideConfigValue( 'CaptchaBypassIPs', $list );
 
 		$actual = $testObject->canSkipCaptcha( RequestContext::getMain()->getUser(), $config );
 
 		$this->assertEquals( $expected, $actual );
 	}
 
-	public static function provideCanSkipCaptchaIPWhitelisted() {
+	public static function provideCanSkipCaptchaBypassIPList() {
 		return ( [
 			[ '127.0.0.1', [ '127.0.0.1', '127.0.0.2' ], true ],
 			[ '127.0.0.1', [], false ]

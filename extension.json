@@ -130,6 +130,11 @@
 			"value": "SimpleCaptcha"
 		},
 		"CaptchaWhitelistIP": {
+			"description": "DEPRECATED! Use CaptchaBypassIPs",
+			"value": false
+		},
+		"CaptchaBypassIPs": {
+			"description": "A list of IP addresses that can skip the captcha",
 			"value": false
 		},
 		"CaptchaTriggers": {
@@ -179,7 +184,11 @@
 			"value": 20
 		},
 		"CaptchaWhitelist": {
-			"description": "Urls that won't trigger a captcha.",
+			"description": "DEPRECATED: Use CaptchaIgnoredUrls",
+			"value": false
+		},
+		"CaptchaIgnoredUrls": {
+			"description": "Urls that won't trigger a captcha",
 			"value": false
 		},
 		"CaptchaRegexes": {

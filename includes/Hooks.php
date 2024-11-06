@@ -132,7 +132,7 @@ class Hooks implements
 	) {
 		$title = $wikiPage->getTitle();
 		if ( $title->getText() === 'Captcha-ip-whitelist' && $title->getNamespace() === NS_MEDIAWIKI ) {
-			$this->cache->delete( $this->cache->makeKey( 'confirmedit', 'ipwhitelist' ) );
+			$this->cache->delete( $this->cache->makeKey( 'confirmedit', 'ipbypasslist' ) );
 		}
 
 		return true;

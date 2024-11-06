@@ -357,27 +357,30 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Check if the current IP is allowed to skip captchas. This checks
-	 * the whitelist from two sources.
-	 *  1) From the server-side config array $wgCaptchaWhitelistIP
+	 * Check if the current IP is allowed to skip solving a captcha.
+	 * This checks the bypass list from two sources.
+	 *  1) From the server-side config array $wgCaptchaWhitelistIP (deprecated) or $wgCaptchaBypassIPs
 	 *  2) From the local [[MediaWiki:Captcha-ip-whitelist]] message
 	 *
-	 * @return bool true if whitelisted, false if not
+	 * @return bool true if the IP can bypass a captcha, false if not
 	 */
-	private function isIPWhitelisted() {
-		global $wgCaptchaWhitelistIP, $wgRequest;
+	private function canIPBypassCaptcha() {
+		global $wgCaptchaWhitelistIP, $wgCaptchaBypassIPs, $wgRequest;
 		$ip = $wgRequest->getIP();
 
-		if ( $wgCaptchaWhitelistIP ) {
-			if ( IPUtils::isInRanges( $ip, $wgCaptchaWhitelistIP ) ) {
-				return true;
-			}
+		// Deprecated; to be removed later
+		if ( $wgCaptchaWhitelistIP && IPUtils::isInRanges( $ip, $wgCaptchaWhitelistIP ) ) {
+			return true;
 		}
 
-		$whitelistMsg = wfMessage( 'captcha-ip-whitelist' )->inContentLanguage();
-		if ( !$whitelistMsg->isDisabled() ) {
-			$whitelistedIPs = $this->getWikiIPWhitelist( $whitelistMsg );
-			if ( IPUtils::isInRanges( $ip, $whitelistedIPs ) ) {
+		if ( $wgCaptchaBypassIPs && IPUtils::isInRanges( $ip, $wgCaptchaBypassIPs ) ) {
+			return true;
+		}
+
+		$msg = wfMessage( 'captcha-ip-whitelist' )->inContentLanguage();
+		if ( !$msg->isDisabled() ) {
+			$allowedIPs = $this->getWikiIPBypassList( $msg );
+			if ( IPUtils::isInRanges( $ip, $allowedIPs ) ) {
 				return true;
 			}
 		}
@@ -386,41 +389,39 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Get the on-wiki IP whitelist stored in [[MediaWiki:Captcha-ip-whitelist]]
-	 * page from cache if possible.
+	 * Get the on-wiki IP bypass list stored on a MediaWiki page from cache if possible.
 	 *
-	 * @param Message $msg whitelist Message on wiki
-	 * @return array whitelisted IP addresses or IP ranges, empty array if no whitelist
+	 * @param Message $msg Message on wiki with IP lists
+	 * @return array Allowed IP addresses or IP ranges, empty array if none
 	 */
-	private function getWikiIPWhitelist( Message $msg ) {
+	private function getWikiIPBypassList( Message $msg ) {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$cacheKey = $cache->makeKey( 'confirmedit', 'ipwhitelist' );
+		$cacheKey = $cache->makeKey( 'confirmedit', 'ipbypasslist' );
 
-		$cachedWhitelist = $cache->get( $cacheKey );
-		if ( $cachedWhitelist === false ) {
-			// Could not retrieve from cache so build the whitelist directly
-			// from the wikipage
-			$whitelist = $this->buildValidIPs(
-				explode( "\n", $msg->plain() )
-			);
-			// And then store it in cache for one day. This cache is cleared on
-			// modifications to the whitelist page.
-			// @see MediaWiki\Extension\ConfirmEdit\Hooks::onPageSaveComplete()
-			$cache->set( $cacheKey, $whitelist, 86400 );
-		} else {
-			// Whitelist from the cache
-			$whitelist = $cachedWhitelist;
+		$cached = $cache->get( $cacheKey );
+		if ( $cached !== false ) {
+			return $cached;
 		}
 
-		return $whitelist;
+		// Could not retrieve from cache, so build the list directly
+		// from the MediaWiki page
+		$list = $this->buildValidIPs(
+			explode( "\n", $msg->plain() )
+		);
+		// And then store it in cache for one day.
+		// This cache is cleared on modifications to the wiki page.
+		// @see MediaWiki\Extension\ConfirmEdit\Hooks::onPageSaveComplete()
+		$cache->set( $cacheKey, $list, 86400 );
+
+		return $list;
 	}
 
 	/**
 	 * From a list of unvalidated input, get all the valid
 	 * IP addresses and IP ranges from it.
 	 *
-	 * Note that only lines with just the IP address or IP range is considered
-	 * as valid. Whitespace is allowed but if there is any other character on
+	 * Note that only lines with just the IP address or the IP range is considered
+	 * as valid. Whitespace is allowed, but if there is any other character on
 	 * the line, it's not considered as a valid entry.
 	 *
 	 * @param string[] $input
@@ -705,12 +706,12 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Filter callback function for URL whitelisting
+	 * Filter callback function for URL allow-listing
 	 * @param string $url string to check
-	 * @return bool true if unknown, false if whitelisted
+	 * @return bool true if unknown, false if allowed
 	 */
 	private function filterLink( $url ) {
-		global $wgCaptchaWhitelist;
+		global $wgCaptchaWhitelist, $wgCaptchaIgnoredUrls;
 		static $regexes = null;
 
 		if ( $regexes === null ) {
@@ -720,8 +721,12 @@ class SimpleCaptcha {
 				? []
 				: $this->buildRegexes( explode( "\n", $source->plain() ) );
 
+			// DEPRECATED
 			if ( $wgCaptchaWhitelist !== false ) {
 				array_unshift( $regexes, $wgCaptchaWhitelist );
+			}
+			if ( $wgCaptchaIgnoredUrls !== false ) {
+				array_unshift( $regexes, $wgCaptchaIgnoredUrls );
 			}
 		}
 
@@ -735,8 +740,8 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Build regex from whitelist
-	 * @param string[] $lines string from [[MediaWiki:Captcha-addurl-whitelist]]
+	 * Build regex from list of URLs
+	 * @param string[] $lines string from MediaWiki page
 	 * @return string[] Regexes
 	 * @private
 	 */
@@ -748,7 +753,7 @@ class SimpleCaptcha {
 		$lines = array_filter( array_map( 'trim', preg_replace( '/#.*$/', '', $lines ) ) );
 
 		# No lines, don't make a regex which will match everything
-		if ( count( $lines ) == 0 ) {
+		if ( count( $lines ) === 0 ) {
 			wfDebug( "No lines\n" );
 			return [];
 		} else {
@@ -1248,8 +1253,8 @@ class SimpleCaptcha {
 			return true;
 		}
 
-		if ( $this->isIPWhitelisted() ) {
-			wfDebug( "ConfirmEdit: user IP is whitelisted" );
+		if ( $this->canIPBypassCaptcha() ) {
+			wfDebug( "ConfirmEdit: user IP can bypass captcha" );
 			return true;
 		}
 

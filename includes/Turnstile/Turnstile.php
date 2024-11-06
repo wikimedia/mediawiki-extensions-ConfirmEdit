@@ -44,7 +44,7 @@ class Turnstile extends SimpleCaptcha {
 		return [
 			'html' => $output,
 			'headitems' => [
-				// Insert Turnstile script, in display language, if available.
+				// Insert the Turnstile script, in display language, if available.
 				// Language falls back to the browser's display language.
 				// See https://developers.cloudflare.com/turnstile/reference/supported-languages/
 				"<script src=\"https://challenges.cloudflare.com/turnstile/v0/api.js?language={$lang}\" async defer>
@@ -53,9 +53,7 @@ class Turnstile extends SimpleCaptcha {
 		];
 	}
 
-	/**
-	 * @return string[]
-	 */
+	/** @inheritDoc */
 	public static function getCSPUrls() {
 		return [ 'https://challenges.cloudflare.com/turnstile/v0/api.js' ];
 	}
@@ -140,17 +138,13 @@ class Turnstile extends SimpleCaptcha {
 		return $response['success'];
 	}
 
-	/**
-	 * @param array &$resultArr
-	 */
+	/** @inheritDoc */
 	protected function addCaptchaAPI( &$resultArr ) {
 		$resultArr['captcha'] = $this->describeCaptchaType();
 		$resultArr['captcha']['error'] = $this->error;
 	}
 
-	/**
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function describeCaptchaType() {
 		global $wgTurnstileSiteKey;
 		return [
@@ -191,31 +185,23 @@ class Turnstile extends SimpleCaptcha {
 		return true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getError() {
 		return $this->error;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function storeCaptcha( $info ) {
 		return 'not used';
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function retrieveCaptcha( $index ) {
-		// just pretend it worked
+		// Pretend it worked
 		return [ 'index' => $index ];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getCaptcha() {
 		// Turnstile is handled by frontend code + an external provider; nothing to do here.
 		return [];

@@ -28,9 +28,7 @@ class HTMLHCaptchaField extends HTMLFormField {
 		$this->mName = 'h-captcha-response';
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getInputHTML( $value ) {
 		$out = $this->mParent->getOutput();
 

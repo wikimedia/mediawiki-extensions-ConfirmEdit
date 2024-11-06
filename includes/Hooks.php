@@ -4,12 +4,9 @@
 
 namespace MediaWiki\Extension\ConfirmEdit;
 
-use MailAddress;
-use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
 use MediaWiki\Content\Content;
 use MediaWiki\Context\IContextSource;
-use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Hook\AlternateEditPreviewHook;
 use MediaWiki\Hook\EditFilterMergedContentHook;
@@ -18,26 +15,18 @@ use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
 use MediaWiki\Hook\EmailUserFormHook;
 use MediaWiki\Hook\EmailUserHook;
 use MediaWiki\Html\Html;
-use MediaWiki\HTMLForm\HTMLForm;
-use MediaWiki\Output\OutputPage;
-use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Permissions\Hook\TitleReadWhitelistHook;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
-use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\SpecialPage\Hook\AuthChangeFormFieldsHook;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Status\Status;
-use MediaWiki\Storage\EditResult;
 use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use MediaWiki\User\UserIdentity;
 use Wikimedia\IPUtils;
-use Wikimedia\Message\MessageSpecifier;
 use Wikimedia\ObjectCache\WANObjectCache;
-use WikiPage;
 
 class Hooks implements
 	AlternateEditPreviewHook,
@@ -81,38 +70,20 @@ class Hooks implements
 		return $wgCaptcha;
 	}
 
-	/**
-	 * @param IContextSource $context
-	 * @param Content $content
-	 * @param Status $status
-	 * @param string $summary
-	 * @param User $user
-	 * @param bool $minorEdit
-	 * @return bool
-	 */
+	/** @inheritDoc */
 	public function onEditFilterMergedContent( IContextSource $context, Content $content, Status $status,
 		$summary, User $user, $minorEdit
 	) {
 		$simpleCaptcha = self::getInstance();
 		// Set a flag indicating that ConfirmEdit's implementation of
-		// EditFilterMergedContent ran. This can be checked by other extensions
-		// e.g. AbuseFilter.
+		// EditFilterMergedContent ran.
+		// This can be checked by other MediaWiki extensions, e.g. AbuseFilter.
 		$simpleCaptcha->setEditFilterMergedContentHandlerInvoked();
 		return $simpleCaptcha->confirmEditMerged( $context, $content, $status, $summary,
 			$user, $minorEdit );
 	}
 
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageSaveComplete
-	 *
-	 * @param WikiPage $wikiPage
-	 * @param UserIdentity $user
-	 * @param string $summary
-	 * @param int $flags
-	 * @param RevisionRecord $revisionRecord
-	 * @param EditResult $editResult
-	 * @return bool|void
-	 */
+	/** @inheritDoc */
 	public function onPageSaveComplete(
 		$wikiPage,
 		$user,
@@ -129,68 +100,32 @@ class Hooks implements
 		return true;
 	}
 
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EditPageBeforeEditButtons
-	 *
-	 * @param EditPage $editpage Current EditPage object
-	 * @param array &$buttons Array of edit buttons, "Save", "Preview", "Live", and "Diff"
-	 * @param int &$tabindex HTML tabindex of the last edit check/button
-	 */
+	/** @inheritDoc */
 	public function onEditPageBeforeEditButtons( $editpage, &$buttons, &$tabindex ) {
 		self::getInstance()->editShowCaptcha( $editpage );
 	}
 
-	/**
-	 * @param EditPage $editPage
-	 * @param OutputPage $out
-	 */
+	/** @inheritDoc */
 	public function onEditPage__showEditForm_fields( $editPage, $out ) {
 		self::getInstance()->showEditFormFields( $editPage, $out );
 	}
 
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EmailUserForm
-	 *
-	 * @param HTMLForm &$form HTMLForm object
-	 * @return bool|void True or no return value to continue or false to abort
-	 */
+	/** @inheritDoc */
 	public function onEmailUserForm( &$form ) {
 		return self::getInstance()->injectEmailUser( $form );
 	}
 
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EmailUser
-	 *
-	 * @param MailAddress &$to MailAddress object of receiving user
-	 * @param MailAddress &$from MailAddress object of sending user
-	 * @param string &$subject subject of the mail
-	 * @param string &$text text of the mail
-	 * @param bool|Status|MessageSpecifier|array &$error Out-param for an error.
-	 *   Should be set to a Status object or boolean false.
-	 * @return bool|void True or no return value to continue or false to abort
-	 */
+	/** @inheritDoc */
 	public function onEmailUser( &$to, &$from, &$subject, &$text, &$error ) {
 		return self::getInstance()->confirmEmailUser( $from, $to, $subject, $text, $error );
 	}
 
-	/**
-	 * APIGetAllowedParams hook handler
-	 * Default $flags to 1 for backwards-compatible behavior
-	 * @param ApiBase $module
-	 * @param array &$params
-	 * @param int $flags
-	 * @return bool
-	 */
+	/** @inheritDoc */
 	public function onAPIGetAllowedParams( $module, &$params, $flags ) {
 		return self::getInstance()->apiGetAllowedParams( $module, $params, $flags );
 	}
 
-	/**
-	 * @param array $requests
-	 * @param array $fieldInfo
-	 * @param array &$formDescriptor
-	 * @param string $action
-	 */
+	/** @inheritDoc */
 	public function onAuthChangeFormFields(
 		$requests, $fieldInfo, &$formDescriptor, $action
 	) {
@@ -206,14 +141,7 @@ class Hooks implements
 		}
 	}
 
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/TitleReadWhitelist
-	 *
-	 * @param Title $title
-	 * @param User $user
-	 * @param bool &$whitelisted
-	 * @return bool|void
-	 */
+	/** @inheritDoc */
 	public function onTitleReadWhitelist( $title, $user, &$whitelisted ) {
 		$image = SpecialPage::getTitleFor( 'Captcha', 'image' );
 		$help = SpecialPage::getTitleFor( 'Captcha', 'help' );
@@ -223,7 +151,6 @@ class Hooks implements
 	}
 
 	/**
-	 *
 	 * Callback for extension.json of FancyCaptcha to set a default captcha directory,
 	 * which depends on wgUploadDirectory
 	 */
@@ -234,15 +161,7 @@ class Hooks implements
 		}
 	}
 
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AlternateEditPreview
-	 *
-	 * @param EditPage $editPage
-	 * @param Content &$content
-	 * @param string &$previewHTML
-	 * @param ParserOutput &$parserOutput
-	 * @return bool|void
-	 */
+	/** @inheritDoc */
 	public function onAlternateEditPreview( $editPage, &$content, &$previewHTML,
 		&$parserOutput
 	) {
@@ -312,12 +231,7 @@ class Hooks implements
 		return false;
 	}
 
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
-	 *
-	 * @param ResourceLoader $resourceLoader
-	 * @return void
-	 */
+	/** @inheritDoc */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
 		$extensionRegistry = ExtensionRegistry::getInstance();
 		$messages = [];

@@ -19,7 +19,7 @@ class HTMLTurnstileField extends HTMLFormField {
 	/**
 	 * Parameters:
 	 * - key: (string, required) Turnstile public key
-	 * - error: (string) Turnstile error from previous round
+	 * - error: (string) Turnstile error from the previous round
 	 * @param array $params
 	 */
 	public function __construct( array $params ) {
@@ -32,14 +32,12 @@ class HTMLTurnstileField extends HTMLFormField {
 		$this->mName = 'cf-turnstile-response';
 	}
 
-	/**
-	 * @inheritDoc
-	 */
+	/** @inheritDoc */
 	public function getInputHTML( $value ) {
 		$out = $this->mParent->getOutput();
 		$lang = htmlspecialchars( urlencode( $this->mParent->getLanguage()->getCode() ) );
 
-		// Insert Turnstile script, in display language, if available.
+		// Insert the Turnstile script, in display language, if available.
 		// Language falls back to the browser's display language.
 		// See https://developers.cloudflare.com/turnstile/reference/supported-languages/
 		$out->addHeadItem(

@@ -200,5 +200,21 @@
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
 	],
+	"RateLimits": {
+		"badcaptcha": {
+			"ip": [
+				15,
+				60
+			],
+			"newbie": [
+				15,
+				60
+			],
+			"user": [
+				30,
+				60
+			]
+		}
+	},
 	"manifest_version": 2
 }

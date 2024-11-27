@@ -126,18 +126,12 @@ class HCaptcha extends SimpleCaptcha {
 	 * @return bool
 	 */
 	protected function passCaptcha( $_, $token, $user ) {
-		$webRequest = RequestContext::getMain()->getRequest();
-
-		$secretKey = $this->hCaptchaConfig->get( 'HCaptchaSecretKey' );
-		$sendRemoteIp = $this->hCaptchaConfig->get( 'HCaptchaSendRemoteIP' );
-		$proxy = $this->hCaptchaConfig->get( 'HCaptchaProxy' );
-
-		$url = $this->hCaptchaConfig->get( 'HCaptchaVerifyUrl' );
 		$data = [
-			'secret' => $secretKey,
+			'secret' => $this->hCaptchaConfig->get( 'HCaptchaSecretKey' ),
 			'response' => $token,
 		];
-		if ( $sendRemoteIp ) {
+		if ( $this->hCaptchaConfig->get( 'HCaptchaSendRemoteIP' ) ) {
+			$webRequest = RequestContext::getMain()->getRequest();
 			$data['remoteip'] = $webRequest->getIP();
 		}
 
@@ -146,12 +140,13 @@ class HCaptcha extends SimpleCaptcha {
 			'postData' => $data,
 		];
 
+		$proxy = $this->hCaptchaConfig->get( 'HCaptchaProxy' );
 		if ( $proxy ) {
 			$options['proxy'] = $proxy;
 		}
 
 		$request = MediaWikiServices::getInstance()->getHttpRequestFactory()
-			->create( $url, $options, __METHOD__ );
+			->create( $this->hCaptchaConfig->get( 'HCaptchaVerifyUrl' ), $options, __METHOD__ );
 
 		$status = $request->execute();
 		if ( !$status->isOK() ) {

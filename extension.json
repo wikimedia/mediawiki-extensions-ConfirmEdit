@@ -119,6 +119,11 @@
 	},
 	"config": {
 		"CaptchaWhitelistIP": {
+			"description": "DEPRECATED! Use CaptchaBypassIPs",
+			"value": false
+		},
+		"CaptchaBypassIPs": {
+			"description": "A list of IP addresses that can skip the captcha",
 			"value": false
 		},
 		"Captcha": {
@@ -162,6 +167,11 @@
 			"value": 20
 		},
 		"CaptchaWhitelist": {
+			"description": "DEPRECATED: Use CaptchaIgnoredUrls",
+			"value": false
+		},
+		"CaptchaIgnoredUrls": {
+			"description": "Urls that won't trigger a captcha",
 			"value": false
 		},
 		"CaptchaRegexes": {

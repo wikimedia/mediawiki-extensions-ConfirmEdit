@@ -45,9 +45,9 @@ Additional maintenance work was done by Yaron Koren.
  *
  * Specific IP addresses or CIDR-style ranges may be used,
  * for instance:
- * $wgCaptchaWhitelistIP = array('192.168.1.0/24', '10.1.0.0/16');
+ * $wgCaptchaBypassIPs = [ '192.168.1.0/24', '10.1.0.0/16' ];
  */
-$wgCaptchaWhitelistIP = false;
+$wgCaptchaBypassIPs = false;
 
 /**
  * Actions which can trigger a captcha
@@ -132,12 +132,12 @@ $wgAllowConfirmedEmail = false;
 $wgCaptchaBadLoginAttempts = 3;
 
 /**
- * Regex to whitelist URLs to known-good sites...
+ * Regex to ignore URLs to known-good sites...
  * For instance:
- * $wgCaptchaWhitelist = '#^https?://([a-z0-9-]+\\.)?(wikimedia|wikipedia)\.org/#i';
- * Local admins can define a whitelist under [[MediaWiki:captcha-addurl-whitelist]]
+ * $wgCaptchaIgnoredUrls = '#^https?://([a-z0-9-]+\\.)?(wikimedia|wikipedia)\.org/#i';
+ * Local admins can define a local allow list under [[MediaWiki:captcha-addurl-whitelist]]
  */
-$wgCaptchaWhitelist = false;
+$wgCaptchaIgnoredUrls = false;
 
 /**
  * Additional regexes to check for. Use full regexes; can match things

@@ -234,11 +234,11 @@ class Hooks implements
 	/** @inheritDoc */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
 		$extensionRegistry = ExtensionRegistry::getInstance();
-		$messages = [];
-
-		$messages[] = 'colon-separator';
-		$messages[] = 'captcha-edit';
-		$messages[] = 'captcha-label';
+		$messages = [
+			'colon-separator',
+			'captcha-edit',
+			'captcha-label'
+		];
 
 		if ( $extensionRegistry->isLoaded( 'QuestyCaptcha' ) ) {
 			$messages[] = 'questycaptcha-edit';

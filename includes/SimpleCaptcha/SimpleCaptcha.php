@@ -1112,7 +1112,7 @@ class SimpleCaptcha {
 	 */
 	public function storeCaptcha( $info ) {
 		if ( !isset( $info['index'] ) ) {
-			// Assign random index if we're not udpating
+			// Assign random index if we're not updating
 			$info['index'] = strval( mt_rand() );
 		}
 		CaptchaStore::get()->store( $info['index'], $info );

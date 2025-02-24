@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kareyac",
 			"Vadgt"
 		]
 	},
 	"captcha-label": "Անվտանգության կոդ",
-	"captchahelp-title": "Անվտանգության կոդի օգնություն"
+	"captchahelp-title": "Անվտանգության կոդի օգնություն",
+	"confirmedit-preview-content": "Բովանդակություն"
 }

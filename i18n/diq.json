@@ -4,6 +4,7 @@
 			"Asmen",
 			"Aspar",
 			"Erdemaslancan",
+			"GolyatGeri",
 			"Gırd",
 			"Kumkumuk",
 			"Marmase",
@@ -40,5 +41,6 @@
 	"confirmedit-preview-validity": "Vêrdış",
 	"confirmedit-preview-valid": "vêrde",
 	"confirmedit-preview-invalid": "nêvêrde",
-	"confirmedit-preview-description": "Tabloy cêri, listanê satıranê ena perer asne no u ravêrde ju IP yana adresa IP wa bı bo. Çıkı CAPTHCA de sıpe listed bê se xizi do peygos bê \n\nMesela ena IP bena: 69.208.0.0 ra  69.208.255.255 hetana 69.208.0.0/16 şına. \n\n[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix deha na zaf malumat]  bıvinê."
+	"confirmedit-preview-description": "Tabloy cêri, listanê satıranê ena perer asne no u ravêrde ju IP yana adresa IP wa bı bo. Çıkı CAPTHCA de sıpe listed bê se xizi do peygos bê \n\nMesela ena IP bena: 69.208.0.0 ra  69.208.255.255 hetana 69.208.0.0/16 şına. \n\n[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix deha na zaf malumat]  bıvinê.",
+	"abusefilter-edit-action-showcaptcha": "Wa karberi CAPTCHA tamam kerê. Karberiê ke serceker musadey CAPTCHA etê ê dahil niyê"
 }

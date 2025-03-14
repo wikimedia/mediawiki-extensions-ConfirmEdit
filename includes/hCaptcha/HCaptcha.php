@@ -17,6 +17,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\WebRequest;
+use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
 use MediaWiki\User\UserIdentity;
 
@@ -175,6 +176,10 @@ class HCaptcha extends SimpleCaptcha {
 				'hcaptcha_score_reason' => $json['score_reason'] ?? null,
 				'hcaptcha_blob' => $json,
 			] );
+
+		// T379179 - Put the hCaptcha score into the global session so that it can be picked up by other users,
+		// such as Extension:Campaigns
+		SessionManager::getGlobalSession()->set( 'hCaptcha-score', $json['score'] );
 
 		return $json['success'];
 	}

@@ -40,6 +40,10 @@
 		"HCaptchaVerifyUrl": {
 			"description": "Url that the hCaptcha requested is verified against; may want to use https://cn1.hcaptcha.com/siteverify if server is in China",
 			"value": "https://api.hcaptcha.com/siteverify"
+		},
+		"HCaptchaEnterprise": {
+			"description": "Whether the provided sitekey is for hCaptcha Enterprise features. See https://www.hcaptcha.com/#enterprise-features",
+			"value": false
 		}
 	},
 	"ConfigRegistry": {

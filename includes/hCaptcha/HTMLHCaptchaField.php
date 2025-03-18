@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 
-use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLFormField;
 
@@ -33,8 +32,7 @@ class HTMLHCaptchaField extends HTMLFormField {
 	public function getInputHTML( $value ) {
 		$out = $this->mParent->getOutput();
 
-		// TODO: Inject config/similar...
-		$url = RequestContext::getMain()->getConfig()->get( 'HCaptchaApiUrl' );
+		$url = $this->mParent->getConfig()->get( 'HCaptchaApiUrl' );
 		$out->addHeadItem(
 			'h-captcha',
 			"<script src=\"$url\" async defer></script>"

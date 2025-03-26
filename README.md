@@ -109,6 +109,9 @@ $wgCaptchaSessionExpiration = 30 * 60;
  * Number of seconds after a bad login (from a specific IP address) that a captcha will be shown to
  * that client on the login form to slow down password-guessing bots.
  *
+ * A longer expiration time of $wgCaptchaBadLoginExpiration * 300 will also be applied against a
+ * login attempt count of $wgCaptchaBadLoginAttempts * 30.
+ *
  * Has no effect if 'badlogin' is disabled in $wgCaptchaTriggers or
  * if there is not a caching engine enabled.
  *
@@ -119,6 +122,9 @@ $wgCaptchaBadLoginExpiration = 5 * 60;
 /**
  * Number of seconds after a bad login (for a specific user account) that a captcha will be shown to
  * that client on the login form to slow down password-guessing bots.
+ *
+ * A longer expiration time of $wgCaptchaBadLoginExpiration * 300 will be applied against a login
+ * attempt count of $wgCaptchaBadLoginAttempts * 30.
  *
  * Has no effect if 'badlogin' is disabled in $wgCaptchaTriggers or
  * if there is not a caching engine enabled.
@@ -139,12 +145,18 @@ $wgAllowConfirmedEmail = false;
 /**
  * Number of bad login attempts (from a specific IP address) before triggering the captcha. 0 means the
  * captcha is presented on the first login.
+ *
+ * A captcha will also be triggered if the number of failed logins exceeds $wgCaptchaBadLoginAttempts * 30
+ * in a period of $wgCaptchaBadLoginExpiration * 300.
  */
 $wgCaptchaBadLoginAttempts = 3;
 
 /**
  * Number of bad login attempts (for a specific user account) before triggering the captcha. 0 means the
  * captcha is presented on the first login.
+ *
+ * A captcha will also be triggered if the number of failed logins exceeds $wgCaptchaBadLoginPerUserAttempts * 30
+ * in a period of $wgCaptchaBadLoginPerUserExpiration * 300.
  */
 $wgCaptchaBadLoginPerUserAttempts = 20;
 

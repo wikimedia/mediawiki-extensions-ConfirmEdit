@@ -102,10 +102,21 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		$loginCounter = $this->getLoginAttemptCounter( $captcha );
 		$success = true;
 		$isBadLoginPerUserTriggered = $username && $loginCounter->isBadLoginPerUserTriggered( $username );
+		$loginTriggersCaptcha = $captcha->triggersCaptcha( CaptchaTriggers::LOGIN_ATTEMPT );
 
-		if ( $loginCounter->isBadLoginTriggered() || $isBadLoginPerUserTriggered ) {
-			$captcha->setAction( 'badlogin' );
-			$captcha->setTrigger( "post-badlogin login '$username'" );
+		if (
+			$isBadLoginPerUserTriggered ||
+			$loginCounter->isBadLoginTriggered() ||
+			$loginTriggersCaptcha
+		) {
+
+			if ( $loginTriggersCaptcha ) {
+				$captcha->setAction( 'loginattempt' );
+				$captcha->setTrigger( "loginattempt login '$username'" );
+			} else {
+				$captcha->setAction( 'badlogin' );
+				$captcha->setTrigger( "post-badlogin login '$username'" );
+			}
 			$success = $this->verifyCaptcha( $captcha, $reqs, new User() );
 			$ip = $this->manager->getRequest()->getIP();
 			LoggerFactory::getInstance( 'captcha' )->info( 'Captcha submitted on login for {user}', [

@@ -61,7 +61,8 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 							'event' => 'captcha.display',
 							'eventType' => 'loginattempt',
 							'suggestedUser' => $suggestedUsername,
-							'clientip' => $this->manager->getRequest()->getIP()
+							'clientip' => $this->manager->getRequest()->getIP(),
+							'ua' => $this->manager->getRequest()->getHeader( 'User-Agent' )
 						] );
 					$needed = true;
 					break;
@@ -81,7 +82,8 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 							'event' => 'captcha.display',
 							'eventType' => 'badlogin',
 							'suggestedUser' => $suggestedUsername,
-							'clientip' => $this->manager->getRequest()->getIP()
+							'clientip' => $this->manager->getRequest()->getIP(),
+							'ua' => $this->manager->getRequest()->getHeader( 'User-Agent' )
 						] );
 					break;
 				}
@@ -119,12 +121,14 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 			}
 			$success = $this->verifyCaptcha( $captcha, $reqs, new User() );
 			$ip = $this->manager->getRequest()->getIP();
-			LoggerFactory::getInstance( 'captcha' )->info( 'Captcha submitted on login for {user}', [
+			$action = $loginTriggersCaptcha ? 'login page' : 'bad login';
+			LoggerFactory::getInstance( 'captcha' )->info( "Captcha shown on $action for {user}", [
 				'event' => 'captcha.submit',
-				'eventType' => 'login',
+				'eventType' => $loginTriggersCaptcha ? 'loginattempt' : 'badlogin',
 				'successful' => $success,
-				'user' => $username,
-				'clientip' => $ip
+				'user' => $username ?? 'unknown',
+				'clientip' => $ip,
+				'ua' => $this->manager->getRequest()->getHeader( 'User-Agent' )
 			] );
 		}
 
@@ -155,7 +159,8 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 					'eventType' => 'accountcreation',
 					'successful' => $success,
 					'user' => $username,
-					'clientip' => $ip
+					'clientip' => $ip,
+					'ua' => $this->manager->getRequest()->getHeader( 'User-Agent' )
 				]
 			);
 			if ( !$success ) {

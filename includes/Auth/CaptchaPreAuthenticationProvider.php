@@ -6,6 +6,7 @@ use MediaWiki\Auth\AbstractPreAuthenticationProvider;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthenticationResponse;
 use MediaWiki\Auth\AuthManager;
+use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Logger\LoggerFactory;
@@ -37,9 +38,9 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				}
 				break;
 			case AuthManager::ACTION_LOGIN:
-				$loginCounter = $this->getLoginAttemptCounter( $captcha );
 				// Captcha is shown on login when there were too many failed attempts from the current IP
-				// or using a given username. The latter is a bit awkward because we don't know the
+				// or using a given username, or if a hook handler says that a CAPTCHA should be shown.
+				// The varying on username is a bit awkward because we don't know the
 				// username yet. The username from the last successful login is stored in a cookie,
 				// but we still must make sure to not lock out other usernames, so after the first
 				// failed login attempt using a username that needs a captcha, set a session flag
@@ -52,8 +53,22 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				// a required field error; if they fill it with an invalid answer, it will pass)
 				// - again, not a huge deal.
 				$session = $this->manager->getRequest()->getSession();
-				$userProbablyNeedsCaptcha = $session->get( 'ConfirmEdit:loginCaptchaPerUserTriggered' );
 				$suggestedUsername = $session->suggestLoginUsername();
+				if ( $captcha->triggersCaptcha( CaptchaTriggers::LOGIN_ATTEMPT ) ) {
+					$captcha->setAction( 'loginattempt' );
+					LoggerFactory::getInstance( 'captcha' )
+						->info( 'Captcha shown on login attempt by {clientip} for {suggestedUser}', [
+							'event' => 'captcha.display',
+							'eventType' => 'loginattempt',
+							'suggestedUser' => $suggestedUsername,
+							'clientip' => $this->manager->getRequest()->getIP()
+						] );
+					$needed = true;
+					break;
+				}
+				$loginCounter = $this->getLoginAttemptCounter( $captcha );
+
+				$userProbablyNeedsCaptcha = $session->get( 'ConfirmEdit:loginCaptchaPerUserTriggered' );
 				if (
 					$userProbablyNeedsCaptcha
 					|| $loginCounter->isBadLoginTriggered()
@@ -64,7 +79,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 					LoggerFactory::getInstance( 'captcha' )
 						->info( 'Captcha shown on login by {clientip} for {suggestedUser}', [
 							'event' => 'captcha.display',
-							'eventType' => 'accountcreation',
+							'eventType' => 'badlogin',
 							'suggestedUser' => $suggestedUsername,
 							'clientip' => $this->manager->getRequest()->getIP()
 						] );

@@ -4,5 +4,8 @@
 		"wikimedia/client",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
-	]
+	],
+	"rules": {
+		"no-jquery/no-done-fail": "warn"
+	}
 }

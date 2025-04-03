@@ -18,7 +18,6 @@ class ApiFancyCaptchaReload extends ApiBase {
 
 		$result = $this->getResult();
 		$result->addValue( null, $this->getModuleName(), [ 'index' => $captchaIndex ] );
-		return true;
 	}
 
 	/** @inheritDoc */

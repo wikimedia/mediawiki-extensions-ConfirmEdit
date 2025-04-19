@@ -24,6 +24,7 @@ use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Request\ContentSecurityPolicy;
@@ -39,7 +40,6 @@ use OOUI\NumberInputWidget;
 use UnexpectedValueException;
 use Wikimedia\IPUtils;
 use Wikimedia\Rdbms\IDBAccessObject;
-use WikiPage;
 
 /**
  * Demo CAPTCHA (not for production usage) and base class for real CAPTCHAs

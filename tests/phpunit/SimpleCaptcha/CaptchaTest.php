@@ -74,7 +74,7 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $passed, $captcha->passCaptchaLimitedFromRequest( $request, $user ) );
 	}
 
-	public function providePassCaptchaLimitedFromRequest(): iterable {
+	public static function providePassCaptchaLimitedFromRequest(): iterable {
 		yield 'new captcha session' => [ null, null, false ];
 		yield 'missing captcha ID' => [ null, '8', false ];
 		yield 'mismatched captcha ID' => [ '129', '8', false ];

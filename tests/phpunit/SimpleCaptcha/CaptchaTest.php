@@ -50,7 +50,7 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 		?string $captchaWord,
 		bool $passed
 	): void {
-		$this->setMwGlobals( 'wgCaptchaStorageClass', CaptchaCacheStore::class );
+		$this->overrideConfigValue( 'CaptchaStorageClass', CaptchaCacheStore::class );
 		CaptchaStore::unsetInstanceForTests();
 
 		$params = [ 'index' => self::TEST_CAPTCHA_INDEX, 'question' => '5+3', 'answer' => 8 ];

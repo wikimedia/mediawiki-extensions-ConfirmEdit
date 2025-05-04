@@ -95,7 +95,7 @@ $wgCaptchaTriggersOnNamespace = [];
  * 'CaptchaCacheStore' uses MediaWiki core's MicroStash,
  * for storing captch data with a TTL eviction strategy.
  */
-$wgCaptchaStorageClass = 'MediaWiki\Extension\ConfirmEdit\Store\CaptchaSessionStore';
+$wgCaptchaStorageClass = MediaWiki\Extension\ConfirmEdit\Store\CaptchaSessionStore::class;
 
 /**
  * Number of seconds a captcha session should last in the data cache

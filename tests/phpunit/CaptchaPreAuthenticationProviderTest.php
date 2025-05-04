@@ -43,8 +43,8 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		parent::tearDown();
 		/** @var Hooks $req */
 		$req = TestingAccessWrapper::newFromClass( Hooks::class );
-		// make sure $wgCaptcha resets between tests
-		$req->instanceCreated = false;
+		// clear the singleton between tests
+		$req->instance = null;
 	}
 
 	/**

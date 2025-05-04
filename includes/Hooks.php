@@ -42,8 +42,7 @@ class Hooks implements
 	AuthChangeFormFieldsHook
 {
 
-	/** @var bool */
-	protected static $instanceCreated = false;
+	protected static ?SimpleCaptcha $instance = null;
 
 	private WANObjectCache $cache;
 
@@ -59,15 +58,14 @@ class Hooks implements
 	 * @return SimpleCaptcha
 	 */
 	public static function getInstance() {
-		global $wgCaptcha, $wgCaptchaClass;
+		global $wgCaptchaClass;
 
-		if ( !static::$instanceCreated ) {
-			static::$instanceCreated = true;
+		if ( !static::$instance ) {
 			$class = $wgCaptchaClass ?: SimpleCaptcha::class;
-			$wgCaptcha = new $class;
+			static::$instance = new $class;
 		}
 
-		return $wgCaptcha;
+		return static::$instance;
 	}
 
 	/** @inheritDoc */

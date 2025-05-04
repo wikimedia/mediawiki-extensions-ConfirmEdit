@@ -130,10 +130,6 @@
 			"description": "A list of IP addresses that can skip the captcha",
 			"value": false
 		},
-		"Captcha": {
-			"description": "Captcha class to be used; when enabling sub extensions (ie FancyCaptcha) this will be set for you",
-			"value": null
-		},
 		"CaptchaTriggers": {
 			"description": "Actions which can trigger a captcha",
 			"value": {

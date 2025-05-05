@@ -206,9 +206,7 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 		$request = $this->createMock( WebRequest::class );
 		$request->method( 'getIP' )->willReturn( $requestIP );
 
-		$this->setMwGlobals( [
-			'wgRequest' => $request,
-		] );
+		$this->setRequest( $request );
 		$this->overrideConfigValue( 'CaptchaBypassIPs', $list );
 
 		$actual = $testObject->canSkipCaptcha( RequestContext::getMain()->getUser(), $config );

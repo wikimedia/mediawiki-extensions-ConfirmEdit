@@ -154,16 +154,15 @@ class HCaptcha extends SimpleCaptcha {
 			$this->logCheckError( $status );
 			return false;
 		}
-		$json = $request->getContent();
-		$response = FormatJson::decode( $json, true );
-		if ( !$response ) {
+		$json = FormatJson::decode( $request->getContent(), true );
+		if ( !$json ) {
 			$this->error = 'json';
 			$this->logCheckError( $this->error );
 			return false;
 		}
-		if ( isset( $response['error-codes'] ) ) {
+		if ( isset( $json['error-codes'] ) ) {
 			$this->error = 'hcaptcha-api';
-			$this->logCheckError( $response['error-codes'] );
+			$this->logCheckError( $json['error-codes'] );
 			return false;
 		}
 
@@ -171,11 +170,13 @@ class HCaptcha extends SimpleCaptcha {
 			->debug( 'Captcha solution attempt for {user}', [
 				'event' => 'captcha.solve',
 				'user' => $user->getName(),
-				'success' => $response['success'],
-				'blob' => $json,
+				'hcaptcha_success' => $json['success'],
+				'hcaptcha_score' => $json['score'] ?? null,
+				'hcaptcha_score_reason' => $json['score_reason'] ?? null,
+				'hcaptcha_blob' => $json,
 			] );
 
-		return $response['success'];
+		return $json['success'];
 	}
 
 	/**

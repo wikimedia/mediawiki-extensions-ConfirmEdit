@@ -16,7 +16,6 @@ use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\Html\Html;
-use MediaWiki\Xml\Xml;
 
 class QuestyCaptcha extends SimpleCaptcha {
 	/**
@@ -86,7 +85,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 					// tab in before the edit textarea
 					'tabindex' => $tabIndex ]
 				) . "</p>\n" .
-				Xml::element( 'input', [
+				Html::element( 'input', [
 					'type'  => 'hidden',
 					'name'  => 'wpCaptchaId',
 					'id'    => 'wpCaptchaId',

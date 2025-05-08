@@ -67,7 +67,7 @@ class HCaptcha extends SimpleCaptcha {
 
 	/** @inheritDoc */
 	public static function getCSPUrls() {
-		return [ 'https://hcaptcha.com', 'https://*.hcaptcha.com' ];
+		return RequestContext::getMain()->getConfig()->get( 'HCaptchaApiUrl' );
 	}
 
 	/**

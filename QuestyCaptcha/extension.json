@@ -12,6 +12,9 @@
 			"i18n"
 		]
 	},
+	"AutoloadClasses": {
+		"QuestyCaptcha": "../includes/QuestyCaptcha/QuestyCaptcha.php"
+	},
 	"config": {
 		"CaptchaClass": {
 			"value": "MediaWiki\\Extension\\ConfirmEdit\\QuestyCaptcha\\QuestyCaptcha"

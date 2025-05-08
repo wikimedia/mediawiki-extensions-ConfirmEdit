@@ -44,6 +44,13 @@
 		"HCaptchaEnterprise": {
 			"description": "Whether the provided sitekey is for hCaptcha Enterprise features. See https://www.hcaptcha.com/#enterprise-features",
 			"value": false
+		},
+		"HCaptchaCSPRules": {
+			"description": "Urls to add to the Content Security Policies (CSP) for hcaptcha.com and *.hcaptcha.com to a page when loading a hCaptcha",
+			"value": [
+				"https://hcaptcha.com",
+				"https://*.hcaptcha.com"
+			]
 		}
 	},
 	"ConfigRegistry": {

@@ -7,7 +7,7 @@ $( document ).on( 'click', '.fancycaptcha-reload', function () {
 	$this.addClass( 'fancycaptcha-reload-loading' );
 
 	// AJAX request to get captcha index key
-	new mw.Api().post( { action: 'fancycaptchareload' } ).done( ( data ) => {
+	new mw.Api().post( { action: 'fancycaptchareload' } ).then( ( data ) => {
 		const captchaIndex = data.fancycaptchareload.index;
 		let imgSrc;
 		if ( typeof captchaIndex === 'string' ) {

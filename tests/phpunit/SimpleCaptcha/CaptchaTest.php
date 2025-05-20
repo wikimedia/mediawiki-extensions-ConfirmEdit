@@ -174,42 +174,17 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider provideCanSkipCaptchaMailconfirmed
-	 */
-	public function testCanSkipCaptchaMailconfirmed( $allowUserConfirmEmail,
-		$userIsMailConfirmed, $expected ) {
-		$testObject = new SimpleCaptcha();
-		$user = $this->createMock( User::class );
-		$user->method( 'isEmailConfirmed' )->willReturn( $userIsMailConfirmed );
-		$config = new HashConfig( [ 'AllowConfirmedEmail' => $allowUserConfirmEmail ] );
-
-		$actual = $testObject->canSkipCaptcha( $user, $config );
-
-		$this->assertEquals( $expected, $actual );
-	}
-
-	public static function provideCanSkipCaptchaMailconfirmed() {
-		return [
-			[ false, false, false ],
-			[ false, true, false ],
-			[ true, false, false ],
-			[ true, true, true ],
-		];
-	}
-
-	/**
 	 * @dataProvider provideCanSkipCaptchaBypassIPList
 	 */
 	public function testCanSkipCaptchaBypassIP( $requestIP, $list, $expected ) {
 		$testObject = new SimpleCaptcha();
-		$config = new HashConfig( [ 'AllowConfirmedEmail' => false ] );
 		$request = $this->createMock( WebRequest::class );
 		$request->method( 'getIP' )->willReturn( $requestIP );
 
 		$this->setRequest( $request );
 		$this->overrideConfigValue( 'CaptchaBypassIPs', $list );
 
-		$actual = $testObject->canSkipCaptcha( RequestContext::getMain()->getUser(), $config );
+		$actual = $testObject->canSkipCaptcha( RequestContext::getMain()->getUser(), new HashConfig() );
 
 		$this->assertEquals( $expected, $actual );
 	}

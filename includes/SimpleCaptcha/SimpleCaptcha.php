@@ -1235,8 +1235,6 @@ class SimpleCaptcha {
 	 * @throws ConfigException
 	 */
 	public function canSkipCaptcha( $user, Config $config ) {
-		$allowConfirmEmail = $config->get( 'AllowConfirmedEmail' );
-
 		if ( $user->isAllowed( 'skipcaptcha' ) ) {
 			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
 			return true;
@@ -1244,11 +1242,6 @@ class SimpleCaptcha {
 
 		if ( $this->canIPBypassCaptcha() ) {
 			wfDebug( "ConfirmEdit: user IP can bypass captcha" );
-			return true;
-		}
-
-		if ( $allowConfirmEmail && $user->isEmailConfirmed() ) {
-			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );
 			return true;
 		}
 

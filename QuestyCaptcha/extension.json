@@ -16,9 +16,6 @@
 		"QuestyCaptcha": "../includes/QuestyCaptcha/QuestyCaptcha.php"
 	},
 	"config": {
-		"CaptchaClass": {
-			"value": "MediaWiki\\Extension\\ConfirmEdit\\QuestyCaptcha\\QuestyCaptcha"
-		},
 		"CaptchaQuestions": {
 			"value": []
 		}

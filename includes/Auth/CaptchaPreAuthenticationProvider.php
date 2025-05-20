@@ -27,7 +27,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				$u = $user ?: new User();
 				$needed = $captcha->needCreateAccountCaptcha( $u );
 				if ( $needed ) {
-					$captcha->setAction( 'accountcreate' );
+					$captcha->setAction( 'createaccount' );
 					// This is debug level simply because generally
 					// captchas are either always or never triggered on
 					// view of create account, so it gets pretty noisy
@@ -156,7 +156,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 		if ( $captcha->needCreateAccountCaptcha( $creator ) ) {
 			$username = $user->getName();
-			$captcha->setAction( 'accountcreate' );
+			$captcha->setAction( 'createaccount' );
 			$captcha->setTrigger( "new account '$username'" );
 			$success = $this->verifyCaptcha( $captcha, $reqs, $user );
 			$ip = $this->manager->getRequest()->getIP();

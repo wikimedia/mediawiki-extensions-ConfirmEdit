@@ -4,7 +4,7 @@
 	},
 	"hcaptcha-desc": "[https://www.hcaptcha.com/ hCaptcha] module for Confirm Edit",
 	"hcaptcha-edit": "To protect the wiki against automated edit spam, we kindly ask you to solve the following hCaptcha:",
-	"hcaptcha-addurl": "Your edit includes new external links. To protect the wiki against automated spam, we kindly ask you to solve the following CAPTCHA:",
+	"hcaptcha-addurl": "Your edit includes new external links. To protect the wiki against automated spam, we kindly ask you to solve the following hCaptcha:",
 	"hcaptcha-badlogin": "To protect the wiki against automated password cracking, we kindly ask you to solve the following hCaptcha:",
 	"hcaptcha-createaccount": "To protect the wiki against automated account creation, we kindly ask you to solve the following hCaptcha:",
 	"hcaptcha-createaccount-fail": "It seems you haven't solved the hCaptcha.",

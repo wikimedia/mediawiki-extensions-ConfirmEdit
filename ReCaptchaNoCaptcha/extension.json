@@ -17,9 +17,6 @@
 		"MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\": "includes/"
 	},
 	"config": {
-		"CaptchaClass": {
-			"value": "MediaWiki\\Extension\\ConfirmEdit\\ReCaptchaNoCaptcha\\ReCaptchaNoCaptcha"
-		},
 		"ReCaptchaSiteKey": {
 			"value": ""
 		},

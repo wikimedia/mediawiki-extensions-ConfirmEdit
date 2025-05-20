@@ -249,6 +249,7 @@ class HCaptcha extends SimpleCaptcha {
 	public function onAuthChangeFormFields(
 		array $requests, array $fieldInfo, array &$formDescriptor, $action
 	) {
+		/** @var CaptchaAuthenticationRequest $req */
 		$req = AuthenticationRequest::getRequestByClass(
 			$requests,
 			CaptchaAuthenticationRequest::class,
@@ -259,7 +260,7 @@ class HCaptcha extends SimpleCaptcha {
 		}
 
 		// ugly way to retrieve error information
-		$captcha = Hooks::getInstance();
+		$captcha = Hooks::getInstance( $req->getAction() );
 
 		$formDescriptor['captchaWord'] = [
 			'class' => HTMLHCaptchaField::class,

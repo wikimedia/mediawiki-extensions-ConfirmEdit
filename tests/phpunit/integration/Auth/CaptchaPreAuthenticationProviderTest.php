@@ -48,7 +48,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		/** @var Hooks $req */
 		$req = TestingAccessWrapper::newFromClass( Hooks::class );
 		// clear the singleton between tests
-		$req->instance = null;
+		$req->instance = [];
 	}
 
 	/**

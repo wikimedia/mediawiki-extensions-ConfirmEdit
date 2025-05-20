@@ -119,8 +119,11 @@ class QuestyCaptcha extends SimpleCaptcha {
 		array &$formDescriptor, $action ) {
 		/** @var CaptchaAuthenticationRequest $req */
 		$req =
-			AuthenticationRequest::getRequestByClass( $requests,
-				CaptchaAuthenticationRequest::class, true );
+			AuthenticationRequest::getRequestByClass(
+				$requests,
+				CaptchaAuthenticationRequest::class,
+				true
+			);
 		if ( !$req ) {
 			return;
 		}

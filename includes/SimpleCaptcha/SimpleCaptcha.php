@@ -490,7 +490,13 @@ class SimpleCaptcha {
 		}
 
 		if ( isset( $triggers[$action] ) ) {
-			$result = $triggers[$action];
+			$res = $triggers[$action];
+			if ( !is_array( $res ) ) {
+				// Handle old style triggers where it was a boolean
+				$result = $triggers[$action];
+			} else {
+				$result = $triggers[$action]['trigger'] ?? false;
+			}
 		}
 
 		if (
@@ -984,7 +990,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Checks, if the user reached the number of false CAPTCHAs and give him some vacation
+	 * Checks if the user reached the number of false CAPTCHAs and give him some vacation
 	 * or run self::passCaptcha() and clear counter if correct.
 	 *
 	 * @param WebRequest $request
@@ -1216,8 +1222,12 @@ class SimpleCaptcha {
 	public function onAuthChangeFormFields(
 		array $requests, array $fieldInfo, array &$formDescriptor, $action
 	) {
-		$req = AuthenticationRequest::getRequestByClass( $requests,
-			CaptchaAuthenticationRequest::class );
+		/** @var CaptchaAuthenticationRequest $req */
+		$req = AuthenticationRequest::getRequestByClass(
+			$requests,
+			CaptchaAuthenticationRequest::class,
+			true
+		);
 		if ( !$req ) {
 			return;
 		}

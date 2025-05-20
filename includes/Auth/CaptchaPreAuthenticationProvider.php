@@ -16,18 +16,17 @@ use MediaWiki\User\User;
 class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider {
 	/** @inheritDoc */
 	public function getAuthenticationRequests( $action, array $options ) {
-		$captcha = Hooks::getInstance();
 		$user = User::newFromName( $options['username'] );
 
 		$logger = LoggerFactory::getInstance( 'captcha' );
-
 		$needed = false;
 		switch ( $action ) {
 			case AuthManager::ACTION_CREATE:
 				$u = $user ?: new User();
+				$captcha = Hooks::getInstance( CaptchaTriggers::CREATE_ACCOUNT );
 				$needed = $captcha->needCreateAccountCaptcha( $u );
 				if ( $needed ) {
-					$captcha->setAction( 'createaccount' );
+					$captcha->setAction( CaptchaTriggers::CREATE_ACCOUNT );
 					// This is debug level simply because generally a
 					// captcha is either always or never triggered on
 					// view of Special:CreateAccount, so it gets pretty noisy
@@ -53,10 +52,11 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				// result in weird behavior (if the user leaves the captcha field empty, they get
 				// a required field error; if they fill it with an invalid answer, it will pass)
 				// - again, not a huge deal.
+				$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
 				$session = $this->manager->getRequest()->getSession();
 				$suggestedUsername = $session->suggestLoginUsername();
 				if ( $captcha->triggersCaptcha( CaptchaTriggers::LOGIN_ATTEMPT ) ) {
-					$captcha->setAction( 'loginattempt' );
+					$captcha->setAction( CaptchaTriggers::LOGIN_ATTEMPT );
 					$logger->info( 'Captcha shown on login attempt by {clientip} for {suggestedUser}', [
 						'event' => 'captcha.display',
 						'eventType' => 'loginattempt',
@@ -75,7 +75,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 					|| $loginCounter->isBadLoginTriggered()
 					|| ( $suggestedUsername && $loginCounter->isBadLoginPerUserTriggered( $suggestedUsername ) )
 				) {
-					$captcha->setAction( 'badlogin' );
+					$captcha->setAction( CaptchaTriggers::BAD_LOGIN );
 					$logger->info( 'Captcha shown on login by {clientip} for {suggestedUser}', [
 						'event' => 'captcha.display',
 						'eventType' => 'badlogin',
@@ -89,12 +89,13 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				break;
 		}
 
+		// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
 		return $needed ? [ $captcha->createAuthenticationRequest() ] : [];
 	}
 
 	/** @inheritDoc */
 	public function testForAuthentication( array $reqs ) {
-		$captcha = Hooks::getInstance();
+		$captcha = Hooks::getInstance( CaptchaTriggers::CREATE_ACCOUNT );
 		$username = AuthenticationRequest::getUsernameFromRequests( $reqs );
 		$loginCounter = $this->getLoginAttemptCounter( $captcha );
 		$success = true;
@@ -108,10 +109,10 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		) {
 
 			if ( $loginTriggersCaptcha ) {
-				$captcha->setAction( 'loginattempt' );
+				$captcha->setAction( CaptchaTriggers::LOGIN_ATTEMPT );
 				$captcha->setTrigger( "loginattempt login '$username'" );
 			} else {
-				$captcha->setAction( 'badlogin' );
+				$captcha->setAction( CaptchaTriggers::BAD_LOGIN );
 				$captcha->setTrigger( "post-badlogin login '$username'" );
 			}
 			$success = $this->verifyCaptcha( $captcha, $reqs, new User() );
@@ -139,11 +140,11 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 	/** @inheritDoc */
 	public function testForAccountCreation( $user, $creator, array $reqs ) {
-		$captcha = Hooks::getInstance();
+		$captcha = Hooks::getInstance( CaptchaTriggers::CREATE_ACCOUNT );
 
 		if ( $captcha->needCreateAccountCaptcha( $creator ) ) {
 			$username = $user->getName();
-			$captcha->setAction( 'createaccount' );
+			$captcha->setAction( CaptchaTriggers::CREATE_ACCOUNT );
 			$captcha->setTrigger( "new account '$username'" );
 			$success = $this->verifyCaptcha( $captcha, $reqs, $user );
 			$ip = $this->manager->getRequest()->getIP();
@@ -166,7 +167,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 	/** @inheritDoc */
 	public function postAuthentication( $user, AuthenticationResponse $response ) {
-		$captcha = Hooks::getInstance();
+		$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
 		$loginCounter = $this->getLoginAttemptCounter( $captcha );
 		switch ( $response->status ) {
 			case AuthenticationResponse::PASS:
@@ -190,8 +191,11 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 	 */
 	protected function verifyCaptcha( SimpleCaptcha $captcha, array $reqs, User $user ) {
 		/** @var CaptchaAuthenticationRequest $req */
-		$req = AuthenticationRequest::getRequestByClass( $reqs,
-			CaptchaAuthenticationRequest::class, true );
+		$req = AuthenticationRequest::getRequestByClass(
+			$reqs,
+			CaptchaAuthenticationRequest::class,
+			true
+		);
 		if ( !$req ) {
 			return false;
 		}

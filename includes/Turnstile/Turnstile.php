@@ -224,14 +224,18 @@ class Turnstile extends SimpleCaptcha {
 	) {
 		global $wgTurnstileSiteKey;
 
-		$req = AuthenticationRequest::getRequestByClass( $requests,
-			CaptchaAuthenticationRequest::class, true );
+		/** @var CaptchaAuthenticationRequest $req */
+		$req = AuthenticationRequest::getRequestByClass(
+			$requests,
+			CaptchaAuthenticationRequest::class,
+			true
+		);
 		if ( !$req ) {
 			return;
 		}
 
 		// ugly way to retrieve error information
-		$captcha = Hooks::getInstance();
+		$captcha = Hooks::getInstance( $req->getAction() );
 
 		$formDescriptor['captchaWord'] = [
 			'class' => HTMLTurnstileField::class,

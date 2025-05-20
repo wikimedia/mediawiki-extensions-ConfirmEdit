@@ -90,10 +90,10 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider provideSimpleTriggersCaptcha
 	 */
-	public function testTriggersCaptcha( $action, $expectedResult ) {
+	public function testTriggersCaptcha( $action, $expectedResult, $triggerValue ) {
 		$captcha = new SimpleCaptcha();
 		$this->overrideConfigValue( 'CaptchaTriggers', [
-			$action => $expectedResult,
+			$action => $triggerValue,
 		] );
 		$this->assertEquals( $expectedResult, $captcha->triggersCaptcha( $action ) );
 	}
@@ -103,8 +103,20 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 		$captchaTriggers = new ReflectionClass( CaptchaTriggers::class );
 		$constants = $captchaTriggers->getConstants();
 		foreach ( $constants as $const ) {
-			$data[] = [ $const, true ];
-			$data[] = [ $const, false ];
+			$data[] = [ $const, true, true ];
+			$data[] = [ $const, false, false ];
+			$data[] = [ $const, true, [
+				'class' => 'SimpleCaptcha',
+				'trigger' => true,
+			] ];
+			$data[] = [ $const, false, [
+				'class' => 'SimpleCaptcha',
+				'trigger' => false,
+			] ];
+			// When the trigger isn't defined, but the value is an array, default to false
+			$data[] = [ $const, false, [
+				'class' => 'SimpleCaptcha',
+			] ];
 		}
 		return $data;
 	}

@@ -6,6 +6,15 @@ ConfirmEdit extension for MediaWiki
 This extension provides various CAPTCHA tools for MediaWiki, to allow
 for protection against spambots and other automated tools.
 
+You must explicitly set the value of `$wgCaptchaClass` to the
+implementation you want to use, otherwise it will use a demo captcha.
+
+For example, to use FancyCaptcha:
+
+```php
+$wgCaptchaClass = MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha::class;
+````
+
 For more information, see the extension homepage at:
 https://www.mediawiki.org/wiki/Extension:ConfirmEdit
 
@@ -39,6 +48,14 @@ Additional maintenance work was done by Yaron Koren.
 
 ### Configuration comments
 ```php
+/**
+ * Needs to be explicitly set to the Captcha implementation you want to use, otherwise it will use a demo captcha.
+ *
+ * For example, to use FancyCaptcha:
+ * `$wgCaptchaClass = MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha::class;`
+ */
+$wgCaptchaClass = MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha::class;
+
 /**
  * List of IP ranges to allow to skip the captcha, similar to the group setting:
  * "$wgGroupPermission[...]['skipcaptcha'] = true"

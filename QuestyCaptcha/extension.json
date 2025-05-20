@@ -13,9 +13,6 @@
 		]
 	},
 	"config": {
-		"CaptchaClass": {
-			"value": "MediaWiki\\Extension\\ConfirmEdit\\QuestyCaptcha\\QuestyCaptcha"
-		},
 		"CaptchaQuestions": {
 			"value": []
 		}

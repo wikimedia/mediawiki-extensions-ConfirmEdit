@@ -14,9 +14,6 @@
 		]
 	},
 	"config": {
-		"CaptchaClass": {
-			"value": "MediaWiki\\Extension\\ConfirmEdit\\hCaptcha\\HCaptcha"
-		},
 		"HCaptchaProxy": {
 			"description": "Proxy to use for outbound PHP web requests to hCaptcha servers (HCaptchaVerifyUrl)",
 			"value": false

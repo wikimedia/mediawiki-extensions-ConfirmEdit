@@ -15,9 +15,6 @@
 		]
 	},
 	"config": {
-		"CaptchaClass": {
-			"value": "MediaWiki\\Extension\\ConfirmEdit\\Turnstile\\Turnstile"
-		},
 		"TurnstileSiteKey": {
 			"value": ""
 		},

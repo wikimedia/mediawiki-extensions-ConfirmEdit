@@ -10,7 +10,12 @@ use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
 use MediaWiki\Content\Content;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\EditPage\EditPage;
+use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
+use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
+use MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\ReCaptchaNoCaptcha;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
+use MediaWiki\Extension\ConfirmEdit\Turnstile\Turnstile;
 use MediaWiki\Hook\AlternateEditPreviewHook;
 use MediaWiki\Hook\EditFilterMergedContentHook;
 use MediaWiki\Hook\EditPage__showEditForm_fieldsHook;
@@ -70,12 +75,18 @@ class Hooks implements
 	 */
 	public static function getInstance() {
 		global $wgCaptchaClass;
+		static $map = [
+			'SimpleCaptcha' => SimpleCaptcha::class,
+			'FancyCaptcha' => FancyCaptcha::class,
+			'QuestyCaptcha' => QuestyCaptcha::class,
+			'ReCaptchaNoCaptcha' => ReCaptchaNoCaptcha::class,
+			'HCaptcha' => HCaptcha::class,
+			'Turnstile' => Turnstile::class,
+		];
+		// Support PHP 7.4: Avoid `new ( $map[$wgCaptchaClass] ?? $wgCaptchaClass )`
+		$className = $map[$wgCaptchaClass] ?? $wgCaptchaClass;
 
-		if ( !static::$instance ) {
-			$class = $wgCaptchaClass ?: SimpleCaptcha::class;
-			static::$instance = new $class;
-		}
-
+		static::$instance ??= new $className;
 		return static::$instance;
 	}
 

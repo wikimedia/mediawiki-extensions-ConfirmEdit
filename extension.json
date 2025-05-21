@@ -119,8 +119,8 @@
 	},
 	"config": {
 		"CaptchaClass": {
-			"description": "Needs to be explicitly set to the Captcha implementation you want to use, otherwise it will use a demo captcha. For example, to use FancyCaptcha: `$wgCaptchaClass = MediaWiki\\Extension\\ConfirmEdit\\FancyCaptcha\\FancyCaptcha::class;`",
-			"value": "MediaWiki\\Extension\\ConfirmEdit\\SimpleCaptcha\\SimpleCaptcha"
+			"description": "Set to one of SimpleCaptcha, FancyCaptcha, QuestyCaptcha, ReCaptchaNoCaptcha, hCaptcha, Turnstile, or to a custom PHP subclass of SimpleCaptcha. Defaults to the SimpleCaptcha demo captcha. For example, to use FancyCaptcha: `$wgCaptchaClass = 'FancyCaptcha';`",
+			"value": "SimpleCaptcha"
 		},
 		"CaptchaWhitelistIP": {
 			"description": "DEPRECATED! Use CaptchaBypassIPs",

@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"hcaptcha-desc": "[https://www.hcaptcha.com/ hCaptcha] хийцар тӀечӀагӀдаран модуль",
+	"hcaptcha-edit": "Вики авто спамах ларйан, оха доьху шуьга хӀара капча йазйан:",
+	"hcaptcha-addurl": "Хьан хийцамехь керла арахьара хьажоргаш йу. Авто спамах ларйан, дехар до, хӀара капча йазйе:",
+	"hcaptcha-createaccount-fail": "Хетарехь, ахь hCaptcha дӀа ца йаьккхина."
+}

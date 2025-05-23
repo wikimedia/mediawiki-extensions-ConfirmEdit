@@ -11,5 +11,6 @@
 	"hcaptcha-createaccount": "لحماية الويكي من الإنشاء الآلي للحساب ، نطلب منك التفضل بحل hCaptcha التالي:",
 	"hcaptcha-createaccount-fail": "يبدو أنك لم تحل hCaptcha.",
 	"hcaptcha-create": "لحماية الويكي من الإنشاء الآلي للصفحة ، نطلب منك التفضل بحل hCaptcha التالي:",
-	"hcaptcha-help": "يرجى حل تحدي hCaptcha وإرجاع قيمة الاستجابة كـ captchaWord."
+	"hcaptcha-help": "يرجى حل تحدي hCaptcha وإرجاع قيمة الاستجابة كـ captchaWord.",
+	"hcaptcha-privacy-policy": "هذا الموقع محمي بواسطة hCaptcha وينطبق عليه [https://www.hcaptcha.com/privacy سياسة الخصوصية] و[https://www.hcaptcha.com/terms شروط الخدمة]."
 }

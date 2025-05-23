@@ -14,7 +14,6 @@ use MediaWiki\Json\FormatJson;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Message\Message;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Session\SessionManager;
@@ -71,13 +70,7 @@ class HCaptcha extends SimpleCaptcha {
 		return RequestContext::getMain()->getConfig()->get( 'HCaptchaApiUrl' );
 	}
 
-	/**
-	 * Adds the CSP policies that are necessary for the captcha module to work in a CSP enforced
-	 * setup.
-	 *
-	 * @param ContentSecurityPolicy $csp The CSP instance to add the policies to, this is usually to be
-	 * obtained from {@link OutputPage::getCSP()}
-	 */
+	/** @inheritDoc */
 	public static function addCSPSources( ContentSecurityPolicy $csp ) {
 		foreach ( static::getCSPUrls() as $src ) {
 			// Since frame-src is not supported
@@ -103,10 +96,7 @@ class HCaptcha extends SimpleCaptcha {
 		\wfDebugLog( 'captcha', 'Unable to validate response: ' . $error );
 	}
 
-	/**
-	 * @param WebRequest $request
-	 * @return array
-	 */
+	/** @inheritDoc */
 	protected function getCaptchaParamsFromRequest( WebRequest $request ) {
 		$response = $request->getVal(
 			'h-captcha-response',
@@ -184,17 +174,13 @@ class HCaptcha extends SimpleCaptcha {
 		return $json['success'];
 	}
 
-	/**
-	 * @param array &$resultArr
-	 */
+	/** @inheritDoc */
 	protected function addCaptchaAPI( &$resultArr ) {
 		$resultArr['captcha'] = $this->describeCaptchaType();
 		$resultArr['captcha']['error'] = $this->error;
 	}
 
-	/**
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function describeCaptchaType() {
 		return [
 			'type' => 'hcaptcha',
@@ -203,13 +189,7 @@ class HCaptcha extends SimpleCaptcha {
 		];
 	}
 
-	/**
-	 * Show a message asking the user to enter a captcha on edit
-	 * The result will be treated as wiki text
-	 *
-	 * @param string $action Action being performed
-	 * @return Message
-	 */
+	/** @inheritDoc */
 	public function getMessage( $action ) {
 		$msg = parent::getMessage( $action );
 		if ( $this->error ) {
@@ -218,12 +198,7 @@ class HCaptcha extends SimpleCaptcha {
 		return $msg;
 	}
 
-	/**
-	 * @param ApiBase $module
-	 * @param array &$params
-	 * @param int $flags
-	 * @return bool
-	 */
+	/** @inheritDoc */
 	public function apiGetAllowedParams( ApiBase $module, &$params, $flags ) {
 		return true;
 	}
@@ -259,12 +234,7 @@ class HCaptcha extends SimpleCaptcha {
 		return new HCaptchaAuthenticationRequest();
 	}
 
-	/**
-	 * @param array $requests
-	 * @param array $fieldInfo
-	 * @param array &$formDescriptor
-	 * @param string $action
-	 */
+	/** @inheritDoc */
 	public function onAuthChangeFormFields(
 		array $requests, array $fieldInfo, array &$formDescriptor, $action
 	) {

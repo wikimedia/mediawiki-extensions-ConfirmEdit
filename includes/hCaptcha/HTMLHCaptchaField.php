@@ -32,18 +32,25 @@ class HTMLHCaptchaField extends HTMLFormField {
 	public function getInputHTML( $value ) {
 		$out = $this->mParent->getOutput();
 
-		$url = $this->mParent->getConfig()->get( 'HCaptchaApiUrl' );
+		$config = $this->mParent->getConfig();
+		$url = $config->get( 'HCaptchaApiUrl' );
 		$out->addHeadItem(
 			'h-captcha',
 			"<script src=\"$url\" async defer></script>"
 		);
 		HCaptcha::addCSPSources( $out->getCSP() );
-		return Html::element( 'div', [
+		$output = Html::element( 'div', [
 			'class' => [
 				'h-captcha',
 				'mw-confirmedit-captcha-fail' => (bool)$this->error,
 			],
 			'data-sitekey' => $this->key,
 		] );
+
+		if ( $config->get( 'HCaptchaPassiveMode' ) ) {
+			$output .= $this->getMessage( 'hcaptcha-privacy-policy' )->parse();
+		}
+
+		return $output;
 	}
 }

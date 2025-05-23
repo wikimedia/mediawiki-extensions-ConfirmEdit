@@ -42,6 +42,10 @@
 			"description": "Whether the provided sitekey is for hCaptcha Enterprise features. See https://www.hcaptcha.com/#enterprise-features",
 			"value": false
 		},
+		"HCaptchaPassiveMode": {
+			"description": "If you are using using (primarily) passive modes, force the inclusion of a message with the hCaptcha Privacy Policy and Terms of Service",
+			"value": false
+		},
 		"HCaptchaCSPRules": {
 			"description": "Urls to add to the Content Security Policies (CSP) for hcaptcha.com and *.hcaptcha.com to a page when loading a hCaptcha",
 			"value": [

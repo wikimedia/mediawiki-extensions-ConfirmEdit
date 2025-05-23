@@ -56,6 +56,11 @@ class HCaptcha extends SimpleCaptcha {
 			'data-sitekey' => $this->siteKey
 		] );
 
+		if ( $this->hCaptchaConfig->get( 'HCaptchaPassiveMode' ) ) {
+			// Uses hcaptcha-privacy-policy; but not called with hcaptcha-prefix
+			$output .= $this->getMessage( 'privacy-policy' )->parse();
+		}
+
 		$url = $this->hCaptchaConfig->get( 'HCaptchaApiUrl' );
 		return [
 			'html' => $output,

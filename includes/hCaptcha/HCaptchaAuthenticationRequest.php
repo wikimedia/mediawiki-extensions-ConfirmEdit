@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
+use MediaWiki\MediaWikiServices;
 
 class HCaptchaAuthenticationRequest extends CaptchaAuthenticationRequest {
 	public function __construct() {
@@ -18,14 +19,19 @@ class HCaptchaAuthenticationRequest extends CaptchaAuthenticationRequest {
 
 	/** @inheritDoc */
 	public function getFieldInfo() {
-		$fieldInfo = parent::getFieldInfo();
-
-		return [
+		$ret = [
 			'captchaWord' => [
 				'type' => 'string',
-				'label' => $fieldInfo['captchaInfo']['label'],
-				'help' => \wfMessage( 'hcaptcha-help' ),
 			],
 		];
+
+		// Only display if there's potentially a captcha to solve or interact with...
+		if ( !MediaWikiServices::getInstance()->getMainConfig()->get( 'HCaptchaPassiveMode' ) ) {
+			$fieldInfo = parent::getFieldInfo();
+			$ret['captchaWord']['label'] = $fieldInfo['captchaWord']['label'];
+			$ret['captchaWord']['help'] = \wfMessage( 'hcaptcha-help' );
+		}
+
+		return $ret;
 	}
 }

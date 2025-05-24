@@ -95,8 +95,8 @@ class SimpleCaptcha {
 
 	/**
 	 * Returns an array with 'question' and 'answer' keys.
-	 * Subclasses might use different structure.
-	 * Since MW 1.27 all subclasses must implement this method.
+	 * Subclasses might use a different structure.
+	 * Since MW 1.27, all subclasses must implement this method.
 	 * @return array
 	 */
 	public function getCaptcha() {
@@ -155,7 +155,7 @@ class SimpleCaptcha {
 	 * Override this!
 	 *
 	 * It is not guaranteed that the CAPTCHA will load synchronously with the main page
-	 * content. So you cannot rely on registering handlers before page load. E.g.:
+	 * content. So you cannot rely on registering handlers before the page load. E.g.:
 	 *
 	 * NOT SAFE: $( window ).on( 'load', handler )
 	 * SAFE: $( handler )
@@ -648,8 +648,7 @@ class SimpleCaptcha {
 
 					$numHits = count( $addedMatches );
 					if ( $numHits > 0 ) {
-						// TODO: last parameter to sprintf() isn't used
-						$this->trigger = sprintf( "%dx %s at [[%s]]: %s",
+						$this->trigger = sprintf( "%dx %s by %s at [[%s]]: %s",
 							$numHits,
 							$regex,
 							$user->getName(),
@@ -743,7 +742,7 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Build regex from list of URLs
+	 * Build regex from the list of URLs
 	 * @param string[] $lines string from MediaWiki page
 	 * @return string[] Regexes
 	 * @private
@@ -876,9 +875,8 @@ class SimpleCaptcha {
 				// otherwise it's an unknown page where this function is called from
 				$title = 'unknown';
 			}
-			// log this error, it could be a problem in another extension,
-			// edits should always have a WikiPage if
-			// they go through EditFilterMergedContent.
+			// log this error, it could be a problem in another MediaWiki extension,
+			// edits should always have a WikiPage if they go through EditFilterMergedContent.
 			wfDebug( __METHOD__ . ': Skipped ConfirmEdit check: No WikiPage for title ' . $title );
 			return true;
 		}
@@ -888,9 +886,9 @@ class SimpleCaptcha {
 			$status->statusData = [];
 			// give an error message for the user to know, what goes wrong here.
 			// this can't be done for addurl trigger, because this requires one "free" save
-			// for the user, which we don't know, when he did it.
+			// for the user, which we don't know when they did it.
 			if ( $this->action === 'edit' ) {
-				// Default message is that the user failed a CAPTCHA, so show 'captcha-edit-fail'.
+				// The default message is that the user failed a CAPTCHA, so show 'captcha-edit-fail'.
 				$message = 'captcha-edit-fail';
 				if ( $this->shouldForceShowCaptcha() ) {
 					// If an extension set the forceShowCaptcha property, then it likely means

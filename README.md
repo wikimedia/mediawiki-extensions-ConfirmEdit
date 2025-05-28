@@ -6,32 +6,28 @@ ConfirmEdit extension for MediaWiki
 This extension provides various CAPTCHA tools for MediaWiki, to allow
 for protection against spambots and other automated tools.
 
-You must explicitly set the value of `$wgCaptchaClass` to the
-implementation you want to use, otherwise it will use a demo captcha.
-
-For example, to use FancyCaptcha:
+You must set `$wgCaptchaClass` to a chosen module, otherwise
+the demo captcha will be used. For example, to use FancyCaptcha:
 
 ```php
-$wgCaptchaClass = MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha::class;
+$wgCaptchaClass = 'FancyCaptcha';
 ````
-
-For more information, see the extension homepage at:
-https://www.mediawiki.org/wiki/Extension:ConfirmEdit
-
-### Overview
 
 The following modules are included in ConfirmEdit:
 
-* SimpleCaptcha - users have to solve an arithmetic math problem
-* FancyCaptcha - users have to identify a series of characters, displayed
+* `SimpleCaptcha` - users have to solve an arithmetic math problem
+* `FancyCaptcha` - users have to identify a series of characters, displayed
 in a stylized way
-* QuestyCaptcha - users have to answer a question, out of a series of
+* `QuestyCaptcha` - users have to answer a question, out of a series of
 questions defined by the administrator(s)
-* ReCaptchaNoCaptcha - users have to solve different types of visually or
+* `ReCaptchaNoCaptcha` - users have to solve different types of visually or
 audially tasks.
-* hCaptcha - users have to solve visual tasks
-* Turnstile - users check a box, which runs some client-side JS
+* `hCaptcha` - users have to solve visual tasks
+* `Turnstile` - users check a box, which runs some client-side JS
 heuristics
+
+For more information, see the extension homepage at:
+https://www.mediawiki.org/wiki/Extension:ConfirmEdit
 
 ### License
 
@@ -52,9 +48,11 @@ Additional maintenance work was done by Yaron Koren.
  * Needs to be explicitly set to the Captcha implementation you want to use, otherwise it will use a demo captcha.
  *
  * For example, to use FancyCaptcha:
- * `$wgCaptchaClass = MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha::class;`
+ * ```
+ * $wgCaptchaClass ='FancyCaptcha';
+ * ```
  */
-$wgCaptchaClass = MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha::class;
+$wgCaptchaClass = 'SimpleCaptcha';
 
 /**
  * List of IP ranges to allow to skip the captcha, similar to the group setting:

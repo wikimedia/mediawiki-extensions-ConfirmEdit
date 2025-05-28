@@ -130,7 +130,7 @@ class GenerateFancyCaptchas extends Maintenance {
 		$captchaTime = -microtime( true );
 		$result = Shell::command( [] )
 			->params( $cmd )
-			->limits( [ 'time' => 0 ] )
+			->limits( [ 'time' => 0, 'memory' => 0, 'walltime' => 0, 'filesize' => 0 ] )
 			->disableSandbox()
 			->execute();
 		if ( $result->getExitCode() !== 0 ) {

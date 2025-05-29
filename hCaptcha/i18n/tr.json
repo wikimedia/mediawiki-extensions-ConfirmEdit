@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"Joseph"
 		]
 	},
 	"hcaptcha-desc": "[https://www.hcaptcha.com/ hCaptcha] Düzenlemeyi Onaylama modülü",
 	"hcaptcha-edit": "Vikiyi otomatik düzenleme spam'lerine karşı korumak için, aşağıdaki hCaptcha'yı çözmenizi rica ederiz:",
-	"hcaptcha-addurl": "Düzenlemeniz yeni harici bağlantılar içeriyor. Vikiyi otomatik spam'a karşı korumak için sizden aşağıdaki CAPTCHA'yı çözmenizi rica ediyoruz:",
+	"hcaptcha-addurl": "Düzenlemeniz yeni dış bağlantılar içeriyor. Vikiyi otomatik spam'a karşı korumak için sizden aşağıdaki hCaptcha'yı çözmenizi rica ediyoruz:",
 	"hcaptcha-badlogin": "Vikiyi otomatik parola kırmaya karşı korumak için, aşağıdaki hCaptcha'yı çözmenizi rica ederiz:",
 	"hcaptcha-createaccount": "Vikiyi otomatik hesap oluşturmaya karşı korumak için sizden aşağıdaki hCaptcha'yı çözmenizi rica ediyoruz:",
 	"hcaptcha-createaccount-fail": "Görünüşe göre hCaptcha'yı çözmediniz.",

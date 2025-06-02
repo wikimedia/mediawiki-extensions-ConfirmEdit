@@ -485,3 +485,5 @@ if __name__ == "__main__":
     if opts.jsonmap:
         with open("map.json", "w") as outfile:
             json.dump(jsonmap.copy(), outfile, indent=4)
+
+    print("Done!")

@@ -429,6 +429,10 @@ if __name__ == "__main__":
         sys.exit("Need to specify the location of a font")
 
     badwordlist = read_wordlist(opts.badwordlist)
+
+    if opts.verbose and not badwordlist:
+        print("badwordlist is empty.")
+
     count = opts.count
     fill = opts.fill
     fontsize = opts.font_size
@@ -437,17 +441,21 @@ if __name__ == "__main__":
     if fill:
         count = max(0, fill - len(os.listdir(output)))
 
+    if count == 0:
+        sys.exit("No need to generate CAPTCHA images.")
+
     words = None
     if wordlist:
         words = read_wordlist(wordlist)
+
+        if not words:
+            sys.exit("No words were read from the wordlist")
+
         words = [
             x
             for x in words
             if len(x) in (4, 5) and x[0] != "f" and x[0] != x[1] and x[-1] != x[-2]
         ]
-
-    if count == 0:
-        sys.exit("No need to generate CAPTCHA images.")
 
     if count < threads:
         chunks = 1

@@ -244,6 +244,8 @@ def pick_word(words, badwordlist, verbose, nwords, min_length, max_length):
 
 
 def read_wordlist(filename):
+    filename = os.path.expanduser(filename)
+    filename = os.path.expandvars(filename)
     if not os.path.isfile(filename):
         return []
     f = open(filename)

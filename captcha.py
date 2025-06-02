@@ -405,6 +405,12 @@ if __name__ == "__main__":
     else:
         sys.exit("Need to specify a key")
     if opts.output:
+        if not os.path.exists(opts.output):
+            try:
+                os.makedirs(opts.output)
+            except OSError:
+                sys.exit("%s doesn't exist, and unable to create it" % opts.output)
+
         output = opts.output
     else:
         sys.exit("Need to specify an output directory")

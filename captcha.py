@@ -420,6 +420,12 @@ if __name__ == "__main__":
         opts.key = subprocess.run(["php", "-r", inline_php], capture_output=True, text=True, check=True).stdout.strip()
 
     if opts.output:
+        if not os.path.exists(opts.output):
+            try:
+                os.makedirs(opts.output)
+            except OSError:
+                sys.exit("%s doesn't exist, and unable to create it" % opts.output)
+
         output = opts.output
     else:
         sys.exit("Need to specify an output directory")

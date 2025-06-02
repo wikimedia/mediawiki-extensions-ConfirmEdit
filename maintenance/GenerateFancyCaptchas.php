@@ -200,6 +200,17 @@ class GenerateFancyCaptchas extends Maintenance {
 			$this->output( "Getting a list of old captchas to delete..." );
 			$path = $backend->getRootStoragePath() . '/' . $instance->getStorageDir();
 			foreach ( $backend->getFileList( [ 'dir' => $path ] ) as $file ) {
+
+				// T388531: Avoid invalid response deleting an entire Swift container.
+				// SwiftFileBackend::getFileList sometimes (Swift error? something else?) returns an
+				// array with an empty string. This isn't a real or valid filename, but if we treat it
+				// as one, it would refer to the root of the Swift container recursively delete it...
+				//
+				// TODO: Figure out the root cause and fix it there instead.
+				if ( $file === '' ) {
+					continue;
+				}
+
 				$filesToDelete[] = [
 					'op' => 'delete',
 					'src' => $path . '/' . $file,

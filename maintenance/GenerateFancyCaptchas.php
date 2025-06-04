@@ -148,7 +148,7 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$this->output(
 			sprintf(
-				"\nGeneration script for %d captchas ran in %.1f seconds\n",
+				"\nGeneration script for %d captchas ran in %.1f seconds.\n",
 				$countGen,
 				$captchaTime
 			)
@@ -230,7 +230,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			$this->output( " Done.\n" );
 			$this->output(
 				sprintf(
-					"\nCopied %d captchas to storage in %.1f seconds\n",
+					"\nCopied %d captchas to storage in %.1f seconds.\n",
 					$ret->successCount,
 					$storeTime
 				)
@@ -274,7 +274,7 @@ class GenerateFancyCaptchas extends Maintenance {
 				$this->output( "Done.\n" );
 				$this->output(
 					sprintf(
-						"\nDeleted %d old captchas in %.1f seconds\n",
+						"\nDeleted %d old captchas in %.1f seconds.\n",
 						$numOriginalFiles,
 						$deleteTime
 					)
@@ -302,7 +302,7 @@ class GenerateFancyCaptchas extends Maintenance {
 		$totalTime += microtime( true );
 		$this->output(
 			sprintf(
-				"\nWhole captchas generation process took %.1f seconds\n",
+				"\nWhole captchas generation process took %.1f seconds.\n",
 				$totalTime
 			)
 		);

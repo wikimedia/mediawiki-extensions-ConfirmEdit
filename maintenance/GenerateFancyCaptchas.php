@@ -148,7 +148,7 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$this->output(
 			sprintf(
-				"\nGeneration script for %d captchas ran in %.1f seconds\n",
+				"\nGeneration script for %d captchas ran in %.1f seconds.\n",
 				$countGen,
 				$captchaTime
 			)
@@ -182,7 +182,7 @@ class GenerateFancyCaptchas extends Maintenance {
 		$tmpCountTime += microtime( true );
 		$this->output(
 			sprintf(
-				"\nEnumerated %d temporary captchas in %.1f seconds\n",
+				"\nEnumerated %d temporary captchas in %.1f seconds.\n",
 				$captchasGenerated,
 				$tmpCountTime
 			)
@@ -192,7 +192,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			wfRecursiveRemoveDir( $tmpDir );
 			$this->error( "No generated captchas found in temporary directory; did captcha.py actually succeed?" );
 		} elseif ( $captchasGenerated < $countGen ) {
-			$this->output( "Expecting $countGen new captchas, only $captchasGenerated found on disk; continuing\n." );
+			$this->output( "Expecting $countGen new captchas, only $captchasGenerated found on disk; continuing.\n" );
 		}
 
 		$filesToDelete = [];
@@ -219,7 +219,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			$this->output( " Done.\n" );
 			$this->output(
 				sprintf(
-					"\nCopied %d captchas to storage in %.1f seconds\n",
+					"\nCopied %d captchas to storage in %.1f seconds.\n",
 					$ret->successCount,
 					$storeTime
 				)
@@ -233,7 +233,7 @@ class GenerateFancyCaptchas extends Maintenance {
 			}
 			if ( $ret->failCount ) {
 				$storeSucceeded = false;
-				$this->error( sprintf( "\nFailed to copy %d captchas\n", $ret->failCount ) );
+				$this->error( sprintf( "\nFailed to copy %d captchas.\n", $ret->failCount ) );
 			}
 			if ( $ret->successCount + $ret->failCount !== $captchasGenerated ) {
 				$storeSucceeded = false;
@@ -254,7 +254,7 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		if ( $storeSucceeded && $deleteOldCaptchas ) {
 			$numOriginalFiles = count( $filesToDelete );
-			$this->output( "Deleting {$numOriginalFiles} old captchas...\n" );
+			$this->output( "Deleting {$numOriginalFiles} old captchas..." );
 			$deleteTime = -microtime( true );
 			$ret = $backend->doQuickOperations( $filesToDelete );
 
@@ -263,7 +263,7 @@ class GenerateFancyCaptchas extends Maintenance {
 				$this->output( "Done.\n" );
 				$this->output(
 					sprintf(
-						"\nDeleted %d old captchas in %.1f seconds\n",
+						"\nDeleted %d old captchas in %.1f seconds.\n",
 						$numOriginalFiles,
 						$deleteTime
 					)
@@ -291,7 +291,7 @@ class GenerateFancyCaptchas extends Maintenance {
 		$totalTime += microtime( true );
 		$this->output(
 			sprintf(
-				"\nWhole captchas generation process took %.1f seconds\n",
+				"\nWhole captchas generation process took %.1f seconds.\n",
 				$totalTime
 			)
 		);

@@ -461,16 +461,6 @@ class SimpleCaptcha {
 	// ----------------------------------
 
 	/**
-	 * @param Title $title
-	 * @param string $action (edit/create/addurl...)
-	 * @return bool true if action triggers captcha on $title's namespace
-	 * @deprecated since 1.5.1 Use triggersCaptcha instead
-	 */
-	public function captchaTriggers( $title, $action ) {
-		return $this->triggersCaptcha( $action, $title );
-	}
-
-	/**
 	 * Checks, whether the passed action should trigger a CAPTCHA. The optional $title parameter
 	 * will be used to check namespace specific CAPTCHA triggers.
 	 *

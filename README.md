@@ -149,13 +149,11 @@ $wgCaptchaBadLoginExpiration = 5 * 60;
 $wgCaptchaBadLoginPerUserExpiration = 10 * 60;
 
 /**
- * Allow users who have confirmed their email addresses to post
- * URL links without being shown a captcha.
+ * Allow users who have confirmed their email addresses to skip being shown a captcha.
  *
- * @deprecated since 1.36
- * $wgGroupPermissions['emailconfirmed']['skipcaptcha'] = true; should be used instead.
+ * $wgAllowConfirmedEmail was deprecated in 1.36, and removed in 1.45. Use this config instead.
  */
-$wgAllowConfirmedEmail = false;
+$wgGroupPermissions['emailconfirmed']['skipcaptcha'] = true;
 
 /**
  * Number of bad login attempts (from a specific IP address) before triggering the captcha. 0 means the

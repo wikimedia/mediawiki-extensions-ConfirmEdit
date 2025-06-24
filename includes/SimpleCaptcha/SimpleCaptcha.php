@@ -1235,16 +1235,21 @@ class SimpleCaptcha {
 	 * @throws ConfigException
 	 */
 	public function canSkipCaptcha( $user, Config $config ) {
+		$result = false;
 		if ( $user->isAllowed( 'skipcaptcha' ) ) {
 			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
-			return true;
+			$result = true;
 		}
-
 		if ( $this->canIPBypassCaptcha() ) {
 			wfDebug( "ConfirmEdit: user IP can bypass captcha" );
-			return true;
+			$result = true;
 		}
 
-		return false;
+		$hookRunner = new HookRunner(
+			MediaWikiServices::getInstance()->getHookContainer()
+		);
+		$hookRunner->onConfirmEditCanUserSkipCaptcha( $user, $result );
+
+		return $result;
 	}
 }

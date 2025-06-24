@@ -219,4 +219,34 @@ class CaptchaTest extends MediaWikiIntegrationTestCase {
 		$testObject->setForceShowCaptcha( true );
 		$this->assertTrue( $testObject->triggersCaptcha( 'edit' ), 'Force showing a CAPTCHA if flag is set' );
 	}
+
+	/**
+	 * @dataProvider provideCanSkipCaptchaHook
+	 */
+	public function testCanSkipCaptchaHook( $originalCanSkipCaptchaResult, $hookResult, $expected ) {
+		$testObject = new SimpleCaptcha();
+
+		$user = $this->createMock( User::class );
+		$user->method( 'isAllowed' )->willReturn( $originalCanSkipCaptchaResult );
+
+		$this->setTemporaryHook(
+			'ConfirmEditCanUserSkipCaptcha',
+			static function ( User $user, bool &$result ) use ( $hookResult ) {
+				$result = $hookResult;
+			}
+		);
+
+		$actual = $testObject->canSkipCaptcha( $user, RequestContext::getMain()->getConfig() );
+
+		$this->assertEquals( $expected, $actual );
+	}
+
+	public function provideCanSkipCaptchaHook() {
+		return [
+			[ false, false, false ],
+			[ true, false, false ],
+			[ false, true, true ],
+			[ true, true, true ]
+		];
+	}
 }

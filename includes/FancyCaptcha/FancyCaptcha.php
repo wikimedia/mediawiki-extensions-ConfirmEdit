@@ -28,6 +28,8 @@ class FancyCaptcha extends SimpleCaptcha {
 	 */
 	protected static $messagePrefix = 'fancycaptcha-';
 
+	private ?FSFileBackend $backend = null;
+
 	/**
 	 * @return FileBackend
 	 */
@@ -39,9 +41,8 @@ class FancyCaptcha extends SimpleCaptcha {
 				->get( $wgCaptchaFileBackend );
 		}
 
-		static $backend = null;
-		if ( !$backend ) {
-			$backend = new FSFileBackend( [
+		if ( !$this->backend ) {
+			$this->backend = new FSFileBackend( [
 				'name'           => 'captcha-backend',
 				'wikiId'         => WikiMap::getCurrentWikiId(),
 				'lockManager'    => new NullLockManager( [] ),
@@ -52,7 +53,7 @@ class FancyCaptcha extends SimpleCaptcha {
 			] );
 		}
 
-		return $backend;
+		return $this->backend;
 	}
 
 	/**

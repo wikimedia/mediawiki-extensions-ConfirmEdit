@@ -10,6 +10,7 @@ use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
@@ -124,7 +125,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	}
 
 	/** @inheritDoc */
-	public function getFormInformation( $tabIndex = 1 ) {
+	public function getFormInformation( $tabIndex = 1, ?OutputPage $out = null ) {
 		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
 		$info = $this->getCaptcha();
 		$index = $this->storeCaptcha( $info );

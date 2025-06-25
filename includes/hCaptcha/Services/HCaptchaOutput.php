@@ -31,7 +31,7 @@ class HCaptchaOutput {
 	/**
 	 * Returns the HTML needed to add HCaptcha to a form.
 	 *
-	 * This method also adds other required script tag to the provided output page.
+	 * This method also adds other required script tags and ResourceLoader modules to the provided OutputPage.
 	 *
 	 * @param OutputPage $outputPage
 	 * @param bool $previouslyFailedHCaptcha Whether the user has failed HCaptcha for a previous attempt at
@@ -41,6 +41,7 @@ class HCaptchaOutput {
 	public function addHCaptchaToForm( OutputPage $outputPage, bool $previouslyFailedHCaptcha ): string {
 		$siteKey = $this->options->get( 'HCaptchaSiteKey' );
 		$output = Html::element( 'div', [
+			'id' => 'h-captcha',
 			'class' => [
 				'h-captcha',
 				'mw-confirmedit-captcha-fail' => $previouslyFailedHCaptcha,
@@ -48,11 +49,23 @@ class HCaptchaOutput {
 			'data-sitekey' => $siteKey,
 		] );
 
-		$hCaptchaApiUrl = $this->options->get( 'HCaptchaApiUrl' );
-		$outputPage->addHeadItem(
-			'h-captcha',
-			Html::element( 'script', [ 'src' => $hCaptchaApiUrl, 'async', 'defer' ] )
-		);
+		$useSecureEnclave = $this->options->get( 'HCaptchaEnterprise' ) &&
+			$this->options->get( 'HCaptchaSecureEnclave' );
+		if ( $useSecureEnclave ) {
+			$output .= Html::hidden( 'h-captcha-response', '', [ 'id' => 'h-captcha-response' ] );
+		} else {
+			$hCaptchaApiUrl = $this->options->get( 'HCaptchaApiUrl' );
+			$outputPage->addHeadItem(
+				'h-captcha',
+				Html::element( 'script', [ 'src' => $hCaptchaApiUrl, 'async', 'defer' ] )
+			);
+		}
+
+		// Load the hCaptcha module if we are adding the hCaptcha field. This will handle the secure enclave mode if
+		// it is enabled.
+		$outputPage->addModules( 'ext.confirmEdit.hCaptcha' );
+		$outputPage->addJsConfigVars( 'hCaptchaApiUrl', $this->options->get( 'HCaptchaApiUrl' ) );
+		$outputPage->addJsConfigVars( 'hCaptchaUseSecureEnclave', $useSecureEnclave );
 
 		if ( $this->options->get( 'HCaptchaPassiveMode' ) ) {
 			$output .= $outputPage->msg( 'hcaptcha-privacy-policy' )->parse();

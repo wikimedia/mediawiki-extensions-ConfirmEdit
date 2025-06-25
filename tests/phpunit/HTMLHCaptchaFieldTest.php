@@ -29,6 +29,8 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$defaultSrcs = [];
 		$scriptSrcs = [];
 		$styleSrcs = [];
+		$modules = [];
+		$jsConfigVars = [];
 
 		$csp = $this->createMock( ContentSecurityPolicy::class );
 		$csp->method( 'addDefaultSrc' )
@@ -44,10 +46,13 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				$styleSrcs[] = $src;
 			} );
 
+		$shouldSecureEnclaveModeBeEnabled = $configOverrides['HCaptchaEnterprise'] &&
+			$configOverrides['HCaptchaSecureEnclave'];
+
 		$output = $this->createMock( OutputPage::class );
 		$output->method( 'getCSP' )
 			->willReturn( $csp );
-		$output->expects( $this->once() )
+		$output->expects( $shouldSecureEnclaveModeBeEnabled ? $this->never() : $this->once() )
 			->method( 'addHeadItem' )
 			->with(
 				'h-captcha',
@@ -55,6 +60,18 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			);
 		$output->method( 'msg' )
 			->willReturnCallback( static fn ( $key ) => wfMessage( $key ) );
+		$output->method( 'addModules' )
+			->willReturnCallback( static function ( $module ) use ( &$modules ): void {
+				$modules[] = $module;
+			} );
+		$output->method( 'addJsConfigVars' )
+			->willReturnCallback( static function ( $key, $value ) use ( &$jsConfigVars ): void {
+				if ( is_array( $key ) ) {
+					$jsConfigVars = array_merge( $jsConfigVars, $key );
+				} else {
+					$jsConfigVars[$key] = $value;
+				}
+			} );
 
 		$context = RequestContext::getMain();
 		$context->setLanguage( 'qqx' );
@@ -69,6 +86,15 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $configOverrides['HCaptchaCSPRules'], $defaultSrcs );
 		$this->assertSame( $configOverrides['HCaptchaCSPRules'], $styleSrcs );
 		$this->assertSame( $configOverrides['HCaptchaCSPRules'], $scriptSrcs );
+
+		$this->assertSame( [ 'ext.confirmEdit.hCaptcha' ], $modules );
+		$this->assertArrayEquals(
+			[
+				'hCaptchaApiUrl' => 'https://hcaptcha.example.com/api',
+				'hCaptchaUseSecureEnclave' => $shouldSecureEnclaveModeBeEnabled,
+			],
+			$jsConfigVars, false, true
+		);
 	}
 
 	public static function provideOptions(): iterable {
@@ -85,9 +111,11 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaPassiveMode' => false,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
+				'HCaptchaEnterprise' => false,
+				'HCaptchaSecureEnclave' => false,
 			],
 			[],
-			"<div class=\"h-captcha\" data-sitekey=\"$testSiteKey\"></div>"
+			"<div id=\"h-captcha\" class=\"h-captcha\" data-sitekey=\"$testSiteKey\"></div>"
 		];
 
 		yield 'passive mode, no prior error' => [
@@ -96,9 +124,11 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaPassiveMode' => true,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
+				'HCaptchaEnterprise' => false,
+				'HCaptchaSecureEnclave' => false,
 			],
 			[],
-			"<div class=\"h-captcha\" data-sitekey=\"$testSiteKey\"></div>(hcaptcha-privacy-policy)"
+			"<div id=\"h-captcha\" class=\"h-captcha\" data-sitekey=\"$testSiteKey\"></div>(hcaptcha-privacy-policy)"
 		];
 
 		yield 'active mode, prior error set' => [
@@ -107,9 +137,11 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaPassiveMode' => false,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
+				'HCaptchaEnterprise' => false,
+				'HCaptchaSecureEnclave' => false,
 			],
 			[ 'error' => 'some-error' ],
-			"<div class=\"h-captcha mw-confirmedit-captcha-fail\" data-sitekey=\"$testSiteKey\"></div>"
+			"<div id=\"h-captcha\" class=\"h-captcha mw-confirmedit-captcha-fail\" data-sitekey=\"$testSiteKey\"></div>"
 		];
 
 		yield 'passive mode, prior error set' => [
@@ -118,10 +150,55 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaPassiveMode' => true,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
+				'HCaptchaEnterprise' => false,
+				'HCaptchaSecureEnclave' => false,
 			],
 			[ 'error' => 'some-error' ],
-			"<div class=\"h-captcha mw-confirmedit-captcha-fail\" data-sitekey=\"$testSiteKey\"></div>" .
-			"(hcaptcha-privacy-policy)"
+			"<div id=\"h-captcha\" class=\"h-captcha mw-confirmedit-captcha-fail\" " .
+				"data-sitekey=\"$testSiteKey\"></div>(hcaptcha-privacy-policy)"
+		];
+
+		yield 'active mode, secure enclave mode enabled without enterprise mode enabled' => [
+			[
+				'HCaptchaApiUrl' => $testApiUrl,
+				'HCaptchaPassiveMode' => false,
+				'HCaptchaCSPRules' => $testCspRules,
+				'HCaptchaSiteKey' => $testSiteKey,
+				'HCaptchaEnterprise' => false,
+				'HCaptchaSecureEnclave' => true,
+			],
+			[ 'error' => 'some-error' ],
+			"<div id=\"h-captcha\" class=\"h-captcha mw-confirmedit-captcha-fail\" data-sitekey=\"$testSiteKey\"></div>"
+		];
+
+		yield 'active mode, secure enclave mode enabled' => [
+			[
+				'HCaptchaApiUrl' => $testApiUrl,
+				'HCaptchaPassiveMode' => false,
+				'HCaptchaCSPRules' => $testCspRules,
+				'HCaptchaSiteKey' => $testSiteKey,
+				'HCaptchaEnterprise' => true,
+				'HCaptchaSecureEnclave' => true,
+			],
+			[ 'error' => 'some-error' ],
+			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
+				"data-sitekey=\"$testSiteKey\"></div>" .
+				'<input id="h-captcha-response" type="hidden" name="h-captcha-response">',
+		];
+
+		yield 'passive mode, secure enclave mode enabled' => [
+			[
+				'HCaptchaApiUrl' => $testApiUrl,
+				'HCaptchaPassiveMode' => true,
+				'HCaptchaCSPRules' => $testCspRules,
+				'HCaptchaSiteKey' => $testSiteKey,
+				'HCaptchaEnterprise' => true,
+				'HCaptchaSecureEnclave' => true,
+			],
+			[ 'error' => 'some-error' ],
+			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
+				"data-sitekey=\"$testSiteKey\"></div>" .
+				'<input id="h-captcha-response" type="hidden" name="h-captcha-response">(hcaptcha-privacy-policy)',
 		];
 	}
 }

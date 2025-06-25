@@ -16,6 +16,7 @@ use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\Html\Html;
+use MediaWiki\Output\OutputPage;
 
 class QuestyCaptcha extends SimpleCaptcha {
 	/**
@@ -63,11 +64,8 @@ class QuestyCaptcha extends SimpleCaptcha {
 		return [ 'question' => $question, 'answer' => $answer ];
 	}
 
-	/**
-	 * @param int $tabIndex
-	 * @return array
-	 */
-	public function getFormInformation( $tabIndex = 1 ) {
+	/** @inheritDoc */
+	public function getFormInformation( $tabIndex = 1, ?OutputPage $out = null ) {
 		$captcha = $this->getCaptcha();
 		if ( !$captcha ) {
 			die(

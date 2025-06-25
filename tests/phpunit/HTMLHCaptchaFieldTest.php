@@ -3,6 +3,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Test;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\MockHCaptchaConfigTrait;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\ContentSecurityPolicy;
@@ -10,8 +11,11 @@ use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField
+ * @covers \MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput
  */
 class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
+	use MockHCaptchaConfigTrait;
+
 	/**
 	 * @dataProvider provideOptions
 	 */
@@ -49,6 +53,8 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'h-captcha',
 				"<script src=\"{$configOverrides['HCaptchaApiUrl']}\" async defer></script>"
 			);
+		$output->method( 'msg' )
+			->willReturnCallback( static fn ( $key ) => wfMessage( $key ) );
 
 		$context = RequestContext::getMain();
 		$context->setLanguage( 'qqx' );
@@ -78,8 +84,9 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaApiUrl' => $testApiUrl,
 				'HCaptchaPassiveMode' => false,
 				'HCaptchaCSPRules' => $testCspRules,
+				'HCaptchaSiteKey' => $testSiteKey,
 			],
-			[ 'key' => $testSiteKey ],
+			[],
 			"<div class=\"h-captcha\" data-sitekey=\"$testSiteKey\"></div>"
 		];
 
@@ -88,8 +95,9 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaApiUrl' => $testApiUrl,
 				'HCaptchaPassiveMode' => true,
 				'HCaptchaCSPRules' => $testCspRules,
+				'HCaptchaSiteKey' => $testSiteKey,
 			],
-			[ 'key' => $testSiteKey ],
+			[],
 			"<div class=\"h-captcha\" data-sitekey=\"$testSiteKey\"></div>(hcaptcha-privacy-policy)"
 		];
 
@@ -98,8 +106,9 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaApiUrl' => $testApiUrl,
 				'HCaptchaPassiveMode' => false,
 				'HCaptchaCSPRules' => $testCspRules,
+				'HCaptchaSiteKey' => $testSiteKey,
 			],
-			[ 'key' => $testSiteKey, 'error' => 'some-error' ],
+			[ 'error' => 'some-error' ],
 			"<div class=\"h-captcha mw-confirmedit-captcha-fail\" data-sitekey=\"$testSiteKey\"></div>"
 		];
 
@@ -108,8 +117,9 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaApiUrl' => $testApiUrl,
 				'HCaptchaPassiveMode' => true,
 				'HCaptchaCSPRules' => $testCspRules,
+				'HCaptchaSiteKey' => $testSiteKey,
 			],
-			[ 'key' => $testSiteKey, 'error' => 'some-error' ],
+			[ 'error' => 'some-error' ],
 			"<div class=\"h-captcha mw-confirmedit-captcha-fail\" data-sitekey=\"$testSiteKey\"></div>" .
 			"(hcaptcha-privacy-policy)"
 		];

@@ -7,13 +7,14 @@ use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
-use MediaWiki\Html\Html;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Session\SessionManager;
@@ -30,42 +31,23 @@ class HCaptcha extends SimpleCaptcha {
 	/** @var string|null */
 	private $error = null;
 
-	/** @var Config */
-	private $hCaptchaConfig;
-
-	/** @var string */
-	private $siteKey;
+	private Config $hCaptchaConfig;
+	private HCaptchaOutput $hCaptchaOutput;
 
 	public function __construct() {
-		$this->hCaptchaConfig = MediaWikiServices::getInstance()->getMainConfig();
-		$this->siteKey = $this->hCaptchaConfig->get( 'HCaptchaSiteKey' );
+		$services = MediaWikiServices::getInstance();
+		$this->hCaptchaConfig = $services->getMainConfig();
+		$this->hCaptchaOutput = $services->get( 'HCaptchaOutput' );
 	}
 
-	/**
-	 * Get the captcha form.
-	 * @param int $tabIndex
-	 * @return array
-	 */
-	public function getFormInformation( $tabIndex = 1 ) {
-		$output = Html::element( 'div', [
-			'class' => [
-				'h-captcha',
-				'mw-confirmedit-captcha-fail' => (bool)$this->error,
-			],
-			'data-sitekey' => $this->siteKey
-		] );
-
-		if ( $this->hCaptchaConfig->get( 'HCaptchaPassiveMode' ) ) {
-			// Uses hcaptcha-privacy-policy; but not called with hcaptcha-prefix
-			$output .= $this->getMessage( 'privacy-policy' )->parse();
+	/** @inheritDoc */
+	public function getFormInformation( $tabIndex = 1, ?OutputPage $out = null ) {
+		if ( $out === null ) {
+			$out = RequestContext::getMain()->getOutput();
 		}
 
-		$url = $this->hCaptchaConfig->get( 'HCaptchaApiUrl' );
 		return [
-			'html' => $output,
-			'headitems' => [
-				"<script src=\"$url\" async defer></script>"
-			]
+			'html' => $this->hCaptchaOutput->addHCaptchaToForm( $out, (bool)$this->error ),
 		];
 	}
 
@@ -189,7 +171,7 @@ class HCaptcha extends SimpleCaptcha {
 		return [
 			'type' => 'hcaptcha',
 			'mime' => 'application/javascript',
-			'key' => $this->siteKey,
+			'key' => $this->hCaptchaConfig->get( 'HCaptchaSiteKey' ),
 		];
 	}
 
@@ -256,7 +238,6 @@ class HCaptcha extends SimpleCaptcha {
 
 		$formDescriptor['captchaWord'] = [
 			'class' => HTMLHCaptchaField::class,
-			'key' => $this->siteKey,
 			'error' => $captcha->getError(),
 		] + $formDescriptor['captchaWord'];
 	}

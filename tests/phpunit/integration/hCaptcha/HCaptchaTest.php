@@ -2,11 +2,15 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 
+use MediaWiki\Api\ApiRawMessage;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Tests\Integration\MockHCaptchaConfigTrait;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MainConfigNames;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Status\Status;
@@ -22,6 +26,49 @@ use StatusValue;
 class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	use MockHCaptchaConfigTrait;
 	use MockHttpTrait;
+
+	public function testGetFormInformationWhenNoError() {
+		// Mock the HCaptchaOutput service to expect a call and return mock HTML. We test that service through
+		// the tests in HTMLHCaptchaField, so don't need to repeat the tests here.
+		$mockHCaptchaOutput = $this->createMock( HCaptchaOutput::class );
+		$mockHCaptchaOutput->expects( $this->once() )
+			->method( 'addHCaptchaToForm' )
+			->with( RequestContext::getMain()->getOutput(), false )
+			->willReturn( 'mock html' );
+		$this->setService( 'HCaptchaOutput', $mockHCaptchaOutput );
+
+		$hCaptcha = new HCaptcha();
+		$this->assertSame( [ 'html' => 'mock html' ], $hCaptcha->getFormInformation() );
+	}
+
+	public function testGetFormInformationWhenCaptchaHasError() {
+		$mockOutputPage = $this->createMock( OutputPage::class );
+
+		// Mock the HCaptchaOutput service to expect a call and return mock HTML. We test that service through
+		// the tests in HTMLHCaptchaField, so don't need to repeat the tests here.
+		$mockHCaptchaOutput = $this->createMock( HCaptchaOutput::class );
+		$mockHCaptchaOutput->expects( $this->once() )
+			->method( 'addHCaptchaToForm' )
+			->with( $mockOutputPage, true )
+			->willReturn( 'mock html' );
+		$this->setService( 'HCaptchaOutput', $mockHCaptchaOutput );
+
+		// Mock that the site-verify URL call will fail with a HTTP 500 error so that we get an error for
+		// the form information.
+		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
+		$mwHttpRequest->method( 'execute' )
+			->willReturn( Status::wrap( StatusValue::newFatal( new ApiRawMessage( 'Some error' ) ) ) );
+		$mwHttpRequest->method( 'getStatus' )
+			->willReturn( 500 );
+		$this->installMockHttp( $mwHttpRequest );
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->passCaptchaFromRequest(
+			new FauxRequest(), $this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
+		);
+		$this->assertSame( 'http', $hCaptcha->getError() );
+		$this->assertSame( [ 'html' => 'mock html' ], $hCaptcha->getFormInformation( 1, $mockOutputPage ) );
+	}
 
 	public function testPassCaptchaForHttpError() {
 		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );

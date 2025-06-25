@@ -93,6 +93,8 @@
 			"packageFiles": [
 				"ext.confirmEdit.hCaptcha/init.js",
 				"ext.confirmEdit.hCaptcha/secureEnclave.js",
+				"ext.confirmEdit.hCaptcha/ProgressIndicatorWidget.js",
+				"ext.confirmEdit.hCaptcha/ErrorWidget.js",
 				{
 					"name": "ext.confirmEdit.hCaptcha/config.json",
 					"config": [
@@ -101,8 +103,34 @@
 						"HCaptchaSecureEnclave"
 					]
 				}
+			],
+			"styles": [
+				"ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha.css"
+			],
+			"messages": [
+				"hcaptcha-load-error",
+				"hcaptcha-challenge-closed",
+				"hcaptcha-challenge-expired",
+				"hcaptcha-rate-limited",
+				"hcaptcha-loading-indicator-label",
+				"hcaptcha-unknown-error"
+			],
+			"dependencies": [
+				"codex-styles"
 			]
 		}
+	},
+	"QUnitTestModule": {
+		"localBasePath": "../tests/qunit/ext.confirmEdit.hCaptcha/",
+		"remoteExtPath": "ConfirmEdit/tests/qunit/ext.confirmEdit.hCaptcha/",
+		"scripts": [
+			"secureEnclave.test.js",
+			"ErrorWidget.test.js",
+			"ProgressIndicatorWidget.test.js"
+		],
+		"dependencies": [
+			"ext.confirmEdit.hCaptcha"
+		]
 	},
 	"attributes": {
 		"VisualEditor": {

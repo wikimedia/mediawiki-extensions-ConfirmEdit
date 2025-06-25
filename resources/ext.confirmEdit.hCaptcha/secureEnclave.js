@@ -1,38 +1,144 @@
-/* global hcaptcha:false */
-
 const config = require( './config.json' );
+const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
+const ErrorWidget = require( './ErrorWidget.js' );
 
 /**
  * Load hCaptcha in Secure Enclave mode.
+ *
+ * @param {Window} win
+ * @return {Promise<void>} A promise that resolves if hCaptcha failed to initialize,
+ * or after the first time the user attempts to submit the form and hCaptcha finishes running.
  */
-function useSecureEnclave() {
-	// NOTE: Use hCaptcha's onload parameter rather than the return value of getScript()
-	// to run init code, as the latter would run it too early and use a potentially inconsistent config.
-	window.onHCaptchaSDKLoaded = () => {
-		const captchaID = hcaptcha.render(
-			'h-captcha',
-			{
-				callback: function ( token ) {
-					// handle hCaptcha response token
-					// eslint-disable-next-line no-jquery/no-global-selector
-					$( '#h-captcha-response' ).val( token );
-				}
-			}
-		);
+async function useSecureEnclave( win ) {
+	// eslint-disable-next-line no-jquery/no-global-selector
+	const $hCaptchaField = $( '#h-captcha' );
+	if ( !$hCaptchaField.length ) {
+		return;
+	}
 
-		hcaptcha.execute( captchaID );
+	const $form = $hCaptchaField.closest( 'form' );
+	if ( !$form.length ) {
+		return;
+	}
+
+	const loadingIndicator = new ProgressIndicatorWidget(
+		mw.msg( 'hcaptcha-loading-indicator-label' )
+	);
+	loadingIndicator.$element.addClass( 'ext-confirmEdit-hCaptchaLoadingIndicator' );
+
+	const errorWidget = new ErrorWidget();
+
+	$hCaptchaField.after( loadingIndicator.$element, errorWidget.$element );
+
+	const hCaptchaLoaded = new Promise( ( resolve, reject ) => {
+		// NOTE: Use hCaptcha's onload parameter rather than the return value of getScript()
+		// to run init code, as the latter would run it too early and use
+		// a potentially inconsistent config.
+		win.onHCaptchaSDKLoaded = resolve;
+
+		const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
+		hCaptchaApiUrl.searchParams.set( 'onload', 'onHCaptchaSDKLoaded' );
+
+		mw.loader.getScript( hCaptchaApiUrl.toString() )
+			.catch( () => {
+				mw.errorLogger.logError(
+					new Error( 'Unable to load hCaptcha script in secure enclave mode' ),
+					'error.confirmedit'
+				);
+
+				reject();
+			} );
+	} );
+
+	// Map of hCaptcha error codes to error message keys.
+	const errorMap = {
+		// Custom error code used to map getScript() failures into a user-visible error.
+		'wmf-hcaptcha-load-error': 'hcaptcha-load-error',
+		'rate-limited': 'hcaptcha-rate-limited',
+		'network-error': 'hcaptcha-load-error',
+		'challenge-closed': 'hcaptcha-challenge-closed',
+		'challenge-expired': 'hcaptcha-challenge-expired'
 	};
 
-	const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
-	hCaptchaApiUrl.searchParams.set( 'onload', 'onHCaptchaSDKLoaded' );
+	// Errors that can be recovered from by restarting the workflow.
+	const recoverableErrors = [
+		'challenge-closed',
+		'challenge-expired'
+	];
 
-	mw.loader.getScript( hCaptchaApiUrl.toString() )
-		.catch( () => {
-			mw.errorLogger.logError(
-				new Error( 'Unable to load hCaptcha script in secure enclave mode' ),
-				'error.confirmedit'
+	const captchaIdPromise = hCaptchaLoaded.then( () => win.hcaptcha.render( 'h-captcha' ) );
+
+	/**
+	 * Trigger a single hCaptcha workflow execution.
+	 *
+	 * @return {Promise<void>} A promise that resolves if hCaptcha failed to initialize,
+	 * or after the first time the user attempts to submit the form and hCaptcha finishes running.
+	 */
+	const executeWorkflow = async function () {
+		$form.off( 'submit.hCaptcha' );
+
+		const result = captchaIdPromise
+			.then(
+				( captchaID ) => {
+					loadingIndicator.$element.show();
+					return win.hcaptcha.execute( captchaID, { async: true } );
+				},
+				// Map getScript() failures into a user-visible error.
+				// eslint-disable-next-line unicorn/no-useless-promise-resolve-reject
+				() => Promise.reject( 'wmf-hcaptcha-load-error' )
+			)
+			.then(
+				( { response } ) => {
+					loadingIndicator.$element.hide();
+					// Clear out any errors from a previous workflow.
+					errorWidget.hide();
+					// handle hCaptcha response token
+					$form.find( '#h-captcha-response' ).val( response );
+				},
+				// Convert recoverable errors into a resolved value
+				// so that we can delay showing them until the first submit attempt.
+				( error ) => {
+					loadingIndicator.$element.hide();
+					return recoverableErrors.includes( error ) ? error : Promise.reject( error );
+				}
 			);
+
+		const formSubmitted = new Promise( ( resolve ) => {
+			$form.on( 'submit.hCaptcha', function ( event ) {
+				event.preventDefault();
+
+				resolve( this );
+			} );
 		} );
+
+		try {
+			const [ error, form ] = await Promise.all( [ result, formSubmitted ] );
+			if ( !error ) {
+				form.submit();
+				return;
+			}
+
+			// Show an error message for recoverable errors and initiate a new workflow.
+			// Possible message keys used here:
+			// * hcaptcha-challenge-closed
+			// * hcaptcha-challenge-expired
+			errorWidget.show( mw.msg( errorMap[ error ] ) );
+			return executeWorkflow();
+		} catch ( error ) {
+			// Handle unrecoverable errors.
+			const errMsg = Object.prototype.hasOwnProperty.call( errorMap, error ) ?
+				errorMap[ error ] :
+				'hcaptcha-unknown-error';
+
+			// Possible message keys used here:
+			// * hcaptcha-load-error
+			// * hcaptcha-rate-limited
+			// * hcaptcha-unknown-error
+			errorWidget.show( mw.msg( errMsg ) );
+		}
+	};
+
+	return executeWorkflow();
 }
 
 module.exports = useSecureEnclave;

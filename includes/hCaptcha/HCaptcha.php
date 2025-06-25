@@ -37,8 +37,7 @@ class HCaptcha extends SimpleCaptcha {
 	private $siteKey;
 
 	public function __construct() {
-		$this->hCaptchaConfig = MediaWikiServices::getInstance()->getConfigFactory()
-			->makeConfig( 'hcaptcha' );
+		$this->hCaptchaConfig = MediaWikiServices::getInstance()->getMainConfig();
 		$this->siteKey = $this->hCaptchaConfig->get( 'HCaptchaSiteKey' );
 	}
 
@@ -174,7 +173,7 @@ class HCaptcha extends SimpleCaptcha {
 
 		// T379179 - Put the hCaptcha score into the global session so that it can be picked up by other users,
 		// such as Extension:Campaigns
-		SessionManager::getGlobalSession()->set( 'hCaptcha-score', $json['score'] );
+		SessionManager::getGlobalSession()->set( 'hCaptcha-score', $json['score'] ?? null );
 
 		return $json['success'];
 	}

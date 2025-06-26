@@ -9,6 +9,7 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Html\Html;
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Utils\MWTimestamp;
@@ -90,11 +91,17 @@ class FancyCaptcha extends SimpleCaptcha {
 		$digest = $wgCaptchaSecret . $info['salt'] . $answer . $wgCaptchaSecret . $info['salt'];
 		$answerHash = substr( md5( $digest ), 0, 16 );
 
+		$logger = LoggerFactory::getInstance( 'captcha' );
 		if ( $answerHash == $info['hash'] ) {
-			wfDebug( "FancyCaptcha: answer hash matches expected {$info['hash']}\n" );
+			$logger->debug(
+				'FancyCaptcha: answer hash matches expected {expected_hash}', [ 'expected_hash' => $info['hash'] ]
+			);
 			return true;
 		} else {
-			wfDebug( "FancyCaptcha: answer hashes to $answerHash, expected {$info['hash']}\n" );
+			$logger->debug(
+				'FancyCaptcha: answer hashes to {answer_hash}, expected {expected_hash}',
+				[ 'answer_hash' => $answerHash, 'expected_hash' => $info['hash'] ]
+			);
 			return false;
 		}
 	}

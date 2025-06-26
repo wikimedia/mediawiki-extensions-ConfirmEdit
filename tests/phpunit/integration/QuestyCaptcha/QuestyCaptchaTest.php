@@ -1,6 +1,9 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\QuestyCaptcha;
+
 use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha

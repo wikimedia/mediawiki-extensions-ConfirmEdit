@@ -4,6 +4,7 @@
 
 namespace MediaWiki\Extension\ConfirmEdit;
 
+use BadMethodCallException;
 use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
 use MediaWiki\Content\Content;
 use MediaWiki\Context\IContextSource;
@@ -77,6 +78,19 @@ class Hooks implements
 
 		static::$instance ??= new $className;
 		return static::$instance;
+	}
+
+	/**
+	 * Clears the global Catpcha instance for testing
+	 *
+	 * @internal Only for use in PHPUnit tests.
+	 * @return void
+	 */
+	public static function unsetInstanceForTests() {
+		if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
+			throw new BadMethodCallException( 'Cannot unset ' . __CLASS__ . ' instance in operation.' );
+		}
+		static::$instance = null;
 	}
 
 	/** @inheritDoc */

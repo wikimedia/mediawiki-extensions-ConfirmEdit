@@ -49,7 +49,10 @@ class HCaptchaOutput {
 		] );
 
 		$hCaptchaApiUrl = $this->options->get( 'HCaptchaApiUrl' );
-		$outputPage->addHeadItem( 'h-captcha', "<script src=\"$hCaptchaApiUrl\" async defer></script>" );
+		$outputPage->addHeadItem(
+			'h-captcha',
+			Html::element( 'script', [ 'src' => $hCaptchaApiUrl, 'async', 'defer' ] )
+		);
 
 		if ( $this->options->get( 'HCaptchaPassiveMode' ) ) {
 			$output .= $outputPage->msg( 'hcaptcha-privacy-policy' )->parse();

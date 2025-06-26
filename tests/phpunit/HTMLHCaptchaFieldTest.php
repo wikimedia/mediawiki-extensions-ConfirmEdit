@@ -51,7 +51,7 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			->method( 'addHeadItem' )
 			->with(
 				'h-captcha',
-				"<script src=\"{$configOverrides['HCaptchaApiUrl']}\" async defer></script>"
+				"<script src=\"{$configOverrides['HCaptchaApiUrl']}\" async=\"\" defer=\"\"></script>"
 			);
 		$output->method( 'msg' )
 			->willReturnCallback( static fn ( $key ) => wfMessage( $key ) );

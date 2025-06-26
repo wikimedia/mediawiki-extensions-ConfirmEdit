@@ -21,6 +21,10 @@
  * @author Aaron Schulz
  * @ingroup Maintenance
  */
+
+namespace MediaWiki\Extension\ConfirmEdit\Maintenance;
+
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -28,12 +32,17 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
+use FilesystemIterator;
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Shell\Shell;
 use MediaWiki\Status\Status;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use SplFileInfo;
 
 /**
  * Maintenance script to generate fancy captchas using a python script and copy them into storage.
@@ -309,5 +318,7 @@ class GenerateFancyCaptchas extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = GenerateFancyCaptchas::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

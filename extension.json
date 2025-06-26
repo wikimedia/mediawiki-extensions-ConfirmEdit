@@ -60,7 +60,8 @@
 	},
 	"AutoloadClasses": {
 		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\CountFancyCaptchas": "maintenance/CountFancyCaptchas.php",
-		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\DeleteOldFancyCaptchas": "maintenance/DeleteOldFancyCaptchas.php"
+		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\DeleteOldFancyCaptchas": "maintenance/DeleteOldFancyCaptchas.php",
+		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\GenerateFancyCaptchas": "maintenance/GenerateFancyCaptchas.php"
 	},
 	"ResourceModules": {
 		"ext.confirmEdit.editPreview.ipwhitelist.styles": {

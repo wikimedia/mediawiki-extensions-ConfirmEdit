@@ -59,7 +59,8 @@
 		"MediaWiki\\Extension\\ConfirmEdit\\": "includes/"
 	},
 	"AutoloadClasses": {
-		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\CountFancyCaptchas": "maintenance/CountFancyCaptchas.php"
+		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\CountFancyCaptchas": "maintenance/CountFancyCaptchas.php",
+		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\DeleteOldFancyCaptchas": "maintenance/DeleteOldFancyCaptchas.php"
 	},
 	"ResourceModules": {
 		"ext.confirmEdit.editPreview.ipwhitelist.styles": {

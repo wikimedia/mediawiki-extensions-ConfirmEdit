@@ -56,6 +56,10 @@
 		"HCaptchaSecureEnclave": {
 			"description": "Whether to use hCaptcha's Secure Enclave mode. If enabled, then $wgHCaptchaEnterprise must be true (because it is an Enterprise feature). You will need to modify $wgHCaptchaApiUrl as appropriate, such as to use https://js.hcaptcha.com/1/secure-api.js - See https://docs.hcaptcha.com/enterprise/secure_enclave",
 			"value": false
+		},
+		"HCaptchaDeveloperMode": {
+			"description": "Whether to place hCaptcha integration in developer mode. When in developer mode, potentially sensitive information is logged to debug logs. DO NOT enable on production wikis.",
+			"value": false
 		}
 	},
 	"ConfigRegistry": {

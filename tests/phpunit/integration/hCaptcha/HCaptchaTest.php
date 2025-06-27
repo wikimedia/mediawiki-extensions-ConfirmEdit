@@ -179,8 +179,9 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/** @dataProvider providePassCaptcha */
-	public function testPassCaptcha( bool $captchaPassedSuccessfully, array $mockApiResponse ) {
+	public function testPassCaptcha( bool $captchaPassedSuccessfully, bool $developerMode, array $mockApiResponse ) {
 		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
+		$this->overrideConfigValue( 'HCaptchaDeveloperMode', $developerMode );
 
 		// Mock that the site-verify URL call to respond with a successful response
 		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
@@ -193,20 +194,26 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->installMockHttp( $mwHttpRequest );
 
 		// Expect that a debug log is created to indicate that the captcha either was solved or was not solved.
+		if ( $developerMode ) {
+			$expectedLogContext = [
+				'event' => 'captcha.solve',
+				'user' => '1.2.3.4',
+				'hcaptcha_success' => $mockApiResponse['success'],
+				'hcaptcha_score' => $mockApiResponse['score'] ?? null,
+				'hcaptcha_score_reason' => $mockApiResponse['score_reason'] ?? null,
+				'hcaptcha_blob' => $mockApiResponse,
+			];
+		} else {
+			$expectedLogContext = [
+				'event' => 'captcha.solve',
+				'user' => '1.2.3.4',
+				'hcaptcha_success' => $mockApiResponse['success'],
+			];
+		}
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
 			->method( 'debug' )
-			->with(
-				'Captcha solution attempt for {user}',
-				[
-					'event' => 'captcha.solve',
-					'user' => '1.2.3.4',
-					'hcaptcha_success' => $mockApiResponse['success'],
-					'hcaptcha_score' => $mockApiResponse['score'] ?? null,
-					'hcaptcha_score_reason' => $mockApiResponse['score_reason'] ?? null,
-					'hcaptcha_blob' => $mockApiResponse,
-				]
-			);
+			->with( 'Captcha solution attempt for {user}', $expectedLogContext );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha and expect that it passes
@@ -223,8 +230,28 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 
 	public static function providePassCaptcha(): array {
 		return [
-			'Passes hCaptcha check' => [ true, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ] ],
-			'Fails hCaptcha check, no score included in response' => [ false, [ 'success' => false ] ],
+			'Passes hCaptcha check, in developer mode' => [
+				true, true, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
+			],
+			'Passes hCaptcha check, not in developer mode' => [
+				true, false, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
+			],
+			'Fails hCaptcha check, in developer mode' => [
+				false, true, [ 'success' => false, 'score' => 123, 'score_reason' => 'test' ],
+			],
+			'Fails hCaptcha check, not in developer mode' => [
+				false, false, [ 'success' => false, 'score' => 123, 'score_reason' => 'test' ],
+			],
+			'Fails hCaptcha check, in developer mode, no score included in response' => [
+				false,
+				true,
+				[ 'success' => false ]
+			],
+			'Fails hCaptcha check, not in developer mode, no score included in response' => [
+				false,
+				false,
+				[ 'success' => false ]
+			],
 		];
 	}
 

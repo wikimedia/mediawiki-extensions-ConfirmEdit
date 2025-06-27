@@ -22,6 +22,7 @@ trait MockHCaptchaConfigTrait {
 				'https://*.hcaptcha.com',
 			],
 			'HCaptchaSecureEnclave' => false,
+			'HCaptchaDeveloperMode' => false,
 		] );
 	}
 }

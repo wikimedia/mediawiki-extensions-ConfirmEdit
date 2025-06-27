@@ -143,15 +143,20 @@ class HCaptcha extends SimpleCaptcha {
 			return false;
 		}
 
-		LoggerFactory::getInstance( 'captcha' )
-			->debug( 'Captcha solution attempt for {user}', [
-				'event' => 'captcha.solve',
-				'user' => $user->getName(),
-				'hcaptcha_success' => $json['success'],
+		$debugLogContext = [
+			'event' => 'captcha.solve',
+			'user' => $user->getName(),
+			'hcaptcha_success' => $json['success'],
+		];
+		if ( $this->hCaptchaConfig->get( 'HCaptchaDeveloperMode' ) ) {
+			$debugLogContext = array_merge( [
 				'hcaptcha_score' => $json['score'] ?? null,
 				'hcaptcha_score_reason' => $json['score_reason'] ?? null,
 				'hcaptcha_blob' => $json,
-			] );
+			], $debugLogContext );
+		}
+		LoggerFactory::getInstance( 'captcha' )
+			->debug( 'Captcha solution attempt for {user}', $debugLogContext );
 
 		// T379179 - Put the hCaptcha score into the global session so that it can be picked up by other users,
 		// such as Extension:Campaigns

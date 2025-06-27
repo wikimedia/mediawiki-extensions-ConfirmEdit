@@ -1,11 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\ReCaptchaNoCaptcha;
+
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\HTMLReCaptchaNoCaptchaField;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Title\Title;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\HTMLReCaptchaNoCaptchaField
@@ -27,7 +30,7 @@ class HTMLReCaptchaNoCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			],
 		], $context );
 
-		$mockClosure = $this->getMockBuilder( stdClass::class )
+		$mockClosure = $this->getMockBuilder( \stdClass::class )
 			->addMethods( [ '__invoke' ] )->getMock();
 		$mockClosure->expects( $this->once() )->method( '__invoke' )
 			->with( [ 'foo' => 'def' ] )->willReturn( true );

@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration;
+
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaHashStore;

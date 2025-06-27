@@ -1,5 +1,6 @@
 <?php
-namespace MediaWiki\Extension\ConfirmEdit\Test;
+
+namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;

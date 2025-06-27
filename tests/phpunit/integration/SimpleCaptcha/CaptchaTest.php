@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\SimpleCaptcha;
+
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
@@ -11,6 +13,8 @@ use MediaWiki\Request\FauxRequest;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MediaWikiIntegrationTestCase;
+use ReflectionClass;
 use Wikimedia\ScopedCallback;
 use Wikimedia\TestingAccessWrapper;
 

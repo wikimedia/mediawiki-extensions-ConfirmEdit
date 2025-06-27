@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Auth;
+
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Auth\UsernameAuthenticationRequest;
 use MediaWiki\Context\RequestContext;
@@ -13,6 +15,7 @@ use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Tests\Unit\Auth\AuthenticationProviderTestTrait;
 use MediaWiki\User\User;
+use MediaWikiIntegrationTestCase;
 use Wikimedia\TestingAccessWrapper;
 
 /**

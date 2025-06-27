@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\FancyCaptcha;
+
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\HTMLFancyCaptchaField;
@@ -7,6 +9,7 @@ use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\FancyCaptcha\HTMLFancyCaptchaField
@@ -28,7 +31,7 @@ class HTMLFancyCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testValue() {
-		$mockClosure = $this->getMockBuilder( stdClass::class )
+		$mockClosure = $this->getMockBuilder( \stdClass::class )
 			->addMethods( [ '__invoke' ] )->getMock();
 		$request = new FauxRequest( [ 'wpcaptchaWord' => 'abc' ], true );
 		$form = $this->getForm( [ 'imageUrl' => 'https://example.com/' ], $request );

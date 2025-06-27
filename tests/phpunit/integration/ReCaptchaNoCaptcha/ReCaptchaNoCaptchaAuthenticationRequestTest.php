@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\ReCaptchaNoCaptcha;
+
 use MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\ReCaptchaNoCaptchaAuthenticationRequest;
 use MediaWiki\Tests\Auth\AuthenticationRequestTestCase;
 

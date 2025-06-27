@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extension\ConfirmEdit\Test;
+namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration;
 
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\AbuseFilter\Consequences\Parameters;

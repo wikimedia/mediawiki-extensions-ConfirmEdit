@@ -52,6 +52,10 @@
 				"https://hcaptcha.com",
 				"https://*.hcaptcha.com"
 			]
+		},
+		"HCaptchaSecureEnclave": {
+			"description": "Whether to use hCaptcha's Secure Enclave mode. If enabled, then $wgHCaptchaEnterprise must be true (because it is an Enterprise feature). You will need to modify $wgHCaptchaApiUrl as appropriate, such as to use https://js.hcaptcha.com/1/secure-api.js - See https://docs.hcaptcha.com/enterprise/secure_enclave",
+			"value": false
 		}
 	},
 	"ConfigRegistry": {
@@ -72,6 +76,12 @@
 					"name": "ve-confirmedit-hCaptcha/config.json",
 					"callback": "MediaWiki\\Extension\\ConfirmEdit\\hCaptcha\\Hooks\\ResourceLoaderHooks::getHCaptchaResourceLoaderConfig"
 				}
+			]
+		},
+		"ext.confirmEdit.hCaptcha": {
+			"packageFiles": [
+				"init.js",
+				"secureEnclave.js"
 			]
 		}
 	},

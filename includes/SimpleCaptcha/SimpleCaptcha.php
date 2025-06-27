@@ -167,6 +167,9 @@ class SimpleCaptcha {
 	 * modules are ready.
 	 *
 	 * @param int $tabIndex Tab index to start from
+	 * @param OutputPage|null $out The OutputPage instance where associated with the form the captcha is being added
+	 *    to. If this is null, then the OutputPage object from the main request context is used. It is recommended
+	 *    to provide this and may be made required in the future.
 	 *
 	 * @return array Associative array with the following keys:
 	 *   string html - Main HTML
@@ -176,7 +179,7 @@ class SimpleCaptcha {
 	 *   array headitems (optional) - Head items (see OutputPage::addHeadItems), as a numeric array
 	 * 		of raw HTML strings. Do not use unless no other option is feasible.
 	 */
-	public function getFormInformation( $tabIndex = 1 ) {
+	public function getFormInformation( $tabIndex = 1, ?OutputPage $out = null ) {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
 
@@ -237,7 +240,7 @@ class SimpleCaptcha {
 	 * @param int $tabIndex See self::getFormInformation
 	 */
 	public function addFormToOutput( OutputPage $out, $tabIndex = 1 ) {
-		$this->addFormInformationToOutput( $out, $this->getFormInformation( $tabIndex ) );
+		$this->addFormInformationToOutput( $out, $this->getFormInformation( $tabIndex, $out ) );
 	}
 
 	/**
@@ -345,7 +348,7 @@ class SimpleCaptcha {
 			if ( $this->canSkipCaptcha( $user, $form->getConfig() ) ) {
 				return true;
 			}
-			$formInformation = $this->getFormInformation();
+			$formInformation = $this->getFormInformation( 1, $out );
 			$formMetainfo = $formInformation;
 			unset( $formMetainfo['html'] );
 			$this->addFormInformationToOutput( $out, $formMetainfo );

@@ -60,6 +60,10 @@
 		"HCaptchaDeveloperMode": {
 			"description": "Whether to place hCaptcha integration in developer mode. When in developer mode, potentially sensitive information is logged to debug logs. DO NOT enable on production wikis.",
 			"value": false
+		},
+		"HCaptchaUseRiskScore": {
+			"description": "Whether to use captcha risk signal. Unless specifically enabled or in developer mode, we do not want that sensitive information to be stored.",
+			"value": false
 		}
 	},
 	"ConfigRegistry": {

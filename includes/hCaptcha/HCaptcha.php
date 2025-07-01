@@ -158,10 +158,11 @@ class HCaptcha extends SimpleCaptcha {
 		LoggerFactory::getInstance( 'captcha' )
 			->debug( 'Captcha solution attempt for {user}', $debugLogContext );
 
-		// T379179 - Put the hCaptcha score into the global session so that it can be picked up by other users,
-		// such as Extension:Campaigns
-		SessionManager::getGlobalSession()->set( 'hCaptcha-score', $json['score'] ?? null );
-
+		if ( $this->hCaptchaConfig->get( 'HCaptchaDeveloperMode' )
+			|| $this->hCaptchaConfig->get( 'HCaptchaUseRiskScore' ) ) {
+			// T398333
+			$this->storeSessionScore( 'hCaptcha-score', $json['score'] ?? null );
+		}
 		return $json['success'];
 	}
 
@@ -204,6 +205,25 @@ class HCaptcha extends SimpleCaptcha {
 		// hCaptcha is stored externally, the ID will be generated at that time as well, and
 		// the one returned here won't be used. Just pretend this worked.
 		return 'not used';
+	}
+
+	/**
+	 * Store risk score in global session
+	 * @param string $sessionKey
+	 * @param mixed $score
+	 * @return void
+	 */
+	public function storeSessionScore( $sessionKey, $score ) {
+		SessionManager::getGlobalSession()->set( $sessionKey, $score );
+	}
+
+	/**
+	 * Retrieve session score from global session
+	 * @param string $sessionKey
+	 * @return mixed
+	 */
+	public function retrieveSessionScore( $sessionKey ) {
+		return SessionManager::getGlobalSession()->get( $sessionKey );
 	}
 
 	/** @inheritDoc */

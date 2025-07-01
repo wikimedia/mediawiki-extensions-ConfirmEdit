@@ -23,6 +23,7 @@ trait MockHCaptchaConfigTrait {
 			],
 			'HCaptchaSecureEnclave' => false,
 			'HCaptchaDeveloperMode' => false,
+			'HCaptchaUseRiskScore' => false,
 		] );
 	}
 }

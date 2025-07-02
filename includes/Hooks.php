@@ -95,7 +95,7 @@ class Hooks implements
 
 	/** @inheritDoc */
 	public function onEditFilterMergedContent( IContextSource $context, Content $content, Status $status,
-		$summary, User $user, $minorEdit
+		$summary, User $user, $minoredit
 	) {
 		$simpleCaptcha = self::getInstance();
 		// Set a flag indicating that ConfirmEdit's implementation of
@@ -103,7 +103,7 @@ class Hooks implements
 		// This can be checked by other MediaWiki extensions, e.g. AbuseFilter.
 		$simpleCaptcha->setEditFilterMergedContentHandlerInvoked();
 		return $simpleCaptcha->confirmEditMerged( $context, $content, $status, $summary,
-			$user, $minorEdit );
+			$user, $minoredit );
 	}
 
 	/** @inheritDoc */
@@ -129,8 +129,8 @@ class Hooks implements
 	}
 
 	/** @inheritDoc */
-	public function onEditPage__showEditForm_fields( $editPage, $out ) {
-		self::getInstance()->showEditFormFields( $editPage, $out );
+	public function onEditPage__showEditForm_fields( $editor, $out ) {
+		self::getInstance()->showEditFormFields( $editor, $out );
 	}
 
 	/** @inheritDoc */
@@ -255,7 +255,7 @@ class Hooks implements
 	}
 
 	/** @inheritDoc */
-	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
+	public function onResourceLoaderRegisterModules( ResourceLoader $rl ): void {
 		$extensionRegistry = ExtensionRegistry::getInstance();
 		$messages = [
 			'colon-separator',
@@ -273,7 +273,7 @@ class Hooks implements
 			$messages[] = 'fancycaptcha-imgcaptcha-ph';
 		}
 
-		$resourceLoader->register( [
+		$rl->register( [
 			'ext.confirmEdit.CaptchaInputWidget' => [
 				'localBasePath' => dirname( __DIR__ ),
 				'remoteExtPath' => 'ConfirmEdit',

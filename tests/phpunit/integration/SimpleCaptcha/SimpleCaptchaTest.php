@@ -21,7 +21,7 @@ use Wikimedia\TestingAccessWrapper;
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha
  */
-class CaptchaTest extends MediaWikiIntegrationTestCase {
+class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 	private const TEST_CAPTCHA_INDEX = 127;
 
 	/** @var ScopedCallback[] */

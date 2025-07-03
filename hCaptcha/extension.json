@@ -88,8 +88,8 @@
 		},
 		"ext.confirmEdit.hCaptcha": {
 			"packageFiles": [
-				"init.js",
-				"secureEnclave.js"
+				"ext.confirmEdit.hCaptcha/init.js",
+				"ext.confirmEdit.hCaptcha/secureEnclave.js"
 			]
 		}
 	},

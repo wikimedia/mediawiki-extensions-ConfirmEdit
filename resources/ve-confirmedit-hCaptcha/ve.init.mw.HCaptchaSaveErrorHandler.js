@@ -1,3 +1,5 @@
+const config = require( './config.json' );
+
 mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
 	mw.libs.ve.targetLoader.addPlugin( () => {
 		ve.init.mw.HCaptchaSaveErrorHandler = function () {};
@@ -9,8 +11,7 @@ mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
 		ve.init.mw.HCaptchaSaveErrorHandler.static.getReadyPromise = function () {
 			if ( !this.readyPromise ) {
 				const deferred = $.Deferred();
-				const config = require( './config.json' );
-				const scriptURL = new URL( config.hCaptchaScriptURL, location.href );
+				const scriptURL = new URL( config.HCaptchaApiUrl, location.href );
 				const onLoadFn = 'onHcaptchaLoadCallback' + Date.now();
 				scriptURL.searchParams.set( 'onload', onLoadFn );
 				scriptURL.searchParams.set( 'render', 'explicit' );
@@ -31,7 +32,7 @@ mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
 
 		ve.init.mw.HCaptchaSaveErrorHandler.static.process = function ( data, target ) {
 			const self = this,
-				siteKey = require( './config.json' ).hCaptchaSiteKey,
+				siteKey = config.HCaptchaSiteKey,
 				$container = $( '<div>' );
 
 			// Register extra fields

@@ -68,8 +68,6 @@ class HCaptchaOutput {
 		// Load the hCaptcha module if we are adding the hCaptcha field. This will handle the secure enclave mode if
 		// it is enabled.
 		$outputPage->addModules( 'ext.confirmEdit.hCaptcha' );
-		$outputPage->addJsConfigVars( 'hCaptchaApiUrl', $this->options->get( 'HCaptchaApiUrl' ) );
-		$outputPage->addJsConfigVars( 'hCaptchaUseSecureEnclave', $useSecureEnclave );
 
 		if ( $useInvisibleMode ) {
 			$output .= $outputPage->msg( 'hcaptcha-privacy-policy' )->parse();

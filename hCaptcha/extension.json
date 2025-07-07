@@ -82,14 +82,25 @@
 				"ve-confirmedit-hCaptcha/ve.init.mw.HCaptchaSaveErrorHandler.js",
 				{
 					"name": "ve-confirmedit-hCaptcha/config.json",
-					"callback": "MediaWiki\\Extension\\ConfirmEdit\\hCaptcha\\Hooks\\ResourceLoaderHooks::getHCaptchaResourceLoaderConfig"
+					"config": [
+						"HCaptchaSiteKey",
+						"HCaptchaApiUrl"
+					]
 				}
 			]
 		},
 		"ext.confirmEdit.hCaptcha": {
 			"packageFiles": [
 				"ext.confirmEdit.hCaptcha/init.js",
-				"ext.confirmEdit.hCaptcha/secureEnclave.js"
+				"ext.confirmEdit.hCaptcha/secureEnclave.js",
+				{
+					"name": "ext.confirmEdit.hCaptcha/config.json",
+					"config": [
+						"HCaptchaApiUrl",
+						"HCaptchaEnterprise",
+						"HCaptchaSecureEnclave"
+					]
+				}
 			]
 		}
 	},

@@ -89,13 +89,6 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $configOverrides['HCaptchaCSPRules'], $scriptSrcs );
 
 		$this->assertSame( [ 'ext.confirmEdit.hCaptcha' ], $modules );
-		$this->assertArrayEquals(
-			[
-				'hCaptchaApiUrl' => 'https://hcaptcha.example.com/api',
-				'hCaptchaUseSecureEnclave' => $shouldSecureEnclaveModeBeEnabled,
-			],
-			$jsConfigVars, false, true
-		);
 	}
 
 	public static function provideOptions(): iterable {

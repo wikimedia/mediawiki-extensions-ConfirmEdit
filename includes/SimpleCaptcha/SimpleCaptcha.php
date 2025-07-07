@@ -1186,11 +1186,11 @@ class SimpleCaptcha {
 
 	/**
 	 * Show a page explaining what this wacky thing is.
+	 *
+	 * @param OutputPage $out The OutputPage to add the help text to
 	 */
-	public function showHelp() {
-		$context = RequestContext::getMain();
-		$out = $context->getOutput();
-		$out->setPageTitleMsg( $context->msg( 'captchahelp-title' ) );
+	public function showHelp( OutputPage $out ) {
+		$out->setPageTitleMsg( $out->msg( 'captchahelp-title' ) );
 		$out->addWikiMsg( 'captchahelp-text' );
 		if ( CaptchaStore::get()->cookiesNeeded() ) {
 			$out->addWikiMsg( 'captchahelp-cookies-needed' );

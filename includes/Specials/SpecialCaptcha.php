@@ -23,6 +23,6 @@ class SpecialCaptcha extends UnlistedSpecialPage {
 			return;
 		}
 
-		$instance->showHelp();
+		$instance->showHelp( $this->getOutput() );
 	}
 }

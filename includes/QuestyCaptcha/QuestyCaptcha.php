@@ -11,7 +11,6 @@
 namespace MediaWiki\Extension\ConfirmEdit\QuestyCaptcha;
 
 use MediaWiki\Auth\AuthenticationRequest;
-use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
@@ -92,10 +91,9 @@ class QuestyCaptcha extends SimpleCaptcha {
 		];
 	}
 
-	public function showHelp() {
-		$context = RequestContext::getMain();
-		$out = $context->getOutput();
-		$out->setPageTitleMsg( $context->msg( 'captchahelp-title' ) );
+	/** @inheritDoc */
+	public function showHelp( OutputPage $out ) {
+		$out->setPageTitleMsg( $out->msg( 'captchahelp-title' ) );
 		$out->addWikiMsg( 'questycaptchahelp-text' );
 		if ( CaptchaStore::get()->cookiesNeeded() ) {
 			$out->addWikiMsg( 'captchahelp-cookies-needed' );

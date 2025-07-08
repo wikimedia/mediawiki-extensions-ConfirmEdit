@@ -20,6 +20,7 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\Auth\CaptchaPreAuthenticationProvider
+ * @covers \MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha
  * @group Database
  */
 class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase {

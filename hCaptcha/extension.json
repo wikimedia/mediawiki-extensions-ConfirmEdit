@@ -42,8 +42,8 @@
 			"description": "Whether the provided sitekey is for hCaptcha Enterprise features. See https://www.hcaptcha.com/#enterprise-features",
 			"value": false
 		},
-		"HCaptchaPassiveMode": {
-			"description": "If you are using using (primarily) passive modes, force the inclusion of a message with the hCaptcha Privacy Policy and Terms of Service",
+		"HCaptchaInvisibleMode": {
+			"description": "Enable this to make the hCaptcha checkbox invisible and only show a challenge if hCaptcha determines it is needed. This forces the inclusion of a message with the hCaptcha Privacy Policy and Terms of Service",
 			"value": false
 		},
 		"HCaptchaCSPRules": {
@@ -54,7 +54,7 @@
 			]
 		},
 		"HCaptchaSecureEnclave": {
-			"description": "Whether to use hCaptcha's Secure Enclave mode. If enabled, then $wgHCaptchaEnterprise must be true (because it is an Enterprise feature). You will need to modify $wgHCaptchaApiUrl as appropriate, such as to use https://js.hcaptcha.com/1/secure-api.js - See https://docs.hcaptcha.com/enterprise/secure_enclave",
+			"description": "Whether to use hCaptcha's Secure Enclave mode. If enabled, then $wgHCaptchaEnterprise must be true (because it is an Enterprise feature). You will need to modify $wgHCaptchaApiUrl as appropriate, such as to use https://js.hcaptcha.com/1/secure-api.js and make rendering explicit - See https://docs.hcaptcha.com/enterprise/secure_enclave",
 			"value": false
 		},
 		"HCaptchaDeveloperMode": {

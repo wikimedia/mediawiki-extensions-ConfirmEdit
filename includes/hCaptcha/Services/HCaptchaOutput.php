@@ -17,7 +17,7 @@ class HCaptchaOutput {
 		'HCaptchaSiteKey',
 		'HCaptchaEnterprise',
 		'HCaptchaSecureEnclave',
-		'HCaptchaPassiveMode',
+		'HCaptchaInvisibleMode',
 		'HCaptchaApiUrl',
 	];
 
@@ -40,20 +40,24 @@ class HCaptchaOutput {
 	 */
 	public function addHCaptchaToForm( OutputPage $outputPage, bool $previouslyFailedHCaptcha ): string {
 		$siteKey = $this->options->get( 'HCaptchaSiteKey' );
-		$output = Html::element( 'div', [
+		$useInvisibleMode = $this->options->get( 'HCaptchaInvisibleMode' );
+
+		$hCaptchaElementAttribs = [
 			'id' => 'h-captcha',
 			'class' => [
 				'h-captcha',
 				'mw-confirmedit-captcha-fail' => $previouslyFailedHCaptcha,
 			],
 			'data-sitekey' => $siteKey,
-		] );
+		];
+		if ( $useInvisibleMode ) {
+			$hCaptchaElementAttribs['data-size'] = 'invisible';
+		}
+		$output = Html::element( 'div', $hCaptchaElementAttribs );
 
 		$useSecureEnclave = $this->options->get( 'HCaptchaEnterprise' ) &&
 			$this->options->get( 'HCaptchaSecureEnclave' );
-		if ( $useSecureEnclave ) {
-			$output .= Html::hidden( 'h-captcha-response', '', [ 'id' => 'h-captcha-response' ] );
-		} else {
+		if ( !$useSecureEnclave ) {
 			$hCaptchaApiUrl = $this->options->get( 'HCaptchaApiUrl' );
 			$outputPage->addHeadItem(
 				'h-captcha',
@@ -67,7 +71,7 @@ class HCaptchaOutput {
 		$outputPage->addJsConfigVars( 'hCaptchaApiUrl', $this->options->get( 'HCaptchaApiUrl' ) );
 		$outputPage->addJsConfigVars( 'hCaptchaUseSecureEnclave', $useSecureEnclave );
 
-		if ( $this->options->get( 'HCaptchaPassiveMode' ) ) {
+		if ( $useInvisibleMode ) {
 			$output .= $outputPage->msg( 'hcaptcha-privacy-policy' )->parse();
 		}
 

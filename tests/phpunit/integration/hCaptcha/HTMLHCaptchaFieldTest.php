@@ -109,7 +109,7 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		yield 'active mode, no prior error' => [
 			[
 				'HCaptchaApiUrl' => $testApiUrl,
-				'HCaptchaPassiveMode' => false,
+				'HCaptchaInvisibleMode' => false,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
 				'HCaptchaEnterprise' => false,
@@ -119,23 +119,24 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			"<div id=\"h-captcha\" class=\"h-captcha\" data-sitekey=\"$testSiteKey\"></div>"
 		];
 
-		yield 'passive mode, no prior error' => [
+		yield 'invisible mode, no prior error' => [
 			[
 				'HCaptchaApiUrl' => $testApiUrl,
-				'HCaptchaPassiveMode' => true,
+				'HCaptchaInvisibleMode' => true,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
 				'HCaptchaEnterprise' => false,
 				'HCaptchaSecureEnclave' => false,
 			],
 			[],
-			"<div id=\"h-captcha\" class=\"h-captcha\" data-sitekey=\"$testSiteKey\"></div>(hcaptcha-privacy-policy)"
+			"<div id=\"h-captcha\" class=\"h-captcha\" data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>" .
+				"(hcaptcha-privacy-policy)"
 		];
 
 		yield 'active mode, prior error set' => [
 			[
 				'HCaptchaApiUrl' => $testApiUrl,
-				'HCaptchaPassiveMode' => false,
+				'HCaptchaInvisibleMode' => false,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
 				'HCaptchaEnterprise' => false,
@@ -145,10 +146,10 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			"<div id=\"h-captcha\" class=\"h-captcha mw-confirmedit-captcha-fail\" data-sitekey=\"$testSiteKey\"></div>"
 		];
 
-		yield 'passive mode, prior error set' => [
+		yield 'invisible mode, prior error set' => [
 			[
 				'HCaptchaApiUrl' => $testApiUrl,
-				'HCaptchaPassiveMode' => true,
+				'HCaptchaInvisibleMode' => true,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
 				'HCaptchaEnterprise' => false,
@@ -156,13 +157,13 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			],
 			[ 'error' => 'some-error' ],
 			"<div id=\"h-captcha\" class=\"h-captcha mw-confirmedit-captcha-fail\" " .
-				"data-sitekey=\"$testSiteKey\"></div>(hcaptcha-privacy-policy)"
+				"data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>(hcaptcha-privacy-policy)"
 		];
 
 		yield 'active mode, secure enclave mode enabled without enterprise mode enabled' => [
 			[
 				'HCaptchaApiUrl' => $testApiUrl,
-				'HCaptchaPassiveMode' => false,
+				'HCaptchaInvisibleMode' => false,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
 				'HCaptchaEnterprise' => false,
@@ -175,7 +176,7 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		yield 'active mode, secure enclave mode enabled' => [
 			[
 				'HCaptchaApiUrl' => $testApiUrl,
-				'HCaptchaPassiveMode' => false,
+				'HCaptchaInvisibleMode' => false,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
 				'HCaptchaEnterprise' => true,
@@ -183,14 +184,13 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			],
 			[ 'error' => 'some-error' ],
 			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
-				"data-sitekey=\"$testSiteKey\"></div>" .
-				'<input id="h-captcha-response" type="hidden" name="h-captcha-response">',
+				"data-sitekey=\"$testSiteKey\"></div>",
 		];
 
-		yield 'passive mode, secure enclave mode enabled' => [
+		yield 'invisible mode, secure enclave mode enabled' => [
 			[
 				'HCaptchaApiUrl' => $testApiUrl,
-				'HCaptchaPassiveMode' => true,
+				'HCaptchaInvisibleMode' => true,
 				'HCaptchaCSPRules' => $testCspRules,
 				'HCaptchaSiteKey' => $testSiteKey,
 				'HCaptchaEnterprise' => true,
@@ -198,8 +198,8 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			],
 			[ 'error' => 'some-error' ],
 			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
-				"data-sitekey=\"$testSiteKey\"></div>" .
-				'<input id="h-captcha-response" type="hidden" name="h-captcha-response">(hcaptcha-privacy-policy)',
+				"data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>" .
+				'(hcaptcha-privacy-policy)',
 		];
 	}
 }

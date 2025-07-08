@@ -16,7 +16,7 @@ trait MockHCaptchaConfigTrait {
 			'HCaptchaApiUrl' => 'https://js.hcaptcha.com/1/api.js',
 			'HCaptchaVerifyUrl' => 'https://api.hcaptcha.com/siteverify',
 			'HCaptchaEnterprise' => false,
-			'HCaptchaPassiveMode' => false,
+			'HCaptchaInvisibleMode' => false,
 			'HCaptchaCSPRules' => [
 				'https://hcaptcha.com',
 				'https://*.hcaptcha.com',

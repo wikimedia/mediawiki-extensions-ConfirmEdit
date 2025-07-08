@@ -4,10 +4,17 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\FancyCaptcha;
 
 use InvalidArgumentException;
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
+use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\HTMLFancyCaptchaField;
+use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
+use MediaWiki\Message\Message;
 use MediaWiki\Request\FauxRequest;
 use MediaWikiIntegrationTestCase;
 use Psr\Log\LoggerInterface;
+use ReflectionClass;
 use UnderflowException;
+use Wikimedia\Parsoid\Utils\DOMCompat;
+use Wikimedia\Parsoid\Utils\DOMUtils;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha
@@ -146,5 +153,210 @@ class FancyCaptchaTest extends MediaWikiIntegrationTestCase {
 		$fancyCaptcha = new FancyCaptcha();
 		$this->expectException( InvalidArgumentException::class );
 		$fancyCaptcha->hashFromImageName( "image_ghjk_4567.png" );
+	}
+
+	/**
+	 * Calls DOMCompat::querySelectorAll, expects that it returns one valid Element object and then returns
+	 * the HTML inside that Element.
+	 *
+	 * @param string $html The HTML to search through
+	 * @param string $class The CSS class to search for, excluding the "." character
+	 * @return string The HTML inside the given class
+	 */
+	private function assertAndGetByElementClass( string $html, string $class ): string {
+		$specialPageDocument = DOMUtils::parseHTML( $html );
+		$element = DOMCompat::querySelectorAll( $specialPageDocument, '.' . $class );
+		$this->assertCount( 1, $element, "Could not find only one element with CSS class $class in $html" );
+		return DOMCompat::getInnerHTML( $element[0] );
+	}
+
+	/**
+	 * Sets up the FancyCaptcha image storage with a valid image that can be picked to use as a captcha by
+	 * {@link FancyCaptcha::pickImage}.
+	 *
+	 * @return string[] The hash and salt for the test fancy captcha image
+	 */
+	private function setUpTestFancyCaptchaImage(): array {
+		$captchaDirectory = $this->getNewTempDirectory();
+
+		$this->overrideConfigValue( 'CaptchaDirectory', $captchaDirectory );
+		$this->overrideConfigValue( 'CaptchaStorageDirectory', 'subfolder' );
+		$this->overrideConfigValue( 'CaptchaSecret', 'secret' );
+
+		// Create one captcha file in the $captchaDirectory folder with a defined hash and salt in the filename.
+		$correctAnswer = 'abcdef';
+		$imageSalt = '0';
+		$imageHash = $this->getHash( 'secret', $imageSalt, $correctAnswer );
+		$captchaImageFilename = $captchaDirectory . "/image_{$imageSalt}_{$imageHash}.png";
+		file_put_contents( $captchaImageFilename, 'abc' );
+
+		return [ 'hash' => $imageHash, 'salt' => $imageSalt ];
+	}
+
+	public function testGetFormInformation() {
+		$this->setUserLang( 'qqx' );
+		$this->overrideConfigValue( 'CaptchaClass', FancyCaptcha::class );
+		$captchaImageDetails = $this->setUpTestFancyCaptchaImage();
+
+		// Get the form information, validate that it picks the test image above, and has the expected form fields
+		$fancyCaptcha = new FancyCaptcha();
+		$fancyCaptcha->setAction( 'edit' );
+		$formInformation = $fancyCaptcha->getFormInformation();
+		$this->assertArrayEquals( [ 'ext.confirmEdit.fancyCaptcha' ], $formInformation['modules'] );
+		$this->assertArrayEquals(
+			[ 'codex-styles', 'ext.confirmEdit.fancyCaptcha.styles' ],
+			$formInformation['modulestyles']
+		);
+
+		// Verify the expected form fields are there and the HTML structure is as expected
+		$html = $formInformation['html'];
+		$this->assertStringContainsString( '(fancycaptcha-captcha)', $html );
+		$this->assertStringNotContainsString( 'createacct-imgcaptcha-help', $html );
+		$captchaIdElement = DOMCompat::querySelector( DOMUtils::parseHTML( $html ), '#wpCaptchaId' );
+		$this->assertNotNull( $captchaIdElement );
+		$actualIndex = $captchaIdElement->getAttribute( 'value' );
+
+		$reloadField = $this->assertAndGetByElementClass( $html, 'fancycaptcha-reload' );
+		$this->assertStringContainsString( '(fancycaptcha-reload-text)', $reloadField );
+
+		$captchaContainer = $this->assertAndGetByElementClass( $html, 'fancycaptcha-captcha-container' );
+		$imageContainer = $this->assertAndGetByElementClass( $captchaContainer, 'fancycaptcha-image-container' );
+		$this->assertStringContainsString( 'fancycaptcha-image', $imageContainer );
+		$this->assertStringContainsString( 'wpCaptchaId=' . urlencode( $actualIndex ), $imageContainer );
+		$this->assertStringContainsString( 'wpCaptchaWord', $captchaContainer );
+		$this->assertStringContainsString( '(fancycaptcha-imgcaptcha-ph)', $captchaContainer );
+
+		// Verify the actual index is for the current captcha being used
+		$this->assertArrayEquals(
+			[
+				'viewed' => false, 'hash' => $captchaImageDetails['hash'], 'salt' => $captchaImageDetails['salt'],
+				'index' => $actualIndex,
+			],
+			CaptchaStore::get()->retrieve( $actualIndex ), false, true
+		);
+	}
+
+	public function testGetFormInformationForAccountCreation() {
+		$this->setUserLang( 'qqx' );
+		$this->overrideConfigValue( 'CaptchaClass', FancyCaptcha::class );
+		$this->setUpTestFancyCaptchaImage();
+
+		// Get the form information and validate the account creation help message is shown
+		$fancyCaptcha = new FancyCaptcha();
+		$fancyCaptcha->setAction( 'createaccount' );
+		$formInformation = $fancyCaptcha->getFormInformation();
+		$this->assertStringContainsString( 'createacct-imgcaptcha-help', $formInformation['html'] );
+	}
+
+	public function testGetCaptchaInfo() {
+		$fancyCaptcha = new FancyCaptcha();
+		$this->assertSame(
+			'/index.php?title=Special:Captcha/image&wpCaptchaId=1234abcdef',
+			$fancyCaptcha->getCaptchaInfo( [], '1234abcdef' )
+		);
+	}
+
+	public function testAddCaptchaAPIWhenImageExists() {
+		$this->overrideConfigValue( 'CaptchaClass', FancyCaptcha::class );
+		$captchaImageDetails = $this->setUpTestFancyCaptchaImage();
+
+		$fancyCaptcha = TestingAccessWrapper::newFromObject( new FancyCaptcha() );
+
+		$actualCaptchaInformation = [];
+
+		// T287318 - TestingAccessWrapper::__call does not support pass-by-reference
+		$classReflection = new ReflectionClass( $fancyCaptcha->object );
+		$methodReflection = $classReflection->getMethod( 'addCaptchaAPI' );
+		$methodReflection->setAccessible( true );
+		$methodReflection->invokeArgs( $fancyCaptcha->object, [ &$actualCaptchaInformation ] );
+
+		$this->assertArrayContains(
+			[ 'captcha' => [ 'type' => 'image', 'mime' => 'image/png' ] ], $actualCaptchaInformation
+		);
+
+		// Verify the actual index is for the current captcha being used
+		$this->assertArrayHasKey( 'id', $actualCaptchaInformation['captcha'] );
+		$actualIndex = $actualCaptchaInformation['captcha']['id'];
+		$this->assertArrayEquals(
+			[
+				'viewed' => false, 'hash' => $captchaImageDetails['hash'], 'salt' => $captchaImageDetails['salt'],
+				'index' => $actualIndex,
+			],
+			CaptchaStore::get()->retrieve( $actualIndex ), false, true
+		);
+
+		// Verify the URL provided uses the actual index and has the expected structure
+		$this->assertSame(
+			"/index.php?title=Special:Captcha/image&wpCaptchaId=$actualIndex",
+			$actualCaptchaInformation['captcha']['url']
+		);
+	}
+
+	public function testAddCaptchaAPIWhenOutOfImages() {
+		$captchaDirectory = $this->getNewTempDirectory();
+
+		$this->overrideConfigValue( 'CaptchaClass', FancyCaptcha::class );
+		$this->overrideConfigValue( 'CaptchaDirectory', $captchaDirectory );
+		$this->overrideConfigValue( 'CaptchaStorageDirectory', 'subfolder' );
+		$this->overrideConfigValue( 'CaptchaSecret', 'secret' );
+
+		$fancyCaptcha = TestingAccessWrapper::newFromObject( new FancyCaptcha() );
+		$actualCaptchaInformation = [];
+
+		// T287318 - TestingAccessWrapper::__call does not support pass-by-reference
+		$classReflection = new ReflectionClass( $fancyCaptcha->object );
+		$methodReflection = $classReflection->getMethod( 'addCaptchaAPI' );
+		$methodReflection->setAccessible( true );
+		$methodReflection->invokeArgs( $fancyCaptcha->object, [ &$actualCaptchaInformation ] );
+
+		$this->assertArrayEquals(
+			[ 'captcha' => [ 'error' => 'Out of images' ] ],
+			$actualCaptchaInformation,
+			false, true
+		);
+	}
+
+	public function testOnAuthChangeFormFieldsWhenCaptchaNotRequested() {
+		$hCaptcha = new FancyCaptcha();
+
+		// Verify that nothing happens if the CaptchaAuthenticationRequest is not included in the list of $requests.
+		$formDescriptor = [];
+		$hCaptcha->onAuthChangeFormFields( [], [], $formDescriptor, '' );
+		$this->assertSame( [], $formDescriptor );
+	}
+
+	public function testOnAuthChangeFormFieldsWhenCaptchaRequested() {
+		$this->overrideConfigValue( 'CaptchaClass', FancyCaptcha::class );
+		$captchaImageDetails = $this->setUpTestFancyCaptchaImage();
+
+		$hCaptcha = new FancyCaptcha();
+
+		// Verify that the onAuthChangeFormFields handler updates the form fields as expected
+		$formDescriptor = [ 'captchaWord' => [ 'id' => 'test' ], 'captchaInfo' => [ 'id' => 'test2' ] ];
+		$hCaptcha->onAuthChangeFormFields(
+			[ $hCaptcha->createAuthenticationRequest() ], [], $formDescriptor, 'create'
+		);
+		$this->assertArrayContains(
+			[ 'captchaWord' => [ 'id' => 'test', 'class' => HTMLFancyCaptchaField::class, 'showCreateHelp' => true ] ],
+			$formDescriptor
+		);
+		$this->assertArrayNotHasKey( 'captchaInfo', $formDescriptor );
+		$this->assertInstanceOf( Message::class, $formDescriptor['captchaWord']['label-message'] );
+		$expectedUrlPathExcludingCaptchaId = '/index.php?title=Special:Captcha/image&wpCaptchaId=';
+		$this->assertStringContainsString(
+			$expectedUrlPathExcludingCaptchaId, $formDescriptor['captchaWord']['imageUrl']
+		);
+
+		// Verify that the index in the URL is for the captcha image that we generated at the start of the test
+		$actualIndex = substr(
+			$formDescriptor['captchaWord']['imageUrl'], strlen( $expectedUrlPathExcludingCaptchaId )
+		);
+		$this->assertArrayEquals(
+			[
+				'viewed' => false, 'hash' => $captchaImageDetails['hash'], 'salt' => $captchaImageDetails['salt'],
+				'index' => $actualIndex,
+			],
+			CaptchaStore::get()->retrieve( $actualIndex ), false, true
+		);
 	}
 }

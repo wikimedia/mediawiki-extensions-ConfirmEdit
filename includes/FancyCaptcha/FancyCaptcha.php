@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\ConfirmEdit\FancyCaptcha;
 use InvalidArgumentException;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthManager;
-use MediaWiki\Context\RequestContext;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Html\Html;
@@ -390,10 +390,9 @@ class FancyCaptcha extends SimpleCaptcha {
 	}
 
 	/**
-	 * @return bool
+	 * Shows the image associated with the given captcha index for the user
 	 */
-	public function showImage() {
-		$context = RequestContext::getMain();
+	public function showImage( IContextSource $context ): bool {
 		$context->getOutput()->disable();
 
 		$index = $context->getRequest()->getVal( 'wpCaptchaId' );

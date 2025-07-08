@@ -19,7 +19,7 @@ class SpecialCaptcha extends UnlistedSpecialPage {
 		if ( $par === 'image' && method_exists( $instance, 'showImage' ) ) {
 			// @todo: Do this in a more OOP way
 			/** @phan-suppress-next-line PhanUndeclaredMethod */
-			$instance->showImage();
+			$instance->showImage( $this->getContext() );
 			return;
 		}
 

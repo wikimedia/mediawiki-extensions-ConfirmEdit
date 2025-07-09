@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": []
 	},
+	"hcaptcha-name": "hCaptcha",
 	"hcaptcha-desc": "[https://www.hcaptcha.com/ hCaptcha] module for Confirm Edit",
 	"hcaptcha-edit": "To protect the wiki against automated edit spam, we kindly ask you to solve the following hCaptcha:",
 	"hcaptcha-addurl": "Your edit includes new external links. To protect the wiki against automated spam, we kindly ask you to solve the following hCaptcha:",

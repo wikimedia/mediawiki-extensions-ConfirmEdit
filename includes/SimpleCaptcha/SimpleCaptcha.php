@@ -93,6 +93,10 @@ class SimpleCaptcha {
 		return null;
 	}
 
+	public function getNameMessage(): string {
+		return self::$messagePrefix . 'name';
+	}
+
 	/**
 	 * Returns an array with 'question' and 'answer' keys.
 	 * Subclasses might use a different structure.

@@ -4,6 +4,7 @@
 			"Umherirrender"
 		]
 	},
+	"hcaptcha-name": "{{notranslate}}\"",
 	"hcaptcha-desc": "{{desc}}",
 	"hcaptcha-edit": "{{notranslate}}",
 	"hcaptcha-addurl": "Message above the CAPTCHA for addurl (user added new external links to the page) action.\n{{related|ConfirmEdit-addurl}}",

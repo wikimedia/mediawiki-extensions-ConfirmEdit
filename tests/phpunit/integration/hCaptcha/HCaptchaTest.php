@@ -5,6 +5,8 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 use MediaWiki\Api\ApiRawMessage;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptchaAuthenticationRequest;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Tests\Integration\MockHCaptchaConfigTrait;
 use MediaWiki\Http\HttpRequestFactory;
@@ -18,7 +20,9 @@ use MediaWikiIntegrationTestCase;
 use MockHttpTrait;
 use MWHttpRequest;
 use Psr\Log\LoggerInterface;
+use ReflectionClass;
 use StatusValue;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha
@@ -71,6 +75,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testPassCaptchaForHttpError() {
+		$this->setUserLang( 'qqx' );
 		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
 		$this->overrideConfigValue( 'HCaptchaProxy', 'proxy.test.com' );
 
@@ -118,6 +123,10 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 
 		// Verify that the captcha verification failed with an error of 'http'
 		$this->assertSame( 'http', $hCaptcha->getError() );
+
+		// Verify that ::getMessage will output the message as usual but with an error background
+		$actualMessage = $hCaptcha->getMessage( 'edit' );
+		$this->assertSame( '<div class="error">(hcaptcha-edit)</div>', $actualMessage->text() );
 	}
 
 	public function testPassCaptchaForInvalidJsonResponse() {
@@ -179,11 +188,16 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/** @dataProvider providePassCaptcha */
-	public function testPassCaptcha( bool $captchaPassedSuccessfully, bool $developerMode, array $mockApiResponse ) {
+	public function testPassCaptcha(
+		bool $captchaPassedSuccessfully, bool $developerMode, bool $useRiskScore, bool $sendRemoteIP,
+		array $mockApiResponse
+	) {
 		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
 		$this->overrideConfigValue( 'HCaptchaDeveloperMode', $developerMode );
+		$this->overrideConfigValue( 'HCaptchaUseRiskScore', $useRiskScore );
+		$this->overrideConfigValue( 'HCaptchaSendRemoteIP', $sendRemoteIP );
 
-		// Mock that the site-verify URL call to respond with a successful response
+		// Mock the site-verify URL call to respond with a successful response
 		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
 		$mwHttpRequest->method( 'execute' )
 			->willReturn( Status::newGood() );
@@ -191,7 +205,26 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			->willReturn( 200 );
 		$mwHttpRequest->method( 'getContent' )
 			->willReturn( FormatJson::encode( $mockApiResponse ) );
-		$this->installMockHttp( $mwHttpRequest );
+
+		// Mock HttpRequestFactory directly so that we can check the URL and options are as expected.
+		$expectedPostData = [ 'response' => 'abcdef', 'secret' => 'secretkey' ];
+		if ( $sendRemoteIP ) {
+			$expectedPostData['remoteip'] = '127.0.0.1';
+		}
+
+		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
+		$mockHttpRequestFactory->method( 'create' )
+			->willReturnCallback( function ( $url, $options ) use ( $mwHttpRequest, $expectedPostData ) {
+				$this->assertSame( 'https://api.hcaptcha.com/siteverify', $url );
+				$this->assertArrayEquals(
+					[ 'method' => 'POST', 'postData' => $expectedPostData ],
+					$options,
+					false,
+					true
+				);
+				return $mwHttpRequest;
+			} );
+		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
 
 		// Expect that a debug log is created to indicate that the captcha either was solved or was not solved.
 		if ( $developerMode ) {
@@ -225,92 +258,39 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
 			)
 		);
-		$this->assertNull( $hCaptcha->getError() );
-	}
-
-	public function testPassCaptchaWithUseRiskScoreEnabledInProduction() {
-		$mockApiResponse = [ 'success' => true, 'score' => 123 ];
-		$captchaPassedSuccessfully = true;
-		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
-		$this->overrideConfigValue( 'HCaptchaDeveloperMode', false );
-		$this->overrideConfigValue( 'HCaptchaUseRiskScore', true );
-
-		// Mock that the site-verify URL call to respond with a successful response
-		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
-		$mwHttpRequest->method( 'execute' )
-			->willReturn( Status::newGood() );
-		$mwHttpRequest->method( 'getStatus' )
-			->willReturn( 200 );
-		$mwHttpRequest->method( 'getContent' )
-			->willReturn( FormatJson::encode( $mockApiResponse ) );
-		$this->installMockHttp( $mwHttpRequest );
-
-		// Attempt to pass the captcha and expect that it passes
-		$hCaptcha = new HCaptcha();
-		$this->assertSame(
-			$captchaPassedSuccessfully,
-			$hCaptcha->passCaptchaFromRequest(
-				new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
-				$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
-			)
-		);
-		$this->assertSame( 123, $hCaptcha->retrieveSessionScore( 'hCaptcha-score' ) );
-		$this->assertNull( $hCaptcha->getError() );
-	}
-
-	public function testPassCaptchaWithUseRiskScoreDisabled() {
-		$mockApiResponse = [ 'success' => true, 'score' => 123 ];
-		$captchaPassedSuccessfully = true;
-		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
-		$this->overrideConfigValue( 'HCaptchaDeveloperMode', false );
-		$this->overrideConfigValue( 'HCaptchaUseRiskScore', false );
-
-		// Mock that the site-verify URL call to respond with a successful response
-		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
-		$mwHttpRequest->method( 'execute' )
-			->willReturn( Status::newGood() );
-		$mwHttpRequest->method( 'getStatus' )
-			->willReturn( 200 );
-		$mwHttpRequest->method( 'getContent' )
-			->willReturn( FormatJson::encode( $mockApiResponse ) );
-		$this->installMockHttp( $mwHttpRequest );
-
-		// Attempt to pass the captcha and expect that it passes
-		$hCaptcha = new HCaptcha();
-		$this->assertSame(
-			$captchaPassedSuccessfully,
-			$hCaptcha->passCaptchaFromRequest(
-				new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
-				$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
-			)
-		);
-		$this->assertNull( $hCaptcha->retrieveSessionScore( 'hCaptcha-score' ) );
+		if ( $useRiskScore || $developerMode ) {
+			$this->assertSame(
+				$mockApiResponse['score'] ?? null,
+				$hCaptcha->retrieveSessionScore( 'hCaptcha-score' )
+			);
+		} else {
+			$this->assertNull( $hCaptcha->retrieveSessionScore( 'hCaptcha-score' ) );
+		}
 		$this->assertNull( $hCaptcha->getError() );
 	}
 
 	public static function providePassCaptcha(): array {
 		return [
 			'Passes hCaptcha check, in developer mode' => [
-				true, true, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
+				true, true, false, false, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
 			],
-			'Passes hCaptcha check, not in developer mode' => [
-				true, false, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
+			'Passes hCaptcha check, not in developer mode, sending remote IP' => [
+				true, false, false, true, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
+			],
+			'Passes hCaptcha check, not in developer mode, using risk score' => [
+				true, false, true, false, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
 			],
 			'Fails hCaptcha check, in developer mode' => [
-				false, true, [ 'success' => false, 'score' => 123, 'score_reason' => 'test' ],
+				false, true, false, false, [ 'success' => false, 'score' => 123, 'score_reason' => 'test' ],
 			],
 			'Fails hCaptcha check, not in developer mode' => [
-				false, false, [ 'success' => false, 'score' => 123, 'score_reason' => 'test' ],
+				false, false, false, false, [ 'success' => false, 'score' => 123, 'score_reason' => 'test' ],
 			],
 			'Fails hCaptcha check, in developer mode, no score included in response' => [
-				false,
-				true,
-				[ 'success' => false ]
+				false, true, false, false, [ 'success' => false ],
 			],
 			'Fails hCaptcha check, not in developer mode, no score included in response' => [
-				false,
-				false,
-				[ 'success' => false ]
+				false, false, false, false, [ 'success' => false ],
 			],
 		];
 	}
@@ -330,5 +310,55 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		}
 
 		HCaptcha::addCSPSources( $mockContentSecurityPolicy );
+	}
+
+	public function testCreateAuthenticationRequest() {
+		$hCaptcha = new HCaptcha();
+		$this->assertInstanceOf( HCaptchaAuthenticationRequest::class, $hCaptcha->createAuthenticationRequest() );
+	}
+
+	public function testAddCaptchaAPIWhenImageExists() {
+		$this->overrideConfigValue( 'HCaptchaSiteKey', 'abcdef' );
+
+		$hCaptcha = TestingAccessWrapper::newFromObject( new HCaptcha() );
+		$actualCaptchaInformation = [];
+
+		// T287318 - TestingAccessWrapper::__call does not support pass-by-reference
+		$classReflection = new ReflectionClass( $hCaptcha->object );
+		$methodReflection = $classReflection->getMethod( 'addCaptchaAPI' );
+		$methodReflection->invokeArgs( $hCaptcha->object, [ &$actualCaptchaInformation ] );
+
+		$this->assertArrayEquals(
+			[
+				'captcha' => [
+					'type' => 'hcaptcha', 'mime' => 'application/javascript', 'key' => 'abcdef', 'error' => null,
+				],
+			],
+			$actualCaptchaInformation,
+			false, true
+		);
+	}
+
+	public function testOnAuthChangeFormFieldsWhenCaptchaNotRequested() {
+		$hCaptcha = new HCaptcha();
+
+		// Verify that nothing happens if the CaptchaAuthenticationRequest is not included in the list of $requests.
+		$formDescriptor = [];
+		$hCaptcha->onAuthChangeFormFields( [], [], $formDescriptor, '' );
+		$this->assertSame( [], $formDescriptor );
+	}
+
+	public function testOnAuthChangeFormFieldsWhenCaptchaRequested() {
+		$hCaptcha = new HCaptcha();
+
+		$formDescriptor = [ 'captchaWord' => [ 'id' => 'test' ] ];
+		$hCaptcha->onAuthChangeFormFields(
+			[ $hCaptcha->createAuthenticationRequest() ], [], $formDescriptor, ''
+		);
+		$this->assertArrayEquals(
+			[ 'captchaWord' => [ 'id' => 'test', 'class' => HTMLHCaptchaField::class, 'error' => null ] ],
+			$formDescriptor,
+			false, true
+		);
 	}
 }

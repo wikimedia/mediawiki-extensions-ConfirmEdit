@@ -190,7 +190,10 @@ class HCaptcha extends SimpleCaptcha {
 		return $msg;
 	}
 
-	/** @inheritDoc */
+	/**
+	 * @inheritDoc
+	 * @codeCoverageIgnore Merely declarative
+	 */
 	public function apiGetAllowedParams( ApiBase $module, &$params, $flags ) {
 		return true;
 	}
@@ -200,7 +203,10 @@ class HCaptcha extends SimpleCaptcha {
 		return $this->error;
 	}
 
-	/** @inheritDoc */
+	/**
+	 * @inheritDoc
+	 * @codeCoverageIgnore Merely declarative
+	 */
 	public function storeCaptcha( $info ) {
 		// hCaptcha is stored externally, the ID will be generated at that time as well, and
 		// the one returned here won't be used. Just pretend this worked.
@@ -226,13 +232,19 @@ class HCaptcha extends SimpleCaptcha {
 		return SessionManager::getGlobalSession()->get( $sessionKey );
 	}
 
-	/** @inheritDoc */
+	/**
+	 * @inheritDoc
+	 * @codeCoverageIgnore Merely declarative
+	 */
 	public function retrieveCaptcha( $index ) {
 		// Just pretend it worked
 		return [ 'index' => $index ];
 	}
 
-	/** @inheritDoc */
+	/**
+	 * @inheritDoc
+	 * @codeCoverageIgnore Merely declarative
+	 */
 	public function getCaptcha() {
 		// hCaptcha is handled by frontend code, and an external provider; nothing to do here.
 		return [];

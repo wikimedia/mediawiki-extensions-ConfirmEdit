@@ -42,6 +42,7 @@ use MediaWiki\Shell\Shell;
 use MediaWiki\Status\Status;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use Shellbox\Command\UnboxedResult;
 use SplFileInfo;
 
 /**
@@ -137,11 +138,8 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$this->output( "Generating $countGen new captchas.." );
 		$captchaTime = -microtime( true );
-		$result = Shell::command( [] )
-			->params( $cmd )
-			->limits( [ 'time' => 0, 'memory' => 0, 'walltime' => 0, 'filesize' => 0 ] )
-			->disableSandbox()
-			->execute();
+
+		$result = $this->generateFancyCaptchas( $cmd );
 		if ( $result->getExitCode() !== 0 ) {
 			$this->output( " Failed.\n" );
 			wfRecursiveRemoveDir( $tmpDir );
@@ -199,7 +197,7 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		if ( $captchasGenerated === 0 ) {
 			wfRecursiveRemoveDir( $tmpDir );
-			$this->error( "No generated captchas found in temporary directory; did captcha.py actually succeed?" );
+			$this->fatalError( "No generated captchas found in temporary directory; did captcha.py actually succeed?" );
 		} elseif ( $captchasGenerated < $countGen ) {
 			$this->output( "Expecting $countGen new captchas, only $captchasGenerated found on disk; continuing.\n" );
 		}
@@ -315,6 +313,22 @@ class GenerateFancyCaptchas extends Maintenance {
 				$totalTime
 			)
 		);
+	}
+
+	/**
+	 * Generates FancyCaptcha images using the provided command.
+	 *
+	 * This method is protected so that it can be mocked in tests, because we cannot run python in PHPUnit tests.
+	 *
+	 * @param array $cmd The command to execute which generates the FancyCaptcha images
+	 * @return UnboxedResult
+	 */
+	protected function generateFancyCaptchas( array $cmd ): UnboxedResult {
+		return Shell::command( [] )
+			->params( $cmd )
+			->limits( [ 'time' => 0, 'memory' => 0, 'walltime' => 0, 'filesize' => 0 ] )
+			->disableSandbox()
+			->execute();
 	}
 }
 

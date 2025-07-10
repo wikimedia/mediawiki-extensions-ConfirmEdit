@@ -38,7 +38,13 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			'CaptchaBadLoginAttempts' => 1,
 			'CaptchaBadLoginPerUserAttempts' => 1,
 			'CaptchaStorageClass' => CaptchaHashStore::class,
+			'CaptchaTriggers' => [
+				'createaccount' => true,
+				'badlogin' => true,
+				'badloginperuser' => true,
+			],
 		] );
+		Hooks::unsetInstanceForTests();
 		CaptchaStore::unsetInstanceForTests();
 		CaptchaStore::get()->clearAll();
 	}
@@ -49,6 +55,11 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$req = TestingAccessWrapper::newFromClass( Hooks::class );
 		// clear the singleton between tests
 		$req->instance = [];
+	}
+
+	public static function tearDownAfterClass(): void {
+		parent::tearDownAfterClass();
+		Hooks::unsetInstanceForTests();
 	}
 
 	/**

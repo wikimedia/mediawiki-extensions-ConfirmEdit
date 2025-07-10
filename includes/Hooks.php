@@ -52,6 +52,10 @@ class Hooks implements
 	AuthChangeFormFieldsHook
 {
 
+	/**
+	 * @var SimpleCaptcha[] Captcha instances, where the keys are the captcha type and the values are an instance
+	 *   of that captcha type.
+	 */
 	protected static array $instance = [];
 
 	private WANObjectCache $cache;

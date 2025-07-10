@@ -20,6 +20,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 		$logger = LoggerFactory::getInstance( 'captcha' );
 		$needed = false;
+		$captcha = null;
 		switch ( $action ) {
 			case AuthManager::ACTION_CREATE:
 				$u = $user ?: new User();
@@ -52,7 +53,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				// result in weird behavior (if the user leaves the captcha field empty, they get
 				// a required field error; if they fill it with an invalid answer, it will pass)
 				// - again, not a huge deal.
-				$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
+				$captcha = Hooks::getInstance( CaptchaTriggers::LOGIN_ATTEMPT );
 				$session = $this->manager->getRequest()->getSession();
 				$suggestedUsername = $session->suggestLoginUsername();
 				if ( $captcha->triggersCaptcha( CaptchaTriggers::LOGIN_ATTEMPT ) ) {
@@ -67,6 +68,8 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 					$needed = true;
 					break;
 				}
+
+				$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
 				$loginCounter = $this->getLoginAttemptCounter( $captcha );
 
 				$userProbablyNeedsCaptcha = $session->get( 'ConfirmEdit:loginCaptchaPerUserTriggered' );
@@ -89,8 +92,12 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				break;
 		}
 
-		// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
-		return $needed ? [ $captcha->createAuthenticationRequest() ] : [];
+		// Return the CaptchaAuthenticationRequest instance if a captcha is needed and defined.
+		if ( $needed && $captcha ) {
+			return [ $captcha->createAuthenticationRequest() ];
+		} else {
+			return [];
+		}
 	}
 
 	/** @inheritDoc */

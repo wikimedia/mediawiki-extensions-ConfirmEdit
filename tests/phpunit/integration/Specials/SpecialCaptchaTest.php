@@ -60,7 +60,7 @@ class SpecialCaptchaTest extends SpecialPageTestBase {
 	}
 
 	/** @dataProvider provideCaptchaStorageClasses */
-	public function testExecuteForFancyCaptcha( $captchaStorageClass, $usesCookies ) {
+	public function testExecuteForQuestyCaptcha( $captchaStorageClass, $usesCookies ) {
 		$this->overrideConfigValue( 'CaptchaStorageClass', $captchaStorageClass );
 		$this->overrideConfigValue( 'CaptchaClass', QuestyCaptcha::class );
 

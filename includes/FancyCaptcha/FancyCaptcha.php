@@ -28,7 +28,7 @@ class FancyCaptcha extends SimpleCaptcha {
 	 * @var string used for fancycaptcha-edit, fancycaptcha-addurl, fancycaptcha-badlogin,
 	 * fancycaptcha-accountcreate, fancycaptcha-create, fancycaptcha-sendemail via getMessage()
 	 */
-	protected static $messagePrefix = 'fancycaptcha-';
+	protected static $messagePrefix = 'fancycaptcha';
 
 	private ?FSFileBackend $backend = null;
 

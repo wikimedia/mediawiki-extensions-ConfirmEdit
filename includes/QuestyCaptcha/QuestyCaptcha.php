@@ -13,7 +13,6 @@ namespace MediaWiki\Extension\ConfirmEdit\QuestyCaptcha;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\Html\Html;
 use MediaWiki\Output\OutputPage;
 
@@ -22,7 +21,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 	 * @var string used for questycaptcha-edit, questycaptcha-addurl, questycaptcha-badlogin,
 	 * questycaptcha-createaccount, questycaptcha-create, questycaptcha-sendemail via getMessage()
 	 */
-	protected static $messagePrefix = 'questycaptcha-';
+	protected static $messagePrefix = 'questycaptcha';
 
 	/**
 	 * Validate a CAPTCHA response
@@ -89,15 +88,6 @@ class QuestyCaptcha extends SimpleCaptcha {
 					'value' => $index ]
 				)
 		];
-	}
-
-	/** @inheritDoc */
-	public function showHelp( OutputPage $out ) {
-		$out->setPageTitleMsg( $out->msg( 'captchahelp-title' ) );
-		$out->addWikiMsg( 'questycaptchahelp-text' );
-		if ( CaptchaStore::get()->cookiesNeeded() ) {
-			$out->addWikiMsg( 'captchahelp-cookies-needed' );
-		}
 	}
 
 	/**

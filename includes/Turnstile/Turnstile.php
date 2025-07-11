@@ -22,7 +22,7 @@ class Turnstile extends SimpleCaptcha {
 	 * @var string used for turnstile-edit, turnstile-addurl, turnstile-badlogin, turnstile-createaccount,
 	 * turnstile-create, turnstile-sendemail via getMessage()
 	 */
-	protected static $messagePrefix = 'turnstile-';
+	protected static $messagePrefix = 'turnstile';
 
 	/** @var string|null */
 	private $error = null;

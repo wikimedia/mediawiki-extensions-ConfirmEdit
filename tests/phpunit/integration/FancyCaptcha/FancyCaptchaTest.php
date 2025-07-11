@@ -22,6 +22,11 @@ use Wikimedia\TestingAccessWrapper;
  */
 class FancyCaptchaTest extends MediaWikiIntegrationTestCase {
 
+	public function testGetName() {
+		$this->markTestSkippedIfExtensionNotLoaded( 'ConfirmEdit/FancyCaptcha' );
+		$this->assertEquals( 'Fancy CAPTCHA', ( new FancyCaptcha )->getName() );
+	}
+
 	/** @dataProvider provideGetCaptchaCount */
 	public function testGetCaptchaCount( $filenames, $expectedCount ) {
 		$captchaDirectory = $this->getNewTempDirectory();

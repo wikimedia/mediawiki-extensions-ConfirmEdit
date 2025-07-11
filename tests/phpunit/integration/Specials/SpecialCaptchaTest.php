@@ -61,6 +61,7 @@ class SpecialCaptchaTest extends SpecialPageTestBase {
 
 	/** @dataProvider provideCaptchaStorageClasses */
 	public function testExecuteForQuestyCaptcha( $captchaStorageClass, $usesCookies ) {
+		$this->markTestSkippedIfExtensionNotLoaded( 'ConfirmEdit/QuestyCaptcha' );
 		$this->overrideConfigValue( 'CaptchaStorageClass', $captchaStorageClass );
 		$this->overrideConfigValue( 'CaptchaClass', QuestyCaptcha::class );
 

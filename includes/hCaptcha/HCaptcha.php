@@ -26,7 +26,7 @@ class HCaptcha extends SimpleCaptcha {
 	 * @var string used for hcaptcha-edit, hcaptcha-addurl, hcaptcha-badlogin, hcaptcha-createaccount,
 	 * hcaptcha-create, hcaptcha-sendemail via getMessage()
 	 */
-	protected static $messagePrefix = 'hcaptcha-';
+	protected static $messagePrefix = 'hcaptcha';
 
 	/** @var string|null */
 	private $error = null;

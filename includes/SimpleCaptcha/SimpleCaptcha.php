@@ -46,7 +46,7 @@ use Wikimedia\Rdbms\IDBAccessObject;
  */
 class SimpleCaptcha {
 	/** @var string */
-	protected static $messagePrefix = 'captcha-';
+	protected static $messagePrefix = 'captcha';
 
 	/** @var bool Override to force showing the CAPTCHA to users who don't have "skipcaptcha" right. */
 	private bool $forceShowCaptcha = false;
@@ -93,8 +93,8 @@ class SimpleCaptcha {
 		return null;
 	}
 
-	public function getNameMessage(): string {
-		return self::$messagePrefix . 'name';
+	public function getName(): string {
+		return wfMessage( static::$messagePrefix . '-name' )->text();
 	}
 
 	/**
@@ -331,11 +331,10 @@ class SimpleCaptcha {
 	public function getMessage( $action ) {
 		// one of captcha-edit, captcha-addurl, captcha-badlogin, captcha-createaccount,
 		// captcha-create, captcha-sendemail
-		$name = static::$messagePrefix . $action;
-		$msg = wfMessage( $name );
+		$msg = wfMessage( static::$messagePrefix . '-' . $action );
 		// obtain a more tailored message, if possible, otherwise, fall back to
 		// the default for edits
-		return $msg->isDisabled() ? wfMessage( static::$messagePrefix . 'edit' ) : $msg;
+		return $msg->isDisabled() ? wfMessage( static::$messagePrefix . '-edit' ) : $msg;
 	}
 
 	/**
@@ -1200,11 +1199,13 @@ class SimpleCaptcha {
 	 * @param OutputPage $out The OutputPage to add the help text to
 	 */
 	public function showHelp( OutputPage $out ) {
-		$out->setPageTitleMsg( $out->msg( 'captchahelp-title' ) );
-		$out->addWikiMsg( 'captchahelp-text' );
-		if ( CaptchaStore::get()->cookiesNeeded() ) {
-			$out->addWikiMsg( 'captchahelp-cookies-needed' );
+		$msg = wfMessage( static::$messagePrefix . 'help-text' );
+		if ( $msg->isDisabled() ) {
+			// Fallback to simplecaptchahelp-text
+			$msg = wfMessage( self::$messagePrefix . 'help-text' );
 		}
+
+		$out->addWikiMsg( $msg );
 	}
 
 	/**

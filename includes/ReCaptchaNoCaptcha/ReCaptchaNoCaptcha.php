@@ -22,7 +22,7 @@ class ReCaptchaNoCaptcha extends SimpleCaptcha {
 	 * @var string used for renocaptcha-edit, renocaptcha-addurl, renocaptcha-badlogin, renocaptcha-createaccount,
 	 * renocaptcha-create, renocaptcha-sendemail via getMessage()
 	 */
-	protected static $messagePrefix = 'renocaptcha-';
+	protected static $messagePrefix = 'renocaptcha';
 
 	/** @var string|null */
 	private $error = null;

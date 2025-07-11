@@ -31,6 +31,11 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	use MockHCaptchaConfigTrait;
 	use MockHttpTrait;
 
+	public function testGetName() {
+		$this->markTestSkippedIfExtensionNotLoaded( 'ConfirmEdit/hCaptcha' );
+		$this->assertEquals( 'hCAPTCHA', ( new hCaptcha )->getName() );
+	}
+
 	public function testGetFormInformationWhenNoError() {
 		// Mock the HCaptchaOutput service to expect a call and return mock HTML. We test that service through
 		// the tests in HTMLHCaptchaField, so don't need to repeat the tests here.

@@ -41,6 +41,10 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 		parent::tearDown();
 	}
 
+	public function testGetName() {
+		$this->assertEquals( 'SimpleCaptcha', ( new SimpleCaptcha )->getName() );
+	}
+
 	/**
 	 * @dataProvider providePassCaptchaLimitedFromRequest
 	 *

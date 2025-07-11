@@ -19,7 +19,6 @@ class CaptchaAuthenticationRequestTest extends AuthenticationRequestTestCase {
 			'CaptchaStorageClass' => CaptchaHashStore::class,
 		] );
 		CaptchaStore::unsetInstanceForTests();
-		CaptchaStore::get()->clearAll();
 		CaptchaStore::get()->store( '345', [ 'question' => '2+2', 'answer' => '4' ] );
 	}
 

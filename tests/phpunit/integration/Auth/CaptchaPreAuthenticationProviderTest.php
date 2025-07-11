@@ -46,7 +46,6 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		] );
 		Hooks::unsetInstanceForTests();
 		CaptchaStore::unsetInstanceForTests();
-		CaptchaStore::get()->clearAll();
 	}
 
 	public function tearDown(): void {

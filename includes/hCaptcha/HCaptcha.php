@@ -279,4 +279,9 @@ class HCaptcha extends SimpleCaptcha {
 			'error' => $captcha->getError(),
 		] + $formDescriptor['captchaWord'];
 	}
+
+	/** @inheritDoc */
+	public function showHelp( OutputPage $out ) {
+		$out->addWikiMsg( 'hcaptcha-privacy-policy' );
+	}
 }

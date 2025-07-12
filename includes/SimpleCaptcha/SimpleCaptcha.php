@@ -1165,7 +1165,7 @@ class SimpleCaptcha {
 
 		try {
 			$content = $revRecord->getContent( SlotRecord::MAIN );
-		} catch ( RevisionAccessException $e ) {
+		} catch ( RevisionAccessException ) {
 			return '';
 		}
 

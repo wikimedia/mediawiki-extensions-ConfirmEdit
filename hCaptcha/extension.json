@@ -105,7 +105,7 @@
 				}
 			],
 			"styles": [
-				"ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha.css"
+				"ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha.less"
 			],
 			"messages": [
 				"hcaptcha-load-error",

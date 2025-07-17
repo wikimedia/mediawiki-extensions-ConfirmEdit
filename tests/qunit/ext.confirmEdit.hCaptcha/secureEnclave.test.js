@@ -16,6 +16,7 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 		this.submit = this.sandbox.stub( form, 'submit' );
 
 		this.$form = $( form )
+			.append( '<input type="text" name="some-input" />' )
 			.append( '<input type="hidden" id="h-captcha">' )
 			.append( '<input type="hidden" id="h-captcha-response">' );
 
@@ -34,6 +35,45 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 		config.HCaptchaApiUrl = this.origUrl;
 	}
 } ) );
+
+QUnit.test( 'should not load hCaptcha before the form has been interacted with', async function ( assert ) {
+	useSecureEnclave( this.window );
+
+	assert.true( this.getScript.notCalled, 'should not load hCaptcha SDK' );
+	assert.true( this.window.hcaptcha.render.notCalled, 'should not render hCaptcha' );
+	assert.true( this.window.hcaptcha.execute.notCalled, 'should not execute hCaptcha' );
+} );
+
+QUnit.test( 'should load hCaptcha exactly once when the form is interacted with', async function ( assert ) {
+	useSecureEnclave( this.window );
+
+	const $input = this.$form.find( '[name=some-input]' );
+
+	$input.trigger( 'focus' );
+	$input.trigger( 'input' );
+	$input.trigger( 'input' );
+
+	// Wait one tick for event handlers to run.
+	await new Promise( ( resolve ) => {
+		setTimeout( resolve );
+	} );
+
+	assert.true( this.getScript.calledOnce, 'should load hCaptcha SDK once' );
+} );
+
+QUnit.test( 'should load hCaptcha on form submissions triggered before hCaptcha was setup', async function ( assert ) {
+	useSecureEnclave( this.window );
+
+	this.$form.trigger( 'submit' );
+
+	// Wait one tick for event handlers to run.
+	await new Promise( ( resolve ) => {
+		setTimeout( resolve );
+	} );
+
+	assert.true( this.getScript.calledOnce, 'should load hCaptcha SDK once' );
+	assert.true( this.submit.notCalled, 'form submission should have been prevented' );
+} );
 
 QUnit.test( 'should intercept form submissions', function ( assert ) {
 	this.getScript.callsFake( async () => {
@@ -90,6 +130,7 @@ QUnit.test( 'should intercept form submissions', function ( assert ) {
 			);
 		} );
 
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
 	this.$form.trigger( 'submit' );
 
 	return result;
@@ -101,7 +142,11 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 		return Promise.reject();
 	} );
 
-	await useSecureEnclave( this.window );
+	const hCaptchaResult = useSecureEnclave( this.window );
+
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+
+	await hCaptchaResult;
 
 	assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
 
@@ -128,7 +173,11 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 		return Promise.reject( 'rate-limited' );
 	} );
 
-	await useSecureEnclave( this.window );
+	const hCaptchaResult = useSecureEnclave( this.window );
+
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+
+	await hCaptchaResult;
 
 	assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
 
@@ -162,6 +211,7 @@ QUnit.test( 'should surface recoverable workflow execution errors on submit', fu
 		this.$form.one( 'submit', () => setTimeout( resolve ) );
 	} );
 
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
 	this.$form.trigger( 'submit' );
 
 	return formSubmitted.then( () => {
@@ -229,6 +279,8 @@ QUnit.test( 'should allow recovering from a recoverable error by starting a new 
 				'no error message should be shown'
 			);
 		} );
+
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
 
 	this.$form.one( 'submit', () => setTimeout( () => this.$form.trigger( 'submit' ) ) );
 

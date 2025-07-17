@@ -5,22 +5,13 @@ const ErrorWidget = require( './ErrorWidget.js' );
 /**
  * Load hCaptcha in Secure Enclave mode.
  *
+ * @param {jQuery} $form The form to be protected by hCaptcha.
+ * @param {jQuery} $hCaptchaField The hCaptcha input field within the form.
  * @param {Window} win
  * @return {Promise<void>} A promise that resolves if hCaptcha failed to initialize,
  * or after the first time the user attempts to submit the form and hCaptcha finishes running.
  */
-async function useSecureEnclave( win ) {
-	// eslint-disable-next-line no-jquery/no-global-selector
-	const $hCaptchaField = $( '#h-captcha' );
-	if ( !$hCaptchaField.length ) {
-		return;
-	}
-
-	const $form = $hCaptchaField.closest( 'form' );
-	if ( !$form.length ) {
-		return;
-	}
-
+async function setupHCaptcha( $form, $hCaptchaField, win ) {
 	const loadingIndicator = new ProgressIndicatorWidget(
 		mw.msg( 'hcaptcha-loading-indicator-label' )
 	);
@@ -139,6 +130,48 @@ async function useSecureEnclave( win ) {
 	};
 
 	return executeWorkflow();
+}
+
+/**
+ * Configure hCaptcha in Secure Enclave mode.
+ *
+ * @param {Window} win
+ * @return {Promise<void>} A promise that resolves if hCaptcha failed to initialize,
+ * or after the first time the user attempts to submit the form and hCaptcha finishes running.
+ */
+async function useSecureEnclave( win ) {
+	// eslint-disable-next-line no-jquery/no-global-selector
+	const $hCaptchaField = $( '#h-captcha' );
+	if ( !$hCaptchaField.length ) {
+		return;
+	}
+
+	const $form = $hCaptchaField.closest( 'form' );
+	if ( !$form.length ) {
+		return;
+	}
+
+	// Load hCaptcha the first time the user interacts with the form.
+	return new Promise( ( resolve ) => {
+		const $inputs = $form.find( 'input' );
+
+		// Catch and prevent form submissions that occur before hCaptcha was initialized.
+		$form.one( 'submit.hCaptchaLoader', ( event ) => {
+			event.preventDefault();
+
+			$inputs.off( 'input.hCaptchaLoader focus.hCaptchaLoader' );
+			$form.off( 'submit.hCaptchaLoader' );
+
+			resolve( setupHCaptcha( $form, $hCaptchaField, win ) );
+		} );
+
+		$inputs.one( 'input.hCaptchaLoader focus.hCaptchaLoader', () => {
+			$inputs.off( 'input.hCaptchaLoader focus.hCaptchaLoader' );
+			$form.off( 'submit.hCaptchaLoader' );
+
+			resolve( setupHCaptcha( $form, $hCaptchaField, win ) );
+		} );
+	} );
 }
 
 module.exports = useSecureEnclave;

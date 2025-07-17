@@ -19,5 +19,6 @@
 	"hcaptcha-load-error": "Error message shown within a form when hCaptcha fails to load.",
 	"hcaptcha-rate-limited": "Error message shown within a form when hCaptcha serves a rate limit error.",
 	"hcaptcha-unknown-error": "Error message shown within a form when an unknown error occurs while executing the hCaptcha challenge.",
-	"hcaptcha-loading-indicator-label": "Hidden label value set for accessibility on the loading indicator shown while the hCaptcha code is initializing."
+	"hcaptcha-loading-indicator-label": "Hidden label value set for accessibility on the loading indicator shown while the hCaptcha code is initializing.",
+	"hcaptcha-missing-token": "Error message shown within a form when it is submitted without hCaptcha having been executed."
 }

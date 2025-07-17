@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 
 use MediaWiki\HTMLForm\HTMLFormField;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Message\Message;
 
 class HTMLHCaptchaField extends HTMLFormField {
 	/** @var string Error returned by hCaptcha in the previous round. */
@@ -22,6 +23,19 @@ class HTMLHCaptchaField extends HTMLFormField {
 		$this->error = $params['error'];
 
 		$this->mName = 'h-captcha-response';
+	}
+
+	/**
+	 * Show a more informative error for form submissions without an hCaptcha token,
+	 * which may be from non-JS clients.
+	 * @inheritDoc
+	 */
+	public function validate( $value, $alldata ): bool|Message|string {
+		if ( !$value ) {
+			return $this->msg( 'hcaptcha-missing-token' );
+		}
+
+		return parent::validate( $value, $alldata );
 	}
 
 	/** @inheritDoc */

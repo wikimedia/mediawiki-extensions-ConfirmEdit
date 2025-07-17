@@ -17,5 +17,6 @@
 	"hcaptcha-load-error": "There was an error while loading hCaptcha. Please check your network connection, then reload the page.",
 	"hcaptcha-rate-limited": "hCaptcha rate limit exceeded. Please reload the page and try again.",
 	"hcaptcha-unknown-error": "An unknown error occurred while executing the hCaptcha challenge. Please reload the page and try again.",
-	"hcaptcha-loading-indicator-label": "Please wait while hCaptcha spam protection is initializing"
+	"hcaptcha-loading-indicator-label": "Please wait while hCaptcha spam protection is initializing",
+	"hcaptcha-missing-token": "This form is protected by an hCaptcha challenge. Please wait for the challenge to appear before submitting the form. Make sure JavaScript is enabled."
 }

@@ -6,6 +6,7 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
 use MediaWiki\Extension\ConfirmEdit\Tests\Integration\MockHCaptchaConfigTrait;
 use MediaWiki\HTMLForm\HTMLForm;
+use MediaWiki\Message\Message;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWikiIntegrationTestCase;
@@ -194,5 +195,31 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				"data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>" .
 				'(hcaptcha-privacy-policy)',
 		];
+	}
+
+	/**
+	 * @dataProvider provideValidate
+	 */
+	public function testValidate( mixed $input, string|bool $expected ): void {
+		$context = RequestContext::getMain();
+		$context->setLanguage( 'qqx' );
+
+		$form = HTMLForm::factory( 'ooui', [], $context );
+		$field = new HTMLHCaptchaField( [ 'parent' => $form, 'name' => 'test' ] );
+
+		$result = $field->validate( $input, [] );
+
+		if ( is_string( $expected ) ) {
+			$this->assertInstanceOf( Message::class, $result );
+			$this->assertSame( $expected, $result->getKey() );
+		} else {
+			$this->assertSame( $expected, $result );
+		}
+	}
+
+	public static function provideValidate(): iterable {
+		yield 'null input' => [ null, 'hcaptcha-missing-token' ];
+		yield 'empty input' => [ '', 'hcaptcha-missing-token' ];
+		yield 'non-empty input' => [ 'foo123', true ];
 	}
 }

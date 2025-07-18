@@ -4,5 +4,6 @@
 			"Beta16"
 		]
 	},
-	"hcaptcha-addurl": "La tua modifica aggiunge nuovi collegamenti esterni. Per proteggere il wiki contro modifiche automatizzate di spam, ti chiediamo gentilmente di risolvere il seguente hCaptcha:"
+	"hcaptcha-addurl": "La tua modifica aggiunge nuovi collegamenti esterni. Per proteggere il wiki contro modifiche automatizzate di spam, ti chiediamo gentilmente di risolvere il seguente hCaptcha:",
+	"hcaptcha-missing-token": "Questo modulo è protetto da un codice hCaptcha. Attendi che il codice appaia prima di inviare il modulo. Assicurati che JavaScript sia abilitato."
 }

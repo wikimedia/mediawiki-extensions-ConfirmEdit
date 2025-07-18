@@ -12,5 +12,12 @@
 	"hcaptcha-createaccount-fail": "Es scheint, als ob du das hCaptcha nicht gelöst hast.",
 	"hcaptcha-create": "Um das Wiki vor automatisierter Seitenerstellung zu schützen, bitten wir dich, das folgende hCaptcha zu lösen:",
 	"hcaptcha-help": "Bitte löse eine hCaptcha-Herausforderung und gib den Antwortwert als captchaWord zurück.",
-	"hcaptcha-privacy-policy": "Diese Site ist durch hCaptcha geschützt und es gelten die [https://www.hcaptcha.com/privacy Datenschutzrichtlinie] und [https://www.hcaptcha.com/terms Nutzungsbedingungen]."
+	"hcaptcha-privacy-policy": "Diese Site ist durch hCaptcha geschützt und es gelten die [https://www.hcaptcha.com/privacy Datenschutzrichtlinie] und [https://www.hcaptcha.com/terms Nutzungsbedingungen].",
+	"hcaptcha-challenge-closed": "Bitte löse die Aufgabe, bevor du das Formular absendest.",
+	"hcaptcha-challenge-expired": "Das Zeitlimit zur Lösung der Herausforderung ist abgelaufen. Bitte versuche es erneut.",
+	"hcaptcha-load-error": "Beim Laden von hCaptcha ist ein Fehler aufgetreten. Bitte überprüfe deine Netzwerkverbindung und lade die Seite neu.",
+	"hcaptcha-rate-limited": "hCaptcha-Ratenlimit überschritten. Bitte lade die Seite neu und versuche es erneut.",
+	"hcaptcha-unknown-error": "Beim Ausführen der hCaptcha-Challenge ist ein unbekannter Fehler aufgetreten. Bitte lade die Seite neu und versuche es erneut.",
+	"hcaptcha-loading-indicator-label": "Bitte warte, während der hCaptcha-Spamschutz initialisiert wird",
+	"hcaptcha-missing-token": "Dieses Formular ist durch ein hCaptcha geschützt. Bitte warte, bis das Captcha angezeigt wird, bevor du das Formular absendest. Stelle sicher, dass JavaScript aktiviert ist."
 }

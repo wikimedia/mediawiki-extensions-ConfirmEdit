@@ -3,6 +3,21 @@ const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
 const ErrorWidget = require( './ErrorWidget.js' );
 
 /**
+ * Conclude and emit a performance measurement in seconds via mw.track.
+ *
+ * @param {string} topic Unique name for the measurement to be sent to mw.track().
+ * @param {string} startName Name of the performance mark denoting the start of the measurement.
+ * @param {string} endName Name of the performance mark denoting the end of the measurement.
+ */
+function trackPerformanceTiming( topic, startName, endName ) {
+	performance.mark( endName );
+
+	const { duration } = performance.measure( topic, startName, endName );
+
+	mw.track( 'specialCreateAccount.performanceTiming', topic, duration / 1000 );
+}
+
+/**
  * Load hCaptcha in Secure Enclave mode.
  *
  * @param {jQuery} $form The form to be protected by hCaptcha.
@@ -22,16 +37,32 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 	$hCaptchaField.after( loadingIndicator.$element, errorWidget.$element );
 
 	const hCaptchaLoaded = new Promise( ( resolve, reject ) => {
+		performance.mark( 'hcaptcha-load-start' );
+
 		// NOTE: Use hCaptcha's onload parameter rather than the return value of getScript()
 		// to run init code, as the latter would run it too early and use
 		// a potentially inconsistent config.
-		win.onHCaptchaSDKLoaded = resolve;
+		win.onHCaptchaSDKLoaded = function () {
+			trackPerformanceTiming(
+				'hcaptcha-load',
+				'hcaptcha-load-start',
+				'hcaptcha-load-complete'
+			);
+
+			resolve();
+		};
 
 		const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
 		hCaptchaApiUrl.searchParams.set( 'onload', 'onHCaptchaSDKLoaded' );
 
 		mw.loader.getScript( hCaptchaApiUrl.toString() )
 			.catch( () => {
+				trackPerformanceTiming(
+					'hcaptcha-load',
+					'hcaptcha-load-start',
+					'hcaptcha-load-complete'
+				);
+
 				mw.errorLogger.logError(
 					new Error( 'Unable to load hCaptcha script in secure enclave mode' ),
 					'error.confirmedit'
@@ -72,6 +103,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			.then(
 				( captchaID ) => {
 					loadingIndicator.$element.show();
+					performance.mark( 'hcaptcha-execute-start' );
 					return win.hcaptcha.execute( captchaID, { async: true } );
 				},
 				// Map getScript() failures into a user-visible error.
@@ -80,6 +112,12 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			)
 			.then(
 				( { response } ) => {
+					trackPerformanceTiming(
+						'hcaptcha-execute',
+						'hcaptcha-execute-start',
+						'hcaptcha-execute-complete'
+					);
+
 					loadingIndicator.$element.hide();
 					// Clear out any errors from a previous workflow.
 					errorWidget.hide();
@@ -89,6 +127,12 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 				// Convert recoverable errors into a resolved value
 				// so that we can delay showing them until the first submit attempt.
 				( error ) => {
+					trackPerformanceTiming(
+						'hcaptcha-execute',
+						'hcaptcha-execute-start',
+						'hcaptcha-execute-complete'
+					);
+
 					loadingIndicator.$element.hide();
 					return recoverableErrors.includes( error ) ? error : Promise.reject( error );
 				}

@@ -4,6 +4,12 @@ const config = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/confi
 QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( {
 	beforeEach() {
 		this.getScript = this.sandbox.stub( mw.loader, 'getScript' );
+		this.track = this.sandbox.stub( mw, 'track' );
+
+		// Sinon fake timers as of v21 only return a static fake value from performance.measure(),
+		// so use a regular stub instead.
+		this.measure = this.sandbox.stub( performance, 'measure' );
+		this.measure.returns( { duration: 0 } );
 
 		this.window = {
 			hcaptcha: {
@@ -32,6 +38,9 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 
 	afterEach() {
 		this.getScript.restore();
+		this.track.restore();
+		this.measure.restore();
+
 		config.HCaptchaApiUrl = this.origUrl;
 	}
 } ) );
@@ -42,6 +51,7 @@ QUnit.test( 'should not load hCaptcha before the form has been interacted with',
 	assert.true( this.getScript.notCalled, 'should not load hCaptcha SDK' );
 	assert.true( this.window.hcaptcha.render.notCalled, 'should not render hCaptcha' );
 	assert.true( this.window.hcaptcha.execute.notCalled, 'should not execute hCaptcha' );
+	assert.true( this.track.notCalled, 'should not emit hCaptcha performance events' );
 } );
 
 QUnit.test( 'should load hCaptcha exactly once when the form is interacted with', async function ( assert ) {
@@ -127,6 +137,38 @@ QUnit.test( 'should intercept form submissions', function ( assert ) {
 				this.$form.find( '.cdx-message' ).text(),
 				'',
 				'no error message should be set'
+			);
+		} );
+
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+	this.$form.trigger( 'submit' );
+
+	return result;
+} );
+
+QUnit.test( 'should measure hCaptcha load and execute timing', function ( assert ) {
+	this.measure
+		.onFirstCall().returns( { duration: 1718 } )
+		.onSecondCall().returns( { duration: 2314 } );
+
+	this.getScript.callsFake( async () => {
+		this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+	this.window.hcaptcha.execute.callsFake( async () => ( { response: 'some-token' } ) );
+
+	const result = useSecureEnclave( this.window )
+		.then( () => {
+			assert.true( this.track.calledTwice, 'should invoke mw.track() twice' );
+			assert.deepEqual(
+				this.track.firstCall.args,
+				[ 'specialCreateAccount.performanceTiming', 'hcaptcha-load', 1.718 ],
+				'should emit event for load time'
+			);
+			assert.deepEqual(
+				this.track.secondCall.args,
+				[ 'specialCreateAccount.performanceTiming', 'hcaptcha-execute', 2.314 ],
+				'should emit event for execution time'
 			);
 		} );
 

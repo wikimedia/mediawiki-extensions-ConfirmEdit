@@ -15,6 +15,16 @@ function trackPerformanceTiming( topic, startName, endName ) {
 	const { duration } = performance.measure( topic, startName, endName );
 
 	mw.track( 'specialCreateAccount.performanceTiming', topic, duration / 1000 );
+
+	// Possible metric names used here:
+	// * mediawiki_special_createaccount_hcaptcha_load_duration_seconds
+	// * mediawiki_special_createaccount_hcaptcha_execute_duration_seconds
+	// NOTE: while the metric value is in milliseconds, the statsd handler in WikimediaEvents
+	// will handle unit conversion.
+	mw.track(
+		`mediawiki_special_createaccount_${ topic.replace( /-/g, '_' ) }_duration_seconds`,
+		duration
+	);
 }
 
 /**

@@ -159,7 +159,7 @@ QUnit.test( 'should measure hCaptcha load and execute timing', function ( assert
 
 	const result = useSecureEnclave( this.window )
 		.then( () => {
-			assert.true( this.track.calledTwice, 'should invoke mw.track() twice' );
+			assert.strictEqual( this.track.callCount, 4, 'should invoke mw.track() four times' );
 			assert.deepEqual(
 				this.track.firstCall.args,
 				[ 'specialCreateAccount.performanceTiming', 'hcaptcha-load', 1.718 ],
@@ -167,8 +167,18 @@ QUnit.test( 'should measure hCaptcha load and execute timing', function ( assert
 			);
 			assert.deepEqual(
 				this.track.secondCall.args,
+				[ 'mediawiki_special_createaccount_hcaptcha_load_duration_seconds', 1718 ],
+				'should record metric for load time'
+			);
+			assert.deepEqual(
+				this.track.thirdCall.args,
 				[ 'specialCreateAccount.performanceTiming', 'hcaptcha-execute', 2.314 ],
 				'should emit event for execution time'
+			);
+			assert.deepEqual(
+				this.track.lastCall.args,
+				[ 'mediawiki_special_createaccount_hcaptcha_execute_duration_seconds', 2314 ],
+				'should record metric for execution time'
 			);
 		} );
 

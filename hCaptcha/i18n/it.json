@@ -5,5 +5,7 @@
 		]
 	},
 	"hcaptcha-addurl": "La tua modifica aggiunge nuovi collegamenti esterni. Per proteggere il wiki contro modifiche automatizzate di spam, ti chiediamo gentilmente di risolvere il seguente hCaptcha:",
+	"hcaptcha-load-error": "Si è verificato un errore durante il caricamento di hCaptcha. Controlla la tua connessione di rete e ricarica la pagina.",
+	"hcaptcha-unknown-error": "Si è verificato un errore sconosciuto durante l'esecuzione della verifica hCaptcha. Ricarica la pagina e riprova.",
 	"hcaptcha-missing-token": "Questo modulo è protetto da un codice hCaptcha. Attendi che il codice appaia prima di inviare il modulo. Assicurati che JavaScript sia abilitato."
 }

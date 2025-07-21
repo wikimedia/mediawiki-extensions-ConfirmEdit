@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bananax47",
 			"Derugon",
 			"Gomoko",
 			"McDutchie",
@@ -17,5 +18,12 @@
 	"hcaptcha-createaccount-fail": "Il semble que vous n’ayez pas résolu le hCAPTCHA.",
 	"hcaptcha-create": "Afin de protéger le wiki contre la création automatisée de pages, nous vous demandons de bien vouloir résoudre le hCaptcha suivant :",
 	"hcaptcha-help": "Veuillez résoudre un défi hCaptcha et renvoyer la valeur de la réponse comme captchaWord.",
-	"hcaptcha-privacy-policy": "Ce site est protégé par hCaptcha et sa [https://www.hcaptcha.com/privacy politique de confidentialité], ses [https://www.hcaptcha.com/terms conditions d'utilisation] s'appliquent."
+	"hcaptcha-privacy-policy": "Ce site est protégé par hCaptcha et sa [https://www.hcaptcha.com/privacy politique de confidentialité], ses [https://www.hcaptcha.com/terms conditions d'utilisation] s'appliquent.",
+	"hcaptcha-challenge-closed": "Veuillez résoudre le hCaptcha avant de soumettre le formulaire.",
+	"hcaptcha-challenge-expired": "Le délai pour résoudre le hCaptcha est expiré. Veuillez réessayer.",
+	"hcaptcha-load-error": "Une erreur s'est produite lors du chargement de hCaptcha. Veuillez vérifier votre connexion réseau, puis recharger la page.",
+	"hcaptcha-rate-limited": "Limite de hCaptcha dépassée. Veuillez recharger la page et réessayer.",
+	"hcaptcha-unknown-error": "Une erreur inconnue s'est produite lors de l'exécution du hCaptcha. Veuillez recharger la page et réessayer.",
+	"hcaptcha-loading-indicator-label": "Veuillez patienter pendant l'initialisation de la protection anti-spam hCaptcha",
+	"hcaptcha-missing-token": "Ce formulaire est protégé par un hCaptcha. Veuillez patienter jusqu'à ce que le hCaptcha apparaisse avant de valider le formulaire. Assurez-vous que JavaScript est activé."
 }

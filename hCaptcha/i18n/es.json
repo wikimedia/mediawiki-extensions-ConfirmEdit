@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"DiegoAmbrocio"
+			"DiegoAmbrocio",
+			"Chaiwan2009"
 		]
 	},
+	"hcaptcha-createaccount": "Para proteger la wiki contra la creación automática de cuentas, le rogamos que resuelva el siguiente hCaptcha:",
 	"hcaptcha-createaccount-fail": "Parece que no has resuelto el hCaptcha."
 }

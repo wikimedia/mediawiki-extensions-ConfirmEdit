@@ -592,11 +592,9 @@ class SimpleCaptcha {
 			// Only check edits that add URLs
 			if ( $content instanceof Content ) {
 				// Get links from the database
-				$oldLinks = ExternalLinksLookup::getExternalLinksForPage(
+				$oldLinks = ExternalLinksLookup::getExtLinksForPage(
 					$title->getArticleID(),
-					MediaWikiServices::getInstance()
-						->getConnectionProvider()
-						->getReplicaDatabase(),
+					MediaWikiServices::getInstance()->getConnectionProvider(),
 					__METHOD__
 				);
 				// Share a parse operation with Article::doEdit()

@@ -10,7 +10,6 @@ use MediaWiki\Extension\ConfirmEdit\Store\CaptchaCacheStore;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Request\FauxRequest;
-use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
@@ -198,8 +197,8 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testCanSkipCaptchaBypassIP( $requestIP, $list, $expected ) {
 		$testObject = new SimpleCaptcha();
-		$request = $this->createMock( WebRequest::class );
-		$request->method( 'getIP' )->willReturn( $requestIP );
+		$request = new FauxRequest();
+		$request->setIP( $requestIP );
 
 		$this->setRequest( $request );
 		$this->overrideConfigValue( 'CaptchaBypassIPs', $list );

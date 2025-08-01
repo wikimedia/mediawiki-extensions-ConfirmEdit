@@ -11,7 +11,6 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Article;
 use MediaWiki\Request\FauxRequest;
-use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 
@@ -44,8 +43,8 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		);
 
 		$testObject = new SimpleCaptcha();
-		$request = $this->createMock( WebRequest::class );
-		$request->method( 'getIP' )->willReturn( $requestIP );
+		$request = new FauxRequest();
+		$request->setIP( $requestIP );
 		$this->setRequest( $request );
 
 		$this->assertEquals(

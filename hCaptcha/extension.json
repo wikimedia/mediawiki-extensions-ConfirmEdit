@@ -67,7 +67,7 @@
 		}
 	},
 	"ConfigRegistry": {
-		"hcaptcha": "GlobalVarConfig::newInstance"
+		"hcaptcha": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "../resources",

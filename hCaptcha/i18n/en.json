@@ -14,9 +14,9 @@
 	"hcaptcha-privacy-policy": "This site is protected by hCaptcha and its [https://www.hcaptcha.com/privacy Privacy Policy] and [https://www.hcaptcha.com/terms Terms of Service] apply.",
 	"hcaptcha-challenge-closed": "Please solve the challenge before submitting the form.",
 	"hcaptcha-challenge-expired": "The time limit to solve the challenge has expired. Please try again.",
-	"hcaptcha-load-error": "There was an error while loading hCaptcha. Please check your network connection, then reload the page.",
-	"hcaptcha-rate-limited": "hCaptcha rate limit exceeded. Please reload the page and try again.",
-	"hcaptcha-unknown-error": "An unknown error occurred while executing the hCaptcha challenge. Please reload the page and try again.",
+	"hcaptcha-load-error": "There was an error while loading hCaptcha. Please check your network connection, then refresh the page.",
+	"hcaptcha-rate-limited": "hCaptcha rate limit exceeded. Please refresh the page and try again.",
+	"hcaptcha-unknown-error": "An unknown error occurred while executing the hCaptcha challenge. Please refresh the page and try again.",
 	"hcaptcha-loading-indicator-label": "Please wait while hCaptcha spam protection is initializing",
 	"hcaptcha-missing-token": "This form is protected by an hCaptcha challenge. Please wait for the challenge to appear before submitting the form. Make sure JavaScript is enabled."
 }

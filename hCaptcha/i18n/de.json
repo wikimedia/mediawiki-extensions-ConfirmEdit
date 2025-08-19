@@ -15,9 +15,9 @@
 	"hcaptcha-privacy-policy": "Diese Site ist durch hCaptcha geschützt und es gelten die [https://www.hcaptcha.com/privacy Datenschutzrichtlinie] und [https://www.hcaptcha.com/terms Nutzungsbedingungen].",
 	"hcaptcha-challenge-closed": "Bitte löse die Aufgabe, bevor du das Formular absendest.",
 	"hcaptcha-challenge-expired": "Das Zeitlimit zur Lösung der Herausforderung ist abgelaufen. Bitte versuche es erneut.",
-	"hcaptcha-load-error": "Beim Laden von hCaptcha ist ein Fehler aufgetreten. Bitte überprüfe deine Netzwerkverbindung und lade die Seite neu.",
-	"hcaptcha-rate-limited": "hCaptcha-Ratenlimit überschritten. Bitte lade die Seite neu und versuche es erneut.",
-	"hcaptcha-unknown-error": "Beim Ausführen der hCaptcha-Challenge ist ein unbekannter Fehler aufgetreten. Bitte lade die Seite neu und versuche es erneut.",
+	"hcaptcha-load-error": "Beim Laden von hCaptcha ist ein Fehler aufgetreten. Bitte überprüfe deine Netzwerkverbindung und aktualisiere die Seite.",
+	"hcaptcha-rate-limited": "hCaptcha-Ratenlimit überschritten. Bitte aktualisiere die Seite und versuche es erneut.",
+	"hcaptcha-unknown-error": "Beim Ausführen der hCaptcha-Challenge ist ein unbekannter Fehler aufgetreten. Bitte aktualisiere die Seite und versuche es erneut.",
 	"hcaptcha-loading-indicator-label": "Bitte warte, während der hCaptcha-Spamschutz initialisiert wird",
 	"hcaptcha-missing-token": "Dieses Formular ist durch ein hCaptcha geschützt. Bitte warte, bis das Captcha angezeigt wird, bevor du das Formular absendest. Stelle sicher, dass JavaScript aktiviert ist."
 }

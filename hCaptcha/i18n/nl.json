@@ -15,9 +15,9 @@
 	"hcaptcha-privacy-policy": "Deze site wordt beschermd door hCaptcha en het [https://www.hcaptcha.com/privacy Privacybeleid] en de [https://www.hcaptcha.com/terms Servicevoorwaarden] zijn van toepassing.",
 	"hcaptcha-challenge-closed": "Los de opgave op voordat u het formulier verzendt.",
 	"hcaptcha-challenge-expired": "De tijdslimiet om de opgave op te lossen is verstreken. Probeer het opnieuw.",
-	"hcaptcha-load-error": "Er is een fout opgetreden bij het laden van hCaptcha. Controleer uw netwerkverbinding en laad de pagina opnieuw.",
-	"hcaptcha-rate-limited": "hCaptcha-gebruikslimiet overschreden. Laad de pagina opnieuw en probeer het nog een.",
-	"hcaptcha-unknown-error": "Er is een onbekende fout opgetreden tijdens het uitvoeren van de hCaptcha-opgave. Laad de pagina opnieuw en probeer het nog eens.",
+	"hcaptcha-load-error": "Er is een fout opgetreden bij het laden van hCaptcha. Controleer uw netwerkverbinding en vernieuw de pagina.",
+	"hcaptcha-rate-limited": "hCaptcha-gebruikslimiet overschreden. Vernieuw de pagina en probeer het nog eens.",
+	"hcaptcha-unknown-error": "Er is een onbekende fout opgetreden tijdens het uitvoeren van de hCaptcha-opgave. Vernieuw de pagina en probeer het nog eens.",
 	"hcaptcha-loading-indicator-label": "Een momentje geduld, de hCaptcha-spambeveiliging wordt geïnitialiseerd",
 	"hcaptcha-missing-token": "Dit formulier wordt beveiligd door een hCaptcha-opgave. Wacht tot de opgave verschijnt voordat u het formulier verzendt. Zorg ervoor dat JavaScript is ingeschakeld."
 }

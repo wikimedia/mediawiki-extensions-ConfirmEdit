@@ -12,5 +12,12 @@
 	"hcaptcha-createaccount-fail": "נראה שלא פתרת את ה־hCaptcha.",
 	"hcaptcha-create": "כדי להגן על הוויקי מפני יצירת דפים אוטומטית, אנו מבקשים ממך לפתור את ה־hCaptcha הבאה:",
 	"hcaptcha-help": "נא לפתור אתגר hCaptcha ולהחזיר את ערך התגובה כ־captchaWord.",
-	"hcaptcha-privacy-policy": "האתר הזה מוגן על־ידי hCaptcha וחלים עליו [https://www.hcaptcha.com/privacy מדיניות הפרטיות] ו[https://www.hcaptcha.com/terms תנאי השירות] שלה."
+	"hcaptcha-privacy-policy": "האתר הזה מוגן על־ידי hCaptcha וחלים עליו [https://www.hcaptcha.com/privacy מדיניות הפרטיות] ו[https://www.hcaptcha.com/terms תנאי השירות] שלה.",
+	"hcaptcha-challenge-closed": "נא לפתור את האתגר לפני שליחת הטופס.",
+	"hcaptcha-challenge-expired": "תם הזמן לפתרון האתגר. נא לנסות שוב.",
+	"hcaptcha-load-error": "אירעה שגיאה בעת טעינת hCaptcha. נא לבדוק את חיבור הרשת שלך ולאחר מכן לרענן את הדף.",
+	"hcaptcha-rate-limited": "חריגה ממגבלת קצב ב־hCaptcha. נא לרענן את הדף ולנסות שוב.",
+	"hcaptcha-unknown-error": "אירעה שגיאה לא ידועה בעת ביצוע אתגר ה־hCaptcha. נא לרענן את הדף ולנסות שוב.",
+	"hcaptcha-loading-indicator-label": "נא להמתין בזמן אתחול ההגנה מפני ספאם של hCaptcha",
+	"hcaptcha-missing-token": "הטופס הזה מוגן על־ידי אתגר hCaptcha. נא להמתין להופעת האתגר לפני שליחת הטופס. נא לוודא ש־JavaScript מופעל."
 }

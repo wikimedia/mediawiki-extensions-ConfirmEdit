@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"GuoPC",
 			"Key0121",
 			"Lakejason0",
 			"XtexChooser"
@@ -17,9 +18,9 @@
 	"hcaptcha-privacy-policy": "本站受hCaptcha保护，并适用其[https://www.hcaptcha.com/privacy 隐私政策]和[https://www.hcaptcha.com/terms 服务条款]。",
 	"hcaptcha-challenge-closed": "提交表单前请先通过人机验证。",
 	"hcaptcha-challenge-expired": "完成验证的时间限制已过。请重试。",
-	"hcaptcha-load-error": "加载hCaptcha时出错。请检查您的网络连接，然后重新加载页面。",
-	"hcaptcha-rate-limited": "已超出hCaptcha的速率限制。请重新加载页面并重试。",
-	"hcaptcha-unknown-error": "执行hCaptcha验证时发生未知错误。请重新加载页面并重试。",
+	"hcaptcha-load-error": "加载hCaptcha时出错。请检查您的网络连接，然后刷新页面。",
+	"hcaptcha-rate-limited": "已超出hCaptcha的速率限制。请刷新页面并重试。",
+	"hcaptcha-unknown-error": "执行hCaptcha验证时发生未知错误。请刷新页面并重试。",
 	"hcaptcha-loading-indicator-label": "hCaptcha验证正在初始化，请稍候",
 	"hcaptcha-missing-token": "此表单受hCaptcha验证问题保护。请等待相关内容显示后再提交表单。请确保您已启用JavaScript。"
 }

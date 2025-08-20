@@ -15,9 +15,9 @@
 	"hcaptcha-privacy-policy": "Este sitio está protexido por hCaptcha e aplícanse a súa [https://www.hcaptcha.com/privacy política de protección de datos] e os seus [https://www.hcaptcha.com/terms termos de servizo].",
 	"hcaptcha-challenge-closed": "Resolve o desafío antes de enviar o formulario.",
 	"hcaptcha-challenge-expired": "O límite de tempo para resolver o desafío expirou. Inténtao de novo.",
-	"hcaptcha-load-error": "Houbo un erro ao cargar o hCaptcha. Comproba a túa conexión de rede e, a continuación, recarga a páxina.",
-	"hcaptcha-rate-limited": "Superouse o límite de taxa do hCaptcha. Recarga a páxina e inténtao de novo.",
-	"hcaptcha-unknown-error": "Produciuse un erro descoñecido ao executar o desafío hCaptcha. Recarga a páxina e inténtao de novo.",
+	"hcaptcha-load-error": "Houbo un erro ao cargar o hCaptcha. Comproba a túa conexión de rede e, a continuación, actualiza a páxina.",
+	"hcaptcha-rate-limited": "Superouse o límite de taxa do hCaptcha. Actualiza a páxina e inténtao de novo.",
+	"hcaptcha-unknown-error": "Produciuse un erro descoñecido ao executar o desafío hCaptcha. Actualiza a páxina e inténtao de novo.",
 	"hcaptcha-loading-indicator-label": "Agarda mentres se inicializa a protección contra o spam do hCaptcha",
 	"hcaptcha-missing-token": "Este formulario está protexido por un desafío hCaptcha. Agarda a que apareza a comprobación antes de enviar o formulario. Asegúrate de que o JavaScript estea activado."
 }

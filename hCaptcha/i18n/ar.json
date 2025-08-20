@@ -15,9 +15,9 @@
 	"hcaptcha-privacy-policy": "هذا الموقع محمي بواسطة hCaptcha وينطبق عليه [https://www.hcaptcha.com/privacy سياسة الخصوصية] و[https://www.hcaptcha.com/terms شروط الخدمة].",
 	"hcaptcha-challenge-closed": "يرجى حل التحدي قبل إرسال النموذج.",
 	"hcaptcha-challenge-expired": "انتهت المدة المحددة لحل التحدي. يُرجى المحاولة مرة أخرى.",
-	"hcaptcha-load-error": "حدث خطأ أثناء تحميل hCaptcha. يُرجى التحقق من اتصالك بالشبكة، ثم إعادة تحميل الصفحة.",
-	"hcaptcha-rate-limited": "تم تجاوز حد معدل hCaptcha. يُرجى إعادة تحميل الصفحة والمحاولة مرة أخرى.",
-	"hcaptcha-unknown-error": "حدث خطأ غير معروف أثناء تنفيذ تحدي hCaptcha. يُرجى إعادة تحميل الصفحة والمحاولة مرة أخرى.",
+	"hcaptcha-load-error": "حدث خطأ أثناء تحميل hCaptcha. يُرجى التحقق من اتصالك بالشبكة، ثم تحديث الصفحة.",
+	"hcaptcha-rate-limited": "تم تجاوز حدّ معدل hCaptcha. يُرجى تحديث الصفحة والمحاولة مجددًا.",
+	"hcaptcha-unknown-error": "حدث خطأ غير معروف أثناء تنفيذ تحدي hCaptcha. يُرجى تحديث الصفحة والمحاولة مرة أخرى.",
 	"hcaptcha-loading-indicator-label": "يرجى الانتظار أثناء تهيئة حماية البريد العشوائي hCaptcha",
 	"hcaptcha-missing-token": "هذا النموذج محمي بتحدي hCaptcha. يُرجى انتظار ظهور التحدي قبل إرسال النموذج. تأكد من تفعيل JavaScript."
 }

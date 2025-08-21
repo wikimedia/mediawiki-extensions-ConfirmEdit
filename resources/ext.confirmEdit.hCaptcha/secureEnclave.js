@@ -22,7 +22,7 @@ function trackPerformanceTiming( topic, startName, endName ) {
 	// NOTE: while the metric value is in milliseconds, the statsd handler in WikimediaEvents
 	// will handle unit conversion.
 	mw.track(
-		`mediawiki_special_createaccount_${ topic.replace( /-/g, '_' ) }_duration_seconds`,
+		`stats.mediawiki_special_createaccount_${ topic.replace( /-/g, '_' ) }_duration_seconds`,
 		duration
 	);
 }

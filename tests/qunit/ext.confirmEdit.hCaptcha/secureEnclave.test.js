@@ -167,7 +167,7 @@ QUnit.test( 'should measure hCaptcha load and execute timing', function ( assert
 			);
 			assert.deepEqual(
 				this.track.secondCall.args,
-				[ 'mediawiki_special_createaccount_hcaptcha_load_duration_seconds', 1718 ],
+				[ 'stats.mediawiki_special_createaccount_hcaptcha_load_duration_seconds', 1718 ],
 				'should record metric for load time'
 			);
 			assert.deepEqual(
@@ -177,7 +177,7 @@ QUnit.test( 'should measure hCaptcha load and execute timing', function ( assert
 			);
 			assert.deepEqual(
 				this.track.lastCall.args,
-				[ 'mediawiki_special_createaccount_hcaptcha_execute_duration_seconds', 2314 ],
+				[ 'stats.mediawiki_special_createaccount_hcaptcha_execute_duration_seconds', 2314 ],
 				'should record metric for execution time'
 			);
 		} );

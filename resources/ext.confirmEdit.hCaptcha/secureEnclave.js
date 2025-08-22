@@ -41,6 +41,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 		mw.msg( 'hcaptcha-loading-indicator-label' )
 	);
 	loadingIndicator.$element.addClass( 'ext-confirmEdit-hCaptchaLoadingIndicator' );
+	loadingIndicator.$element.hide();
 
 	const errorWidget = new ErrorWidget();
 
@@ -78,7 +79,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 					'error.confirmedit'
 				);
 
-				reject();
+				reject( 'wmf-hcaptcha-load-error' );
 			} );
 	} );
 
@@ -109,45 +110,6 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 	const executeWorkflow = async function () {
 		$form.off( 'submit.hCaptcha' );
 
-		const result = captchaIdPromise
-			.then(
-				( captchaID ) => {
-					loadingIndicator.$element.show();
-					performance.mark( 'hcaptcha-execute-start' );
-					return win.hcaptcha.execute( captchaID, { async: true } );
-				},
-				// Map getScript() failures into a user-visible error.
-				// eslint-disable-next-line unicorn/no-useless-promise-resolve-reject
-				() => Promise.reject( 'wmf-hcaptcha-load-error' )
-			)
-			.then(
-				( { response } ) => {
-					trackPerformanceTiming(
-						'hcaptcha-execute',
-						'hcaptcha-execute-start',
-						'hcaptcha-execute-complete'
-					);
-
-					loadingIndicator.$element.hide();
-					// Clear out any errors from a previous workflow.
-					errorWidget.hide();
-					// handle hCaptcha response token
-					$form.find( '#h-captcha-response' ).val( response );
-				},
-				// Convert recoverable errors into a resolved value
-				// so that we can delay showing them until the first submit attempt.
-				( error ) => {
-					trackPerformanceTiming(
-						'hcaptcha-execute',
-						'hcaptcha-execute-start',
-						'hcaptcha-execute-complete'
-					);
-
-					loadingIndicator.$element.hide();
-					return recoverableErrors.includes( error ) ? error : Promise.reject( error );
-				}
-			);
-
 		const formSubmitted = new Promise( ( resolve ) => {
 			$form.on( 'submit.hCaptcha', function ( event ) {
 				event.preventDefault();
@@ -157,20 +119,29 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 		} );
 
 		try {
-			const [ error, form ] = await Promise.all( [ result, formSubmitted ] );
-			if ( !error ) {
-				form.submit();
-				return;
-			}
+			const [ captchaId, form ] = await Promise.all( [ captchaIdPromise, formSubmitted ] );
 
-			// Show an error message for recoverable errors and initiate a new workflow.
-			// Possible message keys used here:
-			// * hcaptcha-challenge-closed
-			// * hcaptcha-challenge-expired
-			errorWidget.show( mw.msg( errorMap[ error ] ) );
-			return executeWorkflow();
+			loadingIndicator.$element.show();
+			performance.mark( 'hcaptcha-execute-start' );
+
+			try {
+				const { response } = await win.hcaptcha.execute( captchaId, { async: true } );
+
+				// Clear out any errors from a previous workflow.
+				errorWidget.hide();
+				// handle hCaptcha response token
+				$form.find( '#h-captcha-response' ).val( response );
+
+				form.submit();
+			} finally {
+				trackPerformanceTiming(
+					'hcaptcha-execute',
+					'hcaptcha-execute-start',
+					'hcaptcha-execute-complete'
+				);
+				loadingIndicator.$element.hide();
+			}
 		} catch ( error ) {
-			// Handle unrecoverable errors.
 			const errMsg = Object.prototype.hasOwnProperty.call( errorMap, error ) ?
 				errorMap[ error ] :
 				'hcaptcha-unknown-error';
@@ -179,7 +150,14 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			// * hcaptcha-load-error
 			// * hcaptcha-rate-limited
 			// * hcaptcha-unknown-error
+			// * hcaptcha-challenge-closed
+			// * hcaptcha-challenge-expired
 			errorWidget.show( mw.msg( errMsg ) );
+
+			// Initiate a new workflow for recoverable errors (e.g. an expired or closed challenge).
+			if ( recoverableErrors.includes( error ) ) {
+				return executeWorkflow();
+			}
 		}
 	};
 

@@ -55,6 +55,10 @@ QUnit.test( 'should not load hCaptcha before the form has been interacted with',
 } );
 
 QUnit.test( 'should load hCaptcha exactly once when the form is interacted with', async function ( assert ) {
+	this.getScript.callsFake( async () => {
+		this.window.onHCaptchaSDKLoaded();
+	} );
+
 	useSecureEnclave( this.window );
 
 	const $input = this.$form.find( '[name=some-input]' );
@@ -69,9 +73,20 @@ QUnit.test( 'should load hCaptcha exactly once when the form is interacted with'
 	} );
 
 	assert.true( this.getScript.calledOnce, 'should load hCaptcha SDK once' );
+	assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
+	assert.deepEqual(
+		this.window.hcaptcha.render.firstCall.args,
+		[ 'h-captcha' ],
+		'should render hCaptcha widget in correct element'
+	);
+	assert.true( this.window.hcaptcha.execute.notCalled, 'should not execute hCaptcha before the form is submitted' );
 } );
 
 QUnit.test( 'should load hCaptcha on form submissions triggered before hCaptcha was setup', async function ( assert ) {
+	this.getScript.callsFake( async () => {
+		this.window.onHCaptchaSDKLoaded();
+	} );
+
 	useSecureEnclave( this.window );
 
 	this.$form.trigger( 'submit' );
@@ -83,16 +98,23 @@ QUnit.test( 'should load hCaptcha on form submissions triggered before hCaptcha 
 
 	assert.true( this.getScript.calledOnce, 'should load hCaptcha SDK once' );
 	assert.true( this.submit.notCalled, 'form submission should have been prevented' );
+	assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
+	assert.deepEqual(
+		this.window.hcaptcha.render.firstCall.args,
+		[ 'h-captcha' ],
+		'should render hCaptcha widget in correct element'
+	);
+	assert.true( this.window.hcaptcha.execute.notCalled, 'should not execute hCaptcha before the form is submitted' );
 } );
 
 QUnit.test( 'should intercept form submissions', function ( assert ) {
 	this.getScript.callsFake( async () => {
-		assert.true( this.isLoadingIndicatorVisible(), 'should show loading indicator' );
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
 	this.window.hcaptcha.render.returns( 'some-captcha-id' );
 	this.window.hcaptcha.execute.callsFake( async () => {
-		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible until hCaptcha finishes' );
+		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible during execute' );
 		return { response: 'some-token' };
 	} );
 
@@ -190,7 +212,7 @@ QUnit.test( 'should measure hCaptcha load and execute timing', function ( assert
 
 QUnit.test( 'should surface load errors as soon as possible', async function ( assert ) {
 	this.getScript.callsFake( () => {
-		assert.true( this.isLoadingIndicatorVisible(), 'should show loading indicator' );
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		return Promise.reject();
 	} );
 
@@ -199,8 +221,6 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 	this.$form.find( '[name=some-input]' ).trigger( 'input' );
 
 	await hCaptchaResult;
-
-	assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
 
 	assert.notStrictEqual(
 		this.$form.find( '.cdx-message' ).css( 'display' ),
@@ -216,7 +236,7 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 
 QUnit.test( 'should surface irrecoverable workflow execution errors as soon as possible', async function ( assert ) {
 	this.getScript.callsFake( async () => {
-		assert.true( this.isLoadingIndicatorVisible(), 'should show loading indicator' );
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
 	this.window.hcaptcha.render.returns( 'some-captcha-id' );
@@ -228,6 +248,7 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 	const hCaptchaResult = useSecureEnclave( this.window );
 
 	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+	this.$form.trigger( 'submit' );
 
 	await hCaptchaResult;
 
@@ -247,13 +268,13 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 
 QUnit.test( 'should surface recoverable workflow execution errors on submit', function ( assert ) {
 	this.getScript.callsFake( async () => {
-		assert.true( this.isLoadingIndicatorVisible(), 'should show loading indicator' );
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
 
 	this.window.hcaptcha.render.returns( 'some-captcha-id' );
 	this.window.hcaptcha.execute.callsFake( () => {
-		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible until hCaptcha finishes' );
+		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible during execute' );
 		return Promise.reject( 'challenge-closed' );
 	} );
 
@@ -286,7 +307,7 @@ QUnit.test( 'should surface recoverable workflow execution errors on submit', fu
 
 QUnit.test( 'should allow recovering from a recoverable error by starting a new workflow', function ( assert ) {
 	this.getScript.callsFake( async () => {
-		assert.true( this.isLoadingIndicatorVisible(), 'should show loading indicator' );
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
 

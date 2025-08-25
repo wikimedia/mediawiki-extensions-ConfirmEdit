@@ -22,6 +22,8 @@ use MWHttpRequest;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use StatusValue;
+use Wikimedia\Stats\Metrics\TimingMetric;
+use Wikimedia\Stats\StatsFactory;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -230,6 +232,15 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				return $mwHttpRequest;
 			} );
 		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
+		$stats = $this->createMock( StatsFactory::class );
+		$stats->method( 'withComponent' )->willReturnSelf();
+		$timing = $this->createMock( TimingMetric::class );
+		$timing->method( 'setLabel' )->willReturnSelf();
+		$timing->expects( $this->once() )->method( 'setLabel' )->with( 'status', 'ok' );
+		$stats->method( 'getTiming' )->willReturn( $timing );
+		$stats->expects( $this->once() )->method( 'getTiming' )->with( 'hcaptcha_siteverify_call' );
+		$timing->expects( $this->once() )->method( 'observeSeconds' );
+		$this->setService( 'StatsFactory', $stats );
 
 		// Expect that a debug log is created to indicate that the captcha either was solved or was not solved.
 		if ( $developerMode ) {

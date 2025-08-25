@@ -20,6 +20,7 @@ use MediaWiki\Request\WebRequest;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
 use MediaWiki\User\UserIdentity;
+use Wikimedia\Stats\StatsFactory;
 
 class HCaptcha extends SimpleCaptcha {
 	/**
@@ -33,11 +34,13 @@ class HCaptcha extends SimpleCaptcha {
 
 	private Config $hCaptchaConfig;
 	private HCaptchaOutput $hCaptchaOutput;
+	private StatsFactory $statsFactory;
 
 	public function __construct() {
 		$services = MediaWikiServices::getInstance();
 		$this->hCaptchaConfig = $services->getMainConfig();
 		$this->hCaptchaOutput = $services->get( 'HCaptchaOutput' );
+		$this->statsFactory = $services->getStatsFactory();
 	}
 
 	/** @inheritDoc */
@@ -125,7 +128,13 @@ class HCaptcha extends SimpleCaptcha {
 		$request = MediaWikiServices::getInstance()->getHttpRequestFactory()
 			->create( $this->hCaptchaConfig->get( 'HCaptchaVerifyUrl' ), $options, __METHOD__ );
 
+		$start = microtime( true );
 		$status = $request->execute();
+		$this->statsFactory->withComponent( 'ConfirmEdit' )
+			->getTiming( 'hcaptcha_siteverify_call' )
+			->setLabel( 'status', $status->isOK() ? 'ok' : 'failed' )
+			->observeSeconds( ( microtime( true ) - $start ) );
+
 		if ( !$status->isOK() ) {
 			$this->error = 'http';
 			$this->logCheckError( $status );

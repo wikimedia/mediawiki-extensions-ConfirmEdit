@@ -153,6 +153,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			// * hcaptcha-challenge-closed
 			// * hcaptcha-challenge-expired
 			errorWidget.show( mw.msg( errMsg ) );
+			mw.errorLogger.logError( new Error( errMsg ), 'error.confirmedit' );
 
 			// Initiate a new workflow for recoverable errors (e.g. an expired or closed challenge).
 			if ( recoverableErrors.includes( error ) ) {

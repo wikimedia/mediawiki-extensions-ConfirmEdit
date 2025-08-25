@@ -2,9 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Chaiwan2009",
-			"DiegoAmbrocio"
+			"DiegoAmbrocio",
+			"Rousmery96"
 		]
 	},
 	"hcaptcha-createaccount": "Para proteger la wiki contra la creación automática de cuentas, le rogamos que resuelva el siguiente hCaptcha:",
-	"hcaptcha-createaccount-fail": "Parece que no has resuelto el hCaptcha."
+	"hcaptcha-createaccount-fail": "Parece que no has resuelto el hCaptcha.",
+	"hcaptcha-load-error": "Se produjo un error al cargar hCaptcha. Verifique su conexión de red y actualice la página.",
+	"hcaptcha-rate-limited": "Se superó el límite de hCaptcha. Actualice la página y vuelva a intentarlo.",
+	"hcaptcha-unknown-error": "Se produjo un error desconocido al ejecutar el desafío hCaptcha. Actualice la página y vuelva a intentarlo."
 }

@@ -16,9 +16,7 @@
 	"hcaptcha-privacy-policy": "Links to hCaptcha Privacy Policy and Terms of Service to be displayed when the hCaptcha could be shown on an action",
 	"hcaptcha-challenge-closed": "Error message shown within a form when a user closes the hCaptcha challenge without completing it.",
 	"hcaptcha-challenge-expired": "Error message shown within a form when a user takes too long to complete the hCaptcha challenge.",
-	"hcaptcha-load-error": "Error message shown within a form when hCaptcha fails to load.",
-	"hcaptcha-rate-limited": "Error message shown within a form when hCaptcha serves a rate limit error.",
-	"hcaptcha-unknown-error": "Error message shown within a form when an unknown error occurs while executing the hCaptcha challenge.",
+	"hcaptcha-generic-error": "Error message shown within a form when an unknown error occurs while executing the hCaptcha challenge.",
 	"hcaptcha-loading-indicator-label": "Hidden label value set for accessibility on the loading indicator shown while the hCaptcha code is initializing.",
 	"hcaptcha-missing-token": "Error message shown within a form when it is submitted without hCaptcha having been executed."
 }

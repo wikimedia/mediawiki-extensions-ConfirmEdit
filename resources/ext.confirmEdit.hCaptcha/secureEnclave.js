@@ -85,10 +85,6 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 
 	// Map of hCaptcha error codes to error message keys.
 	const errorMap = {
-		// Custom error code used to map getScript() failures into a user-visible error.
-		'wmf-hcaptcha-load-error': 'hcaptcha-load-error',
-		'rate-limited': 'hcaptcha-rate-limited',
-		'network-error': 'hcaptcha-load-error',
 		'challenge-closed': 'hcaptcha-challenge-closed',
 		'challenge-expired': 'hcaptcha-challenge-expired'
 	};
@@ -144,12 +140,10 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 		} catch ( error ) {
 			const errMsg = Object.prototype.hasOwnProperty.call( errorMap, error ) ?
 				errorMap[ error ] :
-				'hcaptcha-unknown-error';
+				'hcaptcha-generic-error';
 
 			// Possible message keys used here:
-			// * hcaptcha-load-error
-			// * hcaptcha-rate-limited
-			// * hcaptcha-unknown-error
+			// * hcaptcha-generic-error
 			// * hcaptcha-challenge-closed
 			// * hcaptcha-challenge-expired
 			errorWidget.show( mw.msg( errMsg ) );

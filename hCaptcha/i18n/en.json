@@ -12,11 +12,9 @@
 	"hcaptcha-create": "To protect the wiki against automated page creation, we kindly ask you to solve the following hCaptcha:",
 	"hcaptcha-help": "Please solve a hCaptcha challenge and return the response value as captchaWord.",
 	"hcaptcha-privacy-policy": "This site is protected by hCaptcha and its [https://www.hcaptcha.com/privacy Privacy Policy] and [https://www.hcaptcha.com/terms Terms of Service] apply.",
-	"hcaptcha-challenge-closed": "Please solve the challenge before submitting the form.",
-	"hcaptcha-challenge-expired": "The time limit to solve the challenge has expired. Please try again.",
-	"hcaptcha-load-error": "There was an error while loading hCaptcha. Please check your network connection, then refresh the page.",
-	"hcaptcha-rate-limited": "hCaptcha rate limit exceeded. Please refresh the page and try again.",
-	"hcaptcha-unknown-error": "An unknown error occurred while executing the hCaptcha challenge. Please refresh the page and try again.",
-	"hcaptcha-loading-indicator-label": "Please wait while hCaptcha spam protection is initializing",
-	"hcaptcha-missing-token": "This form is protected by an hCaptcha challenge. Please wait for the challenge to appear before submitting the form. Make sure JavaScript is enabled."
+	"hcaptcha-challenge-closed": "To continue, you must complete the captcha.",
+	"hcaptcha-challenge-expired": "The time limit to complete the captcha has expired. Please try again.",
+	"hcaptcha-generic-error": "There was an error while loading the form. To continue, you will need to reload the page.",
+	"hcaptcha-loading-indicator-label": "Please wait while we finish loading the form...",
+	"hcaptcha-missing-token": "We’re not quite finished loading the form. Please wait a few seconds, then try again."
 }

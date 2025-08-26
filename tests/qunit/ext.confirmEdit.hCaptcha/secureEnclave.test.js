@@ -229,7 +229,7 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 	);
 	assert.strictEqual(
 		this.$form.find( '.cdx-message' ).text(),
-		'(hcaptcha-load-error)',
+		'(hcaptcha-generic-error)',
 		'load error message should be set'
 	);
 } );
@@ -261,7 +261,7 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 	);
 	assert.strictEqual(
 		this.$form.find( '.cdx-message' ).text(),
-		'(hcaptcha-rate-limited)',
+		'(hcaptcha-generic-error)',
 		'error message should be set'
 	);
 } );

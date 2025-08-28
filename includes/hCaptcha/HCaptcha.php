@@ -110,6 +110,7 @@ class HCaptcha extends SimpleCaptcha {
 			'secret' => $this->hCaptchaConfig->get( 'HCaptchaSecretKey' ),
 			'response' => $token,
 		];
+		$data['remoteip'] = '127.0.0.1';
 		if ( $this->hCaptchaConfig->get( 'HCaptchaSendRemoteIP' ) ) {
 			$webRequest = RequestContext::getMain()->getRequest();
 			$data['remoteip'] = $webRequest->getIP();

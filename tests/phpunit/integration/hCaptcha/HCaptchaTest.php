@@ -103,7 +103,11 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				$this->assertArrayEquals(
 					[
 						'method' => 'POST',
-						'postData' => [ 'response' => 'abcdef', 'secret' => 'secretkey' ],
+						'postData' => [
+							'response' => 'abcdef',
+							'secret' => 'secretkey',
+							'remoteip' => '127.0.0.1',
+						],
 						'proxy' => 'proxy.test.com',
 					],
 					$options,
@@ -203,6 +207,12 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->overrideConfigValue( 'HCaptchaDeveloperMode', $developerMode );
 		$this->overrideConfigValue( 'HCaptchaUseRiskScore', $useRiskScore );
 		$this->overrideConfigValue( 'HCaptchaSendRemoteIP', $sendRemoteIP );
+		// Set a default IP for the web request, in order to be able to test
+		// $sendRemoteIP later on
+		$request = RequestContext::getMain()->getRequest();
+		$testIP = '1.2.3.4';
+		$request->setIP( $testIP );
+		RequestContext::getMain()->setRequest( $request );
 
 		// Mock the site-verify URL call to respond with a successful response
 		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
@@ -215,9 +225,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 
 		// Mock HttpRequestFactory directly so that we can check the URL and options are as expected.
 		$expectedPostData = [ 'response' => 'abcdef', 'secret' => 'secretkey' ];
-		if ( $sendRemoteIP ) {
-			$expectedPostData['remoteip'] = '127.0.0.1';
-		}
+		$expectedPostData['remoteip'] = $sendRemoteIP ? $testIP : '127.0.0.1';
 
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
 		$mockHttpRequestFactory->method( 'create' )

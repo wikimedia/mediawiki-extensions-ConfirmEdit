@@ -16,9 +16,9 @@
 	"hcaptcha-privacy-policy": "本站受 hCaptcha 保護，並適用其[https://www.hcaptcha.com/privacy 隱私權政策]和[https://www.hcaptcha.com/terms 服務條款]。",
 	"hcaptcha-challenge-closed": "提交表單前請先完成驗證問題。",
 	"hcaptcha-challenge-expired": "完成驗證問題的時限已過。請重試。",
-	"hcaptcha-load-error": "載入 hCaptcha 時出錯。請檢查您的網路連線，然後重新載入頁面。",
-	"hcaptcha-rate-limited": "已超出 hCaptcha 速率上限。請重新載入頁面並重試。",
-	"hcaptcha-unknown-error": "執行 hCaptcha 驗證時發生未知錯誤。請重新載入頁面並重試。",
+	"hcaptcha-load-error": "載入 hCaptcha 時出錯。請檢查您的網路連線，然後重整頁面。",
+	"hcaptcha-rate-limited": "已超出 hCaptcha 速率上限。請重整頁面並重試。",
+	"hcaptcha-unknown-error": "執行 hCaptcha 驗證時發生未知錯誤。請重整頁面並重試。",
 	"hcaptcha-loading-indicator-label": "hCaptcha 驗證問題正在初始化，請稍候",
 	"hcaptcha-missing-token": "此表單受 hCaptcha 驗證問題保護。請等待驗證問題顯示後再提交表單。請確保您已啟用 JavaScript。"
 }

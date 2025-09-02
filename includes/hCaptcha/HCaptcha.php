@@ -20,6 +20,7 @@ use MediaWiki\Request\WebRequest;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
 use MediaWiki\User\UserIdentity;
+use Psr\Log\LoggerInterface;
 use Wikimedia\Stats\StatsFactory;
 
 class HCaptcha extends SimpleCaptcha {
@@ -35,12 +36,14 @@ class HCaptcha extends SimpleCaptcha {
 	private Config $hCaptchaConfig;
 	private HCaptchaOutput $hCaptchaOutput;
 	private StatsFactory $statsFactory;
+	private LoggerInterface $logger;
 
 	public function __construct() {
 		$services = MediaWikiServices::getInstance();
 		$this->hCaptchaConfig = $services->getMainConfig();
 		$this->hCaptchaOutput = $services->get( 'HCaptchaOutput' );
 		$this->statsFactory = $services->getStatsFactory();
+		$this->logger = LoggerFactory::getInstance( 'captcha' );
 	}
 
 	/** @inheritDoc */
@@ -69,10 +72,7 @@ class HCaptcha extends SimpleCaptcha {
 		}
 	}
 
-	/**
-	 * @param Status|array|string $info
-	 */
-	protected function logCheckError( $info ) {
+	protected function logCheckError( Status|array|string $info, UserIdentity $userIdentity ): void {
 		if ( $info instanceof Status ) {
 			$errors = $info->getErrorsArray();
 			$error = $errors[0][0];
@@ -82,7 +82,11 @@ class HCaptcha extends SimpleCaptcha {
 			$error = $info;
 		}
 
-		\wfDebugLog( 'captcha', 'Unable to validate response: ' . $error );
+		$this->logger->error( 'Unable to validate response. Error: {error}', [
+			'error' => $error,
+			'user' => $userIdentity->getName(),
+			'captcha_type' => self::$messagePrefix,
+		] );
 	}
 
 	/** @inheritDoc */
@@ -138,18 +142,18 @@ class HCaptcha extends SimpleCaptcha {
 
 		if ( !$status->isOK() ) {
 			$this->error = 'http';
-			$this->logCheckError( $status );
+			$this->logCheckError( $status, $user );
 			return false;
 		}
 		$json = FormatJson::decode( $request->getContent(), true );
 		if ( !$json ) {
 			$this->error = 'json';
-			$this->logCheckError( $this->error );
+			$this->logCheckError( $this->error, $user );
 			return false;
 		}
 		if ( isset( $json['error-codes'] ) ) {
 			$this->error = 'hcaptcha-api';
-			$this->logCheckError( $json['error-codes'] );
+			$this->logCheckError( $json['error-codes'], $user );
 			return false;
 		}
 
@@ -157,6 +161,8 @@ class HCaptcha extends SimpleCaptcha {
 			'event' => 'captcha.solve',
 			'user' => $user->getName(),
 			'hcaptcha_success' => $json['success'],
+			'captcha_type' => self::$messagePrefix,
+			'success_message' => $json['success'] ? 'Successful' : 'Failed',
 		];
 		if ( $this->hCaptchaConfig->get( 'HCaptchaDeveloperMode' ) ) {
 			$debugLogContext = array_merge( [
@@ -165,8 +171,7 @@ class HCaptcha extends SimpleCaptcha {
 				'hcaptcha_blob' => $json,
 			], $debugLogContext );
 		}
-		LoggerFactory::getInstance( 'captcha' )
-			->debug( 'Captcha solution attempt for {user}', $debugLogContext );
+		$this->logger->info( '{success_message} captcha solution attempt for {user}', $debugLogContext );
 
 		if ( $this->hCaptchaConfig->get( 'HCaptchaDeveloperMode' )
 			|| $this->hCaptchaConfig->get( 'HCaptchaUseRiskScore' ) ) {

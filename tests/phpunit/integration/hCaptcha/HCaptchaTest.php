@@ -121,8 +121,12 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		// Verify that a log is created to indicate the error
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
-			->method( 'info' )
-			->with( 'Unable to validate response: http-error-500' );
+			->method( 'error' )
+			->with( 'Unable to validate response. Error: {error}', [
+				'error' => 'http-error-500',
+				'user' => '1.2.3.4',
+				'captcha_type' => 'hcaptcha',
+			] );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha using a fake response that we expect to pass to the API.
@@ -156,8 +160,12 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		// Verify that a log is created to indicate the error
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
-			->method( 'info' )
-			->with( 'Unable to validate response: json' );
+			->method( 'error' )
+			->with( 'Unable to validate response. Error: {error}', [
+				'error' => 'json',
+				'user' => '1.2.3.4',
+				'captcha_type' => 'hcaptcha',
+			] );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha, but expect that this fails
@@ -185,8 +193,12 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		// Verify that a log is created to indicate the error
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
-			->method( 'info' )
-			->with( 'Unable to validate response: testingabc,test' );
+			->method( 'error' )
+			->with( 'Unable to validate response. Error: {error}', [
+				'error' => 'testingabc,test',
+				'user' => '1.2.3.4',
+				'captcha_type' => 'hcaptcha',
+			] );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha, but expect that this fails
@@ -250,7 +262,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$timing->expects( $this->once() )->method( 'observeSeconds' );
 		$this->setService( 'StatsFactory', $stats );
 
-		// Expect that a debug log is created to indicate that the captcha either was solved or was not solved.
+		// Expect that a info log is created to indicate that the captcha either was solved or was not solved.
 		if ( $developerMode ) {
 			$expectedLogContext = [
 				'event' => 'captcha.solve',
@@ -259,18 +271,22 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'hcaptcha_score' => $mockApiResponse['score'] ?? null,
 				'hcaptcha_score_reason' => $mockApiResponse['score_reason'] ?? null,
 				'hcaptcha_blob' => $mockApiResponse,
+				'captcha_type' => 'hcaptcha',
+				'success_message' => $mockApiResponse['success'] ? 'Successful' : 'Failed',
 			];
 		} else {
 			$expectedLogContext = [
 				'event' => 'captcha.solve',
 				'user' => '1.2.3.4',
 				'hcaptcha_success' => $mockApiResponse['success'],
+				'captcha_type' => 'hcaptcha',
+				'success_message' => $mockApiResponse['success'] ? 'Successful' : 'Failed',
 			];
 		}
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
-			->method( 'debug' )
-			->with( 'Captcha solution attempt for {user}', $expectedLogContext );
+			->method( 'info' )
+			->with( '{success_message} captcha solution attempt for {user}', $expectedLogContext );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha and expect that it passes

@@ -15,9 +15,6 @@
 	"hcaptcha-privacy-policy": "Iste sito es protegite per hCaptcha e su [https://www.hcaptcha.com/privacy politica de privatessa] e [https://www.hcaptcha.com/terms conditiones de servicio] es in vigor.",
 	"hcaptcha-challenge-closed": "Per favor resolve le defia ante de submitter le formulario.",
 	"hcaptcha-challenge-expired": "Le tempore limite pro resolver le defia ha essite excedite. Per favor tenta lo de novo.",
-	"hcaptcha-load-error": "Un error ha occurrite durante le cargamento del hCaptcha. Per favor verifica tu connexion al rete, pois refresca le pagina.",
-	"hcaptcha-rate-limited": "Le limite de frequentia de hCaptcha ha essite excedite. Per favor refresca le pagina e tenta lo de novo.",
-	"hcaptcha-unknown-error": "Un error incognite ha occurrite durante le execution del defia hCaptcha. Per favor refresca le pagina e tenta lo de novo.",
 	"hcaptcha-loading-indicator-label": "Per favor attende que le protection antispam hCaptcha se initialisa",
 	"hcaptcha-missing-token": "Iste formulario es protegite per un defia hCaptcha. Per favor attende que le defia appare ante de submitter le formulario. Assecura te que JavaScript es activate."
 }

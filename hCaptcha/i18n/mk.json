@@ -15,9 +15,6 @@
 	"hcaptcha-privacy-policy": "Ова мрежно место е заштитено со hCaptcha и тука важат неговите [https://www.hcaptcha.com/privacy Правила за лични податоци] и [https://www.hcaptcha.com/terms Услови на употреба].",
 	"hcaptcha-challenge-closed": "Решете го предизвикот пред да го поднесете образецот.",
 	"hcaptcha-challenge-expired": "Истече рокот за решавање на предизвикот. Обидете се повторно.",
-	"hcaptcha-load-error": "Се појави грешка при вчитувањето на hCaptcha. Проверете си ја врската и превчитајте ја страницата.",
-	"hcaptcha-rate-limited": "Надминато е ограничувањето на hCaptcha. Превчитајте ја страницата и обидете се повторно.",
-	"hcaptcha-unknown-error": "Се појави непозната грешка при извршувањето на предизвикот на hCaptcha challenge. Превчитајте ја страницата и обидете се повторно.",
 	"hcaptcha-loading-indicator-label": "Почекајте додека се пушта заштитникот од спам на hCaptcha",
 	"hcaptcha-missing-token": "Овој образец е заштитен со предизвик на hCaptcha. Почекајте да се појави предизвикот пред да го поднесете образецот. Мора да е овозможен JavaScript."
 }

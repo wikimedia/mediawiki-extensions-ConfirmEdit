@@ -13,11 +13,9 @@
 	"hcaptcha-create": "Um das Wiki vor automatisierter Seitenerstellung zu schützen, bitten wir dich, das folgende hCaptcha zu lösen:",
 	"hcaptcha-help": "Bitte löse eine hCaptcha-Herausforderung und gib den Antwortwert als captchaWord zurück.",
 	"hcaptcha-privacy-policy": "Diese Site ist durch hCaptcha geschützt und es gelten die [https://www.hcaptcha.com/privacy Datenschutzrichtlinie] und [https://www.hcaptcha.com/terms Nutzungsbedingungen].",
-	"hcaptcha-challenge-closed": "Bitte löse die Aufgabe, bevor du das Formular absendest.",
-	"hcaptcha-challenge-expired": "Das Zeitlimit zur Lösung der Herausforderung ist abgelaufen. Bitte versuche es erneut.",
-	"hcaptcha-load-error": "Beim Laden von hCaptcha ist ein Fehler aufgetreten. Bitte überprüfe deine Netzwerkverbindung und aktualisiere die Seite.",
-	"hcaptcha-rate-limited": "hCaptcha-Ratenlimit überschritten. Bitte aktualisiere die Seite und versuche es erneut.",
-	"hcaptcha-unknown-error": "Beim Ausführen der hCaptcha-Challenge ist ein unbekannter Fehler aufgetreten. Bitte aktualisiere die Seite und versuche es erneut.",
-	"hcaptcha-loading-indicator-label": "Bitte warte, während der hCaptcha-Spamschutz initialisiert wird",
-	"hcaptcha-missing-token": "Dieses Formular ist durch ein hCaptcha geschützt. Bitte warte, bis das Captcha angezeigt wird, bevor du das Formular absendest. Stelle sicher, dass JavaScript aktiviert ist."
+	"hcaptcha-challenge-closed": "Um fortzufahren, musst du das Captcha ausfüllen.",
+	"hcaptcha-challenge-expired": "Das Zeitlimit zur Vervollständigung des Captcha ist abgelaufen. Bitte versuche es erneut.",
+	"hcaptcha-generic-error": "Beim Laden des Formulars ist ein Fehler aufgetreten. Um fortzufahren, musst du die Seite neu laden.",
+	"hcaptcha-loading-indicator-label": "Bitte warte, während das Formular fertig lädt ...",
+	"hcaptcha-missing-token": "Das Formular ist noch nicht vollständig geladen. Bitte warte einige Sekunden und versuche es dann erneut."
 }

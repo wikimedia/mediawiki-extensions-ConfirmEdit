@@ -16,9 +16,6 @@
 	"hcaptcha-privacy-policy": "Bu site hCaptcha tarafından korunmaktadır ve [https://www.hcaptcha.com/privacy Gizlilik İlkesi] ve [https://www.hcaptcha.com/terms Hizmet Şartları] geçerlidir.",
 	"hcaptcha-challenge-closed": "Lütfen formu göndermeden önce soruyu çözün.",
 	"hcaptcha-challenge-expired": "Soruyu çözmek için verilen süre doldu. Lütfen yeniden deneyin.",
-	"hcaptcha-load-error": "hCaptcha yüklenirken bir hata oluştu. Lütfen ağ bağlantınızı kontrol edin ve ardından sayfayı yenileyin.",
-	"hcaptcha-rate-limited": "hCaptcha sınırı aşıldı. Lütfen sayfayı yenileyin ve yeniden deneyin.",
-	"hcaptcha-unknown-error": "hCaptcha sorusu yürütülürken bilinmeyen bir hata oluştu. Lütfen sayfayı yenileyip tekrar deneyin.",
 	"hcaptcha-loading-indicator-label": "hCaptcha istenmeyen koruması başlatılırken lütfen bekleyin",
 	"hcaptcha-missing-token": "Bu form bir hCaptcha sorusu ile korunmaktadır. Formu göndermeden önce lütfen sorunun görünmesini bekleyin. JavaScript'in etkin olduğundan emin olun."
 }

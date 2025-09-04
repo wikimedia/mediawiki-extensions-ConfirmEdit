@@ -17,9 +17,6 @@
 	"hcaptcha-privacy-policy": "当サイトの保護は hCaptcha を採用しており、当該の[https://www.hcaptcha.com/privacy プライバシー ポリシー] と [https://www.hcaptcha.com/terms 利用規約]を適用します。",
 	"hcaptcha-challenge-closed": "チャレンジを解決してからフォームを送信願います。",
 	"hcaptcha-challenge-expired": "チャレンジに解答する制限時間が切れました。もう一度お試しください。",
-	"hcaptcha-load-error": "hCaptcha の読み込み中にエラーが発生しました。ネットワーク接続を確認してからページを再読み込みしてください。",
-	"hcaptcha-rate-limited": "hCaptchaのレート制限を超えました。ページを再読み込みしてもう一度お試しください。",
-	"hcaptcha-unknown-error": "hCaptcha チャレンジの実行中に不明なエラーが発生しました。ページを再読み込みしてもう一度お試しください。",
 	"hcaptcha-loading-indicator-label": "hCaptcha スパム対策の初期化が済むまでお待ちください",
 	"hcaptcha-missing-token": "このフォームはhCaptchaチャレンジで保護されています。フォームを送信するには、チャレンジの表示をお待ちください。JavaScriptが有効になっていることを確認してください。"
 }

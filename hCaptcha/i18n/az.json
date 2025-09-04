@@ -15,9 +15,6 @@
 	"hcaptcha-privacy-policy": "Bu sayt hCaptcha tərəfindən qorunur və onun [https://www.hcaptcha.com/privacy Məxfilik Siyasəti] və [https://www.hcaptcha.com/terms İstifadə Şərtləri] tətbiq edilir.",
 	"hcaptcha-challenge-closed": "Zəhmət olmasa, formanı təqdim etməzdən əvvəl problemi həll edin.",
 	"hcaptcha-challenge-expired": "Problemi həll etmək üçün vaxt limiti başa çatıb. Zəhmət olmasa, yenidən cəhd edin.",
-	"hcaptcha-load-error": "hCaptcha yüklənərkən xəta baş verdi. Şəbəkə bağlantınızı yoxlayın, sonra səhifəni yeniləyin.",
-	"hcaptcha-rate-limited": "hCaptcha sürət limiti aşıldı. Səhifəni yeniləyin və yenidən cəhd edin.",
-	"hcaptcha-unknown-error": "hCaptcha problemini həll edərkən naməlum xəta baş verdi. Səhifəni yeniləyin və yenidən cəhd edin.",
 	"hcaptcha-loading-indicator-label": "Zəhmət olmasa hCaptcha spam qorunması işə salınarkən gözləyin",
 	"hcaptcha-missing-token": "Bu forma hCaptcha ilə qorunur. Zəhmət olmasa, formanı təqdim etməzdən əvvəl problemin görünməsini gözləyin. JavaScript-in aktiv olduğundan əmin olun."
 }

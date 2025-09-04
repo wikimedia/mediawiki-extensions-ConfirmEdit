@@ -17,9 +17,6 @@
 	"hcaptcha-privacy-policy": "Tätä sivustoa suojaa hCaptcha, ja siihen sovelletaan sen [https://www.hcaptcha.com/privacy tietosuojakäytäntöä] ja [https://www.hcaptcha.com/terms käyttöehtoja].",
 	"hcaptcha-challenge-closed": "Ratkaise tehtävä ennen lomakkeen lähettämistä.",
 	"hcaptcha-challenge-expired": "Tehtävän ratkaisemisen aikaraja on umpeutunut. Yritä uudelleen.",
-	"hcaptcha-load-error": "hCaptchaa ladattaessa tapahtui virhe. Tarkista verkkoyhteytesi ja päivitä sivu.",
-	"hcaptcha-rate-limited": "hCaptchan toimintoraja ylitetty. Päivitä sivu ja yritä uudelleen.",
-	"hcaptcha-unknown-error": "hCaptcha-tehtävää suoritettaessa tapahtui virhe. Päivitä sivu ja yritä uudelleen.",
 	"hcaptcha-loading-indicator-label": "Odota hetki, hCaptcha-roskapostisuojausta alustetaan",
 	"hcaptcha-missing-token": "Tätä lomaketta suojaa hCaptcha-tehtävä. Odota, että tehtävä ilmestyy ennen lomakkeen lähettämistä. Varmista, että JavaScript on käytössä."
 }

@@ -13,8 +13,9 @@
 	"hcaptcha-create": "Vikini avtomatlaşdırılmış səhifə yaradılmasından qorumaq üçün sizdən aşağıdakı hCaptcha problemini həll etməyinizi xahiş edirik:",
 	"hcaptcha-help": "Zəhmət olmasa hCaptcha problemini həll edin və cavabı captchaWord olaraq qaytarın.",
 	"hcaptcha-privacy-policy": "Bu sayt hCaptcha tərəfindən qorunur və onun [https://www.hcaptcha.com/privacy Məxfilik Siyasəti] və [https://www.hcaptcha.com/terms İstifadə Şərtləri] tətbiq edilir.",
-	"hcaptcha-challenge-closed": "Zəhmət olmasa, formanı təqdim etməzdən əvvəl problemi həll edin.",
-	"hcaptcha-challenge-expired": "Problemi həll etmək üçün vaxt limiti başa çatıb. Zəhmət olmasa, yenidən cəhd edin.",
-	"hcaptcha-loading-indicator-label": "Zəhmət olmasa hCaptcha spam qorunması işə salınarkən gözləyin",
-	"hcaptcha-missing-token": "Bu forma hCaptcha ilə qorunur. Zəhmət olmasa, formanı təqdim etməzdən əvvəl problemin görünməsini gözləyin. JavaScript-in aktiv olduğundan əmin olun."
+	"hcaptcha-challenge-closed": "Davam etmək üçün captcha-nı tamamlamalısınız.",
+	"hcaptcha-challenge-expired": "Captcha-nı tamamlamaq üçün vaxt limiti başa çatıb. Yenidən cəhd edin.",
+	"hcaptcha-generic-error": "Formanı yükləyərkən xəta baş verdi. Davam etmək üçün səhifəni yenidən yükləməlisiniz.",
+	"hcaptcha-loading-indicator-label": "Formanı yükləməyi tamamlayana qədər gözləyin...",
+	"hcaptcha-missing-token": "Formanı yükləməyi tamamlamamışıq. Bir neçə saniyə gözləyin, sonra yenidən cəhd edin."
 }

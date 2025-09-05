@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Meno25"
+			"Meno25",
+			"Mohammed Qays"
 		]
 	},
 	"hcaptcha-desc": "وحدة [https://www.hcaptcha.com/ hCaptcha] لتأكيد التحرير",
@@ -15,6 +16,7 @@
 	"hcaptcha-privacy-policy": "هذا الموقع محمي بواسطة hCaptcha وينطبق عليه [https://www.hcaptcha.com/privacy سياسة الخصوصية] و[https://www.hcaptcha.com/terms شروط الخدمة].",
 	"hcaptcha-challenge-closed": "يرجى حل التحدي قبل إرسال النموذج.",
 	"hcaptcha-challenge-expired": "انتهت المدة المحددة لحل التحدي. يُرجى المحاولة مرة أخرى.",
+	"hcaptcha-generic-error": "حدث خطأ أثناء تحميل النموذج. للمتابعة، يجب إعادة تحميل الصفحة.",
 	"hcaptcha-loading-indicator-label": "يرجى الانتظار أثناء تهيئة حماية البريد العشوائي hCaptcha",
-	"hcaptcha-missing-token": "هذا النموذج محمي بتحدي hCaptcha. يُرجى انتظار ظهور التحدي قبل إرسال النموذج. تأكد من تفعيل JavaScript."
+	"hcaptcha-missing-token": "لم ننتهِ بعد من تحميل النموذج. يُرجى الانتظار بضع ثوانٍ، ثم المحاولة مرة أخرى."
 }

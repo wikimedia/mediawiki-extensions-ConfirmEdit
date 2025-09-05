@@ -14,8 +14,9 @@
 	"hcaptcha-create": "Vikiyi otomatik sayfa oluşturmaya karşı korumak için, aşağıdaki hCaptcha'yı çözmenizi rica ederiz:",
 	"hcaptcha-help": "Lütfen bir hCaptcha sorununu çözün ve yanıt değerini captchaWord olarak döndürün.",
 	"hcaptcha-privacy-policy": "Bu site hCaptcha tarafından korunmaktadır ve [https://www.hcaptcha.com/privacy Gizlilik İlkesi] ve [https://www.hcaptcha.com/terms Hizmet Şartları] geçerlidir.",
-	"hcaptcha-challenge-closed": "Lütfen formu göndermeden önce soruyu çözün.",
-	"hcaptcha-challenge-expired": "Soruyu çözmek için verilen süre doldu. Lütfen yeniden deneyin.",
+	"hcaptcha-challenge-closed": "Devam etmek için captcha'yı tamamlamanız gerekmektedir.",
+	"hcaptcha-challenge-expired": "Captcha'yı tamamlamak için verilen süre doldu. Lütfen yeniden deneyin.",
+	"hcaptcha-generic-error": "Form yüklenirken bir hata oluştu. Devam etmek için sayfayı yeniden yüklemeniz gerekiyor.",
 	"hcaptcha-loading-indicator-label": "hCaptcha istenmeyen koruması başlatılırken lütfen bekleyin",
 	"hcaptcha-missing-token": "Bu form bir hCaptcha sorusu ile korunmaktadır. Formu göndermeden önce lütfen sorunun görünmesini bekleyin. JavaScript'in etkin olduğundan emin olun."
 }

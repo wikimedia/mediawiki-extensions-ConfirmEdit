@@ -13,8 +13,9 @@
 	"hcaptcha-create": "כדי להגן על הוויקי מפני יצירת דפים אוטומטית, אנו מבקשים ממך לפתור את ה־hCaptcha הבאה:",
 	"hcaptcha-help": "נא לפתור אתגר hCaptcha ולהחזיר את ערך התגובה כ־captchaWord.",
 	"hcaptcha-privacy-policy": "האתר הזה מוגן על־ידי hCaptcha וחלים עליו [https://www.hcaptcha.com/privacy מדיניות הפרטיות] ו[https://www.hcaptcha.com/terms תנאי השירות] שלה.",
-	"hcaptcha-challenge-closed": "נא לפתור את האתגר לפני שליחת הטופס.",
-	"hcaptcha-challenge-expired": "תם הזמן לפתרון האתגר. נא לנסות שוב.",
-	"hcaptcha-loading-indicator-label": "נא להמתין בזמן אתחול ההגנה מפני ספאם של hCaptcha",
-	"hcaptcha-missing-token": "הטופס הזה מוגן על־ידי אתגר hCaptcha. נא להמתין להופעת האתגר לפני שליחת הטופס. נא לוודא ש־JavaScript מופעל."
+	"hcaptcha-challenge-closed": "כדי להמשיך, יש לפתור את ה־captcha.",
+	"hcaptcha-challenge-expired": "תם הזמן להשלמת ה־captcha. נא לנסות שוב.",
+	"hcaptcha-generic-error": "אירעה שגיאה בעת טעינת הטופס. כדי להמשיך, יש לרענן את הדף.",
+	"hcaptcha-loading-indicator-label": "נא להמתין עד טעינת הטופס...",
+	"hcaptcha-missing-token": "עדיין לא סיימנו לטעון את הטופס. נא להמתין כמה שניות ולאחר מכן לנסות שוב."
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bisang",
 			"Tensama0415",
 			"Ykhwong"
 		]
@@ -12,5 +13,9 @@
 	"hcaptcha-createaccount": "자동 계정 만들기로부터 위키를 보호하기 위해, 다음 hCaptcha를 풀어주세요:",
 	"hcaptcha-createaccount-fail": "hCaptcha를 풀지 못하신 것 같습니다.",
 	"hcaptcha-create": "자동 문서 만들기로부터 위키를 보호하기 위해, 다음 hCaptcha를 풀어주세요:",
-	"hcaptcha-help": "hCaptcha 도전을 풀고 응답 값을 captchaWord로 반환해 주세요."
+	"hcaptcha-help": "hCaptcha 도전을 풀고 응답 값을 captchaWord로 반환해 주세요.",
+	"hcaptcha-challenge-closed": "계속하려면 캡차를 완료해야 합니다.",
+	"hcaptcha-challenge-expired": "캡차를 완료할 수 있는 제한 시간이 초과되었습니다. 다시 시도해 주세요.",
+	"hcaptcha-generic-error": "양식을 로드하는 중 오류가 발생했습니다. 계속하셔면 문서를 새로 고쳐야 합니다.",
+	"hcaptcha-loading-indicator-label": "양식을 로드하는 동안 잠시 기다려 주세요..."
 }

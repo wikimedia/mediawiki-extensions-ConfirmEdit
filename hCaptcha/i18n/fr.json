@@ -3,6 +3,7 @@
 		"authors": [
 			"Bananax47",
 			"Derugon",
+			"Escargot bleu",
 			"Gomoko",
 			"McDutchie",
 			"Thibaut120094",
@@ -19,8 +20,9 @@
 	"hcaptcha-create": "Afin de protéger le wiki contre la création automatisée de pages, nous vous demandons de bien vouloir résoudre le hCaptcha suivant :",
 	"hcaptcha-help": "Veuillez résoudre un défi hCaptcha et renvoyer la valeur de la réponse comme captchaWord.",
 	"hcaptcha-privacy-policy": "Ce site est protégé par hCaptcha et sa [https://www.hcaptcha.com/privacy politique de confidentialité], ses [https://www.hcaptcha.com/terms conditions d'utilisation] s'appliquent.",
-	"hcaptcha-challenge-closed": "Veuillez résoudre le hCaptcha avant de soumettre le formulaire.",
+	"hcaptcha-challenge-closed": "Pour continuer, veuillez compléter le captcha.",
 	"hcaptcha-challenge-expired": "Le délai pour résoudre le hCaptcha est expiré. Veuillez réessayer.",
-	"hcaptcha-loading-indicator-label": "Veuillez patienter pendant l'initialisation de la protection anti-spam hCaptcha",
-	"hcaptcha-missing-token": "Ce formulaire est protégé par un hCaptcha. Veuillez patienter jusqu'à ce que le hCaptcha apparaisse avant de valider le formulaire. Assurez-vous que JavaScript est activé."
+	"hcaptcha-generic-error": "Une erreur est survenue lors du chargement du formulaire. Rechargez la page pour continuer.",
+	"hcaptcha-loading-indicator-label": "Veuillez patienter : initialisation du formulaire en cours…",
+	"hcaptcha-missing-token": "Le formulaire est toujours en cours de chargement. Attendez quelques secondes avant de réessayer."
 }

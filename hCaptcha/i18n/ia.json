@@ -13,8 +13,9 @@
 	"hcaptcha-create": "Pro proteger le wiki contra le creation automatisate de paginas, per favor, resolve le hCaptcha sequente:",
 	"hcaptcha-help": "Per favor, resolve un defia hCaptcha e retorna le valor del responsa como captchaWord.",
 	"hcaptcha-privacy-policy": "Iste sito es protegite per hCaptcha e su [https://www.hcaptcha.com/privacy politica de privatessa] e [https://www.hcaptcha.com/terms conditiones de servicio] es in vigor.",
-	"hcaptcha-challenge-closed": "Per favor resolve le defia ante de submitter le formulario.",
-	"hcaptcha-challenge-expired": "Le tempore limite pro resolver le defia ha essite excedite. Per favor tenta lo de novo.",
-	"hcaptcha-loading-indicator-label": "Per favor attende que le protection antispam hCaptcha se initialisa",
-	"hcaptcha-missing-token": "Iste formulario es protegite per un defia hCaptcha. Per favor attende que le defia appare ante de submitter le formulario. Assecura te que JavaScript es activate."
+	"hcaptcha-challenge-closed": "Pro continuar, tu debe completar le CAPTCHA.",
+	"hcaptcha-challenge-expired": "Le tempore limite pro completar le CAPTCHA ha essite excedite. Per favor tenta lo de novo.",
+	"hcaptcha-generic-error": "Un error ha occurrite durante le cargamento del formulario. Recarga le pagina pro continuar.",
+	"hcaptcha-loading-indicator-label": "Per favor attende que le cargamento del formulario se termina…",
+	"hcaptcha-missing-token": "Le cargamento del formulario non ha ancora terminate. Attende qualque secundas e tenta lo de novo."
 }

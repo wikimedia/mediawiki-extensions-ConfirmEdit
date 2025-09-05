@@ -66,21 +66,27 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 		const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
 		hCaptchaApiUrl.searchParams.set( 'onload', 'onHCaptchaSDKLoaded' );
 
-		mw.loader.getScript( hCaptchaApiUrl.toString() )
-			.catch( () => {
-				trackPerformanceTiming(
-					'hcaptcha-load',
-					'hcaptcha-load-start',
-					'hcaptcha-load-complete'
-				);
+		const script = document.createElement( 'script' );
+		script.src = hCaptchaApiUrl.toString();
+		script.async = true;
 
-				mw.errorLogger.logError(
-					new Error( 'Unable to load hCaptcha script in secure enclave mode' ),
-					'error.confirmedit'
-				);
+		script.onerror = () => {
+			trackPerformanceTiming(
+				'hcaptcha-load',
+				'hcaptcha-load-start',
+				'hcaptcha-load-complete'
+			);
 
-				reject( 'wmf-hcaptcha-load-error' );
-			} );
+			mw.errorLogger.logError(
+				new Error( 'Unable to load hCaptcha script in secure enclave mode' ),
+				'error.confirmedit'
+			);
+
+			reject( 'wmf-hcaptcha-load-error' );
+		};
+
+		document.head.appendChild( script );
+
 	} );
 
 	// Map of hCaptcha error codes to error message keys.
@@ -129,8 +135,12 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 
 				// Clear out any errors from a previous workflow.
 				errorWidget.hide();
-				// handle hCaptcha response token
-				$form.find( '#h-captcha-response' ).val( response );
+				// Set the hCaptcha response input field, which does not yet exist
+				$form.append( $( '<input>' )
+					.attr( 'type', 'hidden' )
+					.attr( 'name', 'h-captcha-response' )
+					.attr( 'id', 'h-captcha-response' )
+					.val( response ) );
 
 				form.submit();
 			} finally {

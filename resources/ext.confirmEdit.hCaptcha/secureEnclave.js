@@ -82,7 +82,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 				'error.confirmedit'
 			);
 
-			reject( 'wmf-hcaptcha-load-error' );
+			reject( 'generic-error' );
 		};
 
 		document.head.appendChild( script );
@@ -92,7 +92,8 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 	// Map of hCaptcha error codes to error message keys.
 	const errorMap = {
 		'challenge-closed': 'hcaptcha-challenge-closed',
-		'challenge-expired': 'hcaptcha-challenge-expired'
+		'challenge-expired': 'hcaptcha-challenge-expired',
+		'generic-error': 'hcaptcha-generic-error'
 	};
 
 	// Errors that can be recovered from by restarting the workflow.

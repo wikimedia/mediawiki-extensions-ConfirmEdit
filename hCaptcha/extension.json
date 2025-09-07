@@ -108,10 +108,9 @@
 				"ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha.less"
 			],
 			"messages": [
-				"hcaptcha-load-error",
 				"hcaptcha-challenge-closed",
 				"hcaptcha-challenge-expired",
-				"hcaptcha-rate-limited",
+				"hcaptcha-generic-error",
 				"hcaptcha-loading-indicator-label",
 				"hcaptcha-unknown-error"
 			],

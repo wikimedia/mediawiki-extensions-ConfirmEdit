@@ -242,7 +242,7 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 	this.window.hcaptcha.render.returns( 'some-captcha-id' );
 	this.window.hcaptcha.execute.callsFake( () => {
 		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible until hCaptcha finishes' );
-		return Promise.reject( 'rate-limited' );
+		return Promise.reject( 'generic-error' );
 	} );
 
 	const hCaptchaResult = useSecureEnclave( this.window );

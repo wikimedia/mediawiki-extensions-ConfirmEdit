@@ -14,8 +14,9 @@
 	"hcaptcha-create": "為保護 wiki 防止自動化頁面建立程式，我們要麻煩您完成以下的 hCaptcha 內容：",
 	"hcaptcha-help": "請完成 hCaptcha 的問題並回傳作為驗證碼文字的回應值。",
 	"hcaptcha-privacy-policy": "本站受 hCaptcha 保護，並適用其[https://www.hcaptcha.com/privacy 隱私權政策]和[https://www.hcaptcha.com/terms 服務條款]。",
-	"hcaptcha-challenge-closed": "提交表單前請先完成驗證問題。",
-	"hcaptcha-challenge-expired": "完成驗證問題的時限已過。請重試。",
-	"hcaptcha-loading-indicator-label": "hCaptcha 驗證問題正在初始化，請稍候",
-	"hcaptcha-missing-token": "此表單受 hCaptcha 驗證問題保護。請等待驗證問題顯示後再提交表單。請確保您已啟用 JavaScript。"
+	"hcaptcha-challenge-closed": "要繼續，您必須完成驗證。",
+	"hcaptcha-challenge-expired": "完成驗證的時限已過。請重試。",
+	"hcaptcha-generic-error": "載入表單時發生錯誤。要繼續，您需要重新載入頁面。",
+	"hcaptcha-loading-indicator-label": "正在載入表單，請稍候…",
+	"hcaptcha-missing-token": "表單尚未載入完畢。請等待幾秒鐘，然後再試一次。"
 }

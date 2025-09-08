@@ -13,8 +13,9 @@
 	"hcaptcha-create": "Para protexer o wiki contra a creación automática de páxinas, pedímosche amablemente que resolvas o seguinte hCaptcha:",
 	"hcaptcha-help": "Resolve un desafío hCaptcha e devolve os valores de resposta como captchaWord.",
 	"hcaptcha-privacy-policy": "Este sitio está protexido por hCaptcha e aplícanse a súa [https://www.hcaptcha.com/privacy política de protección de datos] e os seus [https://www.hcaptcha.com/terms termos de servizo].",
-	"hcaptcha-challenge-closed": "Resolve o desafío antes de enviar o formulario.",
-	"hcaptcha-challenge-expired": "O límite de tempo para resolver o desafío expirou. Inténtao de novo.",
-	"hcaptcha-loading-indicator-label": "Agarda mentres se inicializa a protección contra o spam do hCaptcha",
-	"hcaptcha-missing-token": "Este formulario está protexido por un desafío hCaptcha. Agarda a que apareza a comprobación antes de enviar o formulario. Asegúrate de que o JavaScript estea activado."
+	"hcaptcha-challenge-closed": "Para continuar, debes completar o CAPTCHA.",
+	"hcaptcha-challenge-expired": "O límite de tempo para completar o CAPTCHA expirou. Inténtao de novo.",
+	"hcaptcha-generic-error": "Houbo un erro ao cargar o formulario. Para continuar, terás que recargar a páxina.",
+	"hcaptcha-loading-indicator-label": "Agarda mentres remata a carga do formulario...",
+	"hcaptcha-missing-token": "Non rematou a carga do formulario. Agarda uns segundos e inténtao de novo."
 }

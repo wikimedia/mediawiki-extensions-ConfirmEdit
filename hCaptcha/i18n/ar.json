@@ -14,9 +14,9 @@
 	"hcaptcha-create": "لحماية الويكي من الإنشاء الآلي للصفحة ، نطلب منك التفضل بحل hCaptcha التالي:",
 	"hcaptcha-help": "يرجى حل تحدي hCaptcha وإرجاع قيمة الاستجابة كـ captchaWord.",
 	"hcaptcha-privacy-policy": "هذا الموقع محمي بواسطة hCaptcha وينطبق عليه [https://www.hcaptcha.com/privacy سياسة الخصوصية] و[https://www.hcaptcha.com/terms شروط الخدمة].",
-	"hcaptcha-challenge-closed": "يرجى حل التحدي قبل إرسال النموذج.",
-	"hcaptcha-challenge-expired": "انتهت المدة المحددة لحل التحدي. يُرجى المحاولة مرة أخرى.",
+	"hcaptcha-challenge-closed": "للمتابعة يجب عليك إكمال الكابتشا.",
+	"hcaptcha-challenge-expired": "انتهت المدة المحددة لإكمال اختبار الكابتشا. يُرجى المحاولة مرة أخرى.",
 	"hcaptcha-generic-error": "حدث خطأ أثناء تحميل النموذج. للمتابعة، يجب إعادة تحميل الصفحة.",
-	"hcaptcha-loading-indicator-label": "يرجى الانتظار أثناء تهيئة حماية البريد العشوائي hCaptcha",
+	"hcaptcha-loading-indicator-label": "يرجى الانتظار بينما ننتهي من تحميل النموذج...",
 	"hcaptcha-missing-token": "لم ننتهِ بعد من تحميل النموذج. يُرجى الانتظار بضع ثوانٍ، ثم المحاولة مرة أخرى."
 }

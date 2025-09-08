@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\HTMLForm\HTMLFormField;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
@@ -42,6 +43,7 @@ class HTMLHCaptchaField extends HTMLFormField {
 	public function getInputHTML( $value ) {
 		$out = $this->mParent->getOutput();
 
+		/** @var HCaptchaOutput $output */
 		$output = MediaWikiServices::getInstance()->get( 'HCaptchaOutput' )
 			->addHCaptchaToForm( $out, (bool)$this->error );
 		HCaptcha::addCSPSources( $out->getCSP() );

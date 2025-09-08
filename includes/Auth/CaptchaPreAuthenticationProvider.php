@@ -116,9 +116,11 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		) {
 
 			if ( $loginTriggersCaptcha ) {
+				$captcha = Hooks::getInstance( CaptchaTriggers::LOGIN_ATTEMPT );
 				$captcha->setAction( CaptchaTriggers::LOGIN_ATTEMPT );
 				$captcha->setTrigger( "loginattempt login '$username'" );
 			} else {
+				$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
 				$captcha->setAction( CaptchaTriggers::BAD_LOGIN );
 				$captcha->setTrigger( "post-badlogin login '$username'" );
 			}

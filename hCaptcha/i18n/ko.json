@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ykhwong",
-			"Tensama0415"
+			"Tensama0415",
+			"Bisang"
 		]
 	},
 	"hcaptcha-desc": "Confirm Edit용 [https://www.hcaptcha.com/ hCaptcha] 모듈",

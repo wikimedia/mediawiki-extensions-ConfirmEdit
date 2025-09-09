@@ -71,6 +71,8 @@ class Hooks implements
 	 *
 	 * If a specific Captcha is not defined in $wgCaptchaTriggers[$action]['class'],
 	 * $wgCaptchaClass will be returned instead.
+	 *
+	 * @stable to call - May be used by code not visible in codesearch
 	 */
 	public static function getInstance( string $action = '' ): SimpleCaptcha {
 		static $map = [

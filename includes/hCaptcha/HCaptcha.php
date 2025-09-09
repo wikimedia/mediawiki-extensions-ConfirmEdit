@@ -240,6 +240,8 @@ class HCaptcha extends SimpleCaptcha {
 
 	/**
 	 * Retrieve session score from global session
+	 *
+	 * @stable to call - This may be used by code not visible in codesearch
 	 * @param string $sessionKey
 	 * @return mixed
 	 */

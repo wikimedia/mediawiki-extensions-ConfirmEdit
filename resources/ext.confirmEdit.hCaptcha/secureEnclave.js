@@ -69,6 +69,10 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 		const script = document.createElement( 'script' );
 		script.src = hCaptchaApiUrl.toString();
 		script.async = true;
+		if ( config.HCaptchaApiUrlIntegrityHash ) {
+			script.integrity = config.HCaptchaApiUrlIntegrityHash;
+			script.crossOrigin = 'anonymous';
+		}
 
 		script.onerror = () => {
 			trackPerformanceTiming(

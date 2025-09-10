@@ -31,7 +31,7 @@
 			"value": false
 		},
 		"HCaptchaApiUrl": {
-			"description": "Url that the hCaptcha JS is loaded from; may want to use https://cn1.hcaptcha.com/1/api.js?endpoint=https://cn1.hcaptcha.com&assethost=https://assets-cn1.hcaptcha.com&imghost=https://imgs-cn1.hcaptcha.com&reportapi=https://reportapi-cn1.hcaptcha.com for Chinese visitors",
+			"description": "Url that the hCaptcha JS is loaded from; may want to use https://cn1.hcaptcha.com/1/api.js?endpoint=https://cn1.hcaptcha.com&assethost=https://assets-cn1.hcaptcha.com&imghost=https://imgs-cn1.hcaptcha.com&reportapi=https://reportapi-cn1.hcaptcha.com for Chinese visitors. You may also want to set $wgHCaptchaApiUrlIntegrityHash to verify the integrity of the JS script being loaded, for example if you're pinning to a specific version as per the hCaptcha documentation.",
 			"value": "https://js.hcaptcha.com/1/api.js"
 		},
 		"HCaptchaVerifyUrl": {
@@ -64,6 +64,10 @@
 		"HCaptchaUseRiskScore": {
 			"description": "Whether to use captcha risk signal. Unless specifically enabled or in developer mode, we do not want that sensitive information to be stored.",
 			"value": false
+		},
+		"HCaptchaApiUrlIntegrityHash": {
+			"description": "The sha256, sha384, or sha512 hash of the script loaded from HCaptchaApiUrl, for use with subresource integrity. See https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity for more information. Note that the hash algorithm should be specified as a prefix, with a dash, e.g. `sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC`",
+			"value": ""
 		}
 	},
 	"ConfigRegistry": {
@@ -100,7 +104,8 @@
 					"config": [
 						"HCaptchaApiUrl",
 						"HCaptchaEnterprise",
-						"HCaptchaSecureEnclave"
+						"HCaptchaSecureEnclave",
+						"HCaptchaApiUrlIntegrityHash"
 					]
 				}
 			],

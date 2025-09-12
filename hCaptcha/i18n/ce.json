@@ -12,5 +12,7 @@
 	"hcaptcha-createaccount-fail": "Хетарехь, ахь hCaptcha дӀа ца йаьккхина.",
 	"hcaptcha-create": "АгӀо авто кхолларах вики ларйархьама, оха доьху шуьга хӀара hCaptcha дӀайазйар:",
 	"hcaptcha-help": "Дехар до, hCaptcha дӀайазйе, жоьпан маьӀна captchaWord санна йухадерзаде.",
-	"hcaptcha-privacy-policy": "ХӀара сайт ларйо hCaptcha, цуьнан [https://www.hcaptcha.com/privacy Конфиденциаллалин политика] а, [https://www.hcaptcha.com/terms Лелоран биллам] а лело."
+	"hcaptcha-privacy-policy": "ХӀара сайт ларйо hCaptcha, цуьнан [https://www.hcaptcha.com/privacy Конфиденциаллалин политика] а, [https://www.hcaptcha.com/terms Лелоран биллам] а лело.",
+	"hcaptcha-challenge-closed": "Кхин дӀа а дӀадахьа, капча чекхйаккха йеза.",
+	"hcaptcha-challenge-expired": "Капча чекхйоккху хан чекхйаьлла. Йуха а хьажа."
 }

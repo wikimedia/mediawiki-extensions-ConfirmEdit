@@ -7,7 +7,7 @@
 		]
 	},
 	"hcaptcha-desc": "[https://www.hcaptcha.com/ hCaptcha]-moduuli Confirm Edit -laajennukselle",
-	"hcaptcha-edit": "Automaattisten spämmimuokkausten estämiseksi pyydämme sinua ratkaisemaan seuraavan CAPTCHAn:",
+	"hcaptcha-edit": "Automaattisten roskamuokkausten estämiseksi pyydämme sinua ratkaisemaan seuraavan hCaptchan:",
 	"hcaptcha-addurl": "Muokkauksesi sisältää uusia ulkoisia linkkejä. Automaattisesti lisättyjen mainoslinkkien estämiseksi pyydämme sinua ratkaisemaan seuraavan hCaptchan:",
 	"hcaptcha-badlogin": "Wiki on suojattu estämään automaattinen salasanojen murtaminen. Pyydämme sinua ratkaisemaan seuraavan hCaptchan:",
 	"hcaptcha-createaccount": "Wiki on suojattu estämään automaattinen tunnusten luonti. Pyydämme sinua ratkaisemaan seuraavan hCaptchan:",
@@ -17,6 +17,7 @@
 	"hcaptcha-privacy-policy": "Tätä sivustoa suojaa hCaptcha, ja siihen sovelletaan sen [https://www.hcaptcha.com/privacy tietosuojakäytäntöä] ja [https://www.hcaptcha.com/terms käyttöehtoja].",
 	"hcaptcha-challenge-closed": "Jatkaaksesi sinun on täytettävä captcha.",
 	"hcaptcha-challenge-expired": "Captchan täyttämisen aikaraja on umpeutunut. Yritä uudelleen.",
+	"hcaptcha-generic-error": "Lomaketta ladattaessa tapahtui virhe. Jatkaaksesi sinun on ladattava sivu uudelleen.",
 	"hcaptcha-loading-indicator-label": "Odota hetki, kunnes lomakkeen lataus on valmis...",
-	"hcaptcha-missing-token": "Tätä lomaketta suojaa hCaptcha-tehtävä. Odota, että tehtävä ilmestyy ennen lomakkeen lähettämistä. Varmista, että JavaScript on käytössä."
+	"hcaptcha-missing-token": "Lomakkeen lataus ei ole vielä valmis. Odota muutama sekunti ja yritä uudelleen."
 }

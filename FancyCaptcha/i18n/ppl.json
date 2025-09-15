@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Jose Antonio Guillen Landaverde",
+			"Taty Flores de Constante",
 			"TimumachtikanNawat"
 		]
 	},
-	"fancycaptcha-accountcreate": "PAL TIKPAJPIAT NE WIKI IKA MUCHIWAT INSEL TAJTAKUTUNCHICHIN SHIKWAWASU NE TAJTAKETZALIS  KA NEMIT KA TENI",
-	"fancycaptcha-imgcaptcha-ph": "Shiktajkwilu ne pajpalabraj tikita ikajku",
+	"fancycaptcha-accountcreate": "PAL TIKPAJPIAT NE WIKI IKA MUCHIWAT INSEL TAJTAKUTUNCHICHIN SHIKWAWASU NE TAJTAKETZALIS  KA NEMIT KA TAlCHI ([[Special:Captcha/help|uktajtaketzalis]]):",
+	"fancycaptcha-imgcaptcha-ph": "Shitawawasua ne tajtaketzalis ka tikita tik ne amat",
 	"fancycaptcha-reload-text": "Shikyankwili"
 }

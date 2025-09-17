@@ -116,8 +116,7 @@
 				"hcaptcha-challenge-closed",
 				"hcaptcha-challenge-expired",
 				"hcaptcha-generic-error",
-				"hcaptcha-loading-indicator-label",
-				"hcaptcha-unknown-error"
+				"hcaptcha-loading-indicator-label"
 			],
 			"dependencies": [
 				"codex-styles"

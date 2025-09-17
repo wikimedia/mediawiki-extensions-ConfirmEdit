@@ -1,7 +1,7 @@
 const config = require( './config.json' );
 const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
 const ErrorWidget = require( './ErrorWidget.js' );
-
+const wiki = mw.config.get( 'wgDBname' );
 /**
  * Conclude and emit a performance measurement in seconds via mw.track.
  *
@@ -23,7 +23,8 @@ function trackPerformanceTiming( topic, startName, endName ) {
 	// will handle unit conversion.
 	mw.track(
 		`stats.mediawiki_special_createaccount_${ topic.replace( /-/g, '_' ) }_duration_seconds`,
-		duration
+		duration,
+		{ wiki: wiki }
 	);
 }
 
@@ -82,7 +83,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			);
 
 			mw.track( 'stats.mediawiki_confirmedit_hcaptcha_script_error_total', 1, {
-				wiki: mw.config.get( 'wgDBname' )
+				wiki: wiki
 			} );
 			mw.errorLogger.logError(
 				new Error( 'Unable to load hCaptcha script in secure enclave mode' ),
@@ -146,7 +147,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 					.attr( 'id', 'h-captcha-response' )
 					.val( response ) );
 				mw.track( 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, {
-					wiki: mw.config.get( 'wgDBname' )
+					wiki: wiki
 				} );
 				form.submit();
 			} finally {
@@ -171,7 +172,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			mw.track(
 				'stats.mediawiki_confirmedit_hcaptcha_execute_workflow_error_total', 1, {
 					code: error.replace( /-/g, '_' ),
-					wiki: mw.config.get( 'wgDBname' )
+					wiki: wiki
 				}
 			);
 

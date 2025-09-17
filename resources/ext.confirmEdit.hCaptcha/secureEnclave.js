@@ -81,6 +81,9 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 				'hcaptcha-load-complete'
 			);
 
+			mw.track( 'stats.mediawiki_confirmedit_hcaptcha_script_error_total', 1, {
+				wiki: mw.config.get( 'wgDBname' )
+			} );
 			mw.errorLogger.logError(
 				new Error( 'Unable to load hCaptcha script in secure enclave mode' ),
 				'error.confirmedit'
@@ -142,7 +145,9 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 					.attr( 'name', 'h-captcha-response' )
 					.attr( 'id', 'h-captcha-response' )
 					.val( response ) );
-
+				mw.track( 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, {
+					wiki: mw.config.get( 'wgDBname' )
+				} );
 				form.submit();
 			} finally {
 				trackPerformanceTiming(
@@ -163,6 +168,12 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			// * hcaptcha-challenge-expired
 			errorWidget.show( mw.msg( errMsg ) );
 			mw.errorLogger.logError( new Error( errMsg ), 'error.confirmedit' );
+			mw.track(
+				'stats.mediawiki_confirmedit_hcaptcha_execute_workflow_error_total', 1, {
+					code: error.replace( /-/g, '_' ),
+					wiki: mw.config.get( 'wgDBname' )
+				}
+			);
 
 			// Initiate a new workflow for recoverable errors (e.g. an expired or closed challenge).
 			if ( recoverableErrors.includes( error ) ) {

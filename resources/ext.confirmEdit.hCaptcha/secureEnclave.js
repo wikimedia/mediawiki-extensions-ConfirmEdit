@@ -110,7 +110,18 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 		'challenge-expired'
 	];
 
-	const captchaIdPromise = hCaptchaLoaded.then( () => win.hcaptcha.render( 'h-captcha' ) );
+	/**
+	 * Fires when a visible challenge is displayed.
+	 */
+	const onOpen = function () {
+		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_open_callback_total', 1, {
+			wiki: wiki
+		} );
+	};
+
+	const captchaIdPromise = hCaptchaLoaded.then( () => win.hcaptcha.render( 'h-captcha', {
+		'open-callback': onOpen
+	} ) );
 
 	/**
 	 * Trigger a single hCaptcha workflow execution.

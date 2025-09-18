@@ -147,6 +147,9 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			performance.mark( 'hcaptcha-execute-start' );
 
 			try {
+				mw.track( 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, {
+					wiki: wiki
+				} );
 				const { response } = await win.hcaptcha.execute( captchaId, { async: true } );
 
 				// Clear out any errors from a previous workflow.

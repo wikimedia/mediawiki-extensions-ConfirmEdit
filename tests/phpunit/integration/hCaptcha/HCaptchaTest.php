@@ -22,7 +22,6 @@ use MWHttpRequest;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use StatusValue;
-use Wikimedia\Stats\Metrics\TimingMetric;
 use Wikimedia\Stats\StatsFactory;
 use Wikimedia\TestingAccessWrapper;
 
@@ -212,13 +211,18 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 
 	/** @dataProvider providePassCaptcha */
 	public function testPassCaptcha(
-		bool $captchaPassedSuccessfully, bool $developerMode, bool $useRiskScore, bool $sendRemoteIP,
+		bool $captchaPassedSuccessfully,
+		bool $developerMode,
+		bool $useRiskScore,
+		bool $sendRemoteIP,
 		array $mockApiResponse
 	) {
-		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
-		$this->overrideConfigValue( 'HCaptchaDeveloperMode', $developerMode );
-		$this->overrideConfigValue( 'HCaptchaUseRiskScore', $useRiskScore );
-		$this->overrideConfigValue( 'HCaptchaSendRemoteIP', $sendRemoteIP );
+		$this->overrideConfigValues( [
+			'HCaptchaSecretKey' => 'secretkey',
+			'HCaptchaDeveloperMode' => $developerMode,
+			'HCaptchaUseRiskScore' => $useRiskScore,
+			'HCaptchaSendRemoteIP' => $sendRemoteIP,
+		] );
 		// Set a default IP for the web request, in order to be able to test
 		// $sendRemoteIP later on
 		$request = RequestContext::getMain()->getRequest();
@@ -252,17 +256,11 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				return $mwHttpRequest;
 			} );
 		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
-		$stats = $this->createMock( StatsFactory::class );
-		$stats->method( 'withComponent' )->willReturnSelf();
-		$timing = $this->createMock( TimingMetric::class );
-		$timing->method( 'setLabel' )->willReturnSelf();
-		$timing->expects( $this->once() )->method( 'setLabel' )->with( 'status', 'ok' );
-		$stats->method( 'getTiming' )->willReturn( $timing );
-		$stats->expects( $this->once() )->method( 'getTiming' )->with( 'hcaptcha_siteverify_call' );
-		$timing->expects( $this->once() )->method( 'observeSeconds' );
-		$this->setService( 'StatsFactory', $stats );
 
-		// Expect that a info log is created to indicate that the captcha either was solved or was not solved.
+		$statsHelper = StatsFactory::newUnitTestingHelper();
+		$this->setService( 'StatsFactory', $statsHelper->getStatsFactory() );
+
+		// Expect that an info log is created to indicate that the captcha either was solved or was not solved.
 		if ( $developerMode ) {
 			$expectedLogContext = [
 				'event' => 'captcha.solve',
@@ -307,6 +305,11 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			$this->assertNull( $hCaptcha->retrieveSessionScore( 'hCaptcha-score' ) );
 		}
 		$this->assertNull( $hCaptcha->getError() );
+
+		$this->assertMatchesRegularExpression(
+			"/^mediawiki.ConfirmEdit.hcaptcha_siteverify_call:-?(?:\d+|\d*\.\d+)|ms|#status:ok$/",
+			$statsHelper->consumeAllFormatted()[0]
+		);
 	}
 
 	public static function providePassCaptcha(): array {

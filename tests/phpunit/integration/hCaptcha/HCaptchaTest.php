@@ -109,6 +109,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 							'remoteip' => '127.0.0.1',
 						],
 						'proxy' => 'proxy.test.com',
+						'timeout' => 5,
 					],
 					$options,
 					false,
@@ -250,7 +251,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			->willReturnCallback( function ( $url, $options ) use ( $mwHttpRequest, $expectedPostData ) {
 				$this->assertSame( 'https://api.hcaptcha.com/siteverify', $url );
 				$this->assertArrayEquals(
-					[ 'method' => 'POST', 'postData' => $expectedPostData ],
+					[ 'method' => 'POST', 'postData' => $expectedPostData, 'timeout' => 5 ],
 					$options,
 					false,
 					true

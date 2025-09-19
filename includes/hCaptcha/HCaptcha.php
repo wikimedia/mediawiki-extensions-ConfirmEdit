@@ -8,6 +8,7 @@ use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaEnterpriseHealthChecker;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
@@ -38,12 +39,14 @@ class HCaptcha extends SimpleCaptcha {
 	private HCaptchaOutput $hCaptchaOutput;
 	private StatsFactory $statsFactory;
 	private LoggerInterface $logger;
+	private HCaptchaEnterpriseHealthChecker $healthChecker;
 
 	public function __construct() {
 		$services = MediaWikiServices::getInstance();
 		$this->hCaptchaConfig = $services->getMainConfig();
 		$this->hCaptchaOutput = $services->get( 'HCaptchaOutput' );
 		$this->statsFactory = $services->getStatsFactory();
+		$this->healthChecker = $services->get( 'HCaptchaEnterpriseHealthChecker' );
 		$this->logger = LoggerFactory::getInstance( 'captcha' );
 	}
 
@@ -124,6 +127,7 @@ class HCaptcha extends SimpleCaptcha {
 		$options = [
 			'method' => 'POST',
 			'postData' => $data,
+			'timeout' => 5,
 		];
 
 		$proxy = $this->hCaptchaConfig->get( 'HCaptchaProxy' );
@@ -146,12 +150,14 @@ class HCaptcha extends SimpleCaptcha {
 
 		if ( !$status->isOK() ) {
 			$this->error = 'http';
+			$this->healthChecker->incrementSiteVerifyApiErrorCount();
 			$this->logCheckError( $status, $user );
 			return false;
 		}
 		$json = FormatJson::decode( $request->getContent(), true );
 		if ( !$json ) {
 			$this->error = 'json';
+			$this->healthChecker->incrementSiteVerifyApiErrorCount();
 			$this->logCheckError( $this->error, $user );
 			return false;
 		}

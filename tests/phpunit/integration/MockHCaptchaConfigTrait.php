@@ -24,6 +24,8 @@ trait MockHCaptchaConfigTrait {
 			'HCaptchaSecureEnclave' => false,
 			'HCaptchaDeveloperMode' => false,
 			'HCaptchaUseRiskScore' => false,
+			'HCaptchaApiUrlIntegrityHash' => '',
+			'HCaptchaEnterpriseHealthCheckSiteVerifyErrorThreshold' => 10,
 		] );
 	}
 }

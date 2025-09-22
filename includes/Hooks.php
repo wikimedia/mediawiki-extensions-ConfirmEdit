@@ -10,6 +10,7 @@ use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
+use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\ReCaptchaNoCaptcha;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
@@ -51,8 +52,8 @@ class Hooks implements
 {
 
 	/**
-	 * @var SimpleCaptcha[] Captcha instances, where the keys are the captcha type and the values are an instance
-	 *   of that captcha type.
+	 * @var SimpleCaptcha[][] Captcha instances, where the keys are action => captcha type and the
+	 *   values are an instance of that captcha type.
 	 */
 	protected static array $instance = [];
 
@@ -84,6 +85,7 @@ class Hooks implements
 
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$captchaTriggers = $config->get( 'CaptchaTriggers' );
+		$defaultCaptchaClass = $config->get( 'CaptchaClass' );
 
 		$class = '';
 		// Check for the newer style captcha trigger array
@@ -95,10 +97,23 @@ class Hooks implements
 			$class = $captchaTriggers[$action]['class'];
 		}
 
-		$captchaClass = $config->get( 'CaptchaClass' );
+		if ( !$class ) {
+			$class = $defaultCaptchaClass;
+		}
 
-		static::$instance[$class] ??= new ( $map[$class] ?? $map[$captchaClass] ?? $captchaClass );
-		return static::$instance[$class];
+		$hookRunner = new HookRunner(
+			MediaWikiServices::getInstance()->getHookContainer()
+		);
+		// Allow hook implementers to override the class that's about to be cached.
+		$hookRunner->onConfirmEditCaptchaClass( $action, $class );
+
+		if ( !isset( static::$instance[$action][$class] ) ) {
+			// There is not a cached instance, construct a new one based on the mapping
+			$classInstance = new ( $map[$class] ?? $map[$defaultCaptchaClass] ?? $defaultCaptchaClass );
+			static::$instance[$action][$class] = $classInstance;
+		}
+
+		return static::$instance[$action][$class];
 	}
 
 	/**

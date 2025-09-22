@@ -182,7 +182,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			// * hcaptcha-challenge-closed
 			// * hcaptcha-challenge-expired
 			errorWidget.show( mw.msg( errMsg ) );
-			mw.errorLogger.logError( new Error( errMsg ), 'error.confirmedit' );
+			mw.errorLogger.logError( new Error( error ), 'error.confirmedit' );
 			mw.track(
 				'stats.mediawiki_confirmedit_hcaptcha_execute_workflow_error_total', 1, {
 					code: error.replace( /-/g, '_' ),

@@ -31,7 +31,8 @@ use MediaWiki\User\User;
  */
 class HookRunner implements
 	ConfirmEditTriggersCaptchaHook,
-	ConfirmEditCanUserSkipCaptchaHook
+	ConfirmEditCanUserSkipCaptchaHook,
+	ConfirmEditCaptchaClassHook
 {
 	private HookContainer $hookContainer;
 
@@ -65,6 +66,17 @@ class HookRunner implements
 			[
 				$user,
 				&$result
+			]
+		);
+	}
+
+	/** @inheritDoc */
+	public function onConfirmEditCaptchaClass( $action, &$className ) {
+		$this->hookContainer->run(
+			'ConfirmEditCaptchaClass',
+			[
+				$action,
+				&$className
 			]
 		);
 	}

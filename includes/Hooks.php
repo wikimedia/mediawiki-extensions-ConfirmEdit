@@ -87,19 +87,8 @@ class Hooks implements
 		$captchaTriggers = $config->get( 'CaptchaTriggers' );
 		$defaultCaptchaClass = $config->get( 'CaptchaClass' );
 
-		$class = '';
 		// Check for the newer style captcha trigger array
-		if (
-			isset( $captchaTriggers[$action] ) &&
-			is_array( $captchaTriggers[$action] ) &&
-			isset( $captchaTriggers[$action]['class'] )
-		) {
-			$class = $captchaTriggers[$action]['class'];
-		}
-
-		if ( !$class ) {
-			$class = $defaultCaptchaClass;
-		}
+		$class = $captchaTriggers[$action]['class'] ?? $defaultCaptchaClass;
 
 		$hookRunner = new HookRunner(
 			MediaWikiServices::getInstance()->getHookContainer()

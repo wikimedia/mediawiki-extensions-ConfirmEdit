@@ -7,6 +7,7 @@ use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
+use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
@@ -201,11 +202,17 @@ class HCaptcha extends SimpleCaptcha {
 
 	/** @inheritDoc */
 	public function getMessage( $action ) {
-		$msg = parent::getMessage( $action );
 		if ( $this->error ) {
-			$msg = new RawMessage( '<div class="error">$1</div>', [ $msg ] );
+			$msg = parent::getMessage( $action );
+			return new RawMessage( '<div class="error">$1</div>', [ $msg ] );
 		}
-		return $msg;
+
+		// For edit action, hide the prompt if there's no error
+		if ( $action === CaptchaTriggers::EDIT ) {
+			return new RawMessage( '' );
+		}
+
+		return parent::getMessage( $action );
 	}
 
 	/**

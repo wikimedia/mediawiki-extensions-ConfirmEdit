@@ -68,7 +68,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		// the form information.
 		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
 		$mwHttpRequest->method( 'execute' )
-			->willReturn( Status::wrap( StatusValue::newFatal( new ApiRawMessage( 'Some error' ) ) ) );
+			->willReturn( Status::wrap( StatusValue::newFatal( 'http-error-500' ) ) );
 		$mwHttpRequest->method( 'getStatus' )
 			->willReturn( 500 );
 		$this->installMockHttp( $mwHttpRequest );
@@ -79,6 +79,81 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		);
 		$this->assertSame( 'http', $hCaptcha->getError() );
 		$this->assertSame( [ 'html' => 'mock html' ], $hCaptcha->getFormInformation( 1, $mockOutputPage ) );
+	}
+
+	/** @dataProvider provideGetFormInformationScenarios */
+	public function testGetFormInformationWhenActionIsSet(
+		string $action, bool $hasError, bool $expectedErrorFlag, string $expectedMessage
+	) {
+		$this->setUserLang( 'qqx' );
+		$mockOutputPage = $this->createMock( OutputPage::class );
+
+		// Mock the HCaptchaOutput service to expect a call and return mock HTML
+		$mockHCaptchaOutput = $this->createMock( HCaptchaOutput::class );
+		$mockHCaptchaOutput->expects( $this->once() )
+			->method( 'addHCaptchaToForm' )
+			->with( $mockOutputPage, $expectedErrorFlag )
+			->willReturn( 'mock html' );
+		$this->setService( 'HCaptchaOutput', $mockHCaptchaOutput );
+
+		$hCaptcha = new HCaptcha();
+
+		// Set up error state if needed
+		if ( $hasError ) {
+			// Mock that the site-verify URL call will fail with a HTTP 500 error
+			$mwHttpRequest = $this->createMock( MWHttpRequest::class );
+			$mwHttpRequest->method( 'execute' )
+				->willReturn( Status::wrap( StatusValue::newFatal( new ApiRawMessage( 'Some error' ) ) ) );
+			$mwHttpRequest->method( 'getStatus' )
+				->willReturn( 500 );
+			$this->installMockHttp( $mwHttpRequest );
+
+			$hCaptcha->passCaptchaFromRequest(
+				new FauxRequest(), $this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
+			);
+			$this->assertSame( 'http', $hCaptcha->getError() );
+		} else {
+			$this->assertNull( $hCaptcha->getError() );
+		}
+
+		// Test the message content
+		$message = $hCaptcha->getMessage( $action );
+		$this->assertSame( $expectedMessage, $message->text() );
+
+		// Test that getFormInformation calls addHCaptchaToForm with the expected error flag
+		$this->assertSame(
+			[ 'html' => 'mock html' ],
+			$hCaptcha->getFormInformation( 1, $mockOutputPage )
+		);
+	}
+
+	public static function provideGetFormInformationScenarios(): array {
+		return [
+			'Edit action with no error - should return empty message' => [
+				'edit',
+				false,
+				false,
+				''
+			],
+			'Edit action with error - should return error message' => [
+				'edit',
+				true,
+				true,
+				'<div class="error">(hcaptcha-edit)</div>'
+			],
+			'Createaccount action with no error - should return normal message' => [
+				'createaccount',
+				false,
+				false,
+				'(hcaptcha-createaccount)'
+			],
+			'Createaccount action with error - should return error message' => [
+				'createaccount',
+				true,
+				true,
+				'<div class="error">(hcaptcha-createaccount)</div>'
+			]
+		];
 	}
 
 	public function testPassCaptchaForHttpError() {

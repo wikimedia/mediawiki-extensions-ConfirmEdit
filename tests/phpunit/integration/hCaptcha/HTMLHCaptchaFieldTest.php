@@ -124,7 +124,7 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			],
 			[],
 			"<div id=\"h-captcha\" class=\"h-captcha\" data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>" .
-				"(hcaptcha-privacy-policy)"
+			'<div class="h-captcha-privacy-policy">(hcaptcha-privacy-policy)</div>'
 		];
 
 		yield 'active mode, prior error set' => [
@@ -150,8 +150,9 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaSecureEnclave' => false,
 			],
 			[ 'error' => 'some-error' ],
-			"<div id=\"h-captcha\" class=\"h-captcha mw-confirmedit-captcha-fail\" " .
-				"data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>(hcaptcha-privacy-policy)"
+			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
+				"data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>" .
+			'<div class="h-captcha-privacy-policy">(hcaptcha-privacy-policy)</div>'
 		];
 
 		yield 'active mode, secure enclave mode enabled without enterprise mode enabled' => [
@@ -193,7 +194,7 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			[ 'error' => 'some-error' ],
 			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
 				"data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>" .
-				'(hcaptcha-privacy-policy)',
+				'<div class="h-captcha-privacy-policy">(hcaptcha-privacy-policy)</div>',
 		];
 	}
 

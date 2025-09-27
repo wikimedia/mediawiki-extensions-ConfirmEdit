@@ -110,6 +110,11 @@
 				"web2017-polyfills",
 				"codex-styles"
 			]
+		},
+		"ext.confirmEdit.hCaptcha.styles": {
+			"styles": [
+				"ext.confirmEdit.hCaptcha.styles/ext.confirmEdit.hCaptcha.styles.less"
+			]
 		}
 	},
 	"QUnitTestModule": {

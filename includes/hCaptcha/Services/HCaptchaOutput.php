@@ -78,6 +78,16 @@ class HCaptchaOutput {
 			);
 		}
 
+		// Add noscript message for users with JavaScript disabled in edit page
+		$output .= Html::rawElement(
+			'noscript',
+			[ 'class' => 'h-captcha-noscript-container' ],
+			Html::rawElement(
+				'div',
+				[ 'class' => 'h-captcha-noscript-message cdx-message cdx-message--error' ],
+				$outputPage->msg( 'hcaptcha-noscript' )->parse()
+			)
+		);
 		return $output;
 	}
 }

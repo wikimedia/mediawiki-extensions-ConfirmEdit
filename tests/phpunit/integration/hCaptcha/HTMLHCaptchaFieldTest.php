@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Message\Message;
 use MediaWiki\Output\OutputPage;
@@ -107,7 +108,10 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaSecureEnclave' => false,
 			],
 			[],
-			"<div id=\"h-captcha\" class=\"h-captcha\" data-sitekey=\"$testSiteKey\"></div>"
+			'<div id="h-captcha" class="h-captcha" data-sitekey="' . $testSiteKey . '"></div>' .
+			'<noscript class="h-captcha-noscript-container">' .
+			'<div class="h-captcha-noscript-message cdx-message cdx-message--error">' .
+			'(hcaptcha-noscript)</div></noscript>',
 		];
 
 		yield 'invisible mode, no prior error' => [
@@ -120,6 +124,12 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaSecureEnclave' => false,
 			],
 			[],
+			'<div id="h-captcha" class="h-captcha" data-sitekey="' . $testSiteKey . '" ' .
+			'data-size="invisible"></div>' .
+			'<div class="h-captcha-privacy-policy">(hcaptcha-privacy-policy)</div>' .
+			'<noscript class="h-captcha-noscript-container">' .
+			'<div class="h-captcha-noscript-message cdx-message cdx-message--error">' .
+			'(hcaptcha-noscript)</div></noscript>',
 			"<div id=\"h-captcha\" class=\"h-captcha\" data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>" .
 			'<div class="h-captcha-privacy-policy">(hcaptcha-privacy-policy)</div>'
 		];
@@ -134,7 +144,11 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaSecureEnclave' => false,
 			],
 			[ 'error' => 'some-error' ],
-			"<div id=\"h-captcha\" class=\"h-captcha mw-confirmedit-captcha-fail\" data-sitekey=\"$testSiteKey\"></div>"
+			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
+			'data-sitekey="' . $testSiteKey . '"></div>' .
+			'<noscript class="h-captcha-noscript-container">' .
+			'<div class="h-captcha-noscript-message cdx-message cdx-message--error">' .
+			'(hcaptcha-noscript)</div></noscript>',
 		];
 
 		yield 'invisible mode, prior error set' => [
@@ -147,6 +161,12 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaSecureEnclave' => false,
 			],
 			[ 'error' => 'some-error' ],
+			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
+			'data-sitekey="' . $testSiteKey . '" data-size="invisible"></div>' .
+			'<div class="h-captcha-privacy-policy">(hcaptcha-privacy-policy)</div>' .
+			'<noscript class="h-captcha-noscript-container">' .
+			'<div class="h-captcha-noscript-message cdx-message cdx-message--error">' .
+			'(hcaptcha-noscript)</div></noscript>',
 			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
 				"data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>" .
 			'<div class="h-captcha-privacy-policy">(hcaptcha-privacy-policy)</div>'
@@ -162,7 +182,11 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'HCaptchaSecureEnclave' => true,
 			],
 			[ 'error' => 'some-error' ],
-			"<div id=\"h-captcha\" class=\"h-captcha mw-confirmedit-captcha-fail\" data-sitekey=\"$testSiteKey\"></div>"
+			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
+			'data-sitekey="' . $testSiteKey . '"></div>' .
+			'<noscript class="h-captcha-noscript-container">' .
+			'<div class="h-captcha-noscript-message cdx-message cdx-message--error">' .
+			'(hcaptcha-noscript)</div></noscript>',
 		];
 
 		yield 'active mode, secure enclave mode enabled' => [
@@ -176,7 +200,10 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			],
 			[ 'error' => 'some-error' ],
 			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
-				"data-sitekey=\"$testSiteKey\"></div>",
+			'data-sitekey="' . $testSiteKey . '"></div>' .
+			'<noscript class="h-captcha-noscript-container">' .
+			'<div class="h-captcha-noscript-message cdx-message cdx-message--error">' .
+			'(hcaptcha-noscript)</div></noscript>',
 		];
 
 		yield 'invisible mode, secure enclave mode enabled' => [
@@ -190,6 +217,11 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			],
 			[ 'error' => 'some-error' ],
 			'<div id="h-captcha" class="h-captcha mw-confirmedit-captcha-fail" ' .
+			'data-sitekey="' . $testSiteKey . '" data-size="invisible"></div>' .
+			'<div class="h-captcha-privacy-policy">(hcaptcha-privacy-policy)</div>' .
+			'<noscript class="h-captcha-noscript-container">' .
+			'<div class="h-captcha-noscript-message cdx-message cdx-message--error">' .
+			'(hcaptcha-noscript)</div></noscript>',
 				"data-sitekey=\"$testSiteKey\" data-size=\"invisible\"></div>" .
 				'<div class="h-captcha-privacy-policy">(hcaptcha-privacy-policy)</div>',
 		];
@@ -220,4 +252,20 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		yield 'empty input' => [ '', 'hcaptcha-missing-token' ];
 		yield 'non-empty input' => [ 'foo123', true ];
 	}
+
+	/**
+	 * Test that renderNoJavaScriptOutput shows noscript content only for edit action
+	 */
+	public function testRenderNoJavaScriptOutput(): void {
+		$this->setUserLang( 'qqx' );
+
+		$outputPage = RequestContext::getMain()->getOutput();
+		/** @var HCaptchaOutput $service */
+		$hCaptchaOutput = $this->getServiceContainer()->get( 'HCaptchaOutput' );
+		$result = $hCaptchaOutput->addHCaptchaToForm( $outputPage, false );
+
+		$this->assertStringContainsString( '<noscript class="h-captcha-noscript-container">', $result );
+		$this->assertStringContainsString( '(hcaptcha-noscript)', $result );
+	}
+
 }

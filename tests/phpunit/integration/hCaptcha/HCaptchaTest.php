@@ -24,6 +24,7 @@ use ReflectionClass;
 use StatusValue;
 use Wikimedia\Stats\StatsFactory;
 use Wikimedia\TestingAccessWrapper;
+use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha
@@ -229,6 +230,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$testIP = '1.2.3.4';
 		$request->setIP( $testIP );
 		RequestContext::getMain()->setRequest( $request );
+		ConvertibleTimestamp::setFakeTime( '2011-01-01T09:00:00Z' );
 
 		// Mock the site-verify URL call to respond with a successful response
 		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
@@ -306,9 +308,9 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		}
 		$this->assertNull( $hCaptcha->getError() );
 
-		$this->assertMatchesRegularExpression(
-			"/^mediawiki.ConfirmEdit.hcaptcha_siteverify_call:-?(?:\d+|\d*\.\d+)|ms|#status:ok$/",
-			$statsHelper->consumeAllFormatted()[0]
+		$this->assertSame(
+			[ 'mediawiki.ConfirmEdit.hcaptcha_siteverify_call:1|ms|#status:ok' ],
+			$statsHelper->consumeAllFormatted()
 		);
 	}
 

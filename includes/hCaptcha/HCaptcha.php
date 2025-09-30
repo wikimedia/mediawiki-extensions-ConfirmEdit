@@ -133,12 +133,15 @@ class HCaptcha extends SimpleCaptcha {
 		$request = MediaWikiServices::getInstance()->getHttpRequestFactory()
 			->create( $this->hCaptchaConfig->get( 'HCaptchaVerifyUrl' ), $options, __METHOD__ );
 
-		$start = microtime( true );
-		$status = $request->execute();
-		$this->statsFactory->withComponent( 'ConfirmEdit' )
+		$timer = $this->statsFactory->withComponent( 'ConfirmEdit' )
 			->getTiming( 'hcaptcha_siteverify_call' )
+			->start();
+
+		$status = $request->execute();
+
+		$timer
 			->setLabel( 'status', $status->isOK() ? 'ok' : 'failed' )
-			->observeSeconds( ( microtime( true ) - $start ) );
+			->stop();
 
 		if ( !$status->isOK() ) {
 			$this->error = 'http';

@@ -97,6 +97,7 @@
 			"packageFiles": [
 				"ext.confirmEdit.hCaptcha/init.js",
 				"ext.confirmEdit.hCaptcha/secureEnclave.js",
+				"ext.confirmEdit.hCaptcha/utils.js",
 				"ext.confirmEdit.hCaptcha/ProgressIndicatorWidget.js",
 				"ext.confirmEdit.hCaptcha/ErrorWidget.js",
 				{

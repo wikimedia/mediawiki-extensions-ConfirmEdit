@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\SimpleCaptcha;
 
-use MediaWiki\Config\HashConfig;
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
@@ -49,7 +48,7 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertEquals(
 			$expected,
-			$testObject->canSkipCaptcha( RequestContext::getMain()->getUser(), new HashConfig() )
+			$testObject->canSkipCaptcha( RequestContext::getMain()->getUser() )
 		);
 	}
 

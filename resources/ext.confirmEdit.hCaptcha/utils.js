@@ -37,10 +37,12 @@ function trackPerformanceTiming( topic, startName, endName ) {
  * render hCaptcha with a win.hcaptcha.render() call.
  *
  * @param {Window} win
+ * @param {Object.<string, string>} apiUrlQueryParameters Query parameters to append to the API URL
+ *   For example, `{ 'render' => 'explicit' }` when always wanting to render explicitly.
  * @return {Promise<void>} A promise that resolves when hCaptcha loads and
  *   rejects if hCaptcha does not load
  */
-const loadHCaptcha = ( win ) => new Promise( ( resolve, reject ) => {
+const loadHCaptcha = ( win, apiUrlQueryParameters = {} ) => new Promise( ( resolve, reject ) => {
 	performance.mark( 'hcaptcha-load-start' );
 
 	// NOTE: Use hCaptcha's onload parameter rather than the return value of getScript()
@@ -57,6 +59,11 @@ const loadHCaptcha = ( win ) => new Promise( ( resolve, reject ) => {
 	};
 
 	const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
+
+	for ( const [ name, value ] of Object.entries( apiUrlQueryParameters ) ) {
+		hCaptchaApiUrl.searchParams.set( name, value );
+	}
+
 	hCaptchaApiUrl.searchParams.set( 'onload', 'onHCaptchaSDKLoaded' );
 
 	const script = document.createElement( 'script' );

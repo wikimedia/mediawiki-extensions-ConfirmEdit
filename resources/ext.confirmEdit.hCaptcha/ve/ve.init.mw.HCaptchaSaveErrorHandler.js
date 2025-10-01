@@ -1,4 +1,5 @@
 const config = require( './../config.json' );
+const { loadHCaptcha } = require( './../utils.js' );
 
 /**
  * Defines and installs the hCaptcha plugin for VisualEditor. This should be called
@@ -14,15 +15,7 @@ module.exports = () => {
 
 	ve.init.mw.HCaptchaSaveErrorHandler.static.getReadyPromise = function () {
 		if ( !this.readyPromise ) {
-			const deferred = $.Deferred();
-			const scriptURL = new URL( config.HCaptchaApiUrl, location.href );
-			const onLoadFn = 'onHcaptchaLoadCallback' + Date.now();
-			scriptURL.searchParams.set( 'onload', onLoadFn );
-			scriptURL.searchParams.set( 'render', 'explicit' );
-
-			this.readyPromise = deferred.promise();
-			window[ onLoadFn ] = deferred.resolve;
-			mw.loader.load( scriptURL.toString() );
+			this.readyPromise = loadHCaptcha( window, { render: 'explicit' } );
 		}
 
 		return this.readyPromise;

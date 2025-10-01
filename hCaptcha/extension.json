@@ -78,21 +78,6 @@
 		"remoteExtPath": "ConfirmEdit/resources"
 	},
 	"ResourceModules": {
-		"ext.confirmEdit.hCaptcha.visualEditor": {
-			"dependencies": [
-				"web2017-polyfills"
-			],
-			"packageFiles": [
-				"ve-confirmedit-hCaptcha/ve.init.mw.HCaptchaSaveErrorHandler.js",
-				{
-					"name": "ve-confirmedit-hCaptcha/config.json",
-					"config": [
-						"HCaptchaSiteKey",
-						"HCaptchaApiUrl"
-					]
-				}
-			]
-		},
 		"ext.confirmEdit.hCaptcha": {
 			"packageFiles": [
 				"ext.confirmEdit.hCaptcha/init.js",
@@ -100,10 +85,12 @@
 				"ext.confirmEdit.hCaptcha/utils.js",
 				"ext.confirmEdit.hCaptcha/ProgressIndicatorWidget.js",
 				"ext.confirmEdit.hCaptcha/ErrorWidget.js",
+				"ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaSaveErrorHandler.js",
 				{
 					"name": "ext.confirmEdit.hCaptcha/config.json",
 					"config": [
 						"HCaptchaApiUrl",
+						"HCaptchaSiteKey",
 						"HCaptchaEnterprise",
 						"HCaptchaSecureEnclave",
 						"HCaptchaApiUrlIntegrityHash"
@@ -120,6 +107,7 @@
 				"hcaptcha-loading-indicator-label"
 			],
 			"dependencies": [
+				"web2017-polyfills",
 				"codex-styles"
 			]
 		}
@@ -139,7 +127,7 @@
 	"attributes": {
 		"VisualEditor": {
 			"PluginModules": [
-				"ext.confirmEdit.hCaptcha.visualEditor"
+				"ext.confirmEdit.hCaptcha"
 			]
 		}
 	},

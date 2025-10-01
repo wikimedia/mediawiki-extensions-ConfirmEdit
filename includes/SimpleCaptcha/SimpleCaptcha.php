@@ -7,8 +7,6 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiEditPage;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Cache\CacheKeyHelper;
-use MediaWiki\Config\Config;
-use MediaWiki\Config\ConfigException;
 use MediaWiki\Content\Content;
 use MediaWiki\Content\TextContent;
 use MediaWiki\Context\IContextSource;
@@ -348,7 +346,7 @@ class SimpleCaptcha {
 		$user = $form->getUser();
 		if ( $this->triggersCaptcha( CaptchaTriggers::SENDEMAIL ) ) {
 			$this->action = 'sendemail';
-			if ( $this->canSkipCaptcha( $user, $form->getConfig() ) ) {
+			if ( $this->canSkipCaptcha( $user ) ) {
 				return true;
 			}
 			$formInformation = $this->getFormInformation( 1, $out );
@@ -540,7 +538,7 @@ class SimpleCaptcha {
 		$request = $context->getRequest();
 		$user = $context->getUser();
 
-		if ( $this->canSkipCaptcha( $user, $context->getConfig() ) ) {
+		if ( $this->canSkipCaptcha( $user ) ) {
 			return false;
 		}
 
@@ -924,7 +922,7 @@ class SimpleCaptcha {
 	 */
 	public function needCreateAccountCaptcha( User $creatingUser ) {
 		if ( $this->triggersCaptcha( CaptchaTriggers::CREATE_ACCOUNT ) ) {
-			return !$this->canSkipCaptcha( $creatingUser, MediaWikiServices::getInstance()->getMainConfig() );
+			return !$this->canSkipCaptcha( $creatingUser );
 		}
 		return false;
 	}
@@ -943,8 +941,7 @@ class SimpleCaptcha {
 
 		$user = RequestContext::getMain()->getUser();
 		if ( $this->triggersCaptcha( CaptchaTriggers::SENDEMAIL ) ) {
-			if ( $this->canSkipCaptcha( $user,
-				MediaWikiServices::getInstance()->getMainConfig() ) ) {
+			if ( $this->canSkipCaptcha( $user ) ) {
 				return true;
 			}
 
@@ -1245,12 +1242,8 @@ class SimpleCaptcha {
 
 	/**
 	 * Check whether the user provided / IP making the request is allowed to skip captchas
-	 * @param User $user
-	 * @param Config $config
-	 * @return bool
-	 * @throws ConfigException
 	 */
-	public function canSkipCaptcha( $user, Config $config ) {
+	public function canSkipCaptcha( User $user ): bool {
 		$result = false;
 		if ( $user->isAllowed( 'skipcaptcha' ) ) {
 			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );

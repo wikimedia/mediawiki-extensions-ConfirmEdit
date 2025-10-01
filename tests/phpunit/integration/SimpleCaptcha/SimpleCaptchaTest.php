@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\SimpleCaptcha;
 
-use MediaWiki\Config\HashConfig;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
@@ -182,7 +181,7 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 		$user = $this->createMock( User::class );
 		$user->method( 'isAllowed' )->willReturn( $userIsAllowed );
 
-		$actual = $testObject->canSkipCaptcha( $user, RequestContext::getMain()->getConfig() );
+		$actual = $testObject->canSkipCaptcha( $user );
 
 		$this->assertEquals( $userIsAllowed, $actual );
 	}
@@ -203,7 +202,7 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->setRequest( $request );
 		$this->overrideConfigValue( 'CaptchaBypassIPs', $list );
 
-		$actual = $testObject->canSkipCaptcha( RequestContext::getMain()->getUser(), new HashConfig() );
+		$actual = $testObject->canSkipCaptcha( RequestContext::getMain()->getUser() );
 
 		$this->assertEquals( $expected, $actual );
 	}
@@ -255,7 +254,7 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 			}
 		);
 
-		$actual = $testObject->canSkipCaptcha( $user, RequestContext::getMain()->getConfig() );
+		$actual = $testObject->canSkipCaptcha( $user );
 
 		$this->assertEquals( $expected, $actual );
 	}

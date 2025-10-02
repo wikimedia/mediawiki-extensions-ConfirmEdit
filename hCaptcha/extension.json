@@ -118,7 +118,8 @@
 		"scripts": [
 			"secureEnclave.test.js",
 			"ErrorWidget.test.js",
-			"ProgressIndicatorWidget.test.js"
+			"ProgressIndicatorWidget.test.js",
+			"ve/ve.init.mw.HCaptchaSaveErrorHandler.test.js"
 		],
 		"dependencies": [
 			"ext.confirmEdit.hCaptcha"

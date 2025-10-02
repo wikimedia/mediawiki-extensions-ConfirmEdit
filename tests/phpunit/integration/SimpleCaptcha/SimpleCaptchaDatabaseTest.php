@@ -32,7 +32,6 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testCanSkipCaptchaForMessageWhitelist( $ipWhitelistText, $requestIP, $expected ) {
 		// We are testing the i18n message definition method, so clear the globals to avoid matching against them.
-		$this->overrideConfigValue( 'CaptchaWhitelistIP', [] );
 		$this->overrideConfigValue( 'CaptchaBypassIPs', [] );
 
 		// Define override for the bypass i18n message

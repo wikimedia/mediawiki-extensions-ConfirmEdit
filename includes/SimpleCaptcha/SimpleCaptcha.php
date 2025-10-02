@@ -368,19 +368,14 @@ class SimpleCaptcha {
 	/**
 	 * Check if the current IP is allowed to skip solving a captcha.
 	 * This checks the bypass list from two sources.
-	 *  1) From the server-side config array $wgCaptchaWhitelistIP (deprecated) or $wgCaptchaBypassIPs
+	 *  1) From the server-side config array $wgCaptchaBypassIPs
 	 *  2) From the local [[MediaWiki:Captcha-ip-whitelist]] message
 	 *
 	 * @return bool true if the IP can bypass a captcha, false if not
 	 */
 	private function canIPBypassCaptcha() {
-		global $wgCaptchaWhitelistIP, $wgCaptchaBypassIPs, $wgRequest;
+		global $wgCaptchaBypassIPs, $wgRequest;
 		$ip = $wgRequest->getIP();
-
-		// Deprecated; to be removed later
-		if ( $wgCaptchaWhitelistIP && IPUtils::isInRanges( $ip, $wgCaptchaWhitelistIP ) ) {
-			return true;
-		}
 
 		if ( $wgCaptchaBypassIPs && IPUtils::isInRanges( $ip, $wgCaptchaBypassIPs ) ) {
 			return true;
@@ -729,7 +724,7 @@ class SimpleCaptcha {
 	 * @return bool true if unknown, false if allowed
 	 */
 	private function filterLink( $url ) {
-		global $wgCaptchaWhitelist, $wgCaptchaIgnoredUrls;
+		global $wgCaptchaIgnoredUrls;
 		static $regexes = null;
 
 		if ( $regexes === null ) {
@@ -739,10 +734,6 @@ class SimpleCaptcha {
 				? []
 				: $this->buildRegexes( explode( "\n", $source->plain() ) );
 
-			// DEPRECATED
-			if ( $wgCaptchaWhitelist !== false ) {
-				array_unshift( $regexes, $wgCaptchaWhitelist );
-			}
 			if ( $wgCaptchaIgnoredUrls !== false ) {
 				array_unshift( $regexes, $wgCaptchaIgnoredUrls );
 			}

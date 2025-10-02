@@ -154,10 +154,6 @@
 			"description": "Use this config to define captchas that could be loaded via the ConfirmEditCaptchaClass hook. These should be in the format as used to define the active captcha in $wgCaptchaClass. You should not need to extend this array if you have defined the captchas to use via $wgCaptchaClass or $wgCaptchaTriggers, as these are read to populate this list automatically.",
 			"value": []
 		},
-		"CaptchaWhitelistIP": {
-			"description": "DEPRECATED! Use CaptchaBypassIPs",
-			"value": false
-		},
 		"CaptchaBypassIPs": {
 			"description": "A list of IP addresses that can skip the captcha",
 			"value": false
@@ -203,10 +199,6 @@
 		"CaptchaBadLoginPerUserAttempts": {
 			"description": "Number of bad login attempts (for a specific user account) before triggering the captcha. 0 means the captcha is presented on the first login. A captcha will also be triggered if the number of failed logins exceeds $wgCaptchaBadLoginPerUserAttempts * 30 in a period of $wgCaptchaBadLoginPerUserExpiration * 300.",
 			"value": 20
-		},
-		"CaptchaWhitelist": {
-			"description": "DEPRECATED: Use CaptchaIgnoredUrls.",
-			"value": false
 		},
 		"CaptchaIgnoredUrls": {
 			"description": "Urls that won't trigger a captcha.",

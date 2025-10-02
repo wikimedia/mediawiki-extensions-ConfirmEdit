@@ -95,4 +95,61 @@ const loadHCaptcha = ( win, apiUrlQueryParameters = {} ) => new Promise( ( resol
 	document.head.appendChild( script );
 } );
 
-module.exports = { trackPerformanceTiming: trackPerformanceTiming, loadHCaptcha: loadHCaptcha };
+/**
+ * Trigger a single hCaptcha workflow execution asynchronously. This may cause a challenge
+ * to the user that will interrupt any user flow, so should not be run unless the user
+ * has taken an action to submit the form.
+ *
+ * A promise will be returned that will be rejected if the hCaptcha execution failed
+ * and resolved if the hCaptcha execution succeeded. If the hCaptcha execution succeeds
+ * then the h-captcha-response token will be returned as the value. On failure, the
+ * value will be the associated error.
+ *
+ * @param {Window} win The window object, which can be changed for testing purposes
+ * @param {string} captchaId The ID of the hCaptcha instance which has
+ *   been rendered by `hcaptcha.render`
+ * @return {Promise<string>} A promise that resolves if hCaptcha failed to initialize,
+ * or after the first time the user attempts to submit the form and hCaptcha finishes running.
+ */
+const executeHCaptcha = ( win, captchaId ) => new Promise( ( resolve, reject ) => {
+	try {
+		performance.mark( 'hcaptcha-execute-start' );
+
+		try {
+			mw.track( 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, {
+				wiki: wiki
+			} );
+			win.hcaptcha.execute( captchaId, { async: true } )
+				.then( ( { response } ) => {
+					mw.track( 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, {
+						wiki: wiki
+					} );
+					resolve( response );
+				} )
+				.catch( ( error ) => {
+					reject( error );
+				} );
+		} finally {
+			trackPerformanceTiming(
+				'hcaptcha-execute',
+				'hcaptcha-execute-start',
+				'hcaptcha-execute-complete'
+			);
+		}
+	} catch ( error ) {
+		mw.errorLogger.logError( new Error( error ), 'error.confirmedit' );
+		mw.track(
+			'stats.mediawiki_confirmedit_hcaptcha_execute_workflow_error_total', 1, {
+				code: error.replace( /-/g, '_' ),
+				wiki: wiki
+			}
+		);
+		reject( error );
+	}
+} );
+
+module.exports = {
+	trackPerformanceTiming: trackPerformanceTiming,
+	loadHCaptcha: loadHCaptcha,
+	executeHCaptcha: executeHCaptcha
+};

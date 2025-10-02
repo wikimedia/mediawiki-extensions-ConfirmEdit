@@ -1,7 +1,7 @@
 const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
 const ErrorWidget = require( './ErrorWidget.js' );
 const wiki = mw.config.get( 'wgDBname' );
-const { trackPerformanceTiming, loadHCaptcha } = require( './utils.js' );
+const { loadHCaptcha, executeHCaptcha } = require( './utils.js' );
 
 /**
  * Load hCaptcha in Secure Enclave mode.
@@ -68,18 +68,12 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			} );
 		} );
 
-		try {
-			const [ captchaId, form ] = await Promise.all( [ captchaIdPromise, formSubmitted ] );
+		const [ captchaId, form ] = await Promise.all( [ captchaIdPromise, formSubmitted ] );
 
-			loadingIndicator.$element.show();
-			performance.mark( 'hcaptcha-execute-start' );
+		loadingIndicator.$element.show();
 
-			try {
-				mw.track( 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, {
-					wiki: wiki
-				} );
-				const { response } = await win.hcaptcha.execute( captchaId, { async: true } );
-
+		await executeHCaptcha( win, captchaId )
+			.then( ( response ) => {
 				// Clear out any errors from a previous workflow.
 				errorWidget.hide();
 				// Set the hCaptcha response input field, which does not yet exist
@@ -88,41 +82,27 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 					.attr( 'name', 'h-captcha-response' )
 					.attr( 'id', 'h-captcha-response' )
 					.val( response ) );
-				mw.track( 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, {
-					wiki: wiki
-				} );
 				form.submit();
-			} finally {
-				trackPerformanceTiming(
-					'hcaptcha-execute',
-					'hcaptcha-execute-start',
-					'hcaptcha-execute-complete'
-				);
+			} )
+			.catch( ( error ) => {
 				loadingIndicator.$element.hide();
-			}
-		} catch ( error ) {
-			const errMsg = Object.prototype.hasOwnProperty.call( errorMap, error ) ?
-				errorMap[ error ] :
-				'hcaptcha-generic-error';
 
-			// Possible message keys used here:
-			// * hcaptcha-generic-error
-			// * hcaptcha-challenge-closed
-			// * hcaptcha-challenge-expired
-			errorWidget.show( mw.msg( errMsg ) );
-			mw.errorLogger.logError( new Error( error ), 'error.confirmedit' );
-			mw.track(
-				'stats.mediawiki_confirmedit_hcaptcha_execute_workflow_error_total', 1, {
-					code: error.replace( /-/g, '_' ),
-					wiki: wiki
+				const errMsg = Object.prototype.hasOwnProperty.call( errorMap, error ) ?
+					errorMap[ error ] :
+					'hcaptcha-generic-error';
+
+				// Possible message keys used here:
+				// * hcaptcha-generic-error
+				// * hcaptcha-challenge-closed
+				// * hcaptcha-challenge-expired
+				errorWidget.show( mw.msg( errMsg ) );
+
+				// Initiate a new workflow for recoverable errors
+				// (e.g. an expired or closed challenge).
+				if ( recoverableErrors.includes( error ) ) {
+					return executeWorkflow();
 				}
-			);
-
-			// Initiate a new workflow for recoverable errors (e.g. an expired or closed challenge).
-			if ( recoverableErrors.includes( error ) ) {
-				return executeWorkflow();
-			}
-		}
+			} );
 	};
 
 	return executeWorkflow();

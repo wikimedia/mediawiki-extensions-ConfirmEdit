@@ -9,10 +9,11 @@ const { loadHCaptcha, executeHCaptcha } = require( './utils.js' );
  * @param {jQuery} $form The form to be protected by hCaptcha.
  * @param {jQuery} $hCaptchaField The hCaptcha input field within the form.
  * @param {Window} win
+ * @param {string} interfaceName The name of the interface where hCaptcha is being used
  * @return {Promise<void>} A promise that resolves if hCaptcha failed to initialize,
  * or after the first time the user attempts to submit the form and hCaptcha finishes running.
  */
-async function setupHCaptcha( $form, $hCaptchaField, win ) {
+async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	const loadingIndicator = new ProgressIndicatorWidget(
 		mw.msg( 'hcaptcha-loading-indicator-label' )
 	);
@@ -23,7 +24,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 
 	$hCaptchaField.after( loadingIndicator.$element, errorWidget.$element );
 
-	const hCaptchaLoaded = loadHCaptcha( win );
+	const hCaptchaLoaded = loadHCaptcha( win, interfaceName );
 
 	// Map of hCaptcha error codes to error message keys.
 	const errorMap = {
@@ -90,7 +91,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			.then( ( [ captchaId, form ] ) => {
 				loadingIndicator.$element.show();
 
-				return executeHCaptcha( win, captchaId )
+				return executeHCaptcha( win, captchaId, interfaceName )
 					.then( ( response ) => {
 						// Clear out any errors from a previous workflow.
 						errorWidget.hide();
@@ -146,6 +147,16 @@ async function useSecureEnclave( win ) {
 		return;
 	}
 
+	// Work our what interface we are loading hCaptcha on, currently only used
+	// for instrumentation purposes
+	let interfaceName = 'unknown';
+	if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'CreateAccount' ) {
+		interfaceName = 'createaccount';
+	}
+	if ( mw.config.get( 'wgAction' ) === 'edit' ) {
+		interfaceName = 'edit';
+	}
+
 	// Load hCaptcha the first time the user interacts with the form.
 	return new Promise( ( resolve ) => {
 		const $inputs = $form.find( 'input' );
@@ -157,14 +168,14 @@ async function useSecureEnclave( win ) {
 			$inputs.off( 'input.hCaptchaLoader focus.hCaptchaLoader' );
 			$form.off( 'submit.hCaptchaLoader' );
 
-			resolve( setupHCaptcha( $form, $hCaptchaField, win ) );
+			resolve( setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) );
 		} );
 
 		$inputs.one( 'input.hCaptchaLoader focus.hCaptchaLoader', () => {
 			$inputs.off( 'input.hCaptchaLoader focus.hCaptchaLoader' );
 			$form.off( 'submit.hCaptchaLoader' );
 
-			resolve( setupHCaptcha( $form, $hCaptchaField, win ) );
+			resolve( setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) );
 		} );
 	} );
 }

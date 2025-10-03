@@ -124,6 +124,7 @@
 			"secureEnclave.test.js",
 			"ErrorWidget.test.js",
 			"ProgressIndicatorWidget.test.js",
+			"utils.test.js",
 			"ve/ve.init.mw.HCaptchaSaveErrorHandler.test.js"
 		],
 		"dependencies": [

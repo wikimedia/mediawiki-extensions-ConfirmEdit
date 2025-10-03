@@ -3,16 +3,20 @@ const config = require( './config.json' );
 /**
  * Conclude and emit a performance measurement in seconds via mw.track.
  *
+ * @param {string} interfaceName The name of the interface where hCaptcha is being used
  * @param {string} topic Unique name for the measurement to be sent to mw.track().
  * @param {string} startName Name of the performance mark denoting the start of the measurement.
  * @param {string} endName Name of the performance mark denoting the end of the measurement.
  */
-function trackPerformanceTiming( topic, startName, endName ) {
+function trackPerformanceTiming( interfaceName, topic, startName, endName ) {
+	const wiki = mw.config.get( 'wgDBname' );
 	performance.mark( endName );
 
 	const { duration } = performance.measure( topic, startName, endName );
 
-	if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'CreateAccount' ) {
+	// We also track the account creation timings separately
+	// as their own metric for backwards compatability
+	if ( interfaceName === 'createaccount' ) {
 		mw.track( 'specialCreateAccount.performanceTiming', topic, duration / 1000 );
 
 		// Possible metric names used here:
@@ -23,9 +27,20 @@ function trackPerformanceTiming( topic, startName, endName ) {
 		mw.track(
 			`stats.mediawiki_special_createaccount_${ topic.replace( /-/g, '_' ) }_duration_seconds`,
 			duration,
-			{ wiki: mw.config.get( 'wgDBname' ) }
+			{ wiki: wiki }
 		);
 	}
+
+	// Possible metric names used here:
+	// * mediawiki_confirmedit_hcaptcha_load_duration_seconds
+	// * mediawiki_confirmedit_hcaptcha_execute_duration_seconds
+	// NOTE: while the metric value is in milliseconds, the statsd handler in WikimediaEvents
+	// will handle unit conversion.
+	mw.track(
+		`stats.mediawiki_confirmedit_${ topic.replace( /-/g, '_' ) }_duration_seconds`,
+		duration,
+		{ wiki: wiki, interfaceName: interfaceName }
+	);
 }
 
 /**
@@ -36,12 +51,16 @@ function trackPerformanceTiming( topic, startName, endName ) {
  * render hCaptcha with a win.hcaptcha.render() call.
  *
  * @param {Window} win
+ * @param {string} interfaceName The name of the interface where hCaptcha is being used,
+ *   only used for instrumentation
  * @param {Object.<string, string>} apiUrlQueryParameters Query parameters to append to the API URL
  *   For example, `{ 'render' => 'explicit' }` when always wanting to render explicitly.
  * @return {Promise<void>} A promise that resolves when hCaptcha loads and
  *   rejects if hCaptcha does not load
  */
-const loadHCaptcha = ( win, apiUrlQueryParameters = {} ) => new Promise( ( resolve, reject ) => {
+const loadHCaptcha = (
+	win, interfaceName, apiUrlQueryParameters = {}
+) => new Promise( ( resolve, reject ) => {
 	performance.mark( 'hcaptcha-load-start' );
 
 	// NOTE: Use hCaptcha's onload parameter rather than the return value of getScript()
@@ -49,6 +68,7 @@ const loadHCaptcha = ( win, apiUrlQueryParameters = {} ) => new Promise( ( resol
 	// a potentially inconsistent config.
 	win.onHCaptchaSDKLoaded = function () {
 		trackPerformanceTiming(
+			interfaceName,
 			'hcaptcha-load',
 			'hcaptcha-load-start',
 			'hcaptcha-load-complete'
@@ -75,13 +95,14 @@ const loadHCaptcha = ( win, apiUrlQueryParameters = {} ) => new Promise( ( resol
 
 	script.onerror = () => {
 		trackPerformanceTiming(
+			interfaceName,
 			'hcaptcha-load',
 			'hcaptcha-load-start',
 			'hcaptcha-load-complete'
 		);
 
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_script_error_total', 1, {
-			wiki: mw.config.get( 'wgDBname' )
+			wiki: mw.config.get( 'wgDBname' ), interfaceName: interfaceName
 		} );
 		mw.errorLogger.logError(
 			new Error( 'Unable to load hCaptcha script' ),
@@ -107,15 +128,18 @@ const loadHCaptcha = ( win, apiUrlQueryParameters = {} ) => new Promise( ( resol
  * @param {Window} win The window object, which can be changed for testing purposes
  * @param {string} captchaId The ID of the hCaptcha instance which has
  *   been rendered by `hcaptcha.render`
+ * @param {string} interfaceName The name of the interface where hCaptcha is being used,
+ *   only used for instrumentation
  * @return {Promise<string>} A promise that resolves if hCaptcha failed to initialize,
  * or after the first time the user attempts to submit the form and hCaptcha finishes running.
  */
-const executeHCaptcha = ( win, captchaId ) => new Promise( ( resolve, reject ) => {
+const executeHCaptcha = ( win, captchaId, interfaceName ) => new Promise( ( resolve, reject ) => {
 	const wiki = mw.config.get( 'wgDBname' );
 	performance.mark( 'hcaptcha-execute-start' );
 
 	const trackExecutionFinished = () => {
 		trackPerformanceTiming(
+			interfaceName,
 			'hcaptcha-execute',
 			'hcaptcha-execute-start',
 			'hcaptcha-execute-complete'
@@ -124,12 +148,12 @@ const executeHCaptcha = ( win, captchaId ) => new Promise( ( resolve, reject ) =
 
 	try {
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, {
-			wiki: wiki
+			wiki: wiki, interfaceName: interfaceName
 		} );
 		win.hcaptcha.execute( captchaId, { async: true } )
 			.then( ( { response } ) => {
 				mw.track( 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, {
-					wiki: wiki
+					wiki: wiki, interfaceName: interfaceName
 				} );
 				trackExecutionFinished();
 				resolve( response );
@@ -139,15 +163,16 @@ const executeHCaptcha = ( win, captchaId ) => new Promise( ( resolve, reject ) =
 				reject( error );
 			} );
 	} catch ( error ) {
-		mw.errorLogger.logError( new Error( error ), 'error.confirmedit' );
+		mw.errorLogger.logError( error, 'error.confirmedit' );
 		mw.track(
 			'stats.mediawiki_confirmedit_hcaptcha_execute_workflow_error_total', 1, {
-				code: error.replace( /-/g, '_' ),
-				wiki: wiki
+				code: error.message.replace( /-/g, '_' ),
+				wiki: wiki,
+				interfaceName: interfaceName
 			}
 		);
 		trackExecutionFinished();
-		reject( error );
+		reject( error.message );
 	}
 } );
 

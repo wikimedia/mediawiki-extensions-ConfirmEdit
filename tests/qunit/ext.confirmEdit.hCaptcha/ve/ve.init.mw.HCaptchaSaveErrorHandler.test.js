@@ -23,7 +23,7 @@ QUnit.test( 'getReadyPromise uses loadHCaptcha but only calls it once', function
 	);
 	assert.deepEqual(
 		this.loadHCaptcha.firstCall.args,
-		[ window, { render: 'explicit' } ],
+		[ window, 'visualeditor', { render: 'explicit' } ],
 		'loadHCaptcha arguments are as expected'
 	);
 

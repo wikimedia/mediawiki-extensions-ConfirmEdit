@@ -16,7 +16,7 @@ module.exports = () => {
 
 	ve.init.mw.HCaptchaSaveErrorHandler.static.getReadyPromise = function () {
 		if ( !this.readyPromise ) {
-			this.readyPromise = loadHCaptcha( window, { render: 'explicit' } );
+			this.readyPromise = loadHCaptcha( window, 'visualeditor', { render: 'explicit' } );
 		}
 
 		return this.readyPromise;

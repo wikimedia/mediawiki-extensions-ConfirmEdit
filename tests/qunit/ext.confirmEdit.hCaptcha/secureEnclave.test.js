@@ -32,6 +32,7 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 
 		this.$form = $( form )
 			.append( '<input type="text" name="some-input" />' )
+			.append( '<textarea name="some-textarea"></textarea>' )
 			.append( '<input type="hidden" id="h-captcha">' );
 
 		this.$form.appendTo( $( '#qunit-fixture' ) );
@@ -65,18 +66,25 @@ QUnit.test( 'should not load hCaptcha before the form has been interacted with',
 	assert.true( this.track.notCalled, 'should not emit hCaptcha performance events' );
 } );
 
-QUnit.test( 'should load hCaptcha exactly once when the form is interacted with', async function ( assert ) {
+QUnit.test.each( 'should load hCaptcha exactly once when the form is interacted with', {
+	'interaction with input element': {
+		fieldName: 'some-textarea'
+	},
+	'interaction with textarea element': {
+		fieldName: 'some-textarea'
+	}
+}, async function ( assert, data ) {
 	this.window.document.head.appendChild.callsFake( async () => {
 		this.window.onHCaptchaSDKLoaded();
 	} );
 
 	useSecureEnclave( this.window );
 
-	const $input = this.$form.find( '[name=some-input]' );
+	const $field = this.$form.find( '[name=' + data.fieldName + ']' );
 
-	$input.trigger( 'focus' );
-	$input.trigger( 'input' );
-	$input.trigger( 'input' );
+	$field.trigger( 'focus' );
+	$field.trigger( 'input' );
+	$field.trigger( 'input' );
 
 	// Wait one tick for event handlers to run.
 	await new Promise( ( resolve ) => {

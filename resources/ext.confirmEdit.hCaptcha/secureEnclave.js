@@ -159,7 +159,7 @@ async function useSecureEnclave( win ) {
 
 	// Load hCaptcha the first time the user interacts with the form.
 	return new Promise( ( resolve ) => {
-		const $inputs = $form.find( 'input' );
+		const $inputs = $form.find( 'input, textarea' );
 
 		// Catch and prevent form submissions that occur before hCaptcha was initialized.
 		$form.one( 'submit.hCaptchaLoader', ( event ) => {

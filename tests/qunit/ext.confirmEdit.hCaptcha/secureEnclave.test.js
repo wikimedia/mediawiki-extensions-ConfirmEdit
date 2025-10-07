@@ -3,7 +3,10 @@ const config = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/confi
 
 QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( {
 	beforeEach() {
+		mw.config.set( 'wgDBname', 'testwiki' );
+
 		this.track = this.sandbox.stub( mw, 'track' );
+		this.logError = this.sandbox.stub( mw.errorLogger, 'logError' );
 
 		// Sinon fake timers as of v21 only return a static fake value from performance.measure(),
 		// so use a regular stub instead.
@@ -38,14 +41,18 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 			.css( 'display' ) !== 'none';
 
 		this.origUrl = config.HCaptchaApiUrl;
+		this.origIntegrityHash = config.HCaptchaApiUrlIntegrityHash;
 		config.HCaptchaApiUrl = 'https://example.com/hcaptcha.js';
+		config.HCaptchaApiUrlIntegrityHash = '1234abcef';
 	},
 
 	afterEach() {
 		this.track.restore();
 		this.measure.restore();
+		this.logError.restore();
 
 		config.HCaptchaApiUrl = this.origUrl;
+		config.HCaptchaApiUrlIntegrityHash = this.origIntegrityHash;
 	}
 } ) );
 
@@ -131,6 +138,11 @@ QUnit.test( 'should intercept form submissions', function ( assert ) {
 				'https://example.com/hcaptcha.js?onload=onHCaptchaSDKLoaded',
 				'should load hCaptcha SDK from given URL'
 			);
+			assert.deepEqual(
+				actualScriptElement.integrity,
+				'1234abcef',
+				'should load hCaptcha SDK from given URL'
+			);
 
 			assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
 
@@ -175,7 +187,6 @@ QUnit.test( 'should intercept form submissions', function ( assert ) {
 
 QUnit.test( 'should measure hCaptcha load and execute timing for successful submission', function ( assert ) {
 	mw.config.set( 'wgCanonicalSpecialPageName', 'CreateAccount' );
-	mw.config.set( 'wgDBname', 'testwiki' );
 
 	this.measure
 		.onFirstCall().returns( { duration: 1718 } )
@@ -229,10 +240,14 @@ QUnit.test( 'should measure hCaptcha load and execute timing for successful subm
 } );
 
 QUnit.test( 'should surface load errors as soon as possible', async function ( assert ) {
+	mw.config.set( 'wgCanonicalSpecialPageName', 'CreateAccount' );
+
 	this.window.document.head.appendChild.callsFake( ( script ) => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		script.onerror();
 	} );
+
+	this.measure.onFirstCall().returns( { duration: 1718 } );
 
 	const hCaptchaResult = useSecureEnclave( this.window );
 
@@ -250,9 +265,41 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 		'(hcaptcha-generic-error)',
 		'load error message should be set'
 	);
+
+	assert.strictEqual( this.track.callCount, 3, 'should invoke mw.track() three times' );
+	assert.deepEqual(
+		this.track.getCall( 0 ).args,
+		[ 'specialCreateAccount.performanceTiming', 'hcaptcha-load', 1.718 ],
+		'should emit event for load time'
+	);
+	assert.deepEqual(
+		this.track.getCall( 1 ).args,
+		[ 'stats.mediawiki_special_createaccount_hcaptcha_load_duration_seconds', 1718, { wiki: 'testwiki' } ],
+		'should record metric for load time'
+	);
+	assert.deepEqual(
+		this.track.getCall( 2 ).args,
+		[ 'stats.mediawiki_confirmedit_hcaptcha_script_error_total', 1, { wiki: 'testwiki' } ],
+		'should emit event for load failure'
+	);
+
+	assert.strictEqual( this.logError.callCount, 1, 'should invoke mw.errorLogger.logError() once' );
+	const logErrorArguments = this.logError.getCall( 0 ).args;
+	assert.deepEqual(
+		logErrorArguments[ 0 ].message,
+		'Unable to load hCaptcha script',
+		'should use correct channel for errors'
+	);
+	assert.deepEqual(
+		logErrorArguments[ 1 ],
+		'error.confirmedit',
+		'should use correct channel for errors'
+	);
 } );
 
 QUnit.test( 'should surface irrecoverable workflow execution errors as soon as possible', async function ( assert ) {
+	mw.config.set( 'wgCanonicalSpecialPageName', 'CreateAccount' );
+
 	this.window.document.head.appendChild.callsFake( async () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
@@ -262,6 +309,10 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible until hCaptcha finishes' );
 		return Promise.reject( 'generic-error' );
 	} );
+
+	this.measure
+		.onFirstCall().returns( { duration: 1718 } )
+		.onSecondCall().returns( { duration: 2314 } );
 
 	const hCaptchaResult = useSecureEnclave( this.window );
 
@@ -281,6 +332,33 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 		this.$form.find( '.cdx-message' ).text(),
 		'(hcaptcha-generic-error)',
 		'error message should be set'
+	);
+
+	assert.strictEqual( this.track.callCount, 5, 'should invoke mw.track() five times' );
+	assert.deepEqual(
+		this.track.getCall( 0 ).args,
+		[ 'specialCreateAccount.performanceTiming', 'hcaptcha-load', 1.718 ],
+		'should emit event for load time'
+	);
+	assert.deepEqual(
+		this.track.getCall( 1 ).args,
+		[ 'stats.mediawiki_special_createaccount_hcaptcha_load_duration_seconds', 1718, { wiki: 'testwiki' } ],
+		'should record metric for load time'
+	);
+	assert.deepEqual(
+		this.track.getCall( 2 ).args,
+		[ 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, { wiki: 'testwiki' } ],
+		'should emit event for execution'
+	);
+	assert.deepEqual(
+		this.track.getCall( 3 ).args,
+		[ 'specialCreateAccount.performanceTiming', 'hcaptcha-execute', 2.314 ],
+		'should emit event for load time'
+	);
+	assert.deepEqual(
+		this.track.getCall( 4 ).args,
+		[ 'stats.mediawiki_special_createaccount_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki' } ],
+		'should record metric for load time'
 	);
 } );
 

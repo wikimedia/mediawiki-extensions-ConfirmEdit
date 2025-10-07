@@ -3,7 +3,6 @@ const config = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/confi
 
 QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( {
 	beforeEach() {
-		this.getScript = this.sandbox.stub( mw.loader, 'getScript' );
 		this.track = this.sandbox.stub( mw, 'track' );
 
 		// Sinon fake timers as of v21 only return a static fake value from performance.measure(),
@@ -11,10 +10,17 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 		this.measure = this.sandbox.stub( performance, 'measure' );
 		this.measure.returns( { duration: 0 } );
 
+		// We do not want to add real script elements to the page or interact with the real
+		// hcaptcha, so stub the code that does this for this test
 		this.window = {
 			hcaptcha: {
 				render: this.sandbox.stub(),
 				execute: this.sandbox.stub()
+			},
+			document: {
+				head: {
+					appendChild: this.sandbox.stub()
+				}
 			}
 		};
 
@@ -23,8 +29,7 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 
 		this.$form = $( form )
 			.append( '<input type="text" name="some-input" />' )
-			.append( '<input type="hidden" id="h-captcha">' )
-			.append( '<input type="hidden" id="h-captcha-response">' );
+			.append( '<input type="hidden" id="h-captcha">' );
 
 		this.$form.appendTo( $( '#qunit-fixture' ) );
 
@@ -37,7 +42,6 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 	},
 
 	afterEach() {
-		this.getScript.restore();
 		this.track.restore();
 		this.measure.restore();
 
@@ -48,14 +52,14 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 QUnit.test( 'should not load hCaptcha before the form has been interacted with', async function ( assert ) {
 	useSecureEnclave( this.window );
 
-	assert.true( this.getScript.notCalled, 'should not load hCaptcha SDK' );
+	assert.true( this.window.document.head.appendChild.notCalled, 'should not load hCaptcha SDK' );
 	assert.true( this.window.hcaptcha.render.notCalled, 'should not render hCaptcha' );
 	assert.true( this.window.hcaptcha.execute.notCalled, 'should not execute hCaptcha' );
 	assert.true( this.track.notCalled, 'should not emit hCaptcha performance events' );
 } );
 
 QUnit.test( 'should load hCaptcha exactly once when the form is interacted with', async function ( assert ) {
-	this.getScript.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( async () => {
 		this.window.onHCaptchaSDKLoaded();
 	} );
 
@@ -72,18 +76,18 @@ QUnit.test( 'should load hCaptcha exactly once when the form is interacted with'
 		setTimeout( resolve );
 	} );
 
-	assert.true( this.getScript.calledOnce, 'should load hCaptcha SDK once' );
+	assert.true( this.window.document.head.appendChild.calledOnce, 'should load hCaptcha SDK once' );
 	assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
 	assert.deepEqual(
-		this.window.hcaptcha.render.firstCall.args,
-		[ 'h-captcha' ],
+		this.window.hcaptcha.render.firstCall.args[ 0 ],
+		'h-captcha',
 		'should render hCaptcha widget in correct element'
 	);
 	assert.true( this.window.hcaptcha.execute.notCalled, 'should not execute hCaptcha before the form is submitted' );
 } );
 
 QUnit.test( 'should load hCaptcha on form submissions triggered before hCaptcha was setup', async function ( assert ) {
-	this.getScript.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( async () => {
 		this.window.onHCaptchaSDKLoaded();
 	} );
 
@@ -96,19 +100,19 @@ QUnit.test( 'should load hCaptcha on form submissions triggered before hCaptcha 
 		setTimeout( resolve );
 	} );
 
-	assert.true( this.getScript.calledOnce, 'should load hCaptcha SDK once' );
+	assert.true( this.window.document.head.appendChild.calledOnce, 'should load hCaptcha SDK once' );
 	assert.true( this.submit.notCalled, 'form submission should have been prevented' );
 	assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
 	assert.deepEqual(
-		this.window.hcaptcha.render.firstCall.args,
-		[ 'h-captcha' ],
+		this.window.hcaptcha.render.firstCall.args[ 0 ],
+		'h-captcha',
 		'should render hCaptcha widget in correct element'
 	);
 	assert.true( this.window.hcaptcha.execute.notCalled, 'should not execute hCaptcha before the form is submitted' );
 } );
 
 QUnit.test( 'should intercept form submissions', function ( assert ) {
-	this.getScript.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( async () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
@@ -120,10 +124,11 @@ QUnit.test( 'should intercept form submissions', function ( assert ) {
 
 	const result = useSecureEnclave( this.window )
 		.then( () => {
-			assert.true( this.getScript.calledOnce, 'should load hCaptcha SDK once' );
+			assert.true( this.window.document.head.appendChild.calledOnce, 'should load hCaptcha SDK once' );
+			const actualScriptElement = this.window.document.head.appendChild.firstCall.args[ 0 ];
 			assert.deepEqual(
-				this.getScript.firstCall.args,
-				[ 'https://example.com/hcaptcha.js?onload=onHCaptchaSDKLoaded' ],
+				actualScriptElement.src,
+				'https://example.com/hcaptcha.js?onload=onHCaptchaSDKLoaded',
 				'should load hCaptcha SDK from given URL'
 			);
 
@@ -131,8 +136,8 @@ QUnit.test( 'should intercept form submissions', function ( assert ) {
 
 			assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
 			assert.deepEqual(
-				this.window.hcaptcha.render.firstCall.args,
-				[ 'h-captcha' ],
+				this.window.hcaptcha.render.firstCall.args[ 0 ],
+				'h-captcha',
 				'should render hCaptcha widget in correct element'
 			);
 
@@ -168,12 +173,15 @@ QUnit.test( 'should intercept form submissions', function ( assert ) {
 	return result;
 } );
 
-QUnit.test( 'should measure hCaptcha load and execute timing', function ( assert ) {
+QUnit.test( 'should measure hCaptcha load and execute timing for successful submission', function ( assert ) {
+	mw.config.set( 'wgCanonicalSpecialPageName', 'CreateAccount' );
+	mw.config.set( 'wgDBname', 'testwiki' );
+
 	this.measure
 		.onFirstCall().returns( { duration: 1718 } )
 		.onSecondCall().returns( { duration: 2314 } );
 
-	this.getScript.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( async () => {
 		this.window.onHCaptchaSDKLoaded();
 	} );
 	this.window.hcaptcha.render.returns( 'some-captcha-id' );
@@ -181,25 +189,35 @@ QUnit.test( 'should measure hCaptcha load and execute timing', function ( assert
 
 	const result = useSecureEnclave( this.window )
 		.then( () => {
-			assert.strictEqual( this.track.callCount, 4, 'should invoke mw.track() four times' );
+			assert.strictEqual( this.track.callCount, 6, 'should invoke mw.track() six times' );
 			assert.deepEqual(
-				this.track.firstCall.args,
+				this.track.getCall( 0 ).args,
 				[ 'specialCreateAccount.performanceTiming', 'hcaptcha-load', 1.718 ],
 				'should emit event for load time'
 			);
 			assert.deepEqual(
-				this.track.secondCall.args,
-				[ 'stats.mediawiki_special_createaccount_hcaptcha_load_duration_seconds', 1718 ],
+				this.track.getCall( 1 ).args,
+				[ 'stats.mediawiki_special_createaccount_hcaptcha_load_duration_seconds', 1718, { wiki: 'testwiki' } ],
 				'should record metric for load time'
 			);
 			assert.deepEqual(
-				this.track.thirdCall.args,
+				this.track.getCall( 2 ).args,
+				[ 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, { wiki: 'testwiki' } ],
+				'should record event for execute'
+			);
+			assert.deepEqual(
+				this.track.getCall( 3 ).args,
+				[ 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, { wiki: 'testwiki' } ],
+				'should record event for form submission'
+			);
+			assert.deepEqual(
+				this.track.getCall( 4 ).args,
 				[ 'specialCreateAccount.performanceTiming', 'hcaptcha-execute', 2.314 ],
 				'should emit event for execution time'
 			);
 			assert.deepEqual(
-				this.track.lastCall.args,
-				[ 'stats.mediawiki_special_createaccount_hcaptcha_execute_duration_seconds', 2314 ],
+				this.track.getCall( 5 ).args,
+				[ 'stats.mediawiki_special_createaccount_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki' } ],
 				'should record metric for execution time'
 			);
 		} );
@@ -211,9 +229,9 @@ QUnit.test( 'should measure hCaptcha load and execute timing', function ( assert
 } );
 
 QUnit.test( 'should surface load errors as soon as possible', async function ( assert ) {
-	this.getScript.callsFake( () => {
+	this.window.document.head.appendChild.callsFake( ( script ) => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
-		return Promise.reject();
+		script.onerror();
 	} );
 
 	const hCaptchaResult = useSecureEnclave( this.window );
@@ -235,7 +253,7 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 } );
 
 QUnit.test( 'should surface irrecoverable workflow execution errors as soon as possible', async function ( assert ) {
-	this.getScript.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( async () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
@@ -267,7 +285,7 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 } );
 
 QUnit.test( 'should surface recoverable workflow execution errors on submit', function ( assert ) {
-	this.getScript.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( async () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
@@ -306,7 +324,7 @@ QUnit.test( 'should surface recoverable workflow execution errors on submit', fu
 } );
 
 QUnit.test( 'should allow recovering from a recoverable error by starting a new workflow', function ( assert ) {
-	this.getScript.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( async () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
@@ -322,8 +340,8 @@ QUnit.test( 'should allow recovering from a recoverable error by starting a new 
 
 			assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
 			assert.deepEqual(
-				this.window.hcaptcha.render.firstCall.args,
-				[ 'h-captcha' ],
+				this.window.hcaptcha.render.firstCall.args[ 0 ],
+				'h-captcha',
 				'should render hCaptcha widget in correct element'
 			);
 

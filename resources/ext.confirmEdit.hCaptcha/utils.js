@@ -1,5 +1,4 @@
 const config = require( './config.json' );
-const wiki = mw.config.get( 'wgDBname' );
 
 /**
  * Conclude and emit a performance measurement in seconds via mw.track.
@@ -24,7 +23,7 @@ function trackPerformanceTiming( topic, startName, endName ) {
 		mw.track(
 			`stats.mediawiki_special_createaccount_${ topic.replace( /-/g, '_' ) }_duration_seconds`,
 			duration,
-			{ wiki: wiki }
+			{ wiki: mw.config.get( 'wgDBname' ) }
 		);
 	}
 }
@@ -82,7 +81,7 @@ const loadHCaptcha = ( win, apiUrlQueryParameters = {} ) => new Promise( ( resol
 		);
 
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_script_error_total', 1, {
-			wiki: wiki
+			wiki: mw.config.get( 'wgDBname' )
 		} );
 		mw.errorLogger.logError(
 			new Error( 'Unable to load hCaptcha script' ),
@@ -92,7 +91,7 @@ const loadHCaptcha = ( win, apiUrlQueryParameters = {} ) => new Promise( ( resol
 		reject( 'generic-error' );
 	};
 
-	document.head.appendChild( script );
+	win.document.head.appendChild( script );
 } );
 
 /**
@@ -112,30 +111,33 @@ const loadHCaptcha = ( win, apiUrlQueryParameters = {} ) => new Promise( ( resol
  * or after the first time the user attempts to submit the form and hCaptcha finishes running.
  */
 const executeHCaptcha = ( win, captchaId ) => new Promise( ( resolve, reject ) => {
-	try {
-		performance.mark( 'hcaptcha-execute-start' );
+	const wiki = mw.config.get( 'wgDBname' );
+	performance.mark( 'hcaptcha-execute-start' );
 
-		try {
-			mw.track( 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, {
-				wiki: wiki
-			} );
-			win.hcaptcha.execute( captchaId, { async: true } )
-				.then( ( { response } ) => {
-					mw.track( 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, {
-						wiki: wiki
-					} );
-					resolve( response );
-				} )
-				.catch( ( error ) => {
-					reject( error );
+	const trackExecutionFinished = () => {
+		trackPerformanceTiming(
+			'hcaptcha-execute',
+			'hcaptcha-execute-start',
+			'hcaptcha-execute-complete'
+		);
+	};
+
+	try {
+		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, {
+			wiki: wiki
+		} );
+		win.hcaptcha.execute( captchaId, { async: true } )
+			.then( ( { response } ) => {
+				mw.track( 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, {
+					wiki: wiki
 				} );
-		} finally {
-			trackPerformanceTiming(
-				'hcaptcha-execute',
-				'hcaptcha-execute-start',
-				'hcaptcha-execute-complete'
-			);
-		}
+				trackExecutionFinished();
+				resolve( response );
+			} )
+			.catch( ( error ) => {
+				trackExecutionFinished();
+				reject( error );
+			} );
 	} catch ( error ) {
 		mw.errorLogger.logError( new Error( error ), 'error.confirmedit' );
 		mw.track(
@@ -144,6 +146,7 @@ const executeHCaptcha = ( win, captchaId ) => new Promise( ( resolve, reject ) =
 				wiki: wiki
 			}
 		);
+		trackExecutionFinished();
 		reject( error );
 	}
 } );

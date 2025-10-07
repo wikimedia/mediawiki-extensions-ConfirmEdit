@@ -68,40 +68,59 @@ async function setupHCaptcha( $form, $hCaptchaField, win ) {
 			} );
 		} );
 
-		const [ captchaId, form ] = await Promise.all( [ captchaIdPromise, formSubmitted ] );
+		/**
+		 * Displays an error returned by attempting to load or execute hCaptcha
+		 * in a user-friendly way
+		 *
+		 * @param {string} error The error as returned by `executeHCaptcha` or `loadHCaptcha`
+		 */
+		const displayErrorInErrorWidget = ( error ) => {
+			const errMsg = Object.prototype.hasOwnProperty.call( errorMap, error ) ?
+				errorMap[ error ] :
+				'hcaptcha-generic-error';
 
-		loadingIndicator.$element.show();
+			// Possible message keys used here:
+			// * hcaptcha-generic-error
+			// * hcaptcha-challenge-closed
+			// * hcaptcha-challenge-expired
+			errorWidget.show( mw.msg( errMsg ) );
+		};
 
-		await executeHCaptcha( win, captchaId )
-			.then( ( response ) => {
-				// Clear out any errors from a previous workflow.
-				errorWidget.hide();
-				// Set the hCaptcha response input field, which does not yet exist
-				$form.append( $( '<input>' )
-					.attr( 'type', 'hidden' )
-					.attr( 'name', 'h-captcha-response' )
-					.attr( 'id', 'h-captcha-response' )
-					.val( response ) );
-				form.submit();
+		return Promise.all( [ captchaIdPromise, formSubmitted ] )
+			.then( ( [ captchaId, form ] ) => {
+				loadingIndicator.$element.show();
+
+				return executeHCaptcha( win, captchaId )
+					.then( ( response ) => {
+						// Clear out any errors from a previous workflow.
+						errorWidget.hide();
+						// Set the hCaptcha response input field, which does not yet exist
+						$form.append( $( '<input>' )
+							.attr( 'type', 'hidden' )
+							.attr( 'name', 'h-captcha-response' )
+							.attr( 'id', 'h-captcha-response' )
+							.val( response ) );
+
+						// Hide the loading indicator as we have finished hCaptcha
+						// and are submitting the form
+						loadingIndicator.$element.hide();
+
+						form.submit();
+					} )
+					.catch( ( error ) => {
+						loadingIndicator.$element.hide();
+
+						displayErrorInErrorWidget( error );
+
+						// Initiate a new workflow for recoverable errors
+						// (e.g. an expired or closed challenge).
+						if ( recoverableErrors.includes( error ) ) {
+							return executeWorkflow();
+						}
+					} );
 			} )
 			.catch( ( error ) => {
-				loadingIndicator.$element.hide();
-
-				const errMsg = Object.prototype.hasOwnProperty.call( errorMap, error ) ?
-					errorMap[ error ] :
-					'hcaptcha-generic-error';
-
-				// Possible message keys used here:
-				// * hcaptcha-generic-error
-				// * hcaptcha-challenge-closed
-				// * hcaptcha-challenge-expired
-				errorWidget.show( mw.msg( errMsg ) );
-
-				// Initiate a new workflow for recoverable errors
-				// (e.g. an expired or closed challenge).
-				if ( recoverableErrors.includes( error ) ) {
-					return executeWorkflow();
-				}
+				displayErrorInErrorWidget( error );
 			} );
 	};
 

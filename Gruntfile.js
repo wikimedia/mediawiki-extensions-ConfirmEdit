@@ -5,8 +5,7 @@ module.exports = function ( grunt ) {
 	for ( const subExtension of [
 		'QuestyCaptcha',
 		'ReCaptchaNoCaptcha',
-		'FancyCaptcha',
-		'hCaptcha'
+		'FancyCaptcha'
 	] ) {
 		// eslint-disable-next-line security/detect-non-literal-require
 		messagesDirs[ subExtension ] = require( './' + subExtension + '/extension.json' )

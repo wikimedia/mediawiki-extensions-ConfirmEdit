@@ -50,6 +50,9 @@
 		"ConfirmEdit": [
 			"i18n",
 			"i18n/api"
+		],
+		"hCaptcha": [
+			"i18n/hCaptcha"
 		]
 	},
 	"ExtensionMessagesFiles": {

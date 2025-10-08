@@ -8,11 +8,6 @@
 	"descriptionmsg": "hcaptcha-desc",
 	"license-name": "GPL-2.0-or-later",
 	"type": "antispam",
-	"MessagesDirs": {
-		"hCaptcha": [
-			"i18n"
-		]
-	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "../resources",
 		"remoteExtPath": "ConfirmEdit/resources"

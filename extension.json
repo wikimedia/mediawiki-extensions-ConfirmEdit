@@ -130,6 +130,10 @@
 			"description": "Set to one of SimpleCaptcha, FancyCaptcha, QuestyCaptcha, ReCaptchaNoCaptcha, hCaptcha, Turnstile, or to a custom PHP subclass of SimpleCaptcha. Defaults to the SimpleCaptcha demo captcha. For example, to use FancyCaptcha: `$wgCaptchaClass = 'FancyCaptcha';`",
 			"value": "SimpleCaptcha"
 		},
+		"ConfirmEditLoadedCaptchas": {
+			"description": "Use this config to define captchas that could be loaded via the ConfirmEditCaptchaClass hook. These should be in the format as used to define the active captcha in $wgCaptchaClass. You should not need to extend this array if you have defined the captchas to use via $wgCaptchaClass or $wgCaptchaTriggers, as these are read to populate this list automatically.",
+			"value": []
+		},
 		"CaptchaWhitelistIP": {
 			"description": "DEPRECATED! Use CaptchaBypassIPs",
 			"value": false

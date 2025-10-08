@@ -39,6 +39,11 @@ interface ConfirmEditCaptchaClassHook {
 	 * The $className returned by this hook will be used in determining which instance of
 	 * SimpleCaptcha to instantiate.
 	 *
+	 * NOTE: All possible variations of $className for a request should be added to the
+	 * $wgConfirmEditLoadedCaptchas config, with this defined early in the lifecycle of the request.
+	 * This is necessary because this list is used to define which captchas to load
+	 * and therefore if not loaded the functionality of that captcha may be broken.
+	 *
 	 * @param string $action Action user is performing, one of sendmail, createaccount,
 	 *  badlogin, edit, create, addurl.
 	 * @param string &$className Class name that will be used for instantiating a new

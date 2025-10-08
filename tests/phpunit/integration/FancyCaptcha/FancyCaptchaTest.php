@@ -272,7 +272,6 @@ class FancyCaptchaTest extends MediaWikiIntegrationTestCase {
 		// T287318 - TestingAccessWrapper::__call does not support pass-by-reference
 		$classReflection = new ReflectionClass( $fancyCaptcha->object );
 		$methodReflection = $classReflection->getMethod( 'addCaptchaAPI' );
-		$methodReflection->setAccessible( true );
 		$methodReflection->invokeArgs( $fancyCaptcha->object, [ &$actualCaptchaInformation ] );
 
 		$this->assertArrayContains(
@@ -311,7 +310,6 @@ class FancyCaptchaTest extends MediaWikiIntegrationTestCase {
 		// T287318 - TestingAccessWrapper::__call does not support pass-by-reference
 		$classReflection = new ReflectionClass( $fancyCaptcha->object );
 		$methodReflection = $classReflection->getMethod( 'addCaptchaAPI' );
-		$methodReflection->setAccessible( true );
 		$methodReflection->invokeArgs( $fancyCaptcha->object, [ &$actualCaptchaInformation ] );
 
 		$this->assertArrayEquals(

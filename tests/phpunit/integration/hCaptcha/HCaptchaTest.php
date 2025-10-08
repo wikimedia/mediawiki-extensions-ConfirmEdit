@@ -8,7 +8,6 @@ use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
-use MediaWiki\Extension\ConfirmEdit\Tests\Integration\MockHCaptchaConfigTrait;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MainConfigNames;
@@ -30,7 +29,6 @@ use Wikimedia\Timestamp\ConvertibleTimestamp;
  * @covers \MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha
  */
 class HCaptchaTest extends MediaWikiIntegrationTestCase {
-	use MockHCaptchaConfigTrait;
 	use MockHttpTrait;
 
 	public function testGetName() {

@@ -9,8 +9,6 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class ServiceWiringTest extends MediaWikiIntegrationTestCase {
-	use MockHCaptchaConfigTrait;
-
 	/**
 	 * @dataProvider provideService
 	 */

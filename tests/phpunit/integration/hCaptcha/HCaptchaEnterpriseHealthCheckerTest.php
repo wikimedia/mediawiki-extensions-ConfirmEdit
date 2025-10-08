@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaEnterpriseHealthChecker;
-use MediaWiki\Extension\ConfirmEdit\Tests\Integration\MockHCaptchaConfigTrait;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Language\FormatterFactory;
 use MediaWikiIntegrationTestCase;
@@ -21,7 +20,6 @@ use Wikimedia\TestingAccessWrapper;
  * @covers \MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaEnterpriseHealthChecker
  */
 class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
-	use MockHCaptchaConfigTrait;
 	use MockHttpTrait;
 
 	public function testIncrementSiteverifyApiErrorCountAboveThreshold() {

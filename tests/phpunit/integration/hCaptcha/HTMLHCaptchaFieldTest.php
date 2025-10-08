@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
-use MediaWiki\Extension\ConfirmEdit\Tests\Integration\MockHCaptchaConfigTrait;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Message\Message;
 use MediaWiki\Output\OutputPage;
@@ -16,8 +15,6 @@ use MediaWikiIntegrationTestCase;
  * @covers \MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput
  */
 class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
-	use MockHCaptchaConfigTrait;
-
 	/**
 	 * @dataProvider provideOptions
 	 */

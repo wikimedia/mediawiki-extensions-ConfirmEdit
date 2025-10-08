@@ -14,8 +14,6 @@ use MediaWikiIntegrationTestCase;
  */
 class HooksTest extends MediaWikiIntegrationTestCase {
 
-	use MockHCaptchaConfigTrait;
-
 	public function testGetInstanceNewStyleTriggers() {
 		$this->overrideConfigValues(
 			[

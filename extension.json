@@ -101,6 +101,12 @@
 			"services": [
 				"MainConfig"
 			]
+		},
+		"RLRegisterModulesHandler": {
+			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks\\Handlers\\RLRegisterModulesHandler",
+			"services": [
+				"ConfirmEditLoadedCaptchasProvider"
+			]
 		}
 	},
 	"Hooks": {
@@ -110,7 +116,10 @@
 		"PageSaveComplete": "ConfirmEditHooks",
 		"TitleReadWhitelist": "ConfirmEditHooks",
 		"AlternateEditPreview": "ConfirmEditHooks",
-		"ResourceLoaderRegisterModules": "ConfirmEditHooks",
+		"ResourceLoaderRegisterModules": [
+			"ConfirmEditHooks",
+			"RLRegisterModulesHandler"
+		],
 		"EditPage::showEditForm:fields": "ConfirmEditHooks",
 		"EditFilterMergedContent": "ConfirmEditHooks",
 		"APIGetAllowedParams": "ConfirmEditHooks",
@@ -278,6 +287,20 @@
 				60
 			]
 		}
+	},
+	"QUnitTestModule": {
+		"localBasePath": "tests/qunit/ext.confirmEdit.hCaptcha/",
+		"remoteExtPath": "ConfirmEdit/tests/qunit/ext.confirmEdit.hCaptcha/",
+		"scripts": [
+			"secureEnclave.test.js",
+			"ErrorWidget.test.js",
+			"ProgressIndicatorWidget.test.js",
+			"utils.test.js",
+			"ve/ve.init.mw.HCaptchaSaveErrorHandler.test.js"
+		],
+		"dependencies": [
+			"ext.confirmEdit.hCaptcha"
+		]
 	},
 	"manifest_version": 2
 }

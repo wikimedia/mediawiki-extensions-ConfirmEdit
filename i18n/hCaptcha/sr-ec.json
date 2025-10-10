@@ -14,5 +14,6 @@
 	"hcaptcha-challenge-closed": "Да наставите, морате попунити капчу.",
 	"hcaptcha-challenge-expired": "Временски рок за испуњење капче је истекао. Молимо покушајте поново.",
 	"hcaptcha-generic-error": "Дошло је до грешке приликом учитавања обрасца. Да би наставили освежите страницу.",
-	"hcaptcha-loading-indicator-label": "Молимо сачекајте да се учита образац..."
+	"hcaptcha-loading-indicator-label": "Молимо сачекајте да се учита образац...",
+	"hcaptcha-noscript": "JavaScript је потребан да наставите. Омогућите JavaScript у Вашем веб-прегледачу и освежите страницу."
 }

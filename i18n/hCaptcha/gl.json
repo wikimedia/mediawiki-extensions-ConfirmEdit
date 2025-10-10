@@ -17,5 +17,6 @@
 	"hcaptcha-challenge-expired": "O límite de tempo para completar o CAPTCHA expirou. Inténtao de novo.",
 	"hcaptcha-generic-error": "Houbo un erro ao cargar o formulario. Para continuar, terás que recargar a páxina.",
 	"hcaptcha-loading-indicator-label": "Agarda mentres remata a carga do formulario...",
-	"hcaptcha-missing-token": "Non rematou a carga do formulario. Agarda uns segundos e inténtao de novo."
+	"hcaptcha-missing-token": "Non rematou a carga do formulario. Agarda uns segundos e inténtao de novo.",
+	"hcaptcha-noscript": "Cómpre JavaScript para continuar. Activa JavaScript na configuración do teu navegador e actualiza a páxina."
 }

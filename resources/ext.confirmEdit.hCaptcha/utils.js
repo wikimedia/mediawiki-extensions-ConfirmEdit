@@ -160,6 +160,13 @@ const executeHCaptcha = ( win, captchaId, interfaceName ) => new Promise( ( reso
 			} )
 			.catch( ( error ) => {
 				trackExecutionFinished();
+				mw.track(
+					'stats.mediawiki_confirmedit_hcaptcha_execute_workflow_error_total', 1, {
+						code: error.replace( /-/g, '_' ),
+						wiki: wiki,
+						interfaceName: interfaceName
+					}
+				);
 				reject( error );
 			} );
 	} catch ( error ) {

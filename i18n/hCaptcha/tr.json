@@ -18,5 +18,6 @@
 	"hcaptcha-challenge-expired": "Captcha'yı tamamlamak için verilen süre doldu. Lütfen yeniden deneyin.",
 	"hcaptcha-generic-error": "Form yüklenirken bir hata oluştu. Devam etmek için sayfayı yeniden yüklemeniz gerekiyor.",
 	"hcaptcha-loading-indicator-label": "Lütfen formun yüklenmesi tamamlanırken bekleyin...",
-	"hcaptcha-missing-token": "Formun yüklenmesini henüz tamamlamadık. Lütfen birkaç saniye bekleyip yeniden deneyin."
+	"hcaptcha-missing-token": "Formun yüklenmesini henüz tamamlamadık. Lütfen birkaç saniye bekleyip yeniden deneyin.",
+	"hcaptcha-noscript": "Devam etmek için JavaScript gereklidir. Tarayıcı ayarlarınızdan JavaScript'i açın ve sayfayı yenileyin."
 }

@@ -24,5 +24,6 @@
 	"hcaptcha-challenge-expired": "Le délai pour résoudre le hCaptcha est expiré. Veuillez réessayer.",
 	"hcaptcha-generic-error": "Une erreur est survenue lors du chargement du formulaire. Rechargez la page pour continuer.",
 	"hcaptcha-loading-indicator-label": "Veuillez patienter : initialisation du formulaire en cours…",
-	"hcaptcha-missing-token": "Le formulaire est toujours en cours de chargement. Attendez quelques secondes avant de réessayer."
+	"hcaptcha-missing-token": "Le formulaire est toujours en cours de chargement. Attendez quelques secondes avant de réessayer.",
+	"hcaptcha-noscript": "JavaScript est obligatoire pour continuer. Activez JavaScript dans les paramètres de votre navigateur et actualisez la page."
 }

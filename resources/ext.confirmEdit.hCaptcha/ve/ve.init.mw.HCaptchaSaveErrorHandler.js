@@ -3,27 +3,20 @@
  * This code will only handle displaying hCaptcha if VisualEditor tries to
  * make an edit and that edit fails due to requiring hCaptcha.
  *
- * This should be called only when VisualEditor is loaded and ideally
- * through a callback provided to `mw.libs.ve.targetLoader.addPlugin`
+ * Returns a callback that should be executed in initPlugins.js after `ve.init.mw.HCaptcha`
+ * is loaded
  */
 module.exports = () => {
 	// Load these here so that in QUnit tests we have a chance to mock utils.js
 	const config = require( './../config.json' );
-	const { loadHCaptcha } = require( './../utils.js' );
 
 	ve.init.mw.HCaptchaSaveErrorHandler = function () {};
 
 	OO.inheritClass( ve.init.mw.HCaptchaSaveErrorHandler, ve.init.mw.SaveErrorHandler );
 
+	OO.inheritClass( ve.init.mw.HCaptchaSaveErrorHandler, ve.init.mw.HCaptcha );
+
 	ve.init.mw.HCaptchaSaveErrorHandler.static.name = 'confirmEditHCaptcha';
-
-	ve.init.mw.HCaptchaSaveErrorHandler.static.getReadyPromise = function () {
-		if ( !this.readyPromise ) {
-			this.readyPromise = loadHCaptcha( window, 'visualeditor', { render: 'explicit' } );
-		}
-
-		return this.readyPromise;
-	};
 
 	ve.init.mw.HCaptchaSaveErrorHandler.static.matchFunction = function ( data ) {
 		const captchaData = ve.getProp( data, 'visualeditoredit', 'edit', 'captcha' );

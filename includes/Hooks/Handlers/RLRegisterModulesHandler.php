@@ -36,7 +36,10 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 					'ext.confirmEdit.hCaptcha/utils.js',
 					'ext.confirmEdit.hCaptcha/ProgressIndicatorWidget.js',
 					'ext.confirmEdit.hCaptcha/ErrorWidget.js',
+					'ext.confirmEdit.hCaptcha/ve/initPlugins.js',
 					'ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaSaveErrorHandler.js',
+					'ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaOnLoadHandler.js',
+					'ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptcha.js',
 					[
 						'name' => 'ext.confirmEdit.hCaptcha/config.json',
 						'config' => [

@@ -4,18 +4,22 @@ const hCaptchaSaveErrorHandler = require( 'ext.confirmEdit.hCaptcha/ext.confirmE
 QUnit.module( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', QUnit.newMwEnvironment( {
 	beforeEach() {
 		this.loadHCaptcha = this.sandbox.stub( utils, 'loadHCaptcha' );
+
+		// In a real environment, initPlugins.js does this for us. However, to avoid
+		// side effects, we don't use that method of loading the code we are testing.
+		// Therefore, run this ourselves.
+		require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptcha.js' )();
 	},
 	afterEach() {
 		this.loadHCaptcha.restore();
 	}
 } ) );
 
-QUnit.test( 'getReadyPromise uses loadHCaptcha but only calls it once', function ( assert ) {
+QUnit.test( 'getReadyPromise uses loadHCaptcha', function ( assert ) {
 	this.loadHCaptcha.returns( Promise.resolve() );
 	hCaptchaSaveErrorHandler();
 
-	const actualFirstReadyPromise = ve.init.mw.HCaptchaSaveErrorHandler.static.getReadyPromise();
-	const actualSecondReadyPromise = ve.init.mw.HCaptchaSaveErrorHandler.static.getReadyPromise();
+	ve.init.mw.HCaptchaSaveErrorHandler.static.getReadyPromise();
 
 	assert.true(
 		this.loadHCaptcha.calledOnce,
@@ -25,11 +29,6 @@ QUnit.test( 'getReadyPromise uses loadHCaptcha but only calls it once', function
 		this.loadHCaptcha.firstCall.args,
 		[ window, 'visualeditor', { render: 'explicit' } ],
 		'loadHCaptcha arguments are as expected'
-	);
-
-	assert.deepEqual(
-		actualFirstReadyPromise, actualSecondReadyPromise,
-		'Uses the same promise object for both calls, because loadHCaptcha should be called once'
 	);
 } );
 

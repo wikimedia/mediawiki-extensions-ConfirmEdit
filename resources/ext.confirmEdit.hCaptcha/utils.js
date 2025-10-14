@@ -61,21 +61,17 @@ function trackPerformanceTiming( interfaceName, topic, startName, endName ) {
 const loadHCaptcha = (
 	win, interfaceName, apiUrlQueryParameters = {}
 ) => new Promise( ( resolve, reject ) => {
+	// If any existing hCaptcha SDK script has already finished loading,
+	// then resolve the promise as we don't need to load hCaptcha again
+	const existingScriptElements = document.querySelectorAll( '.mw-confirmedit-hcaptcha-script' );
+	for ( const scriptElement of existingScriptElements ) {
+		if ( scriptElement.classList.contains( 'mw-confirmedit-hcaptcha-script-loading-finished' ) ) {
+			resolve();
+			return;
+		}
+	}
+
 	performance.mark( 'hcaptcha-load-start' );
-
-	// NOTE: Use hCaptcha's onload parameter rather than the return value of getScript()
-	// to run init code, as the latter would run it too early and use
-	// a potentially inconsistent config.
-	win.onHCaptchaSDKLoaded = function () {
-		trackPerformanceTiming(
-			interfaceName,
-			'hcaptcha-load',
-			'hcaptcha-load-start',
-			'hcaptcha-load-complete'
-		);
-
-		resolve();
-	};
 
 	const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
 
@@ -88,6 +84,7 @@ const loadHCaptcha = (
 	const script = document.createElement( 'script' );
 	script.src = hCaptchaApiUrl.toString();
 	script.async = true;
+	script.className = 'mw-confirmedit-hcaptcha-script';
 	if ( config.HCaptchaApiUrlIntegrityHash ) {
 		script.integrity = config.HCaptchaApiUrlIntegrityHash;
 		script.crossOrigin = 'anonymous';
@@ -109,7 +106,28 @@ const loadHCaptcha = (
 			'error.confirmedit'
 		);
 
+		script.className = 'mw-confirmedit-hcaptcha-script mw-confirmedit-hcaptcha-script-loading-failed';
+
 		reject( 'generic-error' );
+	};
+
+	// NOTE: Use hCaptcha's onload parameter rather than the return value of getScript()
+	// to run init code, as the latter would run it too early and use
+	// a potentially inconsistent config.
+	win.onHCaptchaSDKLoaded = function () {
+		trackPerformanceTiming(
+			interfaceName,
+			'hcaptcha-load',
+			'hcaptcha-load-start',
+			'hcaptcha-load-complete'
+		);
+
+		// Store that the hCaptcha script has been loaded via CSS classes.
+		// We avoid using a global variable to make testing easier (as the DOM gets
+		// cleared between tests)
+		script.className = 'mw-confirmedit-hcaptcha-script mw-confirmedit-hcaptcha-script-loading-finished';
+
+		resolve();
 	};
 
 	win.document.head.appendChild( script );

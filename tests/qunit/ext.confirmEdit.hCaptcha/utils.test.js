@@ -1,4 +1,4 @@
-const { executeHCaptcha } = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/utils.js' );
+const { executeHCaptcha, loadHCaptcha } = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/utils.js' );
 
 QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 	beforeEach() {
@@ -81,5 +81,52 @@ QUnit.test( 'should handle exception being thrown by hcaptcha.execute', async fu
 				'error.confirmedit',
 				'should use correct channel for errors'
 			);
+		} );
+} );
+
+QUnit.test( 'loadHCaptcha should return early if previous hCaptcha SDK load succeeded', async function ( assert ) {
+	this.window.document.head.appendChild.callsFake( async () => {
+		this.window.onHCaptchaSDKLoaded();
+	} );
+
+	const $qunitFixture = $( '#qunit-fixture' );
+
+	const script = document.createElement( 'script' );
+	script.className = 'mw-confirmedit-hcaptcha-script mw-confirmedit-hcaptcha-script-loading-finished';
+	$qunitFixture.append( script );
+
+	return loadHCaptcha( this.window, 'testinterface' )
+		.then( () => {
+			assert.true( this.window.document.head.appendChild.notCalled, 'should not load hCaptcha SDK' );
+			assert.true( this.track.notCalled, 'should not emit hCaptcha performance events' );
+		} )
+		.catch( () => {
+			// False positive
+			// eslint-disable-next-line no-jquery/no-done-fail
+			assert.fail( 'Did not expect promise to reject' );
+		} );
+} );
+
+QUnit.test( 'loadHCaptcha should load hCaptcha SDK if previous attempt failed', async function ( assert ) {
+	this.window.document.head.appendChild.callsFake( async () => {
+		this.window.onHCaptchaSDKLoaded();
+	} );
+
+	const $qunitFixture = $( '#qunit-fixture' );
+
+	const script = document.createElement( 'script' );
+	script.className = 'mw-confirmedit-hcaptcha-script mw-confirmedit-hcaptcha-script-loading-failed';
+	$qunitFixture.append( script );
+
+	assert.true( this.window.document.head.appendChild.notCalled, 'should not have loaded hCaptcha SDK until call' );
+
+	return loadHCaptcha( this.window, 'testinterface' )
+		.then( () => {
+			assert.true( this.window.document.head.appendChild.calledOnce, 'should load hCaptcha SDK' );
+		} )
+		.catch( () => {
+			// False positive
+			// eslint-disable-next-line no-jquery/no-done-fail
+			assert.fail( 'Did not expect promise to reject' );
 		} );
 } );

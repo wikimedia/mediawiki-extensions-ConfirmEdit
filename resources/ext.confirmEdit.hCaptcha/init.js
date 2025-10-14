@@ -7,7 +7,9 @@ $( () => {
 		useSecureEnclave( window );
 	}
 
-	// If VisualEditor is available, then register the hCaptcha handler plugin.
+	// If VisualEditor is available, then register the hCaptcha error handler plugin.
+	// This handles displaying hCaptcha if the VisualEditor edit fails due to
+	// requiring hCaptcha to be completed.
 	// It may be loaded, loading, ready, or registered depending on when this
 	// module has been loaded. If it is 'missing' then we should not need to
 	// respond to any VisualEditor edit on this page.

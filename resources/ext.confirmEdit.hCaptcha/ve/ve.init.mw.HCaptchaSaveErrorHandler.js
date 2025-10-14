@@ -1,7 +1,10 @@
 /**
- * Defines and installs the hCaptcha plugin for VisualEditor. This should be called
- * only when VisualEditor is loaded and ideally through a callback provided to
- * `mw.libs.ve.targetLoader.addPlugin`
+ * Defines and installs the hCaptcha error handler plugin for VisualEditor.
+ * This code will only handle displaying hCaptcha if VisualEditor tries to
+ * make an edit and that edit fails due to requiring hCaptcha.
+ *
+ * This should be called only when VisualEditor is loaded and ideally
+ * through a callback provided to `mw.libs.ve.targetLoader.addPlugin`
  */
 module.exports = () => {
 	// Load these here so that in QUnit tests we have a chance to mock utils.js

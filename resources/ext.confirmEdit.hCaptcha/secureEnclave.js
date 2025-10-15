@@ -106,6 +106,8 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 						// and are submitting the form
 						loadingIndicator.$element.hide();
 
+						mw.hook( 'confirmEdit.hCaptcha.executionSuccess' ).fire( response );
+
 						form.submit();
 					} )
 					.catch( ( error ) => {

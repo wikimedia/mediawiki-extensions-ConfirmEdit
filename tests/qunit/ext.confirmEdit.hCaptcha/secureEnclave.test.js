@@ -466,3 +466,34 @@ QUnit.test( 'should allow recovering from a recoverable error by starting a new 
 
 	return result;
 } );
+
+QUnit.test( 'should fire the confirmEdit.hCaptcha.executed hook when executeHCaptcha succeeds', async function ( assert ) {
+	this.window.document.head.appendChild.callsFake( async () => {
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
+		this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+	this.window.hcaptcha.execute.callsFake( async () => ( { response: 'some-token' } ) );
+
+	const hook = mw.hook( 'confirmEdit.hCaptcha.executionSuccess' );
+	const spy = this.sandbox.spy( hook, 'fire' );
+
+	// The promise returned by useSecureEnclave() won't resolve
+	// until the form is submitted.
+	const result = useSecureEnclave( this.window );
+
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+	this.$form.trigger( 'submit' );
+
+	await result;
+
+	assert.true( spy.calledOnce, 'Hook was fired once' );
+	assert.deepEqual(
+		spy.firstCall.args[ 0 ],
+		'some-token',
+		'Hook was fired with expected arguments'
+	);
+
+	// Clean up spy to avoid affecting later tests
+	spy.restore();
+} );

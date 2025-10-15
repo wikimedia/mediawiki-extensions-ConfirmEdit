@@ -107,6 +107,16 @@
 			"services": [
 				"ConfirmEditLoadedCaptchasProvider"
 			]
+		},
+		"MakeGlobalVariablesScriptHookHandler": {
+			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks\\Handlers\\MakeGlobalVariablesScriptHookHandler",
+			"services": [
+				"ExtensionRegistry"
+			],
+			"optional_services": [
+				"VisualEditor.VisualEditorAvailabilityLookup",
+				"MobileFrontend.Context"
+			]
 		}
 	},
 	"Hooks": {
@@ -120,6 +130,7 @@
 			"ConfirmEditHooks",
 			"RLRegisterModulesHandler"
 		],
+		"MakeGlobalVariablesScript": "MakeGlobalVariablesScriptHookHandler",
 		"EditPage::showEditForm:fields": "ConfirmEditHooks",
 		"EditFilterMergedContent": "ConfirmEditHooks",
 		"APIGetAllowedParams": "ConfirmEditHooks",

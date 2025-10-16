@@ -39,10 +39,25 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_open_callback_total', 1, {
 			wiki: wiki
 		} );
+		// Fire an event that can be used in WikimediaEvents for associating
+		// challenge opens with a user.
+		mw.track( 'confirmEdit.hCaptchaRenderCallback', 'open', interfaceName );
 	};
 
 	const captchaIdPromise = hCaptchaLoaded.then( () => win.hcaptcha.render( 'h-captcha', {
-		'open-callback': onOpen
+		'open-callback': onOpen,
+		'close-callback': () => {
+			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'close', interfaceName );
+		},
+		'chalexpired-callback': () => {
+			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'chalexpired', interfaceName );
+		},
+		'expired-callback': () => {
+			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'expired', interfaceName );
+		},
+		'error-callback': () => {
+			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'error', interfaceName );
+		}
 	} ) );
 
 	/**

@@ -37,6 +37,10 @@ module.exports = () => {
 
 		this.getReadyPromise()
 			.then( () => {
+				// Drop any other hCaptcha widget as we are going to add one
+				// via this code in a specific place
+				target.saveDialog.$element.remove( '.ext-confirmEdit-visualEditor-hCaptchaContainer' );
+
 				// ProcessDialog's error system isn't great for this yet.
 				target.saveDialog.clearMessage( 'api-save-error' );
 				target.saveDialog.showMessage( 'api-save-error', $container, { wrap: false } );

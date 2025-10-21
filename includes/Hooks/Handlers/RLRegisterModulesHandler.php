@@ -48,6 +48,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 							'HCaptchaEnterprise',
 							'HCaptchaSecureEnclave',
 							'HCaptchaApiUrlIntegrityHash',
+							'HCaptchaInvisibleMode',
 						]
 					],
 				],
@@ -59,6 +60,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 					'hcaptcha-challenge-expired',
 					'hcaptcha-generic-error',
 					'hcaptcha-loading-indicator-label',
+					'hcaptcha-privacy-policy',
 				],
 				'dependencies' => [
 					'web2017-polyfills',

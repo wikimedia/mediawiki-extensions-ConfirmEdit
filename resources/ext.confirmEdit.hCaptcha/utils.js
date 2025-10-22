@@ -201,8 +201,29 @@ const executeHCaptcha = ( win, captchaId, interfaceName ) => new Promise( ( reso
 	}
 } );
 
+/**
+ * Maps an error code returned by `loadHCaptcha` or `executeHCaptcha` to
+ * a message key that should be used to tell the user about the error.
+ *
+ * @param {string} error
+ * @return {'hcaptcha-challenge-closed'|'hcaptcha-challenge-expired'|'hcaptcha-generic-error'}
+ *   Message key that can be passed to `mw.msg` or `mw.message`
+ */
+const mapErrorCodeToMessageKey = ( error ) => {
+	// Map of hCaptcha error codes to error message keys.
+	const errorMap = {
+		'challenge-closed': 'hcaptcha-challenge-closed',
+		'challenge-expired': 'hcaptcha-challenge-expired',
+		'generic-error': 'hcaptcha-generic-error'
+	};
+
+	return Object.prototype.hasOwnProperty.call( errorMap, error ) ?
+		errorMap[ error ] :
+		'hcaptcha-generic-error';
+};
+
 module.exports = {
-	trackPerformanceTiming: trackPerformanceTiming,
 	loadHCaptcha: loadHCaptcha,
-	executeHCaptcha: executeHCaptcha
+	executeHCaptcha: executeHCaptcha,
+	mapErrorCodeToMessageKey: mapErrorCodeToMessageKey
 };

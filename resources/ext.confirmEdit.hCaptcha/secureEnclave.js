@@ -1,7 +1,7 @@
 const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
 const ErrorWidget = require( './ErrorWidget.js' );
 const wiki = mw.config.get( 'wgDBname' );
-const { loadHCaptcha, executeHCaptcha } = require( './utils.js' );
+const { loadHCaptcha, executeHCaptcha, mapErrorCodeToMessageKey } = require( './utils.js' );
 
 /**
  * Load hCaptcha in Secure Enclave mode.
@@ -25,13 +25,6 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	$hCaptchaField.after( loadingIndicator.$element, errorWidget.$element );
 
 	const hCaptchaLoaded = loadHCaptcha( win, interfaceName );
-
-	// Map of hCaptcha error codes to error message keys.
-	const errorMap = {
-		'challenge-closed': 'hcaptcha-challenge-closed',
-		'challenge-expired': 'hcaptcha-challenge-expired',
-		'generic-error': 'hcaptcha-generic-error'
-	};
 
 	// Errors that can be recovered from by restarting the workflow.
 	const recoverableErrors = [
@@ -76,15 +69,11 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 		 * @param {string} error The error as returned by `executeHCaptcha` or `loadHCaptcha`
 		 */
 		const displayErrorInErrorWidget = ( error ) => {
-			const errMsg = Object.prototype.hasOwnProperty.call( errorMap, error ) ?
-				errorMap[ error ] :
-				'hcaptcha-generic-error';
-
 			// Possible message keys used here:
 			// * hcaptcha-generic-error
 			// * hcaptcha-challenge-closed
 			// * hcaptcha-challenge-expired
-			errorWidget.show( mw.msg( errMsg ) );
+			errorWidget.show( mw.msg( mapErrorCodeToMessageKey( error ) ) );
 		};
 
 		return Promise.all( [ captchaIdPromise, formSubmitted ] )

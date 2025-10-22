@@ -12,7 +12,6 @@ use MediaWiki\Request\FauxRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
-use ReflectionClass;
 use Wikimedia\ScopedCallback;
 use Wikimedia\TestingAccessWrapper;
 
@@ -102,21 +101,19 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 
 	public static function provideSimpleTriggersCaptcha() {
 		$data = [];
-		$captchaTriggers = new ReflectionClass( CaptchaTriggers::class );
-		$constants = $captchaTriggers->getConstants();
-		foreach ( $constants as $const ) {
-			$data[] = [ $const, true, true ];
-			$data[] = [ $const, false, false ];
-			$data[] = [ $const, true, [
+		foreach ( CaptchaTriggers::CAPTCHA_TRIGGERS as $trigger ) {
+			$data[] = [ $trigger, true, true ];
+			$data[] = [ $trigger, false, false ];
+			$data[] = [ $trigger, true, [
 				'class' => 'SimpleCaptcha',
 				'trigger' => true,
 			] ];
-			$data[] = [ $const, false, [
+			$data[] = [ $trigger, false, [
 				'class' => 'SimpleCaptcha',
 				'trigger' => false,
 			] ];
 			// When the trigger isn't defined, but the value is an array, default to false
-			$data[] = [ $const, false, [
+			$data[] = [ $trigger, false, [
 				'class' => 'SimpleCaptcha',
 			] ];
 		}

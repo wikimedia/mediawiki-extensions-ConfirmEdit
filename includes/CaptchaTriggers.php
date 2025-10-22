@@ -17,5 +17,16 @@ abstract class CaptchaTriggers {
 	public const LOGIN_ATTEMPT = 'loginattempt';
 	public const BAD_LOGIN = 'badlogin';
 	public const BAD_LOGIN_PER_USER = 'badloginperuser';
+
+	public const CAPTCHA_TRIGGERS = [
+		self::EDIT,
+		self::CREATE,
+		self::SENDEMAIL,
+		self::ADD_URL,
+		self::CREATE_ACCOUNT,
+		self::LOGIN_ATTEMPT,
+		self::BAD_LOGIN,
+		self::BAD_LOGIN_PER_USER,
+	];
 	public const EXT_REG_ATTRIBUTE_NAME = 'CaptchaTriggers';
 }

@@ -71,6 +71,7 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$wanObjectCacheMock->makeGlobalKey( 'confirmedit-hcaptcha-failover-mode' ),
 			true
 		);
+		$statsHelper = StatsFactory::newUnitTestingHelper()->withComponent( 'ConfirmEdit' );
 		$healthChecker = new HCaptchaEnterpriseHealthChecker(
 			new ServiceOptions(
 				HCaptchaEnterpriseHealthChecker::CONSTRUCTOR_OPTIONS,
@@ -81,9 +82,12 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$wanObjectCacheMock,
 			$this->createNoOpMock( HttpRequestFactory::class ),
 			$this->createNoOpMock( FormatterFactory::class ),
-			$this->createNoOpMock( StatsFactory::class )
+			$statsHelper->getStatsFactory()
 		);
 		$this->assertFalse( $healthChecker->isAvailable() );
+		$this->assertSame( 1, $statsHelper->count(
+			'hcaptcha_enterprise_health_checker_is_available_seconds{result="false"}' )
+		);
 	}
 
 	public function testIntegrityHashCheckFailure() {

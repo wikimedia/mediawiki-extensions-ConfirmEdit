@@ -70,9 +70,14 @@ class HCaptchaEnterpriseHealthChecker {
 	 * @return bool true if the hCaptcha service is considered to be available, false otherwise.
 	 */
 	public function isAvailable(): bool {
-		$start = microtime( true );
+		$timer = $this->statsFactory->withComponent( 'ConfirmEdit' )
+			->getTiming( 'hcaptcha_enterprise_health_checker_is_available_seconds' )
+			->setLabel( 'result', 'unknown' )
+			->start();
+
 		// In-process cache, since this method can be invoked multiple times per request.
 		if ( $this->isAvailable !== null ) {
+			$timer->setLabel( 'result', $this->isAvailable ? 'true' : 'false' )->stop();
 			return $this->isAvailable;
 		}
 
@@ -82,6 +87,7 @@ class HCaptchaEnterpriseHealthChecker {
 
 		// If we're in failover mode, don't do any other checks.
 		if ( $inFailoverMode ) {
+			$timer->setLabel( 'result', 'false' )->stop();
 			$this->isAvailable = false;
 			return false;
 		}
@@ -102,6 +108,7 @@ class HCaptchaEnterpriseHealthChecker {
 				[ 'count' => $failedSiteVerifyRequestCount, 'threshold' => $siteVerifyErrorThreshold ]
 			);
 			$this->isAvailable = false;
+			$timer->setLabel( 'result', 'false' )->stop();
 			return false;
 		}
 
@@ -140,12 +147,8 @@ class HCaptchaEnterpriseHealthChecker {
 				'busyValue' => 1,
 			]
 		);
-		if ( $this->isAvailable ) {
-			$this->statsFactory->withComponent( 'ConfirmEdit' )
-				->getTiming( 'hcaptcha_enterprise_health_checker__is_available_seconds' )
-				->observeSeconds( ( microtime( true ) - $start ) );
-		}
 
+		$timer->setLabel( 'result', $this->isAvailable ? 'true' : 'false' )->stop();
 		return $this->isAvailable;
 	}
 

@@ -57,14 +57,22 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 
 		$captchaNeededForEdit = false;
 
-		$captchaEditInstance = Hooks::getInstance( CaptchaTriggers::EDIT );
+		$action = $out->getTitle()->exists() ?
+			CaptchaTriggers::EDIT :
+			CaptchaTriggers::CREATE;
+		$captchaInstance = Hooks::getInstance( $action );
 		if (
 			$out->canUseWikiPage() &&
-			$captchaEditInstance->shouldCheck( $out->getWikiPage(), '', '', $out->getContext() )
+			$captchaInstance->shouldCheck( $out->getWikiPage(), '', '', $out->getContext() )
 		) {
-			$captchaNeededForEdit = strtolower( $captchaEditInstance->getName() );
+			$captchaNeededForEdit = strtolower( $captchaInstance->getName() );
 		}
 
 		$vars['wgConfirmEditCaptchaNeededForGenericEdit'] = $captchaNeededForEdit;
+		if ( $captchaNeededForEdit ) {
+			$vars['wgConfirmEditHCaptchaSiteKey'] =
+				$captchaInstance->getConfig()['HCaptchaSiteKey'] ??
+				$out->getConfig()->get( 'HCaptchaSiteKey' );
+		}
 	}
 }

@@ -118,13 +118,13 @@ class FancyCaptcha extends SimpleCaptcha {
 		}
 		$index = $this->storeCaptcha( $info );
 		$title = SpecialPage::getTitleFor( 'Captcha', 'image' );
-		$resultArr['captcha'] = $this->describeCaptchaType();
+		$resultArr['captcha'] = $this->describeCaptchaType( $this->action );
 		$resultArr['captcha']['id'] = $index;
 		$resultArr['captcha']['url'] = $title->getLocalURL( 'wpCaptchaId=' . urlencode( $index ) );
 	}
 
 	/** @inheritDoc */
-	public function describeCaptchaType() {
+	public function describeCaptchaType( ?string $action = null ) {
 		return [
 			'type' => 'image',
 			'mime' => 'image/png',

@@ -163,14 +163,14 @@ HTML;
 	 * @param array &$resultArr
 	 */
 	protected function addCaptchaAPI( &$resultArr ) {
-		$resultArr['captcha'] = $this->describeCaptchaType();
+		$resultArr['captcha'] = $this->describeCaptchaType( $this->action );
 		$resultArr['captcha']['error'] = $this->error;
 	}
 
 	/**
 	 * @return array
 	 */
-	public function describeCaptchaType() {
+	public function describeCaptchaType( ?string $action = null ) {
 		global $wgReCaptchaSiteKey;
 		return [
 			'type' => 'recaptchanocaptcha',

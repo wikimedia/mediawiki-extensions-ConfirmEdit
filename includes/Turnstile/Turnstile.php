@@ -139,12 +139,12 @@ class Turnstile extends SimpleCaptcha {
 
 	/** @inheritDoc */
 	protected function addCaptchaAPI( &$resultArr ) {
-		$resultArr['captcha'] = $this->describeCaptchaType();
+		$resultArr['captcha'] = $this->describeCaptchaType( $this->action );
 		$resultArr['captcha']['error'] = $this->error;
 	}
 
 	/** @inheritDoc */
-	public function describeCaptchaType() {
+	public function describeCaptchaType( ?string $action = null ) {
 		global $wgTurnstileSiteKey;
 		return [
 			'type' => 'turnstile',

@@ -5,6 +5,7 @@ const hCaptchaConfig = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptc
 QUnit.module( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', QUnit.newMwEnvironment( {
 	beforeEach() {
 		this.loadHCaptcha = this.sandbox.stub( hCaptchaUtils, 'loadHCaptcha' );
+		mw.config.set( 'wgConfirmEditHCaptchaSiteKey', 'test-site-key' );
 
 		this.origVisualEditorSurface = ve.init.target.surface;
 		ve.init.target.surface = {};
@@ -18,7 +19,7 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', QUnit.newMwEn
 		this.origSiteKey = hCaptchaConfig.HCaptchaSiteKey;
 		this.origInvisibleMode = hCaptchaConfig.HCaptchaInvisibleMode;
 
-		hCaptchaConfig.HCaptchaSiteKey = 'test-site-key';
+		hCaptchaConfig.HCaptchaSiteKey = 'test-default-site-key';
 		hCaptchaConfig.HCaptchaInvisibleMode = false;
 
 		// In a real environment, initPlugins.js does this for us. However, to avoid
@@ -28,7 +29,7 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', QUnit.newMwEn
 	},
 	afterEach() {
 		this.loadHCaptcha.restore();
-
+		mw.config.set( 'wgConfirmEditHCaptchaSiteKey', '' );
 		ve.init.mw.HCaptchaOnLoadHandler.static.readyPromise = null;
 
 		ve.init.target.surface = this.origVisualEditorSurface;

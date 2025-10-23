@@ -68,6 +68,8 @@ class SimpleCaptcha {
 	/** @var string Used in log messages. */
 	protected $trigger;
 
+	private array $config = [];
+
 	/**
 	 * @param string $action
 	 */
@@ -132,17 +134,18 @@ class SimpleCaptcha {
 	protected function addCaptchaAPI( &$resultArr ) {
 		$captcha = $this->getCaptcha();
 		$index = $this->storeCaptcha( $captcha );
-		$resultArr['captcha'] = $this->describeCaptchaType();
+		$resultArr['captcha'] = $this->describeCaptchaType( $this->action );
 		$resultArr['captcha']['id'] = $index;
 		$resultArr['captcha']['question'] = $captcha['question'];
 	}
 
 	/**
 	 * Describes the captcha type for API clients.
+	 * @param string|null $action The captcha trigger action
 	 * @return array An array with keys 'type' and 'mime', and possibly other
 	 *   implementation-specific
 	 */
-	public function describeCaptchaType() {
+	public function describeCaptchaType( ?string $action = null ) {
 		return [
 			'type' => 'simple',
 			'mime' => 'text/plain',
@@ -703,6 +706,21 @@ class SimpleCaptcha {
 	 */
 	public function setEditFilterMergedContentHandlerInvoked(): void {
 		$this->editFilterMergedContentHandlerCalled = true;
+	}
+
+	/**
+	 * @param array $config The 'config' property from wgCaptchaTriggers
+	 * @return void
+	 */
+	public function setConfig( array $config ): void {
+		$this->config = $config;
+	}
+
+	/**
+	 * @return array The 'config' property from wgCaptchaTriggers for a given action
+	 */
+	public function getConfig(): array {
+		return $this->config;
 	}
 
 	/**

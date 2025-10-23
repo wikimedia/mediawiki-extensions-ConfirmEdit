@@ -41,7 +41,7 @@ class QuestyCaptcha extends SimpleCaptcha {
 	}
 
 	/** @inheritDoc */
-	public function describeCaptchaType() {
+	public function describeCaptchaType( ?string $action = null ) {
 		return [
 			'type' => 'question',
 			'mime' => 'text/html',

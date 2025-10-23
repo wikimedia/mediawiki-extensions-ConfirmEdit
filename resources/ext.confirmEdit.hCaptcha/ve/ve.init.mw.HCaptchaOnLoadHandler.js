@@ -108,7 +108,7 @@ module.exports = () => {
 		loadPromise.then(
 			() => {
 				this.widgetId = win.hcaptcha.render( $hCaptchaWidgetContainer[ 0 ], {
-					sitekey: config.HCaptchaSiteKey
+					sitekey: mw.config.get( 'wgConfirmEditHCaptchaSiteKey' )
 				} );
 				saveDialog.updateSize();
 

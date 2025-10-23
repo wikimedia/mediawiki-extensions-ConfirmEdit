@@ -3,6 +3,8 @@
 namespace MediaWiki\Extension\ConfirmEdit\hCaptcha\Services;
 
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
+use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Html\Html;
 use MediaWiki\Output\OutputPage;
 
@@ -39,7 +41,15 @@ class HCaptchaOutput {
 	 * @return string HTML of the hCaptcha fields to append to the outputted HTML
 	 */
 	public function addHCaptchaToForm( OutputPage $outputPage, bool $previouslyFailedHCaptcha ): string {
-		$siteKey = $this->options->get( 'HCaptchaSiteKey' );
+		if ( $outputPage->getTitle()->isSpecial( 'CreateAccount' ) ) {
+			$action = CaptchaTriggers::CREATE_ACCOUNT;
+		} elseif ( $outputPage->getTitle()->exists() ) {
+			$action = CaptchaTriggers::EDIT;
+		} else {
+			$action = CaptchaTriggers::CREATE;
+		}
+		$simpleCaptcha = Hooks::getInstance( $action );
+		$siteKey = $simpleCaptcha->getConfig()['HCaptchaSiteKey'] ?? $this->options->get( 'HCaptchaSiteKey' );
 		$useInvisibleMode = $this->options->get( 'HCaptchaInvisibleMode' );
 
 		$hCaptchaElementAttribs = [

@@ -193,16 +193,16 @@ class HCaptcha extends SimpleCaptcha {
 
 	/** @inheritDoc */
 	protected function addCaptchaAPI( &$resultArr ) {
-		$resultArr['captcha'] = $this->describeCaptchaType();
+		$resultArr['captcha'] = $this->describeCaptchaType( $this->action );
 		$resultArr['captcha']['error'] = $this->error;
 	}
 
 	/** @inheritDoc */
-	public function describeCaptchaType() {
+	public function describeCaptchaType( ?string $action = null ) {
 		return [
 			'type' => 'hcaptcha',
 			'mime' => 'application/javascript',
-			'key' => $this->hCaptchaConfig->get( 'HCaptchaSiteKey' ),
+			'key' => $this->getConfig()['HCaptchaSiteKey'] ?? $this->hCaptchaConfig->get( 'HCaptchaSiteKey' ),
 		];
 	}
 

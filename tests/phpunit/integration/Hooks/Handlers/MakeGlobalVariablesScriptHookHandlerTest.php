@@ -13,6 +13,7 @@ use Wikimedia\ArrayUtils\ArrayUtils;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\RLRegisterModulesHandler
+ * @group Database
  */
 class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestCase {
 
@@ -26,7 +27,16 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 
 		// Make hCaptcha be used as the captcha for editing, so it will be the captcha specified in the JS config var
 		$this->overrideConfigValue( 'CaptchaTriggers', [
-			'edit' => [ 'trigger' => $shouldCheckResult, 'class' => 'HCaptcha' ],
+			'create' => [
+				'trigger' => $shouldCheckResult,
+				'class' => 'HCaptcha',
+				'config' => [ 'HCaptchaSiteKey' => 'foo' ]
+			],
+			'edit' => [
+				'trigger' => $shouldCheckResult,
+				'class' => 'HCaptcha',
+				'config' => [ 'HCaptchaSiteKey' => 'bar' ]
+			],
 		] );
 		$this->clearHook( 'ConfirmEditCaptchaClass' );
 
@@ -74,9 +84,12 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
 
 		if ( $javaScriptConfigVariableValue !== null ) {
+			$expected['wgConfirmEditCaptchaNeededForGenericEdit'] = $javaScriptConfigVariableValue;
+			if ( $javaScriptConfigVariableValue === 'hcaptcha' ) {
+				$expected['wgConfirmEditHCaptchaSiteKey'] = 'foo';
+			}
 			$this->assertArrayEquals(
-				[ 'wgConfirmEditCaptchaNeededForGenericEdit' => $javaScriptConfigVariableValue ],
-				$vars, false, true
+				$expected, $vars, false, true
 			);
 		} else {
 			$this->assertCount( 0, $vars );

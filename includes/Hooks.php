@@ -98,7 +98,9 @@ class Hooks implements
 
 		if ( !isset( static::$instance[$action][$class] ) ) {
 			// There is not a cached instance, construct a new one based on the mapping
+			/** @var SimpleCaptcha $classInstance */
 			$classInstance = new ( $map[$class] ?? $map[$defaultCaptchaClass] ?? $defaultCaptchaClass );
+			$classInstance->setConfig( $captchaTriggers[$action]['config'] ?? [] );
 			static::$instance[$action][$class] = $classInstance;
 		}
 

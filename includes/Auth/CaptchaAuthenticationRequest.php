@@ -95,7 +95,7 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 
 	/** @inheritDoc */
 	public function getMetadata() {
-		return ( Hooks::getInstance( $this->getAction() ) )->describeCaptchaType();
+		return ( Hooks::getInstance( $this->getAction() ) )->describeCaptchaType( $this->getAction() );
 	}
 
 	/**

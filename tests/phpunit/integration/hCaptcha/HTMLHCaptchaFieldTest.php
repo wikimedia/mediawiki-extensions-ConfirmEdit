@@ -9,11 +9,13 @@ use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Message\Message;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\ContentSecurityPolicy;
+use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField
  * @covers \MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput
+ * @group Database
  */
 class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 	/**
@@ -50,6 +52,8 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			$configOverrides['HCaptchaSecureEnclave'];
 
 		$output = $this->createMock( OutputPage::class );
+		$output->method( 'getTitle' )
+			->willReturn( $this->createMock( Title::class ) );
 		$output->method( 'getCSP' )
 			->willReturn( $csp );
 		$output->expects( $shouldSecureEnclaveModeBeEnabled ? $this->never() : $this->once() )
@@ -260,12 +264,47 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$this->setUserLang( 'qqx' );
 
 		$outputPage = RequestContext::getMain()->getOutput();
+		$outputPage->setTitle( $this->getServiceContainer()->getTitleFactory()->newFromText( __METHOD__ ) );
 		/** @var HCaptchaOutput $service */
 		$hCaptchaOutput = $this->getServiceContainer()->get( 'HCaptchaOutput' );
 		$result = $hCaptchaOutput->addHCaptchaToForm( $outputPage, false );
 
 		$this->assertStringContainsString( '<noscript class="h-captcha-noscript-container">', $result );
 		$this->assertStringContainsString( '(hcaptcha-noscript)', $result );
+	}
+
+	public function testSiteKeyOverriddenForAction(): void {
+		$this->overrideConfigValue( 'HCaptchaSiteKey', 'baz' );
+		$this->overrideConfigValue( 'CaptchaTriggers', [
+			'create' => [
+				'trigger' => 'true',
+				'class' => 'HCaptcha',
+				'config' => [ 'HCaptchaSiteKey' => 'foo' ]
+			],
+			'edit' => [
+				'trigger' => 'true',
+				'class' => 'HCaptcha',
+				'config' => [ 'HCaptchaSiteKey' => 'bar' ]
+			],
+		] );
+
+		$outputPage = RequestContext::getMain()->getOutput();
+		$page = $this->getServiceContainer()->getSpecialPageFactory()->getPage( 'CreateAccount' );
+		$outputPage->setTitle( $page->getPageTitle() );
+		/** @var HCaptchaOutput $service */
+		$hCaptchaOutput = $this->getServiceContainer()->get( 'HCaptchaOutput' );
+		$result = $hCaptchaOutput->addHCaptchaToForm( $outputPage, false );
+		$this->assertStringContainsString( 'data-sitekey="baz"', $result );
+
+		$title = $this->getServiceContainer()->getTitleFactory()->newFromText( 'Test' );
+		$outputPage->setTitle( $title );
+		$result = $hCaptchaOutput->addHCaptchaToForm( $outputPage, false );
+		$this->assertStringContainsString( 'data-sitekey="foo"', $result );
+
+		$this->editPage( 'Test', 'Test' );
+		$outputPage->setTitle( $title );
+		$result = $hCaptchaOutput->addHCaptchaToForm( $outputPage, false );
+		$this->assertStringContainsString( 'data-sitekey="bar"', $result );
 	}
 
 }

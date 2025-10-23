@@ -18,5 +18,6 @@
 	"hcaptcha-challenge-expired": "Tidsfristen for å fullføre CAPTCHA-en har utløpt. Prøv igjen.",
 	"hcaptcha-generic-error": "En feil oppsto under lasting av skjemaet. Du må laste siden på nytt for å fortsette.",
 	"hcaptcha-loading-indicator-label": "Vent mens vi laster inn skjemaet …",
-	"hcaptcha-missing-token": "Vi er ikke ferdige med å laste inn skjemaet. Vent noen sekunder og prøv igjen."
+	"hcaptcha-missing-token": "Vi er ikke ferdige med å laste inn skjemaet. Vent noen sekunder og prøv igjen.",
+	"hcaptcha-noscript": "JavaScript er påkrevd for å fortsette. Skru på JavaScript i nettleserinnstillingene og last siden på nytt."
 }

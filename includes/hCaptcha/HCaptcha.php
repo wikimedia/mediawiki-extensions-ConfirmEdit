@@ -23,6 +23,7 @@ use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
 use MediaWiki\User\UserIdentity;
 use Psr\Log\LoggerInterface;
+use Wikimedia\ObjectCache\BagOStuff;
 use Wikimedia\Stats\StatsFactory;
 
 class HCaptcha extends SimpleCaptcha {
@@ -40,6 +41,9 @@ class HCaptcha extends SimpleCaptcha {
 	private StatsFactory $statsFactory;
 	private LoggerInterface $logger;
 	private HCaptchaEnterpriseHealthChecker $healthChecker;
+	private BagOStuff $scoreCache;
+
+	private const SCORE_CACHE_TTL = 300;
 
 	public function __construct() {
 		$services = MediaWikiServices::getInstance();
@@ -48,6 +52,7 @@ class HCaptcha extends SimpleCaptcha {
 		$this->statsFactory = $services->getStatsFactory();
 		$this->healthChecker = $services->get( 'HCaptchaEnterpriseHealthChecker' );
 		$this->logger = LoggerFactory::getInstance( 'captcha' );
+		$this->scoreCache = $services->getObjectCacheFactory()->getLocalClusterInstance();
 	}
 
 	/** @inheritDoc */
@@ -186,7 +191,7 @@ class HCaptcha extends SimpleCaptcha {
 		if ( $this->hCaptchaConfig->get( 'HCaptchaDeveloperMode' )
 			|| $this->hCaptchaConfig->get( 'HCaptchaUseRiskScore' ) ) {
 			// T398333
-			$this->storeSessionScore( 'hCaptcha-score', $json['score'] ?? null );
+			$this->storeSessionScore( 'hCaptcha-score', $json['score'] ?? null, $user->getName() );
 		}
 		return $json['success'];
 	}
@@ -245,24 +250,46 @@ class HCaptcha extends SimpleCaptcha {
 	}
 
 	/**
-	 * Store risk score in global session
+	 * Store risk score in global session. If a username is provided, the score will be
+	 * also recorded in the cache, so that any jobs can read from it.
 	 * @param string $sessionKey
 	 * @param mixed $score
+	 * @param string|null $userName
 	 * @return void
 	 */
-	public function storeSessionScore( $sessionKey, $score ) {
+	public function storeSessionScore( $sessionKey, $score, $userName = null ) {
 		SessionManager::getGlobalSession()->set( $sessionKey, $score );
+		if ( $userName !== null ) {
+			$this->scoreCache->set(
+				$this->getScoreCacheKey( $sessionKey, $userName ),
+				$score,
+				self::SCORE_CACHE_TTL
+			);
+		}
 	}
 
 	/**
-	 * Retrieve session score from global session
+	 * Retrieve session score from global session. If a username is provided, it will attempt
+	 * to read the score from the cache, if it's not present in the session.
 	 *
 	 * @stable to call - This may be used by code not visible in codesearch
 	 * @param string $sessionKey
+	 * @param string|null $userName
 	 * @return mixed
 	 */
-	public function retrieveSessionScore( $sessionKey ) {
-		return SessionManager::getGlobalSession()->get( $sessionKey );
+	public function retrieveSessionScore( $sessionKey, $userName = null ) {
+		$score = SessionManager::getGlobalSession()->get( $sessionKey );
+		if ( $score !== null ) {
+			return $score;
+		}
+		if ( $userName !== null ) {
+			return $this->scoreCache->get( $this->getScoreCacheKey( $sessionKey, $userName ) );
+		}
+		return null;
+	}
+
+	private function getScoreCacheKey( string $sessionKey, string $userName ): string {
+		return $this->scoreCache->makeGlobalKey( 'hcaptcha-score', $sessionKey . '-' . $userName );
 	}
 
 	/**

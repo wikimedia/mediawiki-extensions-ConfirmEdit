@@ -14,6 +14,7 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
 use MediaWikiIntegrationTestCase;
 use MockHttpTrait;
@@ -478,6 +479,21 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			[ 'captchaWord' => [ 'id' => 'test', 'class' => HTMLHCaptchaField::class, 'error' => null ] ],
 			$formDescriptor,
 			false, true
+		);
+	}
+
+	public function testScoreIsCached() {
+		$userName = 'TestUser';
+		$key = 'score';
+		$expectedScore = 123;
+		$hCaptcha = new HCaptcha();
+
+		$hCaptcha->storeSessionScore( $key, $expectedScore, $userName );
+		SessionManager::getGlobalSession()->set( $key, null );
+
+		$this->assertSame(
+			$expectedScore,
+			$hCaptcha->retrieveSessionScore( $key, $userName )
 		);
 	}
 }

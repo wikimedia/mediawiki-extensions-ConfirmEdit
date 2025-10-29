@@ -44,15 +44,15 @@ module.exports = () => {
 	 * Load the hCaptcha SDK when a user changes content in the VisualEditor editor if
 	 * hCaptcha is required for a "generic" edit.
 	 *
+	 * @param {ve.init.Target} target
 	 * @return {void}
 	 */
-	ve.init.mw.HCaptchaOnLoadHandler.static.onActivationComplete = function () {
+	ve.init.mw.HCaptchaOnLoadHandler.static.onActivationComplete = function ( target ) {
 		if ( !this.shouldRun() ) {
 			return;
 		}
 
-		const surface = ve.init.target.surface;
-		surface.getModel().getDocument().once( 'transact', () => {
+		target.surface.getModel().getDocument().once( 'transact', () => {
 			this.getReadyPromise();
 		} );
 	};
@@ -62,9 +62,10 @@ module.exports = () => {
 	 * as long as hCaptcha is required for a "generic" edit.
 	 *
 	 * @param {window} win
+	 * @param {ve.init.Target} target
 	 * @return {Promise}
 	 */
-	ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha = function ( win ) {
+	ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha = function ( win, target ) {
 		// Return early if not enabled, if the hCaptcha widget is currently being rendered,
 		// or if hCaptcha has already been rendered.
 		// This is needed because this method is called when the state of the dialog changes
@@ -76,7 +77,7 @@ module.exports = () => {
 		this.isHCaptchaRendering = true;
 
 		// Drop any other hCaptcha widget as we are going to add one ourselves in a specific place
-		const saveDialog = ve.init.target.saveDialog;
+		const saveDialog = target.saveDialog;
 		saveDialog.$element.find( '.ext-confirmEdit-visualEditor-hCaptchaContainer' ).remove();
 
 		const $hCaptchaContainer = $( '<div>' );
@@ -158,12 +159,19 @@ module.exports = () => {
 	 * Initialises the hCaptcha VisualEditor on load handler for the current page.
 	 */
 	ve.init.mw.HCaptchaOnLoadHandler.static.init = function () {
-		mw.hook( 've.activationComplete' ).add( () => {
-			ve.init.mw.HCaptchaOnLoadHandler.static.onActivationComplete();
-			ve.init.target.connect( this, { saveWorkflowEnd: 'onSaveWorkflowEnd' } );
-		} );
-		mw.hook( 've.saveDialog.stateChanged' ).add( () => {
-			ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( window );
+		mw.hook( 've.newTarget' ).add( ( target ) => {
+			if ( target.constructor.static.name !== 'article' ) {
+				return;
+			}
+			target.on( 'surfaceReady', () => {
+				this.onActivationComplete( target );
+			} );
+			target.on( 'saveWorkflowChangePanel', () => {
+				this.renderHCaptcha( window, target );
+			} );
+			target.on( 'saveWorkflowEnd', () => {
+				this.onSaveWorkflowEnd();
+			} );
 		} );
 	};
 };

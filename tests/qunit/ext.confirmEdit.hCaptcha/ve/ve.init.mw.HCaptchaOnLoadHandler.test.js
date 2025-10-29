@@ -55,7 +55,7 @@ QUnit.test( 'transact event in VisualEditor surface causes hCaptcha load once', 
 
 	hCaptchaOnLoadHandler();
 
-	ve.init.mw.HCaptchaOnLoadHandler.static.onActivationComplete();
+	ve.init.mw.HCaptchaOnLoadHandler.static.onActivationComplete( ve.init.target );
 
 	assert.true(
 		this.loadHCaptcha.notCalled,
@@ -113,7 +113,7 @@ QUnit.test( 'renderHCaptcha is called when hCaptcha is not required for an edit'
 
 	hCaptchaOnLoadHandler();
 
-	return ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window ).then(
+	return ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target ).then(
 		() => {
 			assert.deepEqual(
 				this.loadHCaptcha.callCount,
@@ -225,7 +225,7 @@ QUnit.test.each( 'renderHCaptcha is called for successful render', {
 		'widgetId property should be null before renderHCaptcha call'
 	);
 
-	return ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window ).then(
+	return ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target ).then(
 		() => {
 			commonPostRenderHCaptchaAssertions( assert, this, options.invisibleMode );
 
@@ -295,7 +295,7 @@ QUnit.test.each( 'renderHCaptcha is called and hCaptcha SDK fails to load', {
 		'widgetId property should be null before renderHCaptcha call'
 	);
 
-	return ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window ).then(
+	return ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target ).then(
 		() => assert.true( false, 'renderHCaptcha should not return a fulfilled promise' ),
 		() => {
 			commonPostRenderHCaptchaAssertions( assert, this, options.invisibleMode );

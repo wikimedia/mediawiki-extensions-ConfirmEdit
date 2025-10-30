@@ -33,13 +33,26 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 		this.$form = $( form )
 			.append( '<input type="text" name="some-input" />' )
 			.append( '<textarea name="some-textarea"></textarea>' )
-			.append( '<input type="hidden" id="h-captcha">' );
+			.append( '<input type="hidden" id="h-captcha">' )
+			.append( '<input type="submit" value="Save Changes" id="wpSave">' )
+			.append( '<div id="wpSaveWidget"></div>' );
+
+		this.sandbox.stub( window.OO.ui, 'infuse' ).returns( {
+			setDisabled: ( disabled ) => {
+				this.$form.find( 'input[type="submit"], button[type="submit"]' ).prop( 'disabled', disabled );
+			}
+		} );
 
 		this.$form.appendTo( $( '#qunit-fixture' ) );
 
 		this.isLoadingIndicatorVisible = () => this.$form
 			.find( '.ext-confirmEdit-hCaptchaLoadingIndicator' )
 			.css( 'display' ) !== 'none';
+
+		this.areSubmitButtonsDisabled = () => {
+			const $submitButtons = this.$form.find( 'input[type="submit"], button[type="submit"]' );
+			return $submitButtons.length > 0 && $submitButtons.toArray().every( ( btn ) => btn.disabled );
+		};
 
 		this.origUrl = config.HCaptchaApiUrl;
 		this.origIntegrityHash = config.HCaptchaApiUrlIntegrityHash;
@@ -134,6 +147,7 @@ QUnit.test( 'should intercept form submissions', function ( assert ) {
 	this.window.hcaptcha.render.returns( 'some-captcha-id' );
 	this.window.hcaptcha.execute.callsFake( async () => {
 		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible during execute' );
+		assert.true( this.areSubmitButtonsDisabled(), 'submit buttons should be disabled during execute' );
 		return { response: 'some-token' };
 	} );
 
@@ -153,6 +167,7 @@ QUnit.test( 'should intercept form submissions', function ( assert ) {
 			);
 
 			assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
+			assert.false( this.areSubmitButtonsDisabled(), 'submit buttons should be re-enabled after success' );
 
 			assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
 			assert.deepEqual(
@@ -321,6 +336,7 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 	this.window.hcaptcha.render.returns( 'some-captcha-id' );
 	this.window.hcaptcha.execute.callsFake( () => {
 		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible until hCaptcha finishes' );
+		assert.true( this.areSubmitButtonsDisabled(), 'submit buttons should be disabled during execute' );
 		return Promise.reject( 'generic-error' );
 	} );
 
@@ -336,6 +352,7 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 	await hCaptchaResult;
 
 	assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
+	assert.false( this.areSubmitButtonsDisabled(), 'submit buttons should be re-enabled on error' );
 
 	assert.notStrictEqual(
 		this.$form.find( '.cdx-message' ).css( 'display' ),
@@ -380,6 +397,7 @@ QUnit.test( 'should surface recoverable workflow execution errors on submit', fu
 	this.window.hcaptcha.render.returns( 'some-captcha-id' );
 	this.window.hcaptcha.execute.callsFake( () => {
 		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible during execute' );
+		assert.true( this.areSubmitButtonsDisabled(), 'submit buttons should be disabled during execute' );
 		return Promise.reject( 'challenge-closed' );
 	} );
 
@@ -394,6 +412,7 @@ QUnit.test( 'should surface recoverable workflow execution errors on submit', fu
 
 	return formSubmitted.then( () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
+		assert.false( this.areSubmitButtonsDisabled(), 'submit buttons should be re-enabled on recoverable error' );
 
 		assert.true( this.submit.notCalled, 'submit should have been prevented' );
 
@@ -418,12 +437,19 @@ QUnit.test( 'should allow recovering from a recoverable error by starting a new 
 
 	this.window.hcaptcha.render.returns( 'some-captcha-id' );
 	this.window.hcaptcha.execute
-		.onFirstCall().returns( Promise.reject( 'challenge-closed' ) )
-		.onSecondCall().resolves( { response: 'some-token' } );
+		.onFirstCall().callsFake( () => {
+			assert.true( this.areSubmitButtonsDisabled(), 'submit buttons should be disabled during first execute' );
+			return Promise.reject( 'challenge-closed' );
+		} )
+		.onSecondCall().callsFake( () => {
+			assert.true( this.areSubmitButtonsDisabled(), 'submit buttons should be disabled during second execute' );
+			return Promise.resolve( { response: 'some-token' } );
+		} );
 
 	const result = useSecureEnclave( this.window )
 		.then( () => {
 			assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
+			assert.false( this.areSubmitButtonsDisabled(), 'submit buttons should be re-enabled after success' );
 
 			assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
 			assert.deepEqual(
@@ -462,6 +488,47 @@ QUnit.test( 'should allow recovering from a recoverable error by starting a new 
 
 	this.$form.one( 'submit', () => setTimeout( () => this.$form.trigger( 'submit' ) ) );
 
+	this.$form.trigger( 'submit' );
+
+	return result;
+} );
+
+QUnit.test( 'should disable submit buttons during hCaptcha execution on edit page', function ( assert ) {
+	mw.config.set( 'wgAction', 'edit' );
+	this.window.document.head.appendChild.callsFake( async () => {
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
+		this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+	this.window.hcaptcha.execute.callsFake( async () => {
+		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible during execute' );
+		assert.true( this.areSubmitButtonsDisabled(), 'submit button should be disabled during execute' );
+		return { response: 'some-token' };
+	} );
+
+	const result = useSecureEnclave( this.window )
+		.then( () => {
+			assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
+			assert.false( this.areSubmitButtonsDisabled(), 'submit button should be re-enabled after success' );
+
+			const infuseCall = window.OO.ui.infuse.firstCall;
+			assert.strictEqual(
+				infuseCall.args[ 0 ][ 0 ],
+				document.getElementById( 'wpSaveWidget' ),
+				'should call OO.ui.infuse with correct element'
+			);
+
+			assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
+			assert.true( this.window.hcaptcha.execute.calledOnce, 'should run hCaptcha once' );
+			assert.true( this.submit.calledOnce, 'should submit form once hCaptcha token is available' );
+			assert.strictEqual(
+				this.$form.find( '#h-captcha-response' ).val(),
+				'some-token',
+				'should add hCaptcha response token to form'
+			);
+		} );
+
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
 	this.$form.trigger( 'submit' );
 
 	return result;

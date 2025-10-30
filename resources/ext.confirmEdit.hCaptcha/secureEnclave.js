@@ -26,6 +26,18 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 
 	const hCaptchaLoaded = loadHCaptcha( win, interfaceName );
 
+	const setSubmitButtonDisabledProp = ( disabled ) => {
+		if ( interfaceName === 'edit' ) {
+			// On wikitext editor, use OOUI widget
+			const $wpSaveWidget = $form.find( '#wpSaveWidget' );
+			const saveButtonWidget = OO.ui.infuse( $wpSaveWidget );
+			saveButtonWidget.setDisabled( disabled );
+			return;
+		}
+		// For Special:CreateAccount use disabled attribute
+		$form.find( 'input[type="submit"], button[type="submit"]' ).prop( 'disabled', disabled );
+	};
+
 	// Errors that can be recovered from by restarting the workflow.
 	const recoverableErrors = [
 		'challenge-closed',
@@ -94,6 +106,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 		return Promise.all( [ captchaIdPromise, formSubmitted ] )
 			.then( ( [ captchaId, form ] ) => {
 				loadingIndicator.$element.show();
+				setSubmitButtonDisabledProp( true );
 
 				return executeHCaptcha( win, captchaId, interfaceName )
 					.then( ( response ) => {
@@ -109,6 +122,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 						// Hide the loading indicator as we have finished hCaptcha
 						// and are submitting the form
 						loadingIndicator.$element.hide();
+						setSubmitButtonDisabledProp( false );
 
 						mw.hook( 'confirmEdit.hCaptcha.executionSuccess' ).fire( response );
 
@@ -116,6 +130,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 					} )
 					.catch( ( error ) => {
 						loadingIndicator.$element.hide();
+						setSubmitButtonDisabledProp( false );
 
 						displayErrorInErrorWidget( error );
 
@@ -127,6 +142,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 					} );
 			} )
 			.catch( ( error ) => {
+				setSubmitButtonDisabledProp( false );
 				displayErrorInErrorWidget( error );
 			} );
 	};
@@ -153,8 +169,7 @@ async function useSecureEnclave( win ) {
 		return;
 	}
 
-	// Work our what interface we are loading hCaptcha on, currently only used
-	// for instrumentation purposes
+	// Work out what interface we are loading hCaptcha on
 	let interfaceName = 'unknown';
 	if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'CreateAccount' ) {
 		interfaceName = 'createaccount';

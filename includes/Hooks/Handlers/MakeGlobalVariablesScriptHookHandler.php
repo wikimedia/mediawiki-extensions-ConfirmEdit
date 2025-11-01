@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
-use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
@@ -55,14 +54,16 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 			return;
 		}
 
+		if ( !$out->canUseWikiPage() ) {
+			$vars['wgConfirmEditCaptchaNeededForGenericEdit'] = false;
+			return;
+		}
+
 		$captchaNeededForEdit = false;
 
-		$action = $out->getTitle()->exists() ?
-			CaptchaTriggers::EDIT :
-			CaptchaTriggers::CREATE;
+		$action = Hooks::getCaptchaTriggerActionFromTitle( $out->getTitle() );
 		$captchaInstance = Hooks::getInstance( $action );
 		if (
-			$out->canUseWikiPage() &&
 			$captchaInstance->shouldCheck( $out->getWikiPage(), '', '', $out->getContext() )
 		) {
 			$captchaNeededForEdit = strtolower( $captchaInstance->getName() );

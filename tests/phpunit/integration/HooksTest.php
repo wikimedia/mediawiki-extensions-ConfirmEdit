@@ -2,15 +2,20 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration;
 
+use MediaWiki\Context\RequestContext;
+use MediaWiki\EditPage\EditPage;
+use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
+use MediaWiki\Page\Article;
 use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\Hooks
+ * @group Database
  */
 class HooksTest extends MediaWikiIntegrationTestCase {
 
@@ -89,5 +94,68 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 		$instance = Hooks::getInstance();
 		$this->assertInstanceOf( SimpleCaptcha::class, $instance );
 		$this->assertTrue( $instance->shouldForceShowCaptcha() );
+	}
+
+	/**
+	 * @dataProvider provideGetCaptchaTriggerActionFromPage
+	 */
+	public function testGetCaptchaTriggerActionFromPage( bool $pageExists, string $expectedAction ) {
+		$page = $pageExists ? $this->getExistingTestPage() : $this->getNonExistingTestPage();
+		$actualAction = Hooks::getCaptchaTriggerActionFromTitle( $page->getTitle() );
+		$this->assertEquals( $expectedAction, $actualAction );
+	}
+
+	/**
+	 * @dataProvider provideGetCaptchaTriggerActionFromPage
+	 */
+	public function testEditPageBeforeEditButtons( bool $pageExists, string $expectedAction ): void {
+		$wikiPage = $pageExists ? $this->getExistingTestPage() : $this->getNonexistingTestPage();
+		$requestContext = RequestContext::getMain();
+		$requestContext->setWikiPage( $wikiPage );
+		// User is needed due to code in EditPage's constructor
+		$requestContext->setUser( $this->getTestUser()->getUser() );
+		$hooks = new Hooks( $this->getServiceContainer()->getMainWANObjectCache() );
+		$article = $this->createMock( Article::class );
+		$article->method( 'getPage' )->willReturn( $wikiPage );
+		$article->method( 'getTitle' )->willReturn( $wikiPage->getTitle() );
+		$article->method( 'getContext' )->willReturn( $requestContext );
+		$editPage = new EditPage( $article );
+		$buttons = [];
+		$tabindex = 0;
+		$this->setTemporaryHook(
+			'ConfirmEditCaptchaClass',
+			function ( $action, &$_ ) use ( $expectedAction ) {
+				$this->assertEquals( $expectedAction, $action );
+			}
+		);
+		$hooks->onEditPageBeforeEditButtons( $editPage, $buttons, $tabindex );
+	}
+
+	/**
+	 * @dataProvider provideGetCaptchaTriggerActionFromPage
+	 */
+	public function testEditPage__showEditForm_fields( bool $pageExists, string $expectedAction ): void {
+		$wikiPage = $pageExists ? $this->getExistingTestPage() : $this->getNonexistingTestPage();
+		$requestContext = RequestContext::getMain();
+		$requestContext->setWikiPage( $wikiPage );
+		$requestContext->setUser( $this->getTestUser()->getUser() );
+		$hooks = new Hooks( $this->getServiceContainer()->getMainWANObjectCache() );
+		$article = $this->createMock( Article::class );
+		$article->method( 'getPage' )->willReturn( $wikiPage );
+		$article->method( 'getTitle' )->willReturn( $wikiPage->getTitle() );
+		$article->method( 'getContext' )->willReturn( $requestContext );
+		$editPage = new EditPage( $article );
+		$this->setTemporaryHook( 'ConfirmEditCaptchaClass',
+			function ( $action, &$_ ) use ( $expectedAction ) {
+				$this->assertEquals( $expectedAction, $action );
+			} );
+		$hooks->onEditPage__showEditForm_fields( $editPage, $requestContext->getOutput() );
+	}
+
+	public static function provideGetCaptchaTriggerActionFromPage(): array {
+		return [
+			'Existing page returns edit action' => [ true, CaptchaTriggers::EDIT ],
+			'Non-existing page returns create action' => [ false, CaptchaTriggers::CREATE ],
+		];
 	}
 }

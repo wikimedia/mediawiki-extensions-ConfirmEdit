@@ -1,6 +1,19 @@
 const useSecureEnclave = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/secureEnclave.js' );
 const config = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/config.json' );
 
+/**
+ * Introduces a delay taking one event cycle of the Javascript engine,
+ * which allows pending actions to be processed.
+ *
+ * This is used in order to have a chance for event handlers to run before
+ * asserting their side effects.
+ *
+ * @return {Promise<void>}
+ */
+const waitOneTick = () => new Promise( ( resolve ) => {
+	setTimeout( resolve );
+} );
+
 QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( {
 	beforeEach() {
 		mw.config.set( 'wgDBname', 'testwiki' );
@@ -99,10 +112,7 @@ QUnit.test.each( 'should load hCaptcha exactly once when the form is interacted 
 	$field.trigger( 'input' );
 	$field.trigger( 'input' );
 
-	// Wait one tick for event handlers to run.
-	await new Promise( ( resolve ) => {
-		setTimeout( resolve );
-	} );
+	await waitOneTick();
 
 	assert.true( this.window.document.head.appendChild.calledOnce, 'should load hCaptcha SDK once' );
 	assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
@@ -123,10 +133,7 @@ QUnit.test( 'should load hCaptcha on form submissions triggered before hCaptcha 
 
 	this.$form.trigger( 'submit' );
 
-	// Wait one tick for event handlers to run.
-	await new Promise( ( resolve ) => {
-		setTimeout( resolve );
-	} );
+	await waitOneTick();
 
 	assert.true( this.window.document.head.appendChild.calledOnce, 'should load hCaptcha SDK once' );
 	assert.true( this.submit.notCalled, 'form submission should have been prevented' );
@@ -139,8 +146,70 @@ QUnit.test( 'should load hCaptcha on form submissions triggered before hCaptcha 
 	assert.true( this.window.hcaptcha.execute.notCalled, 'should not execute hCaptcha before the form is submitted' );
 } );
 
-QUnit.test( 'should intercept form submissions', function ( assert ) {
-	this.window.document.head.appendChild.callsFake( async () => {
+function assertHCaptchaWasExecuted( assert, testcase ) {
+	const win = testcase.window;
+
+	assert.true( win.document.head.appendChild.calledOnce, 'should load hCaptcha SDK once' );
+	const actualScriptElement = win.document.head.appendChild.firstCall.args[ 0 ];
+	assert.deepEqual(
+		actualScriptElement.src,
+		'https://example.com/hcaptcha.js?onload=onHCaptchaSDKLoaded',
+		'should load hCaptcha SDK from given URL'
+	);
+	assert.deepEqual(
+		actualScriptElement.integrity,
+		'1234abcef',
+		'should load hCaptcha SDK from given URL'
+	);
+
+	assert.false(
+		testcase.isLoadingIndicatorVisible(),
+		'should hide loading indicator'
+	);
+	assert.false(
+		testcase.areSubmitButtonsDisabled(),
+		'submit buttons should be re-enabled after success'
+	);
+
+	assert.true( win.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
+	assert.deepEqual(
+		win.hcaptcha.render.firstCall.args[ 0 ],
+		'h-captcha',
+		'should render hCaptcha widget in correct element'
+	);
+
+	assert.true( win.hcaptcha.execute.calledOnce, 'should run hCaptcha once' );
+	assert.deepEqual(
+		win.hcaptcha.execute.firstCall.args,
+		[ 'some-captcha-id', { async: true } ],
+		'should invoke hCaptcha with correct ID'
+	);
+}
+
+function assertSubmissionDone( assert, testcase, token = 'some-token', callCount = 1 ) {
+	assert.strictEqual(
+		testcase.submit.callCount, callCount,
+		'should submit form once hCaptcha token is available'
+	);
+	assert.strictEqual(
+		testcase.$form.find( '#h-captcha-response' ).val(),
+		token,
+		'should add hCaptcha response token to form'
+	);
+	assert.strictEqual(
+		testcase.$form.find( '.cdx-message' ).css( 'display' ),
+		'none',
+		'no error message should be shown'
+	);
+	assert.strictEqual(
+		testcase.$form.find( '.cdx-message' ).text(),
+		'',
+		'no error message should be set'
+	);
+}
+
+QUnit.test( 'should intercept form submissions by default', async function ( assert ) {
+	this.window.document.head.appendChild.callsFake( () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
@@ -151,59 +220,99 @@ QUnit.test( 'should intercept form submissions', function ( assert ) {
 		return { response: 'some-token' };
 	} );
 
-	const result = useSecureEnclave( this.window )
-		.then( () => {
-			assert.true( this.window.document.head.appendChild.calledOnce, 'should load hCaptcha SDK once' );
-			const actualScriptElement = this.window.document.head.appendChild.firstCall.args[ 0 ];
-			assert.deepEqual(
-				actualScriptElement.src,
-				'https://example.com/hcaptcha.js?onload=onHCaptchaSDKLoaded',
-				'should load hCaptcha SDK from given URL'
-			);
-			assert.deepEqual(
-				actualScriptElement.integrity,
-				'1234abcef',
-				'should load hCaptcha SDK from given URL'
-			);
+	const result = useSecureEnclave( this.window ).then(
+		() => assertHCaptchaWasExecuted( assert, this )
+	);
 
-			assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
-			assert.false( this.areSubmitButtonsDisabled(), 'submit buttons should be re-enabled after success' );
-
-			assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
-			assert.deepEqual(
-				this.window.hcaptcha.render.firstCall.args[ 0 ],
-				'h-captcha',
-				'should render hCaptcha widget in correct element'
-			);
-
-			assert.true( this.window.hcaptcha.execute.calledOnce, 'should run hCaptcha once' );
-			assert.deepEqual(
-				this.window.hcaptcha.execute.firstCall.args,
-				[ 'some-captcha-id', { async: true } ],
-				'should invoke hCaptcha with correct ID'
-			);
-
-			assert.true( this.submit.calledOnce, 'should submit form once hCaptcha token is available' );
-			assert.strictEqual(
-				this.$form.find( '#h-captcha-response' ).val(),
-				'some-token',
-				'should add hCaptcha response token to form'
-			);
-
-			assert.strictEqual(
-				this.$form.find( '.cdx-message' ).css( 'display' ),
-				'none',
-				'no error message should be shown'
-			);
-			assert.strictEqual(
-				this.$form.find( '.cdx-message' ).text(),
-				'',
-				'no error message should be set'
-			);
-		} );
-
+	// The submission is always intercepted because it does not come from the edit form.
 	this.$form.find( '[name=some-input]' ).trigger( 'input' );
 	this.$form.trigger( 'submit' );
+
+	return Promise.all( [ waitOneTick(), result ] ).then(
+		() => assertSubmissionDone( assert, this )
+	);
+} );
+
+QUnit.test( 'should intercept edit form submissions if they come from wpSave', function ( assert ) {
+	this.window.document.head.appendChild.callsFake( () => {
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
+		this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+	this.window.hcaptcha.execute.callsFake( async () => {
+		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible during execute' );
+		return { response: 'some-token' };
+	} );
+
+	this.$form.attr( 'id', 'editform' );
+
+	const result = useSecureEnclave( this.window ).then(
+		() => assertHCaptchaWasExecuted( assert, this )
+	);
+
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+	this.$form.find( '#wpSave' ).trigger( 'click' );
+
+	return result.then(
+		() => assertSubmissionDone( assert, this )
+	);
+} );
+
+QUnit.test( 'should not intercept edit form submissions not coming from wpSave', async function ( assert ) {
+	this.window.document.head.appendChild.callsFake( () => {
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
+		this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+	this.window.hcaptcha.execute.callsFake( async () => {
+		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible during execute' );
+		return { response: 'some-token' };
+	} );
+
+	this.$form.attr( 'id', 'editform' );
+
+	let resolved = false;
+
+	const result = useSecureEnclave( this.window ).then( () => {
+		resolved = true;
+	} );
+
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+	this.$form.find( '#wpPreview' ).trigger( 'submit' );
+
+	await waitOneTick();
+
+	assert.false(
+		resolved,
+		'A captcha should not be shown when clicking on the review button'
+	);
+	assert.false(
+		this.window.hcaptcha.execute.calledOnce,
+		'should have not run hCaptcha when clicking the Review button'
+	);
+
+	// Ensure clicking Save after requesting a preview still triggers the captcha.
+	//
+	// Tests a scenario where the user first clicks a submit button not triggering a
+	// captcha (i.e. "Show Preview" in the edit form), then immediately cancels loading
+	// the new page (pressing Esc or using the browser's Stop button) and clicks on the
+	// Save button instead (which should trigger a captcha).
+	//
+	// This can happen over slow connections without explicitly canceling the page load
+	// if the Preview request goes slow enough to allow the user to click the Save button
+	// before the response for the Preview request has been received.
+	this.$form.find( '#wpSave' ).trigger( 'click' );
+
+	await waitOneTick();
+
+	assert.true(
+		resolved,
+		'A captcha should be shown when clicking on the save button'
+	);
+	assert.true(
+		this.window.hcaptcha.execute.called,
+		'should have run hCaptcha when clicking the Save button'
+	);
 
 	return result;
 } );
@@ -430,7 +539,7 @@ QUnit.test( 'should surface recoverable workflow execution errors on submit', fu
 } );
 
 QUnit.test( 'should allow recovering from a recoverable error by starting a new workflow', function ( assert ) {
-	this.window.document.head.appendChild.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
@@ -469,19 +578,6 @@ QUnit.test( 'should allow recovering from a recoverable error by starting a new 
 				[ 'some-captcha-id', { async: true } ],
 				'should invoke hCaptcha with correct ID'
 			);
-
-			assert.true( this.submit.calledOnce, 'submit should have eventually succeeded' );
-			assert.strictEqual(
-				this.$form.find( '#h-captcha-response' ).val(),
-				'some-token',
-				'should add hCaptcha response token to form'
-			);
-
-			assert.strictEqual(
-				this.$form.find( '.cdx-message' ).css( 'display' ),
-				'none',
-				'no error message should be shown'
-			);
 		} );
 
 	this.$form.find( '[name=some-input]' ).trigger( 'input' );
@@ -490,7 +586,9 @@ QUnit.test( 'should allow recovering from a recoverable error by starting a new 
 
 	this.$form.trigger( 'submit' );
 
-	return result;
+	return Promise.all( [ waitOneTick(), result ] ).then(
+		() => assertSubmissionDone( assert, this )
+	);
 } );
 
 QUnit.test( 'should disable submit buttons during hCaptcha execution on edit page', function ( assert ) {

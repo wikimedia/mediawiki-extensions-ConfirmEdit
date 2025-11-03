@@ -73,19 +73,56 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	} ) );
 
 	/**
+	 * Determines if the given form submission is a "save" request.
+	 *
+	 * For the form used for editing a page, the request is considered a
+	 * "save" request if was indeed sent for saving the edit (as opposed to
+	 * requesting a preview or a diff).
+	 *
+	 * Form submissions other than page edits are always considered "save"
+	 * requests.
+	 *
+	 * This is used to determine whether a captcha challenge is required.
+	 *
+	 * @param {Object} event The jQuery form submission event
+	 * @return {boolean}
+	 */
+	const isSaveRequest = ( event ) => {
+		let result = true;
+
+		if ( $form.attr( 'id' ) === 'editform' ) {
+			result = false;
+
+			let originalEvent = event;
+
+			if ( Object.hasOwnProperty.call( event, 'originalEvent' ) ) {
+				originalEvent = event.originalEvent;
+			}
+
+			if ( typeof originalEvent.submitter === 'object' ) {
+				result = ( originalEvent.submitter.id === 'wpSave' );
+			}
+		}
+
+		return result;
+	};
+
+	/**
 	 * Trigger a single hCaptcha workflow execution.
 	 *
 	 * @return {Promise<void>} A promise that resolves if hCaptcha failed to initialize,
 	 * or after the first time the user attempts to submit the form and hCaptcha finishes running.
 	 */
-	const executeWorkflow = async function () {
+	const executeWorkflow = function () {
 		$form.off( 'submit.hCaptcha' );
 
 		const formSubmitted = new Promise( ( resolve ) => {
 			$form.on( 'submit.hCaptcha', function ( event ) {
-				event.preventDefault();
+				if ( isSaveRequest( event ) ) {
+					event.preventDefault();
 
-				resolve( this );
+					resolve( this );
+				}
 			} );
 		} );
 
@@ -142,6 +179,8 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 					} );
 			} )
 			.catch( ( error ) => {
+				// Note: If submissionHandler throws, the user won't be able
+				// to submit the form anymore.
 				setSubmitButtonDisabledProp( false );
 				displayErrorInErrorWidget( error );
 			} );

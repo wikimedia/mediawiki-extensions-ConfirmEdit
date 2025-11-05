@@ -212,6 +212,15 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	public function testCanSkipCaptchaSystemUser(): void {
+		$testObject = new SimpleCaptcha();
+		$user = $this->createConfiguredMock( User::class, [ 'isSystemUser' => true ] );
+
+		$actual = $testObject->canSkipCaptcha( $user );
+
+		$this->assertTrue( $actual );
+	}
+
 	public function testTriggersCaptchaReturnsEarlyIfCaptchaSolved() {
 		$this->overrideConfigValue( 'CaptchaTriggers', [
 			'edit' => true,

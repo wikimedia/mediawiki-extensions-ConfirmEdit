@@ -1271,6 +1271,10 @@ class SimpleCaptcha {
 			wfDebug( "ConfirmEdit: user IP can bypass captcha" );
 			$result = true;
 		}
+		if ( $user->isSystemUser() ) {
+			wfDebug( "ConfirmEdit: system user skips captcha\n" );
+			$result = true;
+		}
 
 		$hookRunner = new HookRunner(
 			MediaWikiServices::getInstance()->getHookContainer()

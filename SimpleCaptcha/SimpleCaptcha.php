@@ -1257,6 +1257,10 @@ class SimpleCaptcha {
 			wfDebug( "ConfirmEdit: user IP can bypass captcha" );
 			return true;
 		}
+		if ( $user->isSystemUser() ) {
+			wfDebug( "ConfirmEdit: system user skips captcha\n" );
+			return true;
+		}
 
 		if ( $allowConfirmEmail && $user->isEmailConfirmed() ) {
 			wfDebug( "ConfirmEdit: user has confirmed mail, skipping captcha\n" );

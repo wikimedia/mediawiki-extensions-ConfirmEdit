@@ -1267,12 +1267,12 @@ class SimpleCaptcha {
 			wfDebug( "ConfirmEdit: user group allows skipping captcha\n" );
 			$result = true;
 		}
-		if ( $this->canIPBypassCaptcha() ) {
-			wfDebug( "ConfirmEdit: user IP can bypass captcha" );
-			$result = true;
-		}
 		if ( $user->isSystemUser() ) {
 			wfDebug( "ConfirmEdit: system user skips captcha\n" );
+			$result = true;
+		}
+		if ( $this->canIPBypassCaptcha() ) {
+			wfDebug( "ConfirmEdit: user IP can bypass captcha\n" );
 			$result = true;
 		}
 

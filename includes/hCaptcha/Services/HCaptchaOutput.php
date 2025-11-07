@@ -52,6 +52,12 @@ class HCaptchaOutput {
 		$siteKey = $simpleCaptcha->getConfig()['HCaptchaSiteKey'] ?? $this->options->get( 'HCaptchaSiteKey' );
 		$useInvisibleMode = $this->options->get( 'HCaptchaInvisibleMode' );
 
+		// If the AbuseFilter "showcaptcha" consequence has been invoked, use the "always challenge" site key,
+		// if defined.
+		if ( $simpleCaptcha->shouldForceShowCaptcha() ) {
+			$siteKey = $simpleCaptcha->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ?? $siteKey;
+		}
+
 		$hCaptchaElementAttribs = [
 			'id' => 'h-captcha',
 			'class' => [
@@ -98,6 +104,11 @@ class HCaptchaOutput {
 				$outputPage->msg( 'hcaptcha-noscript' )->parse()
 			)
 		);
+		if ( $simpleCaptcha->shouldForceShowCaptcha() ) {
+			// Set a flag that can be used in HCaptcha::shouldCheck() to know if the "showcaptcha"
+			// AbuseFilter consequence was invoked.
+			$output .= Html::hidden( 'wgConfirmEditForceShowCaptcha', true );
+		}
 		return $output;
 	}
 }

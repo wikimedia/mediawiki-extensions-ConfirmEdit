@@ -12,6 +12,7 @@ use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Session\SessionManager;
@@ -494,6 +495,27 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame(
 			$expectedScore,
 			$hCaptcha->retrieveSessionScore( $key, $userName )
+		);
+	}
+
+	public function testShouldCheckOnForceCaptchaSet(): void {
+		$hCaptcha = TestingAccessWrapper::newFromObject( new HCaptcha() );
+		$hCaptcha->result = false;
+		$context = $this->createMock( RequestContext::class );
+		$request = new FauxRequest( [ 'wgConfirmEditForceShowCaptcha' => true ] );
+		$context->method( 'getRequest' )->willReturn( $request );
+		$this->assertFalse(
+			$hCaptcha->shouldCheck( $this->createMock( WikiPage::class ), '', '', $context )
+		);
+	}
+
+	public function testPassCaptchaInForceShowCaptchaMode(): void {
+		$hCaptcha = TestingAccessWrapper::newFromObject( new HCaptcha() );
+		$hCaptcha->result = true;
+		$hCaptcha->setForceShowCaptcha( true );
+		RequestContext::getMain()->getRequest()->unsetVal( 'wgConfirmEditForceShowCaptcha' );
+		$this->assertFalse(
+			$hCaptcha->passCaptcha( '', '', '' )
 		);
 	}
 }

@@ -19,5 +19,6 @@
 	"hcaptcha-generic-error": "Error message shown within a form when an unknown error occurs while executing the hCaptcha challenge.",
 	"hcaptcha-loading-indicator-label": "Hidden label value set for accessibility on the loading indicator shown while the hCaptcha code is initializing.",
 	"hcaptcha-missing-token": "Error message shown within a form when it is submitted without hCaptcha having been executed.",
-	"hcaptcha-noscript": "Message displayed to users with JavaScript disabled, informing them that JavaScript is required to complete the hCaptcha."
+	"hcaptcha-noscript": "Message displayed to users with JavaScript disabled, informing them that JavaScript is required to complete the hCaptcha.",
+	"hcaptcha-force-show-captcha-edit": "Message displayed to users who trip the \"showcaptcha\" AbuseFilter consequence, and are required to complete a visual or text challenge from hCaptcha."
 }

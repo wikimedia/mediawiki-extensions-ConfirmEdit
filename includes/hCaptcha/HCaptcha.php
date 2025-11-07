@@ -17,6 +17,7 @@ use MediaWiki\Language\RawMessage;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Session\SessionManager;
@@ -35,6 +36,8 @@ class HCaptcha extends SimpleCaptcha {
 
 	/** @var string|null */
 	private $error = null;
+
+	private ?bool $result = null;
 
 	private Config $hCaptchaConfig;
 	private HCaptchaOutput $hCaptchaOutput;
@@ -107,6 +110,19 @@ class HCaptcha extends SimpleCaptcha {
 		return [ '', $response ];
 	}
 
+	/** @inheritDoc */
+	public function shouldCheck( WikiPage $page, $content, $section, $context, $oldtext = null ) {
+		// If the "showcaptcha" consequence has been invoked by AbuseFilter, and we have
+		// already attempted to verify the token, return early. This ensures that we're
+		// only going to verify the token once, because shouldCheck is invoked once in the EditFilterMergedContent
+		// hook by AbuseFilter, and once by ConfirmEdit
+		if ( $context->getRequest()->getVal( 'wgConfirmEditForceShowCaptcha' ) &&
+			$this->result !== null ) {
+			return false;
+		}
+		return parent::shouldCheck( $page, $content, $section, $context, $oldtext );
+	}
+
 	/**
 	 * Check, if the user solved the captcha.
 	 *
@@ -119,6 +135,18 @@ class HCaptcha extends SimpleCaptcha {
 	 * @return bool
 	 */
 	protected function passCaptcha( $_, $token, $user ) {
+		// If we have a result, "showcaptcha" consequence has been invoked, but the submission
+		// is in the context of a request where the user wasn't yet required to complete a CAPTCHA,
+		// then return false to avoid making a duplicate API request, and to ensure that the user
+		// has to complete the "always challenge" CAPTCHA.
+		if ( $this->result &&
+			$this->shouldForceShowCaptcha() &&
+			RequestContext::getMain()->getRequest()->getVal( 'wgConfirmEditForceShowCaptcha' ) === null ) {
+			// Set an error here, so that the page will display an appropriate
+			// message for the user to resubmit the form.
+			$this->error = 'forceshowcaptcha';
+			return false;
+		}
 		$data = [
 			'secret' => $this->hCaptchaConfig->get( 'HCaptchaSecretKey' ),
 			'response' => $token,
@@ -193,6 +221,7 @@ class HCaptcha extends SimpleCaptcha {
 			// T398333
 			$this->storeSessionScore( 'hCaptcha-score', $json['score'] ?? null, $user->getName() );
 		}
+		$this->result = $json['success'];
 		return $json['success'];
 	}
 
@@ -214,7 +243,12 @@ class HCaptcha extends SimpleCaptcha {
 	/** @inheritDoc */
 	public function getMessage( $action ) {
 		if ( $this->error ) {
-			$msg = parent::getMessage( $action );
+			if ( $this->shouldForceShowCaptcha() &&
+				in_array( $action, [ CaptchaTriggers::EDIT, CaptchaTriggers::CREATE ] ) ) {
+				$msg = wfMessage( 'hcaptcha-force-show-captcha-edit' );
+			} else {
+				$msg = parent::getMessage( $action );
+			}
 			return new RawMessage( '<div class="error">$1</div>', [ $msg ] );
 		}
 

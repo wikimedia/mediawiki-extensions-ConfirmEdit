@@ -71,9 +71,15 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 
 		$vars['wgConfirmEditCaptchaNeededForGenericEdit'] = $captchaNeededForEdit;
 		if ( $captchaNeededForEdit ) {
-			$vars['wgConfirmEditHCaptchaSiteKey'] =
-				$captchaInstance->getConfig()['HCaptchaSiteKey'] ??
-				$out->getConfig()->get( 'HCaptchaSiteKey' );
+			if ( $captchaInstance->shouldForceShowCaptcha() ) {
+				$vars['wgConfirmEditHCaptchaSiteKey'] =
+					$captchaInstance->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ??
+					$out->getConfig()->get( 'HCaptchaSiteKey' );
+			} else {
+				$vars['wgConfirmEditHCaptchaSiteKey'] =
+					$captchaInstance->getConfig()['HCaptchaSiteKey'] ??
+					$out->getConfig()->get( 'HCaptchaSiteKey' );
+			}
 		}
 	}
 }

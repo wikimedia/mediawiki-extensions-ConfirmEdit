@@ -63,6 +63,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 					'hcaptcha-privacy-policy',
 				],
 				'dependencies' => [
+					'oojs-ui',
 					'web2017-polyfills',
 					'codex-styles',
 				],

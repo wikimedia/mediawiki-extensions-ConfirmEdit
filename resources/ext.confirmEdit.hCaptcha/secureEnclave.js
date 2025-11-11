@@ -213,7 +213,7 @@ async function useSecureEnclave( win ) {
 	if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'CreateAccount' ) {
 		interfaceName = 'createaccount';
 	}
-	if ( mw.config.get( 'wgAction' ) === 'edit' ) {
+	if ( mw.config.get( 'wgAction' ) === 'edit' || mw.config.get( 'wgAction' ) === 'submit' ) {
 		interfaceName = 'edit';
 	}
 

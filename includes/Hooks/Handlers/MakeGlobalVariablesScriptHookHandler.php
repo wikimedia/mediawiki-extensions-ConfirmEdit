@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
@@ -22,11 +23,13 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 
 	/**
 	 * @param ExtensionRegistry $extensionRegistry
+	 * @param Config $config
 	 * @param VisualEditorAvailabilityLookup|null $visualEditorAvailabilityLookup
 	 * @param MobileContext|null $mobileContext
 	 */
 	public function __construct(
 		private readonly ExtensionRegistry $extensionRegistry,
+		private readonly Config $config,
 		private $visualEditorAvailabilityLookup = null,
 		private $mobileContext = null
 	) {
@@ -71,6 +74,9 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 
 		$vars['wgConfirmEditCaptchaNeededForGenericEdit'] = $captchaNeededForEdit;
 		if ( $captchaNeededForEdit === 'hcaptcha' ) {
+			$vars['wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled'] = $visualEditorAvailable &&
+				$this->config->get( 'HCaptchaVisualEditorOnLoadIntegrationEnabled' );
+
 			$vars['wgConfirmEditHCaptchaSiteKey'] = null;
 			if ( $captchaInstance->shouldForceShowCaptcha() ) {
 				$vars['wgConfirmEditHCaptchaSiteKey'] =

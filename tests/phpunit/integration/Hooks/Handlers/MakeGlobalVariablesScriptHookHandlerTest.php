@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Hooks\Handlers;
 
 use ExtensionRegistry;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\MakeGlobalVariablesScriptHookHandler;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Title\Title;
@@ -20,7 +21,8 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 	/** @dataProvider provideMakeGlobalVariablesScript */
 	public function testMakeGlobalVariablesScript(
 		bool|null $isVisualEditorAvailable, bool|null $isMobileFrontendAvailable, bool $shouldCheckResult,
-		string|bool|null $javaScriptConfigVariableValue
+		bool $shouldForceShowCaptcha, string $createCaptchaClass,
+		string|bool|null $expectedConfirmEditNeededForCaptchaValue, string|null $expectedHCaptchaSiteKeyValue
 	) {
 		$this->markTestSkippedIfExtensionNotLoaded( 'VisualEditor' );
 		$this->markTestSkippedIfExtensionNotLoaded( 'MobileFrontend' );
@@ -29,8 +31,8 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 		$this->overrideConfigValue( 'CaptchaTriggers', [
 			'create' => [
 				'trigger' => $shouldCheckResult,
-				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'foo' ]
+				'class' => $createCaptchaClass,
+				'config' => [ 'HCaptchaSiteKey' => 'foo', 'HCaptchaAlwaysChallengeSiteKey' => 'foo-always' ]
 			],
 			'edit' => [
 				'trigger' => $shouldCheckResult,
@@ -74,6 +76,8 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 				return false;
 			} );
 
+		Hooks::getInstance( 'create' )->setForceShowCaptcha( $shouldForceShowCaptcha );
+
 		// Call the hook and expect that variable is added if $isAvailable is true
 		$vars = [];
 		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
@@ -83,16 +87,17 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 		);
 		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
 
-		if ( $javaScriptConfigVariableValue !== null ) {
-			$expected['wgConfirmEditCaptchaNeededForGenericEdit'] = $javaScriptConfigVariableValue;
-			if ( $javaScriptConfigVariableValue === 'hcaptcha' ) {
-				$expected['wgConfirmEditHCaptchaSiteKey'] = 'foo';
-			}
-			$this->assertArrayEquals(
-				$expected, $vars, false, true
-			);
-		} else {
+		if ( $expectedConfirmEditNeededForCaptchaValue === null && $expectedHCaptchaSiteKeyValue === null ) {
 			$this->assertCount( 0, $vars );
+		} else {
+			$expected = [];
+			if ( $expectedConfirmEditNeededForCaptchaValue !== null ) {
+				$expected['wgConfirmEditCaptchaNeededForGenericEdit'] = $expectedConfirmEditNeededForCaptchaValue;
+			}
+			if ( $expectedHCaptchaSiteKeyValue !== null ) {
+				$expected['wgConfirmEditHCaptchaSiteKey'] = $expectedHCaptchaSiteKeyValue;
+			}
+			$this->assertArrayEquals( $expected, $vars, false, true );
 		}
 	}
 
@@ -104,10 +109,15 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			[ true, false, null ],
 			// Does the user need to complete a captcha for any edit (a "generic" edit)
 			[ true, false ],
+			// The value returned by SimpleCaptcha::shouldForceShowCaptcha
+			[ true, false ],
+			// The captcha class used for create actions
+			[ 'HCaptcha', 'SimpleCaptcha' ],
 		);
 
 		foreach ( $testCases as $params ) {
-			$expectedConfigVariableValue = null;
+			$expectedConfirmEditNeededForCaptchaValue = null;
+			$expectedHCaptchaSiteKeyValue = null;
 
 			// The behaviour when VisualEditor and MobileFrontend are both not installed is tested by other unit
 			// tests, so we don't need to repeat that here
@@ -118,19 +128,27 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			// The JavaScript config variable will be set if either VisualEditor or
 			// MobileFrontend editor is available.
 			if ( $params[0] === true || $params[1] === true ) {
-				$expectedConfigVariableValue = false;
+				$expectedConfirmEditNeededForCaptchaValue = false;
 			}
 
-			// The JavaScript config variable will have a value of 'hcaptcha' if:
-			// * A captcha is needed for a generic edit
+			// The JavaScript config variable will have a value of the captcha class in use if:
+			// * A captcha is needed for a generic edit or SimpleCaptcha::shouldForceShowCaptcha returns true
 			// * Either the VisualEditor or MobileFrontend editor is available
-			if ( ( $params[0] === true || $params[1] === true ) && $params[2] === true ) {
-				$expectedConfigVariableValue = 'hcaptcha';
+			if ( ( $params[0] === true || $params[1] === true ) && ( $params[2] === true || $params[3] === true ) ) {
+				$expectedConfirmEditNeededForCaptchaValue = strtolower( $params[4] );
+				if ( $expectedConfirmEditNeededForCaptchaValue === 'hcaptcha' ) {
+					$expectedHCaptchaSiteKeyValue = 'foo';
+					if ( $params[3] === true ) {
+						$expectedHCaptchaSiteKeyValue = 'foo-always';
+					}
+				}
 			}
-			$params[3] = $expectedConfigVariableValue;
+			$params[5] = $expectedConfirmEditNeededForCaptchaValue;
+			$params[6] = $expectedHCaptchaSiteKeyValue;
 
 			yield sprintf(
-				'VisualEditor is %s, MobileFrontend editor is %s, ConfirmEdit captcha is %s',
+				'VisualEditor is %s, MobileFrontend editor is %s, ' .
+					'ConfirmEdit captcha is %s and %s with force captcha %s',
 				match ( $params[0] ) {
 					null => 'not installed',
 					true => 'available',
@@ -141,7 +159,9 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 					true => 'available',
 					false => 'not available',
 				},
-				$params[2] ? 'required for a generic edit' : 'not needed for a generic edit'
+				$params[4],
+				$params[2] ? 'required for a generic edit' : 'not needed for a generic edit',
+				$params[3] ? 'set' : 'not set'
 			) => $params;
 		}
 	}

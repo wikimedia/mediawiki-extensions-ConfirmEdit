@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration;
 
+use MediaWiki\Content\ContentHandler;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
@@ -11,6 +12,7 @@ use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Page\Article;
+use MediaWiki\Status\Status;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -18,6 +20,12 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class HooksTest extends MediaWikiIntegrationTestCase {
+
+	protected function setUp(): void {
+		parent::setUp();
+
+		Hooks::unsetInstanceForTests();
+	}
 
 	public function testGetInstanceNewStyleTriggers() {
 		$this->overrideConfigValues(
@@ -157,5 +165,67 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 			'Existing page returns edit action' => [ true, CaptchaTriggers::EDIT ],
 			'Non-existing page returns create action' => [ false, CaptchaTriggers::CREATE ],
 		];
+	}
+
+	public function testOnEditFilterMergedContentWhenUserSkipsCaptchas() {
+		$this->setTemporaryHook( 'ConfirmEditCanUserSkipCaptcha', static function ( $user, &$result ) {
+			$result = true;
+		} );
+
+		$user = $this->getTestUser()->getUser();
+		$title = $this->getNonexistingTestPage()->getTitle();
+		$status = Status::newGood();
+		$context = RequestContext::getMain();
+		$context->setUser( $user );
+		$context->setTitle( $title );
+
+		$simpleCaptcha = Hooks::getInstance( 'create' );
+		$this->assertFalse(
+			$simpleCaptcha->editFilterMergedContentHandlerAlreadyInvoked(),
+			'::editFilterMergedContentHandlerAlreadyInvoked should be false before hook is run'
+		);
+
+		$hooks = new Hooks( $this->getServiceContainer()->getMainWANObjectCache() );
+		$this->assertTrue( $hooks->onEditFilterMergedContent(
+			$context, ContentHandler::makeContent( '', $title ), $status, '', $user, false
+		) );
+		$this->assertStatusGood( $status );
+
+		$simpleCaptcha = Hooks::getInstance( 'create' );
+		$this->assertTrue(
+			$simpleCaptcha->editFilterMergedContentHandlerAlreadyInvoked(),
+			'::editFilterMergedContentHandlerAlreadyInvoked should be true after hook is run'
+		);
+	}
+
+	public function testOnEditFilterMergedContentWhenUserFailsCaptcha() {
+		$this->clearHook( 'ConfirmEditCanUserSkipCaptcha' );
+		$this->setTemporaryHook( 'ConfirmEditTriggersCaptcha', static function ( $action, $title, &$result ) {
+			$result = true;
+		} );
+
+		// Set up the request and context such that no captcha word is provided,
+		// so that the captcha check will fail
+		$user = $this->getTestUser()->getUser();
+		$title = $this->getNonexistingTestPage()->getTitle();
+		$status = Status::newGood();
+		$context = RequestContext::getMain();
+		$context->setUser( $user );
+		$context->setTitle( $title );
+
+		$simpleCaptcha = Hooks::getInstance( 'create' );
+		$this->assertFalse( $simpleCaptcha->editFilterMergedContentHandlerAlreadyInvoked() );
+
+		$hooks = new Hooks( $this->getServiceContainer()->getMainWANObjectCache() );
+		$this->assertFalse( $hooks->onEditFilterMergedContent(
+			$context, ContentHandler::makeContent( '', $title ), $status, '', $user, false
+		) );
+		$this->assertStatusNotGood( $status );
+
+		$simpleCaptcha = Hooks::getInstance( 'create' );
+		$this->assertTrue(
+			$simpleCaptcha->editFilterMergedContentHandlerAlreadyInvoked(),
+			'::editFilterMergedContentHandlerAlreadyInvoked should be true after hook is run'
+		);
 	}
 }

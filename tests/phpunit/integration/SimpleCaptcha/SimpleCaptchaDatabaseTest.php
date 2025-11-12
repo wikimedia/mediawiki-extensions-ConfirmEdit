@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\SimpleCaptcha;
 
+use MediaWiki\Cache\CacheKeyHelper;
+use MediaWiki\Content\ContentHandler;
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
@@ -10,6 +12,7 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Article;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 
@@ -109,5 +112,117 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 
 		$testObject = new SimpleCaptcha();
 		$testObject->editShowCaptcha( new EditPage( $article ) );
+	}
+
+	public function testConfirmEditMergedWhenShouldCheckReturnsFalse() {
+		$this->setTemporaryHook( 'ConfirmEditCanUserSkipCaptcha', static function ( $user, &$result ) {
+			$result = true;
+		} );
+
+		$user = $this->getTestUser()->getUser();
+		$title = $this->getNonexistingTestPage()->getTitle();
+		$status = Status::newGood();
+		$context = RequestContext::getMain();
+		$context->setUser( $user );
+		$context->setTitle( $title );
+
+		$simpleCaptcha = new SimpleCaptcha();
+		$this->assertTrue( $simpleCaptcha->confirmEditMerged(
+			$context, ContentHandler::makeContent( '', $title ), $status, '', $user, false
+		) );
+		$this->assertStatusGood( $status );
+	}
+
+	private function verifyConfirmEditMergedStatus(
+		SimpleCaptcha $simpleCaptcha, Status $status, string $expectedStatusErrorMessageKey
+	): void {
+		$this->assertStatusError( $expectedStatusErrorMessageKey, $status );
+
+		// Verify the statusData
+		$this->assertArrayHasKey( 'captcha', $status->statusData );
+		$this->assertSame( 'simple', $status->statusData['captcha']['type'] );
+		$this->assertSame( 'text/plain', $status->statusData['captcha']['mime'] );
+
+		$actualId = $status->statusData['captcha']['id'];
+		$this->assertSame(
+			$simpleCaptcha->retrieveCaptcha( $actualId )['question'],
+			$status->statusData['captcha']['question']
+		);
+	}
+
+	/** @dataProvider provideConfirmEditMergedForEditWhenCaptchaFieldMissing */
+	public function testConfirmEditMergedForEditWhenCaptchaFieldMissing(
+		bool $forceShowCaptchaSet, string $expectedStatusErrorMessageKey
+	) {
+		$this->clearHook( 'ConfirmEditCanUserSkipCaptcha' );
+		$this->setTemporaryHook( 'ConfirmEditTriggersCaptcha', static function ( $action, $title, &$result ) {
+			$result = true;
+		} );
+
+		// Set up the request and context such that no captcha word is provided,
+		// so that the captcha check will fail
+		$user = $this->getTestUser()->getUser();
+		$title = $this->getNonexistingTestPage()->getTitle();
+		$status = Status::newGood();
+		$context = RequestContext::getMain();
+		$context->setUser( $user );
+		$context->setTitle( $title );
+
+		$simpleCaptcha = new SimpleCaptcha();
+		$simpleCaptcha->setForceShowCaptcha( $forceShowCaptchaSet );
+
+		$this->assertFalse( $simpleCaptcha->confirmEditMerged(
+			$context, ContentHandler::makeContent( '', $title ), $status, '', $user, false
+		) );
+		$this->verifyConfirmEditMergedStatus( $simpleCaptcha, $status, $expectedStatusErrorMessageKey );
+		$this->assertArrayEquals(
+			[ CacheKeyHelper::getKeyForPage( $title ) => true ],
+			$simpleCaptcha->getActivatedCaptchas(),
+			false, true
+		);
+	}
+
+	public static function provideConfirmEditMergedForEditWhenCaptchaFieldMissing(): array {
+		return [
+			'::shouldForceShowCaptcha returns false' => [ false, 'captcha-edit-fail' ],
+			'::shouldForceShowCaptcha returns true' => [ true, 'captcha-edit' ],
+		];
+	}
+
+	/** @dataProvider provideConfirmEditMergedForEditWhenCaptchaFieldPresentButIncorrect */
+	public function testConfirmEditMergedForEditWhenCaptchaFieldPresentButIncorrect( bool $forceShowCaptchaSet ) {
+		$this->clearHook( 'ConfirmEditCanUserSkipCaptcha' );
+		$this->setTemporaryHook( 'ConfirmEditTriggersCaptcha', static function ( $action, $title, &$result ) {
+			$result = true;
+		} );
+
+		// Set up the request and context such that a captcha word is present
+		$user = $this->getTestUser()->getUser();
+		$title = $this->getNonexistingTestPage()->getTitle();
+		$status = Status::newGood();
+		$context = RequestContext::getMain();
+		$context->setUser( $user );
+		$context->setTitle( $title );
+		$context->getRequest()->setVal( 'wpCaptchaWord', 'test' );
+
+		$simpleCaptcha = new SimpleCaptcha();
+		$simpleCaptcha->setForceShowCaptcha( $forceShowCaptchaSet );
+
+		$this->assertFalse( $simpleCaptcha->confirmEditMerged(
+			$context, ContentHandler::makeContent( '', $title ), $status, '', $user, false
+		) );
+		$this->verifyConfirmEditMergedStatus( $simpleCaptcha, $status, 'captcha-edit-fail' );
+		$this->assertArrayEquals(
+			[ CacheKeyHelper::getKeyForPage( $title ) => true ],
+			$simpleCaptcha->getActivatedCaptchas(),
+			false, true
+		);
+	}
+
+	public static function provideConfirmEditMergedForEditWhenCaptchaFieldPresentButIncorrect(): array {
+		return [
+			'::shouldForceShowCaptcha returns false' => [ false ],
+			'::shouldForceShowCaptcha returns true' => [ true ],
+		];
 	}
 }

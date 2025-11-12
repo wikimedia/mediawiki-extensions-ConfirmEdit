@@ -260,6 +260,18 @@ class HCaptcha extends SimpleCaptcha {
 		return parent::getMessage( $action );
 	}
 
+	/** @inheritDoc */
+	protected function getConfirmEditMergedFatalStatusMessageKey(): null|string {
+		if ( !$this->shouldForceShowCaptcha() ) {
+			return parent::getConfirmEditMergedFatalStatusMessageKey();
+		}
+
+		// If the hCaptcha captcha is being force shown, then this may cause the user to have to submit the form
+		// twice (so that the second attempt always shows a challenge). In this case, we need a clear message
+		// to show that the user needs to press submit again.
+		return 'hcaptcha-force-show-captcha-edit';
+	}
+
 	/**
 	 * @inheritDoc
 	 * @codeCoverageIgnore Merely declarative

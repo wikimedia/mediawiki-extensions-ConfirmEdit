@@ -891,28 +891,9 @@ class SimpleCaptcha {
 		if ( !$this->doConfirmEdit( $page, $content, '', $context, $user ) ) {
 			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
 			$status->statusData = [];
-			// give an error message for the user to know, what goes wrong here.
-			// this can't be done for addurl trigger, because this requires one "free" save
-			// for the user, which we don't know when they did it.
-			if ( $this->action === 'edit' ) {
-				// The default message is that the user failed a CAPTCHA, so show 'captcha-edit-fail'.
-				$message = 'captcha-edit-fail';
-				if ( $this->shouldForceShowCaptcha() ) {
-					// If an extension set the forceShowCaptcha property, then it likely means
-					// that the user already submitted an edit, and so the 'captcha-edit'
-					// message is more appropriate.
-					$message = 'captcha-edit';
-					[ , $word ] = $this->getCaptchaParamsFromRequest(
-						RequestContext::getMain()->getRequest()
-					);
-					// But if there's a word supplied in the request, then we should
-					// use 'captcha-edit-fail' as it indicates a failed attempt
-					// at solving the CAPTCHA by the user.
-					if ( $word ) {
-						$message = 'captcha-edit-fail';
-					}
-				}
-				$status->fatal( $message );
+			$fatalErrorMessage = $this->getConfirmEditMergedFatalStatusMessageKey();
+			if ( $fatalErrorMessage ) {
+				$status->fatal( $fatalErrorMessage );
 			}
 			$this->addCaptchaAPI( $status->statusData );
 			$key = CacheKeyHelper::getKeyForPage( $page );
@@ -920,6 +901,39 @@ class SimpleCaptcha {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * Returns the message to be added to the {@link Status} provided to {@link self::confirmEditMerged}
+	 * method.
+	 */
+	protected function getConfirmEditMergedFatalStatusMessageKey(): null|string {
+		$message = null;
+
+		// give an error message for the user to know, what goes wrong here.
+		// this can't be done for addurl trigger, because this requires one "free" save
+		// for the user, which we don't know when they did it.
+		if ( $this->action === 'edit' ) {
+			// The default message is that the user failed a CAPTCHA, so show 'captcha-edit-fail'.
+			$message = 'captcha-edit-fail';
+			if ( $this->shouldForceShowCaptcha() ) {
+				// If an extension set the forceShowCaptcha property, then it likely means
+				// that the user already submitted an edit, and so the 'captcha-edit'
+				// message is more appropriate.
+				$message = 'captcha-edit';
+				[ , $word ] = $this->getCaptchaParamsFromRequest(
+					RequestContext::getMain()->getRequest()
+				);
+				// But if there's a word supplied in the request, then we should
+				// use 'captcha-edit-fail' as it indicates a failed attempt
+				// at solving the CAPTCHA by the user.
+				if ( $word ) {
+					$message = 'captcha-edit-fail';
+				}
+			}
+		}
+
+		return $message;
 	}
 
 	/**

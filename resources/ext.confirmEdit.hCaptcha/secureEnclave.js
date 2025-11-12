@@ -68,8 +68,8 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 		'expired-callback': () => {
 			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'expired', interfaceName );
 		},
-		'error-callback': () => {
-			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'error', interfaceName );
+		'error-callback': ( errCode ) => {
+			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'error', interfaceName, errCode );
 		}
 	} ) );
 
@@ -180,6 +180,16 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 					} );
 			} )
 			.catch( ( error ) => {
+				mw.track(
+					'confirmEdit.hCaptchaRenderCallback',
+					'error',
+					interfaceName,
+					// "error" is an hCaptcha error code (for example,
+					// "rate-limited"). The full list of values can be found at
+					// https://docs.hcaptcha.com/configuration/#error-codes
+					error
+				);
+
 				// Note: If submissionHandler throws, the user won't be able
 				// to submit the form anymore.
 				setSubmitButtonDisabledProp( false );

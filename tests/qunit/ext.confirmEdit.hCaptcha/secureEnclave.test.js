@@ -408,15 +408,33 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 		'load error message should be set'
 	);
 
-	assert.strictEqual( this.track.callCount, 2, 'should invoke mw.track() two times' );
+	assert.strictEqual( this.track.callCount, 3, 'should invoke mw.track() three times' );
 	assert.deepEqual(
 		this.track.getCall( 0 ).args,
-		[ 'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds', 1718, { wiki: 'testwiki', interfaceName: 'edit' } ],
+		[
+			'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds',
+			1718,
+			{ wiki: 'testwiki', interfaceName: 'edit' }
+		],
 		'should record metric for load time'
 	);
 	assert.deepEqual(
 		this.track.getCall( 1 ).args,
-		[ 'stats.mediawiki_confirmedit_hcaptcha_script_error_total', 1, { wiki: 'testwiki', interfaceName: 'edit' } ],
+		[
+			'stats.mediawiki_confirmedit_hcaptcha_script_error_total',
+			1,
+			{ wiki: 'testwiki', interfaceName: 'edit' }
+		],
+		'should record metric for total errors'
+	);
+	assert.deepEqual(
+		this.track.getCall( 2 ).args,
+		[
+			'confirmEdit.hCaptchaRenderCallback',
+			'error',
+			'edit',
+			'generic-error'
+		],
 		'should emit event for load failure'
 	);
 

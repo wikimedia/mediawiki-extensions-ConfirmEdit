@@ -111,7 +111,8 @@
 		"MakeGlobalVariablesScriptHookHandler": {
 			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks\\Handlers\\MakeGlobalVariablesScriptHookHandler",
 			"services": [
-				"ExtensionRegistry"
+				"ExtensionRegistry",
+				"MainConfig"
 			],
 			"optional_services": [
 				"VisualEditor.VisualEditorAvailabilityLookup",
@@ -278,6 +279,10 @@
 		"HCaptchaEnterpriseHealthCheckSiteVerifyErrorThreshold": {
 			"description": "Threshold to use for evaluating the number of failed SiteVerify calls to $wgHCaptchaVerifyUrl within a 1 minute period. If there are more errors accumulated than $wgHCaptchaEnterpriseHealthCheckSiteVerifyErrorThreshold in a 1 minute period, then the service is considered to be unhealthy and a failover mode is enabled.",
 			"value": 5
+		},
+		"HCaptchaVisualEditorOnLoadIntegrationEnabled": {
+			"description": "Whether the VisualEditor 'onload' integration should be enabled. 'onload' means that hCaptcha is rendered as soon as the user opens the save dialog and not in response to an error indicating a missing captcha. This is a temporary configuration value for use while the integration is not fully ready to use.",
+			"value": false
 		}
 	},
 	"ServiceWiringFiles": [

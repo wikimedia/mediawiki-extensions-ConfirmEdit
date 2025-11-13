@@ -18,5 +18,6 @@
 	"hcaptcha-generic-error": "Formanı yükləyərkən xəta baş verdi. Davam etmək üçün səhifəni yenidən yükləməlisiniz.",
 	"hcaptcha-loading-indicator-label": "Formanı yükləməyi tamamlayana qədər gözləyin...",
 	"hcaptcha-missing-token": "Formanı yükləməyi tamamlamamışıq. Bir neçə saniyə gözləyin, sonra yenidən cəhd edin.",
-	"hcaptcha-noscript": "Davam etmək üçün JavaScript tələb olunur. Brauzerinizin parametrlərində JavaScript-i aktivləşdirin və səhifəni yeniləyin."
+	"hcaptcha-noscript": "Davam etmək üçün JavaScript tələb olunur. Brauzerinizin parametrlərində JavaScript-i aktivləşdirin və səhifəni yeniləyin.",
+	"hcaptcha-force-show-captcha-edit": "Zəhmət olmasa, formanı yenidən göndərin və redaktənizi yadda saxlamaq üçün tapşırığı tamamlayın."
 }

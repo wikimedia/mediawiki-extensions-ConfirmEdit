@@ -18,5 +18,6 @@
 	"hcaptcha-generic-error": "Un error ha occurrite durante le cargamento del formulario. Recarga le pagina pro continuar.",
 	"hcaptcha-loading-indicator-label": "Per favor attende que le cargamento del formulario se termina…",
 	"hcaptcha-missing-token": "Le cargamento del formulario non ha ancora terminate. Attende qualque secundas e tenta lo de novo.",
-	"hcaptcha-noscript": "JavaScript es necessari pro continuar. Activa JavaScript in le parametros de tu navigator e recarga le pagina."
+	"hcaptcha-noscript": "JavaScript es necessari pro continuar. Activa JavaScript in le parametros de tu navigator e recarga le pagina.",
+	"hcaptcha-force-show-captcha-edit": "Per favor resubmitte le formulario e completa le defia pro salveguardar tu modification."
 }

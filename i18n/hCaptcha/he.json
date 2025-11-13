@@ -18,5 +18,6 @@
 	"hcaptcha-generic-error": "אירעה שגיאה בעת טעינת הטופס. כדי להמשיך, יש לרענן את הדף.",
 	"hcaptcha-loading-indicator-label": "נא להמתין עד טעינת הטופס...",
 	"hcaptcha-missing-token": "עדיין לא סיימנו לטעון את הטופס. נא להמתין כמה שניות ולאחר מכן לנסות שוב.",
-	"hcaptcha-noscript": "יש להשתמש ב־JavaScript כדי להמשיך. נא להפעיל את JavaScript בהגדרות הדפדפן שלך ולרענן את הדף."
+	"hcaptcha-noscript": "יש להשתמש ב־JavaScript כדי להמשיך. נא להפעיל את JavaScript בהגדרות הדפדפן שלך ולרענן את הדף.",
+	"hcaptcha-force-show-captcha-edit": "נא לשלוח מחדש את הטופס ולמלא את האתגר כדי לשמור את העריכה שלך."
 }

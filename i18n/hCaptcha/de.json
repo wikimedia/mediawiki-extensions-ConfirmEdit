@@ -18,5 +18,6 @@
 	"hcaptcha-generic-error": "Beim Laden des Formulars ist ein Fehler aufgetreten. Um fortzufahren, musst du die Seite neu laden.",
 	"hcaptcha-loading-indicator-label": "Bitte warte, während das Formular fertig lädt ...",
 	"hcaptcha-missing-token": "Das Formular ist noch nicht vollständig geladen. Bitte warte einige Sekunden und versuche es dann erneut.",
-	"hcaptcha-noscript": "Zum Fortfahren ist JavaScript erforderlich. Aktiviere JavaScript in deinen Browsereinstellungen und aktualisiere die Seite."
+	"hcaptcha-noscript": "Zum Fortfahren ist JavaScript erforderlich. Aktiviere JavaScript in deinen Browsereinstellungen und aktualisiere die Seite.",
+	"hcaptcha-force-show-captcha-edit": "Bitte sende das Formular erneut ab und absolviere die Aufgabe, um deine Änderungen zu speichern."
 }

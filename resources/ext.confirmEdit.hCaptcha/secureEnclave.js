@@ -41,7 +41,10 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	// Errors that can be recovered from by restarting the workflow.
 	const recoverableErrors = [
 		'challenge-closed',
-		'challenge-expired'
+		'challenge-expired',
+		'internal-error',
+		'network-error',
+		'rate-limited'
 	];
 
 	/**
@@ -138,6 +141,9 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 			// * hcaptcha-generic-error
 			// * hcaptcha-challenge-closed
 			// * hcaptcha-challenge-expired
+			// * hcaptcha-internal-error
+			// * hcaptcha-network-error
+			// * hcaptcha-rate-limited
 			errorWidget.show( mw.msg( mapErrorCodeToMessageKey( error ) ) );
 		};
 

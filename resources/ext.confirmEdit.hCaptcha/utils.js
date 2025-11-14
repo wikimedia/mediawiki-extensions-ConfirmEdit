@@ -44,6 +44,35 @@ function trackPerformanceTiming( interfaceName, topic, startName, endName ) {
 }
 
 /**
+ * Creates a script tag pointing to the HCaptcha script URL.
+ *
+ * This function does not attach the tag to the DOM.
+ *
+ * @param {Object} apiUrlQueryParameters Query parameters to add to the hCaptcha URL.
+ * @return {HTMLScriptElement}
+ */
+const createHCaptchaScriptTag = ( apiUrlQueryParameters ) => {
+	const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
+
+	for ( const [ name, value ] of Object.entries( apiUrlQueryParameters ) ) {
+		hCaptchaApiUrl.searchParams.set( name, value );
+	}
+
+	hCaptchaApiUrl.searchParams.set( 'onload', 'onHCaptchaSDKLoaded' );
+
+	const script = document.createElement( 'script' );
+	script.src = hCaptchaApiUrl.toString();
+	script.async = true;
+	script.className = 'mw-confirmedit-hcaptcha-script';
+	if ( config.HCaptchaApiUrlIntegrityHash ) {
+		script.integrity = config.HCaptchaApiUrlIntegrityHash;
+		script.crossOrigin = 'anonymous';
+	}
+
+	return script;
+};
+
+/**
  * Load the hCaptcha script.
  *
  * This method does not execute hCaptcha unless hCaptcha is configured to run when loaded.
@@ -71,32 +100,45 @@ const loadHCaptcha = (
 		}
 	}
 
+	/**
+	 * The number of times to attempt loading the hCaptcha SDK before giving up.
+	 *
+	 * @type {number}
+	 */
+	const MAX_LOAD_ATTEMPTS = mw.config.exists( 'wgHCaptchaMaxLoadAttempts' ) ?
+		mw.config.get( 'wgHCaptchaMaxLoadAttempts' ) :
+		10;
+
+	/**
+	 * The initial amount of time to wait before retrying loading the hCaptcha
+	 * SDK in milliseconds.
+	 *
+	 * If the first attempt fails, successive attempts will be delayed this same
+	 * amount of time plus an additional factor equal to this number multiplied
+	 * by 2^attemptNumber.
+	 *
+	 * @type {number}
+	 */
+	const BASE_RETRY_DELAY = mw.config.exists( 'wgHCaptchaBaseRetryDelay' ) ?
+		mw.config.get( 'wgHCaptchaBaseRetryDelay' ) :
+		1000;
+
 	performance.mark( 'hcaptcha-load-start' );
 
-	const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
+	let attempts = 0;
+	let script = createHCaptchaScriptTag( apiUrlQueryParameters );
 
-	for ( const [ name, value ] of Object.entries( apiUrlQueryParameters ) ) {
-		hCaptchaApiUrl.searchParams.set( name, value );
-	}
-
-	hCaptchaApiUrl.searchParams.set( 'onload', 'onHCaptchaSDKLoaded' );
-
-	const script = document.createElement( 'script' );
-	script.src = hCaptchaApiUrl.toString();
-	script.async = true;
-	script.className = 'mw-confirmedit-hcaptcha-script';
-	if ( config.HCaptchaApiUrlIntegrityHash ) {
-		script.integrity = config.HCaptchaApiUrlIntegrityHash;
-		script.crossOrigin = 'anonymous';
-	}
-
-	script.onerror = () => {
+	const onErrorCallback = () => {
 		trackPerformanceTiming(
 			interfaceName,
 			'hcaptcha-load',
 			'hcaptcha-load-start',
 			'hcaptcha-load-complete'
 		);
+
+		const backoffTimeout = BASE_RETRY_DELAY * Math.pow( 2, attempts );
+
+		attempts++;
 
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_script_error_total', 1, {
 			wiki: mw.config.get( 'wgDBname' ), interfaceName: interfaceName
@@ -106,10 +148,25 @@ const loadHCaptcha = (
 			'error.confirmedit'
 		);
 
-		script.className = 'mw-confirmedit-hcaptcha-script mw-confirmedit-hcaptcha-script-loading-failed';
+		if ( attempts === MAX_LOAD_ATTEMPTS ) {
+			script.className = 'mw-confirmedit-hcaptcha-script mw-confirmedit-hcaptcha-script-loading-failed';
+			reject( 'generic-error' );
 
-		reject( 'generic-error' );
+			return;
+		}
+
+		// Wait some time, then try to load the SDK again
+		setTimeout( () => {
+			win.document.head.removeChild( script );
+
+			script = createHCaptchaScriptTag( apiUrlQueryParameters );
+			script.onerror = onErrorCallback;
+
+			win.document.head.appendChild( script );
+		}, BASE_RETRY_DELAY + backoffTimeout );
 	};
+
+	script.onerror = onErrorCallback;
 
 	// NOTE: Use hCaptcha's onload parameter rather than the return value of getScript()
 	// to run init code, as the latter would run it too early and use
@@ -214,7 +271,10 @@ const mapErrorCodeToMessageKey = ( error ) => {
 	const errorMap = {
 		'challenge-closed': 'hcaptcha-challenge-closed',
 		'challenge-expired': 'hcaptcha-challenge-expired',
-		'generic-error': 'hcaptcha-generic-error'
+		'generic-error': 'hcaptcha-generic-error',
+		'internal-error': 'hcaptcha-internal-error',
+		'network-error': 'hcaptcha-network-error',
+		'rate-limited': 'hcaptcha-rate-limited'
 	};
 
 	return Object.prototype.hasOwnProperty.call( errorMap, error ) ?

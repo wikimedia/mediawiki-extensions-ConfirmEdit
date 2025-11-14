@@ -18,6 +18,11 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 	beforeEach() {
 		mw.config.set( 'wgDBname', 'testwiki' );
 
+		// Prevent tests from keeping trying to load the hCaptcha script when
+		// testing the "onerror" logic.
+		mw.config.set( 'wgHCaptchaMaxLoadAttempts', 2 );
+		mw.config.set( 'wgHCaptchaBaseRetryDelay', 1 );
+
 		this.track = this.sandbox.stub( mw, 'track' );
 		this.logError = this.sandbox.stub( mw.errorLogger, 'logError' );
 
@@ -35,7 +40,8 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 			},
 			document: {
 				head: {
-					appendChild: this.sandbox.stub()
+					appendChild: this.sandbox.stub(),
+					removeChild: this.sandbox.stub()
 				}
 			}
 		};
@@ -408,7 +414,9 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 		'load error message should be set'
 	);
 
-	assert.strictEqual( this.track.callCount, 3, 'should invoke mw.track() three times' );
+	// 3 times + 1 additional load-start + 1 additional load-complete call when
+	// it tries to retry loading the script due to wgHCaptchaMaxLoadAttempts==2.
+	assert.strictEqual( this.track.callCount, 5, 'should invoke mw.track() five times' );
 	assert.deepEqual(
 		this.track.getCall( 0 ).args,
 		[
@@ -416,7 +424,7 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 			1718,
 			{ wiki: 'testwiki', interfaceName: 'edit' }
 		],
-		'should record metric for load time'
+		'should record metric for load time (first attempt)'
 	);
 	assert.deepEqual(
 		this.track.getCall( 1 ).args,
@@ -425,10 +433,28 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 			1,
 			{ wiki: 'testwiki', interfaceName: 'edit' }
 		],
-		'should record metric for total errors'
+		'should record metric for total errors after the first attempt'
 	);
 	assert.deepEqual(
 		this.track.getCall( 2 ).args,
+		[
+			'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds',
+			0,
+			{ wiki: 'testwiki', interfaceName: 'edit' }
+		],
+		'should record metric for load time (second attempt)'
+	);
+	assert.deepEqual(
+		this.track.getCall( 3 ).args,
+		[
+			'stats.mediawiki_confirmedit_hcaptcha_script_error_total',
+			1,
+			{ wiki: 'testwiki', interfaceName: 'edit' }
+		],
+		'should record metric for total errors after the second attempt'
+	);
+	assert.deepEqual(
+		this.track.getCall( 4 ).args,
 		[
 			'confirmEdit.hCaptchaRenderCallback',
 			'error',
@@ -437,16 +463,39 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 		],
 		'should emit event for load failure'
 	);
-
-	assert.strictEqual( this.logError.callCount, 1, 'should invoke mw.errorLogger.logError() once' );
-	const logErrorArguments = this.logError.getCall( 0 ).args;
 	assert.deepEqual(
-		logErrorArguments[ 0 ].message,
+		this.window.document.head.removeChild.callCount,
+		1,
+		'should remove previous script tags for the hCaptcha SDK between reties'
+	);
+
+	// One time per load attempt
+	assert.strictEqual(
+		this.logError.callCount,
+		2,
+		'should invoke mw.errorLogger.logError() twice'
+	);
+
+	const logFirstCallErrorArguments = this.logError.getCall( 0 ).args;
+	assert.deepEqual(
+		logFirstCallErrorArguments[ 0 ].message,
 		'Unable to load hCaptcha script',
 		'should use correct channel for errors'
 	);
 	assert.deepEqual(
-		logErrorArguments[ 1 ],
+		logFirstCallErrorArguments[ 1 ],
+		'error.confirmedit',
+		'should use correct channel for errors'
+	);
+
+	const logSecondCallErrorArguments = this.logError.getCall( 0 ).args;
+	assert.deepEqual(
+		logSecondCallErrorArguments[ 0 ].message,
+		'Unable to load hCaptcha script',
+		'should use correct channel for errors'
+	);
+	assert.deepEqual(
+		logSecondCallErrorArguments[ 1 ],
 		'error.confirmedit',
 		'should use correct channel for errors'
 	);
@@ -515,7 +564,28 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 	);
 } );
 
-QUnit.test( 'should surface recoverable workflow execution errors on submit', function ( assert ) {
+QUnit.test.each( 'should surface recoverable workflow execution errors on submit', {
+	'challenge-closed': {
+		error: 'challenge-closed',
+		message: 'hcaptcha-challenge-closed'
+	},
+	'challenge-expired': {
+		error: 'challenge-expired',
+		message: 'hcaptcha-challenge-expired'
+	},
+	'internal-error': {
+		error: 'internal-error',
+		message: 'hcaptcha-internal-error'
+	},
+	'network-error': {
+		error: 'network-error',
+		message: 'hcaptcha-network-error'
+	},
+	'rate-limited': {
+		error: 'rate-limited',
+		message: 'hcaptcha-rate-limited'
+	}
+}, function ( assert, data ) {
 	this.window.document.head.appendChild.callsFake( async () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
@@ -525,7 +595,7 @@ QUnit.test( 'should surface recoverable workflow execution errors on submit', fu
 	this.window.hcaptcha.execute.callsFake( () => {
 		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible during execute' );
 		assert.true( this.areSubmitButtonsDisabled(), 'submit buttons should be disabled during execute' );
-		return Promise.reject( 'challenge-closed' );
+		return Promise.reject( data.error );
 	} );
 
 	useSecureEnclave( this.window );
@@ -550,8 +620,8 @@ QUnit.test( 'should surface recoverable workflow execution errors on submit', fu
 		);
 		assert.strictEqual(
 			this.$form.find( '.cdx-message' ).text(),
-			'(hcaptcha-challenge-closed)',
-			'error message should be set'
+			`(${ data.message })`,
+			`error message should be set to (${ data.message })`
 		);
 	} );
 } );

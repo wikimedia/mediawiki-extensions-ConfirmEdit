@@ -49,7 +49,8 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	 */
 	const onOpen = function () {
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_open_callback_total', 1, {
-			wiki: wiki
+			wiki: wiki,
+			interfaceName: interfaceName
 		} );
 		// Fire an event that can be used in WikimediaEvents for associating
 		// challenge opens with a user.

@@ -20,6 +20,30 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
+
+	protected function setUp(): void {
+		parent::setUp();
+		// Ensure HCaptcha instances are returned for common actions
+		$this->overrideConfigValue( 'CaptchaTriggers', [
+			'edit' => [
+				'trigger' => true,
+				'class' => 'HCaptcha',
+				'config' => []
+			],
+			'create' => [
+				'trigger' => true,
+				'class' => 'HCaptcha',
+				'config' => []
+			],
+			'createaccount' => [
+				'trigger' => true,
+				'class' => 'HCaptcha',
+				'config' => []
+			],
+		] );
+		Hooks::unsetInstanceForTests();
+	}
+
 	/**
 	 * @dataProvider provideOptions
 	 */
@@ -327,6 +351,11 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'trigger' => 'true',
 				'class' => 'HCaptcha',
 				'config' => [ 'HCaptchaSiteKey' => 'bar' ]
+			],
+			'createaccount' => [
+				'trigger' => 'true',
+				'class' => 'HCaptcha',
+				'config' => []
 			],
 		] );
 

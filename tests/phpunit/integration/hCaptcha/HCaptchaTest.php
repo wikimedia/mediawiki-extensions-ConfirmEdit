@@ -332,6 +332,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	) {
 		$this->overrideConfigValues( [
 			'HCaptchaSecretKey' => 'secretkey',
+			'HCaptchaSiteKey' => 'test-sitekey',
 			'HCaptchaDeveloperMode' => $developerMode,
 			'HCaptchaUseRiskScore' => $useRiskScore,
 			'HCaptchaSendRemoteIP' => $sendRemoteIP,
@@ -576,5 +577,202 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->assertFalse(
 			$hCaptcha->passCaptcha( '', '', '' )
 		);
+	}
+
+	/** @dataProvider provideGetSiteKeyForAction */
+	public function testGetSiteKeyForAction(
+		string $action,
+		array $actionConfig,
+		?string $globalSiteKey,
+		bool $forceShow,
+		string $expectedSiteKey
+	): void {
+		if ( $globalSiteKey !== null ) {
+			$this->overrideConfigValue( 'HCaptchaSiteKey', $globalSiteKey );
+		}
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->setConfig( $actionConfig );
+		if ( $forceShow ) {
+			$hCaptcha->setForceShowCaptcha( true );
+		}
+
+		$actual = $hCaptcha->getSiteKeyForAction();
+		$this->assertSame( $expectedSiteKey, $actual );
+	}
+
+	public static function provideGetSiteKeyForAction(): array {
+		return [
+			'Action config has site key' => [
+				'edit',
+				[ 'HCaptchaSiteKey' => 'action-key' ],
+				'global-key',
+				false,
+				'action-key'
+			],
+			'Falls back to global when action config missing' => [
+				'edit',
+				[],
+				'global-key',
+				false,
+				'global-key'
+			],
+			'Force show with always challenge key' => [
+				'edit',
+				[
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
+				],
+				null,
+				true,
+				'challenge-key'
+			],
+			'Force show without always challenge key (fallback to normal)' => [
+				'edit',
+				[ 'HCaptchaSiteKey' => 'normal-key' ],
+				null,
+				true,
+				'normal-key'
+			],
+			'Force show with fallback to global' => [
+				'edit',
+				[],
+				'global-key',
+				true,
+				'global-key'
+			],
+			'Create action with action config' => [
+				'create',
+				[ 'HCaptchaSiteKey' => 'create-key' ],
+				'global-key',
+				false,
+				'create-key'
+			],
+		];
+	}
+
+	/** @dataProvider providePassCaptchaSiteKeyValidation */
+	public function testPassCaptchaSiteKeyValidation(
+		string $action,
+		array $actionConfig,
+		?string $globalSiteKey,
+		bool $forceShow,
+		string $responseSiteKey,
+		bool $shouldPass,
+		?string $expectedError
+	): void {
+		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
+		if ( $globalSiteKey !== null ) {
+			$this->overrideConfigValue( 'HCaptchaSiteKey', $globalSiteKey );
+		}
+
+		// Mock logger to capture error logs if validation fails - must be set before creating HCaptcha instance
+		$mockLogger = $this->createMock( LoggerInterface::class );
+		if ( !$shouldPass && $expectedError === 'sitekey-mismatch' ) {
+			$mockLogger->expects( $this->once() )
+				->method( 'error' )
+				->with( 'Unable to validate response. Error: {error}', $this->anything() );
+		}
+		$this->setLogger( 'captcha', $mockLogger );
+
+		// Mock the API response with the sitekey
+		$mockApiResponse = [
+			'success' => true,
+			'sitekey' => $responseSiteKey
+		];
+
+		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
+		$mwHttpRequest->method( 'execute' )
+			->willReturn( Status::newGood() );
+		$mwHttpRequest->method( 'getStatus' )
+			->willReturn( 200 );
+		$mwHttpRequest->method( 'getContent' )
+			->willReturn( FormatJson::encode( $mockApiResponse ) );
+		$this->installMockHttp( $mwHttpRequest );
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->setConfig( $actionConfig );
+		$hCaptcha->setAction( $action );
+		$hCaptcha->setTrigger( "test trigger for $action" );
+		if ( $forceShow ) {
+			$hCaptcha->setForceShowCaptcha( true );
+		}
+
+		$result = $hCaptcha->passCaptchaFromRequest(
+			new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
+			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
+		);
+
+		$this->assertSame( $shouldPass, $result );
+		if ( $expectedError ) {
+			$this->assertSame( $expectedError, $hCaptcha->getError() );
+		} else {
+			$this->assertNull( $hCaptcha->getError() );
+		}
+	}
+
+	public static function providePassCaptchaSiteKeyValidation(): array {
+		return [
+			'Site key matches - from action config' => [
+				'edit',
+				[ 'HCaptchaSiteKey' => 'test-key' ],
+				null,
+				false,
+				'test-key',
+				true,
+				null
+			],
+			'Site key matches - from global fallback' => [
+				'edit',
+				[],
+				'global-key',
+				false,
+				'global-key',
+				true,
+				null
+			],
+			'Site key mismatch - should fail' => [
+				'edit',
+				[ 'HCaptchaSiteKey' => 'correct-key' ],
+				null,
+				false,
+				'wrong-key',
+				false,
+				'sitekey-mismatch'
+			],
+			'Force show - validates against challenge key' => [
+				'edit',
+				[
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
+				],
+				null,
+				true,
+				'challenge-key',
+				true,
+				null
+			],
+			'Force show - wrong key (normal instead of challenge)' => [
+				'edit',
+				[
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
+				],
+				null,
+				true,
+				'normal-key',
+				false,
+				'sitekey-mismatch'
+			],
+			'Force show - validates against global when challenge key not set' => [
+				'edit',
+				[],
+				'global-key',
+				true,
+				'global-key',
+				true,
+				null
+			],
+		];
 	}
 }

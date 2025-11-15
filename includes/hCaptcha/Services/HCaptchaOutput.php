@@ -4,9 +4,11 @@ namespace MediaWiki\Extension\ConfirmEdit\hCaptcha\Services;
 
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Html\Html;
 use MediaWiki\Output\OutputPage;
+use Wikimedia\Assert\Assert;
 
 /**
  * Service used to de-duplicate the code for adding hCaptcha to the output in both
@@ -48,15 +50,13 @@ class HCaptchaOutput {
 		} else {
 			$action = CaptchaTriggers::CREATE;
 		}
+		/** @var HCaptcha $simpleCaptcha */
 		$simpleCaptcha = Hooks::getInstance( $action );
-		$siteKey = $simpleCaptcha->getConfig()['HCaptchaSiteKey'] ?? $this->options->get( 'HCaptchaSiteKey' );
+		Assert::postcondition(
+			$simpleCaptcha instanceof HCaptcha, '$simpleCaptcha is not an instance of HCaptcha'
+		);
+		$siteKey = $simpleCaptcha->getSiteKeyForAction();
 		$useInvisibleMode = $this->options->get( 'HCaptchaInvisibleMode' );
-
-		// If the AbuseFilter "showcaptcha" consequence has been invoked, use the "always challenge" site key,
-		// if defined.
-		if ( $simpleCaptcha->shouldForceShowCaptcha() ) {
-			$siteKey = $simpleCaptcha->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ?? $siteKey;
-		}
 
 		$hCaptchaElementAttribs = [
 			'id' => 'h-captcha',

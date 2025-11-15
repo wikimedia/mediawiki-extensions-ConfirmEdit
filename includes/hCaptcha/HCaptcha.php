@@ -202,6 +202,15 @@ class HCaptcha extends SimpleCaptcha {
 			return false;
 		}
 
+		// Verify sitekey matches to detect client-side tampering (T410024)
+		$siteKeyForAction = $this->getSiteKeyForAction();
+		$requestSiteKey = $json['sitekey'] ?? null;
+		if ( $siteKeyForAction !== $requestSiteKey ) {
+			$this->error = 'sitekey-mismatch';
+			$this->logCheckError( $this->error, $user );
+			return false;
+		}
+
 		$debugLogContext = [
 			'event' => 'captcha.solve',
 			'user' => $user->getName(),
@@ -394,5 +403,25 @@ class HCaptcha extends SimpleCaptcha {
 	/** @inheritDoc */
 	public function showHelp( OutputPage $out ) {
 		$out->addWikiMsg( 'hcaptcha-privacy-policy' );
+	}
+
+	/**
+	 * Get the SiteKey for the instance.
+	 *
+	 * This returns a value from the following sources, in order of priority:
+	 * - the HCaptchaAlwaysChallengeSiteKey from $wgCaptchaTriggers for the current action,
+	 *   if ::shouldForceShowCaptcha mode is enabled
+	 * - the HCaptchaSiteKey config property from $wgCaptchaTriggers for the current action
+	 * - the global $wgHCaptchaSiteKey
+	 *
+	 * @return string The hCaptcha SiteKey associated with this instance
+	 */
+	public function getSiteKeyForAction(): string {
+		$siteKey = $this->getConfig()['HCaptchaSiteKey'] ?? $this->hCaptchaConfig->get( 'HCaptchaSiteKey' );
+		if ( $this->shouldForceShowCaptcha() ) {
+			$siteKey = $this->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ?? $siteKey;
+		}
+
+		return $siteKey;
 	}
 }

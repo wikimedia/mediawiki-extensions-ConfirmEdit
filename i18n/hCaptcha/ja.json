@@ -15,8 +15,11 @@
 	"hcaptcha-create": "ウィキを記事の自動作成から保護するために、下のhCaptchaを解決してください。",
 	"hcaptcha-help": "hCaptchaチャレンジを解いて、応答値をcaptchaWordとして返してください。",
 	"hcaptcha-privacy-policy": "当サイトの保護は hCaptcha を採用しており、当該の[https://www.hcaptcha.com/privacy プライバシー ポリシー] と [https://www.hcaptcha.com/terms 利用規約]を適用します。",
-	"hcaptcha-challenge-closed": "チャレンジを解決してからフォームを送信願います。",
-	"hcaptcha-challenge-expired": "チャレンジに解答する制限時間が切れました。もう一度お試しください。",
-	"hcaptcha-loading-indicator-label": "hCaptcha スパム対策の初期化が済むまでお待ちください",
-	"hcaptcha-missing-token": "このフォームはhCaptchaチャレンジで保護されています。フォームを送信するには、チャレンジの表示をお待ちください。JavaScriptが有効になっていることを確認してください。"
+	"hcaptcha-challenge-closed": "続けるにはキャプチャを完了させてください。",
+	"hcaptcha-challenge-expired": "キャプチャに解答する制限時間が切れました。もう一度お試しください。",
+	"hcaptcha-generic-error": "フォームの読み込み中にエラーが発生しました。続行するには、ページを再読み込みしてください。",
+	"hcaptcha-loading-indicator-label": "フォームや耳が終わるまでお待ちください……",
+	"hcaptcha-missing-token": "このフォーム読み込みがまだ終わっていません。あと数秒、お待ちのうえ、もう一度お願いします。",
+	"hcaptcha-noscript": "JavaScript の続行が必要です。 ブラウザの設定で JavaScript を立ち上げてから、画面をもう一度、読み込んでください。",
+	"hcaptcha-force-show-captcha-edit": "フォームをもう一度送信してチャレンジを完了、編集内容を保存してください。"
 }

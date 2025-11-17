@@ -98,6 +98,8 @@ class HCaptcha extends SimpleCaptcha {
 			'error' => $error,
 			'user' => $userIdentity->getName(),
 			'captcha_type' => self::$messagePrefix,
+			'captcha_action' => $this->action ?? '-',
+			'captcha_trigger' => $this->trigger ?? '-',
 		] );
 	}
 
@@ -206,6 +208,9 @@ class HCaptcha extends SimpleCaptcha {
 			'hcaptcha_success' => $json['success'],
 			'captcha_type' => self::$messagePrefix,
 			'success_message' => $json['success'] ? 'Successful' : 'Failed',
+			'captcha_action' => $this->action ?? '-',
+			'captcha_trigger' => $this->trigger ?? '-',
+			'hcaptcha_response_sitekey' => $json['sitekey'] ?? '-',
 		];
 		if ( $this->hCaptchaConfig->get( 'HCaptchaDeveloperMode' ) ) {
 			$debugLogContext = array_merge( [

@@ -202,11 +202,15 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'error' => 'http-error-500',
 				'user' => '1.2.3.4',
 				'captcha_type' => 'hcaptcha',
+				'captcha_action' => 'edit',
+				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
 			] );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha using a fake response that we expect to pass to the API.
 		$hCaptcha = new HCaptcha();
+		$hCaptcha->setAction( 'edit' );
+		$hCaptcha->setTrigger( "edit trigger by '~2025-198' at [[Test]]" );
 		$this->assertFalse( $hCaptcha->passCaptchaFromRequest(
 			new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
 			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
@@ -241,11 +245,15 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'error' => 'json',
 				'user' => '1.2.3.4',
 				'captcha_type' => 'hcaptcha',
+				'captcha_action' => 'edit',
+				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
 			] );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha, but expect that this fails
 		$hCaptcha = new HCaptcha();
+		$hCaptcha->setAction( 'edit' );
+		$hCaptcha->setTrigger( "edit trigger by '~2025-198' at [[Test]]" );
 		$this->assertFalse( $hCaptcha->passCaptchaFromRequest(
 			new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
 			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
@@ -274,11 +282,15 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'error' => 'testingabc,test',
 				'user' => '1.2.3.4',
 				'captcha_type' => 'hcaptcha',
+				'captcha_action' => 'edit',
+				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
 			] );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha, but expect that this fails
 		$hCaptcha = new HCaptcha();
+		$hCaptcha->setAction( 'edit' );
+		$hCaptcha->setTrigger( "edit trigger by '~2025-198' at [[Test]]" );
 		$this->assertFalse( $hCaptcha->passCaptchaFromRequest(
 			new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
 			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
@@ -349,6 +361,9 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'hcaptcha_blob' => $mockApiResponse,
 				'captcha_type' => 'hcaptcha',
 				'success_message' => $mockApiResponse['success'] ? 'Successful' : 'Failed',
+				'captcha_action' => 'edit',
+				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+				'hcaptcha_response_sitekey' => 'test-sitekey',
 			];
 		} else {
 			$expectedLogContext = [
@@ -357,6 +372,9 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'hcaptcha_success' => $mockApiResponse['success'],
 				'captcha_type' => 'hcaptcha',
 				'success_message' => $mockApiResponse['success'] ? 'Successful' : 'Failed',
+				'captcha_action' => 'edit',
+				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+				'hcaptcha_response_sitekey' => 'test-sitekey',
 			];
 		}
 		$mockLogger = $this->createMock( LoggerInterface::class );
@@ -367,6 +385,8 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 
 		// Attempt to pass the captcha and expect that it passes
 		$hCaptcha = new HCaptcha();
+		$hCaptcha->setAction( 'edit' );
+		$hCaptcha->setTrigger( "edit trigger by '~2025-198' at [[Test]]" );
 		$this->assertSame(
 			$captchaPassedSuccessfully,
 			$hCaptcha->passCaptchaFromRequest(
@@ -393,25 +413,30 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	public static function providePassCaptcha(): array {
 		return [
 			'Passes hCaptcha check, in developer mode' => [
-				true, true, false, false, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
+				true, true, false, false,
+				[ 'success' => true, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
 			],
 			'Passes hCaptcha check, not in developer mode, sending remote IP' => [
-				true, false, false, true, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
+				true, false, false, true,
+				[ 'success' => true, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
 			],
 			'Passes hCaptcha check, not in developer mode, using risk score' => [
-				true, false, true, false, [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
+				true, false, true, false,
+				[ 'success' => true, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
 			],
 			'Fails hCaptcha check, in developer mode' => [
-				false, true, false, false, [ 'success' => false, 'score' => 123, 'score_reason' => 'test' ],
+				false, true, false, false,
+				[ 'success' => false, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
 			],
 			'Fails hCaptcha check, not in developer mode' => [
-				false, false, false, false, [ 'success' => false, 'score' => 123, 'score_reason' => 'test' ],
+				false, false, false, false,
+				[ 'success' => false, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
 			],
 			'Fails hCaptcha check, in developer mode, no score included in response' => [
-				false, true, false, false, [ 'success' => false ],
+				false, true, false, false, [ 'success' => false, 'sitekey' => 'test-sitekey' ],
 			],
 			'Fails hCaptcha check, not in developer mode, no score included in response' => [
-				false, false, false, false, [ 'success' => false ],
+				false, false, false, false, [ 'success' => false, 'sitekey' => 'test-sitekey' ],
 			],
 		];
 	}

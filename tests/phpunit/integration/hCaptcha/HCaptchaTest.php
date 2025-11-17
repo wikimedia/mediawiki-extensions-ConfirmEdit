@@ -198,13 +198,21 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
 			->method( 'error' )
-			->with( 'Unable to validate response. Error: {error}', [
-				'error' => 'http-error-500',
-				'user' => '1.2.3.4',
-				'captcha_type' => 'hcaptcha',
-				'captcha_action' => 'edit',
-				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
-			] );
+			->with( 'Unable to validate response. Error: {error}',
+				$this->callback( function ( $actualData ) {
+					$expectedSubset = [
+						'error' => 'http-error-500',
+						'user' => '1.2.3.4',
+						'captcha_type' => 'hcaptcha',
+						'captcha_action' => 'edit',
+						'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+						'clientIp' => '127.0.0.1',
+						'ua' => false,
+						'user_exists_locally' => false,
+					];
+					$this->assertArrayContains( $expectedSubset, $actualData );
+					return true;
+				} ) );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha using a fake response that we expect to pass to the API.
@@ -241,13 +249,21 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
 			->method( 'error' )
-			->with( 'Unable to validate response. Error: {error}', [
-				'error' => 'json',
-				'user' => '1.2.3.4',
-				'captcha_type' => 'hcaptcha',
-				'captcha_action' => 'edit',
-				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
-			] );
+			->with( 'Unable to validate response. Error: {error}',
+				$this->callback( function ( $actualData ) {
+					$expectedSubset = [
+						'error' => 'json',
+						'user' => '1.2.3.4',
+						'captcha_type' => 'hcaptcha',
+						'captcha_action' => 'edit',
+						'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+						'clientIp' => '127.0.0.1',
+						'ua' => false,
+						'user_exists_locally' => false,
+					];
+					$this->assertArrayContains( $expectedSubset, $actualData );
+					return true;
+				} ) );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha, but expect that this fails
@@ -278,13 +294,21 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
 			->method( 'error' )
-			->with( 'Unable to validate response. Error: {error}', [
-				'error' => 'testingabc,test',
-				'user' => '1.2.3.4',
-				'captcha_type' => 'hcaptcha',
-				'captcha_action' => 'edit',
-				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
-			] );
+			->with( 'Unable to validate response. Error: {error}',
+				$this->callback( function ( $actualData ) {
+					$expectedSubset = [
+						'error' => 'testingabc,test',
+						'user' => '1.2.3.4',
+						'captcha_type' => 'hcaptcha',
+						'captcha_action' => 'edit',
+						'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+						'clientIp' => '127.0.0.1',
+						'ua' => false,
+						'user_exists_locally' => false,
+					];
+					$this->assertArrayContains( $expectedSubset, $actualData );
+					return true;
+				} ) );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha, but expect that this fails
@@ -364,6 +388,9 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'captcha_action' => 'edit',
 				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
 				'hcaptcha_response_sitekey' => 'test-sitekey',
+				'clientIp' => '1.2.3.4',
+				'ua' => false,
+				'user_exists_locally' => false,
 			];
 		} else {
 			$expectedLogContext = [
@@ -375,12 +402,19 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'captcha_action' => 'edit',
 				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
 				'hcaptcha_response_sitekey' => 'test-sitekey',
+				'clientIp' => '1.2.3.4',
+				'ua' => false,
+				'user_exists_locally' => false,
 			];
 		}
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
 			->method( 'info' )
-			->with( '{success_message} captcha solution attempt for {user}', $expectedLogContext );
+			->with( '{success_message} captcha solution attempt for {user}',
+				$this->callback( function ( $actualData ) use ( $expectedLogContext ) {
+					$this->assertArrayContains( $expectedLogContext, $actualData );
+					return true;
+				} ) );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha and expect that it passes

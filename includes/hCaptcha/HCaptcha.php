@@ -100,7 +100,7 @@ class HCaptcha extends SimpleCaptcha {
 			'captcha_type' => self::$messagePrefix,
 			'captcha_action' => $this->action ?? '-',
 			'captcha_trigger' => $this->trigger ?? '-',
-		] );
+		] + RequestContext::getMain()->getRequest()->getSecurityLogContext( $userIdentity ) );
 	}
 
 	/** @inheritDoc */
@@ -137,13 +137,14 @@ class HCaptcha extends SimpleCaptcha {
 	 * @return bool
 	 */
 	protected function passCaptcha( $_, $token, $user ) {
+		$webRequest = RequestContext::getMain()->getRequest();
 		// If we have a result, "showcaptcha" consequence has been invoked, but the submission
 		// is in the context of a request where the user wasn't yet required to complete a CAPTCHA,
 		// then return false to avoid making a duplicate API request, and to ensure that the user
 		// has to complete the "always challenge" CAPTCHA.
 		if ( $this->result &&
 			$this->shouldForceShowCaptcha() &&
-			RequestContext::getMain()->getRequest()->getVal( 'wgConfirmEditForceShowCaptcha' ) === null ) {
+			$webRequest->getVal( 'wgConfirmEditForceShowCaptcha' ) === null ) {
 			// Set an error here, so that the page will display an appropriate
 			// message for the user to resubmit the form.
 			$this->error = 'forceshowcaptcha';
@@ -155,7 +156,6 @@ class HCaptcha extends SimpleCaptcha {
 		];
 		$data['remoteip'] = '127.0.0.1';
 		if ( $this->hCaptchaConfig->get( 'HCaptchaSendRemoteIP' ) ) {
-			$webRequest = RequestContext::getMain()->getRequest();
 			$data['remoteip'] = $webRequest->getIP();
 		}
 
@@ -211,7 +211,7 @@ class HCaptcha extends SimpleCaptcha {
 			'captcha_action' => $this->action ?? '-',
 			'captcha_trigger' => $this->trigger ?? '-',
 			'hcaptcha_response_sitekey' => $json['sitekey'] ?? '-',
-		];
+		] + $webRequest->getSecurityLogContext( $user );
 		if ( $this->hCaptchaConfig->get( 'HCaptchaDeveloperMode' ) ) {
 			$debugLogContext = array_merge( [
 				'hcaptcha_score' => $json['score'] ?? null,

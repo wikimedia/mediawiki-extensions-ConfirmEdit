@@ -9,7 +9,7 @@ use MediaWiki\Registration\ExtensionRegistry;
 use MediaWikiUnitTestCase;
 
 /**
- * @covers \MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\RLRegisterModulesHandler
+ * @covers \MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\MakeGlobalVariablesScriptHookHandler
  */
 class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiUnitTestCase {
 

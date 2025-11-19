@@ -13,7 +13,7 @@ use MobileContext;
 use Wikimedia\ArrayUtils\ArrayUtils;
 
 /**
- * @covers \MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\RLRegisterModulesHandler
+ * @covers \MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\MakeGlobalVariablesScriptHookHandler
  * @group Database
  */
 class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestCase {

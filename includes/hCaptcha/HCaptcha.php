@@ -6,6 +6,7 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaEnterpriseHealthChecker;
@@ -123,6 +124,18 @@ class HCaptcha extends SimpleCaptcha {
 			return false;
 		}
 		return parent::shouldCheck( $page, $content, $section, $context, $oldtext );
+	}
+
+	/**
+	 * Don't render hCaptcha form field at the top of the edit form, as we want it to be only
+	 * ever at the bottom of the page.
+	 *
+	 * The default behaviour is to render the form fields both at the top and bottom of the edit field
+	 * when in a 'addurl' trigger (which causes issues because we can only have one hCaptcha widget on the page).
+	 *
+	 * @inheritDoc
+	 */
+	public function showEditFormFields( EditPage $editPage, OutputPage $out ) {
 	}
 
 	/**

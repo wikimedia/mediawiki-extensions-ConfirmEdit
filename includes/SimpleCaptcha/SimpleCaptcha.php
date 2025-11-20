@@ -543,6 +543,20 @@ class SimpleCaptcha {
 		$title = $page->getTitle();
 		$this->trigger = '';
 
+		// If force show captcha is set (e.g., by AbuseFilter), bypass normal trigger checks
+		if ( $this->shouldForceShowCaptcha() && !$this->isCaptchaSolved() ) {
+			// Preserve existing action if set, otherwise default to 'edit'
+			if ( $this->action === null ) {
+				$this->action = CaptchaTriggers::EDIT;
+			}
+			wfDebug( "ConfirmEdit: force showing captcha for {$this->action}...\n" );
+			$this->trigger = sprintf( "force show trigger by '%s' at [[%s]] for %s",
+				$user->getName(),
+				$title->getPrefixedText(),
+				$this->action );
+			return true;
+		}
+
 		if ( $content instanceof Content ) {
 			if ( $content->getModel() == CONTENT_MODEL_WIKITEXT ) {
 				$newtext = $content->getNativeData();
@@ -555,36 +569,7 @@ class SimpleCaptcha {
 			$isEmpty = $content === '';
 		}
 
-		if ( $this->triggersCaptcha( 'edit', $title ) ) {
-			// Check on all edits
-			$this->trigger = sprintf( "edit trigger by '%s' at [[%s]]",
-				$user->getName(),
-				$title->getPrefixedText() );
-			$this->action = 'edit';
-			wfDebug( "ConfirmEdit: checking all edits...\n" );
-			return true;
-		}
-
-		if ( $this->triggersCaptcha( 'create', $title ) && !$title->exists() ) {
-			// Check if creating a page
-			$this->trigger = sprintf( "Create trigger by '%s' at [[%s]]",
-				$user->getName(),
-				$title->getPrefixedText() );
-			$this->action = 'create';
-			wfDebug( "ConfirmEdit: checking on page creation...\n" );
-			return true;
-		}
-
-		// The following checks are expensive and should be done only,
-		// if we can assume, that the edit will be saved
-		if ( !$request->wasPosted() ) {
-			wfDebug(
-				"ConfirmEdit: request not posted, assuming that no content will be saved -> no CAPTCHA check"
-			);
-			return false;
-		}
-
-		if ( !$isEmpty && $this->triggersCaptcha( 'addurl', $title ) ) {
+		if ( !$isEmpty && $request->wasPosted() && $this->triggersCaptcha( CaptchaTriggers::ADD_URL, $title ) ) {
 			// Only check edits that add URLs
 			if ( $content instanceof Content ) {
 				// Get links from the database
@@ -619,9 +604,48 @@ class SimpleCaptcha {
 					$user->getName(),
 					$title->getPrefixedText(),
 					implode( ", ", $addedLinks ) );
-				$this->action = 'addurl';
+				$this->action = CaptchaTriggers::ADD_URL;
+
+				// Set instance-specific config from CaptchaTriggers for addurl
+				// to allow per-trigger configuration (e.g., different sitekeys)
+				$config = MediaWikiServices::getInstance()->getMainConfig();
+				$captchaTriggers = $config->get( 'CaptchaTriggers' );
+				if ( is_array( $captchaTriggers[CaptchaTriggers::ADD_URL] ?? null ) ) {
+					$this->setConfig( $captchaTriggers[CaptchaTriggers::ADD_URL]['config'] ?? [] );
+				} else {
+					$this->setConfig( [] );
+				}
+
 				return true;
 			}
+		}
+
+		if ( $this->triggersCaptcha( CaptchaTriggers::EDIT, $title ) ) {
+			// Check on all edits
+			$this->trigger = sprintf( "edit trigger by '%s' at [[%s]]",
+				$user->getName(),
+				$title->getPrefixedText() );
+			$this->action = CaptchaTriggers::EDIT;
+			wfDebug( "ConfirmEdit: checking all edits...\n" );
+			return true;
+		}
+
+		if ( $this->triggersCaptcha( CaptchaTriggers::CREATE, $title ) && !$title->exists() ) {
+			// Check if creating a page
+			$this->trigger = sprintf( "Create trigger by '%s' at [[%s]]",
+				$user->getName(),
+				$title->getPrefixedText() );
+			$this->action = CaptchaTriggers::CREATE;
+			wfDebug( "ConfirmEdit: checking on page creation...\n" );
+			return true;
+		}
+
+		// The following checks are expensive and should be done only if we can assume that the edit will be saved
+		if ( !$request->wasPosted() ) {
+			wfDebug(
+				"ConfirmEdit: request not posted, assuming that no content will be saved -> no CAPTCHA check"
+			);
+			return false;
 		}
 
 		global $wgCaptchaRegexes;
@@ -650,7 +674,7 @@ class SimpleCaptcha {
 							$user->getName(),
 							$title->getPrefixedText(),
 							implode( ", ", $addedMatches ) );
-						$this->action = 'edit';
+						$this->action = CaptchaTriggers::EDIT;
 						return true;
 					}
 				}

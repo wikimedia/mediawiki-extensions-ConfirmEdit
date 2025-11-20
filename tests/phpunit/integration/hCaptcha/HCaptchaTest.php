@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 
 use MediaWiki\Api\ApiRawMessage;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
@@ -36,6 +37,13 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	public function testGetName() {
 		$this->markTestSkippedIfExtensionNotLoaded( 'ConfirmEdit/hCaptcha' );
 		$this->assertEquals( 'hCAPTCHA', ( new hCaptcha )->getName() );
+	}
+
+	public function testShowEditFormFieldsDoesNothing() {
+		$outputPage = $this->createNoOpMock( OutputPage::class );
+
+		$objectUnderTest = new HCaptcha();
+		$objectUnderTest->showEditFormFields( $this->createMock( EditPage::class ), $outputPage );
 	}
 
 	public function testGetFormInformationWhenNoError() {

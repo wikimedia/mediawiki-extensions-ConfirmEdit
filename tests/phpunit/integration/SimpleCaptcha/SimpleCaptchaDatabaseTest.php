@@ -15,6 +15,7 @@ use MediaWiki\Request\FauxRequest;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha
@@ -223,6 +224,219 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		return [
 			'::shouldForceShowCaptcha returns false' => [ false ],
 			'::shouldForceShowCaptcha returns true' => [ true ],
+		];
+	}
+
+	/**
+	 * Test trigger evaluation order and fallback behavior.
+	 * Verifies that 'addurl' is evaluated before 'edit' and 'create', and that
+	 * 'edit'/'create' work as fallback when 'addurl' doesn't trigger.
+	 *
+	 * @dataProvider provideShouldCheckTriggerEvaluationOrder
+	 */
+	public function testShouldCheckTriggerEvaluationOrder(
+		array $captchaTriggers,
+		string $contentText,
+		bool $expectedResult,
+		string $expectedAction,
+		string $description
+	) {
+		$this->overrideConfigValue( 'CaptchaTriggers', $captchaTriggers );
+
+		$user = $this->getTestUser()->getUser();
+		$title = $this->getExistingTestPage()->getTitle();
+		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
+
+		$content = ContentHandler::makeContent( $contentText, $title );
+
+		$context = new DerivativeContext( RequestContext::getMain() );
+		$context->setUser( $user );
+		$context->setTitle( $title );
+		$context->setRequest( new FauxRequest( [], true ) );
+
+		$simpleCaptcha = new SimpleCaptcha();
+		$result = $simpleCaptcha->shouldCheck( $page, $content, '', $context );
+
+		$expectedBool = $expectedResult ? 'true' : 'false';
+		$this->assertSame(
+			$expectedResult,
+			$result,
+			"shouldCheck should return $expectedBool: $description"
+		);
+
+		if ( $expectedResult ) {
+			$wrapper = TestingAccessWrapper::newFromObject( $simpleCaptcha );
+			$actionMsg = "Action should be $expectedAction: $description";
+			$this->assertSame( $expectedAction, $wrapper->action, $actionMsg );
+			if ( $expectedAction === 'addurl' ) {
+				$this->assertStringContainsString( 'url trigger', $wrapper->trigger );
+			}
+		}
+	}
+
+	public static function provideShouldCheckTriggerEvaluationOrder(): array {
+		return [
+			'addurl evaluated before edit/create when all enabled' => [
+				'captchaTriggers' => [
+					'edit' => true,
+					'create' => true,
+					'addurl' => true,
+				],
+				'contentText' => 'Some text with a new URL: https://example.com/new-link',
+				'expectedResult' => true,
+				'expectedAction' => 'addurl',
+				'description' => 'All triggers enabled, addurl should take precedence',
+			],
+			'addurl works in 100% passive mode' => [
+				'captchaTriggers' => [
+					'edit' => false,
+					'create' => false,
+					'addurl' => true,
+				],
+				'contentText' => 'Some text with a new URL: https://example.com/new-link',
+				'expectedResult' => true,
+				'expectedAction' => 'addurl',
+				'description' => '100% passive mode: edit/create disabled, addurl enabled',
+			],
+			'edit works as fallback when addurl does not trigger' => [
+				'captchaTriggers' => [
+					'edit' => true,
+					'create' => false,
+					'addurl' => true,
+				],
+				'contentText' => 'Some text without URLs',
+				'expectedResult' => true,
+				'expectedAction' => 'edit',
+				'description' => 'When addurl does not trigger, edit should work as fallback',
+			],
+		];
+	}
+
+	/**
+	 * Test that triggers respect performance guards (wasPosted() and !$isEmpty).
+	 * This documents that addurl checks wasPosted() guard (inside its block),
+	 * while edit/create are evaluated regardless of request method.
+	 *
+	 * @dataProvider provideShouldCheckRespectsPerformanceGuards
+	 */
+	public function testShouldCheckRespectsPerformanceGuards(
+		array $captchaTriggers,
+		bool $isPostRequest,
+		string $contentText,
+		bool $expectedResult,
+		string $description
+	) {
+		$this->overrideConfigValue( 'CaptchaTriggers', $captchaTriggers );
+
+		$user = $this->getTestUser()->getUser();
+		$title = $this->getExistingTestPage()->getTitle();
+		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
+
+		$content = ContentHandler::makeContent( $contentText, $title );
+
+		$context = new DerivativeContext( RequestContext::getMain() );
+		$context->setUser( $user );
+		$context->setTitle( $title );
+		$context->setRequest( new FauxRequest( [], $isPostRequest ) );
+
+		$simpleCaptcha = new SimpleCaptcha();
+		$result = $simpleCaptcha->shouldCheck( $page, $content, '', $context );
+
+		$this->assertSame( $expectedResult, $result, $description );
+	}
+
+	public static function provideShouldCheckRespectsPerformanceGuards(): array {
+		return [
+			'edit/create trigger on GET request' => [
+				'captchaTriggers' => [
+					'edit' => true,
+					'create' => true,
+					'addurl' => false,
+				],
+				'isPostRequest' => false,
+				'contentText' => 'Some text',
+				'expectedResult' => true,
+				'description' => 'shouldCheck should return true for GET request with edit/create enabled',
+			],
+			'addurl does not trigger on empty content' => [
+				'captchaTriggers' => [
+					'edit' => false,
+					'create' => false,
+					'addurl' => true,
+				],
+				'isPostRequest' => true,
+				'contentText' => '',
+				'expectedResult' => false,
+				'description' => 'shouldCheck should return false POST request with empty content and addurl enabled',
+			],
+		];
+	}
+
+	/**
+	 * Test that setConfig() is called when addurl triggers with a config in CaptchaTriggers.
+	 *
+	 * @dataProvider provideShouldCheckSetConfigForAddUrl
+	 */
+	public function testShouldCheckSetConfigForAddUrl(
+		array $captchaTriggers,
+		string $contentText,
+		array $expectedConfig,
+		string $description
+	) {
+		$this->overrideConfigValue( 'CaptchaTriggers', $captchaTriggers );
+
+		$user = $this->getTestUser()->getUser();
+		$title = $this->getExistingTestPage()->getTitle();
+		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
+
+		$content = ContentHandler::makeContent( $contentText, $title );
+
+		$context = new DerivativeContext( RequestContext::getMain() );
+		$context->setUser( $user );
+		$context->setTitle( $title );
+		$context->setRequest( new FauxRequest( [], true ) );
+
+		$simpleCaptcha = new SimpleCaptcha();
+		$result = $simpleCaptcha->shouldCheck( $page, $content, '', $context );
+
+		$this->assertTrue( $result, "shouldCheck should return true: $description" );
+
+		$wrapper = TestingAccessWrapper::newFromObject( $simpleCaptcha );
+		$this->assertSame( 'addurl', $wrapper->action, "Action should be addurl: $description" );
+		$this->assertSame( $expectedConfig, $simpleCaptcha->getConfig(), "Config should match: $description" );
+	}
+
+	public static function provideShouldCheckSetConfigForAddUrl(): array {
+		return [
+			'addurl sets config when provided in CaptchaTriggers' => [
+				'captchaTriggers' => [
+					'edit' => false,
+					'create' => false,
+					'addurl' => [
+						'trigger' => true,
+						'config' => [
+							'sitekey' => 'test-sitekey',
+							'secret' => 'test-secret',
+						],
+					],
+				],
+				'contentText' => 'Some text with a new URL: https://example.com/new-link',
+				'expectedConfig' => [
+					'sitekey' => 'test-sitekey',
+					'secret' => 'test-secret',
+				],
+				'description' => 'addurl should set config from CaptchaTriggers when triggering',
+			],
+			'addurl sets empty config when not provided in CaptchaTriggers' => [
+				'captchaTriggers' => [
+					'edit' => false,
+					'create' => false,
+					'addurl' => true,
+				],
+				'contentText' => 'Some text with a new URL: https://example.com/new-link',
+				'expectedConfig' => [],
+				'description' => 'addurl should set empty config when config not provided in CaptchaTriggers',
+			],
 		];
 	}
 }

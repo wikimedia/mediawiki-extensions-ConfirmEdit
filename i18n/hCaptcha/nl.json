@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"McDutchie"
+			"McDutchie",
+			"Siebrand"
 		]
 	},
 	"hcaptcha-desc": "[https://www.hcaptcha.com/ hCaptcha]-module voor Confirm Edit",

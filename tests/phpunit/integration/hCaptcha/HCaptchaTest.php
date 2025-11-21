@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 
+use LogicException;
 use MediaWiki\Api\ApiRawMessage;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
@@ -384,38 +385,28 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->setService( 'StatsFactory', $statsHelper->getStatsFactory() );
 
 		// Expect that an info log is created to indicate that the captcha either was solved or was not solved.
+		$expectedLogContext = [
+			'event' => 'captcha.solve',
+			'user' => '1.2.3.4',
+			'hcaptcha_success' => $mockApiResponse['success'],
+			'captcha_type' => 'hcaptcha',
+			'success_message' => $mockApiResponse['success'] ? 'Successful' : 'Failed',
+			'captcha_action' => 'edit',
+			'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+			'hcaptcha_response_sitekey' => 'test-sitekey',
+			'clientIp' => '1.2.3.4',
+			'ua' => false,
+			'user_exists_locally' => false,
+		];
+
 		if ( $developerMode ) {
-			$expectedLogContext = [
-				'event' => 'captcha.solve',
-				'user' => '1.2.3.4',
-				'hcaptcha_success' => $mockApiResponse['success'],
+			$expectedLogContext += [
 				'hcaptcha_score' => $mockApiResponse['score'] ?? null,
 				'hcaptcha_score_reason' => $mockApiResponse['score_reason'] ?? null,
 				'hcaptcha_blob' => $mockApiResponse,
-				'captcha_type' => 'hcaptcha',
-				'success_message' => $mockApiResponse['success'] ? 'Successful' : 'Failed',
-				'captcha_action' => 'edit',
-				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
-				'hcaptcha_response_sitekey' => 'test-sitekey',
-				'clientIp' => '1.2.3.4',
-				'ua' => false,
-				'user_exists_locally' => false,
-			];
-		} else {
-			$expectedLogContext = [
-				'event' => 'captcha.solve',
-				'user' => '1.2.3.4',
-				'hcaptcha_success' => $mockApiResponse['success'],
-				'captcha_type' => 'hcaptcha',
-				'success_message' => $mockApiResponse['success'] ? 'Successful' : 'Failed',
-				'captcha_action' => 'edit',
-				'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
-				'hcaptcha_response_sitekey' => 'test-sitekey',
-				'clientIp' => '1.2.3.4',
-				'ua' => false,
-				'user_exists_locally' => false,
 			];
 		}
+
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
 			->method( 'info' )
@@ -430,17 +421,21 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$hCaptcha = new HCaptcha();
 		$hCaptcha->setAction( 'edit' );
 		$hCaptcha->setTrigger( "edit trigger by '~2025-198' at [[Test]]" );
+
 		$this->assertSame(
 			$captchaPassedSuccessfully,
 			$hCaptcha->passCaptchaFromRequest(
 				new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
 				$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
-			)
+			),
+			'passCaptchaFromRequest() should be ' . ( $captchaPassedSuccessfully ? 'true' : 'false' )
 		);
+
 		if ( $useRiskScore || $developerMode ) {
 			$this->assertSame(
 				$mockApiResponse['score'] ?? null,
-				$hCaptcha->retrieveSessionScore( 'hCaptcha-score' )
+				$hCaptcha->retrieveSessionScore( 'hCaptcha-score' ),
+				'hCaptcha-score should be ' . ( $mockApiResponse['score'] ?? '(null)' )
 			);
 		} else {
 			$this->assertNull( $hCaptcha->retrieveSessionScore( 'hCaptcha-score' ) );
@@ -456,8 +451,14 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	public static function providePassCaptcha(): array {
 		return [
 			'Passes hCaptcha check, in developer mode' => [
-				true, true, false, false,
-				[ 'success' => true, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
+				'bool $captchaPassedSuccessfully' => true,
+				'bool $developerMode,' => true,
+				'bool $useRiskScore,' => false,
+				'bool $sendRemoteIP,' => false,
+				'array $mockApiResponse' => [
+					'success' => true, 'score' => 123, 'score_reason' => 'test',
+					'sitekey' => 'test-sitekey'
+				],
 			],
 			'Passes hCaptcha check, not in developer mode, sending remote IP' => [
 				true, false, false, true,
@@ -780,6 +781,188 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'global-key',
 				true,
 				null
+			],
+			'Force show - allows additional keys when challenge key not set' => [
+				'edit',
+				[
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAdditionalValidSiteKeys' => [ 'additional-key' ]
+				],
+				null,
+				true,
+				'additional-key',
+				true,
+				null
+			],
+		];
+	}
+
+	/** @dataProvider provideGetPrimarySiteKey */
+	public function testGetPrimarySiteKey(
+		array $actionConfig,
+		?string $globalSiteKey,
+		string $expectedSiteKey,
+		bool $shouldThrowException = false
+	): void {
+		// Always override the config value - set to null if we want to test exception
+		$this->overrideConfigValue( 'HCaptchaSiteKey', $globalSiteKey );
+
+		$hCaptcha = TestingAccessWrapper::newFromObject( new HCaptcha() );
+		$hCaptcha->setConfig( $actionConfig );
+
+		if ( $shouldThrowException ) {
+			$this->expectException( LogicException::class );
+			$this->expectExceptionMessage( 'wgHCaptchaSiteKey is not set' );
+		}
+
+		$actual = $hCaptcha->getPrimarySiteKey();
+		$this->assertSame( $expectedSiteKey, $actual );
+	}
+
+	public static function provideGetPrimarySiteKey(): array {
+		return [
+			'Action config has site key' => [
+				[ 'HCaptchaSiteKey' => 'action-key' ],
+				'global-key',
+				'action-key'
+			],
+			'Falls back to global when action config missing' => [
+				[],
+				'global-key',
+				'global-key'
+			],
+			'Action config has empty string, falls back to global' => [
+				[ 'HCaptchaSiteKey' => '' ],
+				'global-key',
+				'global-key'
+			],
+			'Action config has null, falls back to global' => [
+				[ 'HCaptchaSiteKey' => null ],
+				'global-key',
+				'global-key'
+			],
+			'No config at all - throws exception' => [
+				[],
+				null,
+				'',
+				true
+			],
+		];
+	}
+
+	/** @dataProvider provideGetAllowedSiteKeysForCurrentAction */
+	public function testGetAllowedSiteKeysForCurrentAction(
+		array $actionConfig,
+		?string $globalSiteKey,
+		bool $forceShow,
+		array $expectedSiteKeys
+	): void {
+		if ( $globalSiteKey !== null ) {
+			$this->overrideConfigValue( 'HCaptchaSiteKey', $globalSiteKey );
+		}
+
+		$hCaptcha = TestingAccessWrapper::newFromObject( new HCaptcha() );
+		$hCaptcha->setConfig( $actionConfig );
+		if ( $forceShow ) {
+			$hCaptcha->setForceShowCaptcha( true );
+		}
+
+		$actual = $hCaptcha->getAllowedSiteKeysForCurrentAction();
+		// Sort arrays for comparison since order doesn't matter
+		sort( $actual );
+		sort( $expectedSiteKeys );
+		$this->assertSame( $expectedSiteKeys, $actual );
+	}
+
+	public static function provideGetAllowedSiteKeysForCurrentAction(): array {
+		return [
+			'Normal mode - action config has site key only' => [
+				[ 'HCaptchaSiteKey' => 'action-key' ],
+				'global-key',
+				false,
+				[ 'action-key' ]
+			],
+			'Normal mode - action config has site key and additional keys' => [
+				[
+					'HCaptchaSiteKey' => 'primary-key',
+					'HCaptchaAdditionalValidSiteKeys' => [ 'additional-key-1', 'additional-key-2' ]
+				],
+				'global-key',
+				false,
+				[ 'primary-key', 'additional-key-1', 'additional-key-2' ]
+			],
+			'Normal mode - additional keys with duplicates and empty values' => [
+				[
+					'HCaptchaSiteKey' => 'primary-key',
+					'HCaptchaAdditionalValidSiteKeys' => [ 'additional-key', '', null, 'primary-key' ]
+				],
+				'global-key',
+				false,
+				[ 'primary-key', 'additional-key' ]
+			],
+			'Normal mode - no action config, falls back to global' => [
+				[],
+				'global-key',
+				false,
+				[ 'global-key' ]
+			],
+			'Normal mode - action config has empty site key, treats as missing and uses global' => [
+				[ 'HCaptchaSiteKey' => '' ],
+				'global-key',
+				false,
+				[ 'global-key' ]
+			],
+			'Normal mode - only additional keys (no primary), includes global as primary' => [
+				[ 'HCaptchaAdditionalValidSiteKeys' => [ 'additional-key' ] ],
+				'global-key',
+				false,
+				[ 'global-key', 'additional-key' ]
+			],
+			'Normal mode - only empty additional keys, falls back to global' => [
+				[ 'HCaptchaAdditionalValidSiteKeys' => [ '', null ] ],
+				'global-key',
+				false,
+				[ 'global-key' ]
+			],
+			'Force show mode - has always challenge key' => [
+				[
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
+				],
+				'global-key',
+				true,
+				[ 'challenge-key' ]
+			],
+			'Force show mode - no always challenge key, falls back to normal mode (primary only)' => [
+				[ 'HCaptchaSiteKey' => 'normal-key' ],
+				'global-key',
+				true,
+				[ 'normal-key' ]
+			],
+			'Force show mode - no always challenge key, falls back to normal mode with additional keys' => [
+				[
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAdditionalValidSiteKeys' => [ 'additional-key-1', 'additional-key-2' ]
+				],
+				'global-key',
+				true,
+				[ 'normal-key', 'additional-key-1', 'additional-key-2' ]
+			],
+			'Force show mode - no always challenge key, no action config, uses global' => [
+				[],
+				'global-key',
+				true,
+				[ 'global-key' ]
+			],
+			'Force show mode - with always challenge key, ignores additional keys' => [
+				[
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key',
+					'HCaptchaAdditionalValidSiteKeys' => [ 'additional-key-1', 'additional-key-2' ]
+				],
+				'global-key',
+				true,
+				[ 'challenge-key' ]
 			],
 		];
 	}

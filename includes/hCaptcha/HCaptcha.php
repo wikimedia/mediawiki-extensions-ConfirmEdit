@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 
+use LogicException;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Config\Config;
@@ -215,10 +216,11 @@ class HCaptcha extends SimpleCaptcha {
 			return false;
 		}
 
-		// Verify sitekey matches to detect client-side tampering (T410024)
-		$siteKeyForAction = $this->getSiteKeyForAction();
-		$requestSiteKey = $json['sitekey'] ?? null;
-		if ( $siteKeyForAction !== $requestSiteKey ) {
+		// Verify that the sitekey is among those allowed in order to prevent
+		// client-side tampering (T410024, T410657).
+		$siteKeyUsed = $json['sitekey'] ?? null;
+
+		if ( !in_array( $siteKeyUsed, $this->getAllowedSiteKeysForCurrentAction() ) ) {
 			$this->error = 'sitekey-mismatch';
 			$this->logCheckError( $this->error, $user );
 			return false;
@@ -430,11 +432,75 @@ class HCaptcha extends SimpleCaptcha {
 	 * @return string The hCaptcha SiteKey associated with this instance
 	 */
 	public function getSiteKeyForAction(): string {
-		$siteKey = $this->getConfig()['HCaptchaSiteKey'] ?? $this->hCaptchaConfig->get( 'HCaptchaSiteKey' );
+		$siteKey = $this->getPrimarySiteKey();
 		if ( $this->shouldForceShowCaptcha() ) {
 			$siteKey = $this->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ?? $siteKey;
 		}
 
 		return $siteKey;
+	}
+
+	/**
+	 * Get a list of allowed SiteKeys for the current action.
+	 *
+	 * If Always Challenge Mode is enabled and HCaptchaAlwaysChallengeSiteKey is set,
+	 * this method returns an array containing only that key. If Always Challenge
+	 * Mode is enabled but HCaptchaAlwaysChallengeSiteKey is not set, this method
+	 * falls back to normal mode behavior (primary key plus additional keys).
+	 *
+	 * Otherwise, this returns a list containing the primary SiteKey for the current
+	 * action plus any additional key provided under the HCaptchaAdditionalValidSiteKeys
+	 * configuration key for the current action.
+	 *
+	 * @return string[] A list of allowed hCaptcha SiteKeys allowed for this instance
+	 */
+	private function getAllowedSiteKeysForCurrentAction(): array {
+		$triggerConfig = $this->getConfig();
+
+		// In Always Challenge Mode, return only the Always Challenge SiteKey if set.
+		// If not set, fallback to normal mode behavior to avoid unexpected edge cases.
+		if ( $this->shouldForceShowCaptcha() ) {
+			if ( isset( $triggerConfig['HCaptchaAlwaysChallengeSiteKey'] ) ) {
+				return [ $triggerConfig['HCaptchaAlwaysChallengeSiteKey'] ];
+			}
+			// Fall through to normal mode behavior
+		}
+
+		// For normal mode, return the primary SiteKey for the current action
+		// as well as any additional keys listed as valid for it.
+		$allowedKeys = array_merge(
+			// Use getPrimarySiteKey() which handles fallback to global config
+			[ $this->getPrimarySiteKey() ],
+
+			// Retrieve any additional key listed as allowed for the requested action
+			// (i.e. those at self::getConfig()['HCaptchaAdditionalValidSiteKeys']).
+			(array)( $triggerConfig['HCaptchaAdditionalValidSiteKeys'] ?? [] )
+		);
+
+		// Remove duplicates and empty values, if any
+		return array_values( array_filter( array_unique( $allowedKeys ) ) );
+	}
+
+	/**
+	 * Returns the hCaptcha primary SiteKey to be used by this instance.
+	 *
+	 * The primary SiteKey is either the value for HCaptchaSiteKey set in the
+	 * trigger config for the current action or, if not set or empty, the HCaptchaSiteKey
+	 * set in the root-level configuration.
+	 *
+	 * @return string
+	 */
+	private function getPrimarySiteKey(): string {
+		$key = $this->getConfig()['HCaptchaSiteKey'] ?? null;
+		// Treat empty strings as missing, fallback to global config
+		if ( $key === null || $key === '' ) {
+			$key = $this->hCaptchaConfig->get( 'HCaptchaSiteKey' );
+		}
+
+		if ( $key === null ) {
+			throw new LogicException( 'wgHCaptchaSiteKey is not set' );
+		}
+
+		return $key;
 	}
 }

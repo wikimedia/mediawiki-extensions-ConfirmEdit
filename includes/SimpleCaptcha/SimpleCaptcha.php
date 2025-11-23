@@ -1243,7 +1243,7 @@ class SimpleCaptcha {
 	public function showHelp( OutputPage $out ) {
 		$msg = wfMessage( static::$messagePrefix . 'help-text' );
 		if ( $msg->isDisabled() ) {
-			// Fallback to simplecaptchahelp-text
+			// Fallback to captchahelp-text
 			$msg = wfMessage( self::$messagePrefix . 'help-text' );
 		}
 

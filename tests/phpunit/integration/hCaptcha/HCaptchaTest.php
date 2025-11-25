@@ -924,6 +924,12 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				false,
 				[ 'global-key' ]
 			],
+			'Normal mode - has always challenge key' => [
+				[ 'HCaptchaAdditionalValidSiteKeys' => [ 'challenge-key' ] ],
+				'global-key',
+				false,
+				[ 'challenge-key', 'global-key' ]
+			],
 			'Force show mode - has always challenge key' => [
 				[
 					'HCaptchaSiteKey' => 'normal-key',

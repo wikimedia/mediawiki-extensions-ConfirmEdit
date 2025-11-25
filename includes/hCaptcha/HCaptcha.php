@@ -471,7 +471,9 @@ class HCaptcha extends SimpleCaptcha {
 		$allowedKeys = array_merge(
 			// Use getPrimarySiteKey() which handles fallback to global config
 			[ $this->getPrimarySiteKey() ],
-
+			// Include HCaptchaAlwaysChallengeSiteKey, because the second POST
+			// after an AbuseFilter challenge will be using this SiteKey
+			[ $triggerConfig['HCaptchaAlwaysChallengeSiteKey'] ?? '' ],
 			// Retrieve any additional key listed as allowed for the requested action
 			// (i.e. those at self::getConfig()['HCaptchaAdditionalValidSiteKeys']).
 			(array)( $triggerConfig['HCaptchaAdditionalValidSiteKeys'] ?? [] )

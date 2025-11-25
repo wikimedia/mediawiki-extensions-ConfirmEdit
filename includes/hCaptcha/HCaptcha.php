@@ -474,7 +474,7 @@ class HCaptcha extends SimpleCaptcha {
 
 			// Retrieve any additional key listed as allowed for the requested action
 			// (i.e. those at self::getConfig()['HCaptchaAdditionalValidSiteKeys']).
-			(array)( $triggerConfig['HCaptchaAdditionalValidSiteKeys'] ?? [] )
+			$triggerConfig['HCaptchaAdditionalValidSiteKeys'] ?? []
 		);
 
 		// Remove duplicates and empty values, if any
@@ -491,11 +491,8 @@ class HCaptcha extends SimpleCaptcha {
 	 * @return string
 	 */
 	private function getPrimarySiteKey(): string {
-		$key = $this->getConfig()['HCaptchaSiteKey'] ?? null;
-		// Treat empty strings as missing, fallback to global config
-		if ( $key === null || $key === '' ) {
-			$key = $this->hCaptchaConfig->get( 'HCaptchaSiteKey' );
-		}
+		$key = $this->getConfig()['HCaptchaSiteKey'] ??
+			$this->hCaptchaConfig->get( 'HCaptchaSiteKey' );
 
 		if ( $key === null ) {
 			throw new LogicException( 'wgHCaptchaSiteKey is not set' );

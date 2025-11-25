@@ -451,14 +451,8 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	public static function providePassCaptcha(): array {
 		return [
 			'Passes hCaptcha check, in developer mode' => [
-				'bool $captchaPassedSuccessfully' => true,
-				'bool $developerMode,' => true,
-				'bool $useRiskScore,' => false,
-				'bool $sendRemoteIP,' => false,
-				'array $mockApiResponse' => [
-					'success' => true, 'score' => 123, 'score_reason' => 'test',
-					'sitekey' => 'test-sitekey'
-				],
+				true, true, false, false,
+				[ 'success' => true, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
 			],
 			'Passes hCaptcha check, not in developer mode, sending remote IP' => [
 				true, false, false, true,
@@ -831,11 +825,6 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'global-key',
 				'global-key'
 			],
-			'Action config has empty string, falls back to global' => [
-				[ 'HCaptchaSiteKey' => '' ],
-				'global-key',
-				'global-key'
-			],
 			'Action config has null, falls back to global' => [
 				[ 'HCaptchaSiteKey' => null ],
 				'global-key',
@@ -902,12 +891,6 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			],
 			'Normal mode - no action config, falls back to global' => [
 				[],
-				'global-key',
-				false,
-				[ 'global-key' ]
-			],
-			'Normal mode - action config has empty site key, treats as missing and uses global' => [
-				[ 'HCaptchaSiteKey' => '' ],
 				'global-key',
 				false,
 				[ 'global-key' ]

@@ -84,7 +84,8 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 
 		$hCaptcha = new HCaptcha();
 		$hCaptcha->passCaptchaFromRequest(
-			new FauxRequest(), $this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
+			new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
+			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
 		);
 		$this->assertSame( 'http', $hCaptcha->getError() );
 		$this->assertSame( [ 'html' => 'mock html' ], $hCaptcha->getFormInformation( 1, $mockOutputPage ) );
@@ -118,7 +119,8 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			$this->installMockHttp( $mwHttpRequest );
 
 			$hCaptcha->passCaptchaFromRequest(
-				new FauxRequest(), $this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
+				new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
+				$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
 			);
 			$this->assertSame( 'http', $hCaptcha->getError() );
 		} else {
@@ -215,6 +217,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 						'captcha_type' => 'hcaptcha',
 						'captcha_action' => 'edit',
 						'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+						'hcaptcha_token' => 'abcdef',
 						'clientIp' => '127.0.0.1',
 						'ua' => false,
 						'user_exists_locally' => false,
@@ -266,6 +269,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 						'captcha_type' => 'hcaptcha',
 						'captcha_action' => 'edit',
 						'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+						'hcaptcha_token' => 'abcdef',
 						'clientIp' => '127.0.0.1',
 						'ua' => false,
 						'user_exists_locally' => false,
@@ -311,6 +315,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 						'captcha_type' => 'hcaptcha',
 						'captcha_action' => 'edit',
 						'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+						'hcaptcha_token' => 'abcdef',
 						'clientIp' => '127.0.0.1',
 						'ua' => false,
 						'user_exists_locally' => false,
@@ -393,6 +398,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			'success_message' => $mockApiResponse['success'] ? 'Successful' : 'Failed',
 			'captcha_action' => 'edit',
 			'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+			'hcaptcha_token' => 'abcdef',
 			'hcaptcha_response_sitekey' => 'test-sitekey',
 			'clientIp' => '1.2.3.4',
 			'ua' => false,

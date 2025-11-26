@@ -209,6 +209,10 @@
 			"description": "Additional regexes to check for. Use full regexes; can match things other than URLs such as junk edits. If the new version matches one and the old version doesn't, show the captcha screen.",
 			"value": []
 		},
+		"CaptchaAbuseFilterCaptchaConsequenceTTL": {
+			"description": "Used to customize the amount of time (in seconds) in which further user actions will require solving a captcha once an abuse filter triggers the showcaptcha consequence.",
+			"value": 120
+		},
 		"ConfirmEditEnabledAbuseFilterCustomActions": {
 			"description": "Feature flag to toggle list of available custom actions to enable in AbuseFilter. See AbuseFilterHooks::onAbuseFilterCustomActions.",
 			"value": []

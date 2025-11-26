@@ -38,11 +38,21 @@ use OOUI\NumberInputWidget;
 use UnexpectedValueException;
 use Wikimedia\IPUtils;
 use Wikimedia\Rdbms\IDBAccessObject;
+use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
  * Demo CAPTCHA (not for production usage) and base class for real CAPTCHAs
  */
 class SimpleCaptcha {
+	/**
+	 * The session key that stores the UNIX timestamp when the AbuseFilter
+	 * "showcaptcha" consequence stops applying to the user represented by the session.
+	 *
+	 * This is used to enforce that `::shouldForceShowCaptcha` persists across
+	 * the requests made for a single action.
+	 */
+	public const ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY = 'confirmedit-captcha-consequence';
+
 	/** @var string */
 	protected static $messagePrefix = 'captcha';
 
@@ -698,6 +708,19 @@ class SimpleCaptcha {
 	 *  bypass this override.
 	 */
 	public function shouldForceShowCaptcha(): bool {
+		if ( $this->forceShowCaptcha ) {
+			return $this->forceShowCaptcha;
+		}
+
+		$expiry = (int)RequestContext::getMain()->getRequest()->getSession()->get(
+			self::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY,
+			0
+		);
+
+		// Update the local variable in order to avoid further lookups in the
+		// user session on next calls in case the session value is still valid.
+		$this->forceShowCaptcha = ( $expiry > ConvertibleTimestamp::time() );
+
 		return $this->forceShowCaptcha;
 	}
 
@@ -709,6 +732,33 @@ class SimpleCaptcha {
 	 */
 	public function setForceShowCaptcha( bool $forceShowCaptcha ): void {
 		$this->forceShowCaptcha = $forceShowCaptcha;
+
+		// The flag won't survive a page reload in cases when the user is taken
+		// back to the edit form with an error message stating that the captcha
+		// should be solved. Therefore, a session variable is used to make
+		// ::shouldForceShowCaptcha() return true even if it is called on an
+		// instance where setForceShowCaptcha() has not been explicitly called
+		// as part of handling the current request.
+		//
+		// Please note that makes the showcaptcha consequence to remain set for
+		// next requests instead of being set just for the current one.
+		//
+		// On the other hand, if the flag is explicitly set back to false, the
+		// session variable is removed.
+		$session = RequestContext::getMain()->getRequest()->getSession();
+		if ( $forceShowCaptcha ) {
+			$session->set(
+				self::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY,
+				ConvertibleTimestamp::time() +
+					MediaWikiServices::getInstance()->getMainConfig()->get(
+						'CaptchaAbuseFilterCaptchaConsequenceTTL'
+					)
+			);
+		} else {
+			$session->remove(
+				self::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
+			);
+		}
 	}
 
 	/**

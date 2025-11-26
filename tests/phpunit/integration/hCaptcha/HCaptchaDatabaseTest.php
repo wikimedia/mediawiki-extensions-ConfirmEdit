@@ -6,6 +6,7 @@ use MediaWiki\Content\ContentHandler;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Json\FormatJson;
+use MediaWiki\Request\FauxRequest;
 use MediaWiki\Status\Status;
 use MediaWikiIntegrationTestCase;
 use MockHttpTrait;
@@ -42,6 +43,7 @@ class HCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		$status = Status::newGood();
 		$context = RequestContext::getMain();
 		$context->setUser( $user );
+		$context->setRequest( new FauxRequest( [ 'captchaword' => 'abcdef' ] ) );
 		$context->setTitle( $title );
 
 		$simpleCaptcha = new HCaptcha();

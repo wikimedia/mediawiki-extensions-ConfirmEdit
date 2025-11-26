@@ -86,7 +86,7 @@ class HCaptcha extends SimpleCaptcha {
 		}
 	}
 
-	protected function logCheckError( Status|array|string $info, UserIdentity $userIdentity ): void {
+	protected function logCheckError( Status|array|string $info, UserIdentity $userIdentity, string $token ): void {
 		if ( $info instanceof Status ) {
 			$errors = $info->getErrorsArray();
 			$error = $errors[0][0];
@@ -102,6 +102,7 @@ class HCaptcha extends SimpleCaptcha {
 			'captcha_type' => self::$messagePrefix,
 			'captcha_action' => $this->action ?? '-',
 			'captcha_trigger' => $this->trigger ?? '-',
+			'hcaptcha_token' => $token,
 		] + RequestContext::getMain()->getRequest()->getSecurityLogContext( $userIdentity ) );
 	}
 
@@ -109,7 +110,12 @@ class HCaptcha extends SimpleCaptcha {
 	protected function getCaptchaParamsFromRequest( WebRequest $request ) {
 		$response = $request->getVal(
 			'h-captcha-response',
-			$request->getVal( 'captchaWord', $request->getVal( 'captchaword' ) )
+			// This is sad, but apparently all of these are valid
+			$request->getVal( 'captchaWord',
+				$request->getVal( 'captchaword',
+					$request->getVal( 'wpCaptchaWord' )
+				)
+			)
 		);
 		return [ '', $response ];
 	}
@@ -200,19 +206,19 @@ class HCaptcha extends SimpleCaptcha {
 		if ( !$status->isOK() ) {
 			$this->error = 'http';
 			$this->healthChecker->incrementSiteVerifyApiErrorCount();
-			$this->logCheckError( $status, $user );
+			$this->logCheckError( $status, $user, $token );
 			return false;
 		}
 		$json = FormatJson::decode( $request->getContent(), true );
 		if ( !$json ) {
 			$this->error = 'json';
 			$this->healthChecker->incrementSiteVerifyApiErrorCount();
-			$this->logCheckError( $this->error, $user );
+			$this->logCheckError( $this->error, $user, $token );
 			return false;
 		}
 		if ( isset( $json['error-codes'] ) ) {
 			$this->error = 'hcaptcha-api';
-			$this->logCheckError( $json['error-codes'], $user );
+			$this->logCheckError( $json['error-codes'], $user, $token );
 			return false;
 		}
 
@@ -222,7 +228,7 @@ class HCaptcha extends SimpleCaptcha {
 
 		if ( !in_array( $siteKeyUsed, $this->getAllowedSiteKeysForCurrentAction() ) ) {
 			$this->error = 'sitekey-mismatch';
-			$this->logCheckError( $this->error, $user );
+			$this->logCheckError( $this->error, $user, $token );
 			return false;
 		}
 
@@ -230,6 +236,7 @@ class HCaptcha extends SimpleCaptcha {
 			'event' => 'captcha.solve',
 			'user' => $user->getName(),
 			'hcaptcha_success' => $json['success'],
+			'hcaptcha_token' => $token,
 			'captcha_type' => self::$messagePrefix,
 			'success_message' => $json['success'] ? 'Successful' : 'Failed',
 			'captcha_action' => $this->action ?? '-',

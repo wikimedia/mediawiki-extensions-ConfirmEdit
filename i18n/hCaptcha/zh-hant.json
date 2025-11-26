@@ -19,5 +19,6 @@
 	"hcaptcha-generic-error": "載入表單時發生錯誤。要繼續，您需要重新載入頁面。",
 	"hcaptcha-loading-indicator-label": "正在載入表單，請稍候…",
 	"hcaptcha-missing-token": "表單尚未載入完畢。請等待幾秒鐘，然後再試一次。",
-	"hcaptcha-noscript": "需要 JavaScript 才能繼續。請在您的瀏覽器設定中啟用 JavaScript，然後重新整理頁面。"
+	"hcaptcha-noscript": "需要 JavaScript 才能繼續。請在您的瀏覽器設定中啟用 JavaScript，然後重新整理頁面。",
+	"hcaptcha-force-show-captcha-edit": "請重新提交表格，並完成問題以保存您的編輯內容。"
 }

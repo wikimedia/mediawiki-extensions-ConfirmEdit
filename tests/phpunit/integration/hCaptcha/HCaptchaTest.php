@@ -190,7 +190,8 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 					[
 						'method' => 'POST',
 						'postData' => [
-							'response' => 'abcdef',
+							// Test with no token supplied
+							'response' => '',
 							'secret' => 'secretkey',
 							'remoteip' => '127.0.0.1',
 						],
@@ -217,7 +218,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 						'captcha_type' => 'hcaptcha',
 						'captcha_action' => 'edit',
 						'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
-						'hcaptcha_token' => 'abcdef',
+						'hcaptcha_token' => '-',
 						'clientIp' => '127.0.0.1',
 						'ua' => false,
 						'user_exists_locally' => false,
@@ -232,7 +233,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$hCaptcha->setAction( 'edit' );
 		$hCaptcha->setTrigger( "edit trigger by '~2025-198' at [[Test]]" );
 		$this->assertFalse( $hCaptcha->passCaptchaFromRequest(
-			new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
+			new FauxRequest(),
 			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
 		) );
 

@@ -86,7 +86,7 @@ class HCaptcha extends SimpleCaptcha {
 		}
 	}
 
-	protected function logCheckError( Status|array|string $info, UserIdentity $userIdentity, string $token ): void {
+	protected function logCheckError( Status|array|string $info, UserIdentity $userIdentity, ?string $token ): void {
 		if ( $info instanceof Status ) {
 			$errors = $info->getErrorsArray();
 			$error = $errors[0][0];
@@ -102,7 +102,7 @@ class HCaptcha extends SimpleCaptcha {
 			'captcha_type' => self::$messagePrefix,
 			'captcha_action' => $this->action ?? '-',
 			'captcha_trigger' => $this->trigger ?? '-',
-			'hcaptcha_token' => $token,
+			'hcaptcha_token' => $token ?? '-',
 		] + RequestContext::getMain()->getRequest()->getSecurityLogContext( $userIdentity ) );
 	}
 
@@ -152,7 +152,7 @@ class HCaptcha extends SimpleCaptcha {
 	 * https://github.com/google/recaptcha#php and https://docs.hcaptcha.com/
 	 *
 	 * @param mixed $_ Not used
-	 * @param string $token token from the POST data
+	 * @param null|string $token token from the POST data
 	 * @param UserIdentity $user
 	 * @return bool
 	 */

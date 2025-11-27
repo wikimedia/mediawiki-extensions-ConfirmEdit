@@ -86,7 +86,7 @@ class HCaptcha extends SimpleCaptcha {
 		}
 	}
 
-	protected function logCheckError( Status|array|string $info, UserIdentity $userIdentity, ?string $token ): void {
+	protected function logCheckError( Status|array|string $info, UserIdentity $userIdentity, string $token ): void {
 		if ( $info instanceof Status ) {
 			$errors = $info->getErrorsArray();
 			$error = $errors[0][0];
@@ -102,7 +102,7 @@ class HCaptcha extends SimpleCaptcha {
 			'captcha_type' => self::$messagePrefix,
 			'captcha_action' => $this->action ?? '-',
 			'captcha_trigger' => $this->trigger ?? '-',
-			'hcaptcha_token' => $token ?? '-',
+			'hcaptcha_token' => $token,
 		] + RequestContext::getMain()->getRequest()->getSecurityLogContext( $userIdentity ) );
 	}
 
@@ -168,6 +168,21 @@ class HCaptcha extends SimpleCaptcha {
 			// Set an error here, so that the page will display an appropriate
 			// message for the user to resubmit the form.
 			$this->error = 'forceshowcaptcha';
+			return false;
+		}
+
+		if ( !$token ) {
+			$this->error = 'missing-token';
+			$this->logger->warning(
+				'No hCaptcha token present in the request; skipping siteverify call.',
+				[
+					'error' => $this->error,
+					'user' => $user->getName(),
+					'captcha_type' => self::$messagePrefix,
+					'captcha_action' => $this->action ?? '-',
+					'captcha_trigger' => $this->trigger ?? '-',
+				] + $webRequest->getSecurityLogContext( $user )
+			);
 			return false;
 		}
 		$data = [

@@ -190,8 +190,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 					[
 						'method' => 'POST',
 						'postData' => [
-							// Test with no token supplied
-							'response' => '',
+							'response' => 'abcdef',
 							'secret' => 'secretkey',
 							'remoteip' => '127.0.0.1',
 						],
@@ -218,7 +217,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 						'captcha_type' => 'hcaptcha',
 						'captcha_action' => 'edit',
 						'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
-						'hcaptcha_token' => '-',
+						'hcaptcha_token' => 'abcdef',
 						'clientIp' => '127.0.0.1',
 						'ua' => false,
 						'user_exists_locally' => false,
@@ -233,7 +232,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$hCaptcha->setAction( 'edit' );
 		$hCaptcha->setTrigger( "edit trigger by '~2025-198' at [[Test]]" );
 		$this->assertFalse( $hCaptcha->passCaptchaFromRequest(
-			new FauxRequest(),
+			new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
 			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
 		) );
 
@@ -243,6 +242,45 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		// Verify that ::getMessage will output the message as usual but with an error background
 		$actualMessage = $hCaptcha->getMessage( 'edit' );
 		$this->assertSame( '<div class="error">(hcaptcha-edit)</div>', $actualMessage->text() );
+	}
+
+	public function testPassCaptchaSkipsSiteVerifyWhenTokenMissing() {
+		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
+		$mockHttpRequestFactory->expects( $this->never() )
+			->method( 'create' );
+		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
+
+		$mockLogger = $this->createMock( LoggerInterface::class );
+		$mockLogger->expects( $this->once() )
+			->method( 'warning' )
+			->with(
+				'No hCaptcha token present in the request; skipping siteverify call.',
+				$this->callback( function ( $actualData ) {
+					$expectedSubset = [
+						'user' => '1.2.3.4',
+						'error' => 'missing-token',
+						'captcha_type' => 'hcaptcha',
+						'captcha_action' => 'edit',
+						'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
+						'clientIp' => '127.0.0.1',
+						'ua' => false,
+						'user_exists_locally' => false,
+					];
+					$this->assertArrayContains( $expectedSubset, $actualData );
+					return true;
+				} )
+			);
+		$this->setLogger( 'captcha', $mockLogger );
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->setAction( 'edit' );
+		$hCaptcha->setTrigger( "edit trigger by '~2025-198' at [[Test]]" );
+
+		$this->assertFalse( $hCaptcha->passCaptchaFromRequest(
+			new FauxRequest(),
+			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
+		) );
+		$this->assertSame( 'missing-token', $hCaptcha->getError() );
 	}
 
 	public function testPassCaptchaForInvalidJsonResponse() {

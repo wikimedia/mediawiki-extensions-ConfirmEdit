@@ -609,11 +609,15 @@ class SimpleCaptcha {
 			$numLinks = count( $addedLinks );
 
 			if ( $numLinks > 0 ) {
-				$this->trigger = sprintf( "%dx url trigger by '%s' at [[%s]]: %s",
-					$numLinks,
+				$this->trigger = sprintf(
+					"URL trigger by '%s' at [[%s]] (%u URLs): %s",
 					$user->getName(),
 					$title->getPrefixedText(),
-					implode( ", ", $addedLinks ) );
+					$numLinks,
+					// T411168 Truncate the message if it contains too many URLs
+					$this->joinURLs( $addedLinks )
+				);
+
 				$this->action = CaptchaTriggers::ADD_URL;
 
 				// Set instance-specific config from CaptchaTriggers for addurl
@@ -1361,5 +1365,56 @@ class SimpleCaptcha {
 		$hookRunner->onConfirmEditCanUserSkipCaptcha( $user, $result );
 
 		return $result;
+	}
+
+	/**
+	 * Given a list of URLs, returns them concatenated (separated by commas).
+	 *
+	 * In case the string resulting from concatenating all of them exceeds a
+	 * fixed max size of 4 kB, the last URLs are replaced by "...". However, if
+	 * no URL is shorter than 4 kB, the returned value will include the shortest
+	 * URL plus a ", ..." postfix indicating there are URLs that were omitted.
+	 *
+	 * @param string[] $urls URLs to be concatenated
+	 * @return string
+	 */
+	private function joinURLs( array $urls ): string {
+		if ( count( $urls ) === 0 ) {
+			return '';
+		}
+
+		usort(
+			$urls,
+			static fn ( $a, $b ) => strlen( $a ) <=> strlen( $b )
+		);
+
+		$urlString = '';
+
+		foreach ( $urls as $link ) {
+			if ( strlen( $link ) > 4090 ) {
+				// URLs from this one onward cannot fit individually within
+				// the size limit.
+				break;
+			}
+
+			$candidate = ( $urlString === '' ? $link : "{$urlString}, {$link}" );
+
+			// Ensure the list of URLs remains below 4kB. To do so, compare
+			// against 4090 to take into account the length of the postfix
+			// appended (5 chars) in case $candidate is too long.
+			if ( strlen( $candidate ) > 4090 ) {
+				$urlString .= ', ...';
+				break;
+			}
+
+			$urlString = $candidate;
+		}
+
+		if ( $urlString === '' ) {
+			// All URLs were > 4090 bytes, return the shortest one anyway
+			return ( $urls[0] ?? '' ) . ( count( $urls ) > 1 ? ', ...' : '' );
+		}
+
+		return $urlString;
 	}
 }

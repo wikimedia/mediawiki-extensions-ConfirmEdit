@@ -239,6 +239,7 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		string $contentText,
 		bool $expectedResult,
 		string $expectedAction,
+		array $expectedTriggerMessages,
 		string $description
 	) {
 		$this->overrideConfigValue( 'CaptchaTriggers', $captchaTriggers );
@@ -268,9 +269,28 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 			$wrapper = TestingAccessWrapper::newFromObject( $simpleCaptcha );
 			$actionMsg = "Action should be $expectedAction: $description";
 			$this->assertSame( $expectedAction, $wrapper->action, $actionMsg );
+
 			if ( $expectedAction === 'addurl' ) {
-				$this->assertStringContainsString( 'url trigger', $wrapper->trigger );
+				// Verify that the message logged contains a given set of parts.
+				// This is done this way (instead of providing the expected full
+				// message directly) because names for users and pages used in
+				// tests are not known in advance, and because some messages are
+				// too long to be included in the data provider verbatim.
+				foreach ( $expectedTriggerMessages as $expectedTriggerMessage ) {
+					$this->assertStringContainsString(
+						$expectedTriggerMessage,
+						$wrapper->trigger
+					);
+				}
 			}
+
+			// (T411168) Ensure the message size is below 4.25 kB, given that
+			// the list of URLs should be trimmed below 4096 bytes and the fixed
+			// pats of the message are around 130 bytes.
+			//
+			// This length restriction is required to prevent errors when
+			// logging messages caused by adding hundreds of URLs to a page.
+			$this->assertLessThan( 4250, strlen( $wrapper->trigger ) );
 		}
 	}
 
@@ -285,6 +305,11 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 				'contentText' => 'Some text with a new URL: https://example.com/new-link',
 				'expectedResult' => true,
 				'expectedAction' => 'addurl',
+				'expectedTriggerMessages' => [
+					'URL trigger by ',
+					'(1 URLs)',
+					'https://example.com/new-link'
+				],
 				'description' => 'All triggers enabled, addurl should take precedence',
 			],
 			'addurl works in 100% passive mode' => [
@@ -296,7 +321,39 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 				'contentText' => 'Some text with a new URL: https://example.com/new-link',
 				'expectedResult' => true,
 				'expectedAction' => 'addurl',
+				'expectedTriggerMessages' => [
+					'URL trigger by ',
+					'(1 URLs)',
+					'https://example.com/new-link'
+				],
 				'description' => '100% passive mode: edit/create disabled, addurl enabled',
+			],
+			'addurl trims the list of URLs included in the trigger message' => [
+				'captchaTriggers' => [
+					'edit' => true,
+					'create' => true,
+					'addurl' => true,
+				],
+				'contentText' =>
+					'Some text with a number of different URLs: ' .
+					implode( ' ', array_map(
+						static fn ( int $i ) => "https://example.com/new-link-{$i}",
+						range( 1, 130 )
+					) ),
+				'expectedResult' => true,
+				'expectedAction' => 'addurl',
+				'expectedTriggerMessages' => [
+					// T411168 Includes the first links, separated by commas...
+					'https://example.com/new-link-1, ',
+					'https://example.com/new-link-2, ',
+					'https://example.com/new-link-3, ',
+					// ...and up to the 123, which is the last one before
+					// exceeding the allowed size. After that, three dots are
+					// added to indicate that there were more URLs, but have
+					// been omitted from the message
+					'https://example.com/new-link-123, ...',
+				],
+				'description' => 'All triggers enabled, addurl should take precedence',
 			],
 			'edit works as fallback when addurl does not trigger' => [
 				'captchaTriggers' => [
@@ -307,6 +364,9 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 				'contentText' => 'Some text without URLs',
 				'expectedResult' => true,
 				'expectedAction' => 'edit',
+				'expectedTriggerMessage' => [
+					// unused in this scenario since expectedAction is not addurl
+				],
 				'description' => 'When addurl does not trigger, edit should work as fallback',
 			],
 		];

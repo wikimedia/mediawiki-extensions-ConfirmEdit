@@ -1,20 +1,16 @@
 const utils = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/utils.js' );
 const hCaptchaSaveErrorHandler = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaSaveErrorHandler.js' );
 
-QUnit.module.if( 'VisualEditor', mw.loader.getModuleNames().includes( 'ext.visualEditor.targetLoader' ), () => {
-	QUnit.module( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', QUnit.newMwEnvironment( {
-		beforeEach() {
-			this.loadHCaptcha = this.sandbox.stub( utils, 'loadHCaptcha' );
+QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.loader.getState( 'ext.visualEditor.targetLoader' ), QUnit.newMwEnvironment(), ( hooks ) => {
 
-			// In a real environment, initPlugins.js does this for us. However, to avoid
-			// side effects, we don't use that method of loading the code we are testing.
-			// Therefore, run this ourselves.
-			require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptcha.js' )();
-		},
-		afterEach() {
-			this.loadHCaptcha.restore();
-		}
-	} ) );
+	hooks.beforeEach( function () {
+		this.loadHCaptcha = this.sandbox.stub( utils, 'loadHCaptcha' );
+
+		// In a real environment, initPlugins.js does this for us. However, to avoid
+		// side effects, we don't use that method of loading the code we are testing.
+		// Therefore, run this ourselves.
+		require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptcha.js' )();
+	} );
 
 	QUnit.test( 'getReadyPromise uses loadHCaptcha', function ( assert ) {
 		this.loadHCaptcha.returns( Promise.resolve() );

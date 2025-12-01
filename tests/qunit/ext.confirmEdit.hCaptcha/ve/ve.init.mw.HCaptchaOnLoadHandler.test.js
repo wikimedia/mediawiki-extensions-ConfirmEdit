@@ -2,43 +2,31 @@ const hCaptchaUtils = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptch
 const hCaptchaOnLoadHandler = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaOnLoadHandler.js' );
 const hCaptchaConfig = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/config.json' );
 
-QUnit.module.if( 'VisualEditor', mw.loader.getModuleNames().includes( 'ext.visualEditor.targetLoader' ), () => {
-	QUnit.module( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', QUnit.newMwEnvironment( {
-		beforeEach() {
-			this.loadHCaptcha = this.sandbox.stub( hCaptchaUtils, 'loadHCaptcha' );
-			mw.config.set( 'wgConfirmEditHCaptchaSiteKey', 'test-site-key' );
+QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.getState( 'ext.visualEditor.targetLoader' ), QUnit.newMwEnvironment(), ( hooks ) => {
 
-			this.origVisualEditorSurface = ve.init.target.surface;
-			ve.init.target.surface = {};
+	hooks.beforeEach( function () {
+		mw.config.set( 'wgConfirmEditHCaptchaSiteKey', 'test-site-key' );
 
-			this.window = {
-				hcaptcha: {
-					render: this.sandbox.stub()
-				}
-			};
+		sinon.replace( ve.init.target, 'surface', {} );
+		sinon.replace( hCaptchaConfig, 'HCaptchaSiteKey', 'test-default-site-key' );
+		sinon.replace( hCaptchaConfig, 'HCaptchaInvisibleMode', false );
 
-			this.origSiteKey = hCaptchaConfig.HCaptchaSiteKey;
-			this.origInvisibleMode = hCaptchaConfig.HCaptchaInvisibleMode;
+		this.loadHCaptcha = sinon.stub( hCaptchaUtils, 'loadHCaptcha' );
 
-			hCaptchaConfig.HCaptchaSiteKey = 'test-default-site-key';
-			hCaptchaConfig.HCaptchaInvisibleMode = false;
+		this.window = {
+			hcaptcha: {
+				render: sinon.stub()
+			}
+		};
 
-			// In a real environment, initPlugins.js does this for us. However, to avoid
-			// side effects, we don't use that method of loading the code we are testing.
-			// Therefore, run this ourselves.
-			require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptcha.js' )();
-		},
-		afterEach() {
-			this.loadHCaptcha.restore();
-			mw.config.set( 'wgConfirmEditHCaptchaSiteKey', '' );
-			ve.init.mw.HCaptchaOnLoadHandler.static.readyPromise = null;
-
-			ve.init.target.surface = this.origVisualEditorSurface;
-
-			hCaptchaConfig.HCaptchaSiteKey = this.origSiteKey;
-			hCaptchaConfig.HCaptchaInvisibleMode = this.origInvisibleMode;
-		}
-	} ) );
+		// In a real environment, initPlugins.js does this for us. However, to avoid
+		// side effects, we don't use that method of loading the code we are testing.
+		// Therefore, run this ourselves.
+		require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptcha.js' )();
+	} );
+	hooks.afterEach( () => {
+		ve.init.mw.HCaptchaOnLoadHandler.static.readyPromise = null;
+	} );
 
 	QUnit.test( 'transact event in VisualEditor surface causes hCaptcha load once', function ( assert ) {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
@@ -121,20 +109,17 @@ QUnit.module.if( 'VisualEditor', mw.loader.getModuleNames().includes( 'ext.visua
 		);
 	} );
 
-	QUnit.test( 'renderHCaptcha is called when hCaptcha is not required for an edit', function ( assert ) {
+	QUnit.test( 'renderHCaptcha is called when hCaptcha is not required for an edit', async function ( assert ) {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'fancycaptcha' );
 
 		hCaptchaOnLoadHandler();
 
-		return ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target ).then(
-			() => {
-				assert.deepEqual(
-					this.loadHCaptcha.callCount,
-					0,
-					'loadHCaptcha is not called when hCaptcha is not required for an edit'
-				);
-			},
-			() => assert.false( true, 'renderHCaptcha should not return a rejected promise' )
+		await ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target );
+
+		assert.deepEqual(
+			this.loadHCaptcha.callCount,
+			0,
+			'loadHCaptcha is not called when hCaptcha is not required for an edit'
 		);
 	} );
 
@@ -220,7 +205,7 @@ QUnit.module.if( 'VisualEditor', mw.loader.getModuleNames().includes( 'ext.visua
 		'hCaptcha is not in invisible mode': {
 			invisibleMode: false
 		}
-	}, function ( assert, options ) {
+	}, async function ( assert, options ) {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
 		mw.config.set( 'wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled', true );
 
@@ -239,49 +224,45 @@ QUnit.module.if( 'VisualEditor', mw.loader.getModuleNames().includes( 'ext.visua
 			'widgetId property should be null before renderHCaptcha call'
 		);
 
-		return ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target ).then(
-			() => {
-				commonPostRenderHCaptchaAssertions( assert, this, options.invisibleMode );
+		await ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target );
+		commonPostRenderHCaptchaAssertions( assert, this, options.invisibleMode );
 
-				// Check that hcaptcha.render is called
-				assert.deepEqual(
-					this.window.hcaptcha.render.callCount,
-					1,
-					'window.hcaptcha.render is called once'
-				);
-				const actualRenderCallArgs = this.window.hcaptcha.render.firstCall.args;
-				// eslint-disable-next-line no-jquery/no-class-state
-				const isFirstRenderCallArgTheContainer = $( actualRenderCallArgs[ 0 ] ).hasClass( 'ext-confirmEdit-visualEditor-hCaptchaWidgetContainer' );
-				assert.true(
-					isFirstRenderCallArgTheContainer,
-					'window.hcaptcha.render was provided with the expected container'
-				);
-				assert.deepEqual(
-					actualRenderCallArgs[ 1 ],
-					{ sitekey: 'test-site-key' },
-					'window.hcaptcha.render was provided with the expected configuration values'
-				);
-				assert.deepEqual(
-					ve.init.mw.HCaptchaOnLoadHandler.static.widgetId,
-					'widget-id',
-					'widgetId property should be set with the return value of hcaptcha.render'
-				);
+		// Check that hcaptcha.render is called
+		assert.deepEqual(
+			this.window.hcaptcha.render.callCount,
+			1,
+			'window.hcaptcha.render is called once'
+		);
+		const actualRenderCallArgs = this.window.hcaptcha.render.firstCall.args;
+		// eslint-disable-next-line no-jquery/no-class-state
+		const isFirstRenderCallArgTheContainer = $( actualRenderCallArgs[ 0 ] ).hasClass( 'ext-confirmEdit-visualEditor-hCaptchaWidgetContainer' );
+		assert.true(
+			isFirstRenderCallArgTheContainer,
+			'window.hcaptcha.render was provided with the expected container'
+		);
+		assert.deepEqual(
+			actualRenderCallArgs[ 1 ],
+			{ sitekey: 'test-site-key' },
+			'window.hcaptcha.render was provided with the expected configuration values'
+		);
+		assert.deepEqual(
+			ve.init.mw.HCaptchaOnLoadHandler.static.widgetId,
+			'widget-id',
+			'widgetId property should be set with the return value of hcaptcha.render'
+		);
 
-				// Check there is no error message displayed
-				const $actualHCaptchaContainer = $( '.ext-confirmEdit-visualEditor-hCaptchaContainer' );
-				const $hcaptchaErrorWidget = $( '.cdx-message--error', $actualHCaptchaContainer );
-				assert.deepEqual(
-					$hcaptchaErrorWidget.length,
-					1,
-					'hCaptcha error message widget exists'
-				);
-				assert.deepEqual(
-					$hcaptchaErrorWidget.css( 'display' ),
-					'none',
-					'hCaptcha error message widget should be hidden'
-				);
-			},
-			() => assert.true( false, 'renderHCaptcha should not return a rejected promise' )
+		// Check there is no error message displayed
+		const $actualHCaptchaContainer = $( '.ext-confirmEdit-visualEditor-hCaptchaContainer' );
+		const $hcaptchaErrorWidget = $( '.cdx-message--error', $actualHCaptchaContainer );
+		assert.deepEqual(
+			$hcaptchaErrorWidget.length,
+			1,
+			'hCaptcha error message widget exists'
+		);
+		assert.deepEqual(
+			$hcaptchaErrorWidget.css( 'display' ),
+			'none',
+			'hCaptcha error message widget should be hidden'
 		);
 	} );
 
@@ -292,7 +273,7 @@ QUnit.module.if( 'VisualEditor', mw.loader.getModuleNames().includes( 'ext.visua
 		'hCaptcha is not in invisible mode': {
 			invisibleMode: false
 		}
-	}, function ( assert, options ) {
+	}, async function ( assert, options ) {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
 		mw.config.set( 'wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled', true );
 
@@ -310,41 +291,40 @@ QUnit.module.if( 'VisualEditor', mw.loader.getModuleNames().includes( 'ext.visua
 			'widgetId property should be null before renderHCaptcha call'
 		);
 
-		return ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target ).then(
-			() => assert.true( false, 'renderHCaptcha should not return a fulfilled promise' ),
-			() => {
-				commonPostRenderHCaptchaAssertions( assert, this, options.invisibleMode );
+		await assert.rejects(
+			ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target )
+		);
 
-				// Check that hcaptcha.render is not called, as the SDK loading failed
-				assert.true(
-					this.window.hcaptcha.render.notCalled,
-					'window.hcaptcha.render is never called'
-				);
-				assert.deepEqual(
-					ve.init.mw.HCaptchaOnLoadHandler.static.widgetId,
-					null,
-					'widgetId property should be null as window.hcaptcha.render was not called'
-				);
+		commonPostRenderHCaptchaAssertions( assert, this, options.invisibleMode );
 
-				// Check there is an error message displayed
-				const $actualHCaptchaContainer = $( '.ext-confirmEdit-visualEditor-hCaptchaContainer' );
-				const $hcaptchaErrorWidget = $( '.cdx-message--error', $actualHCaptchaContainer );
-				assert.deepEqual(
-					1,
-					$hcaptchaErrorWidget.length,
-					'hCaptcha error message widget exists'
-				);
-				assert.notDeepEqual(
-					$hcaptchaErrorWidget.css( 'display' ),
-					'none',
-					'hCaptcha error message widget should be visible'
-				);
-				assert.deepEqual(
-					'(hcaptcha-generic-error)',
-					$hcaptchaErrorWidget.text(),
-					'hCaptcha error message widget has the error message'
-				);
-			}
+		// Check that hcaptcha.render is not called, as the SDK loading failed
+		assert.true(
+			this.window.hcaptcha.render.notCalled,
+			'window.hcaptcha.render is never called'
+		);
+		assert.deepEqual(
+			ve.init.mw.HCaptchaOnLoadHandler.static.widgetId,
+			null,
+			'widgetId property should be null as window.hcaptcha.render was not called'
+		);
+
+		// Check there is an error message displayed
+		const $actualHCaptchaContainer = $( '.ext-confirmEdit-visualEditor-hCaptchaContainer' );
+		const $hcaptchaErrorWidget = $( '.cdx-message--error', $actualHCaptchaContainer );
+		assert.deepEqual(
+			1,
+			$hcaptchaErrorWidget.length,
+			'hCaptcha error message widget exists'
+		);
+		assert.notDeepEqual(
+			$hcaptchaErrorWidget.css( 'display' ),
+			'none',
+			'hCaptcha error message widget should be visible'
+		);
+		assert.deepEqual(
+			'(hcaptcha-generic-error)',
+			$hcaptchaErrorWidget.text(),
+			'hCaptcha error message widget has the error message'
 		);
 	} );
 } );

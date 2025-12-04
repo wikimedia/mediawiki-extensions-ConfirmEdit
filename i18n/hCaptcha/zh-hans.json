@@ -4,7 +4,8 @@
 			"GuoPC",
 			"Key0121",
 			"Lakejason0",
-			"XtexChooser"
+			"XtexChooser",
+			"Peterxy12"
 		]
 	},
 	"hcaptcha-desc": "ConfirmEdit的[https://www.hcaptcha.com/ hCaptcha]模块",
@@ -20,5 +21,6 @@
 	"hcaptcha-challenge-expired": "完成验证的时间限制已过。请重试。",
 	"hcaptcha-generic-error": "加载表单时出错。要继续，您需要重新加载页面。",
 	"hcaptcha-loading-indicator-label": "正在加载表单，请稍候…",
-	"hcaptcha-missing-token": "表单尚未加载完毕。请等待几秒，然后重试。"
+	"hcaptcha-missing-token": "表单尚未加载完毕。请等待几秒，然后重试。",
+	"hcaptcha-noscript": "需要JavaScript才能继续。请在您的浏览器设置中激活JavaScript，然后刷新页面。"
 }

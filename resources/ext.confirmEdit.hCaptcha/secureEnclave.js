@@ -4,6 +4,29 @@ const wiki = mw.config.get( 'wgDBname' );
 const { loadHCaptcha, executeHCaptcha, mapErrorCodeToMessageKey } = require( './utils.js' );
 
 /**
+ * If set, makes the next call to isSaveRequest() to return true unconditionally.
+ *
+ * This gets set when the Javascript configuration variable
+ * wgHCaptchaTriggerFormSubmission is set, so the user does not have to manually
+ * resubmit the form after an AbuseFilter consequence.
+ *
+ * @type {boolean}
+ */
+let editFormForceIsSaveRequest = false;
+
+/**
+ * Holds a Promise that resolves once the call to render the captcha resolves,
+ * or null if setupHCaptcha() has not been called yet.
+ *
+ * When this Promise resolves, hCaptcha is already set up and would intercept
+ * form submissions. Therefore, at that point it is safe to trigger a form
+ * submission programmatically.
+ *
+ * @type {?Promise<void>}
+ */
+let captchaIdPromise = null;
+
+/**
  * Load hCaptcha in Secure Enclave mode.
  *
  * @param {jQuery} $form The form to be protected by hCaptcha.
@@ -60,7 +83,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 		mw.track( 'confirmEdit.hCaptchaRenderCallback', 'open', interfaceName );
 	};
 
-	const captchaIdPromise = hCaptchaLoaded.then( () => win.hcaptcha.render( 'h-captcha', {
+	captchaIdPromise = hCaptchaLoaded.then( () => win.hcaptcha.render( 'h-captcha', {
 		'open-callback': onOpen,
 		'close-callback': () => {
 			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'close', interfaceName );
@@ -92,6 +115,12 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	 * @return {boolean}
 	 */
 	const isSaveRequest = ( event ) => {
+		if ( editFormForceIsSaveRequest ) {
+			editFormForceIsSaveRequest = false;
+
+			return true;
+		}
+
 		let result = true;
 
 		if ( $form.attr( 'id' ) === 'editform' ) {
@@ -234,7 +263,8 @@ async function useSecureEnclave( win ) {
 		interfaceName = 'edit';
 	}
 
-	// Load hCaptcha the first time the user interacts with the form.
+	// Load hCaptcha the first time the user interacts with the form, or load it
+	// immediately if wgHCaptchaTriggerFormSubmission is set.
 	return new Promise( ( resolve ) => {
 		const $inputs = $form.find( 'input, textarea' );
 
@@ -254,6 +284,24 @@ async function useSecureEnclave( win ) {
 
 			resolve( setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) );
 		} );
+
+		// If the backend requested to submit the form once the page is loaded,
+		// trigger the setup immediately, wait a bit so it has a chance to load
+		// the SDK, and then trigger the form submission programmatically.
+		if ( mw.config.get( 'wgHCaptchaTriggerFormSubmission' ) ) {
+			editFormForceIsSaveRequest = true;
+
+			// Note setupHCaptcha() is not awaited here since it won't resolve
+			// until the form is submitted, but the submission is triggered
+			// in the next line once loading hCaptcha completes.
+			setupHCaptcha( $form, $hCaptchaField, win, interfaceName );
+
+			// Note that although captchaIdPromise is initialized by the async
+			// function setupHCaptcha, that function does not await any promise
+			// before it does so and, therefore, it is guaranteed that a Promise
+			// is assigned to captchaIdPromise before we call .then() here.
+			captchaIdPromise.then( () => $form.trigger( 'submit' ) );
+		}
 	} );
 }
 

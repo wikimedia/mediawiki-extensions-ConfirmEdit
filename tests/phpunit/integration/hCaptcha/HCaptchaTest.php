@@ -1000,4 +1000,44 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 	}
+
+	/**
+	 * @dataProvider forceShowCaptchaAddsJsVarsDataProvider
+	 */
+	public function testForceShowCaptchaAddsJsVars(
+		bool $expected,
+		string $action
+	): void {
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->setAction( $action );
+		$hCaptcha->setForceShowCaptcha( true );
+
+		$key = 'wgHCaptchaTriggerFormSubmission';
+		$output = RequestContext::getMain()->getOutput();
+		$vars = $output->getJsConfigVars();
+
+		if ( $expected ) {
+			$this->assertArrayHasKey( $key, $vars );
+			$this->assertTrue( $vars[$key] );
+		} else {
+			$this->assertArrayNotHasKey( $key, $vars );
+		}
+	}
+
+	public static function forceShowCaptchaAddsJsVarsDataProvider(): array {
+		return [
+			'create action' => [
+				'expected' => true,
+				'action' => 'create',
+			],
+			'edit action' => [
+				'expected' => true,
+				'action' => 'edit',
+			],
+			'sendemail action' => [
+				'expected' => false,
+				'action' => 'sendemail',
+			],
+		];
+	}
 }

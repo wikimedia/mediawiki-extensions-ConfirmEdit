@@ -2,21 +2,24 @@ const useSecureEnclave = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCap
 const config = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/config.json' );
 
 /**
- * Introduces a delay taking one event cycle of the Javascript engine,
- * which allows pending actions to be processed.
+ * Introduces a delay which allows pending actions to be processed.
+ *
+ * By default, the delay takes one event cycle of the Javascript engine.
  *
  * This is used in order to have a chance for event handlers to run before
  * asserting their side effects.
  *
+ * @param {number} timeout Number of milliseconds to wait.
  * @return {Promise<void>}
  */
-const waitOneTick = () => new Promise( ( resolve ) => {
-	setTimeout( resolve );
+const delay = ( timeout = 0 ) => new Promise( ( resolve ) => {
+	setTimeout( resolve, timeout );
 } );
 
 QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( {
 	beforeEach() {
 		mw.config.set( 'wgDBname', 'testwiki' );
+		mw.config.set( 'wgHCaptchaTriggerFormSubmission', null );
 
 		// Prevent tests from keeping trying to load the hCaptcha script when
 		// testing the "onerror" logic.
@@ -118,7 +121,7 @@ QUnit.test.each( 'should load hCaptcha exactly once when the form is interacted 
 	$field.trigger( 'input' );
 	$field.trigger( 'input' );
 
-	await waitOneTick();
+	await delay();
 
 	assert.true( this.window.document.head.appendChild.calledOnce, 'should load hCaptcha SDK once' );
 	assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
@@ -139,7 +142,7 @@ QUnit.test( 'should load hCaptcha on form submissions triggered before hCaptcha 
 
 	this.$form.trigger( 'submit' );
 
-	await waitOneTick();
+	await delay();
 
 	assert.true( this.window.document.head.appendChild.calledOnce, 'should load hCaptcha SDK once' );
 	assert.true( this.submit.notCalled, 'form submission should have been prevented' );
@@ -234,7 +237,7 @@ QUnit.test( 'should intercept form submissions by default', async function ( ass
 	this.$form.find( '[name=some-input]' ).trigger( 'input' );
 	this.$form.trigger( 'submit' );
 
-	return Promise.all( [ waitOneTick(), result ] ).then(
+	return Promise.all( [ delay(), result ] ).then(
 		() => assertSubmissionDone( assert, this )
 	);
 } );
@@ -286,7 +289,7 @@ QUnit.test( 'should not intercept edit form submissions not coming from wpSave',
 	this.$form.find( '[name=some-input]' ).trigger( 'input' );
 	this.$form.find( '#wpPreview' ).trigger( 'submit' );
 
-	await waitOneTick();
+	await delay();
 
 	assert.false(
 		resolved,
@@ -309,7 +312,7 @@ QUnit.test( 'should not intercept edit form submissions not coming from wpSave',
 	// before the response for the Preview request has been received.
 	this.$form.find( '#wpSave' ).trigger( 'click' );
 
-	await waitOneTick();
+	await delay();
 
 	assert.true(
 		resolved,
@@ -674,7 +677,7 @@ QUnit.test( 'should allow recovering from a recoverable error by starting a new 
 
 	this.$form.trigger( 'submit' );
 
-	return Promise.all( [ waitOneTick(), result ] ).then(
+	return Promise.all( [ delay(), result ] ).then(
 		() => assertSubmissionDone( assert, this )
 	);
 } );
@@ -749,4 +752,63 @@ QUnit.test( 'should fire the confirmEdit.hCaptcha.executed hook when executeHCap
 
 	// Clean up spy to avoid affecting later tests
 	spy.restore();
+} );
+
+QUnit.test( 'should submit the form immediately when wgHCaptchaTriggerFormSubmission is set', async function ( assert ) {
+	this.window.document.head.appendChild.callsFake( () => {
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
+		this.window.onHCaptchaSDKLoaded();
+	} );
+
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+	this.window.hcaptcha.execute.callsFake( async () => ( { response: 'some-token' } ) );
+
+	// (T411963) HCaptcha::setForceShowCaptcha() is called when the editor page is
+	// reloaded because an AbuseFilter triggered an hCaptcha workflow, which in
+	// turn makes the backend to set this Javascript variable on page reload.
+	mw.config.set( 'wgHCaptchaTriggerFormSubmission', true );
+
+	let isSubmitted = false;
+	this.$form.on( 'submit', () => {
+		isSubmitted = true;
+	} );
+
+	// The promise returned by useSecureEnclave() won't resolve
+	// until the form is submitted.
+	let isResolved = false;
+	useSecureEnclave( this.window ).then( () => {
+		isResolved = true;
+	} );
+
+	assert.false(
+		isResolved,
+		'useSecureEnclave should not resolve without a form submission'
+	);
+	assert.false(
+		isSubmitted,
+		'useSecureEnclave should not submit the form immediately'
+	);
+
+	// The form submission waits for the hCaptcha ID promise to resolve before
+	// triggering the submission, so we use polling here.
+	let iterations = 0;
+
+	// isSubmitted is modified by a form submission event handler.
+	// eslint-disable-next-line no-unmodified-loop-condition
+	while ( !isSubmitted ) {
+		await delay( 10 );
+		iterations++;
+
+		if ( iterations === 100 ) {
+			assert.true(
+				false,
+				'Setting the global variable should trigger a form submission'
+			);
+		}
+	}
+
+	assert.false(
+		isResolved,
+		'Setting the global variable should make useSecureEnclave to remain unresolved'
+	);
 } );

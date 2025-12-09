@@ -146,6 +146,31 @@ class HCaptcha extends SimpleCaptcha {
 	}
 
 	/**
+	 * Sets the value returned by {@link self::shouldForceShowCaptcha}.
+	 *
+	 * Additionally, for edits with the flag set to true, the JS configuration
+	 * variable wgHCaptchaTriggerFormSubmission is set cause the frontend
+	 * to immediately submit the form. That is done to avoid the user needing to
+	 * resubmit the form when an AbuseFilter requires a different site key to be
+	 * used for the edit.
+	 *
+	 * @inheritDoc
+	 */
+	public function setForceShowCaptcha( bool $forceShowCaptcha ): void {
+		parent::setForceShowCaptcha( $forceShowCaptcha );
+
+		$isPageSubmission = in_array( $this->action, [ 'edit', 'create' ] );
+
+		if ( $isPageSubmission && $forceShowCaptcha ) {
+			$output = RequestContext::getMain()->getOutput();
+			$output->addJsConfigVars(
+				'wgHCaptchaTriggerFormSubmission',
+				true
+			);
+		}
+	}
+
+	/**
 	 * Check, if the user solved the captcha.
 	 *
 	 * Based on reference implementation:

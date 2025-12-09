@@ -9,10 +9,9 @@ use MediaWiki\Extension\ConfirmEdit\AbuseFilter\CaptchaConsequence;
 
 class AbuseFilterHooks implements AbuseFilterCustomActionsHook {
 
-	private Config $config;
-
-	public function __construct( Config $config ) {
-		$this->config = $config;
+	public function __construct(
+		private readonly Config $config,
+	) {
 	}
 
 	/** @inheritDoc */

@@ -57,12 +57,9 @@ class Hooks implements
 	 */
 	protected static array $instance = [];
 
-	private WANObjectCache $cache;
-
 	public function __construct(
-		WANObjectCache $cache
+		private readonly WANObjectCache $cache,
 	) {
-		$this->cache = $cache;
 	}
 
 	/**

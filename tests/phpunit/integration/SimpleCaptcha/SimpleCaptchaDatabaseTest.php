@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\SimpleCaptcha;
 
-use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\Content\ContentHandler;
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\RequestContext;
@@ -11,6 +10,7 @@ use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Article;
+use MediaWiki\Page\CacheKeyHelper;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;

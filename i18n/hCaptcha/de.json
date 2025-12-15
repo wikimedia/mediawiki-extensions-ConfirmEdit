@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Brettchenweber",
 			"Kghbln"
 		]
 	},
@@ -16,6 +17,9 @@
 	"hcaptcha-challenge-closed": "Um fortzufahren, musst du das Captcha ausfüllen.",
 	"hcaptcha-challenge-expired": "Das Zeitlimit zur Vervollständigung des Captcha ist abgelaufen. Bitte versuche es erneut.",
 	"hcaptcha-generic-error": "Beim Laden des Formulars ist ein Fehler aufgetreten. Um fortzufahren, musst du die Seite neu laden.",
+	"hcaptcha-internal-error": "Beim Absenden des Formulars ist ein interner Fehler aufgetreten. Bitte versuche es erneut.",
+	"hcaptcha-network-error": "Beim Absenden des Formulars ist ein Netzwerkfehler aufgetreten. Bitte stelle sicher, dass du über eine funktionierende Internetverbindung verfügst, und versuche es erneut.",
+	"hcaptcha-rate-limited": "Es gab bereits zu viele Versuche, das Captcha zu lösen. Bitte warte einen Moment, bevor du es erneut versuchst.",
 	"hcaptcha-loading-indicator-label": "Bitte warte, während das Formular fertig lädt ...",
 	"hcaptcha-missing-token": "Das Formular ist noch nicht vollständig geladen. Bitte warte einige Sekunden und versuche es dann erneut.",
 	"hcaptcha-noscript": "Zum Fortfahren ist JavaScript erforderlich. Aktiviere JavaScript in deinen Browsereinstellungen und aktualisiere die Seite.",

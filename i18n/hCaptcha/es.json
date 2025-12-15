@@ -7,5 +7,6 @@
 		]
 	},
 	"hcaptcha-createaccount": "Para proteger la wiki contra la creación automática de cuentas, le rogamos que resuelva el siguiente hCaptcha:",
-	"hcaptcha-createaccount-fail": "Parece que no has resuelto el hCaptcha."
+	"hcaptcha-createaccount-fail": "Parece que no has resuelto el hCaptcha.",
+	"hcaptcha-rate-limited": "Se superó el límite de hCaptcha. Actualice la página y vuelva a intentarlo."
 }

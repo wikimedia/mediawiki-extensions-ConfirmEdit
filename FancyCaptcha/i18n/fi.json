@@ -13,6 +13,7 @@
 			"Samoasambia"
 		]
 	},
+	"fancycaptcha-desc": "Fancy CAPTCHA -kehitin Confirm Edit-laajennukselle",
 	"fancycaptcha-addurl": "Muokkauksesi sisältää uusia linkkejä muille sivuille. \nKirjoita kuvan sisältämät sanat alla olevaan tekstikenttään \n([[Special:Captcha/help|lisätietoja]]):",
 	"fancycaptcha-badlogin": "Automatisoidun salasanan murtamisen estämiseksi kirjoita kuvan sisältämät sanat alla olevaan tekstikenttään ([[Special:Captcha/help|lisätietoja]]):",
 	"fancycaptcha-captcha": "Turvallisuustarkistus",

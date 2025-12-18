@@ -21,9 +21,13 @@ class CaptchaConsequence extends Consequence {
 			);
 			return true;
 		}
+
 		// This consequence was triggered, so we need to set a flag
 		// on the SimpleCaptcha instance to force showing the CAPTCHA.
-		Hooks::getInstance( $action )->setForceShowCaptcha( true );
+		$captcha = Hooks::getInstance( $action );
+		$captcha->setAction( $action );
+		$captcha->setForceShowCaptcha( true );
+
 		return true;
 	}
 }

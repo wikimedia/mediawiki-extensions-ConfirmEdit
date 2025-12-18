@@ -106,7 +106,7 @@ QUnit.test.each( 'should load hCaptcha exactly once when the form is interacted 
 		fieldName: 'some-textarea'
 	}
 }, async function ( assert, data ) {
-	this.window.document.head.appendChild.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( () => {
 		this.window.onHCaptchaSDKLoaded();
 	} );
 
@@ -131,7 +131,7 @@ QUnit.test.each( 'should load hCaptcha exactly once when the form is interacted 
 } );
 
 QUnit.test( 'should load hCaptcha on form submissions triggered before hCaptcha was setup', async function ( assert ) {
-	this.window.document.head.appendChild.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( () => {
 		this.window.onHCaptchaSDKLoaded();
 	} );
 
@@ -330,7 +330,7 @@ QUnit.test( 'should measure hCaptcha load and execute timing for successful subm
 		.onFirstCall().returns( { duration: 1718 } )
 		.onSecondCall().returns( { duration: 2314 } );
 
-	this.window.document.head.appendChild.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( () => {
 		this.window.onHCaptchaSDKLoaded();
 	} );
 	this.window.hcaptcha.render.returns( 'some-captcha-id' );
@@ -505,7 +505,7 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 	// Explicitly set an unknown value here to test the unknown interface handling
 	mw.config.set( 'wgAction', 'unknown' );
 
-	this.window.document.head.appendChild.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
@@ -586,7 +586,7 @@ QUnit.test.each( 'should surface recoverable workflow execution errors on submit
 		message: 'hcaptcha-rate-limited'
 	}
 }, function ( assert, data ) {
-	this.window.document.head.appendChild.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
@@ -681,7 +681,7 @@ QUnit.test( 'should allow recovering from a recoverable error by starting a new 
 
 QUnit.test( 'should disable submit buttons during hCaptcha execution on edit page', function ( assert ) {
 	mw.config.set( 'wgAction', 'edit' );
-	this.window.document.head.appendChild.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );
@@ -721,7 +721,7 @@ QUnit.test( 'should disable submit buttons during hCaptcha execution on edit pag
 } );
 
 QUnit.test( 'should fire the confirmEdit.hCaptcha.executed hook when executeHCaptcha succeeds', async function ( assert ) {
-	this.window.document.head.appendChild.callsFake( async () => {
+	this.window.document.head.appendChild.callsFake( () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
 		this.window.onHCaptchaSDKLoaded();
 	} );

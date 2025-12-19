@@ -17,7 +17,7 @@
 	"hcaptcha-challenge-closed": "Om verder te gaan moet u de CAPTCHA invullen.",
 	"hcaptcha-challenge-expired": "De tijdslimiet om de CAPTHA in te vullen is verstreken. Probeer het opnieuw.",
 	"hcaptcha-generic-error": "Er is een fout opgetreden bij het laden van het formulier. Om verder te gaan, moet u de pagina opnieuw laden.",
-	"hcaptcha-rate-limited": "hCaptcha-gebruikslimiet overschreden. Vernieuw de pagina en probeer het nog eens.",
+	"hcaptcha-rate-limited": "Er zijn te veel pogingen gedaan om de captcha op te lossen. Wacht even voordat u het opnieuw probeert.",
 	"hcaptcha-loading-indicator-label": "Een momentje geduld, het formulier wordt geladen…",
 	"hcaptcha-missing-token": "Het formulier is nog niet helemaal geladen. Wacht een paar seconden en probeer het dan opnieuw.",
 	"hcaptcha-noscript": "JavaScript is vereist om door te gaan. Schakel JavaScript in uw browserinstellingen in en vernieuw de pagina.",

@@ -16,7 +16,7 @@
 	"hcaptcha-challenge-closed": "Pro continuar, tu debe completar le CAPTCHA.",
 	"hcaptcha-challenge-expired": "Le tempore limite pro completar le CAPTCHA ha essite excedite. Per favor tenta lo de novo.",
 	"hcaptcha-generic-error": "Un error ha occurrite durante le cargamento del formulario. Recarga le pagina pro continuar.",
-	"hcaptcha-rate-limited": "Le limite de frequentia de hCaptcha ha essite excedite. Per favor refresca le pagina e tenta lo de novo.",
+	"hcaptcha-rate-limited": "Il ha habite troppo de tentativas de solver le CAPTCHA. Attende un momento ante de tentar lo de novo.",
 	"hcaptcha-loading-indicator-label": "Per favor attende que le cargamento del formulario se termina…",
 	"hcaptcha-missing-token": "Le cargamento del formulario non ha ancora terminate. Attende qualque secundas e tenta lo de novo.",
 	"hcaptcha-noscript": "JavaScript es necessari pro continuar. Activa JavaScript in le parametros de tu navigator e recarga le pagina.",

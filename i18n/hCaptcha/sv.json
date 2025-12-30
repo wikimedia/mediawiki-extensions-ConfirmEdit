@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Stefan2255"
+		]
+	},
+	"hcaptcha-internal-error": "Det uppstod ett internt fel när formuläret skickades. Försök igen.",
+	"hcaptcha-network-error": "Det uppstod ett nätverksfel när formuläret skickades. Kontrollera att du har en fungerande anslutning och försök igen.",
+	"hcaptcha-rate-limited": "Det har gjorts för många försök att lösa captchan. Vänta en stund innan du försöker igen."
+}

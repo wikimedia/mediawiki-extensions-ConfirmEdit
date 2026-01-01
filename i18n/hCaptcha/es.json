@@ -4,9 +4,11 @@
 			"Avengium",
 			"Chaiwan2009",
 			"DiegoAmbrocio",
+			"MarcoAurelio",
 			"Rousmery96"
 		]
 	},
+	"hcaptcha-desc": "Módulo de [https://www.hcaptcha.com/ hCaptcha] para la extensión Confirm Edit",
 	"hcaptcha-createaccount": "Para proteger la wiki contra la creación automática de cuentas, le rogamos que resuelva el siguiente hCaptcha:",
 	"hcaptcha-createaccount-fail": "Parece que no has resuelto el hCaptcha.",
 	"hcaptcha-internal-error": "Se produjo un error interno al enviar el formulario. Inténtalo de nuevo.",

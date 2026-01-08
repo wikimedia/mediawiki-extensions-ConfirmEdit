@@ -4,9 +4,11 @@
 			"Chaiwan2009",
 			"DiegoAmbrocio",
 			"Rousmery96",
-			"Avengium"
+			"Avengium",
+			"MarcoAurelio"
 		]
 	},
+	"hcaptcha-desc": "Módulo de [https://www.hcaptcha.com/ hCaptcha] para la extensión Confirm Edit",
 	"hcaptcha-createaccount": "Para proteger la wiki contra la creación automática de cuentas, le rogamos que resuelva el siguiente hCaptcha:",
 	"hcaptcha-createaccount-fail": "Parece que no has resuelto el hCaptcha."
 }

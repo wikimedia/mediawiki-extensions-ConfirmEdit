@@ -59,12 +59,8 @@
 		"ConfirmEditAlias": "ConfirmEdit.alias.php"
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\ConfirmEdit\\": "includes/"
-	},
-	"AutoloadClasses": {
-		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\CountFancyCaptchas": "maintenance/CountFancyCaptchas.php",
-		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\DeleteOldFancyCaptchas": "maintenance/DeleteOldFancyCaptchas.php",
-		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\GenerateFancyCaptchas": "maintenance/GenerateFancyCaptchas.php"
+		"MediaWiki\\Extension\\ConfirmEdit\\": "includes/",
+		"MediaWiki\\Extension\\ConfirmEdit\\Maintenance\\": "maintenance/"
 	},
 	"ResourceModules": {
 		"ext.confirmEdit.editPreview.ipwhitelist.styles": {

@@ -23,7 +23,7 @@ use Wikimedia\TestingAccessWrapper;
 class FancyCaptchaTest extends MediaWikiIntegrationTestCase {
 
 	public function testGetName() {
-		$this->markTestSkippedIfExtensionNotLoaded( 'ConfirmEdit/FancyCaptcha' );
+		$this->markTestSkippedIfExtensionNotLoaded( 'FancyCaptcha' );
 		$this->assertEquals( 'Fancy CAPTCHA', ( new FancyCaptcha )->getName() );
 	}
 

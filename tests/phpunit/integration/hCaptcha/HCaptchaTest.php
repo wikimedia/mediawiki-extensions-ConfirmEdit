@@ -36,8 +36,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	use MockHttpTrait;
 
 	public function testGetName() {
-		$this->markTestSkippedIfExtensionNotLoaded( 'ConfirmEdit/hCaptcha' );
-		$this->assertEquals( 'hCAPTCHA', ( new hCaptcha )->getName() );
+		$this->assertEquals( 'hCaptcha', ( new hCaptcha )->getName() );
 	}
 
 	public function testShowEditFormFieldsDoesNothing() {

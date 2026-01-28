@@ -12,8 +12,8 @@ use MediaWikiIntegrationTestCase;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use UnderflowException;
-use Wikimedia\Parsoid\Utils\DOMCompat;
-use Wikimedia\Parsoid\Utils\DOMUtils;
+use Wikimedia\Parsoid\Core\DOMCompat;
+use Wikimedia\Parsoid\Ext\DOMUtils;
 use Wikimedia\TestingAccessWrapper;
 
 /**

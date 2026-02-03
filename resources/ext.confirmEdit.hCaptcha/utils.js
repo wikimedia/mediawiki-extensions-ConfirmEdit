@@ -3,16 +3,19 @@ const config = require( './config.json' );
 /**
  * Conclude and emit a performance measurement in seconds via mw.track.
  *
- * @param {string} interfaceName The name of the interface where hCaptcha is being used
- * @param {string} topic Unique name for the measurement to be sent to mw.track().
- * @param {string} startName Name of the performance mark denoting the start of the measurement.
- * @param {string} endName Name of the performance mark denoting the end of the measurement.
+ * @param {Window} win A reference to the object representing the browser's window
+ * @param {Object} startMark An object returned by getPerformanceStartMark().
+ * @return {void}
  */
-function trackPerformanceTiming( interfaceName, topic, startName, endName ) {
+function trackPerformanceTiming( win, startMark ) {
 	const wiki = mw.config.get( 'wgDBname' );
-	performance.mark( endName );
+	const { interfaceName, topic } = startMark;
 
-	const { duration } = performance.measure( topic, startName, endName );
+	if ( isPerformanceMarkSupported( win ) ) {
+		win.performance.mark( startMark.endMarkName );
+	}
+
+	const duration = getDuration( win, startMark );
 
 	// We also track the account creation timings separately
 	// as their own metric for backwards compatability
@@ -123,18 +126,17 @@ const loadHCaptcha = (
 		mw.config.get( 'wgHCaptchaBaseRetryDelay' ) :
 		1000;
 
-	performance.mark( 'hcaptcha-load-start' );
+	const perfStartMark = getPerformanceStartMark(
+		win,
+		interfaceName,
+		'hcaptcha-load'
+	);
 
 	let attempts = 0;
 	let script = createHCaptchaScriptTag( apiUrlQueryParameters );
 
 	const onErrorCallback = () => {
-		trackPerformanceTiming(
-			interfaceName,
-			'hcaptcha-load',
-			'hcaptcha-load-start',
-			'hcaptcha-load-complete'
-		);
+		trackPerformanceTiming( win, perfStartMark );
 
 		const backoffTimeout = BASE_RETRY_DELAY * Math.pow( 2, attempts );
 
@@ -172,12 +174,7 @@ const loadHCaptcha = (
 	// to run init code, as the latter would run it too early and use
 	// a potentially inconsistent config.
 	win.onHCaptchaSDKLoaded = function () {
-		trackPerformanceTiming(
-			interfaceName,
-			'hcaptcha-load',
-			'hcaptcha-load-start',
-			'hcaptcha-load-complete'
-		);
+		trackPerformanceTiming( win, perfStartMark );
 
 		// Store that the hCaptcha script has been loaded via CSS classes.
 		// We avoid using a global variable to make testing easier (as the DOM gets
@@ -210,16 +207,9 @@ const loadHCaptcha = (
  */
 const executeHCaptcha = ( win, captchaId, interfaceName ) => new Promise( ( resolve, reject ) => {
 	const wiki = mw.config.get( 'wgDBname' );
-	performance.mark( 'hcaptcha-execute-start' );
+	const perfStartMark = getPerformanceStartMark( win, interfaceName, 'hcaptcha-execute' );
 
-	const trackExecutionFinished = () => {
-		trackPerformanceTiming(
-			interfaceName,
-			'hcaptcha-execute',
-			'hcaptcha-execute-start',
-			'hcaptcha-execute-complete'
-		);
-	};
+	const trackExecutionFinished = () => trackPerformanceTiming( win, perfStartMark );
 
 	try {
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, {
@@ -281,6 +271,109 @@ const mapErrorCodeToMessageKey = ( error ) => {
 		errorMap[ error ] :
 		'hcaptcha-generic-error';
 };
+
+/**
+ * Return the time elapsed since the provided mark.
+ *
+ * @param {Window} win A reference to the object representing the browser's window
+ * @param {Object} startMark An object returned by getPerformanceStartMark().
+ * @return {number}
+ */
+function getDuration( win, startMark ) {
+	let duration = null;
+
+	if ( isPerformanceMeasureSupported( win ) ) {
+		let callSucceeded = false;
+
+		try {
+			// May return undefined in old browsers
+			const measure = win.performance.measure(
+				startMark.topic,
+				startMark.startMarkName,
+				startMark.endMarkName
+			);
+
+			callSucceeded = true;
+
+			if ( measure && 'duration' in measure ) {
+				duration = measure.duration;
+			}
+		} catch ( e ) {
+			mw.log.warn( 'performance.measure() call failed' );
+		}
+
+		if ( duration === null && callSucceeded ) {
+			// (T411576) In old browsers, performance.measure() may succeed
+			// without returning a value. In that case, we need to manually
+			// retrieve the last entry associated with the startMarkName.
+			const entries = win.performance.getEntriesByName(
+				startMark.topic,
+				'measure'
+			);
+
+			if ( entries && entries.length > 0 ) {
+				duration = entries[ entries.length - 1 ].duration;
+			}
+		}
+	}
+
+	if ( duration === null ) {
+		duration = mw.now() - startMark.timestamp;
+	}
+
+	return duration;
+}
+
+/**
+ * Returns an opaque object representing the instant where a section whose
+ * performance is being measured is called.
+ *
+ * @param {Window} win A reference to the object representing the browser's window
+ * @param {string} interfaceName The name of the interface where hCaptcha is being used
+ * @param {string} topic Unique name for the measurement to be sent to mw.track().
+ * @return {Object}
+ * @private
+ */
+function getPerformanceStartMark( win, interfaceName, topic ) {
+	const startMarkName = `${ topic }-start`;
+	if ( isPerformanceMarkSupported( win ) ) {
+		win.performance.mark( startMarkName );
+	}
+
+	return {
+		interfaceName: interfaceName,
+		startMarkName: startMarkName,
+		endMarkName: `${ topic }-complete`,
+		topic: topic,
+		// mw.now() will automatically use window.performance.now() if available,
+		// falling back to Date.now() otherwise. This value is in milliseconds.
+		timestamp: mw.now()
+	};
+}
+
+/**
+ * Checks whether the browser has support for performance.mark().
+ *
+ * @param {Window} win A reference to the object representing the browser's window
+ * @return {boolean}
+ * @private
+ */
+function isPerformanceMarkSupported( win ) {
+	return Object.prototype.hasOwnProperty.call( win, 'performance' ) &&
+		( typeof win.performance.mark === 'function' );
+}
+
+/**
+ * Checks whether the browser has support for performance.measure().
+ *
+ * @param {Window} win A reference to the object representing the browser's window
+ * @return {boolean}
+ * @private
+ */
+function isPerformanceMeasureSupported( win ) {
+	return Object.prototype.hasOwnProperty.call( win, 'performance' ) &&
+		( typeof win.performance.measure === 'function' );
+}
 
 module.exports = {
 	loadHCaptcha: loadHCaptcha,

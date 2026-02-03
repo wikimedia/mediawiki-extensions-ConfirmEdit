@@ -34,6 +34,8 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 		this.measure = this.sandbox.stub( performance, 'measure' );
 		this.measure.returns( { duration: 0 } );
 
+		this.getEntriesByName = this.sandbox.stub( performance, 'getEntriesByName' );
+
 		// We do not want to add real script elements to the page or interact with the real
 		// hcaptcha, so stub the code that does this for this test
 		this.window = {
@@ -46,6 +48,10 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 					appendChild: this.sandbox.stub(),
 					removeChild: this.sandbox.stub()
 				}
+			},
+			performance: {
+				measure: this.measure,
+				getEntriesByName: this.getEntriesByName
 			}
 		};
 
@@ -86,6 +92,7 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 		this.track.restore();
 		this.measure.restore();
 		this.logError.restore();
+		this.getEntriesByName.restore();
 
 		config.HCaptchaApiUrl = this.origUrl;
 		config.HCaptchaApiUrlIntegrityHash = this.origIntegrityHash;
@@ -399,6 +406,7 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 	} );
 
 	this.measure.onFirstCall().returns( { duration: 1718 } );
+	this.measure.onSecondCall().returns( { duration: 123 } );
 
 	const hCaptchaResult = useSecureEnclave( this.window );
 
@@ -442,7 +450,7 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 		this.track.getCall( 2 ).args,
 		[
 			'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds',
-			0,
+			123,
 			{ wiki: 'testwiki', interfaceName: 'edit' }
 		],
 		'should record metric for load time (second attempt)'

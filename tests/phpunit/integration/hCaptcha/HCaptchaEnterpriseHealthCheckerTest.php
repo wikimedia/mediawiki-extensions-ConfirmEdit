@@ -35,6 +35,7 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testIncrementSiteverifyApiErrorCountBelowThreshold() {
+		$this->overrideConfigValue( 'HCaptchaApiUrlIntegrityHash', '' );
 		$this->installMockHttp(
 			$this->makeFakeHttpRequest()
 		);
@@ -53,12 +54,67 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertTrue( $healthChecker->isAvailable() );
 	}
 
-	public function testHttpFailures() {
+	public function testHttpFailuresBelowThreshold() {
 		$this->installMockHttp(
 			$this->makeFakeHttpRequest( '', 500 )
 		);
-		/** @var HCaptchaEnterpriseHealthChecker $healthChecker */
-		$healthChecker = $this->getServiceContainer()->getService( 'HCaptchaEnterpriseHealthChecker' );
+		$logger = new TestLogger( true );
+		$services = $this->getServiceContainer();
+		$healthChecker = new HCaptchaEnterpriseHealthChecker(
+			new ServiceOptions(
+				HCaptchaEnterpriseHealthChecker::CONSTRUCTOR_OPTIONS,
+				$services->getMainConfig()
+			),
+			$logger,
+			$services->getObjectCacheFactory()->getLocalClusterInstance(),
+			$services->getMainWANObjectCache(),
+			$services->getHttpRequestFactory(),
+			$services->getFormatterFactory(),
+			$services->getStatsFactory()
+		);
+		// A single failure should not trigger failover (default threshold is 3).
+		$this->assertTrue( $healthChecker->isAvailable() );
+		$logMessages = array_column( $logger->getBuffer(), 1 );
+		$this->assertContains(
+			'apiUrl check failed on both first attempt and retry',
+			$logMessages
+		);
+		$this->assertContains(
+			'apiUrl check failed, error count {count} below threshold {threshold}',
+			$logMessages
+		);
+		$this->assertNotContains( 'Entering failover mode', $logMessages );
+	}
+
+	public function testHttpFailuresAboveThreshold() {
+		$this->overrideConfigValue( 'HCaptchaEnterpriseHealthCheckApiUrlErrorThreshold', 3 );
+		$this->installMockHttp(
+			$this->makeFakeHttpRequest( '', 500 )
+		);
+		$services = $this->getServiceContainer();
+		$bagOStuff = $services->getObjectCacheFactory()->getLocalClusterInstance();
+		// Simulate that we're already at 2 errors (one below the threshold of 3).
+		// The next failure will push us to 3, meeting the threshold.
+		$bagOStuff->incrWithInit(
+			$bagOStuff->makeGlobalKey( 'confirmedit-hcaptcha-apiurl-error-count' ),
+			BagOStuff::TTL_MINUTE * 30
+		);
+		$bagOStuff->incrWithInit(
+			$bagOStuff->makeGlobalKey( 'confirmedit-hcaptcha-apiurl-error-count' ),
+			BagOStuff::TTL_MINUTE * 30
+		);
+		$healthChecker = new HCaptchaEnterpriseHealthChecker(
+			new ServiceOptions(
+				HCaptchaEnterpriseHealthChecker::CONSTRUCTOR_OPTIONS,
+				$services->getMainConfig()
+			),
+			new NullLogger(),
+			$bagOStuff,
+			$services->getMainWANObjectCache(),
+			$services->getHttpRequestFactory(),
+			$services->getFormatterFactory(),
+			$services->getStatsFactory()
+		);
 		$this->assertFalse( $healthChecker->isAvailable() );
 	}
 
@@ -111,14 +167,20 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getStatsFactory()
 		);
 		$this->assertFalse( $healthChecker->isAvailable() );
-		$this->assertEquals(
-			'Entering failover mode',
-			$logger->getBuffer()[0][1]
+		$logMessages = array_column( $logger->getBuffer(), 1 );
+		$this->assertContains(
+			'apiUrl check failed on both first attempt and retry',
+			$logMessages
 		);
-		$this->assertEquals(
+		$this->assertContains(
 			'Integrity hash {parameter1} does not match expected {parameter2}',
-			$logger->getBuffer()[1][1]
+			$logMessages
 		);
+		$this->assertContains(
+			'apiUrl integrity check failure, entering immediate failover',
+			$logMessages
+		);
+		$this->assertContains( 'Entering failover mode', $logMessages );
 	}
 
 	public function testIntegrityHashAlgorithmInvalid() {
@@ -142,14 +204,20 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getStatsFactory()
 		);
 		$this->assertFalse( $healthChecker->isAvailable() );
-		$this->assertEquals(
-			'Entering failover mode',
-			$logger->getBuffer()[0][1]
+		$logMessages = array_column( $logger->getBuffer(), 1 );
+		$this->assertContains(
+			'apiUrl check failed on both first attempt and retry',
+			$logMessages
 		);
-		$this->assertEquals(
+		$this->assertContains(
 			'Invalid hash algorithm: {parameter1}',
-			$logger->getBuffer()[1][1]
+			$logMessages
 		);
+		$this->assertContains(
+			'apiUrl integrity check failure, entering immediate failover',
+			$logMessages
+		);
+		$this->assertContains( 'Entering failover mode', $logMessages );
 	}
 
 	public function testIntegrityHashValid() {

@@ -26,11 +26,12 @@ class HCaptchaEnterpriseHealthChecker {
 		'HCaptchaApiUrlIntegrityHash',
 		'HCaptchaEnterpriseHealthCheckSiteVerifyErrorThreshold',
 		'HCaptchaEnterpriseHealthCheckApiUrlErrorThreshold',
+		'HCaptchaEnterpriseHealthCheckFailoverDuration',
 	];
 	private const INTEGRITY_FAILURE = 'integrity_failure';
 	private const CACHE_SITEVERIFY_ERROR_COUNT_KEY = 'confirmedit-hcaptcha-siteverify-error-count';
 	private const CACHE_APIURL_ERROR_COUNT_KEY = 'confirmedit-hcaptcha-apiurl-error-count';
-	private const CONFIRMEDIT_HCAPTCHA_FAILOVER_MODE = 'confirmedit-hcaptcha-failover-mode';
+	private const CACHE_AVAILABLE_KEY = 'confirmedit-hcaptcha-available';
 
 	private ?bool $isAvailable = null;
 
@@ -84,43 +85,35 @@ class HCaptchaEnterpriseHealthChecker {
 			return $this->isAvailable;
 		}
 
-		$inFailoverMode = (bool)$this->wanObjectCache->get(
-			$this->wanObjectCache->makeGlobalKey( self::CONFIRMEDIT_HCAPTCHA_FAILOVER_MODE )
-		);
-
-		// If we're in failover mode, don't do any other checks.
-		if ( $inFailoverMode ) {
-			$timer->setLabel( 'result', 'false' )->stop();
-			$this->isAvailable = false;
-			return false;
-		}
-
-		// The SiteVerify request error count is incremented in HCaptcha::passCaptcha(),
-		// where we increment the count when the SiteVerify request fails with an http or
-		// json-decode error
-		$failedSiteVerifyRequestCount = (int)$this->bagOStuffCache->get( $this->bagOStuffCache->makeGlobalKey(
-			self::CACHE_SITEVERIFY_ERROR_COUNT_KEY
-		) );
-		$siteVerifyErrorThreshold = $this->options->get(
-			'HCaptchaEnterpriseHealthCheckSiteVerifyErrorThreshold'
-		);
-		if ( $failedSiteVerifyRequestCount >= $siteVerifyErrorThreshold ) {
-			$this->setFailoverMode();
-			$this->logger->warning(
-				'hCaptcha unavailable due to SiteVerify errors: {count} >= {threshold}',
-				[ 'count' => $failedSiteVerifyRequestCount, 'threshold' => $siteVerifyErrorThreshold ]
-			);
-			$this->isAvailable = false;
-			$timer->setLabel( 'result', 'false' )->stop();
-			return false;
-		}
-
-		// SiteVerify is OK, now we should also check that the hCaptcha API JavaScript file
-		// is available.
+		// Single cache lookup that combines all health checks. The callback
+		// only runs when the cached value expires (~once per minute when
+		// healthy).
 		$this->isAvailable = (bool)$this->wanObjectCache->getWithSetCallback(
-			$this->wanObjectCache->makeGlobalKey( 'confirmedit-hcaptcha-apiurl-available' ),
-			$this->wanObjectCache::TTL_MINUTE * 5,
+			$this->wanObjectCache->makeGlobalKey( self::CACHE_AVAILABLE_KEY ),
+			$this->wanObjectCache::TTL_MINUTE,
 			function ( $oldValue, &$ttl ) {
+				$failoverDuration = $this->options->get( 'HCaptchaEnterpriseHealthCheckFailoverDuration' );
+				// The SiteVerify request error count is incremented in
+				// HCaptcha::passCaptcha(), when the SiteVerify request fails
+				// with an HTTP or json-decode error.
+				$failedSiteVerifyRequestCount = (int)$this->bagOStuffCache->get(
+					$this->bagOStuffCache->makeGlobalKey( self::CACHE_SITEVERIFY_ERROR_COUNT_KEY )
+				);
+				$siteVerifyErrorThreshold = $this->options->get(
+					'HCaptchaEnterpriseHealthCheckSiteVerifyErrorThreshold'
+				);
+				if ( $failedSiteVerifyRequestCount >= $siteVerifyErrorThreshold ) {
+					$this->logger->warning(
+						'hCaptcha unavailable due to SiteVerify errors: {count} >= {threshold}',
+						[ 'count' => $failedSiteVerifyRequestCount, 'threshold' => $siteVerifyErrorThreshold ]
+					);
+					// Back off for a period of time before rechecking.
+					$ttl = $failoverDuration;
+					return 0;
+				}
+
+				// SiteVerify is OK, now check that the hCaptcha API JavaScript
+				// file is available.
 				$start = microtime( true );
 				$retried = false;
 				$apiUrlStatus = $this->checkApiUrl();
@@ -153,7 +146,7 @@ class HCaptchaEnterpriseHealthChecker {
 						$this->logger->warning(
 							'apiUrl integrity check failure, entering immediate failover'
 						);
-						$this->setFailoverMode();
+						$ttl = $failoverDuration;
 						return 0;
 					}
 
@@ -165,11 +158,11 @@ class HCaptchaEnterpriseHealthChecker {
 					);
 					$threshold = $this->options->get( 'HCaptchaEnterpriseHealthCheckApiUrlErrorThreshold' );
 					if ( $errorCount >= $threshold ) {
-						$this->setFailoverMode();
 						$this->logger->warning(
 							'hCaptcha unavailable due to apiUrl errors: {count} >= {threshold}',
 							[ 'count' => $errorCount, 'threshold' => $threshold ]
 						);
+						$ttl = $failoverDuration;
 						return 0;
 					}
 					// Below threshold, recheck sooner to accumulate errors faster
@@ -178,7 +171,7 @@ class HCaptchaEnterpriseHealthChecker {
 						'apiUrl check failed, error count {count} below threshold {threshold}',
 						[ 'count' => $errorCount, 'threshold' => $threshold ]
 					);
-					$ttl = $this->wanObjectCache::TTL_MINUTE;
+					$ttl = $this->wanObjectCache::TTL_SECOND * 10;
 					return 1;
 				}
 				// Reset the error counter if we could reach the URL
@@ -197,15 +190,6 @@ class HCaptchaEnterpriseHealthChecker {
 
 		$timer->setLabel( 'result', $this->isAvailable ? 'true' : 'false' )->stop();
 		return $this->isAvailable;
-	}
-
-	private function setFailoverMode(): void {
-		$this->logger->warning( 'Entering failover mode' );
-		$this->wanObjectCache->set(
-			$this->wanObjectCache->makeGlobalKey( self::CONFIRMEDIT_HCAPTCHA_FAILOVER_MODE ),
-			true,
-			$this->wanObjectCache::TTL_MINUTE * 10
-		);
 	}
 
 	private function checkApiUrl(): Status {

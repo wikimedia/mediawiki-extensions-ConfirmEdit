@@ -83,7 +83,6 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			'apiUrl check failed, error count {count} below threshold {threshold}',
 			$logMessages
 		);
-		$this->assertNotContains( 'Entering failover mode', $logMessages );
 	}
 
 	public function testHttpFailuresAboveThreshold() {
@@ -118,14 +117,16 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertFalse( $healthChecker->isAvailable() );
 	}
 
-	public function testInFailoverMode() {
+	public function testCachedUnavailable() {
 		$bag = new HashBagOStuff();
 		$wanObjectCacheMock = new WANObjectCache( [
 			'cache' => $bag,
 		] );
+		// Simulate a previous health check that cached unavailability (e.g.
+		// the callback returned 0 with a 10-minute TTL).
 		$wanObjectCacheMock->set(
-			$wanObjectCacheMock->makeGlobalKey( 'confirmedit-hcaptcha-failover-mode' ),
-			true
+			$wanObjectCacheMock->makeGlobalKey( 'confirmedit-hcaptcha-available' ),
+			0
 		);
 		$statsHelper = StatsFactory::newUnitTestingHelper()->withComponent( 'ConfirmEdit' );
 		$healthChecker = new HCaptchaEnterpriseHealthChecker(
@@ -180,7 +181,6 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			'apiUrl integrity check failure, entering immediate failover',
 			$logMessages
 		);
-		$this->assertContains( 'Entering failover mode', $logMessages );
 	}
 
 	public function testIntegrityHashAlgorithmInvalid() {
@@ -217,7 +217,6 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			'apiUrl integrity check failure, entering immediate failover',
 			$logMessages
 		);
-		$this->assertContains( 'Entering failover mode', $logMessages );
 	}
 
 	public function testIntegrityHashValid() {

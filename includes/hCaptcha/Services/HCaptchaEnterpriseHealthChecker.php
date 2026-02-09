@@ -25,8 +25,11 @@ class HCaptchaEnterpriseHealthChecker {
 		'HCaptchaProxy',
 		'HCaptchaApiUrlIntegrityHash',
 		'HCaptchaEnterpriseHealthCheckSiteVerifyErrorThreshold',
+		'HCaptchaEnterpriseHealthCheckApiUrlErrorThreshold',
 	];
+	private const INTEGRITY_FAILURE = 'integrity_failure';
 	private const CACHE_SITEVERIFY_ERROR_COUNT_KEY = 'confirmedit-hcaptcha-siteverify-error-count';
+	private const CACHE_APIURL_ERROR_COUNT_KEY = 'confirmedit-hcaptcha-apiurl-error-count';
 	private const CONFIRMEDIT_HCAPTCHA_FAILOVER_MODE = 'confirmedit-hcaptcha-failover-mode';
 
 	private ?bool $isAvailable = null;
@@ -117,7 +120,7 @@ class HCaptchaEnterpriseHealthChecker {
 		$this->isAvailable = (bool)$this->wanObjectCache->getWithSetCallback(
 			$this->wanObjectCache->makeGlobalKey( 'confirmedit-hcaptcha-apiurl-available' ),
 			$this->wanObjectCache::TTL_MINUTE * 5,
-			function () {
+			function ( $oldValue, &$ttl ) {
 				$start = microtime( true );
 				$retried = false;
 				$apiUrlStatus = $this->checkApiUrl();
@@ -125,19 +128,63 @@ class HCaptchaEnterpriseHealthChecker {
 					$retried = true;
 					// Give it a second try, in case of intermittent network issues.
 					$apiUrlStatus = $this->checkApiUrl();
+					if ( $apiUrlStatus->isGood() ) {
+						$this->logger->info(
+							'apiUrl check failed on first attempt but succeeded on retry'
+						);
+					} else {
+						$this->logger->warning(
+							'apiUrl check failed on both first attempt and retry'
+						);
+					}
 				}
 				$this->statsFactory->withComponent( 'ConfirmEdit' )
 					->getTiming( 'hcaptcha_enterprise_health_checker__api_url_available_seconds' )
 					->setLabel( 'retry', $retried ? '1' : '0' )
 					->observeSeconds( ( microtime( true ) - $start ) );
 				if ( !$apiUrlStatus->isGood() ) {
-					$this->setFailoverMode();
 					$statusFormatter = $this->formatterFactory->getStatusFormatter( RequestContext::getMain() );
 					$this->logger->error( ...$statusFormatter->getPsr3MessageAndContext( $apiUrlStatus, [
 						'hcaptcha_health_check_type' => 'apiUrl',
 					] ) );
-					return 0;
+
+					if ( $apiUrlStatus->value === self::INTEGRITY_FAILURE ) {
+						// Integrity failures are security-sensitive: immediate failover
+						$this->logger->warning(
+							'apiUrl integrity check failure, entering immediate failover'
+						);
+						$this->setFailoverMode();
+						return 0;
+					}
+
+					// HTTP/network failure: apply counter-based threshold
+					$errorCountKey = $this->bagOStuffCache->makeGlobalKey( self::CACHE_APIURL_ERROR_COUNT_KEY );
+					$errorCount = $this->bagOStuffCache->incrWithInit(
+						$errorCountKey,
+						$this->bagOStuffCache::TTL_MINUTE * 30
+					);
+					$threshold = $this->options->get( 'HCaptchaEnterpriseHealthCheckApiUrlErrorThreshold' );
+					if ( $errorCount >= $threshold ) {
+						$this->setFailoverMode();
+						$this->logger->warning(
+							'hCaptcha unavailable due to apiUrl errors: {count} >= {threshold}',
+							[ 'count' => $errorCount, 'threshold' => $threshold ]
+						);
+						return 0;
+					}
+					// Below threshold, recheck sooner to accumulate errors faster
+					// during sustained outages
+					$this->logger->warning(
+						'apiUrl check failed, error count {count} below threshold {threshold}',
+						[ 'count' => $errorCount, 'threshold' => $threshold ]
+					);
+					$ttl = $this->wanObjectCache::TTL_MINUTE;
+					return 1;
 				}
+				// Reset the error counter if we could reach the URL
+				$this->bagOStuffCache->delete(
+					$this->bagOStuffCache->makeGlobalKey( self::CACHE_APIURL_ERROR_COUNT_KEY )
+				);
 				return 1;
 			},
 			[
@@ -174,10 +221,6 @@ class HCaptchaEnterpriseHealthChecker {
 		);
 		$status = $apiUrlRequest->execute();
 		if ( !$status->isGood() ) {
-			$statusFormatter = $this->formatterFactory->getStatusFormatter( RequestContext::getMain() );
-			$this->logger->error( ...$statusFormatter->getPsr3MessageAndContext( $status, [
-				'hcaptcha_health_check_type' => 'apiUrl',
-			] ) );
 			return $status;
 		}
 		// Since we have the contents, verify that the integrity hash matches.
@@ -185,13 +228,17 @@ class HCaptchaEnterpriseHealthChecker {
 		if ( $expectedIntegrityHash ) {
 			[ $hashAlgorithm, $expectedIntegrityHashValue ] = explode( '-', $expectedIntegrityHash );
 			if ( !in_array( $hashAlgorithm, [ 'sha256', 'sha384', 'sha512' ] ) ) {
-				return Status::newFatal( new RawMessage( 'Invalid hash algorithm: $1', [ $hashAlgorithm ] ) );
+				$status = Status::newFatal( new RawMessage( 'Invalid hash algorithm: $1', [ $hashAlgorithm ] ) );
+				$status->value = self::INTEGRITY_FAILURE;
+				return $status;
 			}
 			$actualIntegrityHash = base64_encode( hash( $hashAlgorithm, $apiUrlRequest->getContent(), true ) );
 			if ( $expectedIntegrityHashValue !== $actualIntegrityHash ) {
-				return Status::newFatal( new RawMessage( 'Integrity hash $1 does not match expected $2', [
+				$status = Status::newFatal( new RawMessage( 'Integrity hash $1 does not match expected $2', [
 					$actualIntegrityHash, $expectedIntegrityHashValue,
 				] ) );
+				$status->value = self::INTEGRITY_FAILURE;
+				return $status;
 			}
 		}
 		return Status::newGood();

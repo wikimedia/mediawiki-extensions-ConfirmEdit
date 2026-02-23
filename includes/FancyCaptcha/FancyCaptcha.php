@@ -12,6 +12,7 @@ use MediaWiki\Html\Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Output\StreamFile;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
@@ -50,8 +51,8 @@ class FancyCaptcha extends SimpleCaptcha {
 				'lockManager'    => new NullLockManager( [] ),
 				'containerPaths' => [ $this->getStorageDir() => $wgCaptchaDirectory ],
 				'fileMode'       => 777,
-				'obResetFunc'    => 'wfResetOutputBuffers',
-				'streamMimeFunc' => [ 'StreamFile', 'contentTypeFromPath' ]
+				'obResetFunc'    => wfResetOutputBuffers( ... ),
+				'streamMimeFunc' => StreamFile::contentTypeFromPath( ... ),
 			] );
 		}
 

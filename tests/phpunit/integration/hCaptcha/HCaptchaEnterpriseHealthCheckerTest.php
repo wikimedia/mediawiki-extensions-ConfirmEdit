@@ -76,7 +76,7 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertTrue( $healthChecker->isAvailable() );
 		$logMessages = array_column( $logger->getBuffer(), 1 );
 		$this->assertContains(
-			'apiUrl check failed on both first attempt and retry',
+			'apiUrl check failed on all {maxAttempts} attempts',
 			$logMessages
 		);
 		$this->assertContains(
@@ -170,7 +170,7 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertFalse( $healthChecker->isAvailable() );
 		$logMessages = array_column( $logger->getBuffer(), 1 );
 		$this->assertContains(
-			'apiUrl check failed on both first attempt and retry',
+			'apiUrl check failed on all {maxAttempts} attempts',
 			$logMessages
 		);
 		$this->assertContains(
@@ -206,7 +206,7 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertFalse( $healthChecker->isAvailable() );
 		$logMessages = array_column( $logger->getBuffer(), 1 );
 		$this->assertContains(
-			'apiUrl check failed on both first attempt and retry',
+			'apiUrl check failed on all {maxAttempts} attempts',
 			$logMessages
 		);
 		$this->assertContains(
@@ -244,5 +244,83 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 		);
 		$this->assertTrue( $healthChecker->isAvailable() );
 		$this->assertEquals( [], $logger->getBuffer() );
+	}
+
+	public function testRetrySucceedsOnLaterAttempt() {
+		$this->overrideConfigValues( [
+			'HCaptchaApiUrlIntegrityHash' => '',
+			'HCaptchaEnterpriseHealthCheckApiUrlRetryCount' => 2,
+			'HCaptchaEnterpriseHealthCheckApiUrlRetryDelayMs' => 0,
+		] );
+		// First request fails (500), subsequent requests succeed (200).
+		$this->installMockHttp( [
+			$this->makeFakeHttpRequest( '', 500 ),
+			$this->makeFakeHttpRequest( 'ok', 200 ),
+		] );
+		$logger = new TestLogger( true );
+		$services = $this->getServiceContainer();
+		$healthChecker = new HCaptchaEnterpriseHealthChecker(
+			new ServiceOptions(
+				HCaptchaEnterpriseHealthChecker::CONSTRUCTOR_OPTIONS,
+				$services->getMainConfig()
+			),
+			$logger,
+			$services->getObjectCacheFactory()->getLocalClusterInstance(),
+			$services->getMainWANObjectCache(),
+			$services->getHttpRequestFactory(),
+			$services->getFormatterFactory(),
+			$services->getStatsFactory()
+		);
+		$this->assertTrue( $healthChecker->isAvailable() );
+		$logMessages = array_column( $logger->getBuffer(), 1 );
+		$this->assertContains(
+			'apiUrl check attempt {attempt} of {maxAttempts} failed, retrying in {retryDelayMs}ms',
+			$logMessages
+		);
+		$this->assertContains(
+			'apiUrl check failed on first attempt but succeeded on attempt {attempt} of {maxAttempts}',
+			$logMessages
+		);
+	}
+
+	public function testRetryCountZeroDisablesRetries() {
+		$this->overrideConfigValues( [
+			'HCaptchaEnterpriseHealthCheckApiUrlRetryCount' => 0,
+			'HCaptchaEnterpriseHealthCheckApiUrlRetryDelayMs' => 0,
+		] );
+		// Only one request, and it fails.
+		$this->installMockHttp(
+			$this->makeFakeHttpRequest( '', 500 )
+		);
+		$logger = new TestLogger( true );
+		$services = $this->getServiceContainer();
+		$healthChecker = new HCaptchaEnterpriseHealthChecker(
+			new ServiceOptions(
+				HCaptchaEnterpriseHealthChecker::CONSTRUCTOR_OPTIONS,
+				$services->getMainConfig()
+			),
+			$logger,
+			$services->getObjectCacheFactory()->getLocalClusterInstance(),
+			$services->getMainWANObjectCache(),
+			$services->getHttpRequestFactory(),
+			$services->getFormatterFactory(),
+			$services->getStatsFactory()
+		);
+		// Should still be available because error count is below threshold,
+		// but no retry log messages should appear.
+		$this->assertTrue( $healthChecker->isAvailable() );
+		$logMessages = array_column( $logger->getBuffer(), 1 );
+		$this->assertNotContains(
+			'apiUrl check failed on all {maxAttempts} attempts',
+			$logMessages
+		);
+		$this->assertNotContains(
+			'apiUrl check failed on first attempt but succeeded on attempt {attempt} of {maxAttempts}',
+			$logMessages
+		);
+		$this->assertContains(
+			'apiUrl check failed, error count {count} below threshold {threshold}',
+			$logMessages
+		);
 	}
 }

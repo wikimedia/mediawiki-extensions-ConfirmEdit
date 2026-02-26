@@ -27,6 +27,8 @@ class HCaptchaEnterpriseHealthChecker {
 		'HCaptchaEnterpriseHealthCheckSiteVerifyErrorThreshold',
 		'HCaptchaEnterpriseHealthCheckApiUrlErrorThreshold',
 		'HCaptchaEnterpriseHealthCheckFailoverDuration',
+		'HCaptchaEnterpriseHealthCheckApiUrlRetryCount',
+		'HCaptchaEnterpriseHealthCheckApiUrlRetryDelayMs',
 	];
 	private const INTEGRITY_FAILURE = 'integrity_failure';
 	private const CACHE_SITEVERIFY_ERROR_COUNT_KEY = 'confirmedit-hcaptcha-siteverify-error-count';
@@ -115,19 +117,34 @@ class HCaptchaEnterpriseHealthChecker {
 				// SiteVerify is OK, now check that the hCaptcha API JavaScript
 				// file is available.
 				$start = microtime( true );
-				$retried = false;
+				$retryCount = $this->options->get( 'HCaptchaEnterpriseHealthCheckApiUrlRetryCount' );
+				$retryDelayMs = $this->options->get( 'HCaptchaEnterpriseHealthCheckApiUrlRetryDelayMs' );
+				$maxAttempts = 1 + $retryCount;
+				$attempt = 0;
 				$apiUrlStatus = $this->checkApiUrl();
-				if ( !$apiUrlStatus->isGood() ) {
-					$retried = true;
-					// Give it a second try, in case of intermittent network issues.
+				$attempt++;
+				while ( !$apiUrlStatus->isGood() && $attempt < $maxAttempts ) {
+					$this->logger->info(
+						'apiUrl check attempt {attempt} of {maxAttempts} failed, retrying in {retryDelayMs}ms',
+						[ 'attempt' => $attempt, 'maxAttempts' => $maxAttempts, 'retryDelayMs' => $retryDelayMs ]
+					);
+					if ( $retryDelayMs > 0 ) {
+						usleep( $retryDelayMs * 1000 );
+					}
 					$apiUrlStatus = $this->checkApiUrl();
+					$attempt++;
+				}
+				$retried = $attempt > 1;
+				if ( $retried ) {
 					if ( $apiUrlStatus->isGood() ) {
 						$this->logger->info(
-							'apiUrl check failed on first attempt but succeeded on retry'
+							'apiUrl check failed on first attempt but succeeded on attempt {attempt} of {maxAttempts}',
+							[ 'attempt' => $attempt, 'maxAttempts' => $maxAttempts ]
 						);
 					} else {
 						$this->logger->warning(
-							'apiUrl check failed on both first attempt and retry'
+							'apiUrl check failed on all {maxAttempts} attempts',
+							[ 'maxAttempts' => $maxAttempts ]
 						);
 					}
 				}
@@ -171,7 +188,7 @@ class HCaptchaEnterpriseHealthChecker {
 						'apiUrl check failed, error count {count} below threshold {threshold}',
 						[ 'count' => $errorCount, 'threshold' => $threshold ]
 					);
-					$ttl = $this->wanObjectCache::TTL_SECOND * 10;
+					$ttl = $this->wanObjectCache::TTL_SECOND * 30;
 					return 1;
 				}
 				// Reset the error counter if we could reach the URL
@@ -181,7 +198,8 @@ class HCaptchaEnterpriseHealthChecker {
 				return 1;
 			},
 			[
-				// Regenerating the value should take ~4-5 seconds at most.
+				// Regenerating the value should take ~7 seconds at most
+				// (2s timeout + 0.2s delay + 2s + 0.2s + 2s with default retry settings).
 				'lockTSE' => 10,
 				// Default to assuming availability while the value is regenerated
 				'busyValue' => 1,

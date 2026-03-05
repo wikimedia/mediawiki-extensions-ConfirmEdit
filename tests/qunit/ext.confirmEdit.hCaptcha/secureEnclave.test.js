@@ -44,10 +44,16 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 				execute: this.sandbox.stub()
 			},
 			document: {
+				createElement: this.sandbox.stub().returns( {
+					classList: {
+						contains: this.sandbox.stub().returns( false )
+					}
+				} ),
 				head: {
 					appendChild: this.sandbox.stub(),
 					removeChild: this.sandbox.stub()
-				}
+				},
+				querySelectorAll: this.sandbox.stub().returns( [] )
 			},
 			performance: {
 				measure: this.measure,

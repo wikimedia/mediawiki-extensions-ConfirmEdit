@@ -51,10 +51,11 @@ function trackPerformanceTiming( win, startMark ) {
  *
  * This function does not attach the tag to the DOM.
  *
+ * @param {Document} doc Reference to the document the tag is being added to.
  * @param {Object} apiUrlQueryParameters Query parameters to add to the hCaptcha URL.
  * @return {HTMLScriptElement}
  */
-const createHCaptchaScriptTag = ( apiUrlQueryParameters ) => {
+const createHCaptchaScriptTag = ( doc, apiUrlQueryParameters ) => {
 	const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
 
 	for ( const [ name, value ] of Object.entries( apiUrlQueryParameters ) ) {
@@ -63,7 +64,7 @@ const createHCaptchaScriptTag = ( apiUrlQueryParameters ) => {
 
 	hCaptchaApiUrl.searchParams.set( 'onload', 'onHCaptchaSDKLoaded' );
 
-	const script = document.createElement( 'script' );
+	const script = doc.createElement( 'script' );
 	script.src = hCaptchaApiUrl.toString();
 	script.async = true;
 	script.className = 'mw-confirmedit-hcaptcha-script';
@@ -93,9 +94,11 @@ const createHCaptchaScriptTag = ( apiUrlQueryParameters ) => {
 const loadHCaptcha = (
 	win, interfaceName, apiUrlQueryParameters = {}
 ) => new Promise( ( resolve, reject ) => {
+	const doc = win.document;
+
 	// If any existing hCaptcha SDK script has already finished loading,
 	// then resolve the promise as we don't need to load hCaptcha again
-	const existingScriptElements = document.querySelectorAll( '.mw-confirmedit-hcaptcha-script' );
+	const existingScriptElements = doc.querySelectorAll( '.mw-confirmedit-hcaptcha-script' );
 	for ( const scriptElement of existingScriptElements ) {
 		if ( scriptElement.classList.contains( 'mw-confirmedit-hcaptcha-script-loading-finished' ) ) {
 			resolve();
@@ -133,7 +136,7 @@ const loadHCaptcha = (
 	);
 
 	let attempts = 0;
-	let script = createHCaptchaScriptTag( apiUrlQueryParameters );
+	let script = createHCaptchaScriptTag( doc, apiUrlQueryParameters );
 
 	const onErrorCallback = () => {
 		trackPerformanceTiming( win, perfStartMark );
@@ -161,7 +164,7 @@ const loadHCaptcha = (
 		setTimeout( () => {
 			win.document.head.removeChild( script );
 
-			script = createHCaptchaScriptTag( apiUrlQueryParameters );
+			script = createHCaptchaScriptTag( doc, apiUrlQueryParameters );
 			script.onerror = onErrorCallback;
 
 			win.document.head.appendChild( script );

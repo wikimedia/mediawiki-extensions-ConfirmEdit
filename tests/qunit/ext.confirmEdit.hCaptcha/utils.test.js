@@ -30,9 +30,15 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 				execute: this.sandbox.stub()
 			},
 			document: {
+				createElement: this.sandbox.stub().returns( {
+					classList: {
+						contains: this.sandbox.stub().returns( false )
+					}
+				} ),
 				head: {
 					appendChild: this.sandbox.stub()
-				}
+				},
+				querySelectorAll: this.sandbox.stub().returns( [] )
 			},
 			performance: {
 				measure: this.measure,
@@ -111,6 +117,8 @@ QUnit.test( 'loadHCaptcha should return early if previous hCaptcha SDK load succ
 	const script = document.createElement( 'script' );
 	script.className = 'mw-confirmedit-hcaptcha-script mw-confirmedit-hcaptcha-script-loading-finished';
 	$qunitFixture.append( script );
+
+	this.window.document.querySelectorAll.returns( [ script ] );
 
 	return loadHCaptcha( this.window, 'testinterface' )
 		.then( () => {

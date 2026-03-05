@@ -86,6 +86,25 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 			$vars['wgConfirmEditHCaptchaSiteKey'] ??=
 				$captchaInstance->getConfig()['HCaptchaSiteKey'] ??
 				$out->getConfig()->get( 'HCaptchaSiteKey' );
+
+			if ( $mobileFrontendAvailable &&
+				$this->config->get( 'HCaptchaEnabledInMobileFrontend' ) ) {
+				// hCaptcha hooks for the Mobile Frontend must be loaded before
+				// the SourceEditor itself is initialized, otherwise it will be
+				// initialized before the handlers for the frontend hooks are
+				// set up.
+
+				$requiredModule = 'ext.confirmEdit.hCaptcha';
+				$mfInitModulesKey = 'wgMobileFrontendSourceEditorInitializeModules';
+				$modulesToInit = $vars[$mfInitModulesKey] ?? [];
+
+				if ( !in_array( $requiredModule, $modulesToInit ) ) {
+					$modulesToInit[] = $requiredModule;
+				}
+
+				$vars[$mfInitModulesKey] = $modulesToInit;
+				$out->addModules( $requiredModule );
+			}
 		}
 	}
 }

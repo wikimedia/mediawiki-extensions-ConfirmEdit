@@ -243,14 +243,47 @@ QUnit.test( 'getDuration falls back to mw.now() as a last resort', async functio
 	} );
 } );
 
-QUnit.test( 'getRecoverableErrors returns the expected error codes', async function ( assert ) {
-	const errors = this.utils.getRecoverableErrors();
-	const expected = [
-		'challenge-closed',
-		'challenge-expired',
-		'internal-error',
-		'network-error',
-		'rate-limited'
-	];
-	assert.deepEqual( errors.slice().sort(), expected.sort() );
-} );
+const defaultRecoverableErrors = [
+	'challenge-closed',
+	'challenge-expired',
+	'internal-error',
+	'network-error',
+	'rate-limited'
+];
+
+QUnit.test.each(
+	'getRecoverableErrors returns the expected error codes',
+	[
+		{ interfaceName: null, expected: defaultRecoverableErrors },
+		{ interfaceName: 'createaccount', expected: defaultRecoverableErrors },
+		{ interfaceName: 'edit', expected: defaultRecoverableErrors },
+		{
+			interfaceName: 'mobilefrontend-editor',
+			expected: defaultRecoverableErrors.filter(
+				// The MobileFrontend should not handle closing the challenge as
+				// an error.
+				//
+				// 'challenge-closed' is triggered whenever the user clicks
+				// outside the challenge popup, and handling it as recoverable
+				// would cause it to be shown again if the user clicks outside
+				// it in order to close it, making it impossible to dismiss the
+				// dialog in order to make changes in the edit summary.
+				( e ) => e !== 'challenge-closed'
+			)
+		}
+	],
+	function ( assert, data ) {
+		const errors = this.utils.getRecoverableErrors(
+			data.interfaceName
+		);
+
+		// Arrays are sorted so that they match regardless of the order of their
+		// elements. slice() is used to prevent modifying the underlying array
+		// returned by getRecoverableErrors().
+		assert.deepEqual(
+			errors.sort(),
+			data.expected.sort(),
+			`Unexpected recoverable errors for ${ data.interfaceName }`
+		);
+	}
+);

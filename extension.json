@@ -241,6 +241,10 @@
 			"description": "Whether the provided sitekey is for hCaptcha Enterprise features. See https://www.hcaptcha.com/#enterprise-features",
 			"value": false
 		},
+		"HCaptchaEnabledInMobileFrontend": {
+			"description": "Whether to enable HCaptcha for the MobileFrontend",
+			"value": false
+		},
 		"HCaptchaInvisibleMode": {
 			"description": "Enable this to make the hCaptcha checkbox invisible and only show a challenge if hCaptcha determines it is needed. This forces the inclusion of a message with the hCaptcha Privacy Policy and Terms of Service",
 			"value": false
@@ -318,6 +322,8 @@
 		"scripts": [
 			"secureEnclave.test.js",
 			"ErrorWidget.test.js",
+			"mobileFrontend/initMobileFrontend.test.js",
+			"mobileFrontend/mobileFrontendSecureEnclave.test.js",
 			"ProgressIndicatorWidget.test.js",
 			"utils.test.js",
 			"ve/ve.init.mw.HCaptchaSaveErrorHandler.test.js",

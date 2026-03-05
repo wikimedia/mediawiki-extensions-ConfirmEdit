@@ -410,19 +410,34 @@ function isPerformanceMeasureSupported( win ) {
  * Lists codes for errors from the hCaptcha SDK that can be recovered from by
  * restarting the workflow (which makes the UI to show a new captcha).
  *
- * Specifically, the recoverable errors are challenge-closed, challenge-expired,
- * internal-error, network-error and rate-limited.
+ * Specifically, the recoverable errors are challenge-expired, internal-error,
+ * network-error and rate-limited.
  *
+ * Additionally, challenge-closed is considered recoverable (which triggers a
+ * new challenge automatically) for all UIs but the MobileFrontend, in which
+ * closing the challenge lets the user stop sending the edit when that error is
+ * triggered. Given that challenge-closed in the MobileFrontend happens if the
+ * user clicks outside the captcha popup, handling it as recoverable would make
+ * it show the popup again with a new challenge immediately after clicking
+ * outside it, therefore making it impossible to dismiss the dialog in order to
+ * make changes in the edit summary.
+ *
+ * @param {string} interfaceName Name of the interface hCaptcha is being used on
  * @return {string[]} List of error codes from the hCaptcha SDK.
  */
-function getRecoverableErrors() {
-	return [
-		'challenge-closed',
+function getRecoverableErrors( interfaceName ) {
+	const recoverableErrors = [
 		'challenge-expired',
 		'internal-error',
 		'network-error',
 		'rate-limited'
 	];
+
+	if ( interfaceName !== 'mobilefrontend-editor' ) {
+		recoverableErrors.push( 'challenge-closed' );
+	}
+
+	return recoverableErrors;
 }
 
 /**

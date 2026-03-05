@@ -48,7 +48,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	};
 
 	// Errors that can be recovered from by restarting the workflow.
-	const recoverableErrors = utils.getRecoverableErrors();
+	const recoverableErrors = utils.getRecoverableErrors( interfaceName );
 
 	captchaIdPromise = utils.renderHCaptchaWithTracking(
 		win,

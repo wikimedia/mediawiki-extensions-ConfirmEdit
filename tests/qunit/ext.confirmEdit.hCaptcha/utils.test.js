@@ -1,5 +1,3 @@
-const { executeHCaptcha, loadHCaptcha } = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/utils.js' );
-
 QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 	beforeEach() {
 		mw.config.set( 'wgDBname', 'testwiki' );
@@ -45,6 +43,9 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 				getEntriesByName: this.getEntriesByName
 			}
 		};
+
+		// Subject under test
+		this.utils = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/utils.js' );
 	},
 
 	afterEach() {
@@ -62,7 +63,7 @@ QUnit.test( 'should handle exception being thrown by hcaptcha.execute', async fu
 	this.measure.onFirstCall().returns( { duration: 2314 } );
 	this.measure.onSecondCall().returns( { duration: 1234 } );
 
-	return executeHCaptcha( this.window, 'captcha-id', 'testinterface' )
+	return this.utils.executeHCaptcha( this.window, 'captcha-id', 'testinterface' )
 		.then( () => {
 			// False positive
 			// eslint-disable-next-line no-jquery/no-done-fail
@@ -120,7 +121,7 @@ QUnit.test( 'loadHCaptcha should return early if previous hCaptcha SDK load succ
 
 	this.window.document.querySelectorAll.returns( [ script ] );
 
-	return loadHCaptcha( this.window, 'testinterface' )
+	return this.utils.loadHCaptcha( this.window, 'testinterface' )
 		.then( () => {
 			assert.true( this.window.document.head.appendChild.notCalled, 'should not load hCaptcha SDK' );
 			assert.true( this.track.notCalled, 'should not emit hCaptcha performance events' );
@@ -145,7 +146,7 @@ QUnit.test( 'loadHCaptcha should load hCaptcha SDK if previous attempt failed', 
 
 	assert.true( this.window.document.head.appendChild.notCalled, 'should not have loaded hCaptcha SDK until call' );
 
-	return loadHCaptcha( this.window, 'testinterface' )
+	return this.utils.loadHCaptcha( this.window, 'testinterface' )
 		.then( () => {
 			assert.true( this.window.document.head.appendChild.calledOnce, 'should load hCaptcha SDK' );
 		} )
@@ -174,7 +175,7 @@ QUnit.test( 'getDuration falls back to getEntriesByName() if measure() does not 
 	// fallback to getEntriesByName() if performance.measure() returns undefined.
 	// Most browsers added support for getEntriesByName() in 2015 or earlier,
 	// while returning a PerformanceMeasure object started around 2020.
-	return loadHCaptcha( this.window, 'testinterface' ).then( () => {
+	return this.utils.loadHCaptcha( this.window, 'testinterface' ).then( () => {
 		assert.strictEqual(
 			this.measure.callCount,
 			1,
@@ -215,7 +216,7 @@ QUnit.test( 'getDuration falls back to mw.now() as a last resort', async functio
 	// fallback to getEntriesByName() if performance.measure() returns undefined.
 	// Most browsers added support for getEntriesByName() in 2015 or earlier,
 	// while returning a PerformanceMeasure object started around 2020.
-	return loadHCaptcha( this.window, 'testinterface' ).then( () => {
+	return this.utils.loadHCaptcha( this.window, 'testinterface' ).then( () => {
 		assert.strictEqual(
 			this.measure.callCount,
 			1,
@@ -236,4 +237,16 @@ QUnit.test( 'getDuration falls back to mw.now() as a last resort', async functio
 			'should fall back to mw.now() last'
 		);
 	} );
+} );
+
+QUnit.test( 'getRecoverableErrors returns the expected error codes', async function ( assert ) {
+	const errors = this.utils.getRecoverableErrors();
+	const expected = [
+		'challenge-closed',
+		'challenge-expired',
+		'internal-error',
+		'network-error',
+		'rate-limited'
+	];
+	assert.deepEqual( errors.slice().sort(), expected.sort() );
 } );

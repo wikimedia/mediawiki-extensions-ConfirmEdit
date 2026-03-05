@@ -1,6 +1,10 @@
 const config = require( './config.json' );
 
 /**
+ * @typedef {InstanceType<typeof import('./ErrorWidget.js')>} ErrorWidget
+ */
+
+/**
  * Conclude and emit a performance measurement in seconds via mw.track.
  *
  * @param {Window} win A reference to the object representing the browser's window
@@ -378,8 +382,97 @@ function isPerformanceMeasureSupported( win ) {
 		( typeof win.performance.measure === 'function' );
 }
 
+/**
+ * Lists codes for errors from the hCaptcha SDK that can be recovered from by
+ * restarting the workflow (which makes the UI to show a new captcha).
+ *
+ * Specifically, the recoverable errors are challenge-closed, challenge-expired,
+ * internal-error, network-error and rate-limited.
+ *
+ * @return {string[]} List of error codes from the hCaptcha SDK.
+ */
+function getRecoverableErrors() {
+	return [
+		'challenge-closed',
+		'challenge-expired',
+		'internal-error',
+		'network-error',
+		'rate-limited'
+	];
+}
+
+/**
+ * Loads the hCaptcha SDK and renders it in the container with the provided ID.
+ *
+ * Specifically, this function acts as a wrapper that first calls loadHCaptcha()
+ * for loading the hCaptcha SDK and then renders a captcha in an HTML container,
+ * setting up required parameters regarding instrumentation.
+ *
+ * @param {Window} win Reference to the browser window.
+ * @param {string} interfaceName Name of the interface where hCaptcha is being used.
+ * @param {string} wiki Wiki the captcha is rendered in (value of wgDBname).
+ * @param {string} containerId ID of the HTML container to render a captcha in.
+ *
+ * @return {Promise<string>} An ID to be used to call executeHCaptcha().
+ */
+function renderHCaptchaWithTracking( win, interfaceName, wiki, containerId ) {
+	/**
+	 * Fires when a visible challenge is displayed.
+	 */
+	const onOpen = function () {
+		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_open_callback_total', 1, {
+			wiki: wiki,
+			interfaceName: interfaceName
+		} );
+		// Fire an event that can be used in WikimediaEvents for associating
+		// challenge opens with a user.
+		mw.track( 'confirmEdit.hCaptchaRenderCallback', 'open', interfaceName );
+	};
+
+	const options = {
+		'open-callback': onOpen,
+		'close-callback': () => {
+			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'close', interfaceName );
+		},
+		'chalexpired-callback': () => {
+			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'chalexpired', interfaceName );
+		},
+		'expired-callback': () => {
+			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'expired', interfaceName );
+		},
+		'error-callback': ( errCode ) => {
+			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'error', interfaceName, errCode );
+		}
+	};
+
+	return loadHCaptcha( win, interfaceName ).then(
+		() => win.hcaptcha.render( containerId, options )
+	);
+}
+
+/**
+ * Displays an error returned by attempting to load or execute hCaptcha
+ * in a user-friendly way.
+ *
+ * @param {ErrorWidget} widget Widget to show the error on.
+ * @param {string} error The error as returned by `executeHCaptcha` or `loadHCaptcha`
+ */
+function displayErrorInErrorWidget( widget, error ) {
+	// Possible message keys used here:
+	// * hcaptcha-generic-error
+	// * hcaptcha-challenge-closed
+	// * hcaptcha-challenge-expired
+	// * hcaptcha-internal-error
+	// * hcaptcha-network-error
+	// * hcaptcha-rate-limited
+	widget.show( mw.msg( mapErrorCodeToMessageKey( error ) ) );
+}
+
 module.exports = {
-	loadHCaptcha: loadHCaptcha,
+	displayErrorInErrorWidget: displayErrorInErrorWidget,
 	executeHCaptcha: executeHCaptcha,
-	mapErrorCodeToMessageKey: mapErrorCodeToMessageKey
+	getRecoverableErrors: getRecoverableErrors,
+	loadHCaptcha: loadHCaptcha,
+	mapErrorCodeToMessageKey: mapErrorCodeToMessageKey,
+	renderHCaptchaWithTracking: renderHCaptchaWithTracking
 };

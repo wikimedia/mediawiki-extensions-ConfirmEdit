@@ -1,7 +1,7 @@
 const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
 const ErrorWidget = require( './ErrorWidget.js' );
 const wiki = mw.config.get( 'wgDBname' );
-const { loadHCaptcha, executeHCaptcha, mapErrorCodeToMessageKey } = require( './utils.js' );
+const utils = require( './utils.js' );
 
 /**
  * If set, makes the next call to isSaveRequest() to return true unconditionally.
@@ -22,7 +22,7 @@ let editFormForceIsSaveRequest = false;
  * form submissions. Therefore, at that point it is safe to trigger a form
  * submission programmatically.
  *
- * @type {?Promise<void>}
+ * @type {?Promise<string>}
  */
 let captchaIdPromise = null;
 
@@ -47,8 +47,6 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 
 	$hCaptchaField.after( loadingIndicator.$element, errorWidget.$element );
 
-	const hCaptchaLoaded = loadHCaptcha( win, interfaceName );
-
 	const setSubmitButtonDisabledProp = ( disabled ) => {
 		if ( interfaceName === 'edit' ) {
 			// On wikitext editor, use OOUI widget
@@ -62,42 +60,14 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	};
 
 	// Errors that can be recovered from by restarting the workflow.
-	const recoverableErrors = [
-		'challenge-closed',
-		'challenge-expired',
-		'internal-error',
-		'network-error',
-		'rate-limited'
-	];
+	const recoverableErrors = utils.getRecoverableErrors();
 
-	/**
-	 * Fires when a visible challenge is displayed.
-	 */
-	const onOpen = function () {
-		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_open_callback_total', 1, {
-			wiki: wiki,
-			interfaceName: interfaceName
-		} );
-		// Fire an event that can be used in WikimediaEvents for associating
-		// challenge opens with a user.
-		mw.track( 'confirmEdit.hCaptchaRenderCallback', 'open', interfaceName );
-	};
-
-	captchaIdPromise = hCaptchaLoaded.then( () => win.hcaptcha.render( 'h-captcha', {
-		'open-callback': onOpen,
-		'close-callback': () => {
-			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'close', interfaceName );
-		},
-		'chalexpired-callback': () => {
-			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'chalexpired', interfaceName );
-		},
-		'expired-callback': () => {
-			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'expired', interfaceName );
-		},
-		'error-callback': ( errCode ) => {
-			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'error', interfaceName, errCode );
-		}
-	} ) );
+	captchaIdPromise = utils.renderHCaptchaWithTracking(
+		win,
+		interfaceName,
+		wiki,
+		'h-captcha'
+	);
 
 	/**
 	 * Determines if the given form submission is a "save" request.
@@ -159,29 +129,12 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 			} );
 		} );
 
-		/**
-		 * Displays an error returned by attempting to load or execute hCaptcha
-		 * in a user-friendly way
-		 *
-		 * @param {string} error The error as returned by `executeHCaptcha` or `loadHCaptcha`
-		 */
-		const displayErrorInErrorWidget = ( error ) => {
-			// Possible message keys used here:
-			// * hcaptcha-generic-error
-			// * hcaptcha-challenge-closed
-			// * hcaptcha-challenge-expired
-			// * hcaptcha-internal-error
-			// * hcaptcha-network-error
-			// * hcaptcha-rate-limited
-			errorWidget.show( mw.msg( mapErrorCodeToMessageKey( error ) ) );
-		};
-
 		return Promise.all( [ captchaIdPromise, formSubmitted ] )
 			.then( ( [ captchaId, form ] ) => {
 				loadingIndicator.$element.show();
 				setSubmitButtonDisabledProp( true );
 
-				return executeHCaptcha( win, captchaId, interfaceName )
+				return utils.executeHCaptcha( win, captchaId, interfaceName )
 					.then( ( response ) => {
 						// Clear out any errors from a previous workflow.
 						errorWidget.hide();
@@ -205,7 +158,7 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 						loadingIndicator.$element.hide();
 						setSubmitButtonDisabledProp( false );
 
-						displayErrorInErrorWidget( error );
+						utils.displayErrorInErrorWidget( errorWidget, error );
 
 						// Initiate a new workflow for recoverable errors
 						// (e.g. an expired or closed challenge).
@@ -225,10 +178,12 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 					error
 				);
 
-				// Note: If submissionHandler throws, the user won't be able
-				// to submit the form anymore.
+				// Note: If we end up reaching this point (caused by an error
+				// obtaining captchaId), the user won't be able to submit the
+				// form anymore since captchaIdPromise and formSubmitted have
+				// already been resolved.
 				setSubmitButtonDisabledProp( false );
-				displayErrorInErrorWidget( error );
+				utils.displayErrorInErrorWidget( errorWidget, error );
 			} );
 	};
 

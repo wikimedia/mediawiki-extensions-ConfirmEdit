@@ -1,8 +1,32 @@
+const ErrorWidget = require( './ErrorWidget.js' );
+const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
 const config = require( './config.json' );
 
 /**
- * @typedef {InstanceType<typeof import('./ErrorWidget.js')>} ErrorWidget
+ * Controls whether status widgets have been initialized.
+ *
+ * @type {boolean}
  */
+let statusWidgetsInitialized = false;
+
+/**
+ * Holds a reference to the ErrorWidget displayed in the UI, or null if no error
+ * was previously shown.
+ *
+ * This reference is used for hiding any previous error that may already be
+ * present in the UI.
+ *
+ * @type {?ErrorWidget}
+ */
+let errorWidget = null;
+
+/**
+ * Holds a reference to the ProgressIndicatorWidget displayed in the UI, or null
+ * if no progress indicator was previously shown.
+ *
+ * @type {?ProgressIndicatorWidget}
+ */
+let loadingIndicator = null;
 
 /**
  * Conclude and emit a performance measurement in seconds via mw.track.
@@ -451,13 +475,38 @@ function renderHCaptchaWithTracking( win, interfaceName, wiki, containerId ) {
 }
 
 /**
- * Displays an error returned by attempting to load or execute hCaptcha
- * in a user-friendly way.
- *
- * @param {ErrorWidget} widget Widget to show the error on.
- * @param {string} error The error as returned by `executeHCaptcha` or `loadHCaptcha`
+ * @param {jQuery} $hCaptchaField The hCaptcha input field within the form.
+ * @return {void}
+ * @private
  */
-function displayErrorInErrorWidget( widget, error ) {
+function initializeStatusWidgets( $hCaptchaField ) {
+	if ( statusWidgetsInitialized ) {
+		return;
+	}
+
+	statusWidgetsInitialized = true;
+	errorWidget = new ErrorWidget();
+	loadingIndicator = new ProgressIndicatorWidget(
+		mw.msg( 'hcaptcha-loading-indicator-label' )
+	);
+
+	loadingIndicator.$element.addClass( 'ext-confirmEdit-hCaptchaLoadingIndicator' );
+	loadingIndicator.$element.hide();
+	errorWidget.$element.hide();
+
+	$hCaptchaField.after( loadingIndicator.$element, errorWidget.$element );
+}
+
+/**
+ * Displays an error occurring in an hCaptcha workflow in a user-friendly way.
+ *
+ * @param {jQuery} $hCaptchaField The hCaptcha input field within the form.
+ * @param {string} error The error as returned by `executeHCaptcha` or `loadHCaptcha`
+ * @return {void}
+ */
+function showError( $hCaptchaField, error ) {
+	initializeStatusWidgets( $hCaptchaField );
+
 	// Possible message keys used here:
 	// * hcaptcha-generic-error
 	// * hcaptcha-challenge-closed
@@ -465,14 +514,64 @@ function displayErrorInErrorWidget( widget, error ) {
 	// * hcaptcha-internal-error
 	// * hcaptcha-network-error
 	// * hcaptcha-rate-limited
-	widget.show( mw.msg( mapErrorCodeToMessageKey( error ) ) );
+	errorWidget.show(
+		mw.msg( mapErrorCodeToMessageKey( error ) )
+	);
+}
+
+/**
+ * Hides any previous error that occurred in an hCaptcha workflow.
+ *
+ * @param {jQuery} $hCaptchaField The hCaptcha input field within the form.
+ * @return {void}
+ */
+function hideError( $hCaptchaField ) {
+	initializeStatusWidgets( $hCaptchaField );
+	errorWidget.hide();
+}
+
+/**
+ * Shows a loading indicator after the field passed as an argument.
+ *
+ * @param {jQuery} $hCaptchaField The hCaptcha input field within the form.
+ * @return {void}
+ */
+function showLoadingIndicator( $hCaptchaField ) {
+	initializeStatusWidgets( $hCaptchaField );
+	loadingIndicator.$element.show();
+}
+
+/**
+ * Hides any previous loading indicator added after the field provided as an
+ * argument.
+ *
+ * @param {jQuery} $hCaptchaField The hCaptcha input field within the form.
+ * @return {void}
+ */
+function hideLoadingIndicator( $hCaptchaField ) {
+	initializeStatusWidgets( $hCaptchaField );
+	loadingIndicator.$element.hide();
+}
+
+/**
+ * @internal Used from QUnit tests in order to reset the internal state.
+ * @return {void}
+ */
+function reset() {
+	statusWidgetsInitialized = false;
+	errorWidget = null;
+	loadingIndicator = null;
 }
 
 module.exports = {
-	displayErrorInErrorWidget: displayErrorInErrorWidget,
 	executeHCaptcha: executeHCaptcha,
 	getRecoverableErrors: getRecoverableErrors,
 	loadHCaptcha: loadHCaptcha,
 	mapErrorCodeToMessageKey: mapErrorCodeToMessageKey,
-	renderHCaptchaWithTracking: renderHCaptchaWithTracking
+	renderHCaptchaWithTracking: renderHCaptchaWithTracking,
+	showError: showError,
+	hideError: hideError,
+	showLoadingIndicator: showLoadingIndicator,
+	hideLoadingIndicator: hideLoadingIndicator,
+	reset: reset
 };

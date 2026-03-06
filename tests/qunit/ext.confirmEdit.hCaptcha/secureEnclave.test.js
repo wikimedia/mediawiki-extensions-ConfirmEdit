@@ -79,9 +79,17 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 
 		this.$form.appendTo( $( '#qunit-fixture' ) );
 
-		this.isLoadingIndicatorVisible = () => this.$form
-			.find( '.ext-confirmEdit-hCaptchaLoadingIndicator' )
-			.css( 'display' ) !== 'none';
+		// The display property may be "none" if the element is hidden, but it
+		// can also not be set at all (i.e. undefined) if the loading indicator
+		// was never added to the DOM in the first place. When the element is
+		// being shown, its display property may be either "block" or "flex".
+		this.isLoadingIndicatorVisible = () => !(
+			[ undefined, 'none' ].includes(
+				this.$form
+					.find( '.ext-confirmEdit-hCaptchaLoadingIndicator' )
+					.css( 'display' )
+			)
+		);
 
 		this.areSubmitButtonsDisabled = () => {
 			const $submitButtons = this.$form.find( 'input[type="submit"], button[type="submit"]' );
@@ -92,6 +100,10 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 		this.origIntegrityHash = config.HCaptchaApiUrlIntegrityHash;
 		config.HCaptchaApiUrl = 'https://example.com/hcaptcha.js';
 		config.HCaptchaApiUrlIntegrityHash = '1234abcef';
+
+		// Needed so we are able to reset the internal state between tests
+		// (i.e state of widgets that may've been set by previous tests)
+		this.utils = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/utils.js' );
 	},
 
 	afterEach() {
@@ -99,6 +111,8 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 		this.measure.restore();
 		this.logError.restore();
 		this.getEntriesByName.restore();
+
+		this.utils.reset();
 
 		config.HCaptchaApiUrl = this.origUrl;
 		config.HCaptchaApiUrlIntegrityHash = this.origIntegrityHash;

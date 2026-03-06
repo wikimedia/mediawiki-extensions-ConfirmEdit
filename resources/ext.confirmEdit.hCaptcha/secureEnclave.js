@@ -1,5 +1,3 @@
-const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
-const ErrorWidget = require( './ErrorWidget.js' );
 const wiki = mw.config.get( 'wgDBname' );
 const utils = require( './utils.js' );
 
@@ -37,16 +35,6 @@ let captchaIdPromise = null;
  * or after the first time the user attempts to submit the form and hCaptcha finishes running.
  */
 async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
-	const loadingIndicator = new ProgressIndicatorWidget(
-		mw.msg( 'hcaptcha-loading-indicator-label' )
-	);
-	loadingIndicator.$element.addClass( 'ext-confirmEdit-hCaptchaLoadingIndicator' );
-	loadingIndicator.$element.hide();
-
-	const errorWidget = new ErrorWidget();
-
-	$hCaptchaField.after( loadingIndicator.$element, errorWidget.$element );
-
 	const setSubmitButtonDisabledProp = ( disabled ) => {
 		if ( interfaceName === 'edit' ) {
 			// On wikitext editor, use OOUI widget
@@ -131,13 +119,12 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 
 		return Promise.all( [ captchaIdPromise, formSubmitted ] )
 			.then( ( [ captchaId, form ] ) => {
-				loadingIndicator.$element.show();
+				utils.hideError( $hCaptchaField );
+				utils.showLoadingIndicator( $hCaptchaField );
 				setSubmitButtonDisabledProp( true );
 
 				return utils.executeHCaptcha( win, captchaId, interfaceName )
 					.then( ( response ) => {
-						// Clear out any errors from a previous workflow.
-						errorWidget.hide();
 						// Set the hCaptcha response input field, which does not yet exist
 						$form.append( $( '<input>' )
 							.attr( 'type', 'hidden' )
@@ -145,9 +132,9 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 							.attr( 'id', 'h-captcha-response' )
 							.val( response ) );
 
-						// Hide the loading indicator as we have finished hCaptcha
-						// and are submitting the form
-						loadingIndicator.$element.hide();
+						// Clear out any errors from a previous workflow
+						utils.hideError( $hCaptchaField );
+						utils.hideLoadingIndicator( $hCaptchaField );
 						setSubmitButtonDisabledProp( false );
 
 						mw.hook( 'confirmEdit.hCaptcha.executionSuccess' ).fire( response );
@@ -155,10 +142,9 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 						form.submit();
 					} )
 					.catch( ( error ) => {
-						loadingIndicator.$element.hide();
+						utils.showError( $hCaptchaField, error );
+						utils.hideLoadingIndicator( $hCaptchaField );
 						setSubmitButtonDisabledProp( false );
-
-						utils.displayErrorInErrorWidget( errorWidget, error );
 
 						// Initiate a new workflow for recoverable errors
 						// (e.g. an expired or closed challenge).
@@ -182,8 +168,9 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 				// obtaining captchaId), the user won't be able to submit the
 				// form anymore since captchaIdPromise and formSubmitted have
 				// already been resolved.
+				utils.showError( $hCaptchaField, error );
+				utils.hideLoadingIndicator( $hCaptchaField );
 				setSubmitButtonDisabledProp( false );
-				utils.displayErrorInErrorWidget( errorWidget, error );
 			} );
 	};
 

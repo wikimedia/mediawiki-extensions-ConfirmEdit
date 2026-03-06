@@ -54,6 +54,10 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 		this.measure.restore();
 		this.now.restore();
 		this.track.restore();
+
+		// The result of require() is cached, so this is needed in order to drop
+		// references to widgets added to the page by previous tests.
+		this.utils.reset();
 	}
 } ) );
 

@@ -569,12 +569,14 @@ class SimpleCaptcha {
 
 		if ( $content instanceof Content ) {
 			if ( $content->getModel() == CONTENT_MODEL_WIKITEXT ) {
-				$newtext = $content->getNativeData();
+				'@phan-var TextContent $content';
+				$newtext = $content->getText();
 			} else {
 				$newtext = null;
 			}
 			$isEmpty = $content->isEmpty();
 		} else {
+			// $content is a non-null string here, so $newtext is also non-null
 			$newtext = $content;
 			$isEmpty = $content === '';
 		}
@@ -599,6 +601,7 @@ class SimpleCaptcha {
 				}
 			} else {
 				// Get link changes in the slowest way known to man
+				'@phan-var string $newtext';
 				$oldtext ??= $this->loadText( $title, $section );
 				$oldLinks = $this->findLinks( $title, $oldtext );
 				$newLinks = $this->findLinks( $title, $newtext );

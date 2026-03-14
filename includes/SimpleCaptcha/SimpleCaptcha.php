@@ -1038,7 +1038,7 @@ class SimpleCaptcha {
 	 * @param MailAddress $to
 	 * @param string $subject
 	 * @param string $text
-	 * @param string &$error
+	 * @param Status &$error
 	 * @return bool true to continue saving, false to abort and show a captcha form
 	 */
 	public function confirmEmailUser( $from, $to, $subject, $text, &$error ) {

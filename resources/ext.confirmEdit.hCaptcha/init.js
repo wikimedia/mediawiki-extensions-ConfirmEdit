@@ -16,9 +16,25 @@ $( () => {
 	if ( config.HCaptchaEnterprise && config.HCaptchaSecureEnclave ) {
 		const validMobileFEStates = [ 'loading', 'loaded', 'ready', 'executing' ];
 		if ( validMobileFEStates.includes( mw.loader.getState( 'mobile.editor.overlay' ) ) ) {
-			initMobileFrontend( 'mobilefrontend-editor', config, window );
+			// Editing interfaces may require a specific key: Override the
+			// general key provided by RLRegisterModulesHandler by one specific
+			// for the current action if such key was provided by
+			// MakeGlobalVariablesScriptHookHandler.
+			const editSiteKey = mw.config.get( 'wgConfirmEditHCaptchaSiteKey' );
+
+			let editConfig = config;
+			if ( editSiteKey ) {
+				editConfig = Object.assign(
+					{},
+					editConfig,
+					{ HCaptchaSiteKey: editSiteKey }
+				);
+			}
+
+			initMobileFrontend( 'mobilefrontend-editor', editConfig, window );
 		} else {
-			// Perform initialization for the Desktop editor
+			// Perform initialization for other scenarios, such as the Desktop
+			// editor or the account creation page.
 			useSecureEnclave( window );
 		}
 	}

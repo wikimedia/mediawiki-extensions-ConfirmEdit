@@ -30,6 +30,6 @@
 	"action-skipcaptcha": "izvođenje radnji koje pokreću CAPTCHA sliku bez potrebe prolaza kroz nju",
 	"confirmedit-preview-line": "Broj reda",
 	"confirmedit-preview-content": "Sadržaj",
-	"confirmedit-preview-valid": "važeći",
+	"confirmedit-preview-valid": "važeća",
 	"confirmedit-preview-invalid": "nevažeći"
 }

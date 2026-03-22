@@ -269,7 +269,7 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, $actual );
 	}
 
-	public function provideCanSkipCaptchaHook() {
+	public static function provideCanSkipCaptchaHook() {
 		return [
 			[ false, false, false ],
 			[ true, false, false ],

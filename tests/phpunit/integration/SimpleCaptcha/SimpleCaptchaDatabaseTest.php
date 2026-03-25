@@ -364,7 +364,7 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 				'contentText' => 'Some text without URLs',
 				'expectedResult' => true,
 				'expectedAction' => 'edit',
-				'expectedTriggerMessage' => [
+				'expectedTriggerMessages' => [
 					// unused in this scenario since expectedAction is not addurl
 				],
 				'description' => 'When addurl does not trigger, edit should work as fallback',

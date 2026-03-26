@@ -54,6 +54,54 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertTrue( $healthChecker->isAvailable() );
 	}
 
+	public function testServerCacheHit() {
+		$serverCache = new HashBagOStuff();
+		// Pre-populate the server cache with "available"
+		$serverCache->set(
+			$serverCache->makeGlobalKey( 'confirmedit-hcaptcha-available' ),
+			1
+		);
+		$healthChecker = new HCaptchaEnterpriseHealthChecker(
+			new ServiceOptions(
+				HCaptchaEnterpriseHealthChecker::CONSTRUCTOR_OPTIONS,
+				$this->getServiceContainer()->getMainConfig()
+			),
+			new NullLogger(),
+			$this->createNoOpMock( BagOStuff::class ),
+			$this->createNoOpMock( WANObjectCache::class ),
+			$this->createNoOpMock( HttpRequestFactory::class ),
+			$this->createNoOpMock( FormatterFactory::class ),
+			StatsFactory::newNull(),
+			$serverCache
+		);
+		// Should return true from server cache without touching WANObjectCache or HTTP.
+		$this->assertTrue( $healthChecker->isAvailable() );
+	}
+
+	public function testServerCacheHitUnavailable() {
+		$serverCache = new HashBagOStuff();
+		// Pre-populate the server cache with "unavailable"
+		$serverCache->set(
+			$serverCache->makeGlobalKey( 'confirmedit-hcaptcha-available' ),
+			0
+		);
+		$healthChecker = new HCaptchaEnterpriseHealthChecker(
+			new ServiceOptions(
+				HCaptchaEnterpriseHealthChecker::CONSTRUCTOR_OPTIONS,
+				$this->getServiceContainer()->getMainConfig()
+			),
+			new NullLogger(),
+			$this->createNoOpMock( BagOStuff::class ),
+			$this->createNoOpMock( WANObjectCache::class ),
+			$this->createNoOpMock( HttpRequestFactory::class ),
+			$this->createNoOpMock( FormatterFactory::class ),
+			StatsFactory::newNull(),
+			$serverCache
+		);
+		// Should return false from server cache without touching WANObjectCache or HTTP.
+		$this->assertFalse( $healthChecker->isAvailable() );
+	}
+
 	public function testHttpFailuresBelowThreshold() {
 		$this->installMockHttp(
 			$this->makeFakeHttpRequest( '', 500 )
@@ -70,7 +118,8 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getMainWANObjectCache(),
 			$services->getHttpRequestFactory(),
 			$services->getFormatterFactory(),
-			$services->getStatsFactory()
+			$services->getStatsFactory(),
+			new HashBagOStuff()
 		);
 		// A single failure should not trigger failover (default threshold is 3).
 		$this->assertTrue( $healthChecker->isAvailable() );
@@ -112,7 +161,8 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getMainWANObjectCache(),
 			$services->getHttpRequestFactory(),
 			$services->getFormatterFactory(),
-			$services->getStatsFactory()
+			$services->getStatsFactory(),
+			new HashBagOStuff()
 		);
 		$this->assertFalse( $healthChecker->isAvailable() );
 	}
@@ -139,7 +189,8 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$wanObjectCacheMock,
 			$this->createNoOpMock( HttpRequestFactory::class ),
 			$this->createNoOpMock( FormatterFactory::class ),
-			$statsHelper->getStatsFactory()
+			$statsHelper->getStatsFactory(),
+			new HashBagOStuff()
 		);
 		$this->assertFalse( $healthChecker->isAvailable() );
 		$this->assertSame( 1, $statsHelper->count(
@@ -165,7 +216,8 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getMainWANObjectCache(),
 			$services->getHttpRequestFactory(),
 			$services->getFormatterFactory(),
-			$services->getStatsFactory()
+			$services->getStatsFactory(),
+			new HashBagOStuff()
 		);
 		$this->assertFalse( $healthChecker->isAvailable() );
 		$logMessages = array_column( $logger->getBuffer(), 1 );
@@ -201,7 +253,8 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getMainWANObjectCache(),
 			$services->getHttpRequestFactory(),
 			$services->getFormatterFactory(),
-			$services->getStatsFactory()
+			$services->getStatsFactory(),
+			new HashBagOStuff()
 		);
 		$this->assertFalse( $healthChecker->isAvailable() );
 		$logMessages = array_column( $logger->getBuffer(), 1 );
@@ -240,7 +293,8 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getMainWANObjectCache(),
 			$services->getHttpRequestFactory(),
 			$services->getFormatterFactory(),
-			$services->getStatsFactory()
+			$services->getStatsFactory(),
+			new HashBagOStuff()
 		);
 		$this->assertTrue( $healthChecker->isAvailable() );
 		$this->assertEquals( [], $logger->getBuffer() );
@@ -269,7 +323,8 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getMainWANObjectCache(),
 			$services->getHttpRequestFactory(),
 			$services->getFormatterFactory(),
-			$services->getStatsFactory()
+			$services->getStatsFactory(),
+			new HashBagOStuff()
 		);
 		$this->assertTrue( $healthChecker->isAvailable() );
 		$logMessages = array_column( $logger->getBuffer(), 1 );
@@ -304,7 +359,8 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getMainWANObjectCache(),
 			$services->getHttpRequestFactory(),
 			$services->getFormatterFactory(),
-			$services->getStatsFactory()
+			$services->getStatsFactory(),
+			new HashBagOStuff()
 		);
 		// Should still be available because error count is below threshold,
 		// but no retry log messages should appear.

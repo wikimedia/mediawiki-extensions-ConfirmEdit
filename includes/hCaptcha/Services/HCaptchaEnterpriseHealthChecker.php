@@ -34,6 +34,7 @@ class HCaptchaEnterpriseHealthChecker {
 	private const CACHE_SITEVERIFY_ERROR_COUNT_KEY = 'confirmedit-hcaptcha-siteverify-error-count';
 	private const CACHE_APIURL_ERROR_COUNT_KEY = 'confirmedit-hcaptcha-apiurl-error-count';
 	private const CACHE_AVAILABLE_KEY = 'confirmedit-hcaptcha-available';
+	private const SERVER_CACHE_TTL = 30;
 
 	private ?bool $isAvailable = null;
 
@@ -44,7 +45,8 @@ class HCaptchaEnterpriseHealthChecker {
 		private readonly WANObjectCache $wanObjectCache,
 		private readonly HttpRequestFactory $requestFactory,
 		private readonly FormatterFactory $formatterFactory,
-		private readonly StatsFactory $statsFactory
+		private readonly StatsFactory $statsFactory,
+		private readonly BagOStuff $serverCache
 	) {
 		$this->options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 	}
@@ -83,6 +85,19 @@ class HCaptchaEnterpriseHealthChecker {
 
 		// In-process cache, since this method can be invoked multiple times per request.
 		if ( $this->isAvailable !== null ) {
+			$timer->setLabel( 'result', $this->isAvailable ? 'true' : 'false' )->stop();
+			return $this->isAvailable;
+		}
+
+		// Local server cache (APCu) provides a per-pod circuit breaker so
+		// that memcached failures do not cause every request to run the
+		// expensive health-check callback (T412947, T421204).
+		// Tradeoff: failover detection is delayed by up to SERVER_CACHE_TTL
+		// seconds per pod when hCaptcha becomes unavailable.
+		$serverCacheKey = $this->serverCache->makeGlobalKey( self::CACHE_AVAILABLE_KEY );
+		$serverCacheValue = $this->serverCache->get( $serverCacheKey );
+		if ( $serverCacheValue !== false ) {
+			$this->isAvailable = (bool)$serverCacheValue;
 			$timer->setLabel( 'result', $this->isAvailable ? 'true' : 'false' )->stop();
 			return $this->isAvailable;
 		}
@@ -205,6 +220,10 @@ class HCaptchaEnterpriseHealthChecker {
 				'busyValue' => 1,
 			]
 		);
+
+		// Cache in APCu so other requests on this pod skip the
+		// WANObjectCache round-trip for the next 30 seconds.
+		$this->serverCache->set( $serverCacheKey, $this->isAvailable ? 1 : 0, self::SERVER_CACHE_TTL );
 
 		$timer->setLabel( 'result', $this->isAvailable ? 'true' : 'false' )->stop();
 		return $this->isAvailable;

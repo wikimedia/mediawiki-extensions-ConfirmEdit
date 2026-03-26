@@ -79,6 +79,10 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 				if ( $name === 'MobileFrontend' ) {
 					return $testCase->isMobileFrontendAvailable !== null;
 				}
+				if ( $name === 'Abuse Filter' ) {
+					return $testCase->isAbuseFilterAvailable;
+				}
+
 				return false;
 			} );
 
@@ -104,6 +108,25 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			);
 		} else {
 			$expected = [];
+
+			if ( $testCase->isMobileFrontendAvailable &&
+				strtolower( $testCase->createCaptchaClass ) === 'hcaptcha' &&
+				$testCase->isHCaptchaEnabledInMobileFrontend ) {
+				$expected['wgMobileFrontendSourceEditorInitializeModules'] = [
+					'ext.confirmEdit.hCaptcha'
+				];
+			}
+
+			if ( $testCase->isMobileFrontendAvailable &&
+				strtolower( $testCase->createCaptchaClass ) === 'hcaptcha' &&
+				$testCase->isHCaptchaEnabledInMobileFrontend ) {
+				$this->assertContains( 'ext.confirmEdit.hCaptcha', $out->getModules() );
+			}
+
+			if ( $testCase->expectedMobileHCaptchaAbuseFilterEnabled ) {
+				$expected['wgConfirmEditMobileHCaptchaAbuseFilterEnabled'] = true;
+			}
+
 			if ( $testCase->expectedConfirmEditNeededForCaptchaValue !== null ) {
 				$expected['wgConfirmEditCaptchaNeededForGenericEdit'] =
 					$testCase->expectedConfirmEditNeededForCaptchaValue;
@@ -111,14 +134,6 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 
 				if ( $testCase->expectedConfirmEditNeededForCaptchaValue === 'hcaptcha' ) {
 					$expected['wgConfirmEditHCaptchaSiteKey'] = 'foo';
-
-					if ( $testCase->isMobileFrontendAvailable &&
-						$testCase->isHCaptchaEnabledInMobileFrontend ) {
-						$this->assertContains(
-							'ext.confirmEdit.hCaptcha',
-							$out->getModules()
-						);
-					}
 				}
 			}
 			if ( $testCase->expectedHCaptchaSiteKeyValue !== null ) {
@@ -128,16 +143,57 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 				$expected['wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled'] =
 					$testCase->expectedHCaptchaVisualEditorIntegrationEnabledValue;
 			}
-			if ( $testCase->isMobileFrontendAvailable &&
-				$testCase->isHCaptchaEnabledInMobileFrontend &&
-				$testCase->expectedConfirmEditNeededForCaptchaValue === 'hcaptcha' ) {
-				$expected['wgMobileFrontendSourceEditorInitializeModules'] = [
-					'ext.confirmEdit.hCaptcha'
-				];
-			}
 
 			$this->assertArrayEquals( $expected, $vars, false, true );
 		}
+	}
+
+	public function testMakeGlobalVariablesScriptUserCanSkipCaptcha(): void {
+		$this->markTestSkippedIfExtensionNotLoaded( 'MobileFrontend' );
+
+		$this->overrideConfigValue( 'CaptchaTriggers', [
+			'edit' => [
+				'trigger' => true,
+				'class' => 'HCaptcha',
+				'config' => [ 'HCaptchaSiteKey' => 'bar' ]
+			],
+		] );
+		$this->overrideConfigValue( 'HCaptchaEnabledInMobileFrontend', true );
+		$this->clearHook( 'ConfirmEditCaptchaClass' );
+
+		$user = $this->getTestUser()->getUser();
+		$this->overrideUserPermissions( $user, [ 'skipcaptcha' ] );
+		RequestContext::getMain()->setUser( $user );
+
+		$out = RequestContext::getMain()->getOutput();
+		$out->setTitle( Title::newFromText( __METHOD__ ) );
+
+		$mockMobileContext = $this->createMock( MobileContext::class );
+		$mockMobileContext->expects( $this->once() )
+			->method( 'shouldDisplayMobileView' )
+			->willReturn( true );
+
+		$mockExtensionRegistry = $this->createMock( ExtensionRegistry::class );
+		$mockExtensionRegistry->method( 'isLoaded' )
+			->willReturnCallback( static function ( $name ) {
+				if ( $name === 'MobileFrontend' || $name === 'Abuse Filter' ) {
+					return true;
+				}
+				return false;
+			} );
+
+		$vars = [];
+		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
+			$mockExtensionRegistry,
+			$this->getServiceContainer()->getMainConfig(),
+			null,
+			$mockMobileContext
+		);
+		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
+
+		$this->assertNotContains( 'ext.confirmEdit.hCaptcha', $out->getModules() );
+		$this->assertArrayNotHasKey( 'wgMobileFrontendSourceEditorInitializeModules', $vars );
+		$this->assertArrayNotHasKey( 'wgConfirmEditMobileHCaptchaAbuseFilterEnabled', $vars );
 	}
 
 	public static function provideMakeGlobalVariablesScript(): iterable {
@@ -154,62 +210,81 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			[ true, false ],
 			// The captcha class used for create actions
 			[ 'HCaptcha', 'SimpleCaptcha' ],
-			// Whether hCaptcha support is enabled for the MobileFrontend
+			// Whether the AbuseFilter extension is installed and enabled
+			[ true, false ],
+			// Whether $wgHCaptchaEnabledInMobileFrontend is enabled
 			[ true, false ]
 		);
 
 		foreach ( $testCases as $params ) {
+			$isVisualEditorAvailable = $params[0];
+			$isVEIntegrationEnabled = $params[1];
+			$isMobileFrontendAvailable = $params[2];
+			$shouldCheck = $params[3];
+			$shouldForceShowCaptcha = $params[4];
+			$createCaptchaClass = $params[5];
+			$isAbuseFilterAvailable = $params[6];
+			$isHCaptchaEnabledInMobileFrontend = $params[7];
+
 			$expectedConfirmEditNeededForCaptchaValue = null;
 			$expectedHCaptchaSiteKeyValue = null;
 			$expectedHCaptchaVisualEditorOnLoadIntegrationEnabledValue = null;
 
 			// The behaviour when VisualEditor and MobileFrontend are both not installed is tested by other unit
 			// tests, so we don't need to repeat that here
-			if ( $params[0] === null && $params[2] === null ) {
+			if ( $isVisualEditorAvailable === null && $isMobileFrontendAvailable === null ) {
+				continue;
+			}
+
+			// HCaptchaEnabledInMobileFrontend only affects output when MobileFrontend is available
+			if ( $isMobileFrontendAvailable === null && !$isHCaptchaEnabledInMobileFrontend ) {
 				continue;
 			}
 
 			// If VisualEditor is not installed or not available, there is no need to test when
 			// $wgHCaptchaVisualEditorOnLoadIntegrationEnabled is true (because it will never be enabled)
-			if ( $params[0] !== true && $params[1] === true ) {
+			if ( $isVisualEditorAvailable !== true && $isVEIntegrationEnabled === true ) {
 				continue;
 			}
 
 			// The JavaScript config variables will be set if either VisualEditor or
 			// MobileFrontend editor is available.
-			if ( $params[0] === true || $params[2] === true ) {
+			if ( $isVisualEditorAvailable === true || $isMobileFrontendAvailable === true ) {
 				$expectedConfirmEditNeededForCaptchaValue = false;
 			}
 
 			// The JavaScript config variable will have a value of the captcha class in use if:
 			// * A captcha is needed for a generic edit or SimpleCaptcha::shouldForceShowCaptcha returns true
 			// * Either the VisualEditor or MobileFrontend editor is available
-			if ( ( $params[0] === true || $params[2] === true ) && ( $params[3] === true || $params[4] === true ) ) {
+			if (
+				( $isVisualEditorAvailable === true || $isMobileFrontendAvailable === true ) &&
+				( $shouldCheck === true || $shouldForceShowCaptcha === true )
+			) {
 				$expectedConfirmEditNeededForCaptchaValue = strtolower( $params[5] );
 
 				if ( $expectedConfirmEditNeededForCaptchaValue === 'hcaptcha' ) {
 					$expectedHCaptchaSiteKeyValue = 'foo';
-					if ( $params[4] === true ) {
+					if ( $shouldForceShowCaptcha === true ) {
 						$expectedHCaptchaSiteKeyValue = 'foo-always';
 					}
 
 					// wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled is true if both:
 					// * VisualEditor is available
 					// * $wgHCaptchaVisualEditorOnLoadIntegrationEnabled is true
-					$expectedHCaptchaVisualEditorOnLoadIntegrationEnabledValue = $params[0] === true &&
-						$params[1] === true;
+					$expectedHCaptchaVisualEditorOnLoadIntegrationEnabledValue = $isVisualEditorAvailable === true &&
+						$isVEIntegrationEnabled === true;
 				}
 			}
 
 			// ::shouldForceShowCaptcha values only affect the test output if hCaptcha is needed for an edit,
 			// so only test with it as false if not hCaptcha
-			if ( $expectedConfirmEditNeededForCaptchaValue !== 'hcaptcha' && $params[4] === true ) {
+			if ( $expectedConfirmEditNeededForCaptchaValue !== 'hcaptcha' && $shouldForceShowCaptcha === true ) {
 				continue;
 			}
 
 			// The $wgHCaptchaVisualEditorOnLoadIntegrationEnabled values only affect the test if hCaptcha
 			// is the captcha required for a generic edit, so only test with it as false if not hCaptcha
-			if ( $expectedConfirmEditNeededForCaptchaValue !== 'hcaptcha' && $params[1] === true ) {
+			if ( $expectedConfirmEditNeededForCaptchaValue !== 'hcaptcha' && $isVEIntegrationEnabled === true ) {
 				continue;
 			}
 
@@ -219,32 +294,39 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 				expectedHCaptchaSiteKeyValue: $expectedHCaptchaSiteKeyValue,
 				expectedHCaptchaVisualEditorIntegrationEnabledValue:
 					$expectedHCaptchaVisualEditorOnLoadIntegrationEnabledValue,
-				isVisualEditorAvailable: $params[0],
-				hCaptchaVisualEditorOnLoadIntegrationEnabled: $params[1],
-				isMobileFrontendAvailable: $params[2],
-				shouldCheckResult: $params[3],
-				shouldForceShowCaptcha: $params[4],
-				createCaptchaClass: $params[5],
-				isHCaptchaEnabledInMobileFrontend: $params[6]
+				expectedMobileHCaptchaAbuseFilterEnabled:
+					$isMobileFrontendAvailable && $isAbuseFilterAvailable &&
+					$isHCaptchaEnabledInMobileFrontend &&
+					strtolower( $createCaptchaClass ) === 'hcaptcha',
+				hCaptchaVisualEditorOnLoadIntegrationEnabled: $isVEIntegrationEnabled,
+				isVisualEditorAvailable: $isVisualEditorAvailable,
+				isMobileFrontendAvailable: $isMobileFrontendAvailable,
+				isAbuseFilterAvailable: $isAbuseFilterAvailable,
+				isHCaptchaEnabledInMobileFrontend: $isHCaptchaEnabledInMobileFrontend,
+				shouldCheckResult: $shouldCheck,
+				shouldForceShowCaptcha: $shouldForceShowCaptcha,
+				createCaptchaClass: $createCaptchaClass,
 			) {
 				public function __construct(
 					public string|bool|null $expectedConfirmEditNeededForCaptchaValue,
 					public ?string $expectedHCaptchaSiteKeyValue,
 					public ?bool $expectedHCaptchaVisualEditorIntegrationEnabledValue,
+					public bool $expectedMobileHCaptchaAbuseFilterEnabled,
 					public ?bool $isVisualEditorAvailable,
 					public bool $hCaptchaVisualEditorOnLoadIntegrationEnabled,
 					public ?bool $isMobileFrontendAvailable,
+					public bool $isAbuseFilterAvailable,
+					public bool $isHCaptchaEnabledInMobileFrontend,
 					public bool $shouldCheckResult,
 					public bool $shouldForceShowCaptcha,
 					public string $createCaptchaClass,
-					public bool $isHCaptchaEnabledInMobileFrontend
 				) {
 				}
 			};
 
 			yield sprintf(
 				'VisualEditor is %s with integration %s, ' .
-					'MobileFrontend editor is %s with integration %s, ' .
+					'MobileFrontend editor is %s, AbuseFilter is %s, hCaptcha in MF is %s, ' .
 					'ConfirmEdit captcha is %s and %s with force captcha %s',
 				match ( $testCase->isVisualEditorAvailable ) {
 					null => 'not installed',
@@ -258,10 +340,10 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 					true => 'available',
 					false => 'not available',
 				},
-				match ( $testCase->isHCaptchaEnabledInMobileFrontend ) {
-					true => 'enabled',
-					false => 'disabled',
-				},
+				$testCase->isAbuseFilterAvailable ?
+					'available' :
+					'not available',
+				$testCase->isHCaptchaEnabledInMobileFrontend ? 'enabled' : 'disabled',
 				$testCase->createCaptchaClass,
 				$testCase->shouldCheckResult ?
 					'required for a generic edit' :

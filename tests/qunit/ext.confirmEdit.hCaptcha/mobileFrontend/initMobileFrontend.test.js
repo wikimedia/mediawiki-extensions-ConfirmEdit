@@ -14,6 +14,9 @@ QUnit.module(
 			this.ceHookName =
 				( method ) => `confirmEdit.hCaptcha.${ method }`;
 
+			this.logError = this.sandbox.stub( mw.errorLogger, 'logError' );
+			this.logWarn = this.sandbox.stub( mw.log, 'warn' );
+
 			// Provide a fake registry so that hooks set in one
 			// test run are not kept when the next one runs
 			const registry = {};
@@ -63,6 +66,20 @@ QUnit.module(
 			this.window.document.createElement.returns(
 				document.createElement( 'script' )
 			);
+
+			this.trimHTML = ( html ) => html.split( '\n' )
+				.map( ( line ) => line.trim() )
+				.join( '\n' );
+
+			this.hCaptchaExpectedFormHTML = this.trimHTML(
+				`<div id="h-captcha-container">
+					<div id="h-captcha" class="h-captcha" data-size="invisible"
+						data-sitekey="{{hCaptchaSiteKey}}"></div>
+					<div class="ext-confirmEdit-captcha-privacy-policy">
+						{{{hCaptchaLicenseText}}}
+					</div>
+				</div>`
+			);
 		},
 		afterEach: function () {
 			mw.hook = this.realMWHook;
@@ -79,8 +96,10 @@ QUnit.test(
 			'mobilefrontend-editor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
+				MobileHCaptchaAbuseFilterEnabled: true,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
-			}
+			},
+			this.window
 		);
 
 		const e = this.sandbox.stub();
@@ -113,6 +132,7 @@ QUnit.test(
 			'mobilefrontend-editor',
 			{
 				HCaptchaEnabledInMobileFrontend: false,
+				MobileHCaptchaAbuseFilterEnabled: false,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
 			}
 		);
@@ -141,8 +161,10 @@ QUnit.test(
 			'mobilefrontend-editor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
+				MobileHCaptchaAbuseFilterEnabled: true,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
-			}
+			},
+			this.window
 		);
 
 		const e = this.sandbox.stub();
@@ -155,15 +177,8 @@ QUnit.test(
 			"The hook handler should've used the event object to change the template"
 		);
 		assert.true(
-			e.setTemplate.calledWith( `
-					<form id="h-captcha-container-form">
-						<div id="h-captcha" class="h-captcha" data-size="invisible"
-							data-sitekey="{{hCaptchaSiteKey}}">
-						</div>
-						<div class="ext-confirmEdit-captcha-privacy-policy">
-							{{{hCaptchaLicenseText}}}
-						</div>
-					</form>` ),
+			this.trimHTML( e.setTemplate.firstCall.args[ 0 ] ) ===
+			this.hCaptchaExpectedFormHTML,
 			"The hook handler should've set a new template for the save panel"
 		);
 	}
@@ -176,8 +191,10 @@ QUnit.test(
 			'mobilefrontend-editor',
 			{
 				HCaptchaEnabledInMobileFrontend: false,
+				MobileHCaptchaAbuseFilterEnabled: true,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
-			}
+			},
+			this.window
 		);
 
 		const e = this.sandbox.stub();
@@ -201,8 +218,10 @@ QUnit.test(
 			'mobilefrontend-editor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
+				MobileHCaptchaAbuseFilterEnabled: true,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
-			}
+			},
+			this.window
 		);
 
 		const e = this.sandbox.stub();
@@ -228,6 +247,7 @@ QUnit.test(
 			'mobilefrontend-editor',
 			{
 				HCaptchaEnabledInMobileFrontend: false,
+				MobileHCaptchaAbuseFilterEnabled: true,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
 			}
 		);
@@ -253,6 +273,7 @@ QUnit.test(
 			'mobilefrontend-editor',
 			{
 				HCaptchaEnabledInMobileFrontend: false,
+				MobileHCaptchaAbuseFilterEnabled: true,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
 			},
 			this.window
@@ -275,6 +296,7 @@ QUnit.test(
 			'mobilefrontend-editor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
+				MobileHCaptchaAbuseFilterEnabled: true,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
 			},
 			this.window
@@ -292,17 +314,26 @@ QUnit.test(
 
 // Tests for mobileFrontend.sourceEditor.saveBegin
 
-QUnit.test(
+QUnit.test.each(
 	'saveBegin when hCaptcha is not enabled for MobileFrontend',
-	async function ( assert ) {
-		initMobileFrontend(
-			'mobilefrontend-editor',
-			{
-				HCaptchaEnabledInMobileFrontend: false,
-				HCaptchaSiteKey: 'hCaptcha-site-key'
-			},
-			this.window
-		);
+	[
+		{
+			config: { HCaptchaEnabledInMobileFrontend: false, MobileHCaptchaAbuseFilterEnabled: false },
+			captchaNeededForGenericEdit: undefined
+		},
+		{
+			config: { HCaptchaEnabledInMobileFrontend: false, MobileHCaptchaAbuseFilterEnabled: true },
+			captchaNeededForGenericEdit: undefined
+		},
+		{
+			config: { HCaptchaEnabledInMobileFrontend: true, MobileHCaptchaAbuseFilterEnabled: true },
+			captchaNeededForGenericEdit: false
+		}
+	],
+	async function ( assert, { config, captchaNeededForGenericEdit } ) {
+		initMobileFrontend( 'mobilefrontend-editor', config, this.window );
+
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', captchaNeededForGenericEdit );
 
 		const e = this.sandbox.stub();
 		e.stop = this.sandbox.stub();
@@ -328,10 +359,13 @@ QUnit.test(
 			'mobilefrontend-editor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
+				MobileHCaptchaAbuseFilterEnabled: true,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
 			},
 			this.window
 		);
+
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
 
 		const e = this.sandbox.stub();
 		e.stop = this.sandbox.stub();
@@ -405,6 +439,8 @@ QUnit.test(
 			this.window
 		);
 
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
+
 		const e = this.sandbox.stub();
 		e.stop = this.sandbox.stub();
 		e.resume = this.sandbox.stub();
@@ -435,6 +471,234 @@ QUnit.test(
 				foo: 'bar'
 			} ),
 			'resume() should have been called passing the token in its param'
+		);
+	}
+);
+
+QUnit.test.each(
+	'handleCaptcha renders the captcha panel for abuse-filter responses',
+	{
+		'missing-token': { error: 'missing-token' },
+		'sitekey-mismatch': { error: 'sitekey-mismatch' }
+	},
+	async function ( assert, { error } ) {
+		const mobileConfig = {
+			HCaptchaEnabledInMobileFrontend: false,
+			MobileHCaptchaAbuseFilterEnabled: true,
+			HCaptchaSiteKey: 'hCaptcha-site-key'
+		};
+
+		initMobileFrontend( 'mobilefrontend-editor', mobileConfig, this.window );
+
+		const editorEvent = this.sandbox.stub();
+		editorEvent.stop = this.sandbox.stub();
+		editorEvent.setTemplate = this.sandbox.stub();
+
+		const captchaDetails = {
+			type: 'hcaptcha',
+			error: error,
+			key: 'details-site-key'
+		};
+
+		const $captchaForm = this.sandbox.stub();
+		$captchaForm.show = this.sandbox.stub();
+
+		const $captchaContainer = this.sandbox.stub();
+		$captchaContainer.find = this.sandbox.stub().returns( $captchaForm );
+
+		mw.hook( this.mfHookName( 'handleCaptcha' ) ).fire(
+			editorEvent,
+			captchaDetails,
+			$captchaContainer
+		);
+		await this.waitOneTick();
+
+		assert.true(
+			editorEvent.stop.calledOnce,
+			'Stops the current save attempt'
+		);
+		assert.true(
+			editorEvent.setTemplate.calledOnce,
+			'Injects captcha panel template'
+		);
+
+		const setTemplateArgs = editorEvent.setTemplate.firstCall.args;
+		assert.strictEqual(
+			setTemplateArgs[ 0 ],
+			'captcha-panel',
+			'Targets captcha panel template slot'
+		);
+		assert.strictEqual(
+			this.trimHTML( setTemplateArgs[ 1 ] ),
+			this.hCaptchaExpectedFormHTML,
+			'Uses the expected hCaptcha form template'
+		);
+		assert.deepEqual(
+			setTemplateArgs[ 2 ],
+			{
+				hCaptchaLicenseText: '(hcaptcha-privacy-policy)',
+				hCaptchaSiteKey: 'details-site-key'
+			},
+			'Passes template variables required by the panel'
+		);
+
+		setTemplateArgs[ 3 ]();
+		assert.true(
+			this.window.document.createElement.calledOnce,
+			'Loads hCaptcha SDK on panel callback'
+		);
+	}
+);
+
+QUnit.test(
+	'executionSuccess resumes a pending save started by handleCaptcha',
+	async function ( assert ) {
+		const mobileConfig = {
+			HCaptchaEnabledInMobileFrontend: false,
+			MobileHCaptchaAbuseFilterEnabled: true,
+			HCaptchaSiteKey: 'hCaptcha-site-key'
+		};
+
+		initMobileFrontend( 'mobilefrontend-editor', mobileConfig, this.window );
+
+		const editorEvent = this.sandbox.stub();
+		editorEvent.stop = this.sandbox.stub();
+		editorEvent.resume = this.sandbox.stub();
+		editorEvent.setTemplate = this.sandbox.stub();
+		editorEvent.options = { source: 'mobile-abuse-filter' };
+
+		const captchaDetails = {
+			type: 'hcaptcha',
+			error: 'missing-token',
+			key: 'details-site-key'
+		};
+
+		const $captchaContainer = this.sandbox.stub();
+		$captchaContainer.find = this.sandbox.stub().returns( {
+			show: this.sandbox.stub()
+		} );
+
+		mw.hook( this.mfHookName( 'handleCaptcha' ) ).fire(
+			editorEvent,
+			captchaDetails,
+			$captchaContainer
+		);
+		mw.hook( this.ceHookName( 'executionSuccess' ) ).fire( 'hcaptcha-token' );
+		await this.waitOneTick();
+
+		assert.true(
+			editorEvent.stop.calledOnce,
+			'Stops edit flow until a token is available'
+		);
+		assert.true(
+			editorEvent.resume.calledWith( {
+				source: 'mobile-abuse-filter',
+				captchaWord: 'hcaptcha-token'
+			} ),
+			'Resumes edit flow with the captcha token'
+		);
+	}
+);
+
+QUnit.test.each(
+	'handleCaptcha renders the captcha panel for known errors',
+	{
+		forceshowcaptcha: { error: 'forceshowcaptcha' }
+	},
+	async function ( assert, { error } ) {
+		const mobileConfig = {
+			HCaptchaEnabledInMobileFrontend: false,
+			MobileHCaptchaAbuseFilterEnabled: true,
+			HCaptchaSiteKey: 'hCaptcha-site-key'
+		};
+
+		initMobileFrontend( 'mobilefrontend-editor', mobileConfig, this.window );
+
+		const editorEvent = this.sandbox.stub();
+		editorEvent.stop = this.sandbox.stub();
+		editorEvent.setTemplate = this.sandbox.stub();
+
+		const captchaDetails = {
+			type: 'hcaptcha',
+			error: error,
+			key: 'details-site-key'
+		};
+
+		const $captchaForm = this.sandbox.stub();
+		$captchaForm.show = this.sandbox.stub();
+
+		const $captchaContainer = this.sandbox.stub();
+		$captchaContainer.find = this.sandbox.stub().returns( $captchaForm );
+
+		mw.hook( this.mfHookName( 'handleCaptcha' ) ).fire(
+			editorEvent,
+			captchaDetails,
+			$captchaContainer
+		);
+		await this.waitOneTick();
+
+		assert.true(
+			editorEvent.stop.calledOnce,
+			'Stops the current save attempt'
+		);
+		assert.true(
+			editorEvent.setTemplate.calledOnce,
+			'Injects captcha panel template'
+		);
+		assert.deepEqual(
+			editorEvent.setTemplate.firstCall.args[ 2 ],
+			{
+				hCaptchaLicenseText: '(hcaptcha-privacy-policy)',
+				hCaptchaSiteKey: 'details-site-key'
+			},
+			'Passes the site key from details to the panel'
+		);
+	}
+);
+
+QUnit.test(
+	'handleCaptcha shows a generic error notification for unhandled errors',
+	async function ( assert ) {
+		const mobileConfig = {
+			HCaptchaEnabledInMobileFrontend: false,
+			MobileHCaptchaAbuseFilterEnabled: true,
+			HCaptchaSiteKey: 'hCaptcha-site-key'
+		};
+
+		initMobileFrontend( 'mobilefrontend-editor', mobileConfig, this.window );
+
+		const editorEvent = this.sandbox.stub();
+		editorEvent.stop = this.sandbox.stub();
+		editorEvent.setTemplate = this.sandbox.stub();
+
+		const captchaDetails = {
+			type: 'hcaptcha',
+			error: 'some-unknown-error',
+			key: 'details-site-key'
+		};
+
+		const $captchaContainer = this.sandbox.stub();
+		$captchaContainer.find = this.sandbox.stub();
+
+		mw.hook( this.mfHookName( 'handleCaptcha' ) ).fire(
+			editorEvent,
+			captchaDetails,
+			$captchaContainer
+		);
+		await this.waitOneTick();
+
+		assert.true(
+			editorEvent.stop.calledOnce,
+			'Stops the current save attempt'
+		);
+		assert.true(
+			editorEvent.setTemplate.calledOnce,
+			'Injects captcha panel template'
+		);
+		assert.strictEqual(
+			editorEvent.setTemplate.firstCall.args[ 0 ],
+			'captcha-panel',
+			'Targets captcha panel template slot'
 		);
 	}
 );

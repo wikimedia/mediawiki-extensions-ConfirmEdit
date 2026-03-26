@@ -14,21 +14,27 @@ $( () => {
 	// source editor for Desktop or the VisualEditor); if that's the case, this
 	// initializes the support for the Desktop editor instead.
 	if ( config.HCaptchaEnterprise && config.HCaptchaSecureEnclave ) {
-		const validMobileFEStates = [ 'loading', 'loaded', 'ready', 'executing' ];
-		if ( validMobileFEStates.includes( mw.loader.getState( 'mobile.editor.overlay' ) ) ) {
+		const mobileFEState = mw.loader.getState( 'mobile.editor.overlay' );
+		const isMobileFEActive = [ 'loading', 'loaded', 'ready', 'executing' ].includes( mobileFEState );
+		const isMobileHCaptchaAbuseFilterEnabled = mw.config.get( 'wgConfirmEditMobileHCaptchaAbuseFilterEnabled' );
+
+		if ( isMobileFEActive || isMobileHCaptchaAbuseFilterEnabled ) {
 			// Editing interfaces may require a specific key: Override the
 			// general key provided by RLRegisterModulesHandler by one specific
 			// for the current action if such key was provided by
 			// MakeGlobalVariablesScriptHookHandler.
 			const editSiteKey = mw.config.get( 'wgConfirmEditHCaptchaSiteKey' );
 
-			let editConfig = config;
+			const editConfig = Object.assign(
+				{},
+				config,
+				{
+					MobileHCaptchaAbuseFilterEnabled: !!isMobileHCaptchaAbuseFilterEnabled
+				}
+			);
+
 			if ( editSiteKey ) {
-				editConfig = Object.assign(
-					{},
-					editConfig,
-					{ HCaptchaSiteKey: editSiteKey }
-				);
+				editConfig.HCaptchaSiteKey = editSiteKey;
 			}
 
 			initMobileFrontend( 'mobilefrontend-editor', editConfig, window );
@@ -52,11 +58,12 @@ $( () => {
 	// either loads the MobileFrontend or the Desktop support, and failing to
 	// call useSecureEnclave() when the MobileFrontend is present but unused
 	// would disable hCaptcha support for the source editor in Desktop.
-	const veState = mw.loader.getState( 'ext.visualEditor.targetLoader' );
-	const validStates = [ 'loading', 'loaded', 'ready', 'registered' ];
-	if ( validStates.includes( veState ) ) {
-		mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
-			mw.libs.ve.targetLoader.addPlugin( visualEditorInitPluginsCallback );
-		} );
+	const visualEditorModuleState = mw.loader.getState( 'ext.visualEditor.targetLoader' );
+	if ( !visualEditorModuleState || visualEditorModuleState === 'missing' || visualEditorModuleState === 'error' ) {
+		return;
 	}
+
+	mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
+		mw.libs.ve.targetLoader.addPlugin( visualEditorInitPluginsCallback );
+	} );
 } );

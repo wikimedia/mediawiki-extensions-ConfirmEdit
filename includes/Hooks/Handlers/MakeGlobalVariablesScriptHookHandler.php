@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\Registration\ExtensionRegistry;
@@ -78,34 +79,44 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 			$vars['wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled'] = $visualEditorAvailable &&
 				$this->config->get( 'HCaptchaVisualEditorOnLoadIntegrationEnabled' );
 
-			$vars['wgConfirmEditHCaptchaSiteKey'] = null;
-			if ( $captchaInstance->shouldForceShowCaptcha() ) {
-				$vars['wgConfirmEditHCaptchaSiteKey'] =
-					$captchaInstance->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ??
-					$vars['wgConfirmEditHCaptchaSiteKey'];
+			$vars['wgConfirmEditHCaptchaSiteKey'] = $this->resolveHCaptchaSiteKey( $captchaInstance );
+		}
+
+		// We want to load the MobileFrontend hCaptcha module if the user may need
+		// to complete hCaptcha for their edit. This is intentionally not based on
+		// SimpleCaptcha::shouldCheck because if AbuseFilter is installed then
+		// a CAPTCHA may be required based on the content of the edit. Users who
+		// can skip captchas are excluded, since they will never be shown one.
+		if (
+			$mobileFrontendAvailable &&
+			$this->config->get( 'HCaptchaEnabledInMobileFrontend' ) &&
+			strtolower( $captchaInstance->getName() ) === 'hcaptcha' &&
+			!$captchaInstance->canSkipCaptcha( $out->getUser() )
+		) {
+			$requiredModule = 'ext.confirmEdit.hCaptcha';
+			$mfInitModulesKey = 'wgMobileFrontendSourceEditorInitializeModules';
+			$modulesToInit = $vars[$mfInitModulesKey] ?? [];
+
+			if ( !in_array( $requiredModule, $modulesToInit ) ) {
+				$modulesToInit[] = $requiredModule;
 			}
-			$vars['wgConfirmEditHCaptchaSiteKey'] ??=
-				$captchaInstance->getConfig()['HCaptchaSiteKey'] ??
-				$out->getConfig()->get( 'HCaptchaSiteKey' );
 
-			if ( $mobileFrontendAvailable &&
-				$this->config->get( 'HCaptchaEnabledInMobileFrontend' ) ) {
-				// hCaptcha hooks for the Mobile Frontend must be loaded before
-				// the SourceEditor itself is initialized, otherwise it will be
-				// initialized before the handlers for the frontend hooks are
-				// set up.
+			$vars[$mfInitModulesKey] = $modulesToInit;
+			$out->addModules( $requiredModule );
 
-				$requiredModule = 'ext.confirmEdit.hCaptcha';
-				$mfInitModulesKey = 'wgMobileFrontendSourceEditorInitializeModules';
-				$modulesToInit = $vars[$mfInitModulesKey] ?? [];
-
-				if ( !in_array( $requiredModule, $modulesToInit ) ) {
-					$modulesToInit[] = $requiredModule;
-				}
-
-				$vars[$mfInitModulesKey] = $modulesToInit;
-				$out->addModules( $requiredModule );
+			if ( $this->extensionRegistry->isLoaded( 'Abuse Filter' ) ) {
+				$vars['wgConfirmEditMobileHCaptchaAbuseFilterEnabled'] = true;
 			}
 		}
 	}
+
+	private function resolveHCaptchaSiteKey( SimpleCaptcha $captchaInstance ): string {
+		$config = $captchaInstance->getConfig();
+		$defaultSiteKey = (string)( $config['HCaptchaSiteKey'] ?? $this->config->get( 'HCaptchaSiteKey' ) );
+		if ( $captchaInstance->shouldForceShowCaptcha() ) {
+			return (string)( $config['HCaptchaAlwaysChallengeSiteKey'] ?? $defaultSiteKey );
+		}
+		return $defaultSiteKey;
+	}
+
 }

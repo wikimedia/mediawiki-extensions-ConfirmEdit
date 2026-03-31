@@ -105,11 +105,9 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			->willReturn( 'mock html' );
 		$this->setService( 'HCaptchaOutput', $mockHCaptchaOutput );
 
-		$hCaptcha = new HCaptcha();
-
-		// Set up error state if needed
 		if ( $hasError ) {
-			// Mock that the site-verify URL call will fail with a HTTP 500 error
+			// Mock that the site-verify URL call will fail with a HTTP 500 error.
+			// Must be set before constructing HCaptcha so the constructor captures the mock.
 			$mwHttpRequest = $this->createMock( MWHttpRequest::class );
 			$mwHttpRequest->method( 'execute' )
 				->willReturn( Status::wrap( StatusValue::newFatal( new ApiRawMessage( 'Some error' ) ) ) );
@@ -117,12 +115,14 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				->willReturn( 500 );
 			$this->installMockHttp( $mwHttpRequest );
 
+			$hCaptcha = new HCaptcha();
 			$hCaptcha->passCaptchaFromRequest(
 				new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
 				$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
 			);
 			$this->assertSame( 'http', $hCaptcha->getError() );
 		} else {
+			$hCaptcha = new HCaptcha();
 			$this->assertNull( $hCaptcha->getError() );
 		}
 
@@ -177,12 +177,12 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			->willReturn( Status::wrap( StatusValue::newFatal( 'http-error-500' ) ) );
 		$mwHttpRequest->method( 'getStatus' )
 			->willReturn( 500 );
-		$this->installMockHttp( $mwHttpRequest );
 
 		// Mock HttpRequestFactory directly so that we can check the URL and options are as expected.
-		// Other tests do not check this as it should be fine to check this once.
+		// Both the initial and retry requests should use the same URL and options.
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
-		$mockHttpRequestFactory->method( 'create' )
+		$mockHttpRequestFactory->expects( $this->exactly( 2 ) )
+			->method( 'create' )
 			->willReturnCallback( function ( $url, $options ) use ( $mwHttpRequest ) {
 				$this->assertSame( 'https://api.hcaptcha.com/siteverify', $url );
 				$this->assertArrayEquals(
@@ -194,7 +194,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 							'remoteip' => '127.0.0.1',
 						],
 						'proxy' => 'proxy.test.com',
-						'timeout' => 5,
+						'timeout' => 1,
 					],
 					$options,
 					false,
@@ -204,8 +204,15 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			} );
 		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
 
-		// Verify that a log is created to indicate the error
+		// Verify that a warning log is created for the initial failure,
+		// and an error log for the retry failure.
 		$mockLogger = $this->createMock( LoggerInterface::class );
+		$mockLogger->expects( $this->once() )
+			->method( 'warning' )
+			->with(
+				'SiteVerify API request failed, retrying after 10ms. Error: {error}',
+				$this->anything()
+			);
 		$mockLogger->expects( $this->once() )
 			->method( 'error' )
 			->with( 'Unable to validate response. Error: {error}',
@@ -241,6 +248,63 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		// Verify that ::getMessage will output the message as usual but with an error background
 		$actualMessage = $hCaptcha->getMessage( 'edit' );
 		$this->assertSame( '<div class="error">(hcaptcha-edit)</div>', $actualMessage->text() );
+	}
+
+	public function testPassCaptchaHttpRetrySucceeds() {
+		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
+		$this->overrideConfigValue( 'HCaptchaSiteKey', 'test-sitekey' );
+
+		// First request fails, second succeeds
+		$failingRequest = $this->createMock( MWHttpRequest::class );
+		$failingRequest->method( 'execute' )
+			->willReturn( Status::wrap( StatusValue::newFatal( 'http-error-500' ) ) );
+
+		$successfulRequest = $this->createMock( MWHttpRequest::class );
+		$successfulRequest->method( 'execute' )
+			->willReturn( Status::newGood() );
+		$successfulRequest->method( 'getContent' )
+			->willReturn( FormatJson::encode( [
+				'success' => true,
+				'sitekey' => 'test-sitekey',
+			] ) );
+
+		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
+		$mockHttpRequestFactory->expects( $this->exactly( 2 ) )
+			->method( 'create' )
+			->willReturnOnConsecutiveCalls( $failingRequest, $successfulRequest );
+		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
+
+		// Verify warning for initial failure and info for successful retry.
+		// There are two info() calls: one for the retry success, one for the
+		// captcha solution attempt.
+		$mockLogger = $this->createMock( LoggerInterface::class );
+		$mockLogger->expects( $this->once() )
+			->method( 'warning' )
+			->with(
+				'SiteVerify API request failed, retrying after 10ms. Error: {error}',
+				$this->anything()
+			);
+		$infoMessages = [];
+		$mockLogger->method( 'info' )
+			->willReturnCallback( static function ( $message ) use ( &$infoMessages ) {
+				$infoMessages[] = $message;
+			} );
+		$this->setLogger( 'captcha', $mockLogger );
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->setAction( 'edit' );
+		$hCaptcha->setTrigger( 'test' );
+		$this->assertTrue( $hCaptcha->passCaptchaFromRequest(
+			new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
+			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
+		) );
+
+		// Error count should NOT have been incremented since retry succeeded
+		$this->assertNull( $hCaptcha->getError() );
+		$this->assertContains(
+			'SiteVerify API retry succeeded after initial failure',
+			$infoMessages
+		);
 	}
 
 	public function testPassCaptchaSkipsSiteVerifyWhenTokenMissing() {
@@ -415,7 +479,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			->willReturnCallback( function ( $url, $options ) use ( $mwHttpRequest, $expectedPostData ) {
 				$this->assertSame( 'https://api.hcaptcha.com/siteverify', $url );
 				$this->assertArrayEquals(
-					[ 'method' => 'POST', 'postData' => $expectedPostData, 'timeout' => 5 ],
+					[ 'method' => 'POST', 'postData' => $expectedPostData, 'timeout' => 1 ],
 					$options,
 					false,
 					true
@@ -487,7 +551,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->assertNull( $hCaptcha->getError() );
 
 		$this->assertSame(
-			[ 'mediawiki.ConfirmEdit.hcaptcha_siteverify_call:1|ms|#status:ok' ],
+			[ 'mediawiki.ConfirmEdit.hcaptcha_siteverify_call:1|ms|#status:ok,is_retry:false' ],
 			$statsHelper->consumeAllFormatted()
 		);
 	}

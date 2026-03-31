@@ -14,6 +14,7 @@ use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaEnterpriseHealthCh
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
+use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Logger\LoggerFactory;
@@ -42,6 +43,7 @@ class HCaptcha extends SimpleCaptcha {
 	private ?bool $result = null;
 
 	private Config $hCaptchaConfig;
+	private HttpRequestFactory $httpRequestFactory;
 	private HCaptchaOutput $hCaptchaOutput;
 	private StatsFactory $statsFactory;
 	private LoggerInterface $logger;
@@ -53,6 +55,7 @@ class HCaptcha extends SimpleCaptcha {
 	public function __construct() {
 		$services = MediaWikiServices::getInstance();
 		$this->hCaptchaConfig = $services->getMainConfig();
+		$this->httpRequestFactory = $services->getHttpRequestFactory();
 		$this->hCaptchaOutput = $services->get( 'HCaptchaOutput' );
 		$this->statsFactory = $services->getStatsFactory();
 		$this->healthChecker = $services->get( 'HCaptchaEnterpriseHealthChecker' );
@@ -222,7 +225,7 @@ class HCaptcha extends SimpleCaptcha {
 		$options = [
 			'method' => 'POST',
 			'postData' => $data,
-			'timeout' => 5,
+			'timeout' => 1,
 		];
 
 		$proxy = $this->hCaptchaConfig->get( 'HCaptchaProxy' );
@@ -230,26 +233,32 @@ class HCaptcha extends SimpleCaptcha {
 			$options['proxy'] = $proxy;
 		}
 
-		$request = MediaWikiServices::getInstance()->getHttpRequestFactory()
-			->create( $this->hCaptchaConfig->get( 'HCaptchaVerifyUrl' ), $options, __METHOD__ );
+		$verifyUrl = $this->hCaptchaConfig->get( 'HCaptchaVerifyUrl' );
 
-		$timer = $this->statsFactory->withComponent( 'ConfirmEdit' )
-			->getTiming( 'hcaptcha_siteverify_call' )
-			->start();
-
-		$status = $request->execute();
-
-		$timer
-			->setLabel( 'status', $status->isOK() ? 'ok' : 'failed' )
-			->stop();
+		$status = $this->executeSiteVerifyRequest( $verifyUrl, $options, false );
 
 		if ( !$status->isOK() ) {
-			$this->error = 'http';
-			$this->healthChecker->incrementSiteVerifyApiErrorCount();
-			$this->logCheckError( $status, $user, $token );
-			return false;
+			$this->logger->warning(
+				'SiteVerify API request failed, retrying after 10ms. Error: {error}',
+				[
+					'error' => $status->getMessage()->text(),
+				]
+			);
+
+			usleep( 10_000 );
+
+			$status = $this->executeSiteVerifyRequest( $verifyUrl, $options, true );
+
+			if ( !$status->isOK() ) {
+				$this->error = 'http';
+				$this->healthChecker->incrementSiteVerifyApiErrorCount();
+				$this->logCheckError( $status, $user, $token );
+				return false;
+			}
+
+			$this->logger->info( 'SiteVerify API retry succeeded after initial failure' );
 		}
-		$json = FormatJson::decode( $request->getContent(), true );
+		$json = FormatJson::decode( $status->getValue(), true );
 		if ( !$json ) {
 			$this->error = 'json';
 			$this->healthChecker->incrementSiteVerifyApiErrorCount();
@@ -485,6 +494,36 @@ class HCaptcha extends SimpleCaptcha {
 		}
 
 		return $siteKey;
+	}
+
+	/**
+	 * Execute a SiteVerify API request and record timing metrics.
+	 *
+	 * On success, the response body is available via {@see Status::getValue()}.
+	 */
+	private function executeSiteVerifyRequest(
+		string $verifyUrl,
+		array $options,
+		bool $isRetry
+	): Status {
+		$request = $this->httpRequestFactory->create( $verifyUrl, $options, __METHOD__ );
+
+		$timer = $this->statsFactory->withComponent( 'ConfirmEdit' )
+			->getTiming( 'hcaptcha_siteverify_call' )
+			->start();
+
+		$status = $request->execute();
+
+		$timer
+			->setLabel( 'status', $status->isOK() ? 'ok' : 'failed' )
+			->setLabel( 'is_retry', $isRetry ? 'true' : 'false' )
+			->stop();
+
+		if ( $status->isOK() ) {
+			$status->value = $request->getContent();
+		}
+
+		return $status;
 	}
 
 	/**

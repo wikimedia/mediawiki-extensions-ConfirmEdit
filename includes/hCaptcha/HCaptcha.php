@@ -250,6 +250,13 @@ class HCaptcha extends SimpleCaptcha {
 			$status = $this->executeSiteVerifyRequest( $verifyUrl, $options, true );
 
 			if ( !$status->isOK() ) {
+				$this->logger->error(
+					'All SiteVerify API attempts failed. Error: {error}',
+					[ 'error' => $status->getMessage()->text() ]
+				);
+				$this->statsFactory->withComponent( 'ConfirmEdit' )
+					->getCounter( 'hcaptcha_siteverify_exhausted_total' )
+					->increment();
 				$this->error = 'http';
 				$this->healthChecker->incrementSiteVerifyApiErrorCount();
 				$this->logCheckError( $status, $user, $token );

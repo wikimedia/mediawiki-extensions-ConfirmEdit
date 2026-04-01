@@ -204,8 +204,11 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			} );
 		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
 
+		$statsHelper = StatsFactory::newUnitTestingHelper();
+		$this->setService( 'StatsFactory', $statsHelper->getStatsFactory() );
+
 		// Verify that a warning log is created for the initial failure,
-		// and an error log for the retry failure.
+		// and error logs for the exhausted retries and the final failure.
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger->expects( $this->once() )
 			->method( 'warning' )
@@ -213,10 +216,20 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'SiteVerify API request failed, retrying after 10ms. Error: {error}',
 				$this->anything()
 			);
-		$mockLogger->expects( $this->once() )
+		$mockLogger->expects( $this->exactly( 2 ) )
 			->method( 'error' )
-			->with( 'Unable to validate response. Error: {error}',
-				$this->callback( function ( $actualData ) {
+			->willReturnCallback( function ( $message, $context ) {
+				static $callIndex = 0;
+				if ( $callIndex === 0 ) {
+					$this->assertSame(
+						'All SiteVerify API attempts failed. Error: {error}',
+						$message
+					);
+				} else {
+					$this->assertSame(
+						'Unable to validate response. Error: {error}',
+						$message
+					);
 					$expectedSubset = [
 						'error' => 'http-error-500',
 						'user' => '1.2.3.4',
@@ -228,9 +241,10 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 						'ua' => false,
 						'user_exists_locally' => false,
 					];
-					$this->assertArrayContains( $expectedSubset, $actualData );
-					return true;
-				} ) );
+					$this->assertArrayContains( $expectedSubset, $context );
+				}
+				$callIndex++;
+			} );
 		$this->setLogger( 'captcha', $mockLogger );
 
 		// Attempt to pass the captcha using a fake response that we expect to pass to the API.
@@ -248,6 +262,22 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		// Verify that ::getMessage will output the message as usual but with an error background
 		$actualMessage = $hCaptcha->getMessage( 'edit' );
 		$this->assertSame( '<div class="error">(hcaptcha-edit)</div>', $actualMessage->text() );
+
+		// Verify that the exhausted counter and both timing metrics were emitted
+		$formatted = $statsHelper->consumeAllFormatted();
+		$this->assertCount( 3, $formatted );
+		$this->assertMatchesRegularExpression(
+			'/^mediawiki\.ConfirmEdit\.hcaptcha_siteverify_call:[\d.]+\|ms\|#status:failed,is_retry:false$/',
+			$formatted[0]
+		);
+		$this->assertMatchesRegularExpression(
+			'/^mediawiki\.ConfirmEdit\.hcaptcha_siteverify_call:[\d.]+\|ms\|#status:failed,is_retry:true$/',
+			$formatted[1]
+		);
+		$this->assertSame(
+			'mediawiki.ConfirmEdit.hcaptcha_siteverify_exhausted_total:1|c',
+			$formatted[2]
+		);
 	}
 
 	public function testPassCaptchaHttpRetrySucceeds() {

@@ -26,12 +26,28 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->installMockHttp(
 			$this->makeFakeHttpRequest()
 		);
-		/** @var HCaptchaEnterpriseHealthChecker $healthChecker */
-		$healthChecker = $this->getServiceContainer()->getService( 'HCaptchaEnterpriseHealthChecker' );
+		$statsHelper = StatsFactory::newUnitTestingHelper()->withComponent( 'ConfirmEdit' );
+		$services = $this->getServiceContainer();
+		$healthChecker = new HCaptchaEnterpriseHealthChecker(
+			new ServiceOptions(
+				HCaptchaEnterpriseHealthChecker::CONSTRUCTOR_OPTIONS,
+				$services->getMainConfig()
+			),
+			new NullLogger(),
+			$services->getObjectCacheFactory()->getLocalClusterInstance(),
+			$services->getMainWANObjectCache(),
+			$services->getHttpRequestFactory(),
+			$services->getFormatterFactory(),
+			$statsHelper->getStatsFactory(),
+			new HashBagOStuff()
+		);
 		for ( $i = 1; $i <= 10; $i++ ) {
 			$healthChecker->incrementSiteVerifyApiErrorCount();
 		}
 		$this->assertFalse( $healthChecker->isAvailable() );
+		$this->assertSame( 1, $statsHelper->count(
+			'hcaptcha_enterprise_failover_total{reason="siteverify_errors"}' )
+		);
 	}
 
 	public function testIncrementSiteverifyApiErrorCountBelowThreshold() {
@@ -139,6 +155,7 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->installMockHttp(
 			$this->makeFakeHttpRequest( '', 500 )
 		);
+		$statsHelper = StatsFactory::newUnitTestingHelper()->withComponent( 'ConfirmEdit' );
 		$services = $this->getServiceContainer();
 		$bagOStuff = $services->getObjectCacheFactory()->getLocalClusterInstance();
 		// Simulate that we're already at 2 errors (one below the threshold of 3).
@@ -161,10 +178,13 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getMainWANObjectCache(),
 			$services->getHttpRequestFactory(),
 			$services->getFormatterFactory(),
-			$services->getStatsFactory(),
+			$statsHelper->getStatsFactory(),
 			new HashBagOStuff()
 		);
 		$this->assertFalse( $healthChecker->isAvailable() );
+		$this->assertSame( 1, $statsHelper->count(
+			'hcaptcha_enterprise_failover_total{reason="apiurl_errors"}' )
+		);
 	}
 
 	public function testCachedUnavailable() {
@@ -205,6 +225,7 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$this->makeFakeHttpRequest( 'bar' )
 		);
 
+		$statsHelper = StatsFactory::newUnitTestingHelper()->withComponent( 'ConfirmEdit' );
 		$services = $this->getServiceContainer();
 		$healthChecker = new HCaptchaEnterpriseHealthChecker(
 			new ServiceOptions(
@@ -216,7 +237,7 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 			$services->getMainWANObjectCache(),
 			$services->getHttpRequestFactory(),
 			$services->getFormatterFactory(),
-			$services->getStatsFactory(),
+			$statsHelper->getStatsFactory(),
 			new HashBagOStuff()
 		);
 		$this->assertFalse( $healthChecker->isAvailable() );
@@ -232,6 +253,9 @@ class HCaptchaEnterpriseHealthCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertContains(
 			'apiUrl integrity check failure, entering immediate failover',
 			$logMessages
+		);
+		$this->assertSame( 1, $statsHelper->count(
+			'hcaptcha_enterprise_failover_total{reason="integrity_failure"}' )
 		);
 	}
 

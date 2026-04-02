@@ -126,6 +126,7 @@ class HCaptchaEnterpriseHealthChecker {
 					);
 					// Back off for a period of time before rechecking.
 					$ttl = $failoverDuration;
+					$this->recordFailover( 'siteverify_errors' );
 					return 0;
 				}
 
@@ -179,6 +180,7 @@ class HCaptchaEnterpriseHealthChecker {
 							'apiUrl integrity check failure, entering immediate failover'
 						);
 						$ttl = $failoverDuration;
+						$this->recordFailover( 'integrity_failure' );
 						return 0;
 					}
 
@@ -195,6 +197,7 @@ class HCaptchaEnterpriseHealthChecker {
 							[ 'count' => $errorCount, 'threshold' => $threshold ]
 						);
 						$ttl = $failoverDuration;
+						$this->recordFailover( 'apiurl_errors' );
 						return 0;
 					}
 					// Below threshold, recheck sooner to accumulate errors faster
@@ -227,6 +230,13 @@ class HCaptchaEnterpriseHealthChecker {
 
 		$timer->setLabel( 'result', $this->isAvailable ? 'true' : 'false' )->stop();
 		return $this->isAvailable;
+	}
+
+	private function recordFailover( string $reason ): void {
+		$this->statsFactory->withComponent( 'ConfirmEdit' )
+			->getCounter( 'hcaptcha_enterprise_failover_total' )
+			->setLabel( 'reason', $reason )
+			->increment();
 	}
 
 	private function checkApiUrl(): Status {

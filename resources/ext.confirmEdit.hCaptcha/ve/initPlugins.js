@@ -12,4 +12,5 @@ module.exports = () => {
 	require( './ve.init.mw.HCaptchaOnLoadHandler.js' )();
 
 	ve.init.mw.HCaptchaOnLoadHandler.static.init();
+	ve.init.mw.HCaptchaSaveErrorHandler.static.init();
 };

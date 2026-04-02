@@ -30,12 +30,6 @@ module.exports = () => {
 			$hCaptchaWidgetContainer = $( '<div>' ),
 			$container = $( '<div>' );
 
-		// Register extra fields
-		target.saveFields.wpCaptchaWord = function () {
-			// eslint-disable-next-line no-jquery/no-global-selector
-			return $( '[name=h-captcha-response]' ).val();
-		};
-
 		if ( config.HCaptchaInvisibleMode ) {
 			const $hCaptchaEditNotice = $( '<div>' );
 			$hCaptchaEditNotice.html( mw.message( 'hcaptcha-visual-editor-error-handler-warning' ).parse() );
@@ -61,14 +55,11 @@ module.exports = () => {
 				target.saveDialog.clearMessage( 'api-save-error' );
 				target.saveDialog.showMessage( 'api-save-error', $container, { wrap: false } );
 
-				const renderPromise = self.renderHCaptchaWidget(
+				self.renderHCaptchaWidget(
 					this.window,
 					target,
 					$hCaptchaWidgetContainer
 				);
-				renderPromise.then( () => {
-					target.saveDialog.executeAction( 'save' );
-				} );
 
 				target.saveDialog.popPending();
 				target.emit( 'saveErrorCaptcha' );

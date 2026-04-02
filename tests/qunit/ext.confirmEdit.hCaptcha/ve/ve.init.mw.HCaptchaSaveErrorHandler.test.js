@@ -45,6 +45,9 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 		const mockWindow = {
 			hcaptcha: {
 				render: this.sandbox.stub()
+			},
+			document: {
+				body: $qunitFixture[ 0 ]
 			}
 		};
 		mockWindow.hcaptcha.render.returns( 'widget-id' );

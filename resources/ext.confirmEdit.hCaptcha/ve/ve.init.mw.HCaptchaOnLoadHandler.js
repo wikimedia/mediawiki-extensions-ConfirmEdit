@@ -114,9 +114,12 @@ module.exports = () => {
 	 * When the save dialog is closed, we no longer have a rendered hCaptcha widget and so should
 	 * keep track of that so that if it is opened again the hCaptcha widget is re-rendered.
 	 *
+	 * @param {ve.init.Target} target
 	 * @return {void}
 	 */
-	ve.init.mw.HCaptchaOnLoadHandler.static.onSaveWorkflowEnd = function () {
+	ve.init.mw.HCaptchaOnLoadHandler.static.onSaveWorkflowEnd = function ( target ) {
+		ve.init.mw.HCaptcha.static.onSaveWorkflowEnd.call( this, target );
+
 		this.isHCaptchaRendering = false;
 		this.isHCaptchaRendered = false;
 	};
@@ -139,6 +142,8 @@ module.exports = () => {
 	 * Initialises the hCaptcha VisualEditor on load handler for the current page.
 	 */
 	ve.init.mw.HCaptchaOnLoadHandler.static.init = function () {
+		ve.init.mw.HCaptcha.static.init.call( this );
+
 		mw.hook( 've.newTarget' ).add( ( target ) => {
 			if ( target.constructor.static.name !== 'article' ) {
 				return;
@@ -148,9 +153,6 @@ module.exports = () => {
 			} );
 			target.on( 'saveWorkflowChangePanel', () => {
 				this.renderHCaptcha( window, target );
-			} );
-			target.on( 'saveWorkflowEnd', () => {
-				this.onSaveWorkflowEnd();
 			} );
 		} );
 	};

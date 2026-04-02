@@ -12,10 +12,14 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 		sinon.replace( hCaptchaConfig, 'HCaptchaInvisibleMode', false );
 
 		this.loadHCaptcha = sinon.stub( hCaptchaUtils, 'loadHCaptcha' );
+		this.executeHCaptcha = sinon.stub( hCaptchaUtils, 'executeHCaptcha' );
 
 		this.window = {
 			hcaptcha: {
 				render: sinon.stub()
+			},
+			document: {
+				body: $( '#qunit-fixture' )
 			}
 		};
 
@@ -201,14 +205,22 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 	QUnit.test.each( 'renderHCaptcha is called for successful render', {
 		'hCaptcha is in invisible mode': {
 			invisibleMode: true,
+			enterpriseMode: false,
+			removeMwConfigSiteKey: false
+		},
+		'hCaptcha is in invisible and enterprise mode': {
+			invisibleMode: true,
+			enterpriseMode: true,
 			removeMwConfigSiteKey: false
 		},
 		'hCaptcha is not in invisible mode': {
 			invisibleMode: false,
+			enterpriseMode: false,
 			removeMwConfigSiteKey: false
 		},
 		'hCaptcha falls back to config.json if mw.config does not have site key': {
 			invisibleMode: false,
+			enterpriseMode: false,
 			removeMwConfigSiteKey: true
 		}
 	}, async function ( assert, options ) {
@@ -219,6 +231,7 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 		this.window.hcaptcha.render.returns( 'widget-id' );
 
 		hCaptchaConfig.HCaptchaInvisibleMode = options.invisibleMode;
+		hCaptchaConfig.HCaptchaEnterprise = options.enterpriseMode;
 
 		if ( options.removeMwConfigSiteKey ) {
 			mw.config.set( 'wgConfirmEditHCaptchaSiteKey', null );
@@ -260,6 +273,21 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 			'widget-id',
 			'widgetId property should be set with the return value of hcaptcha.render'
 		);
+
+		const $hCaptchaChallengeContainer = $( '.ext-confirmEdit-hCaptcha-challengeContainer' );
+		if ( options.enterpriseMode ) {
+			assert.deepEqual(
+				$hCaptchaChallengeContainer.length,
+				1,
+				'hCaptcha challenge container exists when using enterprise mode'
+			);
+		} else {
+			assert.deepEqual(
+				$hCaptchaChallengeContainer.length,
+				0,
+				'hCaptcha challenge container does not exist in enterprise mode'
+			);
+		}
 
 		// Check there is no error message displayed
 		const $actualHCaptchaContainer = $( '.ext-confirmEdit-visualEditor-hCaptchaContainer' );
@@ -336,5 +364,110 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 			$hcaptchaErrorWidget.text(),
 			'hCaptcha error message widget has the error message'
 		);
+	} );
+
+	QUnit.test.each( 'onSaveOptionsProcess is called', {
+		'No execution if widgetId is null': {
+			widgetId: null,
+			executeHCaptchaPromiseFactory: () => Promise.reject( 'should-be-ignored' ),
+			existingResponseToken: null,
+			returnedPromiseShouldResolve: true,
+			hCaptchaShouldBeExecuted: false,
+			executionShouldSucceed: false
+		},
+		'Returns early without new execution if response token already held': {
+			widgetId: 'mockWidgetId',
+			executeHCaptchaPromiseFactory: () => Promise.reject( 'should-be-ignored' ),
+			existingResponseToken: 'test-response',
+			returnedPromiseShouldResolve: true,
+			hCaptchaShouldBeExecuted: false,
+			executionShouldSucceed: true
+		},
+		'Successful execution': {
+			widgetId: 'mockWidgetId',
+			executeHCaptchaPromiseFactory: () => Promise.resolve( 'test-response' ),
+			existingResponseToken: null,
+			returnedPromiseShouldResolve: true,
+			hCaptchaShouldBeExecuted: true,
+			executionShouldSucceed: true
+		},
+		'Failed execution': {
+			widgetId: 'mockWidgetId',
+			executeHCaptchaPromiseFactory: () => Promise.reject( 'test-error' ),
+			existingResponseToken: null,
+			returnedPromiseShouldResolve: false,
+			hCaptchaShouldBeExecuted: true,
+			executionShouldSucceed: false
+		}
+	}, async function ( assert, options ) {
+		this.executeHCaptcha.callsFake( () => options.executeHCaptchaPromiseFactory() );
+
+		const executionSuccessHook = mw.hook( 'confirmEdit.hCaptcha.executionSuccess' );
+		const executionSuccessHookFireSpy = this.sandbox.spy( executionSuccessHook, 'fire' );
+
+		hCaptchaOnLoadHandler();
+
+		ve.init.mw.HCaptchaOnLoadHandler.static.widgetId = options.widgetId;
+
+		if ( options.existingResponseToken ) {
+			ve.init.mw.HCaptchaOnLoadHandler.static.hCaptchaResponseToken = options.existingResponseToken;
+		}
+
+		let showSaveErrorCalled = false;
+		const mockTarget = {
+			showSaveError: () => {
+				showSaveErrorCalled = true;
+			},
+			saveFields: {}
+		};
+
+		const returnedPromise = ve.init.mw.HCaptchaOnLoadHandler.static.onSaveOptionsProcess(
+			mockTarget
+		);
+		if ( options.returnedPromiseShouldResolve ) {
+			await returnedPromise;
+		} else {
+			await assert.rejects( returnedPromise );
+		}
+
+		if ( options.hCaptchaShouldBeExecuted ) {
+			assert.deepEqual(
+				this.executeHCaptcha.callCount,
+				1,
+				'executeHCaptcha is called once when widgetId is set'
+			);
+			assert.deepEqual(
+				this.executeHCaptcha.firstCall.args,
+				[ window, 'mockWidgetId', 'visualeditor' ],
+				'executeHCaptcha call uses the expected arguments'
+			);
+		} else {
+			assert.deepEqual(
+				this.executeHCaptcha.callCount,
+				0,
+				'executeHCaptcha is not called if hCaptcha not rendered'
+			);
+		}
+
+		assert.deepEqual(
+			executionSuccessHookFireSpy.callCount,
+			options.hCaptchaShouldBeExecuted && options.executionShouldSucceed ? 1 : 0,
+			'confirmEdit.hCaptcha.executionSuccess hook should only be fired on successful execution'
+		);
+		if ( options.widgetId ) {
+			assert.deepEqual(
+				showSaveErrorCalled,
+				!options.executionShouldSucceed,
+				'showSaveError should only be called if the execution failed'
+			);
+		}
+
+		if ( options.executionShouldSucceed ) {
+			assert.deepEqual(
+				mockTarget.saveFields.wpCaptchaWord(),
+				'test-response',
+				'wpCaptchaWord field should be set as the hCaptcha response token'
+			);
+		}
 	} );
 } );

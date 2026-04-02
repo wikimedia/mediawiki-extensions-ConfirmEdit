@@ -42,10 +42,7 @@ return [
 			LoggerFactory::getInstance( 'captcha' ),
 			$services->getObjectCacheFactory()->getLocalClusterInstance(),
 			$services->getMainWANObjectCache(),
-			$services->getHttpRequestFactory(),
-			$services->getFormatterFactory(),
-			$services->getStatsFactory(),
-			$services->getLocalServerObjectCache()
+			$services->getStatsFactory()
 		);
 	},
 	'ConfirmEditLoadedCaptchasProvider' => static function ( MediaWikiServices $services ) {

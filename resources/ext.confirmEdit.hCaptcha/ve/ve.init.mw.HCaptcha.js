@@ -30,6 +30,21 @@ module.exports = () => {
 	};
 
 	/**
+	 * Renders the hCaptcha privacy policy notice if invisible mode is enabled.
+	 * Should ideally be called as soon as it is known that hCaptcha needs to be shown.
+	 *
+	 * @param {jQuery} $hCaptchaContainer The element to add the privacy policy notice to
+	 */
+	ve.init.mw.HCaptcha.static.renderHCaptchaPrivacyPolicyNotice = function ( $hCaptchaContainer ) {
+		if ( config.HCaptchaInvisibleMode ) {
+			const $privacyPolicyNotice = $( '<div>' );
+			$privacyPolicyNotice.html( mw.message( 'hcaptcha-privacy-policy' ).parse() );
+			$privacyPolicyNotice.addClass( 'ext-confirmEdit-hcaptcha-privacy-policy ve-ui-mwSaveDialog-license' );
+			$hCaptchaContainer.append( $privacyPolicyNotice );
+		}
+	};
+
+	/**
 	 * Renders the hCaptcha widget in the VisualEditor save dialog.
 	 *
 	 * @param {window} win

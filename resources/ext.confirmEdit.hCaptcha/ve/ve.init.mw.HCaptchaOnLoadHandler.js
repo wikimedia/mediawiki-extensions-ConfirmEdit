@@ -9,7 +9,6 @@
  */
 module.exports = () => {
 	// Load these here so that in QUnit tests we have a chance to mock utils.js
-	const config = require( './../config.json' );
 	const ErrorWidget = require( '../ErrorWidget.js' );
 	const { mapErrorCodeToMessageKey } = require( './../utils.js' );
 
@@ -72,15 +71,7 @@ module.exports = () => {
 		saveDialog.$element.find( '.ext-confirmEdit-visualEditor-hCaptchaContainer' ).remove();
 
 		const $hCaptchaContainer = $( '<div>' );
-
-		// If in secure enclave mode, we should add the hCaptcha privacy policy text
-		// now to make the text appear as soon as possible.
-		if ( config.HCaptchaInvisibleMode ) {
-			const $privacyPolicyNotice = $( '<div>' );
-			$privacyPolicyNotice.html( mw.message( 'hcaptcha-privacy-policy' ).parse() );
-			$privacyPolicyNotice.addClass( 'ext-confirmEdit-hcaptcha-privacy-policy ve-ui-mwSaveDialog-license' );
-			$hCaptchaContainer.append( $privacyPolicyNotice );
-		}
+		this.renderHCaptchaPrivacyPolicyNotice( $hCaptchaContainer );
 
 		const errorWidget = new ErrorWidget();
 		$hCaptchaContainer.append( errorWidget.$element );

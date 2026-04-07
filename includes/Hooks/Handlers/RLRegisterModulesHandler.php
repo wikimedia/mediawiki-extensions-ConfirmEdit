@@ -67,6 +67,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 					'hcaptcha-rate-limited',
 					'hcaptcha-loading-indicator-label',
 					'hcaptcha-privacy-policy',
+					'hcaptcha-visual-editor-error-handler-warning',
 				],
 				'dependencies' => [
 					'oojs-ui',

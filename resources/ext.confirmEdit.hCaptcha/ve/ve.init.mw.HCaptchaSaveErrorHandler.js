@@ -7,6 +7,7 @@
  * is loaded
  */
 module.exports = () => {
+	const config = require( './../config.json' );
 
 	ve.init.mw.HCaptchaSaveErrorHandler = function () {};
 
@@ -16,6 +17,8 @@ module.exports = () => {
 
 	ve.init.mw.HCaptchaSaveErrorHandler.static.name = 'confirmEditHCaptcha';
 
+	ve.init.mw.HCaptchaSaveErrorHandler.static.window = window;
+
 	ve.init.mw.HCaptchaSaveErrorHandler.static.matchFunction = function ( data ) {
 		const captchaData = ve.getProp( data, 'visualeditoredit', 'edit', 'captcha' );
 
@@ -24,6 +27,7 @@ module.exports = () => {
 
 	ve.init.mw.HCaptchaSaveErrorHandler.static.process = function ( data, target ) {
 		const self = this,
+			$hCaptchaWidgetContainer = $( '<div>' ),
 			$container = $( '<div>' );
 
 		// Register extra fields
@@ -31,6 +35,21 @@ module.exports = () => {
 			// eslint-disable-next-line no-jquery/no-global-selector
 			return $( '[name=h-captcha-response]' ).val();
 		};
+
+		if ( config.HCaptchaInvisibleMode ) {
+			const $hCaptchaEditNotice = $( '<div>' );
+			$hCaptchaEditNotice.html( mw.message( 'hcaptcha-visual-editor-error-handler-warning' ).parse() );
+			$hCaptchaEditNotice.addClass(
+				've-ui-mwSaveDialog-license ext-confirmEdit-hcaptcha-visual-editor-error-handler-warning'
+			);
+			$container.append( $hCaptchaEditNotice );
+		}
+
+		this.renderHCaptchaPrivacyPolicyNotice( $container );
+
+		$hCaptchaWidgetContainer.addClass( 'ext-confirmEdit-visualEditor-hCaptchaWidgetContainer' );
+		$container.addClass( 'ext-confirmEdit-visualEditor-hCaptchaContainer' );
+		$container.append( $hCaptchaWidgetContainer );
 
 		this.getReadyPromise()
 			.then( () => {
@@ -43,9 +62,9 @@ module.exports = () => {
 				target.saveDialog.showMessage( 'api-save-error', $container, { wrap: false } );
 
 				const renderPromise = self.renderHCaptchaWidget(
-					window,
+					this.window,
 					target,
-					$container
+					$hCaptchaWidgetContainer
 				);
 				renderPromise.then( () => {
 					target.saveDialog.executeAction( 'save' );

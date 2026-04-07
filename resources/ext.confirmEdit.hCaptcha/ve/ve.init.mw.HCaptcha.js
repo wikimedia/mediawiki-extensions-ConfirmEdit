@@ -6,10 +6,20 @@
 module.exports = () => {
 	// Load these here so that in QUnit tests we have a chance to mock utils.js
 	const { loadHCaptcha } = require( './../utils.js' );
+	const config = require( './../config.json' );
 
 	ve.init.mw.HCaptcha = function () {};
 
 	OO.initClass( ve.init.mw.HCaptcha );
+
+	/**
+	 * The return value of `hcaptcha.render`, which is the widget ID of the
+	 * rendered hCaptcha widget. This can be used by `executeHCaptcha`
+	 * to programmatically execute hCaptcha in invisible mode.
+	 *
+	 * @type {string|null} `null` if no hCaptcha widget is rendered yet
+	 */
+	ve.init.mw.HCaptcha.static.widgetId = null;
 
 	ve.init.mw.HCaptcha.static.getReadyPromise = function () {
 		if ( !this.readyPromise ) {
@@ -17,5 +27,36 @@ module.exports = () => {
 		}
 
 		return this.readyPromise;
+	};
+
+	/**
+	 * Renders the hCaptcha widget in the VisualEditor save dialog.
+	 *
+	 * @param {window} win
+	 * @param {ve.init.Target} target
+	 * @param {jQuery} $hCaptchaWidgetContainer
+	 * @return {Promise} A promise that resolves when the hCaptcha widget has finished rendering
+	 */
+	ve.init.mw.HCaptcha.static.renderHCaptchaWidget = function (
+		win,
+		target,
+		$hCaptchaWidgetContainer
+	) {
+		let renderPromiseResolver = null;
+		const renderPromise = new Promise( ( resolve ) => {
+			renderPromiseResolver = resolve;
+		} );
+
+		const saveDialog = target.saveDialog;
+		const siteKey = mw.config.get( 'wgConfirmEditHCaptchaSiteKey' ) || config.HCaptchaSiteKey;
+
+		this.widgetId = win.hcaptcha.render( $hCaptchaWidgetContainer[ 0 ], {
+			sitekey: siteKey,
+			callback: renderPromiseResolver
+		} );
+
+		saveDialog.updateSize();
+
+		return renderPromise;
 	};
 };

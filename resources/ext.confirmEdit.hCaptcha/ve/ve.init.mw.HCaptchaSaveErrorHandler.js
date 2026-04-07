@@ -7,8 +7,6 @@
  * is loaded
  */
 module.exports = () => {
-	// Load these here so that in QUnit tests we have a chance to mock utils.js
-	const config = require( './../config.json' );
 
 	ve.init.mw.HCaptchaSaveErrorHandler = function () {};
 
@@ -26,7 +24,6 @@ module.exports = () => {
 
 	ve.init.mw.HCaptchaSaveErrorHandler.static.process = function ( data, target ) {
 		const self = this,
-			siteKey = mw.config.get( 'wgConfirmEditHCaptchaSiteKey' ) || config.HCaptchaSiteKey,
 			$container = $( '<div>' );
 
 		// Register extra fields
@@ -44,17 +41,17 @@ module.exports = () => {
 				// ProcessDialog's error system isn't great for this yet.
 				target.saveDialog.clearMessage( 'api-save-error' );
 				target.saveDialog.showMessage( 'api-save-error', $container, { wrap: false } );
-				self.widgetId = window.hcaptcha.render( $container[ 0 ], {
-					sitekey: siteKey,
-					callback: function () {
-						target.saveDialog.executeAction( 'save' );
-					},
-					'expired-callback': function () {},
-					'error-callback': function () {}
-				} );
-				target.saveDialog.popPending();
-				target.saveDialog.updateSize();
 
+				const renderPromise = self.renderHCaptchaWidget(
+					window,
+					target,
+					$container
+				);
+				renderPromise.then( () => {
+					target.saveDialog.executeAction( 'save' );
+				} );
+
+				target.saveDialog.popPending();
 				target.emit( 'saveErrorCaptcha' );
 			} );
 	};

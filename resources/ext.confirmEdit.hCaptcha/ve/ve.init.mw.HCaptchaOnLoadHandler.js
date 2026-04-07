@@ -32,15 +32,6 @@ module.exports = () => {
 	ve.init.mw.HCaptchaOnLoadHandler.static.isHCaptchaRendered = false;
 
 	/**
-	 * The return value of `hcaptcha.render`, which is the widget ID of the
-	 * rendered hCaptcha widget. This can be used by `executeHCaptcha`
-	 * to programmatically execute hCaptcha in invisible mode.
-	 *
-	 * @type {string|null} `null` if no hCaptcha widget is rendered yet
-	 */
-	ve.init.mw.HCaptchaOnLoadHandler.static.widgetId = null;
-
-	/**
 	 * Load the hCaptcha SDK when a user changes content in the VisualEditor editor if
 	 * hCaptcha is required for a "generic" edit.
 	 *
@@ -108,10 +99,7 @@ module.exports = () => {
 		const loadPromise = this.getReadyPromise();
 		loadPromise.then(
 			() => {
-				this.widgetId = win.hcaptcha.render( $hCaptchaWidgetContainer[ 0 ], {
-					sitekey: mw.config.get( 'wgConfirmEditHCaptchaSiteKey' ) || config.HCaptchaSiteKey
-				} );
-				saveDialog.updateSize();
+				this.renderHCaptchaWidget( win, target, $hCaptchaWidgetContainer );
 
 				this.isHCaptchaRendering = false;
 				this.isHCaptchaRendered = true;

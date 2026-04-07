@@ -251,9 +251,9 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 			'window.hcaptcha.render was provided with the expected container'
 		);
 		assert.deepEqual(
-			actualRenderCallArgs[ 1 ],
-			{ sitekey: !options.removeMwConfigSiteKey ? 'test-site-key' : 'test-default-site-key' },
-			'window.hcaptcha.render was provided with the expected configuration values'
+			actualRenderCallArgs[ 1 ].sitekey,
+			!options.removeMwConfigSiteKey ? 'test-site-key' : 'test-default-site-key',
+			'window.hcaptcha.render was provided with the expected sitekey'
 		);
 		assert.deepEqual(
 			ve.init.mw.HCaptchaOnLoadHandler.static.widgetId,

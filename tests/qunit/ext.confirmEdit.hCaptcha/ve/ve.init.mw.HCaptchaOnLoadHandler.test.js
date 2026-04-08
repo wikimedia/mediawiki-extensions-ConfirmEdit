@@ -162,9 +162,10 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 	 * @param {*} assert QUnit assert object
 	 * @param {this} self The `this` of the calling method
 	 * @param {boolean} invisibleMode Is hCaptcha in invisible mode
+	 * @param {boolean} loadWasSuccessful Whether the `loadHCaptcha` call returned a fulfilled or rejected promise
 	 * @return {void}
 	 */
-	function commonPostRenderHCaptchaAssertions( assert, self, invisibleMode ) {
+	function commonPostRenderHCaptchaAssertions( assert, self, invisibleMode, loadWasSuccessful ) {
 		// Check loadHCaptcha was called
 		assert.deepEqual(
 			self.loadHCaptcha.callCount,
@@ -190,10 +191,19 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 			1,
 			'Only one hCaptcha container should exist in the DOM'
 		);
+		const $actualHCaptchaWidgetContainer = $(
+			'.ext-confirmEdit-visualEditor-hCaptchaWidgetContainer',
+			$actualHCaptchaContainer
+		);
 		assert.deepEqual(
-			$( '.ext-confirmEdit-visualEditor-hCaptchaWidgetContainer', $actualHCaptchaContainer ).length,
+			$actualHCaptchaWidgetContainer.length,
 			1,
 			'Only one hCaptcha widget container should exist in the DOM'
+		);
+		assert.deepEqual(
+			$actualHCaptchaWidgetContainer.attr( 'data-size' ),
+			invisibleMode && loadWasSuccessful ? 'invisible' : undefined,
+			'The hCaptcha widget should be marked as invisible if in invisible mode'
 		);
 		assert.deepEqual(
 			$( '.ext-confirmEdit-hcaptcha-privacy-policy', $actualHCaptchaContainer ).length,
@@ -248,7 +258,7 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 		);
 
 		await ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target );
-		commonPostRenderHCaptchaAssertions( assert, this, options.invisibleMode );
+		commonPostRenderHCaptchaAssertions( assert, this, options.invisibleMode, true );
 
 		// Check that hcaptcha.render is called
 		assert.deepEqual(
@@ -333,7 +343,7 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 			ve.init.mw.HCaptchaOnLoadHandler.static.renderHCaptcha( this.window, ve.init.target )
 		);
 
-		commonPostRenderHCaptchaAssertions( assert, this, options.invisibleMode );
+		commonPostRenderHCaptchaAssertions( assert, this, options.invisibleMode, false );
 
 		// Check that hcaptcha.render is not called, as the SDK loading failed
 		assert.true(

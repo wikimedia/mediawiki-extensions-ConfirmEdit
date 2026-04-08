@@ -75,10 +75,19 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 				1,
 				'A hCaptcha container should exist in the DOM'
 			);
+			const $actualHCaptchaWidgetContainer = $(
+				'.ext-confirmEdit-visualEditor-hCaptchaWidgetContainer',
+				$actualHCaptchaContainer
+			);
 			assert.deepEqual(
-				$( '.ext-confirmEdit-visualEditor-hCaptchaWidgetContainer', $actualHCaptchaContainer ).length,
+				$actualHCaptchaWidgetContainer.length,
 				1,
 				'Only one hCaptcha widget container should exist in the DOM'
+			);
+			assert.deepEqual(
+				$actualHCaptchaWidgetContainer.attr( 'data-size' ),
+				options.invisibleMode ? 'invisible' : undefined,
+				'The hCaptcha widget should be marked as invisible if in invisible mode'
 			);
 			assert.deepEqual(
 				$( '.ext-confirmEdit-hcaptcha-privacy-policy', $actualHCaptchaContainer ).length,

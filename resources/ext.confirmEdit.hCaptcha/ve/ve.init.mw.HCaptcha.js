@@ -72,6 +72,10 @@ module.exports = () => {
 		const saveDialog = target.saveDialog;
 		const siteKey = mw.config.get( 'wgConfirmEditHCaptchaSiteKey' ) || config.HCaptchaSiteKey;
 
+		if ( config.HCaptchaInvisibleMode ) {
+			$hCaptchaWidgetContainer.attr( 'data-size', 'invisible' );
+		}
+
 		// If using enterprise mode, we can show any hCaptcha challenge in a separate
 		// window (which is preferable to expanding the save dialog). Otherwise,
 		// we should render hCaptcha in a way which works in non-enterprise mode.

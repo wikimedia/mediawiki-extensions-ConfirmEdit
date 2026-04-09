@@ -55,10 +55,20 @@ module.exports = () => {
 				target.saveDialog.clearMessage( 'api-save-error' );
 				target.saveDialog.showMessage( 'api-save-error', $container, { wrap: false } );
 
+				let siteKey = null;
+				const captchaData = ve.getProp( data, 'visualeditoredit', 'edit', 'captcha' );
+				if ( captchaData && captchaData.type === 'hcaptcha' && captchaData.key ) {
+					if ( captchaData.error === 'forceshowcaptcha' ) {
+						target.saveFields.wgConfirmEditForceShowCaptcha = () => true;
+					}
+					siteKey = captchaData.key;
+				}
+
 				self.renderHCaptchaWidget(
 					this.window,
 					target,
-					$hCaptchaWidgetContainer
+					$hCaptchaWidgetContainer,
+					siteKey
 				);
 
 				target.saveDialog.popPending();

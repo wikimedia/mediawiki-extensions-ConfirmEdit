@@ -16,15 +16,25 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 
 	QUnit.test.each( 'process uses loadHCaptcha', {
 		'hCaptcha is in invisible mode': {
-			invisibleMode: true
+			invisibleMode: true,
+			captchaData: { type: 'hcaptcha' },
+			expectedSiteKey: 'generic-site-key'
 		},
 		'hCaptcha is not in invisible mode': {
-			invisibleMode: false
+			invisibleMode: false,
+			captchaData: { type: 'hcaptcha', key: 'generic-site-key-2' },
+			expectedSiteKey: 'generic-site-key-2'
+		},
+		'AbuseFilter hCaptcha error from visualeditoredit API': {
+			invisibleMode: false,
+			captchaData: { type: 'hcaptcha', key: 'abuse-filter-key', error: 'forceshowcaptcha' },
+			expectedSiteKey: 'abuse-filter-key'
 		}
 	}, async function ( assert, options ) {
 		this.loadHCaptcha.returns( Promise.resolve() );
 
 		hCaptchaConfig.HCaptchaInvisibleMode = options.invisibleMode;
+		hCaptchaConfig.HCaptchaSiteKey = 'generic-site-key';
 
 		hCaptchaSaveErrorHandler();
 
@@ -54,13 +64,21 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 
 		ve.init.mw.HCaptchaSaveErrorHandler.static.window = mockWindow;
 
-		ve.init.mw.HCaptchaSaveErrorHandler.static.process( {}, target );
+		ve.init.mw.HCaptchaSaveErrorHandler.static.process(
+			{ visualeditoredit: { edit: { captcha: options.captchaData } } },
+			target
+		);
 
 		setTimeout( () => {
 			assert.deepEqual(
 				mockWindow.hcaptcha.render.callCount,
 				1,
 				'window.hcaptcha.render is called once'
+			);
+			assert.deepEqual(
+				mockWindow.hcaptcha.render.firstCall.args[ 1 ].sitekey,
+				options.expectedSiteKey,
+				'window.hcaptcha.render is passed the expected sitekey'
 			);
 			assert.deepEqual(
 				ve.init.mw.HCaptchaSaveErrorHandler.static.widgetId,

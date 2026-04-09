@@ -57,12 +57,15 @@ module.exports = () => {
 	 * @param {window} win
 	 * @param {ve.init.Target} target
 	 * @param {jQuery} $hCaptchaWidgetContainer
+	 * @param {string|null} [siteKey] The sitekey to use in the rendered hCaptcha widget. If not set or null,
+	 *   the default sitekey will be used.
 	 * @return {Promise} A promise that resolves when the hCaptcha widget has finished executing
 	 */
 	ve.init.mw.HCaptcha.static.renderHCaptchaWidget = function (
 		win,
 		target,
-		$hCaptchaWidgetContainer
+		$hCaptchaWidgetContainer,
+		siteKey
 	) {
 		let executionFinishedPromiseResolver = null;
 		const executionFinishedPromise = new Promise( ( resolve ) => {
@@ -70,7 +73,7 @@ module.exports = () => {
 		} );
 
 		const saveDialog = target.saveDialog;
-		const siteKey = mw.config.get( 'wgConfirmEditHCaptchaSiteKey' ) || config.HCaptchaSiteKey;
+		siteKey = siteKey || mw.config.get( 'wgConfirmEditHCaptchaSiteKey' ) || config.HCaptchaSiteKey;
 
 		if ( config.HCaptchaInvisibleMode ) {
 			$hCaptchaWidgetContainer.attr( 'data-size', 'invisible' );

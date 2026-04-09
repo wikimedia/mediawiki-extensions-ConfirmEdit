@@ -328,7 +328,7 @@ class HCaptcha extends SimpleCaptcha {
 		return [
 			'type' => 'hcaptcha',
 			'mime' => 'application/javascript',
-			'key' => $this->getConfig()['HCaptchaSiteKey'] ?? $this->hCaptchaConfig->get( 'HCaptchaSiteKey' ),
+			'key' => $this->getSiteKeyForAction(),
 		];
 	}
 

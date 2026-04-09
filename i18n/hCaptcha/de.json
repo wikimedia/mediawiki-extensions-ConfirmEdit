@@ -23,5 +23,6 @@
 	"hcaptcha-loading-indicator-label": "Bitte warte, während das Formular fertig lädt ...",
 	"hcaptcha-missing-token": "Das Formular ist noch nicht vollständig geladen. Bitte warte einige Sekunden und versuche es dann erneut.",
 	"hcaptcha-noscript": "Zum Fortfahren ist JavaScript erforderlich. Aktiviere JavaScript in deinen Browsereinstellungen und aktualisiere die Seite.",
-	"hcaptcha-force-show-captcha-edit": "Bitte sende das Formular erneut ab und absolviere die Aufgabe, um deine Änderungen zu speichern."
+	"hcaptcha-force-show-captcha-edit": "Bitte sende das Formular erneut ab und absolviere die Aufgabe, um deine Änderungen zu speichern.",
+	"hcaptcha-visual-editor-error-handler-warning": "Bitte {{#FORMAL:sende|senden Sie}} das Formular erneut ab, um {{#FORMAL:deine|Ihre}} Änderungen zu speichern."
 }

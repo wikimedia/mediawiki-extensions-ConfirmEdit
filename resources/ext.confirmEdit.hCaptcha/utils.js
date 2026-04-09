@@ -569,7 +569,10 @@ function hideLoadingIndicator( $hCaptchaField ) {
 }
 
 /**
- * @internal Used from QUnit tests in order to reset the internal state.
+ * Used by QUnit tests in order to reset the internal state.
+ * Should not be called by non-test code.
+ *
+ * @internal
  * @return {void}
  */
 function reset() {

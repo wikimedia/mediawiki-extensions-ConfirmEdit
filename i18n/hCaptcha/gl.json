@@ -22,5 +22,6 @@
 	"hcaptcha-loading-indicator-label": "Agarda mentres remata a carga do formulario...",
 	"hcaptcha-missing-token": "Non rematou a carga do formulario. Agarda uns segundos e inténtao de novo.",
 	"hcaptcha-noscript": "Cómpre JavaScript para continuar. Activa JavaScript na configuración do teu navegador e actualiza a páxina.",
-	"hcaptcha-force-show-captcha-edit": "Volve enviar o formulario e completa o desafío para gardares a túa edición."
+	"hcaptcha-force-show-captcha-edit": "Volve enviar o formulario e completa o desafío para gardares a túa edición.",
+	"hcaptcha-visual-editor-error-handler-warning": "Volve enviar o formulario para gardares a túa edición."
 }

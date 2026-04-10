@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BAPerdana-WMF",
+			"Budhiastawa",
 			"Daud I.F. Argana",
 			"Penyuwangi",
 			"Rachmat04"
@@ -20,5 +21,6 @@
 	"hcaptcha-challenge-expired": "Batas waktu untuk menyelesaikan tantangan tersebut telah habis. Silakan ulangi.",
 	"hcaptcha-rate-limited": "Batas akses hCaptcha terlampaui. Silakan muat ulang halaman dan coba lagi.",
 	"hcaptcha-loading-indicator-label": "Harap tunggu, perlindungan spam hCaptcha sedang dimuat",
-	"hcaptcha-missing-token": "Formulir ini dilindungi oleh tantangan hCaptcha. Harap tunggu hingga tantangannya muncul sebelum mengirim isiannya. Pastikan JavaScript Anda telah diaktifkan."
+	"hcaptcha-missing-token": "Formulir ini dilindungi oleh tantangan hCaptcha. Harap tunggu hingga tantangannya muncul sebelum mengirim isiannya. Pastikan JavaScript Anda telah diaktifkan.",
+	"hcaptcha-visual-editor-error-handler-warning": "Silakan kirim ulang formulir untuk menyimpan perubahan Anda."
 }

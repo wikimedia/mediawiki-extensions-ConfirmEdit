@@ -5,12 +5,12 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 use MediaWiki\Content\ContentHandler;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
+use MediaWiki\Http\MWHttpRequest;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Status\Status;
 use MediaWikiIntegrationTestCase;
 use MockHttpTrait;
-use MWHttpRequest;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha

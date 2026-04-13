@@ -16,10 +16,10 @@ use MediaWiki\Output\StreamFile;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
-use NullLockManager;
 use UnderflowException;
 use Wikimedia\FileBackend\FileBackend;
 use Wikimedia\FileBackend\FSFileBackend;
+use Wikimedia\LockManager\NullLockManager;
 
 /**
  * FancyCaptcha for displaying captcha images precomputed by captcha.py

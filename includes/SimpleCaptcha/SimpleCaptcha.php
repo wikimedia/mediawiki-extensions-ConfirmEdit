@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\ConfirmEdit\SimpleCaptcha;
 
-use MailAddress;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiEditPage;
 use MediaWiki\Auth\AuthenticationRequest;
@@ -19,6 +18,7 @@ use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\ExternalLinks\ExternalLinksLookup;
 use MediaWiki\ExternalLinks\LinkFilter;
 use MediaWiki\HTMLForm\HTMLForm;
+use MediaWiki\Mail\MailAddress;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Output\OutputPage;

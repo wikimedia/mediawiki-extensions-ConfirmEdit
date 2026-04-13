@@ -11,7 +11,7 @@ use MediaWiki\Extension\ConfirmEdit\Store\CaptchaSessionStore;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\FileBackend\FileBackendGroup;
 use MediaWiki\Request\FauxRequest;
-use SpecialPageTestBase;
+use MediaWiki\Tests\Specials\SpecialPageTestBase;
 use StatusValue;
 use Wikimedia\FileBackend\FileBackend;
 

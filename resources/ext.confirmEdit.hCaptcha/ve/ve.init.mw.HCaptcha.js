@@ -44,7 +44,7 @@ module.exports = () => {
 	 */
 	ve.init.mw.HCaptcha.static.renderHCaptchaPrivacyPolicyNotice = function ( $hCaptchaContainer ) {
 		if ( config.HCaptchaInvisibleMode ) {
-			const $privacyPolicyNotice = $( '<div>' );
+			const $privacyPolicyNotice = $( '<p>' );
 			$privacyPolicyNotice.html( mw.message( 'hcaptcha-privacy-policy' ).parse() );
 			$privacyPolicyNotice.addClass( 'ext-confirmEdit-hcaptcha-privacy-policy ve-ui-mwSaveDialog-license' );
 			$hCaptchaContainer.append( $privacyPolicyNotice );

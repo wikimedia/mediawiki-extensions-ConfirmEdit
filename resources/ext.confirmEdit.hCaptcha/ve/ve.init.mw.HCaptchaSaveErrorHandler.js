@@ -31,7 +31,7 @@ module.exports = () => {
 			$container = $( '<div>' );
 
 		if ( config.HCaptchaInvisibleMode ) {
-			const $hCaptchaEditNotice = $( '<div>' );
+			const $hCaptchaEditNotice = $( '<p>' );
 			$hCaptchaEditNotice.html( mw.message( 'hcaptcha-visual-editor-error-handler-warning' ).parse() );
 			$hCaptchaEditNotice.addClass(
 				've-ui-mwSaveDialog-license ext-confirmEdit-hcaptcha-visual-editor-error-handler-warning'

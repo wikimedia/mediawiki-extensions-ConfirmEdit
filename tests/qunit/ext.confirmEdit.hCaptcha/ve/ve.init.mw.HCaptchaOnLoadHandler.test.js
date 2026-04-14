@@ -152,6 +152,7 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 			$element: $qunitFixture,
 			updateSize: self.sandbox.stub()
 		};
+		ve.init.target.saveFields = {};
 	}
 
 	/**
@@ -216,26 +217,37 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 		'hCaptcha is in invisible mode': {
 			invisibleMode: true,
 			enterpriseMode: false,
-			removeMwConfigSiteKey: false
+			removeMwConfigSiteKey: false,
+			forceShowCaptcha: false
 		},
 		'hCaptcha is in invisible and enterprise mode': {
 			invisibleMode: true,
 			enterpriseMode: true,
-			removeMwConfigSiteKey: false
+			removeMwConfigSiteKey: false,
+			forceShowCaptcha: false
 		},
 		'hCaptcha is not in invisible mode': {
 			invisibleMode: false,
 			enterpriseMode: false,
-			removeMwConfigSiteKey: false
+			removeMwConfigSiteKey: false,
+			forceShowCaptcha: false
+		},
+		'hCaptcha is in invisible and enterprise mode when force showing captcha': {
+			invisibleMode: true,
+			enterpriseMode: true,
+			removeMwConfigSiteKey: false,
+			forceShowCaptcha: true
 		},
 		'hCaptcha falls back to config.json if mw.config does not have site key': {
 			invisibleMode: false,
 			enterpriseMode: false,
-			removeMwConfigSiteKey: true
+			removeMwConfigSiteKey: true,
+			forceShowCaptcha: false
 		}
 	}, async function ( assert, options ) {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
 		mw.config.set( 'wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled', true );
+		mw.config.set( 'wgConfirmEditForceShowCaptcha', options.forceShowCaptcha );
 
 		this.loadHCaptcha.returns( Promise.resolve() );
 		this.window.hcaptcha.render.returns( 'widget-id' );
@@ -296,6 +308,20 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 				$hCaptchaChallengeContainer.length,
 				0,
 				'hCaptcha challenge container does not exist in enterprise mode'
+			);
+		}
+
+		if ( options.forceShowCaptcha ) {
+			assert.deepEqual(
+				ve.init.target.saveFields.wgConfirmEditForceShowCaptcha(),
+				true,
+				'wgConfirmEditForceShowCaptcha should be set in save fields if forcing captcha'
+			);
+		} else {
+			assert.deepEqual(
+				Object.hasOwn( ve.init.target.saveFields, 'wgConfirmEditForceShowCaptcha' ),
+				false,
+				'wgConfirmEditForceShowCaptcha should not be set in save fields if not forcing captcha'
 			);
 		}
 

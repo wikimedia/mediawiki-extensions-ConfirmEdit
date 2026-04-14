@@ -107,6 +107,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			if ( $testCase->expectedConfirmEditNeededForCaptchaValue !== null ) {
 				$expected['wgConfirmEditCaptchaNeededForGenericEdit'] =
 					$testCase->expectedConfirmEditNeededForCaptchaValue;
+				$expected['wgConfirmEditForceShowCaptcha'] = $testCase->shouldForceShowCaptcha;
 
 				if ( $testCase->expectedConfirmEditNeededForCaptchaValue === 'hcaptcha' ) {
 					$expected['wgConfirmEditHCaptchaSiteKey'] = 'foo';

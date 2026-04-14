@@ -90,6 +90,10 @@ module.exports = () => {
 		const loadPromise = this.getReadyPromise();
 		loadPromise.then(
 			() => {
+				if ( mw.config.get( 'wgConfirmEditForceShowCaptcha' ) ) {
+					target.saveFields.wgConfirmEditForceShowCaptcha = () => true;
+				}
+
 				this.renderHCaptchaWidget( win, target, $hCaptchaWidgetContainer );
 
 				this.isHCaptchaRendering = false;

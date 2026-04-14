@@ -87,6 +87,11 @@ module.exports = () => {
 				saveDialog.$element.find( '.ext-confirmEdit-hCaptcha-backdrop' ).remove();
 			};
 
+			// Remove any challenge container that already exists before rendering a new widget
+			// to avoid two (or more) challenge iframes appearing next to each other
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$( '.ext-confirmEdit-hCaptcha-challengeContainer' ).remove();
+
 			const challengeContainerId = 'ext-confirmEdit-hCaptcha-challengeContainer';
 			const $challengeContainer = $( '<div>' )
 				.addClass( 'ext-confirmEdit-hCaptcha-challengeContainer' )

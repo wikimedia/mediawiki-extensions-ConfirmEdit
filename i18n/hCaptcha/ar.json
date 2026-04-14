@@ -23,5 +23,6 @@
 	"hcaptcha-loading-indicator-label": "يرجى الانتظار بينما ننتهي من تحميل النموذج...",
 	"hcaptcha-missing-token": "لم ننتهِ بعد من تحميل النموذج. يُرجى الانتظار بضع ثوانٍ، ثم المحاولة مرة أخرى.",
 	"hcaptcha-noscript": "يتطلب جافا سكريبت للمتابعة. فعّل جافا سكريبت في إعدادات متصفحك، ثم حدّث الصفحة.",
-	"hcaptcha-force-show-captcha-edit": "يرجى إعادة إرسال النموذج واستكمال التحدي لحفظ تعديلك."
+	"hcaptcha-force-show-captcha-edit": "يرجى إعادة إرسال النموذج واستكمال التحدي لحفظ تعديلك.",
+	"hcaptcha-visual-editor-error-handler-warning": "يرجى إعادة إرسال النموذج لحفظ التعديل."
 }

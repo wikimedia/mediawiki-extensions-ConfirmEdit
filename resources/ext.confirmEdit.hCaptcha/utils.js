@@ -449,12 +449,12 @@ function getRecoverableErrors( interfaceName ) {
  *
  * @param {Window} win Reference to the browser window.
  * @param {string} interfaceName Name of the interface where hCaptcha is being used.
- * @param {string} containerId ID of the HTML container to render a captcha in.
+ * @param {string|Element} container The container to render the hCaptcha widget in or the ID of that container
  * @return {Promise<string>} An ID to be used to call {@link executeHCaptcha}.
  */
-function loadAndRenderHCaptcha( win, interfaceName, containerId ) {
+function loadAndRenderHCaptcha( win, interfaceName, container ) {
 	return loadHCaptcha( win, interfaceName ).then(
-		() => renderHCaptcha( win, interfaceName, containerId )
+		() => renderHCaptcha( win, interfaceName, container )
 	);
 }
 
@@ -466,10 +466,10 @@ function loadAndRenderHCaptcha( win, interfaceName, containerId ) {
  *
  * @param {Window} win Reference to the browser window.
  * @param {string} interfaceName Name of the interface where hCaptcha is being used.
- * @param {string} containerId ID of the HTML container to render a captcha in.
+ * @param {string|Element} container The container to render the hCaptcha widget in or the ID of that container
  * @return {string} An ID to be used to call {@link executeHCaptcha}
  */
-function renderHCaptcha( win, interfaceName, containerId ) {
+function renderHCaptcha( win, interfaceName, container ) {
 	/**
 	 * Fires when a visible challenge is displayed.
 	 */
@@ -499,7 +499,7 @@ function renderHCaptcha( win, interfaceName, containerId ) {
 		}
 	};
 
-	return win.hcaptcha.render( containerId, options );
+	return win.hcaptcha.render( container, options );
 }
 
 /**

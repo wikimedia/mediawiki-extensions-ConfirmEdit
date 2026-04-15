@@ -5,7 +5,7 @@
  */
 module.exports = () => {
 	// Load these here so that in QUnit tests we have a chance to mock utils.js
-	const { loadHCaptcha, executeHCaptcha, mapErrorCodeToMessageKey } = require( './../utils.js' );
+	const { loadHCaptcha, executeHCaptcha, mapErrorCodeToMessageKey, renderHCaptcha } = require( './../utils.js' );
 	const config = require( './../config.json' );
 
 	ve.init.mw.HCaptcha = function () {};
@@ -54,11 +54,11 @@ module.exports = () => {
 	/**
 	 * Renders the hCaptcha widget in the VisualEditor save dialog.
 	 *
-	 * @param {window} win
+	 * @param {Window} win
 	 * @param {ve.init.Target} target
 	 * @param {jQuery} $hCaptchaWidgetContainer
-	 * @param {string|null} [siteKey] The sitekey to use in the rendered hCaptcha widget. If not set or null,
-	 *   the default sitekey will be used.
+	 * @param {string|null} [siteKey] The sitekey to use in the rendered hCaptcha widget.
+	 *   If not set or null, the default sitekey will be used.
 	 * @return {Promise} A promise that resolves when the hCaptcha widget has finished executing
 	 */
 	ve.init.mw.HCaptcha.static.renderHCaptchaWidget = function (
@@ -103,43 +103,53 @@ module.exports = () => {
 				removeBackdrop();
 			};
 
-			this.widgetId = win.hcaptcha.render( $hCaptchaWidgetContainer[ 0 ], {
-				sitekey: siteKey,
-				'challenge-container': challengeContainerId,
-				callback: ( token ) => {
-					removeBackdrop();
-					executionFinishedPromiseResolver();
-					this.hCaptchaResponseToken = token;
-				},
-				'open-callback': () => {
-					removeBackdrop();
-					saveDialog.$element.append(
-						$( '<div>' ).addClass( 'ext-confirmEdit-hCaptcha-backdrop' )
-					);
-					this.onHCaptchaChallengeOpen( target );
-				},
-				'close-callback': closeCallbackInternal,
-				'error-callback': closeCallbackInternal,
-				'expired-callback': () => {
-					this.hCaptchaResponseToken = null;
-				},
-				'chalexpired-callback': closeCallbackInternal
-			} );
+			this.widgetId = renderHCaptcha(
+				win,
+				'visualeditor',
+				$hCaptchaWidgetContainer[ 0 ],
+				{
+					sitekey: siteKey,
+					'challenge-container': challengeContainerId,
+					callback: ( token ) => {
+						removeBackdrop();
+						executionFinishedPromiseResolver();
+						this.hCaptchaResponseToken = token;
+					},
+					'open-callback': () => {
+						removeBackdrop();
+						saveDialog.$element.append(
+							$( '<div>' ).addClass( 'ext-confirmEdit-hCaptcha-backdrop' )
+						);
+						this.onHCaptchaChallengeOpen( target );
+					},
+					'close-callback': closeCallbackInternal,
+					'error-callback': closeCallbackInternal,
+					'expired-callback': () => {
+						this.hCaptchaResponseToken = null;
+					},
+					'chalexpired-callback': closeCallbackInternal
+				}
+			);
 		} else {
-			this.widgetId = win.hcaptcha.render( $hCaptchaWidgetContainer[ 0 ], {
-				sitekey: siteKey,
-				callback: ( token ) => {
-					executionFinishedPromiseResolver();
-					this.hCaptchaResponseToken = token;
-				},
-				'open-callback': () => this.onHCaptchaChallengeOpen( target ),
-				'close-callback': () => this.onHCaptchaChallengeClose( target ),
-				'error-callback': () => this.onHCaptchaChallengeClose( target ),
-				'expired-callback': () => {
-					this.hCaptchaResponseToken = null;
-				},
-				'chalexpired-callback': () => this.onHCaptchaChallengeClose( target )
-			} );
+			this.widgetId = renderHCaptcha(
+				win,
+				'visualeditor',
+				$hCaptchaWidgetContainer[ 0 ],
+				{
+					sitekey: siteKey,
+					callback: ( token ) => {
+						executionFinishedPromiseResolver();
+						this.hCaptchaResponseToken = token;
+					},
+					'open-callback': () => this.onHCaptchaChallengeOpen( target ),
+					'close-callback': () => this.onHCaptchaChallengeClose( target ),
+					'error-callback': () => this.onHCaptchaChallengeClose( target ),
+					'expired-callback': () => {
+						this.hCaptchaResponseToken = null;
+					},
+					'chalexpired-callback': () => this.onHCaptchaChallengeClose( target )
+				}
+			);
 		}
 
 		saveDialog.updateSize();

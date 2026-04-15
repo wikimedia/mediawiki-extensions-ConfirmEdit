@@ -161,6 +161,125 @@ QUnit.test( 'loadHCaptcha should load hCaptcha SDK if previous attempt failed', 
 		} );
 } );
 
+QUnit.test( 'renderHCaptcha should instrument events', async function ( assert ) {
+	this.utils.renderHCaptcha( this.window, 'testinterface', 'container-id', {} );
+
+	assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha' );
+	assert.strictEqual( this.track.callCount, 0, 'No events should be tracked initially' );
+
+	const actualRenderOptions = this.window.hcaptcha.render.getCall( 0 ).args[ 1 ];
+
+	actualRenderOptions[ 'open-callback' ]();
+	assert.strictEqual( this.track.callCount, 2, 'Should track open event' );
+	assert.deepEqual(
+		this.track.getCall( 0 ).args,
+		[
+			'stats.mediawiki_confirmedit_hcaptcha_open_callback_total',
+			1,
+			{ wiki: 'testwiki', interfaceName: 'testinterface' }
+		],
+		'Should track open event using expected interface'
+	);
+	assert.deepEqual(
+		this.track.getCall( 1 ).args,
+		[ 'confirmEdit.hCaptchaRenderCallback', 'open', 'testinterface' ],
+		'Should track open event using expected interface'
+	);
+
+	actualRenderOptions[ 'close-callback' ]();
+	assert.strictEqual( this.track.callCount, 3, 'Should track close event' );
+	assert.deepEqual(
+		this.track.getCall( 2 ).args,
+		[ 'confirmEdit.hCaptchaRenderCallback', 'close', 'testinterface' ],
+		'Should track close event using expected interface'
+	);
+
+	actualRenderOptions[ 'expired-callback' ]();
+	assert.strictEqual( this.track.callCount, 4, 'Should track expired event' );
+	assert.deepEqual(
+		this.track.getCall( 3 ).args,
+		[ 'confirmEdit.hCaptchaRenderCallback', 'expired', 'testinterface' ],
+		'Should track close event using expected interface'
+	);
+
+	actualRenderOptions[ 'chalexpired-callback' ]();
+	assert.strictEqual( this.track.callCount, 5, 'Should track close event' );
+	assert.deepEqual(
+		this.track.getCall( 4 ).args,
+		[ 'confirmEdit.hCaptchaRenderCallback', 'chalexpired', 'testinterface' ],
+		'Should track close event using expected interface'
+	);
+
+	actualRenderOptions[ 'error-callback' ]( 'error-code' );
+	assert.strictEqual( this.track.callCount, 6, 'Should track close event' );
+	assert.deepEqual(
+		this.track.getCall( 5 ).args,
+		[ 'confirmEdit.hCaptchaRenderCallback', 'error', 'testinterface', 'error-code' ],
+		'Should track close event using expected interface'
+	);
+} );
+
+QUnit.test( 'renderHCaptcha should use provided renderOptions', async function ( assert ) {
+	const renderOptions = {
+		'open-callback': this.sandbox.stub(),
+		'close-callback': this.sandbox.stub(),
+		'chalexpired-callback': this.sandbox.stub(),
+		'expired-callback': this.sandbox.stub(),
+		'error-callback': this.sandbox.stub(),
+		callback: this.sandbox.stub(),
+		sitekey: 'sitekey',
+		'challenge-container': 'challenge-container-id'
+	};
+
+	this.utils.renderHCaptcha( this.window, 'testinterface', 'container-id', renderOptions );
+
+	assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha' );
+	assert.strictEqual( this.track.callCount, 0, 'No events should be tracked initially' );
+
+	const actualRenderOptions = this.window.hcaptcha.render.getCall( 0 ).args[ 1 ];
+
+	assert.strictEqual(
+		actualRenderOptions.sitekey,
+		renderOptions.sitekey,
+		'Custom sitekey should be used'
+	);
+	assert.strictEqual(
+		actualRenderOptions[ 'challenge-container' ],
+		renderOptions[ 'challenge-container' ],
+		'challenge-container should be used'
+	);
+
+	actualRenderOptions[ 'open-callback' ]();
+	assert.true(
+		renderOptions[ 'open-callback' ].calledOnce,
+		'open-callback should be called'
+	);
+
+	actualRenderOptions[ 'close-callback' ]();
+	assert.true(
+		renderOptions[ 'close-callback' ].calledOnce,
+		'close-callback should be called'
+	);
+
+	actualRenderOptions[ 'expired-callback' ]();
+	assert.true(
+		renderOptions[ 'expired-callback' ].calledOnce,
+		'expired-callback should be called'
+	);
+
+	actualRenderOptions[ 'chalexpired-callback' ]();
+	assert.true(
+		renderOptions[ 'chalexpired-callback' ].calledOnce,
+		'chalexpired-callback should be called'
+	);
+
+	actualRenderOptions[ 'error-callback' ]( 'error-code' );
+	assert.true(
+		renderOptions[ 'error-callback' ].calledOnce,
+		'error-callback should be called'
+	);
+} );
+
 QUnit.test( 'getDuration falls back to getEntriesByName() if measure() does not return a value', async function ( assert ) {
 	this.window.document.head.appendChild.callsFake( async () => {
 		this.window.onHCaptchaSDKLoaded();

@@ -1,3 +1,18 @@
+/**
+ * @typedef HCaptchaRenderOptions
+ * @property {Function} [open-callback] Callback fired when a visual challenge opens
+ * @property {Function} [close-callback] Callback fired when a visual challenge closes
+ * @property {Function} [chalexpired-callback] Callback fired when a visual challenge
+ *   closes due to inactivity
+ * @property {Function} [expired-callback] Callback fired when a hCaptcha response token expires
+ * @property {Function} [error-callback] Callback fired when the hCaptcha encounters an error
+ * @property {Function} [callback] Callback fired when a hCaptcha response token is
+ *   successfully generated
+ * @property {string} [sitekey] The sitekey to use for the hCaptcha widget
+ * @property {string} [challenge-container] The ID of a container to be used as the location
+ *   of the visual challenge. Only works if using enterprise mode
+ */
+
 const ErrorWidget = require( './ErrorWidget.js' );
 const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
 const config = require( './config.json' );
@@ -449,7 +464,8 @@ function getRecoverableErrors( interfaceName ) {
  *
  * @param {Window} win Reference to the browser window.
  * @param {string} interfaceName Name of the interface where hCaptcha is being used.
- * @param {string|Element} container The container to render the hCaptcha widget in or the ID of that container
+ * @param {string|Element} container The container to render the hCaptcha widget in or the ID
+ *   of that container
  * @return {Promise<string>} An ID to be used to call {@link executeHCaptcha}.
  */
 function loadAndRenderHCaptcha( win, interfaceName, container ) {
@@ -467,9 +483,13 @@ function loadAndRenderHCaptcha( win, interfaceName, container ) {
  * @param {Window} win Reference to the browser window.
  * @param {string} interfaceName Name of the interface where hCaptcha is being used.
  * @param {string|Element} container The container to render the hCaptcha widget in or the ID of that container
+ * @param {HCaptchaRenderOptions} [renderOptions] The value of the second argument to
+ *   pass to hcaptcha.render() used to customise the widget and listen for events
  * @return {string} An ID to be used to call {@link executeHCaptcha}
  */
-function renderHCaptcha( win, interfaceName, container ) {
+function renderHCaptcha( win, interfaceName, container, renderOptions ) {
+	renderOptions = renderOptions || {};
+
 	/**
 	 * Fires when a visible challenge is displayed.
 	 */
@@ -484,20 +504,49 @@ function renderHCaptcha( win, interfaceName, container ) {
 	};
 
 	const options = {
-		'open-callback': onOpen,
+		'open-callback': () => {
+			if ( renderOptions[ 'open-callback' ] ) {
+				renderOptions[ 'open-callback' ]();
+			}
+			onOpen();
+		},
 		'close-callback': () => {
+			if ( renderOptions[ 'close-callback' ] ) {
+				renderOptions[ 'close-callback' ]();
+			}
 			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'close', interfaceName );
 		},
 		'chalexpired-callback': () => {
+			if ( renderOptions[ 'chalexpired-callback' ] ) {
+				renderOptions[ 'chalexpired-callback' ]();
+			}
 			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'chalexpired', interfaceName );
 		},
 		'expired-callback': () => {
+			if ( renderOptions[ 'expired-callback' ] ) {
+				renderOptions[ 'expired-callback' ]();
+			}
 			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'expired', interfaceName );
 		},
 		'error-callback': ( errCode ) => {
+			if ( renderOptions[ 'error-callback' ] ) {
+				renderOptions[ 'error-callback' ]();
+			}
 			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'error', interfaceName, errCode );
 		}
 	};
+
+	if ( renderOptions.callback ) {
+		options.callback = renderOptions.callback;
+	}
+
+	if ( renderOptions.sitekey ) {
+		options.sitekey = renderOptions.sitekey;
+	}
+
+	if ( renderOptions[ 'challenge-container' ] ) {
+		options[ 'challenge-container' ] = renderOptions[ 'challenge-container' ];
+	}
 
 	return win.hcaptcha.render( container, options );
 }

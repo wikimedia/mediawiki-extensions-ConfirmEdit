@@ -26,8 +26,7 @@ module.exports = () => {
 	};
 
 	ve.init.mw.HCaptchaSaveErrorHandler.static.process = function ( data, target ) {
-		const self = this,
-			$hCaptchaWidgetContainer = $( '<div>' ),
+		const $hCaptchaWidgetContainer = $( '<div>' ),
 			$container = $( '<div>' );
 
 		if ( config.HCaptchaInvisibleMode ) {
@@ -64,7 +63,7 @@ module.exports = () => {
 					siteKey = captchaData.key;
 				}
 
-				self.renderHCaptchaWidget(
+				this.renderHCaptchaWidget(
 					this.window,
 					target,
 					$hCaptchaWidgetContainer,

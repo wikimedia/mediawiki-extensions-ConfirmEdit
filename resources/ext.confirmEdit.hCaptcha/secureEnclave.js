@@ -1,4 +1,3 @@
-const wiki = mw.config.get( 'wgDBname' );
 const utils = require( './utils.js' );
 
 /**
@@ -50,10 +49,9 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	// Errors that can be recovered from by restarting the workflow.
 	const recoverableErrors = utils.getRecoverableErrors( interfaceName );
 
-	captchaIdPromise = utils.renderHCaptchaWithTracking(
+	captchaIdPromise = utils.loadAndRenderHCaptcha(
 		win,
 		interfaceName,
-		wiki,
 		'h-captcha'
 	);
 

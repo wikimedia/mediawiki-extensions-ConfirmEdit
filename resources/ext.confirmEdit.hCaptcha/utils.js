@@ -443,24 +443,39 @@ function getRecoverableErrors( interfaceName ) {
 /**
  * Loads the hCaptcha SDK and renders it in the container with the provided ID.
  *
- * Specifically, this function acts as a wrapper that first calls loadHCaptcha()
- * for loading the hCaptcha SDK and then renders a captcha in an HTML container,
- * setting up required parameters regarding instrumentation.
+ * Specifically, this function acts as a wrapper that first calls {@link loadHCaptcha}
+ * and then calls {@link renderHCaptcha}. Callers who need to customise the {@link loadHCaptcha}
+ * call should call it directly and then call {@link renderHCaptcha}.
  *
  * @param {Window} win Reference to the browser window.
  * @param {string} interfaceName Name of the interface where hCaptcha is being used.
- * @param {string} wiki Wiki the captcha is rendered in (value of wgDBname).
  * @param {string} containerId ID of the HTML container to render a captcha in.
- *
- * @return {Promise<string>} An ID to be used to call executeHCaptcha().
+ * @return {Promise<string>} An ID to be used to call {@link executeHCaptcha}.
  */
-function renderHCaptchaWithTracking( win, interfaceName, wiki, containerId ) {
+function loadAndRenderHCaptcha( win, interfaceName, containerId ) {
+	return loadHCaptcha( win, interfaceName ).then(
+		() => renderHCaptcha( win, interfaceName, containerId )
+	);
+}
+
+/**
+ * Renders hCaptcha in the provided container.
+ *
+ * Caller calling this should ensure that {@link loadHCaptcha} has already been called
+ * and the promise it returned succeeded.
+ *
+ * @param {Window} win Reference to the browser window.
+ * @param {string} interfaceName Name of the interface where hCaptcha is being used.
+ * @param {string} containerId ID of the HTML container to render a captcha in.
+ * @return {string} An ID to be used to call {@link executeHCaptcha}
+ */
+function renderHCaptcha( win, interfaceName, containerId ) {
 	/**
 	 * Fires when a visible challenge is displayed.
 	 */
 	const onOpen = function () {
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_open_callback_total', 1, {
-			wiki: wiki,
+			wiki: mw.config.get( 'wgDBname' ),
 			interfaceName: interfaceName
 		} );
 		// Fire an event that can be used in WikimediaEvents for associating
@@ -484,9 +499,7 @@ function renderHCaptchaWithTracking( win, interfaceName, wiki, containerId ) {
 		}
 	};
 
-	return loadHCaptcha( win, interfaceName ).then(
-		() => win.hcaptcha.render( containerId, options )
-	);
+	return win.hcaptcha.render( containerId, options );
 }
 
 /**
@@ -586,7 +599,8 @@ module.exports = {
 	getRecoverableErrors: getRecoverableErrors,
 	loadHCaptcha: loadHCaptcha,
 	mapErrorCodeToMessageKey: mapErrorCodeToMessageKey,
-	renderHCaptchaWithTracking: renderHCaptchaWithTracking,
+	loadAndRenderHCaptcha: loadAndRenderHCaptcha,
+	renderHCaptcha: renderHCaptcha,
 	showError: showError,
 	hideError: hideError,
 	showLoadingIndicator: showLoadingIndicator,

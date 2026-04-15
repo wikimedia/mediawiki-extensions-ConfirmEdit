@@ -1,9 +1,8 @@
-const wiki = mw.config.get( 'wgDBname' );
 const utils = require( '../utils.js' );
 
 /**
  * Holds a Promise that resolves once the call to render the captcha resolves,
- * or null if renderHCaptchaWithTracking() has not been called yet.
+ * or null if loadAndRenderHCaptcha() has not been called yet.
  *
  * When this Promise resolves, hCaptcha is already set up and is either about to
  * display a challenge or has already displayed it.
@@ -53,10 +52,9 @@ async function setupHCaptcha( $hCaptchaField, win, interfaceName ) {
 	// Errors that can be recovered from by restarting the workflow.
 	const recoverableErrors = utils.getRecoverableErrors( interfaceName );
 
-	captchaIdPromise = utils.renderHCaptchaWithTracking(
+	captchaIdPromise = utils.loadAndRenderHCaptcha(
 		win,
 		interfaceName,
-		wiki,
 		'h-captcha'
 	);
 

@@ -475,6 +475,36 @@ QUnit.test(
 	}
 );
 
+QUnit.test(
+	'saveBegin does not stop save when wgConfirmEditForceShowCaptcha is set (page reload after AbuseFilter)',
+	async function ( assert ) {
+		initMobileFrontend(
+			'mobilefrontend-editor',
+			{
+				HCaptchaEnabledInMobileFrontend: true,
+				HCaptchaSiteKey: 'hCaptcha-site-key'
+			},
+			this.window
+		);
+
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
+		mw.config.set( 'wgConfirmEditForceShowCaptcha', true );
+
+		const e = this.sandbox.stub();
+		e.stop = this.sandbox.stub();
+		e.resume = this.sandbox.stub();
+		e.options = {};
+
+		mw.hook( this.mfHookName( 'saveBegin' ) ).fire( e );
+		await this.waitOneTick();
+
+		assert.false(
+			e.stop.called,
+			'stop() should not be called when wgConfirmEditForceShowCaptcha is set — handleCaptcha will handle it'
+		);
+	}
+);
+
 QUnit.test.each(
 	'handleCaptcha renders the captcha panel for abuse-filter responses',
 	{

@@ -28,6 +28,7 @@ use MediaWiki\Status\Status;
 use MediaWiki\User\UserIdentity;
 use Psr\Log\LoggerInterface;
 use Wikimedia\ObjectCache\BagOStuff;
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Stats\StatsFactory;
 
 class HCaptcha extends SimpleCaptcha {
@@ -364,11 +365,17 @@ class HCaptcha extends SimpleCaptcha {
 		return 'hcaptcha-force-show-captcha-edit';
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore Merely declarative
-	 */
+	/** @inheritDoc */
 	public function apiGetAllowedParams( ApiBase $module, &$params, $flags ) {
+		parent::apiGetAllowedParams( $module, $params, $flags );
+
+		if ( $this->isAPICaptchaModule( $module ) ) {
+			$params['wgConfirmEditForceShowCaptcha'] = [
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ApiBase::PARAM_HELP_MSG => 'confirmedit-hcaptcha-apihelp-param-forceshowcaptcha',
+			];
+		}
+
 		return true;
 	}
 

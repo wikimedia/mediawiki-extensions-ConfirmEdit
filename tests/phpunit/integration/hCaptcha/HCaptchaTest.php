@@ -3,6 +3,8 @@
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 
 use LogicException;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiEditPage;
 use MediaWiki\Api\ApiRawMessage;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
@@ -25,6 +27,7 @@ use MockHttpTrait;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use StatusValue;
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Stats\StatsFactory;
 use Wikimedia\TestingAccessWrapper;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
@@ -1132,5 +1135,31 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'action' => 'sendemail',
 			],
 		];
+	}
+
+	public function testApiGetAllowedParamsDeclaresForceShowCaptcha(): void {
+		$module = $this->createMock( ApiEditPage::class );
+		$params = [];
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->apiGetAllowedParams( $module, $params, 0 );
+
+		$this->assertArrayHasKey( 'wgConfirmEditForceShowCaptcha', $params );
+		$this->assertArrayHasKey( 'captchaword', $params );
+		$this->assertArrayHasKey( 'captchaid', $params );
+		$this->assertSame(
+			'boolean',
+			$params['wgConfirmEditForceShowCaptcha'][ParamValidator::PARAM_TYPE]
+		);
+	}
+
+	public function testApiGetAllowedParamsDoesNothingForNonEditModule(): void {
+		$module = $this->createMock( ApiBase::class );
+		$params = [];
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->apiGetAllowedParams( $module, $params, 0 );
+
+		$this->assertSame( [], $params );
 	}
 }

@@ -99,7 +99,11 @@ module.exports = function (
 		mw.hook( 'mobileFrontend.sourceEditor.saveBegin' ).add( ( e ) => {
 			hookPayload = e;
 
-			if ( mw.config.get( 'wgConfirmEditCaptchaNeededForGenericEdit' ) === 'hcaptcha' ) {
+			// Skip early captcha when wgConfirmEditForceShowCaptcha is set: the save
+			// will fail with a forceshowcaptcha error and handleCaptcha will show
+			// exactly one captcha widget, whose resume() correctly forwards the flag.
+			if ( mw.config.get( 'wgConfirmEditCaptchaNeededForGenericEdit' ) === 'hcaptcha' &&
+				!mw.config.get( 'wgConfirmEditForceShowCaptcha' ) ) {
 				// Stop the regular MobileFrontend save flow.
 				e.stop();
 
@@ -125,6 +129,9 @@ module.exports = function (
 					payload.options = {};
 				}
 				payload.options.captchaWord = token;
+				if ( mw.config.get( 'wgConfirmEditForceShowCaptcha' ) ) {
+					payload.options.wgConfirmEditForceShowCaptcha = true;
+				}
 				payload.resume( payload.options );
 			}
 		} );

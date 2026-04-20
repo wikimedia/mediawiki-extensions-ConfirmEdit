@@ -42,7 +42,7 @@ module.exports = function (
 		`<div id="h-captcha-container">
 			<div id="h-captcha" class="h-captcha" data-size="invisible"
 				data-sitekey="{{hCaptchaSiteKey}}"></div>
-			<div class="ext-confirmEdit-captcha-privacy-policy">
+			<div class="ext-confirmEdit-captcha-privacy-policy license">
 				{{{hCaptchaLicenseText}}}
 			</div>
 		</div>`;

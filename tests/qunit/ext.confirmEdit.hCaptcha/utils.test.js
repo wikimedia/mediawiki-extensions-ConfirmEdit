@@ -375,6 +375,50 @@ QUnit.test( 'renderHCaptcha should use provided renderOptions', async function (
 	);
 } );
 
+QUnit.test( 'renderHCaptcha should fire challenge opened and closed hooks', async function ( assert ) {
+	const challengeOpenedHook = mw.hook( 'confirmEdit.hCaptcha.challengeOpened' );
+	const challengeClosedHook = mw.hook( 'confirmEdit.hCaptcha.challengeClosed' );
+	const challengeOpenedSpy = this.sandbox.spy( challengeOpenedHook, 'fire' );
+	const challengeClosedSpy = this.sandbox.spy( challengeClosedHook, 'fire' );
+
+	this.utils.renderHCaptcha(
+		this.window,
+		'testinterface',
+		'container-id',
+		{
+			callback: this.sandbox.stub(),
+			sitekey: 'sitekey',
+			'challenge-container': 'challenge-container-id'
+		}
+	);
+
+	assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha' );
+
+	const actualRenderOptions = this.window.hcaptcha.render.getCall( 0 ).args[ 1 ];
+
+	actualRenderOptions[ 'open-callback' ]();
+	assert.true(
+		challengeOpenedSpy.calledOnce,
+		'challengeOpened hook was fired once'
+	);
+	assert.deepEqual(
+		challengeOpenedSpy.firstCall.args[ 0 ],
+		{ sourceInterfaceName: 'testinterface' },
+		'challengeOpened hook was fired with expected arguments'
+	);
+
+	actualRenderOptions[ 'close-callback' ]();
+	assert.true(
+		challengeClosedSpy.calledOnce,
+		'challengeClosed hook was fired once'
+	);
+	assert.deepEqual(
+		challengeClosedSpy.firstCall.args[ 0 ],
+		{ sourceInterfaceName: 'testinterface' },
+		'challengeClosed hook was fired with expected arguments'
+	);
+} );
+
 QUnit.test( 'getDuration falls back to getEntriesByName() if measure() does not return a value', async function ( assert ) {
 	this.window.document.head.appendChild.callsFake( async () => {
 		this.window.onHCaptchaSDKLoaded();

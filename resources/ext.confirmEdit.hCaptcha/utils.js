@@ -13,6 +13,11 @@
  *   of the visual challenge. Only works if using enterprise mode
  */
 
+/**
+ * @typedef {Object} CaptchaChallengeEventData
+ * @property {string} sourceInterfaceName Name of the interface the captcha is rendered in.
+ */
+
 const ErrorWidget = require( './ErrorWidget.js' );
 const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
 const config = require( './config.json' );
@@ -540,6 +545,23 @@ function renderHCaptcha( win, interfaceName, container, renderOptions ) {
 		// Fire an event that can be used in WikimediaEvents for associating
 		// challenge opens with a user.
 		mw.track( 'confirmEdit.hCaptchaRenderCallback', 'open', interfaceName );
+
+		mw.hook( 'confirmEdit.hCaptcha.challengeOpened' ).fire(
+			/** @type {CaptchaChallengeEventData} */ {
+				sourceInterfaceName: interfaceName
+			} );
+	};
+
+	/**
+	 * Fires when a visible challenge is closed.
+	 */
+	const onClose = function () {
+		mw.track( 'confirmEdit.hCaptchaRenderCallback', 'close', interfaceName );
+
+		mw.hook( 'confirmEdit.hCaptcha.challengeClosed' ).fire(
+			/** @type {CaptchaChallengeEventData} */ {
+				sourceInterfaceName: interfaceName
+			} );
 	};
 
 	const options = {
@@ -553,7 +575,7 @@ function renderHCaptcha( win, interfaceName, container, renderOptions ) {
 			if ( renderOptions[ 'close-callback' ] ) {
 				renderOptions[ 'close-callback' ]();
 			}
-			mw.track( 'confirmEdit.hCaptchaRenderCallback', 'close', interfaceName );
+			onClose();
 		},
 		'chalexpired-callback': () => {
 			if ( renderOptions[ 'chalexpired-callback' ] ) {

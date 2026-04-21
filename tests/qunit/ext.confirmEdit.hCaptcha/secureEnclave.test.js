@@ -368,7 +368,7 @@ QUnit.test( 'should measure hCaptcha load and execute timing for successful subm
 
 	const result = useSecureEnclave( this.window )
 		.then( () => {
-			assert.strictEqual( this.track.callCount, 8, 'should invoke mw.track() eight times' );
+			assert.strictEqual( this.track.callCount, 9, 'should invoke mw.track() nine times' );
 			assert.deepEqual(
 				this.track.getCall( 0 ).args,
 				[ 'specialCreateAccount.performanceTiming', 'hcaptcha-load', 1.718 ],
@@ -386,26 +386,31 @@ QUnit.test( 'should measure hCaptcha load and execute timing for successful subm
 			);
 			assert.deepEqual(
 				this.track.getCall( 3 ).args,
+				[ 'stats.mediawiki_confirmedit_hcaptcha_load_attempts', 1, { wiki: 'testwiki', interfaceName: 'createaccount', outcome: 'success' } ],
+				'should record metric for load attempts'
+			);
+			assert.deepEqual(
+				this.track.getCall( 4 ).args,
 				[ 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, { wiki: 'testwiki', interfaceName: 'createaccount' } ],
 				'should record event for execute'
 			);
 			assert.deepEqual(
-				this.track.getCall( 4 ).args,
+				this.track.getCall( 5 ).args,
 				[ 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, { wiki: 'testwiki', interfaceName: 'createaccount' } ],
 				'should record event for form submission'
 			);
 			assert.deepEqual(
-				this.track.getCall( 5 ).args,
+				this.track.getCall( 6 ).args,
 				[ 'specialCreateAccount.performanceTiming', 'hcaptcha-execute', 2.314 ],
 				'should emit event for execution time'
 			);
 			assert.deepEqual(
-				this.track.getCall( 6 ).args,
+				this.track.getCall( 7 ).args,
 				[ 'stats.mediawiki_special_createaccount_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki' } ],
 				'should record account creation specific metric for execution time'
 			);
 			assert.deepEqual(
-				this.track.getCall( 7 ).args,
+				this.track.getCall( 8 ).args,
 				[ 'stats.mediawiki_confirmedit_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki', interfaceName: 'createaccount' } ],
 				'should record metric for execution time'
 			);
@@ -426,7 +431,6 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 	} );
 
 	this.measure.onFirstCall().returns( { duration: 1718 } );
-	this.measure.onSecondCall().returns( { duration: 123 } );
 
 	const hCaptchaResult = useSecureEnclave( this.window );
 
@@ -445,20 +449,12 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 		'load error message should be set'
 	);
 
-	// 3 times + 1 additional load-start + 1 additional load-complete call when
-	// it tries to retry loading the script due to wgHCaptchaMaxLoadAttempts==2.
+	// One script_error_total per failed attempt, plus one load_duration and
+	// one load_attempts sample emitted on the terminal outcome, plus the
+	// hCaptchaRenderCallback 'error' event from the rejection handler.
 	assert.strictEqual( this.track.callCount, 5, 'should invoke mw.track() five times' );
 	assert.deepEqual(
 		this.track.getCall( 0 ).args,
-		[
-			'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds',
-			1718,
-			{ wiki: 'testwiki', interfaceName: 'edit' }
-		],
-		'should record metric for load time (first attempt)'
-	);
-	assert.deepEqual(
-		this.track.getCall( 1 ).args,
 		[
 			'stats.mediawiki_confirmedit_hcaptcha_script_error_total',
 			1,
@@ -467,22 +463,31 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 		'should record metric for total errors after the first attempt'
 	);
 	assert.deepEqual(
-		this.track.getCall( 2 ).args,
-		[
-			'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds',
-			123,
-			{ wiki: 'testwiki', interfaceName: 'edit' }
-		],
-		'should record metric for load time (second attempt)'
-	);
-	assert.deepEqual(
-		this.track.getCall( 3 ).args,
+		this.track.getCall( 1 ).args,
 		[
 			'stats.mediawiki_confirmedit_hcaptcha_script_error_total',
 			1,
 			{ wiki: 'testwiki', interfaceName: 'edit' }
 		],
 		'should record metric for total errors after the second attempt'
+	);
+	assert.deepEqual(
+		this.track.getCall( 2 ).args,
+		[
+			'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds',
+			1718,
+			{ wiki: 'testwiki', interfaceName: 'edit' }
+		],
+		'should record metric for load time once on terminal failure'
+	);
+	assert.deepEqual(
+		this.track.getCall( 3 ).args,
+		[
+			'stats.mediawiki_confirmedit_hcaptcha_load_attempts',
+			2,
+			{ wiki: 'testwiki', interfaceName: 'edit', outcome: 'failure' }
+		],
+		'should record attempts=MAX_LOAD_ATTEMPTS with outcome=failure on terminal failure'
 	);
 	assert.deepEqual(
 		this.track.getCall( 4 ).args,
@@ -572,7 +577,7 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 		'error message should be set'
 	);
 
-	assert.strictEqual( this.track.callCount, 4, 'should invoke mw.track() three times' );
+	assert.strictEqual( this.track.callCount, 5, 'should invoke mw.track() five times' );
 	assert.deepEqual(
 		this.track.getCall( 0 ).args,
 		[ 'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds', 1718, { wiki: 'testwiki', interfaceName: 'unknown' } ],
@@ -580,16 +585,21 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 	);
 	assert.deepEqual(
 		this.track.getCall( 1 ).args,
+		[ 'stats.mediawiki_confirmedit_hcaptcha_load_attempts', 1, { wiki: 'testwiki', interfaceName: 'unknown', outcome: 'success' } ],
+		'should record metric for load attempts'
+	);
+	assert.deepEqual(
+		this.track.getCall( 2 ).args,
 		[ 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, { wiki: 'testwiki', interfaceName: 'unknown' } ],
 		'should emit event for execution'
 	);
 	assert.deepEqual(
-		this.track.getCall( 2 ).args,
+		this.track.getCall( 3 ).args,
 		[ 'stats.mediawiki_confirmedit_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki', interfaceName: 'unknown' } ],
 		'should record metric for load time'
 	);
 	assert.deepEqual(
-		this.track.getCall( 3 ).args,
+		this.track.getCall( 4 ).args,
 		[ 'stats.mediawiki_confirmedit_hcaptcha_execute_workflow_error_total', 1, { wiki: 'testwiki', interfaceName: 'unknown', code: 'generic_error' } ],
 		'should emit event for execution failure'
 	);

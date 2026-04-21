@@ -137,6 +137,98 @@ QUnit.test( 'loadHCaptcha should return early if previous hCaptcha SDK load succ
 		} );
 } );
 
+QUnit.test( 'loadHCaptcha emits load_duration and load_attempts=1 on first-attempt success', async function ( assert ) {
+	this.window.document.head.appendChild.callsFake( async () => {
+		this.window.onHCaptchaSDKLoaded();
+	} );
+
+	this.measure.onFirstCall().returns( { duration: 123 } );
+
+	return this.utils.loadHCaptcha( this.window, 'testinterface' ).then( () => {
+		const trackCalls = this.track.getCalls().map( ( c ) => c.args );
+
+		assert.deepEqual(
+			trackCalls,
+			[
+				[
+					'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds',
+					123,
+					{ wiki: 'testwiki', interfaceName: 'testinterface' }
+				],
+				[
+					'stats.mediawiki_confirmedit_hcaptcha_load_attempts',
+					1,
+					{ wiki: 'testwiki', interfaceName: 'testinterface', outcome: 'success' }
+				]
+			],
+			'should emit one duration sample and attempts=1 on terminal success'
+		);
+	} );
+} );
+
+QUnit.test( 'loadHCaptcha emits script_error on each retry but load_duration only on terminal outcome', async function ( assert ) {
+	// Override MAX_LOAD_ATTEMPTS and BASE_RETRY_DELAY so the terminal failure
+	// branch is reached quickly (2 attempts with 0ms backoff between them).
+	mw.config.set( 'wgHCaptchaMaxLoadAttempts', 2 );
+	mw.config.set( 'wgHCaptchaBaseRetryDelay', 0 );
+
+	this.measure.onFirstCall().returns( { duration: 456 } );
+
+	// Simulate each script tag insertion failing immediately. `script` holds
+	// the most recently-created stub element so the appendChild fake can
+	// trigger its onerror handler.
+	let script;
+	this.window.document.createElement.callsFake( () => {
+		script = {
+			classList: { contains: this.sandbox.stub().returns( false ) },
+			onerror: null
+		};
+		return script;
+	} );
+	this.window.document.head.appendChild.callsFake( () => {
+		setTimeout( () => script.onerror(), 0 );
+	} );
+	this.window.document.head.removeChild = this.sandbox.stub();
+
+	return this.utils.loadHCaptcha( this.window, 'testinterface' )
+		.then( () => {
+			// False positive
+			// eslint-disable-next-line no-jquery/no-done-fail
+			assert.fail( 'Did not expect promise to fulfill' );
+		} )
+		.catch( ( error ) => {
+			assert.strictEqual( error, 'generic-error', 'should reject with generic-error' );
+
+			const durationCalls = this.track.getCalls()
+				.filter( ( c ) => c.args[ 0 ] === 'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds' );
+			assert.strictEqual(
+				durationCalls.length,
+				1,
+				'should emit load_duration exactly once across multiple failed attempts'
+			);
+
+			const errorCalls = this.track.getCalls()
+				.filter( ( c ) => c.args[ 0 ] === 'stats.mediawiki_confirmedit_hcaptcha_script_error_total' );
+			assert.strictEqual(
+				errorCalls.length,
+				2,
+				'should emit script_error_total once per failed attempt'
+			);
+
+			const attemptsCalls = this.track.getCalls()
+				.filter( ( c ) => c.args[ 0 ] === 'stats.mediawiki_confirmedit_hcaptcha_load_attempts' );
+			assert.deepEqual(
+				attemptsCalls.map( ( c ) => c.args ),
+				[ [
+					'stats.mediawiki_confirmedit_hcaptcha_load_attempts',
+					2,
+					{ wiki: 'testwiki', interfaceName: 'testinterface', outcome: 'failure' }
+				] ],
+				'should emit attempts=MAX_LOAD_ATTEMPTS with outcome=failure once'
+			);
+		} );
+} );
+
 QUnit.test( 'loadHCaptcha should load hCaptcha SDK if previous attempt failed', async function ( assert ) {
 	this.window.document.head.appendChild.callsFake( async () => {
 		this.window.onHCaptchaSDKLoaded();

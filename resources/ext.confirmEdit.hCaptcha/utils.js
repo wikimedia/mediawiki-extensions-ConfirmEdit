@@ -166,9 +166,24 @@ const loadHCaptcha = (
 	let attempts = 0;
 	let script = createHCaptchaScriptTag( doc, apiUrlQueryParameters );
 
-	const onErrorCallback = () => {
-		trackPerformanceTiming( win, perfStartMark );
+	// Emit a sample in the load-attempts histogram representing the total
+	// number of script-tag load attempts that were made before reaching the
+	// given terminal outcome (a successful load, or giving up after
+	// MAX_LOAD_ATTEMPTS). This lets us distinguish "one user retrying many
+	// times" from "many users each retrying once" in the error metric.
+	const trackLoadAttempts = ( outcome, totalAttempts ) => {
+		mw.track(
+			'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total',
+			totalAttempts,
+			{
+				wiki: mw.config.get( 'wgDBname' ),
+				interfaceName: interfaceName,
+				outcome: outcome
+			}
+		);
+	};
 
+	const onErrorCallback = () => {
 		const backoffTimeout = BASE_RETRY_DELAY * Math.pow( 2, attempts );
 
 		attempts++;
@@ -183,6 +198,14 @@ const loadHCaptcha = (
 
 		if ( attempts === MAX_LOAD_ATTEMPTS ) {
 			script.className = 'mw-confirmedit-hcaptcha-script mw-confirmedit-hcaptcha-script-loading-failed';
+
+			// Emit the load-duration metric only on this terminal outcome
+			// so that one flaky load does not contribute multiple samples
+			// (each covering an ever-growing portion of the retry loop)
+			// and skew the percentiles.
+			trackPerformanceTiming( win, perfStartMark );
+			trackLoadAttempts( 'failure', attempts );
+
 			reject( 'generic-error' );
 
 			return;
@@ -206,6 +229,7 @@ const loadHCaptcha = (
 	// a potentially inconsistent config.
 	win.onHCaptchaSDKLoaded = function () {
 		trackPerformanceTiming( win, perfStartMark );
+		trackLoadAttempts( 'success', attempts + 1 );
 
 		// Store that the hCaptcha script has been loaded via CSS classes.
 		// We avoid using a global variable to make testing easier (as the DOM gets

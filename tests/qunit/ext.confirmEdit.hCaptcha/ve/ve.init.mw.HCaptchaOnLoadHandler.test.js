@@ -506,4 +506,40 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 			);
 		}
 	} );
+
+	QUnit.test( 'destroyWidget resets internal state and removes hCaptcha widget', ( assert ) => {
+		hCaptchaOnLoadHandler();
+
+		ve.init.mw.HCaptchaOnLoadHandler.static.widgetId = 'test-widget-id';
+		ve.init.mw.HCaptchaOnLoadHandler.static.hCaptchaResponseToken = 'test-response-token';
+
+		const $fakeHCaptchaContainer = $( '<div>' );
+		$fakeHCaptchaContainer.addClass( 'ext-confirmEdit-visualEditor-hCaptchaOnLoadContainer' );
+
+		const $qunitFixture = $( '#qunit-fixture' );
+		$qunitFixture.append( $fakeHCaptchaContainer );
+
+		const mockTarget = {
+			saveDialog: {
+				$element: $qunitFixture
+			}
+		};
+		ve.init.mw.HCaptchaOnLoadHandler.static.destroyWidget( mockTarget );
+
+		assert.deepEqual(
+			ve.init.mw.HCaptchaOnLoadHandler.static.widgetId,
+			null,
+			'widgetId should be cleared after call to destroyWidget'
+		);
+		assert.deepEqual(
+			ve.init.mw.HCaptchaOnLoadHandler.static.hCaptchaResponseToken,
+			null,
+			'hCaptchaResponseToken should be cleared after call to destroyWidget'
+		);
+		assert.deepEqual(
+			$qunitFixture.find( '.ext-confirmEdit-visualEditor-hCaptchaOnLoadContainer' ).length,
+			0,
+			'hCaptcha widget element should be cleared after call to destroyWidget'
+		);
+	} );
 } );

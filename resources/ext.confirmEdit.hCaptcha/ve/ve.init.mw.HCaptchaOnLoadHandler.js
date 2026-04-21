@@ -79,6 +79,7 @@ module.exports = () => {
 		// Add a container to hold the hCaptcha widget to the DOM, as hcaptcha.render requires
 		// the container element exist in the DOM for it to work.
 		$hCaptchaContainer.addClass( 'ext-confirmEdit-visualEditor-hCaptchaContainer' );
+		$hCaptchaContainer.addClass( 'ext-confirmEdit-visualEditor-hCaptchaOnLoadContainer' );
 
 		const $hCaptchaWidgetContainer = $( '<div>' );
 		$hCaptchaWidgetContainer.addClass( 'ext-confirmEdit-visualEditor-hCaptchaWidgetContainer' );
@@ -126,6 +127,22 @@ module.exports = () => {
 
 		this.isHCaptchaRendering = false;
 		this.isHCaptchaRendered = false;
+	};
+
+	/**
+	 * Destroys the hCaptcha onload widget and makes this handler stop doing anything in the
+	 * save process unless re-rendered.
+	 *
+	 * @param {ve.init.Target} target
+	 * @return {void}
+	 */
+	ve.init.mw.HCaptchaOnLoadHandler.static.destroyWidget = function ( target ) {
+		if ( target.saveDialog ) {
+			target.saveDialog.$element.find( '.ext-confirmEdit-visualEditor-hCaptchaOnLoadContainer' ).remove();
+		}
+
+		this.widgetId = null;
+		this.hCaptchaResponseToken = null;
 	};
 
 	/**

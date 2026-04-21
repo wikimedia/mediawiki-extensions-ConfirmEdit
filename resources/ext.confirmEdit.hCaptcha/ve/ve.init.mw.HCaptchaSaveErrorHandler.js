@@ -26,6 +26,12 @@ module.exports = () => {
 	};
 
 	ve.init.mw.HCaptchaSaveErrorHandler.static.process = function ( data, target ) {
+		// Destroy any existing hCaptcha widget from the onload handler or this handler
+		// as this widget needs to be used instead
+		if ( ve.init.mw.HCaptchaOnLoadHandler ) {
+			ve.init.mw.HCaptchaOnLoadHandler.static.destroyWidget( target );
+		}
+
 		const $hCaptchaWidgetContainer = $( '<div>' ),
 			$container = $( '<div>' );
 

@@ -1224,6 +1224,23 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	public function testApiGetAllowedParamsDeclaresForceShowCaptchaForVisualEditor(): void {
+		$module = $this->createMock( ApiBase::class );
+		$module->expects( $this->atLeastOnce() )
+			->method( 'getModuleName' )
+			->willReturn( 'visualeditoredit' );
+		$params = [];
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->apiGetAllowedParams( $module, $params, 0 );
+
+		$this->assertArrayHasKey( 'wgConfirmEditForceShowCaptcha', $params );
+		$this->assertSame(
+			'boolean',
+			$params['wgConfirmEditForceShowCaptcha'][ParamValidator::PARAM_TYPE]
+		);
+	}
+
 	public function testApiGetAllowedParamsDoesNothingForNonEditModule(): void {
 		$module = $this->createMock( ApiBase::class );
 		$params = [];

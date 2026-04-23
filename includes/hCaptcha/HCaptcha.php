@@ -377,6 +377,12 @@ class HCaptcha extends SimpleCaptcha {
 	}
 
 	/** @inheritDoc */
+	protected function isAPICaptchaModule( $module ) {
+		return parent::isAPICaptchaModule( $module )
+			|| $module->getModuleName() === 'visualeditoredit';
+	}
+
+	/** @inheritDoc */
 	public function apiGetAllowedParams( ApiBase $module, &$params, $flags ) {
 		parent::apiGetAllowedParams( $module, $params, $flags );
 

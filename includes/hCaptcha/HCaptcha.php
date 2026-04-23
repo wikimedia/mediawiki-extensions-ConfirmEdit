@@ -235,35 +235,46 @@ class HCaptcha extends SimpleCaptcha {
 
 		$verifyUrl = $this->hCaptchaConfig->get( 'HCaptchaVerifyUrl' );
 
+		// Initial attempt plus up to two retries, each preceded by a 10ms delay.
+		$maxAttempts = 3;
+		$attempt = 1;
 		$status = $this->executeSiteVerifyRequest( $verifyUrl, $options, false );
-
-		if ( !$status->isOK() ) {
+		while ( !$status->isOK() && $attempt < $maxAttempts ) {
 			$this->logger->warning(
-				'SiteVerify API request failed, retrying after 10ms. Error: {error}',
+				'SiteVerify API request failed on attempt {attempt} of {maxAttempts}, retrying. Error: {error}',
 				[
+					'attempt' => $attempt,
+					'maxAttempts' => $maxAttempts,
 					'error' => $status->getMessage()->text(),
 				]
 			);
-
 			usleep( 10_000 );
-
 			$status = $this->executeSiteVerifyRequest( $verifyUrl, $options, true );
+			$attempt++;
+		}
 
-			if ( !$status->isOK() ) {
-				$this->logger->error(
-					'All SiteVerify API attempts failed. Error: {error}',
-					[ 'error' => $status->getMessage()->text() ]
-				);
-				$this->statsFactory->withComponent( 'ConfirmEdit' )
-					->getCounter( 'hcaptcha_siteverify_exhausted_total' )
-					->increment();
-				$this->error = 'http';
-				$this->healthChecker->incrementSiteVerifyApiErrorCount();
-				$this->logCheckError( $status, $user, $token );
-				return false;
-			}
+		if ( !$status->isOK() ) {
+			$this->logger->error(
+				'All SiteVerify API attempts failed. Error: {error}',
+				[ 'error' => $status->getMessage()->text() ]
+			);
+			$this->statsFactory->withComponent( 'ConfirmEdit' )
+				->getCounter( 'hcaptcha_siteverify_exhausted_total' )
+				->increment();
+			$this->error = 'http';
+			$this->healthChecker->incrementSiteVerifyApiErrorCount();
+			$this->logCheckError( $status, $user, $token );
+			return false;
+		}
 
-			$this->logger->info( 'SiteVerify API retry succeeded after initial failure' );
+		if ( $attempt > 1 ) {
+			$this->logger->info(
+				'SiteVerify API call succeeded on attempt {attempt} of {maxAttempts} after initial failure',
+				[
+					'attempt' => $attempt,
+					'maxAttempts' => $maxAttempts,
+				]
+			);
 		}
 		$json = FormatJson::decode( $status->getValue(), true );
 		if ( !$json ) {

@@ -182,9 +182,9 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			->willReturn( 500 );
 
 		// Mock HttpRequestFactory directly so that we can check the URL and options are as expected.
-		// Both the initial and retry requests should use the same URL and options.
+		// Initial attempt plus two retries should all use the same URL and options.
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
-		$mockHttpRequestFactory->expects( $this->exactly( 2 ) )
+		$mockHttpRequestFactory->expects( $this->exactly( 3 ) )
 			->method( 'create' )
 			->willReturnCallback( function ( $url, $options ) use ( $mwHttpRequest ) {
 				$this->assertSame( 'https://api.hcaptcha.com/siteverify', $url );
@@ -210,13 +210,13 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$statsHelper = StatsFactory::newUnitTestingHelper();
 		$this->setService( 'StatsFactory', $statsHelper->getStatsFactory() );
 
-		// Verify that a warning log is created for the initial failure,
+		// Verify that a warning log is created for each retry attempt,
 		// and error logs for the exhausted retries and the final failure.
 		$mockLogger = $this->createMock( LoggerInterface::class );
-		$mockLogger->expects( $this->once() )
+		$mockLogger->expects( $this->exactly( 2 ) )
 			->method( 'warning' )
 			->with(
-				'SiteVerify API request failed, retrying after 10ms. Error: {error}',
+				'SiteVerify API request failed on attempt {attempt} of {maxAttempts}, retrying. Error: {error}',
 				$this->anything()
 			);
 		$mockLogger->expects( $this->exactly( 2 ) )
@@ -266,9 +266,9 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$actualMessage = $hCaptcha->getMessage( 'edit' );
 		$this->assertSame( '<div class="error">(hcaptcha-edit)</div>', $actualMessage->text() );
 
-		// Verify that the exhausted counter and both timing metrics were emitted
+		// Verify that the exhausted counter and all three timing metrics were emitted
 		$formatted = $statsHelper->consumeAllFormatted();
-		$this->assertCount( 3, $formatted );
+		$this->assertCount( 4, $formatted );
 		$this->assertMatchesRegularExpression(
 			'/^mediawiki\.ConfirmEdit\.hcaptcha_siteverify_call:[\d.]+\|ms\|#status:failed,is_retry:false$/',
 			$formatted[0]
@@ -277,9 +277,13 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			'/^mediawiki\.ConfirmEdit\.hcaptcha_siteverify_call:[\d.]+\|ms\|#status:failed,is_retry:true$/',
 			$formatted[1]
 		);
+		$this->assertMatchesRegularExpression(
+			'/^mediawiki\.ConfirmEdit\.hcaptcha_siteverify_call:[\d.]+\|ms\|#status:failed,is_retry:true$/',
+			$formatted[2]
+		);
 		$this->assertSame(
 			'mediawiki.ConfirmEdit.hcaptcha_siteverify_exhausted_total:1|c',
-			$formatted[2]
+			$formatted[3]
 		);
 	}
 
@@ -314,7 +318,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$mockLogger->expects( $this->once() )
 			->method( 'warning' )
 			->with(
-				'SiteVerify API request failed, retrying after 10ms. Error: {error}',
+				'SiteVerify API request failed on attempt {attempt} of {maxAttempts}, retrying. Error: {error}',
 				$this->anything()
 			);
 		$infoMessages = [];
@@ -335,9 +339,76 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		// Error count should NOT have been incremented since retry succeeded
 		$this->assertNull( $hCaptcha->getError() );
 		$this->assertContains(
-			'SiteVerify API retry succeeded after initial failure',
+			'SiteVerify API call succeeded on attempt {attempt} of {maxAttempts} after initial failure',
 			$infoMessages
 		);
+	}
+
+	public function testPassCaptchaHttpSecondRetrySucceeds() {
+		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
+		$this->overrideConfigValue( 'HCaptchaSiteKey', 'test-sitekey' );
+
+		// First two requests fail, third (second retry) succeeds.
+		$failingRequest = $this->createMock( MWHttpRequest::class );
+		$failingRequest->method( 'execute' )
+			->willReturn( Status::wrap( StatusValue::newFatal( 'http-error-500' ) ) );
+
+		$successfulRequest = $this->createMock( MWHttpRequest::class );
+		$successfulRequest->method( 'execute' )
+			->willReturn( Status::newGood() );
+		$successfulRequest->method( 'getContent' )
+			->willReturn( FormatJson::encode( [
+				'success' => true,
+				'sitekey' => 'test-sitekey',
+			] ) );
+
+		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
+		$mockHttpRequestFactory->expects( $this->exactly( 3 ) )
+			->method( 'create' )
+			->willReturnOnConsecutiveCalls( $failingRequest, $failingRequest, $successfulRequest );
+		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
+
+		// Capture warning context so we can verify the attempt numbers.
+		$warningContexts = [];
+		$mockLogger = $this->createMock( LoggerInterface::class );
+		$mockLogger->method( 'warning' )
+			->willReturnCallback( static function ( $message, $context ) use ( &$warningContexts ) {
+				$warningContexts[] = [ 'message' => $message, 'context' => $context ];
+			} );
+		$infoMessages = [];
+		$mockLogger->method( 'info' )
+			->willReturnCallback( static function ( $message, $context = [] ) use ( &$infoMessages ) {
+				$infoMessages[] = [ 'message' => $message, 'context' => $context ];
+			} );
+		$this->setLogger( 'captcha', $mockLogger );
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->setAction( 'edit' );
+		$hCaptcha->setTrigger( 'test' );
+		$this->assertTrue( $hCaptcha->passCaptchaFromRequest(
+			new FauxRequest( [ 'h-captcha-response' => 'abcdef' ] ),
+			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
+		) );
+
+		// Error count should NOT have been incremented since retry succeeded
+		$this->assertNull( $hCaptcha->getError() );
+
+		// Verify both retry warnings fired, with correct attempt numbers.
+		$this->assertCount( 2, $warningContexts );
+		$this->assertSame( 1, $warningContexts[0]['context']['attempt'] );
+		$this->assertSame( 3, $warningContexts[0]['context']['maxAttempts'] );
+		$this->assertSame( 2, $warningContexts[1]['context']['attempt'] );
+		$this->assertSame( 3, $warningContexts[1]['context']['maxAttempts'] );
+
+		// Verify the success info log was emitted with attempt=3.
+		$successLogs = array_values( array_filter(
+			$infoMessages,
+			static fn ( $entry ) => $entry['message']
+				=== 'SiteVerify API call succeeded on attempt {attempt} of {maxAttempts} after initial failure'
+		) );
+		$this->assertCount( 1, $successLogs );
+		$this->assertSame( 3, $successLogs[0]['context']['attempt'] );
+		$this->assertSame( 3, $successLogs[0]['context']['maxAttempts'] );
 	}
 
 	public function testPassCaptchaSkipsSiteVerifyWhenTokenMissing() {

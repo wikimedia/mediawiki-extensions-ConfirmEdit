@@ -1,21 +1,25 @@
 const utils = require( '../utils.js' );
 
 /**
- * Holds a Promise that resolves once the call to render the captcha resolves,
- * or null if loadAndRenderHCaptcha() has not been called yet.
- *
- * When this Promise resolves, hCaptcha is already set up and is either about to
- * display a challenge or has already displayed it.
- *
- * Note that this variable will be initialized just once per save attempt
- * initiated by the end user (to get a single captcha ID from the hCaptcha API)
- * and will then be reused in case a recoverable error occurs. In case the user
- * closes the hCaptcha modal dialog and retries the submission, this variable is
- * assigned a new Promise resulting from a new call to hCaptcha render() method.
+ * Holds a Promise that resolves to the captcha ID once render() has completed,
+ * or null if render() has not been called yet.
  *
  * @type {?Promise<string>}
  */
 let captchaIdPromise = null;
+
+/**
+ * The DOM element that captchaIdPromise was rendered into, or null if render()
+ * has not been called yet.
+ *
+ * Stored alongside captchaIdPromise so that if the container is replaced (e.g.
+ * by cleanupDuplicateHCaptchaContainers() in the AbuseFilter flow), render()
+ * is called again into the new element rather than executing against a detached
+ * widget.
+ *
+ * @type {?HTMLElement}
+ */
+let captchaContainerElement = null;
 
 /**
  * Load hCaptcha in Secure Enclave mode.
@@ -52,11 +56,15 @@ async function setupHCaptcha( $hCaptchaField, win, interfaceName ) {
 	// Errors that can be recovered from by restarting the workflow.
 	const recoverableErrors = utils.getRecoverableErrors( interfaceName );
 
-	captchaIdPromise = utils.loadAndRenderHCaptcha(
-		win,
-		interfaceName,
-		'h-captcha'
-	);
+	const hCaptchaDomElement = $hCaptchaField[ 0 ];
+	if ( captchaIdPromise === null || captchaContainerElement !== hCaptchaDomElement ) {
+		captchaIdPromise = utils.loadAndRenderHCaptcha(
+			win,
+			interfaceName,
+			hCaptchaDomElement
+		);
+		captchaContainerElement = hCaptchaDomElement;
+	}
 
 	/**
 	 * Trigger a single hCaptcha workflow execution.

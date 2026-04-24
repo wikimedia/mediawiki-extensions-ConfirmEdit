@@ -123,7 +123,7 @@ QUnit.test(
 		);
 		assert.deepEqual(
 			this.window.hcaptcha.render.firstCall.args[ 0 ],
-			'h-captcha',
+			this.$form.find( '#h-captcha' )[ 0 ],
 			'should render hCaptcha widget in correct element'
 		);
 		assert.true(
@@ -172,6 +172,70 @@ QUnit.test(
 
 		// Clean up spy to avoid affecting later tests
 		spy.restore();
+	}
+);
+
+QUnit.test(
+	'should not re-render hCaptcha widget on a subsequent save attempt',
+	async function ( assert ) {
+		this.window.document.head.appendChild.callsFake( () => {
+			this.window.onHCaptchaSDKLoaded();
+		} );
+		this.window.hcaptcha.render.returns( 'some-captcha-id' );
+		this.window.hcaptcha.execute.onFirstCall().callsFake(
+			() => Promise.reject( 'challenge-closed' )
+		);
+		this.window.hcaptcha.execute.onSecondCall().callsFake(
+			() => Promise.resolve( { response: 'some-token' } )
+		);
+
+		// First save: user sees the challenge and dismisses it.
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		// Second save: same container, render() must not be called again.
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+
+		assert.true(
+			this.window.hcaptcha.render.calledOnce,
+			'should render hCaptcha widget only once across both save attempts'
+		);
+		assert.strictEqual(
+			this.window.hcaptcha.execute.callCount,
+			2,
+			'should execute hCaptcha once per save attempt'
+		);
+	}
+);
+
+QUnit.test(
+	'should re-render hCaptcha widget when the container element is replaced',
+	async function ( assert ) {
+		this.window.document.head.appendChild.callsFake( () => {
+			this.window.onHCaptchaSDKLoaded();
+		} );
+		this.window.hcaptcha.render.returns( 'some-captcha-id' );
+		this.window.hcaptcha.execute.onFirstCall().callsFake(
+			() => Promise.reject( 'challenge-closed' )
+		);
+		this.window.hcaptcha.execute.onSecondCall().callsFake(
+			() => Promise.resolve( { response: 'some-token' } )
+		);
+
+		// First save: user sees the challenge and dismisses it.
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+
+		// Simulate cleanupDuplicateHCaptchaContainers() replacing the #h-captcha element,
+		// as happens in the AbuseFilter flow before a subsequent save attempt.
+		$( '#h-captcha' ).remove();
+		$( '#qunit-fixture' ).append( '<input type="hidden" id="h-captcha">' );
+
+		// Second save: new container element, render() must be called again.
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+
+		assert.strictEqual(
+			this.window.hcaptcha.render.callCount,
+			2,
+			'should re-render hCaptcha widget into the new container element'
+		);
 	}
 );
 

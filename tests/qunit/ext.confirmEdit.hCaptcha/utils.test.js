@@ -156,7 +156,7 @@ QUnit.test( 'loadHCaptcha emits load_duration and load_attempts=1 on first-attem
 					{ wiki: 'testwiki', interfaceName: 'testinterface' }
 				],
 				[
-					'stats.mediawiki_confirmedit_hcaptcha_load_attempts',
+					'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total',
 					1,
 					{ wiki: 'testwiki', interfaceName: 'testinterface', outcome: 'success' }
 				]
@@ -216,11 +216,11 @@ QUnit.test( 'loadHCaptcha emits script_error on each retry but load_duration onl
 			);
 
 			const attemptsCalls = this.track.getCalls()
-				.filter( ( c ) => c.args[ 0 ] === 'stats.mediawiki_confirmedit_hcaptcha_load_attempts' );
+				.filter( ( c ) => c.args[ 0 ] === 'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total' );
 			assert.deepEqual(
 				attemptsCalls.map( ( c ) => c.args ),
 				[ [
-					'stats.mediawiki_confirmedit_hcaptcha_load_attempts',
+					'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total',
 					2,
 					{ wiki: 'testwiki', interfaceName: 'testinterface', outcome: 'failure' }
 				] ],

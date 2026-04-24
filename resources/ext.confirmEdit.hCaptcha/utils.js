@@ -188,7 +188,7 @@ const loadHCaptcha = (
 	// times" from "many users each retrying once" in the error metric.
 	const trackLoadAttempts = ( outcome, totalAttempts ) => {
 		mw.track(
-			'stats.mediawiki_confirmedit_hcaptcha_load_attempts',
+			'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total',
 			totalAttempts,
 			{
 				wiki: mw.config.get( 'wgDBname' ),

@@ -386,7 +386,7 @@ QUnit.test( 'should measure hCaptcha load and execute timing for successful subm
 			);
 			assert.deepEqual(
 				this.track.getCall( 3 ).args,
-				[ 'stats.mediawiki_confirmedit_hcaptcha_load_attempts', 1, { wiki: 'testwiki', interfaceName: 'createaccount', outcome: 'success' } ],
+				[ 'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total', 1, { wiki: 'testwiki', interfaceName: 'createaccount', outcome: 'success' } ],
 				'should record metric for load attempts'
 			);
 			assert.deepEqual(
@@ -483,7 +483,7 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 	assert.deepEqual(
 		this.track.getCall( 3 ).args,
 		[
-			'stats.mediawiki_confirmedit_hcaptcha_load_attempts',
+			'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total',
 			2,
 			{ wiki: 'testwiki', interfaceName: 'edit', outcome: 'failure' }
 		],
@@ -585,7 +585,7 @@ QUnit.test( 'should surface irrecoverable workflow execution errors as soon as p
 	);
 	assert.deepEqual(
 		this.track.getCall( 1 ).args,
-		[ 'stats.mediawiki_confirmedit_hcaptcha_load_attempts', 1, { wiki: 'testwiki', interfaceName: 'unknown', outcome: 'success' } ],
+		[ 'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total', 1, { wiki: 'testwiki', interfaceName: 'unknown', outcome: 'success' } ],
 		'should record metric for load attempts'
 	);
 	assert.deepEqual(

@@ -315,21 +315,23 @@
 		}
 	},
 	"QUnitTestModule": {
-		"localBasePath": "tests/qunit/ext.confirmEdit.hCaptcha/",
-		"remoteExtPath": "ConfirmEdit/tests/qunit/ext.confirmEdit.hCaptcha/",
+		"localBasePath": "tests/qunit/",
+		"remoteExtPath": "ConfirmEdit/tests/qunit/",
 		"scripts": [
-			"secureEnclave.test.js",
-			"ErrorWidget.test.js",
-			"mobileFrontend/initMobileFrontend.test.js",
-			"mobileFrontend/mobileFrontendSecureEnclave.test.js",
-			"ProgressIndicatorWidget.test.js",
-			"utils.test.js",
-			"ve/ve.init.mw.HCaptchaSaveErrorHandler.test.js",
-			"ve/ve.init.mw.HCaptchaOnLoadHandler.test.js",
-			"ve/ve.init.mw.HCaptcha.test.js"
+			"ext.confirmEdit.hCaptcha/secureEnclave.test.js",
+			"ext.confirmEdit.hCaptcha/ErrorWidget.test.js",
+			"ext.confirmEdit.hCaptcha/mobileFrontend/initMobileFrontend.test.js",
+			"ext.confirmEdit.hCaptcha/mobileFrontend/mobileFrontendSecureEnclave.test.js",
+			"ext.confirmEdit.hCaptcha/ProgressIndicatorWidget.test.js",
+			"ext.confirmEdit.hCaptcha/utils.test.js",
+			"ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaSaveErrorHandler.test.js",
+			"ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaOnLoadHandler.test.js",
+			"ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptcha.test.js",
+			"ext.confirmEdit.CaptchaWidget/ext.confirmEdit.CaptchaWidget.test.js"
 		],
 		"dependencies": [
-			"ext.confirmEdit.hCaptcha"
+			"ext.confirmEdit.hCaptcha",
+			"ext.confirmEdit.CaptchaWidget"
 		]
 	},
 	"manifest_version": 2

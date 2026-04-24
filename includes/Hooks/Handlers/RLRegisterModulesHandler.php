@@ -61,6 +61,11 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 			'messages' => $captchaInputModuleMessages,
 			'dependencies' => 'oojs-ui-core',
 		];
+		$modules['ext.confirmEdit.CaptchaWidget'] = [
+			'localBasePath' => $dir,
+			'remoteExtPath' => 'ConfirmEdit/resources',
+			'scripts' => 'libs/ext.confirmEdit.CaptchaWidget.js',
+		];
 
 		if ( in_array( 'HCaptcha', $loadedCaptchas, true ) ) {
 			$modules['ext.confirmEdit.hCaptcha'] = [

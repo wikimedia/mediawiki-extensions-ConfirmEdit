@@ -1,4 +1,4 @@
-mw.libs.confirmEdit = {};
+mw.libs.confirmEdit = mw.libs.confirmEdit || {};
 
 /**
  * @class

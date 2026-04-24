@@ -40,12 +40,16 @@ class RLRegisterModulesHandlerTest extends MediaWikiUnitTestCase {
 		return [
 			'hCaptcha is not enabled' => [
 				'captchasEnabled' => [ 'SimpleCaptcha' ],
-				'expectedModuleNames' => [ 'ext.confirmEdit.CaptchaInputWidget' ],
+				'expectedModuleNames' => [
+					'ext.confirmEdit.CaptchaInputWidget',
+					'ext.confirmEdit.CaptchaWidget',
+				],
 			],
 			'hCaptcha is enabled' => [
 				'captchasEnabled' => [ 'SimpleCaptcha', 'HCaptcha' ],
 				'expectedModuleNames' => [
 					'ext.confirmEdit.CaptchaInputWidget',
+					'ext.confirmEdit.CaptchaWidget',
 					'ext.confirmEdit.hCaptcha',
 					'ext.confirmEdit.hCaptcha.styles',
 				],

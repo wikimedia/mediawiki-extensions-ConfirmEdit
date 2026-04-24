@@ -51,13 +51,6 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 			$mobileFrontendAvailable = $this->mobileContext->shouldDisplayMobileView();
 		}
 
-		// No code uses the config variables defined here if VisualEditor and
-		// MobileFrontend are not loaded or their editors cannot be used for the
-		// current request
-		if ( !$visualEditorAvailable && !$mobileFrontendAvailable ) {
-			return;
-		}
-
 		if ( !$out->canUseWikiPage() ) {
 			$vars['wgConfirmEditCaptchaNeededForGenericEdit'] = false;
 			return;

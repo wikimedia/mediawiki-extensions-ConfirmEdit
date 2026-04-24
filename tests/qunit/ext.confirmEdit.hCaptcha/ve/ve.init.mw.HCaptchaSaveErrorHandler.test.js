@@ -4,6 +4,7 @@ const hCaptchaSaveErrorHandler = require( 'ext.confirmEdit.hCaptcha/ext.confirmE
 QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.loader.getState( 'ext.visualEditor.targetLoader' ), QUnit.newMwEnvironment(), ( hooks ) => {
 
 	const hCaptchaConfig = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/config.json' );
+	const hCaptchaOnLoadHandler = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaOnLoadHandler.js' );
 
 	hooks.beforeEach( function () {
 		this.loadHCaptcha = this.sandbox.stub( utils, 'loadHCaptcha' );
@@ -13,6 +14,34 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 		// Therefore, run this ourselves.
 		require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptcha.js' )();
 	} );
+
+	const getMockTarget = ( self, $saveDialogElement ) => ( {
+		saveFields: {},
+		saveDialog: {
+			$element: $saveDialogElement,
+			updateSize: self.sandbox.stub(),
+			popPending: self.sandbox.stub(),
+			clearMessage: self.sandbox.stub(),
+			executeAction: self.sandbox.stub(),
+			showMessage: ( name, $element ) => {
+				$saveDialogElement.append( $element );
+			}
+		},
+		emit: self.sandbox.stub()
+	} );
+
+	const getMockWindow = ( self, $qunitFixture ) => {
+		const mockWindow = {
+			hcaptcha: {
+				render: self.sandbox.stub()
+			},
+			document: {
+				body: $qunitFixture[ 0 ]
+			}
+		};
+		mockWindow.hcaptcha.render.returns( 'widget-id' );
+		return mockWindow;
+	};
 
 	QUnit.test.each( 'process uses loadHCaptcha', {
 		'hCaptcha is in invisible mode': {
@@ -39,28 +68,8 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 		hCaptchaSaveErrorHandler();
 
 		const $qunitFixture = $( '#qunit-fixture' );
-		const target = {
-			saveFields: {},
-			saveDialog: {
-				$element: $qunitFixture,
-				updateSize: this.sandbox.stub(),
-				popPending: this.sandbox.stub(),
-				clearMessage: this.sandbox.stub(),
-				showMessage: ( name, $element ) => {
-					$qunitFixture.append( $element );
-				}
-			},
-			emit: this.sandbox.stub()
-		};
-		const mockWindow = {
-			hcaptcha: {
-				render: this.sandbox.stub()
-			},
-			document: {
-				body: $qunitFixture[ 0 ]
-			}
-		};
-		mockWindow.hcaptcha.render.returns( 'widget-id' );
+		const target = getMockTarget( this, $qunitFixture );
+		const mockWindow = getMockWindow( this, $qunitFixture );
 
 		ve.init.mw.HCaptchaSaveErrorHandler.static.window = mockWindow;
 
@@ -127,6 +136,68 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 				[ window, 'visualeditor', { render: 'explicit' } ],
 				'loadHCaptcha arguments are as expected'
 			);
+		} );
+	} );
+
+	QUnit.test.each( 'process re-executes hCaptcha if onload handler was already run', {
+		'hCaptcha on load handler was not run': {
+			onLoadHandlerRun: false
+		},
+		'hCaptcha on load handler was already run': {
+			onLoadHandlerRun: true
+		}
+	}, async function ( assert, options ) {
+		hCaptchaConfig.HCaptchaSiteKey = 'generic-site-key';
+
+		hCaptchaOnLoadHandler();
+		hCaptchaSaveErrorHandler();
+
+		ve.init.mw.HCaptchaOnLoadHandler.static.destroyWidget = this.sandbox.stub();
+		ve.init.mw.HCaptchaOnLoadHandler.static.shouldRun = () => options.onLoadHandlerRun;
+
+		const $qunitFixture = $( '#qunit-fixture' );
+		const target = getMockTarget( this, $qunitFixture );
+		const mockWindow = getMockWindow( this, $qunitFixture );
+
+		ve.init.mw.HCaptchaSaveErrorHandler.static.window = mockWindow;
+
+		this.loadHCaptcha.returns( Promise.resolve() );
+
+		ve.init.mw.HCaptchaSaveErrorHandler.static.process(
+			{ visualeditoredit: { edit: { captcha: { type: 'hcaptcha' } } } },
+			target
+		);
+
+		setTimeout( () => {
+			assert.deepEqual(
+				mockWindow.hcaptcha.render.callCount,
+				1,
+				'window.hcaptcha.render is called once'
+			);
+
+			assert.deepEqual(
+				ve.init.mw.HCaptchaOnLoadHandler.static.destroyWidget.callCount,
+				1,
+				've.init.mw.HCaptchaOnLoadHandler.static.destroyWidget should be called'
+			);
+			if ( options.onLoadHandlerRun ) {
+				assert.deepEqual(
+					target.saveDialog.executeAction.callCount,
+					1,
+					'target.saveDialog.executeAction should be called to automatically restart saving'
+				);
+				assert.deepEqual(
+					target.saveDialog.executeAction.firstCall.args[ 0 ],
+					'save',
+					'target.saveDialog.executeAction should be called for the save action'
+				);
+			} else {
+				assert.deepEqual(
+					target.saveDialog.executeAction.callCount,
+					0,
+					'target.saveDialog.executeAction should not execute unless onload handler was executed'
+				);
+			}
 		} );
 	} );
 

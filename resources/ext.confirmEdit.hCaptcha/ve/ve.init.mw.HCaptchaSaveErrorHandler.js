@@ -19,6 +19,14 @@ module.exports = () => {
 
 	ve.init.mw.HCaptchaSaveErrorHandler.static.window = window;
 
+	/**
+	 * Whether the save error handler has already automatically pressed "Save changes".
+	 * Used to avoid resubmitting hCaptcha automatically indefinitely.
+	 *
+	 * @type {boolean}
+	 */
+	ve.init.mw.HCaptchaSaveErrorHandler.static.hasAlreadyAutomaticallyResubmitted = false;
+
 	ve.init.mw.HCaptchaSaveErrorHandler.static.matchFunction = function ( data ) {
 		const captchaData = ve.getProp( data, 'visualeditoredit', 'edit', 'captcha' );
 
@@ -28,8 +36,13 @@ module.exports = () => {
 	ve.init.mw.HCaptchaSaveErrorHandler.static.process = function ( data, target ) {
 		// Destroy any existing hCaptcha widget from the onload handler or this handler
 		// as this widget needs to be used instead
+		let executeSaveAfterRender = false;
 		if ( ve.init.mw.HCaptchaOnLoadHandler ) {
 			ve.init.mw.HCaptchaOnLoadHandler.static.destroyWidget( target );
+			if ( ve.init.mw.HCaptchaOnLoadHandler.static.shouldRun() && !this.hasAlreadyAutomaticallyResubmitted ) {
+				this.hasAlreadyAutomaticallyResubmitted = true;
+				executeSaveAfterRender = true;
+			}
 		}
 
 		const $hCaptchaWidgetContainer = $( '<div>' ),
@@ -78,7 +91,23 @@ module.exports = () => {
 
 				target.saveDialog.popPending();
 				target.emit( 'saveErrorCaptcha' );
+
+				if ( executeSaveAfterRender ) {
+					target.saveDialog.executeAction( 'save' );
+				}
 			} );
+	};
+
+	/**
+	 * When the save dialog is closed, we should reset the auto-resubmit code.
+	 *
+	 * @param {ve.init.Target} target
+	 * @return {void}
+	 */
+	ve.init.mw.HCaptchaSaveErrorHandler.static.onSaveWorkflowEnd = function ( target ) {
+		ve.init.mw.HCaptcha.static.onSaveWorkflowEnd.call( this, target );
+
+		this.hasAlreadyAutomaticallyResubmitted = false;
 	};
 
 	ve.init.mw.saveErrorHandlerFactory.register( ve.init.mw.HCaptchaSaveErrorHandler );

@@ -341,7 +341,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			mime: 'text/html',
 			question: questionHtml
 		} ).then( () => captchaWidget.renderCaptcha() ).then( () => {
-			const $captchaInput = $qunitFixture.find( '.mw-confirmEdit-questionCaptchaInputField' );
+			const $captchaInput = $qunitFixture.find( '.mw-confirmEdit-captchaInputField' );
 
 			assert.strictEqual(
 				$captchaInput.length,
@@ -391,7 +391,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			mime: 'text/plain',
 			question: 'What is 4 + 2?'
 		} ).then( () => captchaWidget.renderCaptcha() ).then( () => {
-			const $captchaInput = $qunitFixture.find( '.mw-confirmEdit-questionCaptchaInputField' );
+			const $captchaInput = $qunitFixture.find( '.mw-confirmEdit-captchaInputField' );
 
 			assert.strictEqual(
 				$captchaInput.length,
@@ -416,6 +416,128 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 					'SimpleCaptcha data should include the expected ID and entered answer'
 				);
 			} );
+		} );
+	} );
+
+	QUnit.test( 'CAPTCHA widget is FancyCaptcha', function ( assert ) {
+		const $qunitFixture = $( '#qunit-fixture' );
+
+		const usingStub = this.sandbox.stub( mw.loader, 'using' )
+			.withArgs( 'ext.confirmEdit.fancyCaptcha' )
+			.resolves();
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'image',
+			container: $qunitFixture[ 0 ]
+		} );
+
+		return captchaWidget.updateForCaptchaFailure( {
+			type: 'fancycaptcha',
+			id: 'fancy-captcha-id',
+			url: 'https://example.org/fancy-captcha.png'
+		} ).then( () => {
+			const captchaLoadPromise = captchaWidget.renderCaptcha();
+
+			// setTimeout call is used so that we can wait for the mocked mw.loader.using
+			// call to return it's resolved promise.
+			setTimeout( () => {
+				const $captchaContainer = $( '.mw-confirmEdit-captchaWidget', $qunitFixture );
+				const $captchaImage = $( '.fancycaptcha-image', $captchaContainer );
+				const $captchaInput = $( '.mw-confirmEdit-captchaInputField', $captchaContainer );
+
+				assert.true(
+					usingStub.calledOnce,
+					'ext.confirmEdit.fancyCaptcha should be loaded'
+				);
+				assert.true(
+					// eslint-disable-next-line no-jquery/no-class-state
+					$captchaContainer.hasClass( 'fancycaptcha-captcha-container' ),
+					'FancyCaptcha container class should be applied'
+				);
+				assert.strictEqual(
+					$captchaImage.length,
+					1,
+					'FancyCaptcha image should be rendered'
+				);
+				assert.strictEqual(
+					$captchaImage.attr( 'src' ),
+					'https://example.org/fancy-captcha.png',
+					'FancyCaptcha image src should match API data'
+				);
+				assert.strictEqual(
+					$captchaImage.data( 'captchaId' ),
+					'fancy-captcha-id',
+					'FancyCaptcha image should store captcha ID'
+				);
+				assert.strictEqual(
+					$( '.fancycaptcha-reload', $captchaContainer ).length,
+					1,
+					'FancyCaptcha reload link should be rendered'
+				);
+				assert.strictEqual(
+					$captchaInput.length,
+					1,
+					'FancyCaptcha input should be rendered'
+				);
+
+				$captchaImage.trigger( 'load' );
+			} );
+
+			return captchaLoadPromise.then( () => {
+				const $captchaInput = $( '.mw-confirmEdit-captchaInputField', $qunitFixture );
+				const $captchaImage = $( '.fancycaptcha-image', $qunitFixture );
+
+				$captchaInput.val( 'stale-answer' );
+				$captchaImage.data( 'captchaId', 'fancy-captcha-id-2' ).trigger( 'fancycaptcha-reloaded' );
+
+				assert.strictEqual(
+					$captchaInput.val(),
+					'',
+					'FancyCaptcha input should be cleared when the captcha image reloads'
+				);
+
+				$captchaInput.val( 'abc123' );
+
+				return captchaWidget.getCaptchaDataForSubmission().then( ( captchaData ) => {
+					assert.deepEqual(
+						captchaData,
+						{ captchaid: 'fancy-captcha-id-2', captchaword: 'abc123' },
+						'FancyCaptcha data should include the expected ID and entered answer'
+					);
+				} );
+			} );
+		} );
+	} );
+
+	QUnit.test( 'CAPTCHA widget FancyCaptcha renderCaptcha rejects when image fails to load', function ( assert ) {
+		const $qunitFixture = $( '#qunit-fixture' );
+
+		this.sandbox.stub( mw.loader, 'using' )
+			.withArgs( 'ext.confirmEdit.fancyCaptcha' )
+			.resolves();
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'fancycaptcha',
+			container: $qunitFixture[ 0 ]
+		} );
+
+		return captchaWidget.updateForCaptchaFailure( {
+			type: 'fancycaptcha',
+			id: 'fancy-captcha-id',
+			url: 'https://example.org/fancy-captcha.png'
+		} ).then( () => {
+			const captchaLoadPromise = captchaWidget.renderCaptcha();
+
+			setTimeout( () => {
+				// Use triggerHandler so the widget's handler runs without firing a global window error.
+				$( '.fancycaptcha-image', $qunitFixture ).triggerHandler( 'error' );
+			} );
+
+			return assert.rejects(
+				captchaLoadPromise,
+				/FancyCaptcha image failed to load/,
+				'renderCaptcha should reject if the FancyCaptcha image fails to load'
+			);
 		} );
 	} );
 
@@ -453,6 +575,21 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			captchaWidget.renderCaptcha(),
 			/Please provide the captcha ID and question via updateForCaptchaFailure/,
 			'renderCaptcha should fail if captcha ID and question are not yet defined'
+		);
+	} );
+
+	QUnit.test( 'CAPTCHA widget is FancyCaptcha but no image is defined', ( assert ) => {
+		const $qunitFixture = $( '#qunit-fixture' );
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'FancyCaptcha',
+			container: $qunitFixture[ 0 ]
+		} );
+
+		assert.rejects(
+			captchaWidget.renderCaptcha(),
+			/Please provide the captcha ID and image URL via updateForCaptchaFailure/,
+			'renderCaptcha should fail if captcha ID and image url are not yet defined'
 		);
 	} );
 } );

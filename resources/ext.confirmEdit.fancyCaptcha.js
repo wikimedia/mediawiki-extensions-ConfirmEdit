@@ -20,7 +20,7 @@ $( document ).on( 'click', '.fancycaptcha-reload', function () {
 			$( '#mw-input-captchaWord' ).val( '' ).trigger( 'focus' );
 
 			// and make it accessible for other tools, e.g. VisualEditor
-			$captchaImage.data( 'captchaId', captchaIndex );
+			$captchaImage.data( 'captchaId', captchaIndex ).trigger( 'fancycaptcha-reloaded' );
 		}
 	} )
 		.always( () => {

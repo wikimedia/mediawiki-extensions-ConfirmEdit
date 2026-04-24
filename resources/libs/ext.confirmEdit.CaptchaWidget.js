@@ -36,6 +36,10 @@ mw.libs.confirmEdit.CaptchaWidget = function MwCaptchaWidget( config ) {
 
 	if ( this.config.type ) {
 		this.config.type = this.config.type.toLowerCase();
+
+		if ( this.config.type === 'image' ) {
+			this.config.type = 'fancycaptcha';
+		}
 	}
 
 	if ( !this.config.interfaceName ) {
@@ -55,6 +59,11 @@ mw.libs.confirmEdit.CaptchaWidget = function MwCaptchaWidget( config ) {
 	// Question based CAPTCHA config (unused if not question based)
 	this.captchaQuestion = '';
 	this.captchaQuestionMime = '';
+
+	// FancyCaptcha config (unused if not using FancyCaptcha)
+	this.captchaImageUrl = '';
+
+	this.captchaInputField = null;
 };
 
 mw.libs.confirmEdit.CaptchaWidget.static = {};
@@ -107,6 +116,8 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderCaptcha = function () {
 		case 'simple':
 		case 'question':
 			return this.renderQuestionCaptcha( $captchaContainer );
+		case 'fancycaptcha':
+			return this.renderFancyCaptcha( $captchaContainer );
 	}
 
 	return Promise.reject( 'CAPTCHA not supported' );
@@ -161,6 +172,16 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderHCaptcha = function ( $captcha
 };
 
 /**
+ * if the type of CAPTCHA uses an input field for an answer, this method returns a reference
+ * to the {@link Element} for the Codex input field.
+ *
+ * @return {Element|null}
+ */
+mw.libs.confirmEdit.CaptchaWidget.prototype.getInputField = function () {
+	return this.captchaInputField;
+};
+
+/**
  * Renders a CAPTCHA that is based around a question (currently 'simple' or 'question').
  * Only for use by {@link self.renderCaptcha}.
  *
@@ -196,18 +217,98 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderQuestionCaptcha = function ( $
 	// eslint-disable-next-line mediawiki/msg-doc
 	$captchaParagraph.append( mw.message( captchaLabel ).parseDom(), '<br>', question );
 
-	const $inputContainer = $( '<div>' ).addClass( 'cdx-text-input' );
-
-	const $inputField = $( '<input>' )
-		.addClass( 'cdx-text-input__input mw-confirmEdit-questionCaptchaInputField' )
-		.attr( 'type', 'text' );
-	$inputContainer.append( $inputField );
-
 	$captchaContainer.append( $captchaParagraph );
-	$captchaContainer.append( $inputContainer );
+	$captchaContainer.append( this.createInputField() );
 
 	this.captchaRendered = true;
 	return Promise.resolve();
+};
+
+/**
+ * Creates an input field for the user to type an answer into. Only used by CAPTCHAs
+ * that need an input field for a typed out answer.
+ *
+ * @internal
+ * @param {string} [placeholder] If defined, the text to be used as the placeholder for the input
+ * @return {jQuery}
+ */
+mw.libs.confirmEdit.CaptchaWidget.prototype.createInputField = function ( placeholder ) {
+	const $inputField = $( '<input>' )
+		.addClass( 'cdx-text-input__input mw-confirmEdit-captchaInputField' )
+		.attr( 'type', 'text' );
+	if ( placeholder ) {
+		$inputField.attr( 'placeholder', placeholder );
+	}
+
+	const $inputContainer = $( '<div>' )
+		.addClass( 'cdx-text-input' )
+		.append( $inputField );
+
+	this.captchaInputField = $inputContainer[ 0 ];
+
+	return $inputContainer;
+};
+
+/**
+ * Renders a FancyCaptcha CAPTCHA. Only for use by {@link self.renderCaptcha}.
+ *
+ * @internal
+ * @param {jQuery} $captchaContainer
+ * @return {Promise}
+ */
+mw.libs.confirmEdit.CaptchaWidget.prototype.renderFancyCaptcha = function ( $captchaContainer ) {
+	if ( !this.captchaId || !this.captchaImageUrl ) {
+		return Promise.reject( 'Please provide the captcha ID and image URL via updateForCaptchaFailure' );
+	}
+
+	return mw.loader.using( 'ext.confirmEdit.fancyCaptcha' ).then( () => {
+		const $captchaParagraph = $( '<div>' ).append(
+			$( '<strong>' ).text( mw.msg( 'captcha-label' ) ),
+			document.createTextNode( mw.msg( 'colon-separator' ) ),
+			mw.message( 'fancycaptcha-edit' ).parseDom()
+		);
+
+		const $captchaInputField = this.createInputField( mw.msg( 'fancycaptcha-imgcaptcha-ph' ) );
+
+		const $captchaImage = $( '<img>' )
+			.attr( 'src', this.captchaImageUrl )
+			.data( 'captchaId', this.captchaId )
+			.addClass( 'fancycaptcha-image' )
+			.on( 'fancycaptcha-reloaded', () => {
+				this.captchaId = $captchaImage.data( 'captchaId' );
+				$( 'input', $captchaInputField ).val( '' ).trigger( 'focus' );
+			} );
+
+		// jQuery docs say that the image "load" event is not reliably fired, so race against
+		// a 1 second timeout to avoid an indefinitely unresolved promise.
+		const imageLoadedPromise = Promise.race( [
+			new Promise( ( resolve, reject ) => {
+				$captchaImage
+					.on( 'load', resolve )
+					.on( 'error', () => reject( 'FancyCaptcha image failed to load' ) );
+			} ),
+			new Promise( ( resolve ) => {
+				setTimeout( resolve, 1000 );
+			} )
+		] );
+
+		const $captchaImageReloadLink = $( '<a>' )
+			.addClass( 'fancycaptcha-reload' )
+			.text( mw.msg( 'fancycaptcha-reload-text' ) );
+
+		$captchaContainer.addClass( 'fancycaptcha-captcha-container' );
+		$captchaContainer.append(
+			$captchaParagraph,
+			$captchaImage,
+			' ',
+			$captchaImageReloadLink,
+			$captchaInputField
+		);
+
+		return imageLoadedPromise.then( () => {
+			this.captchaRendered = true;
+		} );
+	} );
 };
 
 /**
@@ -241,7 +342,8 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.getCaptchaDataForSubmission = functi
 			return this.executeHCaptcha().then( captchaDataResolver );
 		case 'simple':
 		case 'question':
-			this.captchaWord = $( '.mw-confirmEdit-questionCaptchaInputField', this.config.container ).val();
+		case 'fancycaptcha':
+			this.captchaWord = $( '.mw-confirmEdit-captchaInputField', this.config.container ).val();
 			return Promise.resolve( captchaDataResolver() );
 	}
 
@@ -286,9 +388,17 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.executeHCaptcha = function () {
 mw.libs.confirmEdit.CaptchaWidget.prototype.updateForCaptchaFailure = function ( captchaData ) {
 	let needsRerender = false;
 
-	if ( captchaData.type && captchaData.type.toLowerCase() !== this.config.type ) {
-		this.config.type = captchaData.type.toLowerCase();
-		needsRerender = true;
+	let captchaTypeFromData = captchaData.type;
+	if ( captchaTypeFromData ) {
+		captchaTypeFromData = captchaTypeFromData.toLowerCase();
+		if ( captchaTypeFromData === 'image' ) {
+			captchaTypeFromData = 'fancycaptcha';
+		}
+
+		if ( captchaTypeFromData !== this.config.type ) {
+			this.config.type = captchaTypeFromData;
+			needsRerender = true;
+		}
 	}
 
 	if ( this.config.type === 'hcaptcha' ) {
@@ -308,7 +418,14 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.updateForCaptchaFailure = function (
 		needsRerender = true;
 	}
 
+	if ( this.config.type === 'fancycaptcha' ) {
+		this.captchaImageUrl = captchaData.url;
+		this.captchaId = captchaData.id;
+		needsRerender = true;
+	}
+
 	if ( needsRerender && this.captchaRendered ) {
+		this.captchaInputField = null;
 		this.captchaRendered = false;
 		return this.renderCaptcha();
 	}

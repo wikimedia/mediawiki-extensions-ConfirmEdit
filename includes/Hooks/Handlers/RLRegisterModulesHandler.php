@@ -71,7 +71,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 		];
 
 		// Some CAPTCHAs need an input field, while others render their own interface and so don't need Codex
-		if ( array_intersect( [ 'QuestyCaptcha', 'SimpleCaptcha' ], $loadedCaptchas ) ) {
+		if ( array_intersect( [ 'QuestyCaptcha', 'SimpleCaptcha', 'FancyCaptcha' ], $loadedCaptchas ) ) {
 			$modules['ext.confirmEdit.CaptchaWidget']['class'] = CodexModule::class;
 			$modules['ext.confirmEdit.CaptchaWidget']['codexStyleOnly'] = true;
 			$modules['ext.confirmEdit.CaptchaWidget']['codexComponents'] = [ 'CdxTextInput' ];

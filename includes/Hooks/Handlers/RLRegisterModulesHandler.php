@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
 use MediaWiki\Extension\ConfirmEdit\Services\LoadedCaptchasProvider;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 
@@ -10,12 +11,13 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 
 	public function __construct(
 		private readonly LoadedCaptchasProvider $loadedCaptchasProvider,
+		private readonly ExtensionRegistry $extensionRegistry,
 	) {
 	}
 
 	/**
-	 * Conditionally registers captcha-specific resource loader modules, such that they are only
-	 * loaded if the captcha itself is loaded as determined by {@link LoadedCaptchasProvider}.
+	 * Registers ResourceLoader modules based on the captchas loaded as determined
+	 * by {@link LoadedCaptchasProvider}.
 	 *
 	 * @inheritDoc
 	 */
@@ -23,8 +25,42 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 		$dir = dirname( __DIR__, 3 ) . '/resources/';
 		$modules = [];
 
-		// Only load the captcha-specific resource loader modules if that captcha is loaded
+		// Only load the captcha-specific resource loader modules / messages if that captcha is loaded
 		$loadedCaptchas = $this->loadedCaptchasProvider->getLoadedCaptchas();
+
+		$captchaInputModuleMessages = [
+			'colon-separator',
+			'captcha-edit',
+			'captcha-label'
+		];
+
+		// ExtensionRegistry::isLoaded checks are only needed because ::getLoadedCaptchas returns
+		// all captchas for testing but the i18n isn't defined during tests. Therefore, the
+		// ResourcesTest::testMissingMessages test will fail without this check
+		if (
+			in_array( 'QuestyCaptcha', $loadedCaptchas, true ) &&
+			$this->extensionRegistry->isLoaded( 'QuestyCaptcha' )
+		) {
+			$captchaInputModuleMessages[] = 'questycaptcha-edit';
+		}
+
+		if (
+			in_array( 'FancyCaptcha', $loadedCaptchas, true ) &&
+			$this->extensionRegistry->isLoaded( 'FancyCaptcha' )
+		) {
+			$captchaInputModuleMessages[] = 'fancycaptcha-edit';
+			$captchaInputModuleMessages[] = 'fancycaptcha-reload-text';
+			$captchaInputModuleMessages[] = 'fancycaptcha-imgcaptcha-ph';
+		}
+
+		$modules['ext.confirmEdit.CaptchaInputWidget'] = [
+			'localBasePath' => $dir,
+			'remoteExtPath' => 'ConfirmEdit/resources',
+			'scripts' => 'libs/ext.confirmEdit.CaptchaInputWidget.js',
+			'styles' => 'libs/ext.confirmEdit.CaptchaInputWidget.less',
+			'messages' => $captchaInputModuleMessages,
+			'dependencies' => 'oojs-ui-core',
+		];
 
 		if ( in_array( 'HCaptcha', $loadedCaptchas, true ) ) {
 			$modules['ext.confirmEdit.hCaptcha'] = [
@@ -84,9 +120,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 			];
 		}
 
-		if ( count( $modules ) ) {
-			$rl->register( $modules );
-		}
+		$rl->register( $modules );
 	}
 
 }

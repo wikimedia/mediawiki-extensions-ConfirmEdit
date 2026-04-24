@@ -23,9 +23,6 @@ use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\Hook\TitleReadWhitelistHook;
-use MediaWiki\Registration\ExtensionRegistry;
-use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
-use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\SpecialPage\Hook\AuthChangeFormFieldsHook;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Specials\Hook\EmailUserFormHook;
@@ -44,7 +41,6 @@ class Hooks implements
 	EmailUserFormHook,
 	EmailUserHook,
 	TitleReadWhitelistHook,
-	ResourceLoaderRegisterModulesHook,
 	PageSaveCompleteHook,
 	EditPage__showEditForm_fieldsHook,
 	EditFilterMergedContentHook,
@@ -343,36 +339,4 @@ class Hooks implements
 
 		return false;
 	}
-
-	/** @inheritDoc */
-	public function onResourceLoaderRegisterModules( ResourceLoader $rl ): void {
-		$extensionRegistry = ExtensionRegistry::getInstance();
-		$messages = [
-			'colon-separator',
-			'captcha-edit',
-			'captcha-label'
-		];
-
-		if ( $extensionRegistry->isLoaded( 'QuestyCaptcha' ) ) {
-			$messages[] = 'questycaptcha-edit';
-		}
-
-		if ( $extensionRegistry->isLoaded( 'FancyCaptcha' ) ) {
-			$messages[] = 'fancycaptcha-edit';
-			$messages[] = 'fancycaptcha-reload-text';
-			$messages[] = 'fancycaptcha-imgcaptcha-ph';
-		}
-
-		$rl->register( [
-			'ext.confirmEdit.CaptchaInputWidget' => [
-				'localBasePath' => dirname( __DIR__ ),
-				'remoteExtPath' => 'ConfirmEdit',
-				'scripts' => 'resources/libs/ext.confirmEdit.CaptchaInputWidget.js',
-				'styles' => 'resources/libs/ext.confirmEdit.CaptchaInputWidget.less',
-				'messages' => $messages,
-				'dependencies' => 'oojs-ui-core',
-			]
-		] );
-	}
-
 }

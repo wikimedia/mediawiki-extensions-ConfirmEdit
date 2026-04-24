@@ -101,7 +101,8 @@
 		"RLRegisterModulesHandler": {
 			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks\\Handlers\\RLRegisterModulesHandler",
 			"services": [
-				"ConfirmEditLoadedCaptchasProvider"
+				"ConfirmEditLoadedCaptchasProvider",
+				"ExtensionRegistry"
 			]
 		},
 		"MakeGlobalVariablesScriptHookHandler": {
@@ -123,10 +124,7 @@
 		"PageSaveComplete": "ConfirmEditHooks",
 		"TitleReadWhitelist": "ConfirmEditHooks",
 		"AlternateEditPreview": "ConfirmEditHooks",
-		"ResourceLoaderRegisterModules": [
-			"ConfirmEditHooks",
-			"RLRegisterModulesHandler"
-		],
+		"ResourceLoaderRegisterModules": "RLRegisterModulesHandler",
 		"MakeGlobalVariablesScript": "MakeGlobalVariablesScriptHookHandler",
 		"EditPage::showEditForm:fields": "ConfirmEditHooks",
 		"EditFilterMergedContent": "ConfirmEditHooks",

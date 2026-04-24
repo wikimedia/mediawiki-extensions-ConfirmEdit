@@ -322,4 +322,137 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			'getCaptchaDataForSubmission should reject if ext.confirmEdit.hCaptcha fails to load'
 		);
 	} );
+
+	QUnit.test( 'CAPTCHA widget is QuestyCaptcha', ( assert ) => {
+		const $qunitFixture = $( '#qunit-fixture' );
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'question',
+			container: $qunitFixture[ 0 ]
+		} );
+
+		const questionHtml = $( '<div>' )
+			.html( $( '<p>' ).addClass( 'test-question-class' ).text( 'What is 2 + 2?' ) )
+			.html();
+
+		return captchaWidget.updateForCaptchaFailure( {
+			type: 'question',
+			id: 'questy-captcha-id',
+			mime: 'text/html',
+			question: questionHtml
+		} ).then( () => captchaWidget.renderCaptcha() ).then( () => {
+			const $captchaInput = $qunitFixture.find( '.mw-confirmEdit-questionCaptchaInputField' );
+
+			assert.strictEqual(
+				$captchaInput.length,
+				1,
+				'CAPTCHA input should be rendered'
+			);
+			assert.true(
+				$qunitFixture.text().includes( '(questycaptcha-edit)' ),
+				'QuestyCaptcha label should be rendered'
+			);
+
+			const $captchaQuestion = $( '.test-question-class', $qunitFixture );
+			assert.strictEqual(
+				$captchaQuestion.length,
+				1,
+				'The question should have rendered as HTML'
+			);
+			assert.strictEqual(
+				$captchaQuestion.text(),
+				'What is 2 + 2?',
+				'The question text should be as expected'
+			);
+
+			$captchaInput.val( '4' );
+
+			return captchaWidget.getCaptchaDataForSubmission().then( ( captchaData ) => {
+				assert.deepEqual(
+					captchaData,
+					{ captchaid: 'questy-captcha-id', captchaword: '4' },
+					'QuestyCaptcha data should include the expected ID and entered answer'
+				);
+			} );
+		} );
+	} );
+
+	QUnit.test( 'CAPTCHA widget is SimpleCaptcha', ( assert ) => {
+		const $qunitFixture = $( '#qunit-fixture' );
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'simple',
+			container: $qunitFixture[ 0 ]
+		} );
+
+		return captchaWidget.updateForCaptchaFailure( {
+			type: 'simple',
+			id: 'simple-captcha-id',
+			mime: 'text/plain',
+			question: 'What is 4 + 2?'
+		} ).then( () => captchaWidget.renderCaptcha() ).then( () => {
+			const $captchaInput = $qunitFixture.find( '.mw-confirmEdit-questionCaptchaInputField' );
+
+			assert.strictEqual(
+				$captchaInput.length,
+				1,
+				'CAPTCHA input should be rendered'
+			);
+			assert.true(
+				$qunitFixture.text().includes( '(captcha-edit)' ),
+				'SimpleCaptcha label should be rendered'
+			);
+			assert.true(
+				$qunitFixture.text().includes( 'What is 4 + 2?' ),
+				'SimpleCaptcha question should be rendered'
+			);
+
+			$captchaInput.val( '4' );
+
+			return captchaWidget.getCaptchaDataForSubmission().then( ( captchaData ) => {
+				assert.deepEqual(
+					captchaData,
+					{ captchaid: 'simple-captcha-id', captchaword: '4' },
+					'SimpleCaptcha data should include the expected ID and entered answer'
+				);
+			} );
+		} );
+	} );
+
+	QUnit.test( 'CAPTCHA widget is QuestyCaptcha but captcha mime is unknown', ( assert ) => {
+		const $qunitFixture = $( '#qunit-fixture' );
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'question',
+			container: $qunitFixture[ 0 ]
+		} );
+
+		return captchaWidget.updateForCaptchaFailure( {
+			type: 'question',
+			id: 'questy-captcha-id',
+			mime: 'text/abc',
+			question: 'test-question'
+		} ).then( () => {
+			assert.rejects(
+				captchaWidget.renderCaptcha(),
+				/The mime type of the question is not recognised/,
+				'renderCaptcha should fail if the captcha question mime type is unrecognised'
+			);
+		} );
+	} );
+
+	QUnit.test( 'CAPTCHA widget is QuestyCaptcha but no captcha question defined', ( assert ) => {
+		const $qunitFixture = $( '#qunit-fixture' );
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'question',
+			container: $qunitFixture[ 0 ]
+		} );
+
+		assert.rejects(
+			captchaWidget.renderCaptcha(),
+			/Please provide the captcha ID and question via updateForCaptchaFailure/,
+			'renderCaptcha should fail if captcha ID and question are not yet defined'
+		);
+	} );
 } );

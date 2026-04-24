@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
 use MediaWiki\Extension\ConfirmEdit\Services\LoadedCaptchasProvider;
 use MediaWiki\Registration\ExtensionRegistry;
+use MediaWiki\ResourceLoader\CodexModule;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 
@@ -28,7 +29,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 		// Only load the captcha-specific resource loader modules / messages if that captcha is loaded
 		$loadedCaptchas = $this->loadedCaptchasProvider->getLoadedCaptchas();
 
-		$captchaInputModuleMessages = [
+		$captchaModuleMessages = [
 			'colon-separator',
 			'captcha-edit',
 			'captcha-label'
@@ -41,16 +42,16 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 			in_array( 'QuestyCaptcha', $loadedCaptchas, true ) &&
 			$this->extensionRegistry->isLoaded( 'QuestyCaptcha' )
 		) {
-			$captchaInputModuleMessages[] = 'questycaptcha-edit';
+			$captchaModuleMessages[] = 'questycaptcha-edit';
 		}
 
 		if (
 			in_array( 'FancyCaptcha', $loadedCaptchas, true ) &&
 			$this->extensionRegistry->isLoaded( 'FancyCaptcha' )
 		) {
-			$captchaInputModuleMessages[] = 'fancycaptcha-edit';
-			$captchaInputModuleMessages[] = 'fancycaptcha-reload-text';
-			$captchaInputModuleMessages[] = 'fancycaptcha-imgcaptcha-ph';
+			$captchaModuleMessages[] = 'fancycaptcha-edit';
+			$captchaModuleMessages[] = 'fancycaptcha-reload-text';
+			$captchaModuleMessages[] = 'fancycaptcha-imgcaptcha-ph';
 		}
 
 		$modules['ext.confirmEdit.CaptchaInputWidget'] = [
@@ -58,14 +59,23 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 			'remoteExtPath' => 'ConfirmEdit/resources',
 			'scripts' => 'libs/ext.confirmEdit.CaptchaInputWidget.js',
 			'styles' => 'libs/ext.confirmEdit.CaptchaInputWidget.less',
-			'messages' => $captchaInputModuleMessages,
+			'messages' => $captchaModuleMessages,
 			'dependencies' => 'oojs-ui-core',
 		];
 		$modules['ext.confirmEdit.CaptchaWidget'] = [
 			'localBasePath' => $dir,
 			'remoteExtPath' => 'ConfirmEdit/resources',
 			'scripts' => 'libs/ext.confirmEdit.CaptchaWidget.js',
+			'styles' => 'libs/ext.confirmEdit.CaptchaWidget.less',
+			'messages' => $captchaModuleMessages,
 		];
+
+		// Some CAPTCHAs need an input field, while others render their own interface and so don't need Codex
+		if ( array_intersect( [ 'QuestyCaptcha', 'SimpleCaptcha' ], $loadedCaptchas ) ) {
+			$modules['ext.confirmEdit.CaptchaWidget']['class'] = CodexModule::class;
+			$modules['ext.confirmEdit.CaptchaWidget']['codexStyleOnly'] = true;
+			$modules['ext.confirmEdit.CaptchaWidget']['codexComponents'] = [ 'CdxTextInput' ];
+		}
 
 		if ( in_array( 'HCaptcha', $loadedCaptchas, true ) ) {
 			$modules['ext.confirmEdit.hCaptcha'] = [

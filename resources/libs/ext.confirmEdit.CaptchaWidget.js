@@ -51,6 +51,10 @@ mw.libs.confirmEdit.CaptchaWidget = function MwCaptchaWidget( config ) {
 	this.hCaptchaSiteKey = '';
 	this.hCaptchaWidgetId = '';
 	this.hCaptchaForceShowCaptcha = false;
+
+	// Question based CAPTCHA config (unused if not question based)
+	this.captchaQuestion = '';
+	this.captchaQuestionMime = '';
 };
 
 mw.libs.confirmEdit.CaptchaWidget.static = {};
@@ -100,6 +104,9 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderCaptcha = function () {
 	switch ( this.config.type ) {
 		case 'hcaptcha':
 			return this.renderHCaptcha( $captchaContainer );
+		case 'simple':
+		case 'question':
+			return this.renderQuestionCaptcha( $captchaContainer );
 	}
 
 	return Promise.reject( 'CAPTCHA not supported' );
@@ -154,6 +161,56 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderHCaptcha = function ( $captcha
 };
 
 /**
+ * Renders a CAPTCHA that is based around a question (currently 'simple' or 'question').
+ * Only for use by {@link self.renderCaptcha}.
+ *
+ * @internal
+ * @param {jQuery} $captchaContainer
+ * @return {Promise}
+ */
+mw.libs.confirmEdit.CaptchaWidget.prototype.renderQuestionCaptcha = function ( $captchaContainer ) {
+	if ( !this.captchaId || !this.captchaQuestionMime || !this.captchaQuestion ) {
+		return Promise.reject( 'Please provide the captcha ID and question via updateForCaptchaFailure' );
+	}
+
+	const $captchaParagraph = $( '<div>' ).append(
+		$( '<strong>' ).text( mw.msg( 'captcha-label' ) ),
+		document.createTextNode( mw.msg( 'colon-separator' ) )
+	);
+
+	let question;
+	switch ( this.captchaQuestionMime ) {
+		case 'text/html':
+			question = $.parseHTML( this.captchaQuestion );
+			break;
+		case 'text/plain':
+			question = document.createTextNode( this.captchaQuestion );
+			break;
+		default:
+			return Promise.reject( 'The mime type of the question is not recognised' );
+	}
+
+	const captchaLabel = this.config.type === 'question' ? 'questycaptcha-edit' : 'captcha-edit';
+
+	// Possible messages in use here documented above
+	// eslint-disable-next-line mediawiki/msg-doc
+	$captchaParagraph.append( mw.message( captchaLabel ).parseDom(), '<br>', question );
+
+	const $inputContainer = $( '<div>' ).addClass( 'cdx-text-input' );
+
+	const $inputField = $( '<input>' )
+		.addClass( 'cdx-text-input__input mw-confirmEdit-questionCaptchaInputField' )
+		.attr( 'type', 'text' );
+	$inputContainer.append( $inputField );
+
+	$captchaContainer.append( $captchaParagraph );
+	$captchaContainer.append( $inputContainer );
+
+	this.captchaRendered = true;
+	return Promise.resolve();
+};
+
+/**
  * Returns a promise that resolves to an object containing the CAPTCHA data to be
  * submitted with the action. You should be able to append this to the API request.
  *
@@ -182,6 +239,10 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.getCaptchaDataForSubmission = functi
 	switch ( this.config.type ) {
 		case 'hcaptcha':
 			return this.executeHCaptcha().then( captchaDataResolver );
+		case 'simple':
+		case 'question':
+			this.captchaWord = $( '.mw-confirmEdit-questionCaptchaInputField', this.config.container ).val();
+			return Promise.resolve( captchaDataResolver() );
 	}
 
 	return Promise.reject( 'CAPTCHA not supported' );
@@ -238,6 +299,13 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.updateForCaptchaFailure = function (
 		if ( captchaData.key && this.hCaptchaSiteKey !== captchaData.key ) {
 			this.hCaptchaSiteKey = captchaData.key;
 		}
+	}
+
+	if ( this.config.type === 'simple' || this.config.type === 'question' ) {
+		this.captchaQuestionMime = captchaData.mime;
+		this.captchaQuestion = captchaData.question;
+		this.captchaId = captchaData.id;
+		needsRerender = true;
 	}
 
 	if ( needsRerender && this.captchaRendered ) {

@@ -150,4 +150,176 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			);
 		} );
 	} );
+
+	QUnit.test.each( 'CAPTCHA widget is hCaptcha', {
+		'hCaptcha is in invisible mode': {
+			hCaptchaInvisibleMode: true
+		},
+		'hCaptcha is not in invisible mode': {
+			hCaptchaInvisibleMode: false
+		}
+	}, function ( assert, options ) {
+		const mockHCaptchaModule = {
+			utils: {
+				loadHCaptcha: this.sandbox.stub().returns( Promise.resolve() ),
+				renderHCaptcha: this.sandbox.stub().returns( 'widget-id' ),
+				executeHCaptcha: this.sandbox.stub().returns( Promise.resolve( 'test-response' ) ),
+				getHCaptchaSiteKey: () => 'test-site-key',
+				isHCaptchaInInvisibleMode: () => options.hCaptchaInvisibleMode
+			}
+		};
+
+		this.sandbox.stub( mw.loader, 'using' )
+			.withArgs( 'ext.confirmEdit.hCaptcha' )
+			.resolves( ( requiredModuleName ) => {
+				if ( requiredModuleName === 'ext.confirmEdit.hCaptcha' ) {
+					return mockHCaptchaModule;
+				} else {
+					assert.true( false, 'Unexpected module required using mw.loader.using' );
+				}
+			} );
+
+		const $qunitFixture = $( '#qunit-fixture' );
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'hcaptcha',
+			container: $qunitFixture[ 0 ],
+			interfaceName: 'test-interface'
+		} );
+
+		return captchaWidget.renderCaptcha().then( () => {
+			// Expect hCaptcha is loaded and rendered
+			assert.true(
+				mockHCaptchaModule.utils.loadHCaptcha.calledOnce,
+				'loadHCaptcha should be called'
+			);
+			assert.deepEqual(
+				mockHCaptchaModule.utils.loadHCaptcha.firstCall.args,
+				[ window, 'test-interface', { render: 'explicit' } ],
+				'loadHCaptcha arguments are as expected'
+			);
+			assert.true(
+				mockHCaptchaModule.utils.renderHCaptcha.calledOnce,
+				'renderHCaptcha should be called'
+			);
+			assert.deepEqual(
+				mockHCaptchaModule.utils.renderHCaptcha.firstCall.args.slice( 0, 2 ),
+				[ window, 'test-interface' ],
+				'renderHCaptcha arguments are as expected'
+			);
+			assert.true(
+				$qunitFixture[ 0 ].contains(
+					mockHCaptchaModule.utils.renderHCaptcha.firstCall.args[ 2 ]
+				),
+				'renderHCaptcha 3rd argument should be an element inside the specified container'
+			);
+			assert.strictEqual(
+				mockHCaptchaModule.utils.renderHCaptcha.firstCall.args[ 3 ].sitekey,
+				'test-site-key',
+				'The expected sitekey is used'
+			);
+			assert.true(
+				mockHCaptchaModule.utils.executeHCaptcha.notCalled,
+				'executeHCaptcha should not have been called yet'
+			);
+
+			assert.strictEqual(
+				$( mockHCaptchaModule.utils.renderHCaptcha.firstCall.args[ 2 ] ).attr( 'data-size' ),
+				options.hCaptchaInvisibleMode ? 'invisible' : undefined,
+				'The data-size attribute should be set only if in invisible mode'
+			);
+			assert.strictEqual(
+				$( '.ext-confirmEdit-hcaptcha-privacy-policy', $qunitFixture ).length,
+				options.hCaptchaInvisibleMode ? 1 : 0,
+				'The hCaptcha privacy policy text should be set only if in invisible mode'
+			);
+
+			return captchaWidget.getCaptchaDataForSubmission().then( ( captchaData ) => {
+				assert.true(
+					mockHCaptchaModule.utils.executeHCaptcha.calledOnce,
+					'executeHCaptcha should have been called'
+				);
+				assert.deepEqual(
+					mockHCaptchaModule.utils.executeHCaptcha.firstCall.args,
+					[ window, 'widget-id', 'test-interface' ],
+					'executeHCaptcha arguments are as expected'
+				);
+
+				assert.deepEqual(
+					captchaData,
+					{ captchaid: '', captchaword: 'test-response' },
+					'Captcha data returned by promise is expected'
+				);
+			} );
+		} );
+	} );
+
+	QUnit.test.each( 'updateForCaptchaFailure re-renders hCaptcha', {
+		'Captcha data does not contain a sitekey': {
+			captchaData: { type: 'hcaptcha' },
+			expectedNewSiteKey: ''
+		},
+		'Captcha data contains a sitekey': {
+			captchaData: { type: 'hcaptcha', key: 'api-provided-site-key' },
+			expectedNewSiteKey: 'api-provided-site-key'
+		}
+	}, function ( assert, options ) {
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'hcaptcha',
+			container: '#qunit-fixture'
+		} );
+
+		captchaWidget.captchaRendered = true;
+		captchaWidget.renderCaptcha = this.sandbox.stub().returns( Promise.resolve() );
+
+		return captchaWidget.updateForCaptchaFailure( options.captchaData ).then( () => {
+			assert.strictEqual(
+				captchaWidget.renderCaptcha.callCount,
+				1,
+				'renderCaptcha should always be called for a captcha failure when type is hCaptcha'
+			);
+			assert.strictEqual(
+				captchaWidget.captchaWord,
+				'',
+				'captchaWord should be cleared for hCaptcha failure'
+			);
+			assert.strictEqual(
+				captchaWidget.hCaptchaSiteKey,
+				options.expectedNewSiteKey,
+				'hCaptcha sitekey should use sitekey in captcha API data unless not specified'
+			);
+		} );
+	} );
+
+	QUnit.test( 'Methods reject when ext.confirmEdit.hCaptcha fails to load', function ( assert ) {
+		this.sandbox.stub( mw.loader, 'using' )
+			.withArgs( 'ext.confirmEdit.hCaptcha' )
+			.rejects( new Error( 'Test rejection' ) );
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'hcaptcha',
+			container: $( '#qunit-fixture' )[ 0 ],
+			interfaceName: 'test-interface'
+		} );
+
+		assert.rejects(
+			captchaWidget.renderCaptcha(),
+			/Test rejection/,
+			'renderCaptcha should reject if ext.confirmEdit.hCaptcha fails to load'
+		);
+
+		captchaWidget.captchaRendered = true;
+		assert.rejects(
+			captchaWidget.updateForCaptchaFailure( { type: 'hcaptcha' } ),
+			/Test rejection/,
+			'updateForCaptchaFailure should reject if ext.confirmEdit.hCaptcha fails to load'
+		);
+
+		captchaWidget.captchaRendered = true;
+		assert.rejects(
+			captchaWidget.getCaptchaDataForSubmission(),
+			/Test rejection/,
+			'getCaptchaDataForSubmission should reject if ext.confirmEdit.hCaptcha fails to load'
+		);
+	} );
 } );

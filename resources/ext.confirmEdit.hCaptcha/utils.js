@@ -618,6 +618,25 @@ function renderHCaptcha( win, interfaceName, container, renderOptions ) {
 }
 
 /**
+ * Returns the sitekey to be used for the edit. If the API response provides a sitekey to be used,
+ * then that sitekey should be preferred over this one.
+ *
+ * @return {string}
+ */
+function getHCaptchaSiteKey() {
+	return mw.config.get( 'wgConfirmEditHCaptchaSiteKey' ) || config.HCaptchaSiteKey;
+}
+
+/**
+ * Returns whether hCaptcha should be displayed in invisible mode.
+ *
+ * @return {boolean}
+ */
+function isHCaptchaInInvisibleMode() {
+	return config.HCaptchaInvisibleMode;
+}
+
+/**
  * @param {jQuery} $hCaptchaField The hCaptcha input field within the form.
  * @return {void}
  * @private
@@ -716,6 +735,8 @@ module.exports = {
 	mapErrorCodeToMessageKey: mapErrorCodeToMessageKey,
 	loadAndRenderHCaptcha: loadAndRenderHCaptcha,
 	renderHCaptcha: renderHCaptcha,
+	getHCaptchaSiteKey: getHCaptchaSiteKey,
+	isHCaptchaInInvisibleMode: isHCaptchaInInvisibleMode,
 	showError: showError,
 	hideError: hideError,
 	showLoadingIndicator: showLoadingIndicator,

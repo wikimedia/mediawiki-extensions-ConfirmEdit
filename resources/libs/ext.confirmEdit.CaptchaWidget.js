@@ -12,6 +12,13 @@ mw.libs.confirmEdit = mw.libs.confirmEdit || {};
  */
 
 /**
+ * @typedef CaptchaSubmissionData
+ * @property {string} captchaid
+ * @property {string} captchaword
+ * @property {boolean} [wgConfirmEditForceShowCaptcha]
+ */
+
+/**
  * @class
  *
  * Creates a class which can be used to render a CAPTCHA and get the captcha data for use
@@ -39,6 +46,11 @@ mw.libs.confirmEdit.CaptchaWidget = function MwCaptchaWidget( config ) {
 	this.captchaId = '';
 
 	this.captchaRendered = false;
+
+	// hCaptcha config (unused if not using hCaptcha)
+	this.hCaptchaSiteKey = '';
+	this.hCaptchaWidgetId = '';
+	this.hCaptchaForceShowCaptcha = false;
 };
 
 mw.libs.confirmEdit.CaptchaWidget.static = {};
@@ -85,7 +97,60 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderCaptcha = function () {
 	$container.find( '.mw-confirmEdit-captchaWidget' ).remove();
 	$container.append( $captchaContainer );
 
+	switch ( this.config.type ) {
+		case 'hcaptcha':
+			return this.renderHCaptcha( $captchaContainer );
+	}
+
 	return Promise.reject( 'CAPTCHA not supported' );
+};
+
+/**
+ * Renders the hCaptcha widget using the `ext.confirmEdit.hCaptcha` module
+ * Only for use by {@link self.renderCaptcha}.
+ *
+ * @internal
+ * @param {jQuery} $captchaContainer
+ * @return {Promise}
+ */
+mw.libs.confirmEdit.CaptchaWidget.prototype.renderHCaptcha = function ( $captchaContainer ) {
+	// A new hCaptcha widget will generate a new hCaptcha token, so rerendering needs to clear this out
+	this.captchaWord = '';
+
+	return mw.loader.using( 'ext.confirmEdit.hCaptcha' ).then( ( require ) => {
+		const hCaptchaUtils = require( 'ext.confirmEdit.hCaptcha' ).utils;
+		return hCaptchaUtils.loadHCaptcha(
+			window,
+			this.config.interfaceName,
+			{ render: 'explicit' }
+		).then( () => {
+			if ( hCaptchaUtils.isHCaptchaInInvisibleMode() ) {
+				$captchaContainer.attr( 'data-size', 'invisible' );
+
+				const $privacyPolicyNotice = $( '<div>' );
+				$privacyPolicyNotice.html( mw.message( 'hcaptcha-privacy-policy' ).parse() );
+				$privacyPolicyNotice.addClass( 'ext-confirmEdit-hcaptcha-privacy-policy' );
+				$captchaContainer.append( $privacyPolicyNotice );
+			}
+
+			this.hCaptchaSiteKey = this.hCaptchaSiteKey || hCaptchaUtils.getHCaptchaSiteKey();
+			this.hCaptchaWidgetId = hCaptchaUtils.renderHCaptcha(
+				window,
+				this.config.interfaceName,
+				$captchaContainer[ 0 ],
+				{
+					sitekey: this.hCaptchaSiteKey,
+					callback: ( token ) => {
+						this.captchaWord = token;
+					},
+					'expired-callback': () => {
+						this.captchaWord = '';
+					}
+				}
+			);
+			this.captchaRendered = true;
+		} );
+	} );
 };
 
 /**
@@ -96,14 +161,55 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderCaptcha = function () {
  * depending on the implementation, and so should not be called until the user has clicked
  * the button to submit the action.
  *
- * @return {Promise<{captchaid: string, captchaword: string}>}
+ * @return {Promise<CaptchaSubmissionData>}
  */
 mw.libs.confirmEdit.CaptchaWidget.prototype.getCaptchaDataForSubmission = function () {
 	if ( !this.captchaRendered ) {
 		return Promise.reject( 'Render the CAPTCHA before getting the CAPTCHA data' );
 	}
 
+	const captchaDataResolver = () => {
+		const captchaData = {
+			captchaid: this.captchaId,
+			captchaword: this.captchaWord
+		};
+		if ( this.config.type === 'hcaptcha' && this.hCaptchaForceShowCaptcha === true ) {
+			captchaData.wgConfirmEditForceShowCaptcha = true;
+		}
+		return captchaData;
+	};
+
+	switch ( this.config.type ) {
+		case 'hcaptcha':
+			return this.executeHCaptcha().then( captchaDataResolver );
+	}
+
 	return Promise.reject( 'CAPTCHA not supported' );
+};
+
+/**
+ * Executes hCaptcha and resolves or rejects the provided callbacks based on the result.
+ * Only for use by {@link self.getCaptchaDataForSubmission}.
+ *
+ * @internal
+ * @return {Promise<void>}
+ */
+mw.libs.confirmEdit.CaptchaWidget.prototype.executeHCaptcha = function () {
+	if ( this.captchaWord ) {
+		return Promise.resolve();
+	} else {
+		return mw.loader.using( 'ext.confirmEdit.hCaptcha' )
+			.then( ( require ) => {
+				const hCaptchaUtils = require( 'ext.confirmEdit.hCaptcha' ).utils;
+				return hCaptchaUtils.executeHCaptcha(
+					window,
+					this.hCaptchaWidgetId,
+					this.config.interfaceName
+				).then( ( response ) => {
+					this.captchaWord = response;
+				} );
+			} );
+	}
 };
 
 /**
@@ -117,12 +223,27 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.getCaptchaDataForSubmission = functi
  * @return {Promise} A promise that resolves when the CAPTCHA widget has been updated
  */
 mw.libs.confirmEdit.CaptchaWidget.prototype.updateForCaptchaFailure = function ( captchaData ) {
+	let needsRerender = false;
+
 	if ( captchaData.type && captchaData.type.toLowerCase() !== this.config.type ) {
 		this.config.type = captchaData.type.toLowerCase();
-		if ( this.captchaRendered ) {
-			this.captchaRendered = false;
-			return this.renderCaptcha();
+		needsRerender = true;
+	}
+
+	if ( this.config.type === 'hcaptcha' ) {
+		this.captchaWord = '';
+		needsRerender = true;
+
+		this.hCaptchaForceShowCaptcha = captchaData.error === 'forceshowcaptcha';
+		if ( captchaData.key && this.hCaptchaSiteKey !== captchaData.key ) {
+			this.hCaptchaSiteKey = captchaData.key;
 		}
 	}
+
+	if ( needsRerender && this.captchaRendered ) {
+		this.captchaRendered = false;
+		return this.renderCaptcha();
+	}
+
 	return Promise.resolve();
 };

@@ -47,6 +47,8 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 			navigator: { connection: { effectiveType: '4g' } }
 		};
 
+		this.config = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/config.json' );
+
 		// Subject under test
 		this.utils = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/utils.js' );
 	},
@@ -550,3 +552,42 @@ QUnit.test.each(
 		);
 	}
 );
+
+QUnit.test.each( 'getHCaptchaSiteKey returns the expected sitekey', {
+	'wgConfirmEditHCaptchaSiteKey is defined': {
+		siteKeyFromJsConfig: 'test-site-key-2',
+		siteKeyFromResourceLoaderConfig: 'test-site-key',
+		expectedSiteKey: 'test-site-key-2'
+	},
+	'wgConfirmEditHCaptchaSiteKey is undefined': {
+		siteKeyFromJsConfig: null,
+		siteKeyFromResourceLoaderConfig: 'test-site-key',
+		expectedSiteKey: 'test-site-key'
+	}
+}, function ( assert, options ) {
+	mw.config.set( 'wgConfirmEditHCaptchaSiteKey', options.siteKeyFromJsConfig );
+	this.config.HCaptchaSiteKey = options.siteKeyFromResourceLoaderConfig;
+
+	assert.deepEqual(
+		this.utils.getHCaptchaSiteKey(),
+		options.expectedSiteKey,
+		'Sitekey should match based on set JS and ResourceLoader config values'
+	);
+} );
+
+QUnit.test.each( 'isHCaptchaInInvisibleMode returns the value of HCaptchaInvisibleMode', {
+	'HCaptchaInvisibleMode is true': {
+		hCaptchaInvisibleMode: true
+	},
+	'HCaptchaInvisibleMode is false': {
+		hCaptchaInvisibleMode: false
+	}
+}, function ( assert, options ) {
+	this.config.HCaptchaInvisibleMode = options.hCaptchaInvisibleMode;
+
+	assert.deepEqual(
+		this.utils.isHCaptchaInInvisibleMode(),
+		options.hCaptchaInvisibleMode,
+		'The config HCaptchaInvisibleMode should be returned by isHCaptchaInInvisibleMode'
+	);
+} );

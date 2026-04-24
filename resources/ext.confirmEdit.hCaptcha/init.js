@@ -67,3 +67,14 @@ $( () => {
 		mw.libs.ve.targetLoader.addPlugin( visualEditorInitPluginsCallback );
 	} );
 } );
+
+/**
+ * Utils used to render and execute hCaptcha in the
+ * {@link mw.libs.confirmEdit.CaptchaWidget} class.
+ * Not for use elsewhere and methods provided by this module may break without notice.
+ *
+ * @internal
+ */
+module.exports = {
+	utils: require( './utils.js' )
+};

@@ -23,6 +23,7 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 			popPending: self.sandbox.stub(),
 			clearMessage: self.sandbox.stub(),
 			executeAction: self.sandbox.stub(),
+			isOpened: self.sandbox.stub(),
 			showMessage: ( name, $element ) => {
 				$saveDialogElement.append( $element );
 			}
@@ -141,10 +142,19 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 
 	QUnit.test.each( 'process re-executes hCaptcha if onload handler was already run', {
 		'hCaptcha on load handler was not run': {
-			onLoadHandlerRun: false
+			onLoadHandlerRun: false,
+			saveDialogOpen: true,
+			shouldExecuteHCaptcha: false
+		},
+		'hCaptcha on load handler was already run but save dialog is closed': {
+			onLoadHandlerRun: true,
+			saveDialogOpen: false,
+			shouldExecuteHCaptcha: false
 		},
 		'hCaptcha on load handler was already run': {
-			onLoadHandlerRun: true
+			onLoadHandlerRun: true,
+			saveDialogOpen: true,
+			shouldExecuteHCaptcha: true
 		}
 	}, async function ( assert, options ) {
 		hCaptchaConfig.HCaptchaSiteKey = 'generic-site-key';
@@ -157,6 +167,8 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 
 		const $qunitFixture = $( '#qunit-fixture' );
 		const target = getMockTarget( this, $qunitFixture );
+		target.saveDialog.isOpened.returns( options.saveDialogOpen );
+
 		const mockWindow = getMockWindow( this, $qunitFixture );
 
 		ve.init.mw.HCaptchaSaveErrorHandler.static.window = mockWindow;
@@ -180,7 +192,7 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 				1,
 				've.init.mw.HCaptchaOnLoadHandler.static.destroyWidget should be called'
 			);
-			if ( options.onLoadHandlerRun ) {
+			if ( options.shouldExecuteHCaptcha ) {
 				assert.deepEqual(
 					target.saveDialog.executeAction.callCount,
 					1,

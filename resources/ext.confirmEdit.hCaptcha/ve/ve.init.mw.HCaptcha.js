@@ -28,6 +28,22 @@ module.exports = () => {
 	 */
 	ve.init.mw.HCaptcha.static.hCaptchaResponseToken = null;
 
+	/**
+	 * A callback that if called will reject the hCaptcha execution promise currently
+	 * being executed. If no hCaptcha execution is active, then this is `null`.
+	 *
+	 * @type {Function|null}
+	 */
+	ve.init.mw.HCaptcha.static.hCaptchaExecutionRejecter = null;
+
+	/**
+	 * A callback that if called will resolve the hCaptcha execution promise currently
+	 * being executed. If no hCaptcha execution is active, then this is `null`.
+	 *
+	 * @type {Function|null}
+	 */
+	ve.init.mw.HCaptcha.static.hCaptchaExecutionResolver = null;
+
 	ve.init.mw.HCaptcha.static.getReadyPromise = function () {
 		if ( !this.readyPromise ) {
 			this.readyPromise = loadHCaptcha( window, 'visualeditor', { render: 'explicit' } );
@@ -174,30 +190,54 @@ module.exports = () => {
 			return Promise.resolve();
 		}
 
-		return executeHCaptcha( window, this.widgetId, 'visualeditor' )
+		// Instead of returning the executeHCaptcha promise directly, use a wrapper promise
+		// that allows us to reject it if the save dialog closes to avoid infinite saving animations.
+		let promiseResolver;
+		let promiseRejecter;
+		const returnPromise = new Promise( ( resolve, reject ) => {
+			promiseResolver = resolve;
+			promiseRejecter = reject;
+		} );
+		this.hCaptchaExecutionResolver = promiseResolver;
+		this.hCaptchaExecutionRejecter = promiseRejecter;
+
+		executeHCaptcha( window, this.widgetId, 'visualeditor' )
 			.then( ( response ) => {
-				this.hCaptchaResponseToken = response;
+				if ( this.hCaptchaExecutionResolver === promiseResolver ) {
+					this.hCaptchaExecutionResolver( response );
+					this.hCaptchaExecutionResolver = null;
+					this.hCaptchaExecutionRejecter = null;
 
-				target.saveFields.wpCaptchaWord = function () {
-					return response;
-				};
+					this.hCaptchaResponseToken = response;
 
-				mw.hook( 'confirmEdit.hCaptcha.executionSuccess' ).fire( response );
+					target.saveFields.wpCaptchaWord = function () {
+						return response;
+					};
+
+					mw.hook( 'confirmEdit.hCaptcha.executionSuccess' ).fire( response );
+				}
 			} )
 			.catch( ( error ) => {
-				// If hCaptcha failed to execute, then show this as an error and stop
-				// saving by rethrowing the error (making the rejected promise bubble up)
+				if ( this.hCaptchaExecutionRejecter === promiseRejecter ) {
+					this.hCaptchaExecutionRejecter( error );
+					this.hCaptchaExecutionResolver = null;
+					this.hCaptchaExecutionRejecter = null;
 
-				// Possible message keys used here:
-				// * hcaptcha-generic-error
-				// * hcaptcha-challenge-closed
-				// * hcaptcha-challenge-expired
-				// * hcaptcha-internal-error
-				// * hcaptcha-network-error
-				// * hcaptcha-rate-limited
-				target.showSaveError( mw.msg( mapErrorCodeToMessageKey( error ) ) );
-				throw error;
+					// If hCaptcha failed to execute, then show this as an error and stop
+					// saving by rethrowing the error (making the rejected promise bubble up)
+
+					// Possible message keys used here:
+					// * hcaptcha-generic-error
+					// * hcaptcha-challenge-closed
+					// * hcaptcha-challenge-expired
+					// * hcaptcha-internal-error
+					// * hcaptcha-network-error
+					// * hcaptcha-rate-limited
+					target.showSaveError( mw.msg( mapErrorCodeToMessageKey( error ) ) );
+				}
 			} );
+
+		return returnPromise;
 	};
 
 	/**
@@ -229,6 +269,10 @@ module.exports = () => {
 	 * @return {void}
 	 */
 	ve.init.mw.HCaptcha.static.onSaveWorkflowEnd = function ( target ) {
+		if ( this.hCaptchaExecutionRejecter ) {
+			this.hCaptchaExecutionRejecter( new Error( 'Save dialog closed mid execution' ) );
+		}
+
 		if ( target.saveDialog ) {
 			target.saveDialog.$element.find( '.ext-confirmEdit-hCaptcha-backdrop' ).remove();
 		}
@@ -239,6 +283,8 @@ module.exports = () => {
 
 		this.widgetId = null;
 		this.hCaptchaResponseToken = null;
+		this.hCaptchaExecutionRejecter = null;
+		this.hCaptchaExecutionResolver = null;
 	};
 
 	/**

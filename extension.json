@@ -325,7 +325,8 @@
 			"ProgressIndicatorWidget.test.js",
 			"utils.test.js",
 			"ve/ve.init.mw.HCaptchaSaveErrorHandler.test.js",
-			"ve/ve.init.mw.HCaptchaOnLoadHandler.test.js"
+			"ve/ve.init.mw.HCaptchaOnLoadHandler.test.js",
+			"ve/ve.init.mw.HCaptcha.test.js"
 		],
 		"dependencies": [
 			"ext.confirmEdit.hCaptcha"

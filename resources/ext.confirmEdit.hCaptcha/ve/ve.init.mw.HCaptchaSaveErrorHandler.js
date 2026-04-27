@@ -39,7 +39,11 @@ module.exports = () => {
 		let executeSaveAfterRender = false;
 		if ( ve.init.mw.HCaptchaOnLoadHandler ) {
 			ve.init.mw.HCaptchaOnLoadHandler.static.destroyWidget( target );
-			if ( ve.init.mw.HCaptchaOnLoadHandler.static.shouldRun() && !this.hasAlreadyAutomaticallyResubmitted ) {
+			if (
+				ve.init.mw.HCaptchaOnLoadHandler.static.shouldRun() &&
+				!this.hasAlreadyAutomaticallyResubmitted &&
+				target.saveDialog.isOpened()
+			) {
 				this.hasAlreadyAutomaticallyResubmitted = true;
 				executeSaveAfterRender = true;
 			}

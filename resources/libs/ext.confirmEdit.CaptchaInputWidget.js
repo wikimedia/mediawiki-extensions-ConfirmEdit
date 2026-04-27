@@ -4,6 +4,8 @@ mw.libs.confirmEdit = mw.libs.confirmEdit || {};
  * @class
  * @extends OO.ui.TextInputWidget
  *
+ * @deprecated Since 1.47 - Use {@link mw.libs.confirmEdit.CaptchaWidget} through the
+ *   `ext.confirmEdit.CaptchaWidget` module instead
  * @constructor
  * @param {Object} [captchaData] Value of 'captcha' property returned from action=edit API
  * @param {Object} [config] Configuration options

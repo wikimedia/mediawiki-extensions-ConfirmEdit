@@ -57,8 +57,11 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 			},
 			performance: {
 				measure: this.measure,
-				getEntriesByName: this.getEntriesByName
-			}
+				getEntriesByName: this.getEntriesByName,
+				now: this.sandbox.stub().returns( 1234 )
+			},
+			location: { hostname: 'test.example' },
+			navigator: { connection: { effectiveType: '4g' } }
 		};
 
 		const form = document.createElement( 'form' );
@@ -458,18 +461,18 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 		[
 			'stats.mediawiki_confirmedit_hcaptcha_script_error_total',
 			1,
-			{ wiki: 'testwiki', interfaceName: 'edit' }
+			{ wiki: 'testwiki', interfaceName: 'edit', phase: 'retrying' }
 		],
-		'should record metric for total errors after the first attempt'
+		'should record metric for total errors after the first attempt with phase=retrying'
 	);
 	assert.deepEqual(
 		this.track.getCall( 1 ).args,
 		[
 			'stats.mediawiki_confirmedit_hcaptcha_script_error_total',
 			1,
-			{ wiki: 'testwiki', interfaceName: 'edit' }
+			{ wiki: 'testwiki', interfaceName: 'edit', phase: 'terminal' }
 		],
-		'should record metric for total errors after the second attempt'
+		'should record metric for total errors after the second attempt with phase=terminal'
 	);
 	assert.deepEqual(
 		this.track.getCall( 2 ).args,
@@ -513,10 +516,22 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 	);
 
 	const logFirstCallErrorArguments = this.logError.getCall( 0 ).args;
+	const firstError = logFirstCallErrorArguments[ 0 ];
+	assert.strictEqual(
+		firstError.message,
+		'Unable to load hCaptcha script (retrying)',
+		'first attempt should produce a normalised retrying message'
+	);
 	assert.deepEqual(
-		logFirstCallErrorArguments[ 0 ].message,
-		'Unable to load hCaptcha script',
-		'should use correct channel for errors'
+		firstError.error_context,
+		{
+			attempt: '1/2',
+			hostname: 'test.example',
+			effectiveType: '4g',
+			timeSinceNavigationMs: '1234',
+			scriptSrc: 'https://example.com/hcaptcha.js?onload=onHCaptchaSDKLoaded'
+		},
+		'first attempt should attach diagnostic details via error_context'
 	);
 	assert.deepEqual(
 		logFirstCallErrorArguments[ 1 ],
@@ -524,11 +539,17 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 		'should use correct channel for errors'
 	);
 
-	const logSecondCallErrorArguments = this.logError.getCall( 0 ).args;
-	assert.deepEqual(
-		logSecondCallErrorArguments[ 0 ].message,
-		'Unable to load hCaptcha script',
-		'should use correct channel for errors'
+	const logSecondCallErrorArguments = this.logError.getCall( 1 ).args;
+	const secondError = logSecondCallErrorArguments[ 0 ];
+	assert.strictEqual(
+		secondError.message,
+		'Unable to load hCaptcha script (terminal)',
+		'second attempt should produce a normalised terminal message'
+	);
+	assert.strictEqual(
+		secondError.error_context.attempt,
+		'2/2',
+		'second attempt should record attempt 2/2 in error_context'
 	);
 	assert.deepEqual(
 		logSecondCallErrorArguments[ 1 ],

@@ -203,15 +203,30 @@ const loadHCaptcha = (
 
 		attempts++;
 
-		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_script_error_total', 1, {
-			wiki: mw.config.get( 'wgDBname' ), interfaceName: interfaceName
-		} );
-		mw.errorLogger.logError(
-			new Error( 'Unable to load hCaptcha script' ),
-			'error.confirmedit'
-		);
+		const isTerminal = attempts === MAX_LOAD_ATTEMPTS;
+		const phase = isTerminal ? 'terminal' : 'retrying';
 
-		if ( attempts === MAX_LOAD_ATTEMPTS ) {
+		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_script_error_total', 1, {
+			wiki: mw.config.get( 'wgDBname' ),
+			interfaceName: interfaceName,
+			phase: phase
+		} );
+
+		const loggedError = new Error( `Unable to load hCaptcha script (${ phase })` );
+		/* eslint-disable camelcase */
+		loggedError.error_context = {
+			attempt: `${ attempts }/${ MAX_LOAD_ATTEMPTS }`,
+			hostname: win.location.hostname,
+			effectiveType: win.navigator.connection ?
+				win.navigator.connection.effectiveType :
+				'unknown',
+			timeSinceNavigationMs: String( Math.round( win.performance.now() ) ),
+			scriptSrc: script.src
+		};
+		/* eslint-enable camelcase */
+		mw.errorLogger.logError( loggedError, 'error.confirmedit' );
+
+		if ( isTerminal ) {
 			script.className = 'mw-confirmedit-hcaptcha-script mw-confirmedit-hcaptcha-script-loading-failed';
 
 			// Emit the load-duration metric only on this terminal outcome

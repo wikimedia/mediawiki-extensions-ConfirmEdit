@@ -40,8 +40,11 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 			},
 			performance: {
 				measure: this.measure,
-				getEntriesByName: this.getEntriesByName
-			}
+				getEntriesByName: this.getEntriesByName,
+				now: this.sandbox.stub().returns( 1234 )
+			},
+			location: { hostname: 'test.example' },
+			navigator: { connection: { effectiveType: '4g' } }
 		};
 
 		// Subject under test

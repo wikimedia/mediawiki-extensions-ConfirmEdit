@@ -40,8 +40,8 @@ let captchaContainerElement = null;
  */
 async function setupHCaptcha( $hCaptchaField, win, interfaceName ) {
 	/**
-	 * Disables or re-enables the submit button located in the top right corner
-	 * of the MobileFrontend source editor.
+	 * Disables or re-enables both the submit button and the back button located
+	 * in the top bar of the MobileFrontend source editor.
 	 *
 	 * @param {boolean} disabled
 	 */
@@ -49,8 +49,12 @@ async function setupHCaptcha( $hCaptchaField, win, interfaceName ) {
 		// .header-action refers to the topmost header added by the
 		// MobileFrontend to hold the action buttons for the editor.
 		// It is rendered by mobile.startup/headers.js.
-		const $button = $( '.header-action button.save', win.document );
-		$button.prop( 'disabled', disabled );
+		const $saveButton = $( '.header-action button.save', win.document );
+		$saveButton.prop( 'disabled', disabled );
+
+		// Enable/disable also the Back button.
+		const $backButton = $( '.header-cancel button.back', win.document );
+		$backButton.prop( 'disabled', disabled );
 	};
 
 	// Errors that can be recovered from by restarting the workflow.
@@ -73,10 +77,11 @@ async function setupHCaptcha( $hCaptchaField, win, interfaceName ) {
 	 *                         initialize, or after hCaptcha finishes running.
 	 */
 	const executeWorkflow = function () {
+		setSubmitButtonDisabledProp( true );
+
 		return captchaIdPromise.then( ( captchaId ) => {
 			utils.hideError( $hCaptchaField );
 			utils.showLoadingIndicator( $hCaptchaField );
-			setSubmitButtonDisabledProp( true );
 
 			return utils.executeHCaptcha( win, captchaId, interfaceName )
 				.then( ( response ) => {

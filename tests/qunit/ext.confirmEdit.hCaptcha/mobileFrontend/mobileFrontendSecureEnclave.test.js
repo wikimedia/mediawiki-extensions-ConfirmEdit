@@ -25,18 +25,7 @@ QUnit.module(
 					render: this.sandbox.stub(),
 					execute: this.sandbox.stub()
 				},
-				document: {
-					createElement: this.sandbox.stub().returns( {
-						classList: {
-							contains: this.sandbox.stub().returns( false )
-						}
-					} ),
-					head: {
-						appendChild: this.sandbox.stub(),
-						removeChild: this.sandbox.stub()
-					},
-					querySelectorAll: this.sandbox.stub().returns( [] )
-				},
+				document: document,
 				performance: {
 					measure: this.measure,
 					getEntriesByName: this.getEntriesByName
@@ -44,20 +33,41 @@ QUnit.module(
 			};
 
 			const form = document.createElement( 'form' );
+			const realCreateElement = document.createElement.bind( document );
+			const fakeScriptTag = realCreateElement( 'script' );
+
 			this.submit = this.sandbox.stub( form, 'submit' );
+			this.sandbox.stub( fakeScriptTag.classList, 'contains' ).returns( false );
+			this.sandbox.stub( document, 'createElement' ).callsFake( ( tagName ) => {
+				if ( tagName.toLowerCase() === 'script' ) {
+					return fakeScriptTag;
+				}
+
+				return realCreateElement( tagName );
+			} );
+
+			this.sandbox.stub( document.head, 'appendChild' );
+			this.sandbox.stub( document.head, 'removeChild' );
 
 			this.$form = $( form )
 				.append( '<input type="text" name="some-input" />' )
 				.append( '<textarea name="some-textarea"></textarea>' )
 				.append( '<input type="hidden" id="h-captcha">' )
-				.append( '<input type="submit" value="Save Changes" id="wpSave">' )
-				.append( '<div id="wpSaveWidget"></div>' );
-
-			this.sandbox.stub( window.OO.ui, 'infuse' ).returns( {
-				setDisabled: ( disabled ) => {
-					this.$form.find( 'input[type="submit"], button[type="submit"]' ).prop( 'disabled', disabled );
-				}
-			} );
+				.append(
+					'<ul class="header-cancel"><li>' +
+					'  <button type="button" class="back">' +
+					'    <span class="mf-icon mf-icon-previous "> </span>' +
+					'    <span>Close</span>' +
+					'  </button>' +
+					'</li></ul>'
+				)
+				.append(
+					'<div class="header-action">' +
+					'  <button type="button" class="save submit">' +
+					'    <span>Save</span>' +
+					'  </button>' +
+					'</div>'
+				);
 
 			this.$form.appendTo( $( '#qunit-fixture' ) );
 
@@ -75,8 +85,14 @@ QUnit.module(
 			);
 
 			this.areSubmitButtonsDisabled = () => {
-				const $submitButtons = this.$form.find( 'input[type="submit"], button[type="submit"]' );
-				return $submitButtons.length > 0 && $submitButtons.toArray().every( ( btn ) => btn.disabled );
+				const $save = this.$form.find( '.header-action button.save' );
+				const $back = this.$form.find( '.header-cancel button.back' );
+				const buttons = [
+					...$save.toArray(),
+					...$back.toArray()
+				];
+
+				return buttons.length > 0 && buttons.every( ( btn ) => btn.disabled );
 			};
 		},
 
@@ -253,10 +269,22 @@ QUnit.test.each(
 		} );
 		this.window.hcaptcha.render.returns( 'some-captcha-id' );
 		this.window.hcaptcha.execute.onFirstCall().callsFake(
-			() => Promise.reject( error )
+			() => {
+				assert.true(
+					this.areSubmitButtonsDisabled(),
+					'submit buttons should be disabled before calling execute'
+				);
+				return Promise.reject( error );
+			}
 		);
 		this.window.hcaptcha.execute.onSecondCall().callsFake(
-			() => Promise.resolve( { response: 'some-token' } )
+			() => {
+				assert.true(
+					this.areSubmitButtonsDisabled(),
+					'submit buttons should remain disabled between retries'
+				);
+				return Promise.resolve( { response: 'some-token' } );
+			}
 		);
 
 		const hook = mw.hook( this.ceHookName( 'executionSuccess' ) );
@@ -270,6 +298,10 @@ QUnit.test.each(
 			this.window.hcaptcha.execute.callCount,
 			2,
 			`should retry once after ${ error }`
+		);
+		assert.false(
+			this.areSubmitButtonsDisabled(),
+			'submit buttons should be re-enabled after the retry succeeds'
 		);
 		assert.true(
 			spy.calledOnce,

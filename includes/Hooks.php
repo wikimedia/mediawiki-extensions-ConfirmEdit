@@ -106,6 +106,8 @@ class Hooks implements
 	 *
 	 * This includes the default/fallback Captcha of $wgCaptchaClass and any set under
 	 * $wgCaptchaTriggers[$action]['class'].
+	 *
+	 * @return array<class-string,SimpleCaptcha>
 	 */
 	public static function getActiveCaptchas(): array {
 		$instances = [];

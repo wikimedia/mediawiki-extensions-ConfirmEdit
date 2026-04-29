@@ -397,6 +397,11 @@ class HCaptcha extends SimpleCaptcha {
 	}
 
 	/** @inheritDoc */
+	public function getApiParams(): array {
+		return array_merge( parent::getApiParams(), [ 'wgConfirmEditForceShowCaptcha' ] );
+	}
+
+	/** @inheritDoc */
 	public function getError() {
 		return $this->error;
 	}

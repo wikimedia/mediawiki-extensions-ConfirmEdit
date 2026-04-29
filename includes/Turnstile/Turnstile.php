@@ -193,6 +193,11 @@ class Turnstile extends SimpleCaptcha {
 	}
 
 	/** @inheritDoc */
+	public function getApiParams(): array {
+		return [ 'cf-turnstile-response' ];
+	}
+
+	/** @inheritDoc */
 	public function getError() {
 		return $this->error;
 	}

@@ -1250,4 +1250,11 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertSame( [], $params );
 	}
+
+	public function testGetApiParams(): void {
+		$this->assertArrayEquals(
+			[ 'captchaid', 'captchaword', 'wgConfirmEditForceShowCaptcha' ],
+			( new HCaptcha() )->getApiParams()
+		);
+	}
 }

@@ -1093,6 +1093,21 @@ class SimpleCaptcha {
 	}
 
 	/**
+	 * The list of API parameters needed for this type of CAPTCHA.
+	 *
+	 * Intended for use in extensions like DiscussionTools to determine what parameters need
+	 * to be passed to the edit API without having to guess this using a
+	 * {@link self::apiGetAllowedParams} call in the context of an {@link ApiEditPage} module.
+	 *
+	 * @since 1.47
+	 * @stable to call
+	 * @return string[]
+	 */
+	public function getApiParams(): array {
+		return [ 'captchaid', 'captchaword' ];
+	}
+
+	/**
 	 * Checks if the user reached the number of false CAPTCHAs and give him some vacation
 	 * or run self::passCaptcha() and clear counter if correct.
 	 *

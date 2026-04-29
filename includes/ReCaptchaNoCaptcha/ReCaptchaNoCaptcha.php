@@ -219,6 +219,11 @@ HTML;
 	}
 
 	/** @inheritDoc */
+	public function getApiParams(): array {
+		return [ 'g-recaptcha-response' ];
+	}
+
+	/** @inheritDoc */
 	public function getError() {
 		return $this->error;
 	}

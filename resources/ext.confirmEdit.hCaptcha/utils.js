@@ -48,9 +48,10 @@ let loadingIndicator = null;
  *
  * @param {Window} win A reference to the object representing the browser's window
  * @param {Object} startMark An object returned by getPerformanceStartMark().
+ * @param {'success'|'failure'} outcome Outcome of the measured operation.
  * @return {void}
  */
-function trackPerformanceTiming( win, startMark ) {
+function trackPerformanceTiming( win, startMark, outcome ) {
 	const wiki = mw.config.get( 'wgDBname' );
 	const { interfaceName, topic } = startMark;
 
@@ -73,7 +74,7 @@ function trackPerformanceTiming( win, startMark ) {
 		mw.track(
 			`stats.mediawiki_special_createaccount_${ topic.replace( /-/g, '_' ) }_duration_seconds`,
 			duration,
-			{ wiki: wiki }
+			{ wiki: wiki, outcome: outcome }
 		);
 	}
 
@@ -85,7 +86,7 @@ function trackPerformanceTiming( win, startMark ) {
 	mw.track(
 		`stats.mediawiki_confirmedit_${ topic.replace( /-/g, '_' ) }_duration_seconds`,
 		duration,
-		{ wiki: wiki, interfaceName: interfaceName }
+		{ wiki: wiki, interfaceName: interfaceName, outcome: outcome }
 	);
 }
 
@@ -217,8 +218,10 @@ const loadHCaptcha = (
 			// Emit the load-duration metric only on this terminal outcome
 			// so that one flaky load does not contribute multiple samples
 			// (each covering an ever-growing portion of the retry loop)
-			// and skew the percentiles.
-			trackPerformanceTiming( win, perfStartMark );
+			// and skew the percentiles. The outcome label distinguishes
+			// these terminal-failure samples (which include the cumulative
+			// retry-backoff time) from the success samples emitted below.
+			trackPerformanceTiming( win, perfStartMark, 'failure' );
 			trackLoadAttempts( 'failure', attempts );
 
 			reject( 'generic-error' );
@@ -243,7 +246,7 @@ const loadHCaptcha = (
 	// to run init code, as the latter would run it too early and use
 	// a potentially inconsistent config.
 	win.onHCaptchaSDKLoaded = function () {
-		trackPerformanceTiming( win, perfStartMark );
+		trackPerformanceTiming( win, perfStartMark, 'success' );
 		trackLoadAttempts( 'success', attempts + 1 );
 
 		// Store that the hCaptcha script has been loaded via CSS classes.
@@ -279,7 +282,9 @@ const executeHCaptcha = ( win, captchaId, interfaceName ) => new Promise( ( reso
 	const wiki = mw.config.get( 'wgDBname' );
 	const perfStartMark = getPerformanceStartMark( win, interfaceName, 'hcaptcha-execute' );
 
-	const trackExecutionFinished = () => trackPerformanceTiming( win, perfStartMark );
+	const trackExecutionFinished = ( outcome ) => trackPerformanceTiming(
+		win, perfStartMark, outcome
+	);
 
 	try {
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, {
@@ -290,11 +295,11 @@ const executeHCaptcha = ( win, captchaId, interfaceName ) => new Promise( ( reso
 				mw.track( 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, {
 					wiki: wiki, interfaceName: interfaceName
 				} );
-				trackExecutionFinished();
+				trackExecutionFinished( 'success' );
 				resolve( response );
 			} )
 			.catch( ( error ) => {
-				trackExecutionFinished();
+				trackExecutionFinished( 'failure' );
 				mw.track(
 					'stats.mediawiki_confirmedit_hcaptcha_execute_workflow_error_total', 1, {
 						code: error.replace( /-/g, '_' ),
@@ -313,7 +318,7 @@ const executeHCaptcha = ( win, captchaId, interfaceName ) => new Promise( ( reso
 				interfaceName: interfaceName
 			}
 		);
-		trackExecutionFinished();
+		trackExecutionFinished( 'failure' );
 		reject( error.message );
 	}
 } );

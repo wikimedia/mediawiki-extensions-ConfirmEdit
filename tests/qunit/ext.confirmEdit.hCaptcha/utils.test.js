@@ -93,8 +93,8 @@ QUnit.test( 'should handle exception being thrown by hcaptcha.execute', async fu
 			);
 			assert.deepEqual(
 				this.track.getCall( 2 ).args,
-				[ 'stats.mediawiki_confirmedit_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki', interfaceName: 'testinterface' } ],
-				'should record metric for load time'
+				[ 'stats.mediawiki_confirmedit_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki', interfaceName: 'testinterface', outcome: 'failure' } ],
+				'should record metric for load time with outcome=failure when execute throws'
 			);
 
 			assert.strictEqual( this.logError.callCount, 1, 'should invoke mw.errorLogger.logError() once' );
@@ -153,7 +153,7 @@ QUnit.test( 'loadHCaptcha emits load_duration and load_attempts=1 on first-attem
 				[
 					'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds',
 					123,
-					{ wiki: 'testwiki', interfaceName: 'testinterface' }
+					{ wiki: 'testwiki', interfaceName: 'testinterface', outcome: 'success' }
 				],
 				[
 					'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total',
@@ -205,6 +205,11 @@ QUnit.test( 'loadHCaptcha emits script_error on each retry but load_duration onl
 				durationCalls.length,
 				1,
 				'should emit load_duration exactly once across multiple failed attempts'
+			);
+			assert.strictEqual(
+				durationCalls[ 0 ].args[ 2 ].outcome,
+				'failure',
+				'should label the terminal-failure duration sample with outcome=failure'
 			);
 
 			const errorCalls = this.track.getCalls()

@@ -162,7 +162,7 @@ const loadHCaptcha = (
 	 */
 	const MAX_LOAD_ATTEMPTS = mw.config.exists( 'wgHCaptchaMaxLoadAttempts' ) ?
 		mw.config.get( 'wgHCaptchaMaxLoadAttempts' ) :
-		10;
+		6;
 
 	/**
 	 * The initial amount of time to wait before retrying loading the hCaptcha

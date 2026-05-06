@@ -88,8 +88,11 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 				originalEvent = event.originalEvent;
 			}
 
-			if ( typeof originalEvent.submitter === 'object' ) {
+			if ( originalEvent.submitter && typeof originalEvent.submitter === 'object' ) {
 				result = ( originalEvent.submitter.id === 'wpSave' );
+			} else {
+				// Fix for browsers without SubmitEvent.submitter support (e.g. Chrome < 81).
+				result = $form.data( 'isSaveChangesClick' ) || false;
 			}
 		}
 
@@ -104,14 +107,21 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	 */
 	const executeWorkflow = function () {
 		$form.off( 'submit.hCaptcha' );
+		$form.off( 'click.hCaptcha' );
+		$form.removeData( 'isSaveChangesClick' );
 
 		const formSubmitted = new Promise( ( resolve ) => {
+			$form.on( 'click.hCaptcha', '#wpSave', () => {
+				$form.data( 'isSaveChangesClick', true );
+			} );
+
 			$form.on( 'submit.hCaptcha', function ( event ) {
 				if ( isSaveRequest( event ) ) {
 					event.preventDefault();
 
 					resolve( this );
 				}
+				$form.removeData( 'isSaveChangesClick' );
 			} );
 		} );
 

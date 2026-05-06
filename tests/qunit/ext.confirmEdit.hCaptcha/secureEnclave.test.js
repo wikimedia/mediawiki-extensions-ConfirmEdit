@@ -356,6 +356,84 @@ QUnit.test( 'should not intercept edit form submissions not coming from wpSave',
 	return result;
 } );
 
+QUnit.test( 'should intercept edit form save in older browsers when #wpSave was clicked', function ( assert ) {
+	this.window.document.head.appendChild.callsFake( () => {
+		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );
+		this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+	this.window.hcaptcha.execute.callsFake( async () => {
+		assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should be visible during execute' );
+		return { response: 'some-token' };
+	} );
+
+	this.$form.attr( 'id', 'editform' );
+
+	const result = useSecureEnclave( this.window ).then(
+		() => assertHCaptchaWasExecuted( assert, this )
+	);
+
+	// Trigger input to initialise hCaptcha (and register the click handler)
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+
+	// Click #wpSave to exercise the click.hCaptcha handler (sets isSaveChangesClick flag).
+	// A one-time handler prevents the resulting form submission from using the modern
+	// SubmitEvent.submitter path, so we can then simulate the older-browser path below.
+	this.$form.one( 'click', '#wpSave', ( e ) => {
+		e.preventDefault();
+	} );
+	this.$form.find( '#wpSave' ).trigger( 'click' );
+
+	// Simulate form submission without SubmitEvent.submitter
+	const event = $.Event( 'submit' );
+	event.originalEvent = { preventDefault: function () {} };
+	this.$form.trigger( event );
+
+	return result.then(
+		() => assertSubmissionDone( assert, this )
+	);
+} );
+
+QUnit.test( 'should not intercept edit form submissions in older browsers when #wpSave was not clicked', async function ( assert ) {
+	this.window.document.head.appendChild.callsFake( () => {
+		this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+
+	this.$form.attr( 'id', 'editform' );
+
+	let resolved = false;
+	useSecureEnclave( this.window ).then( () => {
+		resolved = true;
+	} );
+
+	// Pre-set the flag to verify executeWorkflow clears it at startup
+	this.$form.data( 'isSaveChangesClick', true );
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+
+	assert.strictEqual(
+		this.$form.data( 'isSaveChangesClick' ),
+		undefined,
+		'executeWorkflow should clear isSaveChangesClick flag at startup'
+	);
+
+	// Simulate form submission without SubmitEvent.submitter and without a prior #wpSave click
+	const event = $.Event( 'submit' );
+	event.originalEvent = { preventDefault: function () {} };
+	this.$form.trigger( event );
+
+	await delay();
+
+	assert.false(
+		resolved,
+		'captcha should not be shown when wpSave was not clicked'
+	);
+	assert.false(
+		this.window.hcaptcha.execute.called,
+		'should not run hCaptcha when wpSave was not clicked in older browsers'
+	);
+} );
+
 QUnit.test( 'should measure hCaptcha load and execute timing for successful submission', function ( assert ) {
 	mw.config.set( 'wgCanonicalSpecialPageName', 'CreateAccount' );
 

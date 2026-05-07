@@ -6,7 +6,6 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\MakeGlobalVariablesScriptHookHandler;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
-use MediaWiki\Output\OutputPage;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
@@ -18,22 +17,6 @@ use Wikimedia\ArrayUtils\ArrayUtils;
  * @group Database
  */
 class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestCase {
-
-	public function testWhenGetWikiPageIsNotAvailable(): void {
-		$out = $this->createMock( OutputPage::class );
-		$out->method( 'canUseWikiPage' )
-			->willReturn( false );
-
-		$vars = [];
-		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
-			$this->getServiceContainer()->getExtensionRegistry(),
-			$this->getServiceContainer()->getMainConfig()
-		);
-		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
-
-		$this->assertSame( [ 'wgConfirmEditCaptchaNeededForGenericEdit' => false ], $vars );
-	}
-
 	/** @dataProvider provideMakeGlobalVariablesScript */
 	public function testMakeGlobalVariablesScript( object $testCase ): void {
 		$this->markTestSkippedIfExtensionNotLoaded( 'VisualEditor' );

@@ -38,6 +38,11 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 
 	/** @inheritDoc */
 	public function onMakeGlobalVariablesScript( &$vars, $out ): void {
+		if ( !$out->canUseWikiPage() ) {
+			$vars['wgConfirmEditCaptchaNeededForGenericEdit'] = false;
+			return;
+		}
+
 		$mobileFrontendAvailable = $this->extensionRegistry->isLoaded( 'MobileFrontend' );
 		$visualEditorAvailable = $this->extensionRegistry->isLoaded( 'VisualEditor' );
 
@@ -49,11 +54,6 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 
 		if ( $mobileFrontendAvailable && $this->mobileContext !== null ) {
 			$mobileFrontendAvailable = $this->mobileContext->shouldDisplayMobileView();
-		}
-
-		if ( !$out->canUseWikiPage() ) {
-			$vars['wgConfirmEditCaptchaNeededForGenericEdit'] = false;
-			return;
 		}
 
 		$captchaNeededForEdit = false;

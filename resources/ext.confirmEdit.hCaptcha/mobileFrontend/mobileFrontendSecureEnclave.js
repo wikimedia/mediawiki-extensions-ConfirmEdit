@@ -99,6 +99,10 @@ async function setupHCaptcha( $hCaptchaField, win, interfaceName ) {
 					utils.hideLoadingIndicator( $hCaptchaField );
 					setSubmitButtonDisabledProp( false );
 
+					// execute() on the cached widget hangs silently after an
+					// errored or dismissed challenge unless reset first.
+					win.hcaptcha.reset( captchaId );
+
 					// Initiate a new workflow for recoverable errors
 					// (e.g. an expired or closed challenge).
 					if ( recoverableErrors.includes( error ) ) {

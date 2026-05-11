@@ -23,7 +23,8 @@ QUnit.module(
 			this.window = {
 				hcaptcha: {
 					render: this.sandbox.stub(),
-					execute: this.sandbox.stub()
+					execute: this.sandbox.stub(),
+					reset: this.sandbox.stub()
 				},
 				document: document,
 				performance: {
@@ -218,6 +219,10 @@ QUnit.test(
 			this.window.hcaptcha.execute.callCount,
 			2,
 			'should execute hCaptcha once per save attempt'
+		);
+		assert.true(
+			this.window.hcaptcha.reset.calledOnceWithExactly( 'some-captcha-id' ),
+			'should reset the cached widget after the dismissed first challenge'
 		);
 	}
 );

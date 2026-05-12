@@ -43,8 +43,8 @@ class HCaptcha extends SimpleCaptcha {
 	/** @var string|null */
 	private $error = null;
 
-	private ?bool $result = null;
-	private bool $resultUsesForceShowCaptchaSiteKey = false;
+	/** @var string|null The sitekey returned by the siteverify API for the solved captcha. */
+	private ?string $solvedCaptchaSiteKey = null;
 
 	private Config $hCaptchaConfig;
 	private HttpRequestFactory $httpRequestFactory;
@@ -135,8 +135,7 @@ class HCaptcha extends SimpleCaptcha {
 		// hook by AbuseFilter, and once by ConfirmEdit
 		if (
 			$context->getRequest()->getVal( 'wgConfirmEditForceShowCaptcha' ) &&
-			$this->result !== null &&
-			!( $this->result && !$this->resultUsesForceShowCaptchaSiteKey )
+			$this->isCaptchaSolved() !== null
 		) {
 			return false;
 		}
@@ -192,18 +191,23 @@ class HCaptcha extends SimpleCaptcha {
 	 * @return bool
 	 */
 	protected function passCaptcha( $_, $token, $user ) {
+		$this->error = null;
 		$webRequest = RequestContext::getMain()->getRequest();
 		// If we have a result, "showcaptcha" consequence has been invoked, but the submission
 		// is in the context of a request where the user wasn't yet required to complete a CAPTCHA,
 		// then return false to avoid making a duplicate API request, and to ensure that the user
 		// has to complete the "always challenge" CAPTCHA.
-		if ( $this->result &&
+		if ( $this->isCaptchaSolved() &&
 			$this->shouldForceShowCaptcha() &&
 			$webRequest->getVal( 'wgConfirmEditForceShowCaptcha' ) === null ) {
 			// Set an error here, so that the page will display an appropriate
 			// message for the user to resubmit the form.
 			$this->error = 'forceshowcaptcha';
 			return false;
+		}
+
+		if ( $this->isCaptchaSolved() !== null ) {
+			return (bool)$this->isCaptchaSolved();
 		}
 
 		if ( !$token ) {
@@ -331,9 +335,30 @@ class HCaptcha extends SimpleCaptcha {
 			// T398333
 			$this->storeSessionScore( 'hCaptcha-score', $json['score'] ?? null, $user->getName() );
 		}
-		$this->result = $json['success'];
-		$this->resultUsesForceShowCaptchaSiteKey = $this->shouldForceShowCaptcha();
+		$this->solvedCaptchaSiteKey = $json['sitekey'] ?? null;
+		$this->setCaptchaSolved( $json['success'] );
 		return $json['success'];
+	}
+
+	/**
+	 * @inheritDoc
+	 *
+	 * If the "showcaptcha" consequence is active and requires an always-challenge
+	 * sitekey, the captcha is not considered solved unless it was solved with that
+	 * specific sitekey. This prevents a normal (passive) captcha solve from
+	 * satisfying the AbuseFilter always-challenge requirement.
+	 */
+	public function isCaptchaSolved(): ?bool {
+		$solved = parent::isCaptchaSolved();
+		if ( $solved && $this->shouldForceShowCaptcha() ) {
+			$alwaysChallengeSiteKey = $this->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ?? null;
+			if ( $alwaysChallengeSiteKey !== null
+				&& $this->solvedCaptchaSiteKey !== $alwaysChallengeSiteKey
+			) {
+				return false;
+			}
+		}
+		return $solved;
 	}
 
 	/** @inheritDoc */

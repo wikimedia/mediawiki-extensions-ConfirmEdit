@@ -4,6 +4,7 @@
 			"Ant176",
 			"Kokage si",
 			"Omotecho",
+			"Tensama0415",
 			"Waki285",
 			"Whym"
 		]
@@ -26,5 +27,6 @@
 	"hcaptcha-loading-indicator-label": "フォーム読み込みが終わるまでお待ちください……",
 	"hcaptcha-missing-token": "このフォーム読み込みがまだ終わっていません。あと数秒、お待ちのうえ、もう一度お願いします。",
 	"hcaptcha-noscript": "続けるには JavaScript が必要です。 ブラウザの設定で JavaScript をオンにしてから、ページを更新してください。",
-	"hcaptcha-force-show-captcha-edit": "フォームをもう一度送信してチャレンジを完了、編集内容を保存してください。"
+	"hcaptcha-force-show-captcha-edit": "フォームをもう一度送信してチャレンジを完了、編集内容を保存してください。",
+	"hcaptcha-visual-editor-error-handler-warning": "フォームをもう一度送信して編集内容を保存してください。"
 }

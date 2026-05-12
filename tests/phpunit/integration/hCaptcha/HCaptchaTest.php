@@ -22,6 +22,7 @@ use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
+use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
 use MockHttpTrait;
 use Psr\Log\LoggerInterface;
@@ -773,15 +774,78 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public function testShouldCheckOnForceCaptchaSet(): void {
+	/** @dataProvider provideShouldCheck */
+	public function testShouldCheck(
+		?bool $captchaResult,
+		bool $forceShowCaptchaFlagInRequest,
+		bool $resultUsedForceCaptchaSiteKey,
+		bool $expectedReturnValue
+	): void {
+		// Mock that all users should see a CAPTCHA, so that when the custom ::shouldCheck code returns
+		// early with `false` we can test for that
+		$this->clearHook( 'ConfirmEditCanUserSkipCaptcha' );
+		$this->setTemporaryHook( 'ConfirmEditTriggersCaptcha', static function ( $action, $title, &$result ) {
+			$result = true;
+		} );
+
 		$hCaptcha = TestingAccessWrapper::newFromObject( new HCaptcha() );
-		$hCaptcha->result = false;
+		$hCaptcha->result = $captchaResult;
+		$hCaptcha->resultUsesForceShowCaptchaSiteKey = $resultUsedForceCaptchaSiteKey;
+
 		$context = $this->createMock( RequestContext::class );
-		$request = new FauxRequest( [ 'wgConfirmEditForceShowCaptcha' => true ] );
+		if ( $forceShowCaptchaFlagInRequest ) {
+			$request = new FauxRequest( [ 'wgConfirmEditForceShowCaptcha' => true ] );
+		} else {
+			$request = new FauxRequest( [] );
+		}
 		$context->method( 'getRequest' )->willReturn( $request );
-		$this->assertFalse(
+		$context->method( 'getUser' )->willReturn( $this->createMock( User::class ) );
+
+		$this->assertSame(
+			$expectedReturnValue,
 			$hCaptcha->shouldCheck( $this->createMock( WikiPage::class ), '', '', $context )
 		);
+	}
+
+	public static function provideShouldCheck(): array {
+		return [
+			'Result is null' => [
+				'captchaResult' => null,
+				'forceShowCaptchaFlagInRequest' => false,
+				'resultUsedForceCaptchaSiteKey' => false,
+				'expectedReturnValue' => true,
+			],
+			'Result is false' => [
+				'captchaResult' => false,
+				'forceShowCaptchaFlagInRequest' => false,
+				'resultUsedForceCaptchaSiteKey' => false,
+				'expectedReturnValue' => true,
+			],
+			'Result is false and forceShowCaptcha flag set in request' => [
+				'captchaResult' => false,
+				'forceShowCaptchaFlagInRequest' => true,
+				'resultUsedForceCaptchaSiteKey' => false,
+				'expectedReturnValue' => false,
+			],
+			'Result is true' => [
+				'captchaResult' => true,
+				'forceShowCaptchaFlagInRequest' => false,
+				'resultUsedForceCaptchaSiteKey' => false,
+				'expectedReturnValue' => true,
+			],
+			'Result is true and forceShowCaptcha flag set in request' => [
+				'captchaResult' => true,
+				'forceShowCaptchaFlagInRequest' => true,
+				'resultUsedForceCaptchaSiteKey' => true,
+				'expectedReturnValue' => false,
+			],
+			'Result is true and forceShowCaptcha flag set in request, but result did not use force show sitekey' => [
+				'captchaResult' => true,
+				'forceShowCaptchaFlagInRequest' => true,
+				'resultUsedForceCaptchaSiteKey' => false,
+				'expectedReturnValue' => true,
+			],
+		];
 	}
 
 	public function testPassCaptchaInForceShowCaptchaMode(): void {

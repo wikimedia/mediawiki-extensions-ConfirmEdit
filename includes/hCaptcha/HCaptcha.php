@@ -42,6 +42,7 @@ class HCaptcha extends SimpleCaptcha {
 	private $error = null;
 
 	private ?bool $result = null;
+	private bool $resultUsesForceShowCaptchaSiteKey = false;
 
 	private Config $hCaptchaConfig;
 	private HttpRequestFactory $httpRequestFactory;
@@ -130,8 +131,11 @@ class HCaptcha extends SimpleCaptcha {
 		// already attempted to verify the token, return early. This ensures that we're
 		// only going to verify the token once, because shouldCheck is invoked once in the EditFilterMergedContent
 		// hook by AbuseFilter, and once by ConfirmEdit
-		if ( $context->getRequest()->getVal( 'wgConfirmEditForceShowCaptcha' ) &&
-			$this->result !== null ) {
+		if (
+			$context->getRequest()->getVal( 'wgConfirmEditForceShowCaptcha' ) &&
+			$this->result !== null &&
+			!( $this->result && !$this->resultUsesForceShowCaptchaSiteKey )
+		) {
 			return false;
 		}
 		return parent::shouldCheck( $page, $content, $section, $context, $oldtext );
@@ -326,6 +330,7 @@ class HCaptcha extends SimpleCaptcha {
 			$this->storeSessionScore( 'hCaptcha-score', $json['score'] ?? null, $user->getName() );
 		}
 		$this->result = $json['success'];
+		$this->resultUsesForceShowCaptchaSiteKey = $this->shouldForceShowCaptcha();
 		return $json['success'];
 	}
 

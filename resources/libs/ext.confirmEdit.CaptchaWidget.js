@@ -172,10 +172,11 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderHCaptcha = function ( $captcha
 };
 
 /**
- * if the type of CAPTCHA uses an input field for an answer, this method returns a reference
- * to the {@link Element} for the Codex input field.
+ * If the type of CAPTCHA uses an input field for an answer, this method returns a reference
+ * to the {@link HTMLDivElement} for the Codex input field (which will be a `div` that contains
+ * an `input` element)
  *
- * @return {Element|null}
+ * @return {HTMLDivElement|null}
  */
 mw.libs.confirmEdit.CaptchaWidget.prototype.getInputField = function () {
 	return this.captchaInputField;

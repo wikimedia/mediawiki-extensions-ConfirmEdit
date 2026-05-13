@@ -92,6 +92,8 @@ QUnit.module(
 QUnit.test(
 	'getDefaultOptions when hCaptcha is enabled for MobileFrontend',
 	function ( assert ) {
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
+
 		initMobileFrontend(
 			'mobilefrontend-editor',
 			{
@@ -157,6 +159,8 @@ QUnit.test(
 QUnit.test(
 	'getSavePanelTemplateSource when hCaptcha is enabled for MobileFrontend',
 	function ( assert ) {
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
+
 		initMobileFrontend(
 			'mobilefrontend-editor',
 			{
@@ -214,6 +218,8 @@ QUnit.test(
 QUnit.test(
 	'getCaptchaPanelTemplateSource when hCaptcha is enabled for MobileFrontend',
 	function ( assert ) {
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
+
 		initMobileFrontend(
 			'mobilefrontend-editor',
 			{
@@ -290,8 +296,10 @@ QUnit.test(
 );
 
 QUnit.test(
-	'preRenderFinished when hCaptcha is enabled for MobileFrontend',
+	'preRenderFinished when hCaptcha is enabled and captcha is needed for generic edit',
 	async function ( assert ) {
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
+
 		initMobileFrontend(
 			'mobilefrontend-editor',
 			{
@@ -308,6 +316,31 @@ QUnit.test(
 		assert.true(
 			this.window.document.createElement.calledOnce,
 			'The handler should have created a script tag for the hCaptcha SDK'
+		);
+	}
+);
+
+QUnit.test(
+	'preRenderFinished does not preload SDK when captcha is not needed for generic edit',
+	async function ( assert ) {
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', false );
+
+		initMobileFrontend(
+			'mobilefrontend-editor',
+			{
+				HCaptchaEnabledInMobileFrontend: true,
+				MobileHCaptchaAbuseFilterEnabled: true,
+				HCaptchaSiteKey: 'hCaptcha-site-key'
+			},
+			this.window
+		);
+
+		mw.hook( this.mfHookName( 'preRenderFinished' ) ).fire();
+		await this.waitOneTick();
+
+		assert.false(
+			this.window.document.createElement.called,
+			'The handler should not preload the hCaptcha SDK when captcha is not needed'
 		);
 	}
 );

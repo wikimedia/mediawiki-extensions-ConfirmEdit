@@ -324,6 +324,7 @@
 		"localBasePath": "tests/qunit/",
 		"remoteExtPath": "ConfirmEdit/tests/qunit/",
 		"scripts": [
+			"ext.confirmEdit.hCaptcha/init.test.js",
 			"ext.confirmEdit.hCaptcha/secureEnclave.test.js",
 			"ext.confirmEdit.hCaptcha/ErrorWidget.test.js",
 			"ext.confirmEdit.hCaptcha/mobileFrontend/initMobileFrontend.test.js",

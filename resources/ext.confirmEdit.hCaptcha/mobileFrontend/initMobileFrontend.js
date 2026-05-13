@@ -54,7 +54,8 @@ module.exports = function (
 		}
 	}
 
-	if ( config.HCaptchaEnabledInMobileFrontend ) {
+	if ( config.HCaptchaEnabledInMobileFrontend &&
+		mw.config.get( 'wgConfirmEditCaptchaNeededForGenericEdit' ) === 'hcaptcha' ) {
 		mw.hook( 'mobileFrontend.sourceEditor.getDefaultOptions' ).add( ( e ) => {
 			const newDefaults = Object.assign(
 				{},

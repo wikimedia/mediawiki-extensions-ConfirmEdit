@@ -1,4 +1,4 @@
-$( () => {
+function initEditorIntegrations() {
 	const useSecureEnclave = require( './secureEnclave.js' );
 	const initMobileFrontend = require( './mobileFrontend/initMobileFrontend.js' );
 	const visualEditorInitPluginsCallback = require( './ve/initPlugins.js' );
@@ -45,19 +45,14 @@ $( () => {
 		}
 	}
 
-	// If VisualEditor is available, then register the hCaptcha plugins.
+	// Register the hCaptcha VisualEditor plugins that handle showing hCaptcha
+	// for both a save error and before the first save attempt in VisualEditor.
+	// This is skipped if the VisualEditor is not installed (when the state
+	// is 'missing') or if it's errored out.
 	//
-	// The VisualEditor scripts are loaded if they are one of loaded, loading,
-	// ready, or registered (the exact state depending on when this code is run).
-	// If it is 'missing' then we should not need to respond to any VisualEditor
-	// edit on this page.
-	//
-	// Note that, contrary to what happens with the MobileFrontend, this also
-	// runs if the state is just "registered" since this just adds a VE module
-	// that may end up not being used. However, the code above is exclusive: it
-	// either loads the MobileFrontend or the Desktop support, and failing to
-	// call useSecureEnclave() when the MobileFrontend is present but unused
-	// would disable hCaptcha support for the source editor in Desktop.
+	// These should always be registered as the VisualEditor plugin code will
+	// handle when to show the CAPTCHA (and will avoid loading the hCaptcha SDK
+	// in cases where it is not needed)
 	const visualEditorModuleState = mw.loader.getState( 'ext.visualEditor.targetLoader' );
 	if ( !visualEditorModuleState || visualEditorModuleState === 'missing' || visualEditorModuleState === 'error' ) {
 		return;
@@ -66,6 +61,10 @@ $( () => {
 	mw.loader.using( 'ext.visualEditor.targetLoader' ).then( () => {
 		mw.libs.ve.targetLoader.addPlugin( visualEditorInitPluginsCallback );
 	} );
+}
+
+$( () => {
+	initEditorIntegrations();
 } );
 
 /**
@@ -76,5 +75,6 @@ $( () => {
  * @internal
  */
 module.exports = {
-	utils: require( './utils.js' )
+	utils: require( './utils.js' ),
+	initEditorIntegrations: initEditorIntegrations
 };

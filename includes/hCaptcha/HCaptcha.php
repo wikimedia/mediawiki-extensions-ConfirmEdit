@@ -238,6 +238,24 @@ class HCaptcha extends SimpleCaptcha {
 			);
 			return false;
 		}
+		$requestData = $this->buildSiteVerifyRequestData( $webRequest, $token );
+		$options = $requestData[ 'options' ];
+		$verifyUrl = $requestData[ 'verifyUrl' ];
+
+		$status = $this->executeSiteVerifyWithRetry( $verifyUrl, $options, $user, $token );
+		if ( $status === null ) {
+			return false;
+		}
+
+		return $this->parseSiteVerifyResponse( $status, $user, $webRequest, $token );
+	}
+
+	/**
+	 * @param WebRequest $webRequest
+	 * @param string $token
+	 * @return array{options:array,verifyUrl:string}
+	 */
+	private function buildSiteVerifyRequestData( WebRequest $webRequest, string $token ): array {
 		$data = [
 			'secret' => $this->hCaptchaConfig->get( 'HCaptchaSecretKey' ),
 			'response' => $token,
@@ -259,7 +277,22 @@ class HCaptcha extends SimpleCaptcha {
 		}
 
 		$verifyUrl = $this->hCaptchaConfig->get( 'HCaptchaVerifyUrl' );
+		return [ 'options' => $options, 'verifyUrl' => $verifyUrl ];
+	}
 
+	/**
+	 * @param string $verifyUrl
+	 * @param array $options
+	 * @param UserIdentity $user
+	 * @param string $token
+	 * @return Status|null Null if all attempts failed (caller must return false).
+	 */
+	private function executeSiteVerifyWithRetry(
+		string $verifyUrl,
+		array $options,
+		UserIdentity $user,
+		string $token
+	): ?Status {
 		// Initial attempt plus up to two retries, each preceded by a 10ms delay.
 		$maxAttempts = 3;
 		$attempt = 1;
@@ -289,7 +322,7 @@ class HCaptcha extends SimpleCaptcha {
 			$this->error = 'http';
 			$this->healthChecker->incrementSiteVerifyApiErrorCount();
 			$this->logCheckError( $status, $user, $token );
-			return false;
+			return null;
 		}
 
 		if ( $attempt > 1 ) {
@@ -301,6 +334,15 @@ class HCaptcha extends SimpleCaptcha {
 				]
 			);
 		}
+		return $status;
+	}
+
+	private function parseSiteVerifyResponse(
+		Status $status,
+		UserIdentity $user,
+		WebRequest $webRequest,
+		string $token
+	): bool {
 		$json = FormatJson::decode( $status->getValue(), true );
 		if ( !$json ) {
 			$this->error = 'json';
@@ -344,14 +386,18 @@ class HCaptcha extends SimpleCaptcha {
 		}
 		$this->logger->info( '{success_message} captcha solution attempt for {user}', $debugLogContext );
 
+		$this->addHCaptchaScore( $user, $json );
+		$this->solvedCaptchaSiteKey = $json['success'] ? ( $json['sitekey'] ?? null ) : null;
+		$this->setCaptchaSolved( $json['success'] );
+		return $json['success'];
+	}
+
+	private function addHCaptchaScore( UserIdentity $user, array $json ): void {
 		if ( $this->hCaptchaConfig->get( 'HCaptchaDeveloperMode' )
 			|| $this->hCaptchaConfig->get( 'HCaptchaUseRiskScore' ) ) {
 			// T398333
 			$this->storeSessionScore( 'hCaptcha-score', $json['score'] ?? null, $user->getName() );
 		}
-		$this->solvedCaptchaSiteKey = $json['success'] ? ( $json['sitekey'] ?? null ) : null;
-		$this->setCaptchaSolved( $json['success'] );
-		return $json['success'];
 	}
 
 	/**

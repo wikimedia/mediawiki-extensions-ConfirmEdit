@@ -67,7 +67,10 @@
 			"styles": "ext.confirmEdit.editPreview.ipwhitelist.styles.css"
 		},
 		"ext.confirmEdit.visualEditor": {
-			"scripts": "ve-confirmedit/ve.init.mw.CaptchaSaveErrorHandler.js",
+			"packageFiles": [
+				"ve-confirmedit/init.js",
+				"ve-confirmedit/ve.init.mw.CaptchaSaveErrorHandler.js"
+			],
 			"dependencies": "ext.confirmEdit.CaptchaInputWidget"
 		},
 		"ext.confirmEdit.simpleCaptcha": {
@@ -327,11 +330,13 @@
 			"ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaSaveErrorHandler.test.js",
 			"ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaOnLoadHandler.test.js",
 			"ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptcha.test.js",
-			"ext.confirmEdit.CaptchaWidget/ext.confirmEdit.CaptchaWidget.test.js"
+			"ext.confirmEdit.CaptchaWidget/ext.confirmEdit.CaptchaWidget.test.js",
+			"ext.confirmEdit.visualEditor/ve.init.mw.CaptchaSaveErrorHandler.test.js"
 		],
 		"dependencies": [
 			"ext.confirmEdit.hCaptcha",
-			"ext.confirmEdit.CaptchaWidget"
+			"ext.confirmEdit.CaptchaWidget",
+			"ext.confirmEdit.visualEditor"
 		]
 	},
 	"manifest_version": 2

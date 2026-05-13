@@ -121,6 +121,12 @@
 				"VisualEditor.VisualEditorAvailabilityLookup",
 				"MobileFrontend.Context"
 			]
+		},
+		"BeforePageDisplayHookHandler": {
+			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks\\Handlers\\BeforePageDisplayHookHandler",
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"Hooks": {
@@ -136,7 +142,8 @@
 		"EditFilterMergedContent": "ConfirmEditHooks",
 		"APIGetAllowedParams": "ConfirmEditHooks",
 		"AuthChangeFormFields": "ConfirmEditHooks",
-		"AbuseFilterCustomActions": "AbuseFilterHooks"
+		"AbuseFilterCustomActions": "AbuseFilterHooks",
+		"BeforePageDisplay": "BeforePageDisplayHookHandler"
 	},
 	"AuthManagerAutoConfig": {
 		"preauth": {
@@ -224,6 +231,10 @@
 		"HCaptchaSiteKey": {
 			"description": "Sitekey from hCaptcha (requires creating an account)",
 			"value": ""
+		},
+		"HCaptchaBlockedIpEditingScoreCollectionSiteKey": {
+			"description": "Passive mode sitekey from hCaptcha, used to collect a risk score for IP/range-blocked users on edit pages without showing a captcha challenge. Leave it as null to disable this feature.",
+			"value": null
 		},
 		"HCaptchaSecretKey": {
 			"description": "Secret key from hCaptcha (requires creating an account)",

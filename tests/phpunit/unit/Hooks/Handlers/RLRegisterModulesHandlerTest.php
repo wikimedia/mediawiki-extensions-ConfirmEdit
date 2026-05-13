@@ -49,15 +49,11 @@ class RLRegisterModulesHandlerTest extends MediaWikiUnitTestCase {
 		return [
 			'hCaptcha is not enabled' => [
 				'captchasEnabled' => [ 'SimpleCaptcha' ],
-				'expectedModuleNames' => [
-					'ext.confirmEdit.CaptchaInputWidget',
-					'ext.confirmEdit.CaptchaWidget',
-				],
+				'expectedModuleNames' => [ 'ext.confirmEdit.CaptchaWidget' ],
 			],
 			'hCaptcha is enabled' => [
 				'captchasEnabled' => [ 'SimpleCaptcha', 'HCaptcha' ],
 				'expectedModuleNames' => [
-					'ext.confirmEdit.CaptchaInputWidget',
 					'ext.confirmEdit.CaptchaWidget',
 					'ext.confirmEdit.hCaptcha',
 					'ext.confirmEdit.hCaptcha.styles',
@@ -77,11 +73,6 @@ class RLRegisterModulesHandlerTest extends MediaWikiUnitTestCase {
 		$rl->expects( $this->once() )
 			->method( 'register' )
 			->with( $this->callback( function ( array $modules ) use ( $expectedMessages ) {
-				$this->assertArrayHasKey( 'ext.confirmEdit.CaptchaInputWidget', $modules );
-				$this->assertArrayContains(
-					$expectedMessages,
-					$modules['ext.confirmEdit.CaptchaInputWidget']['messages']
-				);
 				$this->assertArrayHasKey( 'ext.confirmEdit.CaptchaWidget', $modules );
 				$this->assertArrayContains(
 					$expectedMessages,

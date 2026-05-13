@@ -54,14 +54,6 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 			$captchaModuleMessages[] = 'fancycaptcha-imgcaptcha-ph';
 		}
 
-		$modules['ext.confirmEdit.CaptchaInputWidget'] = [
-			'localBasePath' => $dir,
-			'remoteExtPath' => 'ConfirmEdit/resources',
-			'scripts' => 'libs/ext.confirmEdit.CaptchaInputWidget.js',
-			'styles' => 'libs/ext.confirmEdit.CaptchaInputWidget.less',
-			'messages' => $captchaModuleMessages,
-			'dependencies' => 'oojs-ui-core',
-		];
 		$modules['ext.confirmEdit.CaptchaWidget'] = [
 			'localBasePath' => $dir,
 			'remoteExtPath' => 'ConfirmEdit/resources',

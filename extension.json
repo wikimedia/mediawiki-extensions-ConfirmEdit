@@ -71,7 +71,10 @@
 				"ve-confirmedit/init.js",
 				"ve-confirmedit/ve.init.mw.CaptchaSaveErrorHandler.js"
 			],
-			"dependencies": "ext.confirmEdit.CaptchaInputWidget"
+			"dependencies": [
+				"ext.confirmEdit.CaptchaWidget",
+				"oojs-ui-core"
+			]
 		},
 		"ext.confirmEdit.simpleCaptcha": {
 			"styles": "ext.confirmEdit.simpleCaptcha.css"

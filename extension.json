@@ -233,7 +233,7 @@
 			"value": ""
 		},
 		"HCaptchaBlockedIpEditingScoreCollectionSiteKey": {
-			"description": "Passive mode sitekey from hCaptcha, used to collect a risk score for IP/range-blocked users on edit pages without showing a captcha challenge. Leave it as null to disable this feature.",
+			"description": "Passive mode sitekey from hCaptcha, used to collect a risk score for IP/range-blocked users on edit pages without showing a captcha challenge. This setting has no effect unless both HCaptchaEnterprise and HCaptchaSecureEnclave are enabled. Leave it as null to disable this feature.",
 			"value": null
 		},
 		"HCaptchaSecretKey": {
@@ -338,6 +338,7 @@
 			"ext.confirmEdit.hCaptcha/init.test.js",
 			"ext.confirmEdit.hCaptcha/secureEnclave.test.js",
 			"ext.confirmEdit.hCaptcha/ErrorWidget.test.js",
+			"ext.confirmEdit.hCaptcha/RiskScoreCollector.test.js",
 			"ext.confirmEdit.hCaptcha/mobileFrontend/initMobileFrontend.test.js",
 			"ext.confirmEdit.hCaptcha/mobileFrontend/mobileFrontendSecureEnclave.test.js",
 			"ext.confirmEdit.hCaptcha/ProgressIndicatorWidget.test.js",

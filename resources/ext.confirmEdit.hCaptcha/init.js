@@ -1,5 +1,6 @@
 function initEditorIntegrations() {
 	const useSecureEnclave = require( './secureEnclave.js' );
+	const RiskScoreCollector = require( './RiskScoreCollector.js' );
 	const initMobileFrontend = require( './mobileFrontend/initMobileFrontend.js' );
 	const visualEditorInitPluginsCallback = require( './ve/initPlugins.js' );
 	const config = require( './config.json' );
@@ -13,7 +14,21 @@ function initEditorIntegrations() {
 	// MobileFrontend is known but the user is using another UI (such as the
 	// source editor for Desktop or the VisualEditor); if that's the case, this
 	// initializes the support for the Desktop editor instead.
+	//
+	// If the module has been loaded just for collecting a risk score, this
+	// calls the method for doing so without calling the methods to initialize
+	// support for the editing interfaces.
 	if ( config.HCaptchaEnterprise && config.HCaptchaSecureEnclave ) {
+		const blockedIpEditingScoreCollectionConfig = mw.config.get(
+			'wgHCaptchaBlockedIpEditingScoreCollectionConfig'
+		);
+		if ( blockedIpEditingScoreCollectionConfig ) {
+			RiskScoreCollector.collectRiskScoreForBlockedUser(
+				window,
+				blockedIpEditingScoreCollectionConfig
+			);
+		}
+
 		const mobileFEState = mw.loader.getState( 'mobile.editor.overlay' );
 		const isMobileFEActive = [ 'loading', 'loaded', 'ready', 'executing' ].includes( mobileFEState );
 		const isMobileHCaptchaAbuseFilterEnabled = mw.config.get( 'wgConfirmEditMobileHCaptchaAbuseFilterEnabled' );

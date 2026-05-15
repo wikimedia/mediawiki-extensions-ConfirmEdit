@@ -587,6 +587,44 @@ QUnit.test.each( 'getHCaptchaSiteKey returns the expected sitekey', {
 	);
 } );
 
+QUnit.test(
+	'showLoadingIndicator attaches status widgets only once to each hCaptcha field',
+	function ( assert ) {
+		const $firstContainer = $( '<div>' ).appendTo( '#qunit-fixture' );
+		const $firstField = $( '<div>' ).appendTo( $firstContainer );
+
+		// First call should add the indicator to the first field
+		this.utils.showLoadingIndicator( $firstField );
+
+		assert.strictEqual(
+			$firstContainer.find( '.ext-confirmEdit-hCaptchaLoadingIndicator' ).length,
+			1,
+			'Loading indicator attached inside the first container'
+		);
+
+		// Second call should not add another loading indicator element
+		this.utils.showLoadingIndicator( $firstField );
+
+		assert.strictEqual(
+			$firstContainer.find( '.ext-confirmEdit-hCaptchaLoadingIndicator' ).length,
+			1,
+			'Only one loading indicator attached inside the first container'
+		);
+
+		const $secondContainer = $( '<div>' ).appendTo( '#qunit-fixture' );
+		const $secondField = $( '<div id="h-captcha">' ).appendTo( $secondContainer );
+
+		// Call for a different element should add the loading indicator element
+		this.utils.showLoadingIndicator( $secondField );
+
+		assert.strictEqual(
+			$secondContainer.find( '.ext-confirmEdit-hCaptchaLoadingIndicator' ).length,
+			1,
+			'Loading indicator re-attached inside the second container'
+		);
+	}
+);
+
 QUnit.test.each( 'isHCaptchaInInvisibleMode returns the value of HCaptchaInvisibleMode', {
 	'HCaptchaInvisibleMode is true': {
 		hCaptchaInvisibleMode: true

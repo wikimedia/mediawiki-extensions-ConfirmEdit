@@ -49,6 +49,15 @@ let errorWidget = null;
 let loadingIndicator = null;
 
 /**
+ * The elements that the status widgets have been inserted after. Tracked
+ * so that we can ensure only one set of widgets are appended after each
+ * hCaptcha field.
+ *
+ * @type {HTMLElement[]}
+ */
+let widgetsAttachedToFields = [];
+
+/**
  * Conclude and emit a performance measurement in seconds via mw.track.
  *
  * @param {Window} win A reference to the object representing the browser's window
@@ -653,21 +662,23 @@ function isHCaptchaInInvisibleMode() {
  * @private
  */
 function initializeStatusWidgets( $hCaptchaField ) {
-	if ( statusWidgetsInitialized ) {
-		return;
+	if ( !statusWidgetsInitialized ) {
+		statusWidgetsInitialized = true;
+		errorWidget = new ErrorWidget();
+		loadingIndicator = new ProgressIndicatorWidget(
+			mw.msg( 'hcaptcha-loading-indicator-label' )
+		);
+
+		loadingIndicator.$element.addClass( 'ext-confirmEdit-hCaptchaLoadingIndicator' );
+		loadingIndicator.$element.hide();
+		errorWidget.$element.hide();
 	}
 
-	statusWidgetsInitialized = true;
-	errorWidget = new ErrorWidget();
-	loadingIndicator = new ProgressIndicatorWidget(
-		mw.msg( 'hcaptcha-loading-indicator-label' )
-	);
-
-	loadingIndicator.$element.addClass( 'ext-confirmEdit-hCaptchaLoadingIndicator' );
-	loadingIndicator.$element.hide();
-	errorWidget.$element.hide();
-
-	$hCaptchaField.after( loadingIndicator.$element, errorWidget.$element );
+	const fieldElement = $hCaptchaField[ 0 ];
+	if ( !widgetsAttachedToFields.includes( fieldElement ) ) {
+		widgetsAttachedToFields.push( fieldElement );
+		$hCaptchaField.after( loadingIndicator.$element, errorWidget.$element );
+	}
 }
 
 /**
@@ -737,6 +748,7 @@ function reset() {
 	statusWidgetsInitialized = false;
 	errorWidget = null;
 	loadingIndicator = null;
+	widgetsAttachedToFields = [];
 }
 
 module.exports = {

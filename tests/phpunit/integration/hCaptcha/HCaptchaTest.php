@@ -780,6 +780,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	public function testShouldCheck(
 		?bool $captchaResult,
 		bool $forceShowCaptchaFlagInRequest,
+		bool $resultUsedForceCaptchaSiteKey,
 		bool $expectedReturnValue
 	): void {
 		// Mock that all users should see a CAPTCHA, so that when the custom ::shouldCheck code returns
@@ -790,10 +791,9 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		} );
 
 		$hCaptcha = TestingAccessWrapper::newFromObject( new HCaptcha() );
+		$hCaptcha->result = $captchaResult;
+		$hCaptcha->resultUsesForceShowCaptchaSiteKey = $resultUsedForceCaptchaSiteKey;
 
-		if ( $captchaResult !== null ) {
-			$hCaptcha->setCaptchaSolved( $captchaResult );
-		}
 		$context = $this->createMock( RequestContext::class );
 		if ( $forceShowCaptchaFlagInRequest ) {
 			$request = new FauxRequest( [ 'wgConfirmEditForceShowCaptcha' => true ] );
@@ -814,140 +814,50 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			'Result is null' => [
 				'captchaResult' => null,
 				'forceShowCaptchaFlagInRequest' => false,
+				'resultUsedForceCaptchaSiteKey' => false,
 				'expectedReturnValue' => true,
 			],
 			'Result is false' => [
 				'captchaResult' => false,
 				'forceShowCaptchaFlagInRequest' => false,
+				'resultUsedForceCaptchaSiteKey' => false,
 				'expectedReturnValue' => true,
 			],
 			'Result is false and forceShowCaptcha flag set in request' => [
 				'captchaResult' => false,
 				'forceShowCaptchaFlagInRequest' => true,
+				'resultUsedForceCaptchaSiteKey' => false,
 				'expectedReturnValue' => false,
+			],
+			'Result is true' => [
+				'captchaResult' => true,
+				'forceShowCaptchaFlagInRequest' => false,
+				'resultUsedForceCaptchaSiteKey' => false,
+				'expectedReturnValue' => true,
 			],
 			'Result is true and forceShowCaptcha flag set in request' => [
 				'captchaResult' => true,
 				'forceShowCaptchaFlagInRequest' => true,
+				'resultUsedForceCaptchaSiteKey' => true,
 				'expectedReturnValue' => false,
+			],
+			'Result is true and forceShowCaptcha flag set in request, but result did not use force show sitekey' => [
+				'captchaResult' => true,
+				'forceShowCaptchaFlagInRequest' => true,
+				'resultUsedForceCaptchaSiteKey' => false,
+				'expectedReturnValue' => true,
 			],
 		];
 	}
 
-	public function testPassCaptchaFailureIsNotCachedAndErrorIsReset(): void {
-		$this->overrideConfigValues( [
-			'HCaptchaSecretKey' => 'secretkey',
-			'HCaptchaSiteKey' => 'test-sitekey',
-		] );
-
-		// First call returns unparseable JSON (simulates a transient parse failure).
-		$failingRequest = $this->createMock( MWHttpRequest::class );
-		$failingRequest->method( 'execute' )->willReturn( Status::newGood() );
-		$failingRequest->method( 'getContent' )->willReturn( 'invalid json:{' );
-
-		// Second call with the same token returns a valid success response.
-		$successfulRequest = $this->createMock( MWHttpRequest::class );
-		$successfulRequest->method( 'execute' )->willReturn( Status::newGood() );
-		$successfulRequest->method( 'getContent' )
-			->willReturn( FormatJson::encode( [ 'success' => true, 'sitekey' => 'test-sitekey' ] ) );
-
-		// Both calls must reach siteverify: failures are not cached.
-		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
-		$mockHttpRequestFactory->expects( $this->exactly( 2 ) )
-			->method( 'create' )
-			->willReturnOnConsecutiveCalls( $failingRequest, $successfulRequest );
-		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
-
-		$hCaptcha = new HCaptcha();
-		$hCaptcha->setAction( 'edit' );
-		$hCaptcha->setTrigger( 'test' );
-		$user = $this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' );
-
-		// First call: parse failure sets error.
-		$this->assertFalse( $hCaptcha->passCaptchaFromRequest(
-			new FauxRequest( [ 'h-captcha-response' => 'same-token' ] ),
-			$user
-		) );
-		$this->assertSame( 'json', $hCaptcha->getError() );
-
-		// Second call: same token, error from first call is cleared, siteverify succeeds.
-		$this->assertTrue( $hCaptcha->passCaptchaFromRequest(
-			new FauxRequest( [ 'h-captcha-response' => 'same-token' ] ),
-			$user
-		) );
-		$this->assertNull( $hCaptcha->getError() );
-	}
-
 	public function testPassCaptchaInForceShowCaptchaMode(): void {
 		$hCaptcha = TestingAccessWrapper::newFromObject( new HCaptcha() );
-		$hCaptcha->setCaptchaSolved( true );
+		$hCaptcha->result = true;
 		$hCaptcha->setForceShowCaptcha( true );
 		RequestContext::getMain()->getRequest()->unsetVal( 'wgConfirmEditForceShowCaptcha' );
 		$this->assertFalse(
 			$hCaptcha->passCaptcha( '', '', '' )
 		);
-	}
-
-	/** @dataProvider provideIsCaptchaSolvedWithForceShow */
-	public function testIsCaptchaSolvedWithForceShow(
-		?string $solvedSiteKey,
-		array $config,
-		bool $forceShow,
-		?bool $expected
-	): void {
-		$hCaptcha = TestingAccessWrapper::newFromObject( new HCaptcha() );
-		$hCaptcha->setCaptchaSolved( true );
-		$hCaptcha->solvedCaptchaSiteKey = $solvedSiteKey;
-		$hCaptcha->setConfig( $config );
-		if ( $forceShow ) {
-			$hCaptcha->setForceShowCaptcha( true );
-		}
-
-		$this->assertSame( $expected, $hCaptcha->isCaptchaSolved() );
-	}
-
-	public static function provideIsCaptchaSolvedWithForceShow(): array {
-		return [
-			'Normal mode - solved with any key returns true' => [
-				'solvedSiteKey' => 'normal-key',
-				'config' => [ 'HCaptchaSiteKey' => 'normal-key' ],
-				'forceShow' => false,
-				'expected' => true
-			],
-			'Force show - solved with always-challenge key returns true' => [
-				'solvedSiteKey' => 'challenge-key',
-				'config' => [
-					'HCaptchaSiteKey' => 'normal-key',
-					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
-				],
-				'forceShow' => true,
-				'expected' => true
-			],
-			'Force show - solved with normal key returns false' => [
-				'solvedSiteKey' => 'normal-key',
-				'config' => [
-					'HCaptchaSiteKey' => 'normal-key',
-					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
-				],
-				'forceShow' => true,
-				'expected' => false
-			],
-			'Force show - solved with null sitekey returns false' => [
-				'solvedSiteKey' => null,
-				'config' => [
-					'HCaptchaSiteKey' => 'normal-key',
-					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
-				],
-				'forceShow' => true,
-				'expected' => false
-			],
-			'Force show - no always-challenge key configured returns true' => [
-				'solvedSiteKey' => 'normal-key',
-				'config' => [ 'HCaptchaSiteKey' => 'normal-key' ],
-				'forceShow' => true,
-				'expected' => true
-			],
-		];
 	}
 
 	/** @dataProvider provideGetSiteKeyForAction */

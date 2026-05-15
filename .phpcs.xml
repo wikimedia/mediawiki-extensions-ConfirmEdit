@@ -3,6 +3,7 @@
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="MediaWiki.NamingConventions.NamespaceName.NamespaceSubUpperCamelCase" />
 	</rule>
+	<rule ref="Generic.PHP.RequireStrictTypes"/>
 	<file>.</file>
 	<arg name="extensions" value="php"/>
 	<arg name="encoding" value="UTF-8"/>

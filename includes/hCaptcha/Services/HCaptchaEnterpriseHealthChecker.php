@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\ConfirmEdit\hCaptcha\Services;
 
 use MediaWiki\Config\ServiceOptions;

@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\ConfirmEdit\Test\Integration\Maintenance;
 
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
@@ -69,7 +71,7 @@ class DeleteOldFancyCaptchasTest extends MaintenanceBaseTestCase {
 		mkdir( $captchaDirectory . '/subfolder' );
 		$expiredCaptchaFilename = $captchaDirectory . '/subfolder/test.png';
 		file_put_contents( $expiredCaptchaFilename, 'abc' );
-		touch( $expiredCaptchaFilename, ConvertibleTimestamp::convert( TS_UNIX, '20240405060708' ) );
+		touch( $expiredCaptchaFilename, (int)ConvertibleTimestamp::convert( TS_UNIX, '20240405060708' ) );
 		$notExpiredCaptchaFilename = $captchaDirectory . '/subfolder/testing.png';
 		file_put_contents( $notExpiredCaptchaFilename, 'abc' );
 

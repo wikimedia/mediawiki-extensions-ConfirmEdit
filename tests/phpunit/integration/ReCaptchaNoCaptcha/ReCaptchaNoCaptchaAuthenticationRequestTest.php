@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\ReCaptchaNoCaptcha;
 
 use MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\ReCaptchaNoCaptchaAuthenticationRequest;

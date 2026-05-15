@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Unit\Hooks\Handlers;
 
 use MediaWiki\Config\HashConfig;

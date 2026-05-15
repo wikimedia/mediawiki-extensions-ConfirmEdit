@@ -1,4 +1,6 @@
 <?php
+
+declare( strict_types=1 );
 /**
  * Generate fancy captchas using a python script and copy them into storage.
  *

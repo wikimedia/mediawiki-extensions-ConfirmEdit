@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\ConfirmEdit\AbuseFilter;
 
 use MediaWiki\Context\RequestContext;

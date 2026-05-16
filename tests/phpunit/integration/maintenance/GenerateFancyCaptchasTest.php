@@ -8,6 +8,7 @@ use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Maintenance\GenerateFancyCaptchas;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 use Shellbox\Command\UnboxedResult;
@@ -126,12 +127,17 @@ class GenerateFancyCaptchasTest extends MaintenanceBaseTestCase {
 				function ( array $cmd ) use (
 					$fill, $additionalExpectedArguments, $onGenerateFancyCaptchas
 				) {
+					$dir = $this->getServiceContainer()->getMainConfig()->get( MainConfigNames::ExtensionDirectory );
+
+					// Normalize windows paths
+					$cmd[1] = str_replace( '\\', '/', $cmd[1] );
+
 					// The --output directory should be the 5th argument.
 					$temporaryCaptchaGenerationDirectory = $cmd[5];
 
 					$this->assertArrayEquals(
 						array_merge( [
-							'python3', MW_INSTALL_PATH . '/extensions/ConfirmEdit/captcha.py',
+							'python3', $dir . '/ConfirmEdit/captcha.py',
 							'--key', 'secret',
 							'--output', $temporaryCaptchaGenerationDirectory,
 							'--count', (string)$fill,

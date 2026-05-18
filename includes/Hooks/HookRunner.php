@@ -25,6 +25,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 
 /**
  * Run hooks provided by ConfirmEdit.
@@ -34,7 +35,8 @@ use MediaWiki\User\User;
 class HookRunner implements
 	ConfirmEditTriggersCaptchaHook,
 	ConfirmEditCanUserSkipCaptchaHook,
-	ConfirmEditCaptchaClassHook
+	ConfirmEditCaptchaClassHook,
+	ConfirmEditHCaptchaRiskScoreRetrievedForBlocksHook
 {
 	public function __construct( private readonly HookContainer $hookContainer ) {
 	}
@@ -74,6 +76,29 @@ class HookRunner implements
 				$action,
 				&$className
 			]
+		);
+	}
+
+	/** @inheritDoc */
+	public function onConfirmEditHCaptchaRiskScoreRetrievedForBlocks(
+		float $riskScore,
+		array $localBlockIds,
+		array $globalBlockIds,
+		UserIdentity $user,
+		string $pageViewId,
+		$request
+	): void {
+		$this->hookContainer->run(
+			'ConfirmEditHCaptchaRiskScoreRetrievedForBlocks',
+			[
+				$riskScore,
+				$localBlockIds,
+				$globalBlockIds,
+				$user,
+				$pageViewId,
+				$request
+			],
+			[ 'abortable' => false ]
 		);
 	}
 }

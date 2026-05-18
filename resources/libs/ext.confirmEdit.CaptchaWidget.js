@@ -54,7 +54,7 @@ mw.libs.confirmEdit.CaptchaWidget = function MwCaptchaWidget( config ) {
 	// hCaptcha config (unused if not using hCaptcha)
 	this.hCaptchaSiteKey = '';
 	this.hCaptchaWidgetId = '';
-	this.hCaptchaForceShowCaptcha = false;
+	this.hCaptchaForceShowCaptcha = mw.config.get( 'wgConfirmEditForceShowCaptcha' ) || false;
 
 	// Question based CAPTCHA config (unused if not question based)
 	this.captchaQuestion = '';

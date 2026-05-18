@@ -153,12 +153,23 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 
 	QUnit.test.each( 'CAPTCHA widget is hCaptcha', {
 		'hCaptcha is in invisible mode': {
-			hCaptchaInvisibleMode: true
+			hCaptchaInvisibleMode: true,
+			wgConfirmEditForceShowCaptchaConfigValue: false
 		},
 		'hCaptcha is not in invisible mode': {
-			hCaptchaInvisibleMode: false
+			hCaptchaInvisibleMode: false,
+			wgConfirmEditForceShowCaptchaConfigValue: false
+		},
+		'wgConfirmEditForceShowCaptcha config set': {
+			hCaptchaInvisibleMode: true,
+			wgConfirmEditForceShowCaptchaConfigValue: true
 		}
 	}, function ( assert, options ) {
+		mw.config.set(
+			'wgConfirmEditForceShowCaptcha',
+			options.wgConfirmEditForceShowCaptchaConfigValue
+		);
+
 		const mockHCaptchaModule = {
 			utils: {
 				loadHCaptcha: this.sandbox.stub().returns( Promise.resolve() ),
@@ -245,10 +256,14 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 					'executeHCaptcha arguments are as expected'
 				);
 
+				const expectedCaptchaData = { captchaid: '', captchaword: 'test-response' };
+				if ( options.wgConfirmEditForceShowCaptchaConfigValue ) {
+					expectedCaptchaData.wgConfirmEditForceShowCaptcha = true;
+				}
 				assert.deepEqual(
 					captchaData,
-					{ captchaid: '', captchaword: 'test-response' },
-					'Captcha data returned by promise is expected'
+					expectedCaptchaData,
+					'Captcha data returned by promise is as expected'
 				);
 			} );
 		} );

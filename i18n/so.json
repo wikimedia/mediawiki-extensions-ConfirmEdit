@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"captcha-edit-fail": "CAPTCHA khaldan ama maqan.",
+	"captcha-desc": "Waxay bixisaa farsamooyinka CAPTCHA si looga ilaaliyo spam iyo isku dayga qiyaasidda erayga sirta ah.",
+	"captcha-info-help": "Sharaxaadda CAPTCHA.",
+	"captcha-badlogin": "Si loo ilaaliyo wiki-ga ka hortagga jabinta sirta tooska ah, waxaan si naxariis leh kaaga codsanaynaa inaad xalliso hawsha hoose oo aad geli jawaabta sanduuqa ([[Special:Captcha/help|faahfaahin dheeraad ah]]):",
+	"captcha-createaccount": "Si loo ilaaliyo wiki-ga ka hortagga abuurista akoonnada tooska ah, waxaan si naxariis leh kaaga codsanaynaa inaad xalliso hawsha hoose oo aad geli jawaabta sanduuqa ([[Special:Captcha/help|faahfaahin dheeraad ah]]):",
+	"captcha-sendemail": "Si loo ilaaliyo wiki-ga ka hortagga spam-ka tooska ah, waxaan si naxariis leh kaaga codsanaynaa inaad xalliso hawsha hoose oo aad geli jawaabta sanduuqa ([[Special:Captcha/help|faahfaahin dheeraad ah]]):",
+	"captcha-disabledinapi": "Tallaabadani waxay u baahan tahay CAPTCHA, sidaas darteed laguma fulin karo API-ga.",
+	"right-skipcaptcha": "Samee falal kicinaya CAPTCHA adigoon marin CAPTCHA-ga"
+}

@@ -357,17 +357,17 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$this->overrideConfigValue( 'HCaptchaSiteKey', 'baz' );
 		$this->overrideConfigValue( 'CaptchaTriggers', [
 			'create' => [
-				'trigger' => 'true',
+				'trigger' => true,
 				'class' => 'HCaptcha',
 				'config' => [ 'HCaptchaSiteKey' => 'foo' ]
 			],
 			'edit' => [
-				'trigger' => 'true',
+				'trigger' => true,
 				'class' => 'HCaptcha',
 				'config' => [ 'HCaptchaSiteKey' => 'bar' ]
 			],
 			'createaccount' => [
-				'trigger' => 'true',
+				'trigger' => true,
 				'class' => 'HCaptcha',
 				'config' => []
 			],

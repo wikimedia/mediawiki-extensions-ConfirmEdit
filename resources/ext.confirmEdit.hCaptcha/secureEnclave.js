@@ -33,13 +33,22 @@ let captchaIdPromise = null;
  * @return {Promise<void>} A promise that resolves if hCaptcha failed to initialize,
  * or after the first time the user attempts to submit the form and hCaptcha finishes running.
  */
-async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
+function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 	const setSubmitButtonDisabledProp = ( disabled ) => {
 		if ( interfaceName === 'edit' ) {
-			// On wikitext editor, use OOUI widget
 			const $wpSaveWidget = $form.find( '#wpSaveWidget' );
-			const saveButtonWidget = OO.ui.infuse( $wpSaveWidget );
-			saveButtonWidget.setDisabled( disabled );
+			if ( window.OO && OO.ui && OO.ui.infuse ) {
+				OO.ui.infuse( $wpSaveWidget ).setDisabled( disabled );
+			} else {
+				// Grade C has no OOUI, so the OOUI CSS isn't loaded either.
+				// Disable the native input and apply inline styles to convey
+				// the loading state — class-toggle would be a no-op.
+				$wpSaveWidget.find( 'button, input[type="submit"]' ).prop( 'disabled', disabled );
+				$wpSaveWidget.css( {
+					opacity: disabled ? 0.5 : '',
+					'pointer-events': disabled ? 'none' : ''
+				} );
+			}
 			return;
 		}
 		// For Special:CreateAccount use disabled attribute
@@ -192,16 +201,16 @@ async function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
  * @return {Promise<void>} A promise that resolves if hCaptcha failed to initialize,
  * or after the first time the user attempts to submit the form and hCaptcha finishes running.
  */
-async function useSecureEnclave( win ) {
+function useSecureEnclave( win ) {
 	// eslint-disable-next-line no-jquery/no-global-selector
 	const $hCaptchaField = $( '#h-captcha' );
 	if ( !$hCaptchaField.length ) {
-		return;
+		return Promise.resolve();
 	}
 
 	const $form = $hCaptchaField.closest( 'form' );
 	if ( !$form.length ) {
-		return;
+		return Promise.resolve();
 	}
 
 	// Work out what interface we are loading hCaptcha on

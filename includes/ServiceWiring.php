@@ -24,7 +24,8 @@ return [
 			new ServiceOptions(
 				HCaptchaOutput::CONSTRUCTOR_OPTIONS,
 				$services->getMainConfig()
-			)
+			),
+			$services->getResourceLoader()
 		);
 	},
 	'HCaptchaEnterpriseHealthChecker' => static function (

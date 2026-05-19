@@ -1,0 +1,17 @@
+{
+	"root": true,
+	"extends": [
+		"wikimedia/client/common"
+	],
+	"rules": {
+		"no-implicit-globals": "off",
+		"no-underscore-dangle": "off",
+		"jsdoc/require-param": "off"
+	},
+	"globals": {
+		"$": "readonly",
+		"mw": "writable",
+		"__defineModule": "readonly",
+		"__require": "readonly"
+	}
+}

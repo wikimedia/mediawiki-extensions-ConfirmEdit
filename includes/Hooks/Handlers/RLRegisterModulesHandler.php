@@ -4,6 +4,8 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\GradeCBundleModule;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Services\LoadedCaptchasProvider;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\CodexModule;
@@ -103,17 +105,10 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 				'styles' => [
 					'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha.less',
 				],
-				'messages' => [
-					'hcaptcha-challenge-closed',
-					'hcaptcha-challenge-expired',
-					'hcaptcha-generic-error',
-					'hcaptcha-internal-error',
-					'hcaptcha-network-error',
-					'hcaptcha-rate-limited',
-					'hcaptcha-loading-indicator-label',
+				'messages' => array_merge( HCaptchaOutput::RUNTIME_MESSAGE_KEYS, [
 					'hcaptcha-privacy-policy',
 					'hcaptcha-visual-editor-error-handler-warning',
-				],
+				] ),
 				'dependencies' => [
 					'oojs-ui',
 					'web2017-polyfills',
@@ -126,6 +121,9 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 				'styles' => [
 					'ext.confirmEdit.hCaptcha.styles/ext.confirmEdit.hCaptcha.styles.less',
 				],
+			];
+			$modules['ext.confirmEdit.hCaptcha.gradeC'] = [
+				'class' => GradeCBundleModule::class,
 			];
 		}
 

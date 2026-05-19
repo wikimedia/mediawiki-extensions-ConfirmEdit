@@ -56,6 +56,7 @@ class RLRegisterModulesHandlerTest extends MediaWikiUnitTestCase {
 				'expectedModuleNames' => [
 					'ext.confirmEdit.CaptchaWidget',
 					'ext.confirmEdit.hCaptcha',
+					'ext.confirmEdit.hCaptcha.gradeC',
 					'ext.confirmEdit.hCaptcha.styles',
 				],
 			],

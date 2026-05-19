@@ -11,9 +11,11 @@ use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\HTMLForm\HTMLForm;
+use MediaWiki\Language\Language;
 use MediaWiki\Message\Message;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\ContentSecurityPolicy;
+use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 
@@ -85,12 +87,15 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $this->createMock( Title::class ) );
 		$output->method( 'getCSP' )
 			->willReturn( $csp );
-		$output->expects( $shouldSecureEnclaveModeBeEnabled ? $this->never() : $this->once() )
-			->method( 'addHeadItem' )
-			->with(
-				'h-captcha',
-				"<script src=\"{$configOverrides['HCaptchaApiUrl']}\" async=\"\" defer=\"\"></script>"
-			);
+		$mockLanguage = $this->createMock( Language::class );
+		$mockLanguage->method( 'getCode' )->willReturn( 'qqx' );
+		$output->method( 'getLanguage' )->willReturn( $mockLanguage );
+		$output->method( 'getRequest' )->willReturn( $this->createMock( WebRequest::class ) );
+		$headItems = [];
+		$output->method( 'addHeadItem' )
+			->willReturnCallback( static function ( $key, $value ) use ( &$headItems ): void {
+				$headItems[$key] = $value;
+			} );
 		$output->method( 'msg' )
 			->willReturnCallback( static fn ( $key ) => wfMessage( $key ) );
 		$output->method( 'addModules' )
@@ -121,6 +126,19 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $configOverrides['HCaptchaCSPRules'], $scriptSrcs );
 
 		$this->assertSame( [ 'ext.confirmEdit.hCaptcha' ], $modules );
+
+		if ( $shouldSecureEnclaveModeBeEnabled ) {
+			$this->assertArrayNotHasKey(
+				'h-captcha',
+				$headItems,
+				'<script src=...> tag should not be emitted in secure enclave mode'
+			);
+		} else {
+			$this->assertSame(
+				"<script src=\"{$configOverrides['HCaptchaApiUrl']}\" async=\"\" defer=\"\"></script>",
+				$headItems['h-captcha'] ?? null
+			);
+		}
 	}
 
 	public static function provideOptions(): iterable {

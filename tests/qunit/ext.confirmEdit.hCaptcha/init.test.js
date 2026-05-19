@@ -4,8 +4,9 @@ const { initEditorIntegrations } = require( 'ext.confirmEdit.hCaptcha/ext.confir
 
 QUnit.module( 'ext.confirmEdit.hCaptcha.init', QUnit.newMwEnvironment() );
 
-QUnit.test(
+QUnit.test.if(
 	'registers VE plugins when VE is available',
+	mw.loader.getState( 'ext.visualEditor.targetLoader' ),
 	function ( assert ) {
 		this.sandbox.stub( mw.loader, 'getState' )
 			.withArgs( 'ext.visualEditor.targetLoader' ).returns( 'registered' );

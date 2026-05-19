@@ -891,6 +891,43 @@ QUnit.test( 'should fire the confirmEdit.hCaptcha.executed hook when executeHCap
 	spy.restore();
 } );
 
+QUnit.test( 'edit form: falls back to native button selector when OO is absent', function ( assert ) {
+	mw.config.set( 'wgAction', 'edit' );
+	this.window.document.head.appendChild.callsFake( () => {
+		this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+
+	// The Grade C fallback only disables buttons inside #wpSaveWidget — query that
+	// directly rather than the suite-wide areSubmitButtonsDisabled helper (which
+	// scans all form-level submits, including the test fixture's other buttons).
+	const $saveButton = $( '<button type="submit" id="wpSaveButton">Save</button>' );
+	this.$form.find( '#wpSaveWidget' ).append( $saveButton );
+
+	this.window.hcaptcha.execute.callsFake( async () => {
+		assert.true( $saveButton.prop( 'disabled' ), '#wpSaveWidget button should be disabled during execute' );
+		return { response: 'some-token' };
+	} );
+
+	const savedOO = window.OO;
+	window.OO = undefined;
+
+	const result = useSecureEnclave( this.window )
+		.then( () => {
+			window.OO = savedOO;
+			assert.true( window.OO.ui.infuse.notCalled, 'OO.ui.infuse should not have been called' );
+			assert.false( $saveButton.prop( 'disabled' ), '#wpSaveWidget button should be re-enabled after success' );
+		} );
+
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+	this.$form.trigger( 'submit' );
+
+	return result.catch( ( err ) => {
+		window.OO = savedOO;
+		throw err;
+	} );
+} );
+
 QUnit.test( 'should submit the form immediately when wgHCaptchaTriggerFormSubmission is set', async function ( assert ) {
 	this.window.document.head.appendChild.callsFake( () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );

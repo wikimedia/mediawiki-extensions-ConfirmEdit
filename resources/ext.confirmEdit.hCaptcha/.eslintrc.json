@@ -1,0 +1,19 @@
+{
+	"overrides": [
+		{
+			"files": [
+				"ErrorWidget.js",
+				"ProgressIndicatorWidget.js",
+				"secureEnclave.js",
+				"utils.js"
+			],
+			"extends": [
+				"plugin:es-x/restrict-to-es2015"
+			],
+			"rules": {
+				"es-x/no-object-entries": "off",
+				"es-x/no-array-prototype-includes": "off"
+			}
+		}
+	]
+}

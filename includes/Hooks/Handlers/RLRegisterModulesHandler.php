@@ -111,6 +111,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 					'hcaptcha-visual-editor-error-handler-warning',
 				] ),
 				'dependencies' => [
+					'mediawiki.api',
 					'oojs-ui',
 					'web2017-polyfills',
 					'codex-styles',

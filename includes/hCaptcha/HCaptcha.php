@@ -186,6 +186,35 @@ class HCaptcha extends SimpleCaptcha {
 	}
 
 	/**
+	 * Retrieves the risk score associated with the provided token.
+	 *
+	 * @param WebRequest $request
+	 * @param string $token token from the POST data
+	 * @param UserIdentity $user User performing the verification
+	 * @param string[]|null $validKeys List of valid keys, null to use those for the current action.
+	 * @return float|false The risk score for the provided token, false on failure.
+	 */
+	public function retrieveRiskScore(
+		WebRequest $request,
+		string $token,
+		UserIdentity $user,
+		?array $validKeys = null
+	): float|false {
+		$json = $this->callSiteVerify( $token, $user, $request );
+
+		if ( $json === false ||
+			!$this->hasValidKey( $request, $token, $json, $user, $validKeys ) ) {
+			return false;
+		}
+
+		$this->addHCaptchaScore( $user, $json );
+
+		return is_numeric( $json['score'] ?? null ) ?
+			(float)$json['score'] :
+			false;
+	}
+
+	/**
 	 * Check, if the user solved the captcha.
 	 *
 	 * Based on reference implementation:
@@ -207,6 +236,38 @@ class HCaptcha extends SimpleCaptcha {
 		if ( $this->isCaptchaSolved() !== null ) {
 			return (bool)$this->isCaptchaSolved();
 		}
+
+		$json = $this->callSiteVerify( $token, $user, $webRequest );
+
+		if ( $json === false ||
+			!$this->hasValidKey( $webRequest, $token, $json, $user ) ) {
+			return false;
+		}
+
+		$this->addHCaptchaScore( $user, $json );
+		$this->solvedCaptchaSiteKey = $json['success'] ? ( $json['sitekey'] ?? null ) : null;
+		$this->setCaptchaSolved( $json['success'] );
+
+		return $json['success'];
+	}
+
+	/**
+	 * Call the hCaptcha SiteVerify API with the given token.
+	 *
+	 * On success, returns the decoded JSON response array from hCaptcha.
+	 * On failure, sets $this->error and returns false.
+	 *
+	 * @param ?string $token The hCaptcha response token to verify
+	 * @param UserIdentity $user The user performing the action (used for logging)
+	 * @param WebRequest $webRequest Current request
+	 * @return array|false Decoded siteverify JSON response on success, false on failure
+	 */
+	private function callSiteVerify(
+		?string $token,
+		UserIdentity $user,
+		WebRequest $webRequest
+	): array|false {
+		$this->error = null;
 
 		if ( !$token ) {
 			$this->error = 'missing-token';
@@ -231,7 +292,7 @@ class HCaptcha extends SimpleCaptcha {
 			return false;
 		}
 
-		return $this->parseSiteVerifyResponse( $status, $user, $webRequest, $token );
+		return $this->parseSiteVerifyResponse( $status, $user, $token );
 	}
 
 	/**
@@ -324,9 +385,8 @@ class HCaptcha extends SimpleCaptcha {
 	private function parseSiteVerifyResponse(
 		Status $status,
 		UserIdentity $user,
-		WebRequest $webRequest,
 		string $token
-	): bool {
+	): array|false {
 		$json = FormatJson::decode( $status->getValue(), true );
 		if ( !$json ) {
 			$this->error = 'json';
@@ -340,11 +400,43 @@ class HCaptcha extends SimpleCaptcha {
 			return false;
 		}
 
-		// Verify that the sitekey is among those allowed in order to prevent
-		// client-side tampering (T410024, T410657).
-		$siteKeyUsed = $json['sitekey'] ?? null;
+		return $json;
+	}
 
-		if ( !in_array( $siteKeyUsed, $this->getAllowedSiteKeysForCurrentAction() ) ) {
+	/**
+	 * Checks whether a given key is among the provided list of valid keys,
+	 * logging an error if it isn't.
+	 *
+	 * This check is necessary to prevent client-side tampering (T410024,
+	 * T410657).
+	 *
+	 * If no list of valid keys is provided, the key is compared against the
+	 * list of keys allowed for the current action.
+	 *
+	 * @param WebRequest $webRequest
+	 * @param null|string $token token from the POST data
+	 * @param array $json POST data returned from the siteverify API
+	 * @param UserIdentity $user User performing the verification
+	 * @param string[]|null $validKeys List of valid keys, null to use those for the current action.
+	 * @return bool
+	 */
+	private function hasValidKey(
+		WebRequest $webRequest,
+		?string $token,
+		array $json,
+		UserIdentity $user,
+		?array $validKeys = null
+	): bool {
+		if ( !$json ) {
+			return false;
+		}
+
+		if ( $validKeys === null ) {
+			$validKeys = $this->getAllowedSiteKeysForCurrentAction();
+		}
+
+		$siteKeyUsed = $json['sitekey'] ?? null;
+		if ( !in_array( $siteKeyUsed, $validKeys ) ) {
 			$this->error = 'sitekey-mismatch';
 			$this->logCheckError( $this->error, $user, $token );
 			return false;
@@ -370,10 +462,7 @@ class HCaptcha extends SimpleCaptcha {
 		}
 		$this->logger->info( '{success_message} captcha solution attempt for {user}', $debugLogContext );
 
-		$this->addHCaptchaScore( $user, $json );
-		$this->solvedCaptchaSiteKey = $json['success'] ? ( $json['sitekey'] ?? null ) : null;
-		$this->setCaptchaSolved( $json['success'] );
-		return $json['success'];
+		return true;
 	}
 
 	private function addHCaptchaScore( UserIdentity $user, array $json ): void {

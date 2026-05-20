@@ -354,8 +354,34 @@
 				30,
 				60
 			]
+		},
+		"post-hcaptcha-token": {
+			"ip": [
+				15,
+				60
+			],
+			"newbie": [
+				15,
+				60
+			],
+			"user": [
+				30,
+				60
+			]
 		}
 	},
+	"RestRoutes": [
+		{
+			"path": "/confirmedit/v0/hcaptcha/blocktoken",
+			"method": "POST",
+			"class": "MediaWiki\\Extension\\ConfirmEdit\\Api\\Rest\\Handler\\PostHCaptchaTokenForBlockHandler",
+			"services": [
+				"MainConfig",
+				"HookContainer",
+				"UserFactory"
+			]
+		}
+	],
 	"QUnitTestModule": {
 		"localBasePath": "tests/qunit/",
 		"remoteExtPath": "ConfirmEdit/tests/qunit/",

@@ -26,6 +26,15 @@ QUnit.module(
 				}
 			};
 
+			this.restPost = this.sandbox.stub().returns( Promise.resolve() );
+			this.Rest = this.sandbox.stub( mw, 'Rest' ).returns( {
+				post: this.restPost
+			} );
+			this.logError = this.sandbox.stub( mw.errorLogger, 'logError' );
+			this.getPageviewToken = this.sandbox
+				.stub( mw.user, 'getPageviewToken' )
+				.returns( 'test-pageview-token' );
+
 			this.loadAndRenderHCaptcha.returns( Promise.resolve() );
 			this.executeHCaptcha.returns( Promise.resolve() );
 		},
@@ -33,6 +42,9 @@ QUnit.module(
 			this.track.restore();
 			this.loadAndRenderHCaptcha.restore();
 			this.executeHCaptcha.restore();
+			this.Rest.restore();
+			this.logError.restore();
+			this.getPageviewToken.restore();
 
 			this.utils.reset();
 		}
@@ -42,16 +54,19 @@ QUnit.module(
 QUnit.test.each(
 	'collectRiskScoreForBlockedUser returns early when required params are missing',
 	{
-		'missing blockIds': {
-			blockIds: null,
+		'missing localBlockIds and globalBlockIds': {
+			localBlockIds: null,
+			globalBlockIds: null,
 			siteKey: 'test-site-key'
 		},
-		'empty blockIds': {
-			blockIds: [],
+		'empty localBlockIds and globalBlockIds': {
+			localBlockIds: [],
+			globalBlockIds: [],
 			siteKey: 'test-site-key'
 		},
 		'missing siteKey': {
-			blockIds: [ 'test-block-id' ],
+			localBlockIds: [ 123 ],
+			globalBlockIds: [],
 			siteKey: null
 		}
 	},
@@ -71,11 +86,12 @@ QUnit.test.each(
 
 QUnit.test(
 	'collectRiskScoreForBlockedUser creates a div container and appends it to the document body',
-	function ( assert ) {
-		RiskScoreCollector.collectRiskScoreForBlockedUser(
+	async function ( assert ) {
+		await RiskScoreCollector.collectRiskScoreForBlockedUser(
 			this.window,
 			{
-				blockIds: [ 'test-block-id' ],
+				localBlockIds: [ 123 ],
+				globalBlockIds: [],
 				siteKey: 'test-site-key'
 			}
 		);
@@ -97,7 +113,8 @@ QUnit.test(
 		await RiskScoreCollector.collectRiskScoreForBlockedUser(
 			this.window,
 			{
-				blockIds: [ 'test-block-id' ],
+				localBlockIds: [ 123 ],
+				globalBlockIds: [],
 				siteKey: 'test-site-key'
 			}
 		);
@@ -134,7 +151,8 @@ QUnit.test(
 		await RiskScoreCollector.collectRiskScoreForBlockedUser(
 			this.window,
 			{
-				blockIds: [ 'test-block-id' ],
+				localBlockIds: [ 123 ],
+				globalBlockIds: [],
 				siteKey: 'test-site-key'
 			}
 		);
@@ -162,7 +180,8 @@ QUnit.test(
 		await RiskScoreCollector.collectRiskScoreForBlockedUser(
 			this.window,
 			{
-				blockIds: [ 'test-block-id' ],
+				localBlockIds: [ 123 ],
+				globalBlockIds: [],
 				siteKey: 'test-site-key'
 			}
 		);
@@ -175,6 +194,117 @@ QUnit.test(
 				'generic-error'
 			),
 			'mw.track should be called with the error code from loadAndRenderHCaptcha'
+		);
+	}
+);
+
+QUnit.test(
+	'collectRiskScoreForBlockedUser posts the token and block IDs to the REST endpoint',
+	async function ( assert ) {
+		this.loadAndRenderHCaptcha.returns(
+			Promise.resolve( 'test-captcha-id' )
+		);
+		this.executeHCaptcha.returns(
+			Promise.resolve( 'test-response-token' )
+		);
+
+		await RiskScoreCollector.collectRiskScoreForBlockedUser(
+			this.window,
+			{
+				localBlockIds: [ 123, 456 ],
+				globalBlockIds: [ 789 ],
+				siteKey: 'test-site-key'
+			}
+		);
+
+		assert.true(
+			this.restPost.calledOnce,
+			'api.post should be called once'
+		);
+		assert.deepEqual(
+			this.restPost.args[ 0 ],
+			[
+				'/confirmedit/v0/hcaptcha/blocktoken',
+				{
+					riskScoreToken: 'test-response-token',
+					localBlockIds: [ 123, 456 ],
+					globalBlockIds: [ 789 ],
+					pageViewId: 'test-pageview-token'
+				}
+			],
+			'api.post should be called with the correct endpoint and body'
+		);
+	}
+);
+
+QUnit.test(
+	'collectRiskScoreForBlockedUser logs an error when the REST POST fails',
+	async function ( assert ) {
+		const details = { exception: 'Not Found', textStatus: 'error' };
+		const deferred = $.Deferred();
+		deferred.reject( 'http', details );
+		this.restPost.returns( deferred.promise() );
+
+		await RiskScoreCollector.collectRiskScoreForBlockedUser(
+			this.window,
+			{
+				localBlockIds: [ 123 ],
+				globalBlockIds: [],
+				siteKey: 'test-site-key'
+			}
+		);
+
+		assert.true(
+			this.track.notCalled,
+			'mw.track should not be called when the REST POST fails'
+		);
+		assert.true(
+			this.logError.calledOnce,
+			'mw.errorLogger.logError should be called when the REST POST fails'
+		);
+
+		const [ loggedError, channel ] = this.logError.args[ 0 ];
+		assert.true(
+			loggedError instanceof Error,
+			'mw.errorLogger.logError should be called with an Error instance'
+		);
+		assert.strictEqual(
+			loggedError.message,
+			'Error with type {type} posting block token',
+			'The error message should be the expected literal string'
+		);
+		assert.deepEqual(
+			loggedError.error_context,
+			{ details: details, type: 'http' },
+			'The error should carry the response details and type as error_context'
+		);
+		assert.strictEqual(
+			channel,
+			'error.confirmedit',
+			'mw.errorLogger.logError should be called with the error channel'
+		);
+	}
+);
+
+QUnit.test(
+	'collectRiskScoreForBlockedUser does not call the REST endpoint when loadAndRenderHCaptcha rejects',
+	async function ( assert ) {
+		this.loadAndRenderHCaptcha.returns(
+			Promise.reject( 'render-error' )
+		);
+
+		await RiskScoreCollector.collectRiskScoreForBlockedUser(
+			this.window,
+			{
+				localBlockIds: [ 123 ],
+				globalBlockIds: [],
+				siteKey: 'test-site-key'
+			}
+		);
+
+		assert.true(
+			this.restPost.notCalled,
+			'api.post should not be called when rendering fails'
 		);
 	}
 );

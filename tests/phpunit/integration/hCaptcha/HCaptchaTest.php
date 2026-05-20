@@ -1515,4 +1515,216 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			( new HCaptcha() )->getApiParams()
 		);
 	}
+
+	/** @dataProvider provideRetrieveRiskScore */
+	public function testRetrieveRiskScore(
+		float|false $expected,
+		array $apiResponse,
+		?array $validKeys
+	): void {
+		$this->overrideConfigValues( [
+			'HCaptchaSecretKey' => 'secretkey',
+			'HCaptchaSiteKey' => 'test-sitekey',
+		] );
+
+		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
+		$mwHttpRequest
+			->method( 'execute' )
+			->willReturn( Status::newGood() );
+		$mwHttpRequest
+			->method( 'getContent' )
+			->willReturn( FormatJson::encode( $apiResponse ) );
+		$this->installMockHttp( $mwHttpRequest );
+
+		$hCaptcha = new HCaptcha();
+		$result = $hCaptcha->retrieveRiskScore(
+			new FauxRequest(),
+			'test-token',
+			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' ),
+			$validKeys
+		);
+
+		$this->assertSame( $expected, $result );
+	}
+
+	public static function provideRetrieveRiskScore(): array {
+		return [
+			'Returns float score from valid response' => [
+				'expected' => 0.8,
+				'apiResponse' => [
+					'success' => true,
+					'sitekey' => 'test-sitekey',
+					'score' => 0.8,
+				],
+				'validKeys' => [
+					'test-sitekey',
+				],
+			],
+			'Returns false when score absent from response' => [
+				'expected' => false,
+				'apiResponse' => [
+					'success' => true,
+					'sitekey' => 'test-sitekey',
+				],
+				'validKeys' => [
+					'test-sitekey',
+				]
+			],
+			'Returns false when sitekey not in explicit validKeys' => [
+				'expected' => false,
+				'apiResponse' => [
+					'success' => true,
+					'sitekey' => 'wrong-key',
+					'score' => 0.8,
+				],
+				'validKeys' => [
+					'test-sitekey',
+				],
+			],
+			'Accepts sitekey from explicit validKeys regardless of action config' => [
+				'expected' => 0.5,
+				'apiResponse' => [
+					'success' => true,
+					'sitekey' => 'block-specific-key',
+					'score' => 0.5,
+				],
+				'validKeys' => [
+					'block-specific-key',
+				],
+			],
+			'Accepts sitekey when more than a single key is valid' => [
+				'expected' => 0.5,
+				'apiResponse' => [
+					'success' => true,
+					'sitekey' => 'block-specific-key-2',
+					'score' => 0.5,
+				],
+				'validKeys' => [
+					'block-specific-key-1',
+					'block-specific-key-2',
+				],
+			],
+		];
+	}
+
+	public function testRetrieveRiskScoreReturnsFalseOnHttpFailure(): void {
+		$this->overrideConfigValues( [
+			'HCaptchaSecretKey' => 'secretkey',
+			'HCaptchaSiteKey' => 'test-sitekey',
+		] );
+
+		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
+		$mwHttpRequest
+			->method( 'execute' )
+			->willReturn(
+				Status::wrap( StatusValue::newFatal( 'http-error-500' ) )
+			);
+		$this->installMockHttp( $mwHttpRequest );
+
+		$hCaptcha = new HCaptcha();
+		$result = $hCaptcha->retrieveRiskScore(
+			new FauxRequest(),
+			'test-token',
+			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' ),
+			[ 'test-sitekey' ]
+		);
+
+		$this->assertFalse( $result );
+	}
+
+	public function testRetrieveRiskScoreReturnsFalseWhenTokenMissing(): void {
+		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
+		$mockHttpRequestFactory
+			->expects( $this->never() )
+			->method( 'create' );
+
+		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
+
+		$hCaptcha = new HCaptcha();
+		$result = $hCaptcha->retrieveRiskScore(
+			new FauxRequest(),
+			'',
+			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' ),
+			[ 'test-sitekey' ]
+		);
+
+		$this->assertFalse( $result );
+	}
+
+	public function testRetrieveRiskScoreStoresScoreInSession(): void {
+		$this->overrideConfigValues( [
+			'HCaptchaSecretKey' => 'secretkey',
+			'HCaptchaSiteKey' => 'test-sitekey',
+			'HCaptchaUseRiskScore' => true,
+		] );
+
+		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
+		$mwHttpRequest
+			->method( 'execute' )
+			->willReturn( Status::newGood() );
+		$mwHttpRequest
+			->method( 'getContent' )
+			->willReturn( FormatJson::encode( [
+				'success' => true,
+				'sitekey' => 'test-sitekey',
+				'score' => 0.7,
+			] ) );
+		$this->installMockHttp( $mwHttpRequest );
+
+		$hCaptcha = new HCaptcha();
+		$userName = '1.2.3.4';
+		$user = $this->getServiceContainer()->getUserFactory()->newAnonymous( $userName );
+
+		$hCaptcha->retrieveRiskScore(
+			new FauxRequest(),
+			'test-token',
+			$user,
+			[ 'test-sitekey' ]
+		);
+
+		$this->assertSame(
+			0.7,
+			$hCaptcha->retrieveSessionScore( 'hCaptcha-score' )
+		);
+
+		// Score is also persisted to the cache; clear the session to verify
+		SessionManager::getGlobalSession()->set( 'hCaptcha-score', null );
+		$this->assertSame(
+			0.7,
+			$hCaptcha->retrieveSessionScore( 'hCaptcha-score', $userName )
+		);
+	}
+
+	public function testRetrieveRiskScoreUsesActionConfigKeysWhenValidKeysIsNull(): void {
+		$this->overrideConfigValues( [
+			'HCaptchaSecretKey' => 'secretkey',
+			'HCaptchaSiteKey' => 'global-key',
+		] );
+
+		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
+		$mwHttpRequest
+			->method( 'execute' )
+			->willReturn( Status::newGood() );
+		$mwHttpRequest
+			->method( 'getContent' )
+			->willReturn( FormatJson::encode( [
+				'success' => true,
+				'sitekey' => 'global-key',
+				'score' => 0.3,
+			] ) );
+		$this->installMockHttp( $mwHttpRequest );
+
+		$hCaptcha = new HCaptcha();
+		$user = $this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' );
+
+		// validKeys is not provided (is null): falls back to keys for the
+		// current action, which uses the global key
+		$result = $hCaptcha->retrieveRiskScore(
+			new FauxRequest(),
+			'test-token',
+			$user
+		);
+
+		$this->assertSame( 0.3, $result );
+	}
 }

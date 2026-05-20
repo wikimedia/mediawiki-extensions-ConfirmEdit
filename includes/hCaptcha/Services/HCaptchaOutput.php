@@ -5,9 +5,8 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\hCaptcha\Services;
 
 use MediaWiki\Config\ServiceOptions;
-use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Html\Html;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MainConfigNames;
@@ -51,6 +50,7 @@ class HCaptchaOutput {
 	public function __construct(
 		private readonly ServiceOptions $options,
 		private readonly ResourceLoader $resourceLoader,
+		private readonly CaptchaFactory $captchaFactory,
 	) {
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 	}
@@ -66,15 +66,8 @@ class HCaptchaOutput {
 	 * @return string HTML of the hCaptcha fields to append to the outputted HTML
 	 */
 	public function addHCaptchaToForm( OutputPage $outputPage, bool $previouslyFailedHCaptcha ): string {
-		if ( $outputPage->getTitle()->isSpecial( 'CreateAccount' ) ) {
-			$action = CaptchaTriggers::CREATE_ACCOUNT;
-		} elseif ( $outputPage->getTitle()->exists() ) {
-			$action = CaptchaTriggers::EDIT;
-		} else {
-			$action = CaptchaTriggers::CREATE;
-		}
 		/** @var HCaptcha $simpleCaptcha */
-		$simpleCaptcha = Hooks::getInstance( $action );
+		$simpleCaptcha = $this->captchaFactory->getGlobalInstanceFromContext( $outputPage );
 		Assert::postcondition(
 			$simpleCaptcha instanceof HCaptcha, '$simpleCaptcha is not an instance of HCaptcha'
 		);

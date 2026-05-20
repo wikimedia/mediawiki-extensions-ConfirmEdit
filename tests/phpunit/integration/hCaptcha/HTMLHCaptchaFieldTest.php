@@ -371,43 +371,61 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( 'foo-site-key', $result );
 	}
 
-	public function testSiteKeyOverriddenForAction(): void {
+	/** @dataProvider provideSiteKeyOverriddenForAction */
+	public function testSiteKeyOverriddenForAction( Title $title, string $expectedSiteKey ): void {
 		$this->overrideConfigValue( 'HCaptchaSiteKey', 'baz' );
 		$this->overrideConfigValue( 'CaptchaTriggers', [
 			'create' => [
 				'trigger' => true,
 				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'foo' ]
+				'config' => [ 'HCaptchaSiteKey' => 'create-sitekey' ]
 			],
 			'edit' => [
 				'trigger' => true,
 				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'bar' ]
+				'config' => [ 'HCaptchaSiteKey' => 'edit-sitekey' ]
 			],
 			'createaccount' => [
 				'trigger' => true,
 				'class' => 'HCaptcha',
-				'config' => []
+				'config' => [ 'HCaptchaSiteKey' => 'create-account-sitekey' ]
 			],
 		] );
 
+		// Necessary because ::getExistingTestPage will cause the CaptchaTriggers config defined in
+		// ::setUp to be used and we need to change it for this test
+		Hooks::unsetInstanceForTests();
+
 		$outputPage = RequestContext::getMain()->getOutput();
-		$page = $this->getServiceContainer()->getSpecialPageFactory()->getPage( 'CreateAccount' );
-		$outputPage->setTitle( $page->getPageTitle() );
+		$outputPage->setTitle( $title );
+
 		/** @var HCaptchaOutput $hCaptchaOutput */
 		$hCaptchaOutput = $this->getServiceContainer()->get( 'HCaptchaOutput' );
 		$result = $hCaptchaOutput->addHCaptchaToForm( $outputPage, false );
-		$this->assertStringContainsString( 'data-sitekey="baz"', $result );
+		$this->assertStringContainsString( 'data-sitekey="' . $expectedSiteKey . '"', $result );
+	}
 
-		$title = $this->getServiceContainer()->getTitleFactory()->newFromText( 'Test' );
-		$outputPage->setTitle( $title );
-		$result = $hCaptchaOutput->addHCaptchaToForm( $outputPage, false );
-		$this->assertStringContainsString( 'data-sitekey="foo"', $result );
+	public static function provideSiteKeyOverriddenForAction(): array {
+		return [
+			'Title is Special:CreateAccount' => [
+				'title' => Title::newFromText( 'Special:CreateAccount' ),
+				'expectedSiteKey' => 'create-account-sitekey',
+			],
+		];
+	}
 
-		$this->editPage( 'Test', 'Test' );
-		$outputPage->setTitle( $title );
-		$result = $hCaptchaOutput->addHCaptchaToForm( $outputPage, false );
-		$this->assertStringContainsString( 'data-sitekey="bar"', $result );
+	public function testSiteKeyOverriddenForNonExistingTestPage(): void {
+		$this->testSiteKeyOverriddenForAction(
+			$this->getNonexistingTestPage()->getTitle(),
+			'create-sitekey'
+		);
+	}
+
+	public function testSiteKeyOverriddenForExistingTestPage(): void {
+		$this->testSiteKeyOverriddenForAction(
+			$this->getExistingTestPage()->getTitle(),
+			'edit-sitekey'
+		);
 	}
 
 }

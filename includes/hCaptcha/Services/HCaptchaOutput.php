@@ -149,7 +149,7 @@ class HCaptchaOutput {
 		if ( $title !== null && $title->isSpecial( 'CreateAccount' ) ) {
 			return true;
 		}
-		$action = $outputPage->getRequest()->getVal( 'action' );
+		$action = $outputPage->getActionName();
 		return $action === 'edit' || $action === 'submit';
 	}
 
@@ -181,7 +181,7 @@ class HCaptchaOutput {
 				'wgCanonicalSpecialPageName' => $outputPage->getTitle()?->isSpecial( 'CreateAccount' )
 					? 'CreateAccount'
 					: null,
-				'wgAction' => $outputPage->getRequest()->getVal( 'action' ) ?? 'view',
+				'wgAction' => $outputPage->getActionName(),
 				'wgConfirmEditHCaptchaSiteKey' => $siteKey,
 				'wgHCaptchaTriggerFormSubmission' =>
 					(bool)( $jsConfigVars['wgHCaptchaTriggerFormSubmission'] ?? false ),

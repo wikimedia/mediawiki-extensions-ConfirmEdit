@@ -9,7 +9,7 @@ use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Language\Language;
 use MediaWiki\Output\OutputPage;
-use MediaWiki\Request\WebRequest;
+use MediaWiki\Request\FauxRequest;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 
@@ -50,12 +50,11 @@ class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
 
 	private function mockOutputPage(
 		Title $title,
-		?string $action,
+		string $action,
 		array $jsConfigVars,
 		array &$headItems
 	): OutputPage {
-		$mockRequest = $this->createMock( WebRequest::class );
-		$mockRequest->method( 'getVal' )->with( 'action' )->willReturn( $action );
+		$mockRequest = new FauxRequest();
 
 		$mockLanguage = $this->createMock( Language::class );
 		$mockLanguage->method( 'getCode' )->willReturn( 'en' );
@@ -63,6 +62,7 @@ class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
 		$outputPage = $this->createMock( OutputPage::class );
 		$outputPage->method( 'getTitle' )->willReturn( $title );
 		$outputPage->method( 'getRequest' )->willReturn( $mockRequest );
+		$outputPage->method( 'getActionName' )->willReturn( $action );
 		$outputPage->method( 'getLanguage' )->willReturn( $mockLanguage );
 		$outputPage->method( 'getJsConfigVars' )->willReturn( $jsConfigVars );
 		$outputPage->method( 'msg' )
@@ -99,7 +99,7 @@ class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
 	private function runWith(
 		bool $secureEnclave,
 		Title $title,
-		?string $action = null,
+		string $action = 'view',
 		array $jsConfigVars = []
 	): array {
 		$this->overrideConfigValues( $this->secureEnclaveConfig( $secureEnclave ) );
@@ -182,7 +182,7 @@ class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
 		$this->overrideConfigValues( $config );
 
 		$headItems = [];
-		$outputPage = $this->mockOutputPage( $this->createAccountTitle(), null, [], $headItems );
+		$outputPage = $this->mockOutputPage( $this->createAccountTitle(), 'view', [], $headItems );
 		$this->getService()->addHCaptchaToForm( $outputPage, false );
 
 		$html = $headItems[self::HEAD_ITEM_KEY];
@@ -199,7 +199,7 @@ class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
 		$headItems = $this->runWith(
 			true,
 			$this->createAccountTitle(),
-			null,
+			'view',
 			[ 'wgHCaptchaTriggerFormSubmission' => true ]
 		);
 		$payload = $this->extractPayload( $headItems[self::HEAD_ITEM_KEY] );

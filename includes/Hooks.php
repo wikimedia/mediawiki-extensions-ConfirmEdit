@@ -4,20 +4,13 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit;
 
-use BadMethodCallException;
 use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Content\Content;
 use MediaWiki\Content\TextContent;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
-use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
-use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
-use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
-use MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\ReCaptchaNoCaptcha;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Turnstile\Turnstile;
 use MediaWiki\Hook\AlternateEditPreviewHook;
 use MediaWiki\Hook\EditFilterMergedContentHook;
 use MediaWiki\Hook\EditPage__showEditForm_fieldsHook;
@@ -49,13 +42,6 @@ class Hooks implements
 	APIGetAllowedParamsHook,
 	AuthChangeFormFieldsHook
 {
-
-	/**
-	 * @var SimpleCaptcha[][] Captcha instances, where the keys are action => captcha type and the
-	 *   values are an instance of that captcha type.
-	 */
-	protected static array $instance = [];
-
 	public function __construct(
 		private readonly WANObjectCache $cache,
 	) {
@@ -67,40 +53,10 @@ class Hooks implements
 	 * If a specific Captcha is not defined in $wgCaptchaTriggers[$action]['class'],
 	 * $wgCaptchaClass will be returned instead.
 	 *
-	 * @stable to call - May be used by code not visible in codesearch
+	 * @deprecated Since 1.47 - Use {@link ConfirmEditCaptchaFactory::getGlobalInstance} instead.
 	 */
 	public static function getInstance( string $action = '' ): SimpleCaptcha {
-		static $map = [
-			'SimpleCaptcha' => SimpleCaptcha::class,
-			'FancyCaptcha' => FancyCaptcha::class,
-			'QuestyCaptcha' => QuestyCaptcha::class,
-			'ReCaptchaNoCaptcha' => ReCaptchaNoCaptcha::class,
-			'HCaptcha' => HCaptcha::class,
-			'Turnstile' => Turnstile::class,
-		];
-
-		$config = MediaWikiServices::getInstance()->getMainConfig();
-		$captchaTriggers = $config->get( 'CaptchaTriggers' );
-		$defaultCaptchaClass = $config->get( 'CaptchaClass' );
-
-		// Check for the newer style captcha trigger array
-		$class = $captchaTriggers[$action]['class'] ?? $defaultCaptchaClass;
-
-		$hookRunner = new HookRunner(
-			MediaWikiServices::getInstance()->getHookContainer()
-		);
-		// Allow hook implementers to override the class that's about to be cached.
-		$hookRunner->onConfirmEditCaptchaClass( $action, $class );
-
-		if ( !isset( static::$instance[$action][$class] ) ) {
-			// There is not a cached instance, construct a new one based on the mapping
-			/** @var SimpleCaptcha $classInstance */
-			$classInstance = new ( $map[$class] ?? $map[$defaultCaptchaClass] ?? $defaultCaptchaClass );
-			$classInstance->setConfig( $captchaTriggers[$action]['config'] ?? [] );
-			static::$instance[$action][$class] = $classInstance;
-		}
-
-		return static::$instance[$action][$class];
+		return MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' )->getGlobalInstance( $action );
 	}
 
 	/**
@@ -134,12 +90,10 @@ class Hooks implements
 	 *
 	 * @codeCoverageIgnore
 	 * @internal Only for use in PHPUnit tests.
+	 * @deprecated Since 1.47 - Use {@link ConfirmEditCaptchaFactory::unsetGlobalInstancesForTests} instead.
 	 */
 	public static function unsetInstanceForTests(): void {
-		if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
-			throw new BadMethodCallException( 'Cannot unset ' . __CLASS__ . ' instance in operation.' );
-		}
-		static::$instance = [];
+		MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' )->unsetGlobalInstancesForTests();
 	}
 
 	/** @inheritDoc */

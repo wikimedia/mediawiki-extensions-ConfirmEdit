@@ -7,6 +7,7 @@ namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaEnterpriseHealthChecker;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\Services\LoadedCaptchasProvider;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
@@ -53,5 +54,12 @@ return [
 			)
 		);
 	},
+	'ConfirmEditCaptchaFactory' => static fn ( MediaWikiServices $services ) => new CaptchaFactory(
+		new ServiceOptions(
+			CaptchaFactory::CONSTRUCTOR_OPTIONS,
+			$services->getMainConfig()
+		),
+		$services->getHookContainer()
+	),
 ];
 // @codeCoverageIgnoreEnd

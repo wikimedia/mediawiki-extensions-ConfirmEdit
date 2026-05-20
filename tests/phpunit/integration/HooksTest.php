@@ -19,6 +19,7 @@ use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\Hooks
+ * @covers \MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory
  * @group Database
  */
 class HooksTest extends MediaWikiIntegrationTestCase {

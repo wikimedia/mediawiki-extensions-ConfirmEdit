@@ -52,14 +52,6 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 
 	public function tearDown(): void {
 		parent::tearDown();
-		/** @var Hooks $req */
-		$req = TestingAccessWrapper::newFromClass( Hooks::class );
-		// clear the singleton between tests
-		$req->instance = [];
-	}
-
-	public static function tearDownAfterClass(): void {
-		parent::tearDownAfterClass();
 		Hooks::unsetInstanceForTests();
 	}
 

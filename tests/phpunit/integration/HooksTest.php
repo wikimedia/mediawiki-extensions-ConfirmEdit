@@ -8,18 +8,13 @@ use MediaWiki\Content\ContentHandler;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
-use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
-use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
-use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
-use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Page\Article;
 use MediaWiki\Status\Status;
 use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\Hooks
- * @covers \MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory
  * @group Database
  */
 class HooksTest extends MediaWikiIntegrationTestCase {
@@ -28,104 +23,6 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 		parent::setUp();
 
 		Hooks::unsetInstanceForTests();
-	}
-
-	public function testGetInstanceNewStyleTriggers() {
-		$this->overrideConfigValues(
-			[
-				'CaptchaClass' => 'SimpleCaptcha',
-				'CaptchaTriggers' => [
-					// New style trigger
-					'edit' => [
-						'trigger' => true,
-						'class' => 'FancyCaptcha',
-					],
-					// Old style trigger
-					'move' => false,
-				]
-			]
-		);
-
-		// Returns the default for $wgCaptchaClass
-		$this->assertInstanceOf( SimpleCaptcha::class, Hooks::getInstance() );
-
-		// Returns the default for $wgCaptchaClass, because it uses the old style trigger (boolean)
-		$this->assertInstanceOf( SimpleCaptcha::class, Hooks::getInstance( 'move' ) );
-
-		// Returns the default for $wgCaptchaClass, because the trigger isn't defined
-		$this->assertInstanceOf( SimpleCaptcha::class, Hooks::getInstance( 'foo' ) );
-
-		// Returns the FancyCaptcha instance for the edit trigger
-		$this->assertInstanceOf( FancyCaptcha::class, Hooks::getInstance( 'edit' ) );
-	}
-
-	public function testOnConfirmEditHooksGetInstance() {
-		$session = RequestContext::getMain()->getRequest()->getSession();
-		$session->remove(
-			SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-		);
-
-		$this->overrideConfigValues( [
-			'CaptchaClass' => 'SimpleCaptcha',
-			'CaptchaTriggers' => [ 'createaccount' => [
-				'trigger' => true,
-				'class' => 'FancyCaptcha',
-			] ]
-		] );
-		$this->setTemporaryHook( 'ConfirmEditCaptchaClass', static function ( $action, &$className ) {
-			if ( $action === 'createaccount' ) {
-				$className = 'HCaptcha';
-			} elseif ( $action === 'edit' ) {
-				$className = 'QuestyCaptcha';
-			} elseif ( $action === 'badlogin' ) {
-				$className = 'HCaptcha';
-			}
-		} );
-
-		$instance = Hooks::getInstance( 'createaccount' );
-		$this->assertInstanceOf( HCaptcha::class, $instance );
-		$instance->setForceShowCaptcha( true );
-		$newInstance = Hooks::getInstance( 'createaccount' );
-		$this->assertTrue(
-			$newInstance->shouldForceShowCaptcha(),
-			'Calling ::getInstance() again returns the cached instance'
-		);
-
-		// forceShowCaptcha is "sticky": Once set for an action (i.e. the above
-		// call to setForceShowCaptcha), it will remain set for any action in
-		// the current user session. That means checking it for this instance
-		// ('badlogin') will still return true even if it was set for a different
-		// instance ('createaccount').
-		$instance = Hooks::getInstance( 'badlogin' );
-		$this->assertInstanceOf( HCaptcha::class, $instance );
-		$this->assertTrue( $instance->shouldForceShowCaptcha() );
-
-		// Once the static cache is removed and the session storage cleared,
-		// a check on an instance for 'badlogin' will fall back to not forcing
-		// showing the captcha.
-		$session->remove(
-			SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-		);
-		Hooks::unsetInstanceForTests();
-		$instance = Hooks::getInstance( 'badlogin' );
-		$this->assertInstanceOf( HCaptcha::class, $instance );
-		$this->assertFalse( $instance->shouldForceShowCaptcha() );
-
-		$instance = Hooks::getInstance( 'edit' );
-		$this->assertInstanceOf( QuestyCaptcha::class, $instance );
-		$this->assertFalse( $instance->shouldForceShowCaptcha() );
-
-		$instance = Hooks::getInstance( 'move' );
-		$this->assertInstanceOf( SimpleCaptcha::class, $instance );
-		$this->assertFalse( $instance->shouldForceShowCaptcha() );
-
-		// Check that cached instance is returned when no action is specified.
-		$instance = Hooks::getInstance();
-		$instance->setForceShowCaptcha( true );
-		$this->assertInstanceOf( SimpleCaptcha::class, $instance );
-		$instance = Hooks::getInstance();
-		$this->assertInstanceOf( SimpleCaptcha::class, $instance );
-		$this->assertTrue( $instance->shouldForceShowCaptcha() );
 	}
 
 	/**

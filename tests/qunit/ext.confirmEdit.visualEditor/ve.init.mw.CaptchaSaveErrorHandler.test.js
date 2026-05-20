@@ -155,6 +155,48 @@ QUnit.module.if( 'ext.confirmEdit.visualEditor.CaptchaSaveErrorHandler', mw.load
 		} );
 	} );
 
+	QUnit.test.each( 'process() destroys hCaptcha widget when handler is available', {
+		'HCaptchaOnLoadHandler is defined': {
+			defineHandler: true
+		},
+		'HCaptchaOnLoadHandler is undefined': {
+			defineHandler: false
+		}
+	}, function ( assert, options ) {
+		const destroyWidgetStub = this.sandbox.stub();
+
+		this.sandbox.stub( mw.libs.confirmEdit, 'CaptchaWidget' ).callsFake( function () {
+			this.updateForCaptchaFailure = () => Promise.resolve();
+			this.renderCaptcha = () => Promise.resolve();
+		} );
+
+		const originalHandler = ve.init.mw.HCaptchaOnLoadHandler;
+		ve.init.mw.HCaptchaOnLoadHandler = options.defineHandler ?
+			{ static: { destroyWidget: destroyWidgetStub } } :
+			undefined;
+
+		try {
+			captchaSaveErrorHandler();
+
+			const target = getMockTarget( this, $( '#qunit-fixture' ) );
+
+			ve.init.mw.CaptchaSaveErrorHandler.static.process(
+				{ visualeditoredit: { edit: { captcha: { type: 'simple' } } } },
+				target
+			);
+
+			if ( options.defineHandler ) {
+				assert.true( destroyWidgetStub.calledOnce, 'destroyWidget should be called once with the target' );
+				assert.deepEqual( destroyWidgetStub.getCall( 0 ).args, [ target ],
+					'destroyWidget called with target' );
+			} else {
+				assert.true( destroyWidgetStub.notCalled, 'destroyWidget should not be called when handler is undefined' );
+			}
+		} finally {
+			ve.init.mw.HCaptchaOnLoadHandler = originalHandler;
+		}
+	} );
+
 	QUnit.test.each( 'matchFunction correctly matches', {
 		'Captcha is not present': {
 			data: { visualeditoredit: { edit: {} } },

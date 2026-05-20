@@ -31,6 +31,10 @@ module.exports = () => {
 	};
 
 	ve.init.mw.CaptchaSaveErrorHandler.static.process = function ( data, target ) {
+		if ( ve.init.mw.HCaptchaOnLoadHandler ) {
+			ve.init.mw.HCaptchaOnLoadHandler.static.destroyWidget( target );
+		}
+
 		const $captchaContainer = $( '<div>' );
 		target.saveDialog.clearMessage( 'api-save-error' );
 		target.saveDialog.showMessage( 'api-save-error', $captchaContainer, { wrap: false } );

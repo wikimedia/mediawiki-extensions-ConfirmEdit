@@ -215,7 +215,6 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderQuestionCaptcha = function ( $
 	const captchaLabel = this.config.type === 'question' ? 'questycaptcha-edit' : 'captcha-edit';
 
 	// Possible messages in use here documented above
-	// eslint-disable-next-line mediawiki/msg-doc
 	$captchaParagraph.append( mw.message( captchaLabel ).parseDom(), '<br>', question );
 
 	$captchaContainer.append( $captchaParagraph );

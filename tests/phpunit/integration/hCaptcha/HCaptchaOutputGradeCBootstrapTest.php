@@ -34,6 +34,7 @@ class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
 			CaptchaTriggers::EDIT => $captchaTrigger,
 			CaptchaTriggers::CREATE => $captchaTrigger,
 			CaptchaTriggers::CREATE_ACCOUNT => $captchaTrigger,
+			CaptchaTriggers::LOGIN_ATTEMPT => $captchaTrigger,
 		] );
 		self::clearCaptchaFactoryGlobalInstances();
 	}
@@ -132,6 +133,19 @@ class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( 'modules=ext.confirmEdit.hCaptcha.gradeC', $html );
 		$this->assertStringContainsString( 'only=scripts', $html );
 		$this->assertStringContainsString( 'raw=1', $html );
+	}
+
+	public function testEmitsBootstrapOnUserlogin(): void {
+		$title = $this->createMock( Title::class );
+		$title->method( 'isSpecial' )
+			->willReturnCallback( static fn ( string $name ) => $name === 'Userlogin' );
+		$title->method( 'exists' )->willReturn( true );
+
+		$headItems = $this->runWith( true, $title );
+
+		$this->assertArrayHasKey( self::HEAD_ITEM_KEY, $headItems );
+		$payload = $this->extractPayload( $headItems[self::HEAD_ITEM_KEY] );
+		$this->assertSame( 'Userlogin', $payload['config']['wgCanonicalSpecialPageName'] );
 	}
 
 	public static function provideEmittingActions(): iterable {

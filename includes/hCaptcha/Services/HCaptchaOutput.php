@@ -133,13 +133,14 @@ class HCaptchaOutput {
 	}
 
 	/**
-	 * The bundle's secureEnclave.js branches on wgCanonicalSpecialPageName ===
-	 * 'CreateAccount' or wgAction === 'edit'|'submit'; only emit the bootstrap
-	 * on those entry points.
+	 * Grade C clients are supported for:
+	 * - desktop wikitext editor via ?action=edit|submit
+	 * - Special:CreateAccount
+	 * - Special:UserLogin
 	 */
 	private function shouldEmitGradeCBootstrap( OutputPage $outputPage ): bool {
 		$title = $outputPage->getTitle();
-		if ( $title !== null && $title->isSpecial( 'CreateAccount' ) ) {
+		if ( $title !== null && ( $title->isSpecial( 'CreateAccount' ) || $title->isSpecial( 'Userlogin' ) ) ) {
 			return true;
 		}
 		$action = $outputPage->getActionName();
@@ -169,11 +170,18 @@ class HCaptchaOutput {
 		// Grade C has no mw.loader, so RLCONF vars don't reach mw.config —
 		// forward them via the bootstrap payload.
 		$jsConfigVars = $outputPage->getJsConfigVars();
+		$title = $outputPage->getTitle();
+		$canonicalSpecialPageName = null;
+		if ( $title !== null ) {
+			if ( $title->isSpecial( 'CreateAccount' ) ) {
+				$canonicalSpecialPageName = 'CreateAccount';
+			} elseif ( $title->isSpecial( 'Userlogin' ) ) {
+				$canonicalSpecialPageName = 'Userlogin';
+			}
+		}
 		$data = [
 			'config' => [
-				'wgCanonicalSpecialPageName' => $outputPage->getTitle()?->isSpecial( 'CreateAccount' )
-					? 'CreateAccount'
-					: null,
+				'wgCanonicalSpecialPageName' => $canonicalSpecialPageName,
 				'wgAction' => $outputPage->getActionName(),
 				'wgConfirmEditHCaptchaSiteKey' => $siteKey,
 				'wgHCaptchaTriggerFormSubmission' =>

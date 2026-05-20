@@ -5,6 +5,8 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounter;
+use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
@@ -392,6 +394,16 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'class' => 'HCaptcha',
 				'config' => [ 'HCaptchaSiteKey' => 'create-account-sitekey' ]
 			],
+			CaptchaTriggers::BAD_LOGIN => [
+				'trigger' => true,
+				'class' => 'HCaptcha',
+				'config' => [ 'HCaptchaSiteKey' => 'bad-login-sitekey' ],
+			],
+			CaptchaTriggers::LOGIN_ATTEMPT => [
+				'trigger' => true,
+				'class' => 'HCaptcha',
+				'config' => [ 'HCaptchaSiteKey' => 'login-attempt-sitekey' ],
+			],
 		] );
 
 		// Necessary because ::getExistingTestPage will cause the CaptchaTriggers config defined in
@@ -413,6 +425,10 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'title' => Title::newFromText( 'Special:CreateAccount' ),
 				'expectedSiteKey' => 'create-account-sitekey',
 			],
+			'Title is Special:UserLogin for standard login' => [
+				'title' => Title::newFromText( 'Special:UserLogin' ),
+				'expectedSiteKey' => 'login-attempt-sitekey',
+			],
 		];
 	}
 
@@ -427,6 +443,23 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$this->testSiteKeyOverriddenForAction(
 			$this->getExistingTestPage()->getTitle(),
 			'edit-sitekey'
+		);
+	}
+
+	public function testSiteKeyOverriddenForBadLogin(): void {
+		// Mock the badlogin state so we can test it overrides the login-attempt CAPTCHA
+		$mockLoginAttemptCounter = $this->createMock( LoginAttemptCounter::class );
+		$mockLoginAttemptCounter->method( 'isBadLoginTriggered' )
+			->willReturn( true );
+
+		$mockLoginAttemptCounterFactory = $this->createMock( LoginAttemptCounterFactory::class );
+		$mockLoginAttemptCounterFactory->method( 'newLoginAttemptCounter' )
+			->willReturn( $mockLoginAttemptCounter );
+		$this->setService( 'ConfirmEditLoginAttemptCounterFactory', $mockLoginAttemptCounterFactory );
+
+		$this->testSiteKeyOverriddenForAction(
+			Title::newFromText( 'Special:UserLogin' ),
+			'bad-login-sitekey'
 		);
 	}
 

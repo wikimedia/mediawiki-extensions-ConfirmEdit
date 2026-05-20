@@ -61,23 +61,9 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				// result in weird behavior (if the user leaves the captcha field empty, they get
 				// a required field error; if they fill it with an invalid answer, it will pass)
 				// - again, not a huge deal.
-				$captcha = Hooks::getInstance( CaptchaTriggers::LOGIN_ATTEMPT );
+				$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
 				$session = $this->manager->getRequest()->getSession();
 				$suggestedUsername = $session->suggestLoginUsername();
-				if ( $captcha->triggersCaptcha( CaptchaTriggers::LOGIN_ATTEMPT ) ) {
-					$captcha->setAction( CaptchaTriggers::LOGIN_ATTEMPT );
-					$logger->info( 'Captcha shown on login attempt by {clientip} for {suggestedUser}', [
-						'event' => 'captcha.display',
-						'eventType' => 'loginattempt',
-						'suggestedUser' => $suggestedUsername,
-						'clientip' => $this->manager->getRequest()->getIP(),
-						'ua' => $this->manager->getRequest()->getHeader( 'User-Agent' )
-					] );
-					$needed = true;
-					break;
-				}
-
-				$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
 				$loginCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter( $captcha );
 
 				$userProbablyNeedsCaptcha = $session->get( 'ConfirmEdit:loginCaptchaPerUserTriggered' );
@@ -90,6 +76,20 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 					$logger->info( 'Captcha shown on login by {clientip} for {suggestedUser}', [
 						'event' => 'captcha.display',
 						'eventType' => 'badlogin',
+						'suggestedUser' => $suggestedUsername,
+						'clientip' => $this->manager->getRequest()->getIP(),
+						'ua' => $this->manager->getRequest()->getHeader( 'User-Agent' )
+					] );
+					$needed = true;
+					break;
+				}
+
+				$captcha = Hooks::getInstance( CaptchaTriggers::LOGIN_ATTEMPT );
+				if ( $captcha->triggersCaptcha( CaptchaTriggers::LOGIN_ATTEMPT ) ) {
+					$captcha->setAction( CaptchaTriggers::LOGIN_ATTEMPT );
+					$logger->info( 'Captcha shown on login attempt by {clientip} for {suggestedUser}', [
+						'event' => 'captcha.display',
+						'eventType' => 'loginattempt',
 						'suggestedUser' => $suggestedUsername,
 						'clientip' => $this->manager->getRequest()->getIP(),
 						'ua' => $this->manager->getRequest()->getHeader( 'User-Agent' )
@@ -115,28 +115,24 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		$loginCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter( $captcha );
 		$success = true;
 		$isBadLoginPerUserTriggered = $username && $loginCounter->isBadLoginPerUserTriggered( $username );
+		$isBadLoginTriggered = $isBadLoginPerUserTriggered || $loginCounter->isBadLoginTriggered();
 		$loginTriggersCaptcha = $captcha->triggersCaptcha( CaptchaTriggers::LOGIN_ATTEMPT );
 
-		if (
-			$isBadLoginPerUserTriggered ||
-			$loginCounter->isBadLoginTriggered() ||
-			$loginTriggersCaptcha
-		) {
-
-			if ( $loginTriggersCaptcha ) {
-				$captcha = Hooks::getInstance( CaptchaTriggers::LOGIN_ATTEMPT );
-				$captcha->setAction( CaptchaTriggers::LOGIN_ATTEMPT );
-				$captcha->setTrigger( "loginattempt login '$username'" );
-			} else {
+		if ( $isBadLoginTriggered || $loginTriggersCaptcha ) {
+			if ( $isBadLoginTriggered ) {
 				$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
 				$captcha->setAction( CaptchaTriggers::BAD_LOGIN );
 				$captcha->setTrigger( "post-badlogin login '$username'" );
+			} else {
+				$captcha = Hooks::getInstance( CaptchaTriggers::LOGIN_ATTEMPT );
+				$captcha->setAction( CaptchaTriggers::LOGIN_ATTEMPT );
+				$captcha->setTrigger( "loginattempt login '$username'" );
 			}
 			$success = $this->verifyCaptcha( $captcha, $reqs, new User() );
-			$action = $loginTriggersCaptcha ? 'login page' : 'bad login';
+			$action = $isBadLoginTriggered ? 'bad login' : 'login page';
 			LoggerFactory::getInstance( 'captcha' )->info( "Captcha shown on $action for {user}", [
 				'event' => 'captcha.submit',
-				'eventType' => $loginTriggersCaptcha ? 'loginattempt' : 'badlogin',
+				'eventType' => $isBadLoginTriggered ? 'badlogin' : 'loginattempt',
 				'successful' => $success,
 				'user' => $username ?? 'unknown',
 				'clientip' => $this->manager->getRequest()->getIP(),

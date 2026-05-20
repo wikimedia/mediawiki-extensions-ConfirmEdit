@@ -149,7 +149,10 @@
 		"preauth": {
 			"CaptchaPreAuthenticationProvider": {
 				"class": "MediaWiki\\Extension\\ConfirmEdit\\Auth\\CaptchaPreAuthenticationProvider",
-				"sort": 10
+				"sort": 10,
+				"services": [
+					"ConfirmEditLoginAttemptCounterFactory"
+				]
 			}
 		}
 	},

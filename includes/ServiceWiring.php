@@ -5,6 +5,7 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaEnterpriseHealthChecker;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
@@ -61,5 +62,6 @@ return [
 		),
 		$services->getHookContainer()
 	),
+	'ConfirmEditLoginAttemptCounterFactory' => static fn () => new LoginAttemptCounterFactory(),
 ];
 // @codeCoverageIgnoreEnd

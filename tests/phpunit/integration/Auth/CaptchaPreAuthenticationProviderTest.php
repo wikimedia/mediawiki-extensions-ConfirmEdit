@@ -10,6 +10,7 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaPreAuthenticationProvider;
 use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounter;
+use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaHashStore;
@@ -78,7 +79,9 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$request = RequestContext::getMain()->getRequest();
 		$request->setCookie( 'UserName', $username );
 
-		$provider = new CaptchaPreAuthenticationProvider();
+		$provider = new CaptchaPreAuthenticationProvider(
+			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' )
+		);
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 		$reqs = $provider->getAuthenticationRequests( $action, [ 'username' => $username ] );
 		if ( $needsCaptcha ) {
@@ -110,7 +113,9 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 	public function testGetAuthenticationRequests_store() {
 		$this->setTriggers( [ 'createaccount' ] );
 		$captcha = new SimpleCaptcha();
-		$provider = new CaptchaPreAuthenticationProvider();
+		$provider = new CaptchaPreAuthenticationProvider(
+			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' )
+		);
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$reqs = $provider->getAuthenticationRequests( AuthManager::ACTION_CREATE,
@@ -145,8 +150,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			->willReturn( $isBadLoginTriggered );
 		$loginAttemptCounter->expects( $this->any() )->method( 'isBadLoginPerUserTriggered' )
 			->willReturn( $isBadLoginPerUserTriggered );
-		$provider = $this->getProvider();
-		$provider->loginAttemptCounter = $loginAttemptCounter;
+		$provider = $this->getProvider( $loginAttemptCounter );
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$status = $provider->testForAuthentication( $req ? [ $req ] : [] );
@@ -180,7 +184,9 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$this->setTriggers( $disableTrigger ? [] : [ 'createaccount' ] );
 		CaptchaStore::get()->store( '345', [ 'question' => '2+2', 'answer' => '4' ] );
 		$user = User::newFromName( 'Foo' );
-		$provider = new CaptchaPreAuthenticationProvider();
+		$provider = new CaptchaPreAuthenticationProvider(
+			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' )
+		);
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$creator = $creatorIsSysop ? $this->getTestSysop()->getUser() : User::newFromName( 'Bar' );
@@ -205,9 +211,8 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$captcha = new SimpleCaptcha();
 		$user = User::newFromName( 'Foo' );
 		$anotherUser = User::newFromName( 'Bar' );
-		$provider = $this->getProvider();
 		$loginAttemptCounter = new LoginAttemptCounter( $captcha );
-		$provider->loginAttemptCounter = $loginAttemptCounter;
+		$provider = $this->getProvider( $loginAttemptCounter );
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$this->assertFalse( $loginAttemptCounter->isBadLoginTriggered() );
@@ -228,10 +233,13 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 	public function testPostAuthentication_disabled() {
 		$this->setTriggers( [] );
 		$captcha = new SimpleCaptcha();
-		$loginAttemptCounter = new LoginAttemptCounter( $captcha );
+
+		/** @var LoginAttemptCounterFactory $loginAttemptCounterFactory */
+		$loginAttemptCounterFactory = $this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' );
+		$loginAttemptCounter = $loginAttemptCounterFactory->newLoginAttemptCounter( $captcha );
+
 		$user = User::newFromName( 'Foo' );
-		$provider = $this->getProvider();
-		$provider->loginAttemptCounter = $loginAttemptCounter;
+		$provider = $this->getProvider( $loginAttemptCounter );
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
 		$this->assertFalse( $loginAttemptCounter->isBadLoginTriggered() );
@@ -256,7 +264,9 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 				],
 			]
 		);
-		$provider = new CaptchaPreAuthenticationProvider();
+		$provider = new CaptchaPreAuthenticationProvider(
+			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' )
+		);
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 		/** @var CaptchaPreAuthenticationProvider $providerAccess */
 		$providerAccess = TestingAccessWrapper::newFromObject( $provider );
@@ -311,8 +321,10 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 	}
 
 	protected function blockLogin( $username ) {
-		$counter = new LoginAttemptCounter( new SimpleCaptcha() );
-		$counter->increaseBadLoginCounter( $username );
+		/** @var LoginAttemptCounterFactory $loginAttemptCounterFactory */
+		$loginAttemptCounterFactory = $this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' );
+		$loginAttemptCounter = $loginAttemptCounterFactory->newLoginAttemptCounter( new SimpleCaptcha() );
+		$loginAttemptCounter->increaseBadLoginCounter( $username );
 	}
 
 	protected function flagSession() {
@@ -329,14 +341,12 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$this->overrideConfigValue( 'CaptchaTriggers', $captchaTriggers );
 	}
 
-	private function getProvider(): CaptchaPreAuthenticationProvider {
-		return new class() extends CaptchaPreAuthenticationProvider {
-			public ?LoginAttemptCounter $loginAttemptCounter = null;
+	private function getProvider( LoginAttemptCounter $loginAttemptCounter ): CaptchaPreAuthenticationProvider {
+		$mockLoginAttemptCounterFactory = $this->createMock( LoginAttemptCounterFactory::class );
+		$mockLoginAttemptCounterFactory->method( 'newLoginAttemptCounter' )
+			->willReturn( $loginAttemptCounter );
 
-			protected function getLoginAttemptCounter( SimpleCaptcha $captcha ): LoginAttemptCounter {
-				return $this->loginAttemptCounter ?: parent::getLoginAttemptCounter( $captcha );
-			}
-		};
+		return new CaptchaPreAuthenticationProvider( $mockLoginAttemptCounterFactory );
 	}
 
 }

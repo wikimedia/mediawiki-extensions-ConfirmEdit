@@ -16,6 +16,12 @@ use MediaWiki\Status\Status;
 use MediaWiki\User\User;
 
 class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider {
+
+	public function __construct(
+		private readonly LoginAttemptCounterFactory $loginAttemptCounterFactory,
+	) {
+	}
+
 	/** @inheritDoc */
 	public function getAuthenticationRequests( $action, array $options ) {
 		$user = User::newFromName( $options['username'] );
@@ -72,7 +78,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				}
 
 				$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
-				$loginCounter = $this->getLoginAttemptCounter( $captcha );
+				$loginCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter( $captcha );
 
 				$userProbablyNeedsCaptcha = $session->get( 'ConfirmEdit:loginCaptchaPerUserTriggered' );
 				if (
@@ -106,7 +112,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 	public function testForAuthentication( array $reqs ) {
 		$captcha = Hooks::getInstance( CaptchaTriggers::CREATE_ACCOUNT );
 		$username = AuthenticationRequest::getUsernameFromRequests( $reqs );
-		$loginCounter = $this->getLoginAttemptCounter( $captcha );
+		$loginCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter( $captcha );
 		$success = true;
 		$isBadLoginPerUserTriggered = $username && $loginCounter->isBadLoginPerUserTriggered( $username );
 		$loginTriggersCaptcha = $captcha->triggersCaptcha( CaptchaTriggers::LOGIN_ATTEMPT );
@@ -179,7 +185,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 	/** @inheritDoc */
 	public function postAuthentication( $user, AuthenticationResponse $response ) {
 		$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
-		$loginCounter = $this->getLoginAttemptCounter( $captcha );
+		$loginCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter( $captcha );
 		switch ( $response->status ) {
 			case AuthenticationResponse::PASS:
 			case AuthenticationResponse::RESTART:
@@ -224,10 +230,5 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 			return Status::newFatal( wfMessage( 'captcha-error', $error ) );
 		}
 		return Status::newFatal( $message );
-	}
-
-	protected function getLoginAttemptCounter( SimpleCaptcha $captcha ): LoginAttemptCounter {
-		// Overridable for testing
-		return new LoginAttemptCounter( $captcha );
 	}
 }

@@ -14,7 +14,7 @@ use Wikimedia\ObjectCache\BagOStuff;
 /**
  * Helper to count login attempts per IP and per username.
  *
- * @internal
+ * @internal Use {@link LoginAttemptCounterFactory::newLoginAttemptCounter()} to get an instance
  */
 class LoginAttemptCounter {
 	private SimpleCaptcha $captcha;

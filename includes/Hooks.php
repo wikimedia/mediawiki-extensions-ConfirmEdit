@@ -132,6 +132,7 @@ class Hooks implements
 	/**
 	 * Get the relevant CaptchaTriggers action depending on whether the page exists
 	 *
+	 * @deprecated Since 1.47 - Use {@link CaptchaFactory::getGlobalInstanceFromContext} instead.
 	 * @param Title $title
 	 * @return string one of "edit" or "create"
 	 * @see CaptchaTriggers::EDIT

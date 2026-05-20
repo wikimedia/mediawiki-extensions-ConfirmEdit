@@ -60,7 +60,8 @@ return [
 			CaptchaFactory::CONSTRUCTOR_OPTIONS,
 			$services->getMainConfig()
 		),
-		$services->getHookContainer()
+		$services->getHookContainer(),
+		$services->get( 'ConfirmEditLoginAttemptCounterFactory' )
 	),
 	'ConfirmEditLoginAttemptCounterFactory' => static fn () => new LoginAttemptCounterFactory(),
 ];

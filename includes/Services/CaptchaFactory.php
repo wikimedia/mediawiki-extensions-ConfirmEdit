@@ -6,6 +6,9 @@ namespace MediaWiki\Extension\ConfirmEdit\Services;
 
 use BadMethodCallException;
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\Context\IContextSource;
+use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
+use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
@@ -44,6 +47,7 @@ class CaptchaFactory {
 	public function __construct(
 		private readonly ServiceOptions $options,
 		private readonly HookContainer $hookContainer,
+		private readonly LoginAttemptCounterFactory $loginAttemptCounterFactory,
 	) {
 		$this->options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 	}
@@ -61,8 +65,12 @@ class CaptchaFactory {
 		$captchaTriggers = $this->options->get( 'CaptchaTriggers' );
 		$defaultCaptchaClass = $this->options->get( 'CaptchaClass' );
 
-		// Check for the newer style captcha trigger array
-		$class = $captchaTriggers[$action]['class'] ?? $defaultCaptchaClass;
+		// Use the CaptchaTriggers class for this action, falling back to the default class if not set
+		$class = $captchaTriggers[$action]['class'] ?? null;
+		if ( $action === CaptchaTriggers::BAD_LOGIN_PER_USER && $class === null ) {
+			$class = $captchaTriggers[CaptchaTriggers::BAD_LOGIN]['class'] ?? null;
+		}
+		$class ??= $defaultCaptchaClass;
 
 		$hookRunner = new HookRunner( $this->hookContainer );
 		// Allow hook implementers to override the class that's about to be cached.
@@ -80,6 +88,52 @@ class CaptchaFactory {
 		}
 
 		return static::$globalInstances[$action][$class];
+	}
+
+	/**
+	 * Gets the global CAPTCHA instance that applies for the given {@link IContextSource}.
+	 *
+	 * @stable to call
+	 * @since 1.47
+	 */
+	public function getGlobalInstanceFromContext( IContextSource $context ): SimpleCaptcha {
+		if (
+			$context->getTitle()->isSpecial( 'CreateAccount' ) ||
+			$context->getActionName() === 'createaccount'
+		) {
+			$action = CaptchaTriggers::CREATE_ACCOUNT;
+		} elseif (
+			$context->getTitle()->isSpecial( 'Userlogin' ) ||
+			in_array( $context->getActionName(), [ 'login', 'clientlogin' ] )
+		) {
+			$session = $context->getRequest()->getSession();
+			$suggestedUsername = $session->suggestLoginUsername();
+			$loginAttemptCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter(
+				$this->getGlobalInstance( CaptchaTriggers::BAD_LOGIN )
+			);
+
+			if (
+				$session->get( 'ConfirmEdit:loginCaptchaPerUserTriggered' ) ||
+				( $suggestedUsername && $loginAttemptCounter->isBadLoginPerUserTriggered( $suggestedUsername ) )
+			) {
+				$action = CaptchaTriggers::BAD_LOGIN_PER_USER;
+			} elseif ( $loginAttemptCounter->isBadLoginTriggered() ) {
+				$action = CaptchaTriggers::BAD_LOGIN;
+			} else {
+				$action = CaptchaTriggers::LOGIN_ATTEMPT;
+			}
+		} elseif (
+			$context->getTitle()->isSpecial( 'Emailuser' ) ||
+			$context->getActionName() === 'emailuser'
+		) {
+			$action = CaptchaTriggers::SENDEMAIL;
+		} elseif ( $context->getTitle()->exists() ) {
+			$action = CaptchaTriggers::EDIT;
+		} else {
+			$action = CaptchaTriggers::CREATE;
+		}
+
+		return $this->getGlobalInstance( $action );
 	}
 
 	/**

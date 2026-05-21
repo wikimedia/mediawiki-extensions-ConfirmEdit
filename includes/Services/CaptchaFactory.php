@@ -5,8 +5,10 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Services;
 
 use BadMethodCallException;
+use MediaWiki\Auth\AuthManager;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Context\IContextSource;
+use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
@@ -17,6 +19,7 @@ use MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha\ReCaptchaNoCaptcha;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Turnstile\Turnstile;
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\Session\Session;
 
 /**
  * Allows a caller to fetch the global {@link SimpleCaptcha} instance for the provided action.
@@ -107,21 +110,7 @@ class CaptchaFactory {
 			in_array( $context->getActionName(), [ 'login', 'clientlogin' ] )
 		) {
 			$session = $context->getRequest()->getSession();
-			$suggestedUsername = $session->suggestLoginUsername();
-			$loginAttemptCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter(
-				$this->getGlobalInstance( CaptchaTriggers::BAD_LOGIN )
-			);
-
-			if (
-				$session->get( 'ConfirmEdit:loginCaptchaPerUserTriggered' ) ||
-				( $suggestedUsername && $loginAttemptCounter->isBadLoginPerUserTriggered( $suggestedUsername ) )
-			) {
-				$action = CaptchaTriggers::BAD_LOGIN_PER_USER;
-			} elseif ( $loginAttemptCounter->isBadLoginTriggered() ) {
-				$action = CaptchaTriggers::BAD_LOGIN;
-			} else {
-				$action = CaptchaTriggers::LOGIN_ATTEMPT;
-			}
+			$action = $this->getActionForLogin( $session->suggestLoginUsername(), $session );
 		} elseif (
 			$context->getTitle()->isSpecial( 'Emailuser' ) ||
 			$context->getActionName() === 'emailuser'
@@ -134,6 +123,41 @@ class CaptchaFactory {
 		}
 
 		return $this->getGlobalInstance( $action );
+	}
+
+	/**
+	 * Gets the global CAPTCHA instance that applies for the given {@link CaptchaAuthenticationRequest}
+	 *
+	 * @since 1.47
+	 */
+	public function getGlobalInstanceFromAuthenticationRequest(
+		CaptchaAuthenticationRequest $authenticationRequest,
+		Session $session
+	): SimpleCaptcha {
+		$action = match ( $authenticationRequest->action ) {
+			AuthManager::ACTION_LOGIN => $this->getActionForLogin( $authenticationRequest->username, $session ),
+			AuthManager::ACTION_CREATE => CaptchaTriggers::CREATE_ACCOUNT,
+			default => '',
+		};
+
+		return $this->getGlobalInstance( $action );
+	}
+
+	private function getActionForLogin( string|null $username, Session $session ): string {
+		$loginAttemptCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter(
+			$this->getGlobalInstance( CaptchaTriggers::BAD_LOGIN )
+		);
+		if (
+			$session->get( 'ConfirmEdit:loginCaptchaPerUserTriggered' ) ||
+			( $username && $loginAttemptCounter->isBadLoginPerUserTriggered( $username ) )
+		) {
+			$action = CaptchaTriggers::BAD_LOGIN_PER_USER;
+		} elseif ( $loginAttemptCounter->isBadLoginTriggered() ) {
+			$action = CaptchaTriggers::BAD_LOGIN;
+		} else {
+			$action = CaptchaTriggers::LOGIN_ATTEMPT;
+		}
+		return $action;
 	}
 
 	/**

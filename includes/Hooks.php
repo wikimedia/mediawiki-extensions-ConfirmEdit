@@ -9,7 +9,9 @@ use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Content\Content;
 use MediaWiki\Content\TextContent;
 use MediaWiki\Context\IContextSource;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Hook\AlternateEditPreviewHook;
 use MediaWiki\Hook\EditFilterMergedContentHook;
@@ -44,6 +46,7 @@ class Hooks implements
 {
 	public function __construct(
 		private readonly WANObjectCache $cache,
+		private readonly CaptchaFactory $captchaFactory,
 	) {
 	}
 
@@ -190,8 +193,11 @@ class Hooks implements
 			return;
 		}
 
-		self::getInstance( $req->getAction() )
-			->onAuthChangeFormFields( $requests, $fieldInfo, $formDescriptor, $action );
+		$captcha = $this->captchaFactory->getGlobalInstanceFromAuthenticationRequest(
+			$req,
+			RequestContext::getMain()->getRequest()->getSession()
+		);
+		$captcha->onAuthChangeFormFields( $requests, $fieldInfo, $formDescriptor, $action );
 	}
 
 	/** @codeCoverageIgnore */

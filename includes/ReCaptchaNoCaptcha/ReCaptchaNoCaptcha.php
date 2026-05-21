@@ -8,7 +8,7 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Html\Html;
 use MediaWiki\Json\FormatJson;
@@ -278,7 +278,12 @@ HTML;
 		}
 
 		// ugly way to retrieve error information
-		$captcha = Hooks::getInstance( $req->getAction() );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' );
+		$captcha = $captchaFactory->getGlobalInstanceFromAuthenticationRequest(
+			$req,
+			RequestContext::getMain()->getRequest()->getSession()
+		);
 
 		$formDescriptor['captchaWord'] = [
 			'class' => HTMLReCaptchaNoCaptchaField::class,

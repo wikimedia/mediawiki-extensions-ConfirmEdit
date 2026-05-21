@@ -25,6 +25,13 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 		Hooks::unsetInstanceForTests();
 	}
 
+	private function getObjectUnderTest(): Hooks {
+		return new Hooks(
+			$this->getServiceContainer()->getMainWANObjectCache(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
+		);
+	}
+
 	/**
 	 * @dataProvider provideGetCaptchaTriggerActionFromPage
 	 */
@@ -43,7 +50,6 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 		$requestContext->setWikiPage( $wikiPage );
 		// User is needed due to code in EditPage's constructor
 		$requestContext->setUser( $this->getTestUser()->getUser() );
-		$hooks = new Hooks( $this->getServiceContainer()->getMainWANObjectCache() );
 		$article = $this->createMock( Article::class );
 		$article->method( 'getPage' )->willReturn( $wikiPage );
 		$article->method( 'getTitle' )->willReturn( $wikiPage->getTitle() );
@@ -57,7 +63,7 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 				$this->assertEquals( $expectedAction, $action );
 			}
 		);
-		$hooks->onEditPageBeforeEditButtons( $editPage, $buttons, $tabindex );
+		$this->getObjectUnderTest()->onEditPageBeforeEditButtons( $editPage, $buttons, $tabindex );
 	}
 
 	/**
@@ -68,7 +74,6 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 		$requestContext = RequestContext::getMain();
 		$requestContext->setWikiPage( $wikiPage );
 		$requestContext->setUser( $this->getTestUser()->getUser() );
-		$hooks = new Hooks( $this->getServiceContainer()->getMainWANObjectCache() );
 		$article = $this->createMock( Article::class );
 		$article->method( 'getPage' )->willReturn( $wikiPage );
 		$article->method( 'getTitle' )->willReturn( $wikiPage->getTitle() );
@@ -78,7 +83,7 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 			function ( $action, &$_ ) use ( $expectedAction ) {
 				$this->assertEquals( $expectedAction, $action );
 			} );
-		$hooks->onEditPage__showEditForm_fields( $editPage, $requestContext->getOutput() );
+		$this->getObjectUnderTest()->onEditPage__showEditForm_fields( $editPage, $requestContext->getOutput() );
 	}
 
 	public static function provideGetCaptchaTriggerActionFromPage(): array {
@@ -106,8 +111,7 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 			'::editFilterMergedContentHandlerAlreadyInvoked should be false before hook is run'
 		);
 
-		$hooks = new Hooks( $this->getServiceContainer()->getMainWANObjectCache() );
-		$this->assertTrue( $hooks->onEditFilterMergedContent(
+		$this->assertTrue( $this->getObjectUnderTest()->onEditFilterMergedContent(
 			$context, ContentHandler::makeContent( '', $title ), $status, '', $user, false
 		) );
 		$this->assertStatusGood( $status );
@@ -137,8 +141,7 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 		$simpleCaptcha = Hooks::getInstance( 'create' );
 		$this->assertFalse( $simpleCaptcha->editFilterMergedContentHandlerAlreadyInvoked() );
 
-		$hooks = new Hooks( $this->getServiceContainer()->getMainWANObjectCache() );
-		$this->assertFalse( $hooks->onEditFilterMergedContent(
+		$this->assertFalse( $this->getObjectUnderTest()->onEditFilterMergedContent(
 			$context, ContentHandler::makeContent( '', $title ), $status, '', $user, false
 		) );
 		$this->assertStatusNotGood( $status );

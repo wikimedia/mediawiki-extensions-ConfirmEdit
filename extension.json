@@ -95,7 +95,8 @@
 		"ConfirmEditHooks": {
 			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks",
 			"services": [
-				"MainWANObjectCache"
+				"MainWANObjectCache",
+				"ConfirmEditCaptchaFactory"
 			]
 		},
 		"AbuseFilterHooks": {

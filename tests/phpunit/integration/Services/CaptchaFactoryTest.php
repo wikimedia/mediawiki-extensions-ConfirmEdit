@@ -4,8 +4,10 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Services;
 
+use MediaWiki\Auth\AuthManager;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounter;
 use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
@@ -164,6 +166,42 @@ class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
 			'edit',
 			CaptchaTriggers::CREATE
 		);
+	}
+
+	/** @dataProvider provideGetGlobalInstanceFromAuthenticationRequest */
+	public function testGetGlobalInstanceFromAuthenticationRequest(
+		string $authenticationRequestAction,
+		string $expectedAction
+	): void {
+		$captchaAuthenticationRequest = new CaptchaAuthenticationRequest( '', [] );
+		$captchaAuthenticationRequest->action = $authenticationRequestAction;
+
+		// We cannot access the action inside the returned SimpleCaptcha instance, so read it by storing the action
+		// provided by the ConfirmEditCaptchaClass hook (which is fired during ::getGlobalInstance)
+		$lastHookProvidedAction = '';
+		$this->setTemporaryHook(
+			'ConfirmEditCaptchaClass',
+			static function ( $action ) use ( &$lastHookProvidedAction ) {
+				$lastHookProvidedAction = $action;
+			}
+		);
+
+		$this->assertInstanceOf(
+			SimpleCaptcha::class,
+			$this->getCaptchaFactory()->getGlobalInstanceFromAuthenticationRequest(
+				$captchaAuthenticationRequest,
+				RequestContext::getMain()->getRequest()->getSession()
+			)
+		);
+		$this->assertSame( $expectedAction, $lastHookProvidedAction );
+	}
+
+	public static function provideGetGlobalInstanceFromAuthenticationRequest(): array {
+		return [
+			'Action is AuthManager::ACTION_LOGIN' => [ AuthManager::ACTION_LOGIN, CaptchaTriggers::LOGIN_ATTEMPT ],
+			'Action is AuthManager::ACTION_CREATE' => [ AuthManager::ACTION_CREATE, CaptchaTriggers::CREATE_ACCOUNT ],
+			'Action is not recognised' => [ 'unrecognised', '' ],
+		];
 	}
 
 	public function testGetGlobalInstanceForBadLoginPerUserFallsBackToBadLoginClass(): void {

@@ -59,4 +59,16 @@ class CaptchaAuthenticationRequestTest extends AuthenticationRequestTestCase {
 			],
 		];
 	}
+
+	public function testGetMetadata(): void {
+		$this->overrideConfigValue( 'CaptchaClass', 'SimpleCaptcha' );
+
+		$request = new CaptchaAuthenticationRequest( '123', [ 'question' => '1+2', 'answer' => '3' ] );
+		$this->assertArrayEquals(
+			( new SimpleCaptcha() )->describeCaptchaType(),
+			$request->getMetadata(),
+			false,
+			true
+		);
+	}
 }

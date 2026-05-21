@@ -6,8 +6,10 @@ namespace MediaWiki\Extension\ConfirmEdit\Auth;
 
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthManager;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Generic captcha authentication request class.
@@ -46,7 +48,12 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 		$success = parent::loadFromSubmission( $data );
 		if ( $success ) {
 			// The captchaId and captchaWord were set from the submission, but captchaData was not.
-			$captcha = Hooks::getInstance( $this->getAction() );
+			/** @var CaptchaFactory $captchaFactory */
+			$captchaFactory = MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' );
+			$captcha = $captchaFactory->getGlobalInstanceFromAuthenticationRequest(
+				$this,
+				RequestContext::getMain()->getRequest()->getSession()
+			);
 			$this->captchaData = $captcha->retrieveCaptcha( $this->captchaId );
 			if ( !$this->captchaData ) {
 				return false;
@@ -55,7 +62,7 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 		return $success;
 	}
 
-	public function getAction(): string {
+	public function getActionForMessage(): string {
 		// generic action doesn't exist, but *Captcha::getMessage will handle that
 		$action = 'generic';
 		switch ( $this->action ) {
@@ -71,8 +78,12 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 
 	/** @inheritDoc */
 	public function getFieldInfo() {
-		$action = $this->getAction();
-		$captcha = Hooks::getInstance( $action );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' );
+		$captcha = $captchaFactory->getGlobalInstanceFromAuthenticationRequest(
+			$this,
+			RequestContext::getMain()->getRequest()->getSession()
+		);
 
 		return [
 			'captchaId' => [
@@ -83,7 +94,7 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 			],
 			'captchaInfo' => [
 				'type' => 'null',
-				'label' => $captcha->getMessage( $action ),
+				'label' => $captcha->getMessage( $this->getActionForMessage() ),
 				'value' => $captcha->getCaptchaInfo( $this->captchaData, $this->captchaId ),
 				'help' => wfMessage( 'captcha-info-help' ),
 			],
@@ -97,7 +108,13 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 
 	/** @inheritDoc */
 	public function getMetadata() {
-		return ( Hooks::getInstance( $this->getAction() ) )->describeCaptchaType( $this->getAction() );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' );
+		$captcha = $captchaFactory->getGlobalInstanceFromAuthenticationRequest(
+			$this,
+			RequestContext::getMain()->getRequest()->getSession()
+		);
+		return $captcha->describeCaptchaType();
 	}
 
 	/**

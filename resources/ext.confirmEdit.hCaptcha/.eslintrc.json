@@ -11,6 +11,7 @@
 				"plugin:es-x/restrict-to-es2015"
 			],
 			"rules": {
+				"compat/compat": [ "error", "Chrome >= 49, Edge >= 79, Firefox >= 49, Safari >= 10, iOS >= 10, Android >= 5" ],
 				"es-x/no-object-entries": "off",
 				"es-x/no-array-prototype-includes": "off",
 				"no-restricted-syntax": [
@@ -18,6 +19,10 @@
 					{
 						"selector": "ForOfStatement > VariableDeclaration[kind='const']",
 						"message": "Some older browsers reject `for (const … of …)` with a SyntaxError; use an indexed `for` or `.forEach()`."
+					},
+					{
+						"selector": "MemberExpression[property.name='searchParams']",
+						"message": "`URL.prototype.searchParams` is undefined on some older browsers (observed on Chrome 49-50 macOS High Sierra); build query strings with `encodeURIComponent` instead."
 					}
 				]
 			}

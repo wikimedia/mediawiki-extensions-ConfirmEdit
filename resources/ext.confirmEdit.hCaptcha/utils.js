@@ -105,16 +105,15 @@ function trackPerformanceTiming( win, startMark, outcome ) {
  * @return {HTMLScriptElement}
  */
 const createHCaptchaScriptTag = ( doc, apiUrlQueryParameters ) => {
-	const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
-
-	Object.keys( apiUrlQueryParameters ).forEach( ( name ) => {
-		hCaptchaApiUrl.searchParams.set( name, apiUrlQueryParameters[ name ] );
-	} );
-
-	hCaptchaApiUrl.searchParams.set( 'onload', 'onHCaptchaSDKLoaded' );
+	const extraParams = Object.keys( apiUrlQueryParameters ).map( ( name ) => (
+		encodeURIComponent( name ) + '=' +
+		encodeURIComponent( apiUrlQueryParameters[ name ] )
+	) );
+	extraParams.push( 'onload=onHCaptchaSDKLoaded' );
+	const separator = config.HCaptchaApiUrl.includes( '?' ) ? '&' : '?';
 
 	const script = doc.createElement( 'script' );
-	script.src = hCaptchaApiUrl.toString();
+	script.src = config.HCaptchaApiUrl + separator + extraParams.join( '&' );
 	script.async = true;
 	script.className = 'mw-confirmedit-hcaptcha-script';
 	if ( config.HCaptchaApiUrlIntegrityHash ) {

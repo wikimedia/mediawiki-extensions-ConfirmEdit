@@ -22,7 +22,6 @@ use MediaWiki\Language\RawMessage;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
-use MediaWiki\Page\WikiPage;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Session\SessionManager;
@@ -125,21 +124,6 @@ class HCaptcha extends SimpleCaptcha {
 			)
 		);
 		return [ '', $response ];
-	}
-
-	/** @inheritDoc */
-	public function shouldCheck( WikiPage $page, $content, $section, $context, $oldtext = null ) {
-		// If the "showcaptcha" consequence has been invoked by AbuseFilter, and we have
-		// already attempted to verify the token, return early. This ensures that we're
-		// only going to verify the token once, because shouldCheck is invoked once in the EditFilterMergedContent
-		// hook by AbuseFilter, and once by ConfirmEdit
-		if (
-			$context->getRequest()->getVal( 'wgConfirmEditForceShowCaptcha' ) &&
-			$this->isCaptchaSolved() !== null
-		) {
-			return false;
-		}
-		return parent::shouldCheck( $page, $content, $section, $context, $oldtext );
 	}
 
 	/**

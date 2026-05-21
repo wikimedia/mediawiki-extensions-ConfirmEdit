@@ -19,12 +19,10 @@ use MediaWiki\Http\MWHttpRequest;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
-use MediaWiki\Page\WikiPage;
 use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
-use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
 use MockHttpTrait;
 use Psr\Log\LoggerInterface;
@@ -776,59 +774,6 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	/** @dataProvider provideShouldCheck */
-	public function testShouldCheck(
-		?bool $captchaResult,
-		bool $forceShowCaptchaFlagInRequest,
-		bool $expectedReturnValue
-	): void {
-		// Mock that all users should see a CAPTCHA, so that when the custom ::shouldCheck code returns
-		// early with `false` we can test for that
-		$this->clearHook( 'ConfirmEditCanUserSkipCaptcha' );
-		$this->setTemporaryHook( 'ConfirmEditTriggersCaptcha', static function ( $action, $title, &$result ) {
-			$result = true;
-		} );
-
-		$hCaptcha = TestingAccessWrapper::newFromObject( new HCaptcha() );
-
-		if ( $captchaResult !== null ) {
-			$hCaptcha->setCaptchaSolved( $captchaResult );
-		}
-		$context = $this->createMock( RequestContext::class );
-		if ( $forceShowCaptchaFlagInRequest ) {
-			$request = new FauxRequest( [ 'wgConfirmEditForceShowCaptcha' => true ] );
-		} else {
-			$request = new FauxRequest( [] );
-		}
-		$context->method( 'getRequest' )->willReturn( $request );
-		$context->method( 'getUser' )->willReturn( $this->createMock( User::class ) );
-
-		$this->assertSame(
-			$expectedReturnValue,
-			$hCaptcha->shouldCheck( $this->createMock( WikiPage::class ), '', '', $context )
-		);
-	}
-
-	public static function provideShouldCheck(): array {
-		return [
-			'Result is null' => [
-				'captchaResult' => null,
-				'forceShowCaptchaFlagInRequest' => false,
-				'expectedReturnValue' => true,
-			],
-			'Result is false and forceShowCaptcha flag set in request' => [
-				'captchaResult' => false,
-				'forceShowCaptchaFlagInRequest' => true,
-				'expectedReturnValue' => false,
-			],
-			'Result is true and forceShowCaptcha flag set in request' => [
-				'captchaResult' => true,
-				'forceShowCaptchaFlagInRequest' => true,
-				'expectedReturnValue' => false,
-			],
-		];
-	}
-
 	public function testPassCaptchaFailureIsNotCachedAndErrorIsReset(): void {
 		$this->overrideConfigValues( [
 			'HCaptchaSecretKey' => 'secretkey',
@@ -1007,6 +952,41 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'expectedError' => 'missing-token',
 			],
 		];
+	}
+
+	public function testPassCaptchaSecondCallBlocksWhenSitekeyMismatch(): void {
+		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
+		$this->overrideConfigValue( 'HCaptchaSiteKey', 'normal-key' );
+
+		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
+		$mwHttpRequest->expects( $this->once() )
+			->method( 'execute' )
+			->willReturn( Status::newGood() );
+		$mwHttpRequest->method( 'getStatus' )
+			->willReturn( 200 );
+		$mwHttpRequest->method( 'getContent' )
+			->willReturn( FormatJson::encode( [ 'success' => true, 'sitekey' => 'normal-key' ] ) );
+		$this->installMockHttp( $mwHttpRequest );
+
+		$request = new FauxRequest( [
+			'h-captcha-response' => 'token123',
+			'wgConfirmEditForceShowCaptcha' => '1',
+		] );
+		RequestContext::getMain()->setRequest( $request );
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->setConfig( [
+			'HCaptchaSiteKey' => 'normal-key',
+			'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key',
+		] );
+		$user = $this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' );
+
+		$this->assertTrue( $hCaptcha->passCaptchaFromRequest( $request, $user ) );
+
+		$hCaptcha->setForceShowCaptcha( true );
+
+		$this->assertFalse( $hCaptcha->isCaptchaSolved() );
+		$this->assertFalse( $hCaptcha->passCaptchaFromRequest( $request, $user ) );
 	}
 
 	/** @dataProvider provideIsCaptchaSolvedWithForceShow */

@@ -5,15 +5,16 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Test\Integration\Maintenance;
 
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\Maintenance\CountFancyCaptchas;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\Maintenance\CountFancyCaptchas
  */
 class CountFancyCaptchasTest extends MaintenanceBaseTestCase {
+	use CaptchaTestHelperTrait;
 
 	protected function getMaintenanceClass() {
 		return CountFancyCaptchas::class;
@@ -21,12 +22,12 @@ class CountFancyCaptchasTest extends MaintenanceBaseTestCase {
 
 	public function setUp(): void {
 		parent::setUp();
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 	}
 
 	public static function tearDownAfterClass(): void {
 		parent::tearDownAfterClass();
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 	}
 
 	public function testExecuteWhenCaptchaInstanceNotFancyCaptcha() {

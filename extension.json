@@ -359,5 +359,8 @@
 			"ext.confirmEdit.visualEditor"
 		]
 	},
+	"TestAutoloadClasses": {
+		"MediaWiki\\Extension\\ConfirmEdit\\Tests\\Integration\\CaptchaTestHelperTrait": "tests/phpunit/integration/CaptchaTestHelperTrait.php"
+	},
 	"manifest_version": 2
 }

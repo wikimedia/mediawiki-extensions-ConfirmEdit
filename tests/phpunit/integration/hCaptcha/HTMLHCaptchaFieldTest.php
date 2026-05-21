@@ -10,6 +10,7 @@ use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Language\Language;
 use MediaWiki\Message\Message;
@@ -25,6 +26,7 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
+	use CaptchaTestHelperTrait;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -46,7 +48,7 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 				'config' => []
 			],
 		] );
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 	}
 
 	/**
@@ -394,7 +396,7 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 
 		// Necessary because ::getExistingTestPage will cause the CaptchaTriggers config defined in
 		// ::setUp to be used and we need to change it for this test
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 
 		$outputPage = RequestContext::getMain()->getOutput();
 		$outputPage->setTitle( $title );

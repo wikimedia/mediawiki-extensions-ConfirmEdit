@@ -6,8 +6,8 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\FancyCaptcha;
 
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\ApiFancyCaptchaReload;
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Tests\Api\ApiTestCase;
 use UnderflowException;
@@ -17,10 +17,11 @@ use UnderflowException;
  * @group Database
  */
 class ApiFancyCaptchaReloadTest extends ApiTestCase {
+	use CaptchaTestHelperTrait;
 
 	protected function setUp(): void {
 		parent::setUp();
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 
 		$newAPIModules = $this->getServiceContainer()->getMainConfig()->get( MainConfigNames::APIModules );
 		$newAPIModules['fancycaptchareload'] = ApiFancyCaptchaReload::class;
@@ -29,7 +30,7 @@ class ApiFancyCaptchaReloadTest extends ApiTestCase {
 
 	public static function tearDownAfterClass(): void {
 		parent::tearDownAfterClass();
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 	}
 
 	public function testExecuteWhenNoCaptchaImages() {

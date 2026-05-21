@@ -24,6 +24,7 @@ use Wikimedia\Timestamp\ConvertibleTimestamp;
  * @covers \MediaWiki\Extension\ConfirmEdit\AbuseFilterHooks
  */
 class AbuseFilterTest extends MediaWikiIntegrationTestCase {
+	use CaptchaTestHelperTrait;
 
 	public static function setUpBeforeClass(): void {
 		// Cannot use markTestSkippedIfExtensionNotLoaded() because we need to skip the entire class.
@@ -36,7 +37,7 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 	public function setUp(): void {
 		parent::setUp();
 
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 
 		$this->getSession()->remove(
 			SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY

@@ -11,10 +11,10 @@ use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaPreAuthenticationProvider;
 use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounter;
 use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaHashStore;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Tests\Unit\Auth\AuthenticationProviderTestTrait;
 use MediaWiki\User\User;
@@ -28,6 +28,7 @@ use Wikimedia\TestingAccessWrapper;
  */
 class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase {
 	use AuthenticationProviderTestTrait;
+	use CaptchaTestHelperTrait;
 
 	public function setUp(): void {
 		parent::setUp();
@@ -47,13 +48,13 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 				'badloginperuser' => true,
 			],
 		] );
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 		CaptchaStore::unsetInstanceForTests();
 	}
 
 	public function tearDown(): void {
 		parent::tearDown();
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 	}
 
 	/**

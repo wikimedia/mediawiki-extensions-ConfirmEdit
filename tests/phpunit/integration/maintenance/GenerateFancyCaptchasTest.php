@@ -5,9 +5,9 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Test\Integration\Maintenance;
 
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\Maintenance\GenerateFancyCaptchas;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 use Shellbox\Command\UnboxedResult;
@@ -17,6 +17,7 @@ use Wikimedia\TestingAccessWrapper;
  * @covers \MediaWiki\Extension\ConfirmEdit\Maintenance\GenerateFancyCaptchas
  */
 class GenerateFancyCaptchasTest extends MaintenanceBaseTestCase {
+	use CaptchaTestHelperTrait;
 
 	/** @var MockObject|GenerateFancyCaptchas|TestingAccessWrapper */
 	protected $maintenance;
@@ -49,12 +50,12 @@ class GenerateFancyCaptchasTest extends MaintenanceBaseTestCase {
 			'CaptchaStorageDirectory' => 'subfolder',
 		] );
 
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 	}
 
 	public static function tearDownAfterClass(): void {
 		parent::tearDownAfterClass();
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 	}
 
 	public function testExecuteWhenCaptchaInstanceNotFancyCaptcha() {

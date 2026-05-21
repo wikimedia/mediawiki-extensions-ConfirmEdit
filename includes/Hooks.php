@@ -88,17 +88,6 @@ class Hooks implements
 		return $instances;
 	}
 
-	/**
-	 * Clears the global Captcha cache for testing
-	 *
-	 * @codeCoverageIgnore
-	 * @internal Only for use in PHPUnit tests.
-	 * @deprecated Since 1.47 - Use {@link ConfirmEditCaptchaFactory::unsetGlobalInstancesForTests} instead.
-	 */
-	public static function unsetInstanceForTests(): void {
-		MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' )->unsetGlobalInstancesForTests();
-	}
-
 	/** @inheritDoc */
 	public function onEditFilterMergedContent( IContextSource $context, Content $content, Status $status,
 		$summary, User $user, $minoredit

@@ -6,7 +6,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\hCaptcha;
 
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\Language\Language;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\FauxRequest;
@@ -20,6 +20,7 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
+	use CaptchaTestHelperTrait;
 
 	private const TEST_SITE_KEY = 'test-site-key-abc';
 	private const TEST_API_URL = 'https://js.hcaptcha.com/1/secure-api.js';
@@ -34,7 +35,7 @@ class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
 			CaptchaTriggers::CREATE => $captchaTrigger,
 			CaptchaTriggers::CREATE_ACCOUNT => $captchaTrigger,
 		] );
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 	}
 
 	private function secureEnclaveConfig( bool $enabled ): array {

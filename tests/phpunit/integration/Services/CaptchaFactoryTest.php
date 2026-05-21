@@ -15,6 +15,7 @@ use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 
@@ -23,10 +24,11 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
+	use CaptchaTestHelperTrait;
+
 	protected function setUp(): void {
 		parent::setUp();
-
-		$this->getCaptchaFactory()->unsetGlobalInstancesForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 	}
 
 	private function getCaptchaFactory(): CaptchaFactory {

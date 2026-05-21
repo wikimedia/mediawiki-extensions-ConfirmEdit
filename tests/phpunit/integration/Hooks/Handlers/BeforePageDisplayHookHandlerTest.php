@@ -14,8 +14,8 @@ use MediaWiki\Block\RangeBlockTarget;
 use MediaWiki\Block\SystemBlock;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\BeforePageDisplayHookHandler;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\Extension\GlobalBlocking\GlobalBlock;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Skin\Skin;
@@ -28,9 +28,10 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @group Database
  */
 class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
+	use CaptchaTestHelperTrait;
 
 	protected function tearDown(): void {
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 
 		parent::tearDown();
 	}
@@ -57,7 +58,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 
 		// Now clear the cache since it may have cached instances
 		// created when the new page was inserted.
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 
 		$this->overrideConfigValue(
 			'HCaptchaBlockedIpEditingScoreCollectionSiteKey',

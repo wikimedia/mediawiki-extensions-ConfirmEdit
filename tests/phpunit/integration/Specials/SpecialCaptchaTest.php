@@ -5,12 +5,12 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Special;
 
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
 use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaHashStore;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaSessionStore;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\FileBackend\FileBackendGroup;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Tests\Specials\SpecialPageTestBase;
@@ -25,16 +25,17 @@ use Wikimedia\FileBackend\FileBackend;
  * @group Database
  */
 class SpecialCaptchaTest extends SpecialPageTestBase {
+	use CaptchaTestHelperTrait;
 
 	public function setUp(): void {
 		parent::setUp();
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 		CaptchaStore::unsetInstanceForTests();
 	}
 
 	public static function tearDownAfterClass(): void {
 		parent::tearDownAfterClass();
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 		CaptchaStore::unsetInstanceForTests();
 	}
 

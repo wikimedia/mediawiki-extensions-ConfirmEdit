@@ -18,11 +18,11 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class HooksTest extends MediaWikiIntegrationTestCase {
+	use CaptchaTestHelperTrait;
 
 	protected function setUp(): void {
 		parent::setUp();
-
-		Hooks::unsetInstanceForTests();
+		self::clearCaptchaFactoryGlobalInstances();
 	}
 
 	private function getObjectUnderTest(): Hooks {

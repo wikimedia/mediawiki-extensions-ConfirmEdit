@@ -39,7 +39,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 	public function testOnBeforePageDisplay(
 		bool $expectedModulesAdded,
 		?string $expectedSiteKey,
-		array $expectedBlockIds,
+		array $expectedLocalBlockIds,
+		array $expectedGlobalBlockIds,
 		string $action,
 		bool $pageExists,
 		string $editCaptchaClass,
@@ -137,7 +138,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 
 			$config = $vars['wgHCaptchaBlockedIpEditingScoreCollectionConfig'];
 			$this->assertSame( $expectedSiteKey, $config['siteKey'] );
-			$this->assertSame( $expectedBlockIds, $config['blockIds'] );
+			$this->assertSame( $expectedLocalBlockIds, $config['localBlockIds'] );
+			$this->assertSame( $expectedGlobalBlockIds, $config['globalBlockIds'] );
 		} else {
 			$this->assertNotContains(
 				'ext.confirmEdit.hCaptcha',
@@ -154,7 +156,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The action is not an edit' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedBlockIds' => [],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'view',
 			'pageExists' => true,
 			'editCaptchaClass' => 'HCaptcha',
@@ -167,7 +170,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The captcha class is not hCaptcha' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedBlockIds' => [],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'SimpleCaptcha',
@@ -180,7 +184,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The user can skip captchas' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedBlockIds' => [],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -193,7 +198,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The user is not blocked' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedBlockIds' => [],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -206,7 +212,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The block does not apply to the current title' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedBlockIds' => [],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -219,7 +226,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The block type is neither an IP or IP range block' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedBlockIds' => [],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -232,7 +240,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'A composite block with no IP block child' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedBlockIds' => [],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -245,7 +254,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'There is an IP block but no passive site key is configured' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedBlockIds' => [],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -258,7 +268,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'IP block, a global passive mode key is set' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123 ],
+			'expectedLocalBlockIds' => [ 123 ],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -271,7 +282,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'Range block, a global passive mode key is set' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123 ],
+			'expectedLocalBlockIds' => [ 123 ],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -284,7 +296,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'A composite block with an IP block child' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123 ],
+			'expectedLocalBlockIds' => [ 123 ],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -297,7 +310,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'Composite block with a SystemBlock IP child' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123 ],
+			'expectedLocalBlockIds' => [ 123 ],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -307,10 +321,11 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			'blockType' => 'composite_system_block',
 		];
 
-		yield 'Composite block with a GlobalBlock IP child loads' => [
+		yield 'Composite block with a GlobalBlock IP child' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123 ],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [ 123 ],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -323,7 +338,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'SystemBlock with an IP target' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123 ],
+			'expectedLocalBlockIds' => [ 123 ],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -336,7 +352,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'GlobalBlock with an IP target' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123 ],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [ 123 ],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -349,7 +366,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield '"create" captcha instance is used for non-existing pages' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123 ],
+			'expectedLocalBlockIds' => [ 123 ],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'SimpleCaptcha',
@@ -362,7 +380,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield '"create" captcha instance is not used for existing pages' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedBlockIds' => [],
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => true,
 			'editCaptchaClass' => 'SimpleCaptcha',
@@ -375,7 +394,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'IP block with action=submit loads modules' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123 ],
+			'expectedLocalBlockIds' => [ 123 ],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'submit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -388,7 +408,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield '"edit" captcha instance is used for existing pages' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123 ],
+			'expectedLocalBlockIds' => [ 123 ],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => true,
 			'editCaptchaClass' => 'HCaptcha',
@@ -401,7 +422,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'A composite block with multiple IP block children' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedBlockIds' => [ 123, 124 ],
+			'expectedLocalBlockIds' => [ 123, 124 ],
+			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -409,6 +431,20 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			'passiveModeSiteKey' => 'passive-mode-global-key',
 			'userCanSkipCaptcha' => false,
 			'blockType' => 'composite_multi_ip',
+		];
+
+		yield 'A composite block with both a local and a global IP block child' => [
+			'expectedModulesAdded' => true,
+			'expectedSiteKey' => 'passive-mode-global-key',
+			'expectedLocalBlockIds' => [ 123 ],
+			'expectedGlobalBlockIds' => [ 124 ],
+			'action' => 'edit',
+			'pageExists' => false,
+			'editCaptchaClass' => 'HCaptcha',
+			'createCaptchaClass' => 'HCaptcha',
+			'passiveModeSiteKey' => 'passive-mode-global-key',
+			'userCanSkipCaptcha' => false,
+			'blockType' => 'composite_mixed',
 		];
 	}
 
@@ -428,7 +464,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 	  *                            with an IP target
 	  * - 'composite_global_block' CompositeBlock whose child is a GlobalBlock
 	  *                            with an IP target
-	  * - 'composite_multi_ip'    CompositeBlock with two IP block children
+	  * - 'composite_multi_ip'    CompositeBlock with two local IP blocks
+	  * - 'composite_mixed'       CompositeBlock with local and Global IP blocks
 	  */
 	private function createBlockMock( string $setup ): Block {
 		$mock = match ( $setup ) {
@@ -524,6 +561,22 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 						$this->createMock( AnonIpBlockTarget::class ),
 						GlobalBlock::class
 					)
+				]
+			),
+			'composite_mixed' => $this->createCompositeBlockMockWithTarget(
+				true,
+				null,
+				[
+					$this->createBlockMockWithTarget(
+						true,
+						$this->createMock( AnonIpBlockTarget::class )
+					),
+					$this->createBlockMockWithTarget(
+						false,
+						$this->createMock( AnonIpBlockTarget::class ),
+						GlobalBlock::class,
+						124
+					),
 				]
 			),
 			default => throw new InvalidArgumentException(

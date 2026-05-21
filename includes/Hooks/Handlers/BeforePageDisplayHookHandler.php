@@ -50,27 +50,18 @@ class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 			return;
 		}
 
-		$triggeringBlocks = $this->getBlockRequiringHCaptcha(
+		$blocks = $this->getBlockRequiringHCaptcha(
 			$out->getTitle(),
 			$out->getUser()->getBlock()
 		);
 
-		if ( count( $triggeringBlocks ) ) {
+		if ( count( $blocks['local'] ) || count( $blocks['global'] ) ) {
 			$out->addModules( 'ext.confirmEdit.hCaptcha' );
 			$out->addJsConfigVars( [
 				'wgHCaptchaBlockedIpEditingScoreCollectionConfig' => [
 					'siteKey' => $siteKey,
-					// Note the ID will be null for system blocks, therefore
-					// we need to filter them and then reindex the array.
-					'blockIds' => array_values(
-						array_filter(
-							array_map(
-								static fn ( Block $block ) =>
-									$block->getId(),
-								$triggeringBlocks
-							)
-						)
-					)
+					'localBlockIds' => $this->listBlockIds( $blocks['local'] ),
+					'globalBlockIds' => $this->listBlockIds( $blocks['global'] ),
 				],
 			] );
 		}
@@ -78,7 +69,7 @@ class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 
 	/**
 	 * Returns the blocks that require HCaptcha to be loaded on the current
-	 * page, or an empty array if none is found. The returned blocks are IP or
+	 * page, split into local and global blocks. The returned blocks are IP or
 	 * IP range blocks that apply to the current page.
 	 *
 	 * For composite blocks, the specific child blocks that target an IP and
@@ -87,34 +78,49 @@ class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 	 *
 	 * @param Title $title Current page
 	 * @param ?Block $block Block currently applying to this page, if any
-	 * @return Block[]
+	 * @return array{local: Block[], global: Block[]}
 	 */
 	private function getBlockRequiringHCaptcha(
 		Title $title,
 		?Block $block
 	): array {
 		if ( !$block || !$this->appliesToCurrentPage( $block, $title ) ) {
-			return [];
+			return [
+				'local' => [],
+				'global' => []
+			];
 		}
 
-		$blocks = [];
+		$local = [];
+		$global = [];
 
 		// Note a SystemBlock will always target an IP address,
 		// so they will be handled by this conditional.
 		if ( $block->getTarget() instanceof BlockTargetWithIp ) {
-			$blocks[] = $block;
+			if ( $block instanceof GlobalBlock ) {
+				$global[] = $block;
+			} else {
+				$local[] = $block;
+			}
 		}
 
 		if ( $block instanceof CompositeBlock ) {
 			foreach ( $block->getOriginalBlocks() as $childBlock ) {
 				if ( $childBlock->getTarget() instanceof BlockTargetWithIp &&
 					$this->appliesToCurrentPage( $childBlock, $title ) ) {
-					$blocks[] = $childBlock;
+					if ( $childBlock instanceof GlobalBlock ) {
+						$global[] = $childBlock;
+					} else {
+						$local[] = $childBlock;
+					}
 				}
 			}
 		}
 
-		return $blocks;
+		return [
+			'local' => $local,
+			'global' => $global
+		];
 	}
 
 	/**
@@ -141,5 +147,24 @@ class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Returns a list with the block IDs from a list of block instances.
+	 *
+	 * @param Block[] $blocks
+	 * @return int[]
+	 */
+	private function listBlockIds( array $blocks ): array {
+		// Note the ID will be null for system blocks, therefore
+		// we need to filter them and then reindex the array.
+		return array_values(
+			array_filter(
+				array_map(
+					static fn ( Block $block ) => $block->getId(),
+					$blocks
+				)
+			)
+		);
 	}
 }

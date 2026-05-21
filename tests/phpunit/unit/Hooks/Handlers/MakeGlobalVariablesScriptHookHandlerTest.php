@@ -24,7 +24,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiUnitTestCase {
 		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
 			$this->createNoOpMock( ExtensionRegistry::class ),
 			new HashConfig( [] ),
-			$this->createMock( CaptchaFactory::class )
+			$this->createNoOpMock( CaptchaFactory::class )
 		);
 		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
 

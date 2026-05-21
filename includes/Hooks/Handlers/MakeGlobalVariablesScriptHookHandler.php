@@ -20,7 +20,7 @@ use MobileContext;
  * Used by the VisualEditor and MobileFrontend integrations to determine if they need to display hCaptcha to the
  * user.
  */
-class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptHook {
+class MakeGlobalVariablesScriptHookHandler extends AbstractCaptchaHandler implements MakeGlobalVariablesScriptHook {
 
 	/**
 	 * @param ExtensionRegistry $extensionRegistry
@@ -31,11 +31,12 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 	 */
 	public function __construct(
 		private readonly ExtensionRegistry $extensionRegistry,
-		private readonly Config $config,
-		private readonly CaptchaFactory $captchaFactory,
+		Config $config,
+		CaptchaFactory $captchaFactory,
 		private $visualEditorAvailabilityLookup = null,
 		private $mobileContext = null
 	) {
+		parent::__construct( $config, $captchaFactory );
 	}
 
 	/** @inheritDoc */
@@ -100,6 +101,28 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 
 			if ( $this->extensionRegistry->isLoaded( 'Abuse Filter' ) ) {
 				$vars['wgConfirmEditMobileHCaptchaAbuseFilterEnabled'] = true;
+			}
+
+			$siteKey = $this->config->get( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey' );
+			if ( $siteKey ) {
+				// For the MobileFrontend, we need to always provide the key
+				// used for blocked edit notices, since they may be shown
+				// without a new page load.
+				$blocks = $this->getBlocksRequiringHCaptcha(
+					$out->getTitle(),
+					$out->getUser()->getBlock()
+				);
+				$localBlockIds = $this->listBlockIds( $blocks['local'] );
+				$globalBlockIds = $this->listBlockIds( $blocks['global'] );
+				if ( $localBlockIds || $globalBlockIds ) {
+					$out->addJsConfigVars( [
+						'wgHCaptchaBlockedIpEditingScoreCollectionConfig' => [
+							'siteKey' => $siteKey,
+							'localBlockIds' => $localBlockIds,
+							'globalBlockIds' => $globalBlockIds,
+						]
+					] );
+				}
 			}
 		}
 	}

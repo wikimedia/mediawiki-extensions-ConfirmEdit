@@ -365,6 +365,20 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			'blockType' => 'global_block',
 		];
 
+		yield 'Partial GlobalBlock that does not apply to the current page' => [
+			'expectedModulesAdded' => false,
+			'expectedSiteKey' => null,
+			'expectedLocalBlockIds' => [],
+			'expectedGlobalBlockIds' => [],
+			'action' => 'edit',
+			'pageExists' => false,
+			'editCaptchaClass' => 'HCaptcha',
+			'createCaptchaClass' => 'HCaptcha',
+			'passiveModeSiteKey' => 'passive-mode-global-key',
+			'userCanSkipCaptcha' => false,
+			'blockType' => 'global_block_partial',
+		];
+
 		yield '"create" captcha instance is used for non-existing pages' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
@@ -421,6 +435,20 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			'blockType' => 'ip',
 		];
 
+		yield 'A composite block whose own target is an IP (inherited from first child) only returns child IDs' => [
+			'expectedModulesAdded' => true,
+			'expectedSiteKey' => 'passive-mode-global-key',
+			'expectedLocalBlockIds' => [ 123 ],
+			'expectedGlobalBlockIds' => [],
+			'action' => 'edit',
+			'pageExists' => false,
+			'editCaptchaClass' => 'HCaptcha',
+			'createCaptchaClass' => 'HCaptcha',
+			'passiveModeSiteKey' => 'passive-mode-global-key',
+			'userCanSkipCaptcha' => false,
+			'blockType' => 'composite_ip_with_ip_target',
+		];
+
 		yield 'A composite block with multiple IP block children' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
@@ -461,13 +489,17 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 	  * - 'composite_ip'   CompositeBlock whose child is a site-wide IP block
 	  * - 'composite_user' CompositeBlock whose child is a user block (no IP)
 	  * - 'system_block'          SystemBlock with an IP target
-	  * - 'global_block'          GlobalBlock with an IP target
+	  * - 'global_block'          GlobalBlock with an IP target (sitewide)
+	  * - 'global_block_partial'  GlobalBlock with an IP target that does not apply to the current page
 	  * - 'composite_system_block' CompositeBlock whose child is a SystemBlock
 	  *                            with an IP target
 	  * - 'composite_global_block' CompositeBlock whose child is a GlobalBlock
 	  *                            with an IP target
 	  * - 'composite_multi_ip'    CompositeBlock with two local IP blocks
 	  * - 'composite_mixed'       CompositeBlock with local and Global IP blocks
+	  * - 'composite_ip_with_ip_target' CompositeBlock whose own target is an IP
+	  *                            (as in production, inherited from first child),
+	  *                            to verify the composite's own ID is not returned
 	  */
 	private function createBlockMock( string $setup ): Block {
 		$mock = match ( $setup ) {
@@ -520,6 +552,16 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 					)
 				]
 			),
+			'composite_ip_with_ip_target' => $this->createCompositeBlockMockWithTarget(
+				true,
+				$this->createMock( AnonIpBlockTarget::class ),
+				[
+					$this->createBlockMockWithTarget(
+						true,
+						$this->createMock( AnonIpBlockTarget::class )
+					)
+				]
+			),
 			'composite_multi_ip' => $this->createCompositeBlockMockWithTarget(
 				true,
 				null,
@@ -547,19 +589,22 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		$this->markTestSkippedIfExtensionNotLoaded( 'GlobalBlocking' );
 
 		return match ( $setup ) {
-			'global_block' => $this->createBlockMockWithTarget(
+				'global_block' => $this->createBlockMockWithTarget(
+				true,
+				$this->createMock( AnonIpBlockTarget::class ),
+				GlobalBlock::class
+			),
+			'global_block_partial' => $this->createBlockMockWithTarget(
 				false,
 				$this->createMock( AnonIpBlockTarget::class ),
 				GlobalBlock::class
 			),
-			// The child's appliesToTitle returns false to prove it is never
-			// consulted for GlobalBlock children.
 			'composite_global_block' => $this->createCompositeBlockMockWithTarget(
 				true,
 				null,
 				[
 					$this->createBlockMockWithTarget(
-						false,
+						true,
 						$this->createMock( AnonIpBlockTarget::class ),
 						GlobalBlock::class
 					)
@@ -574,7 +619,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 						$this->createMock( AnonIpBlockTarget::class )
 					),
 					$this->createBlockMockWithTarget(
-						false,
+						true,
 						$this->createMock( AnonIpBlockTarget::class ),
 						GlobalBlock::class,
 						124

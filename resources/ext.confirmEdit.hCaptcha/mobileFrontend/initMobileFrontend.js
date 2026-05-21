@@ -36,6 +36,7 @@ module.exports = function (
 	windowObject
 ) {
 	const mobileFrontendSecureEnclave = require( './mobileFrontendSecureEnclave.js' );
+	const RiskScoreCollector = require( '../RiskScoreCollector.js' );
 	const { loadHCaptcha } = require( '../utils.js' );
 
 	const hCaptchaPanelTemplate =
@@ -90,6 +91,23 @@ module.exports = function (
 			// Intentionally ignore preload failures: a later user-triggered flow
 			// will retry loading via loadHCaptcha().
 			loadHCaptcha( windowObject, interfaceName ).catch( () => {} );
+		} );
+		mw.hook( 'mobileFrontend.blockMessageDrawer.onShow' ).add( () => {
+			// Called when the MobileFrontend opens the BlockMessageDrawer after
+			// clicking on the edit button. The case when the Permission Error
+			// page is shown after navigating directly with action=submit (which
+			// shows an error page instead of the drawer) is handled the same
+			// way as in the Desktop editor.
+			const blockedIpEditingScoreCollectionConfig = mw.config.get(
+				'wgHCaptchaBlockedIpEditingScoreCollectionConfig'
+			);
+
+			if ( blockedIpEditingScoreCollectionConfig ) {
+				RiskScoreCollector.collectRiskScoreForBlockedUser(
+					windowObject,
+					blockedIpEditingScoreCollectionConfig
+				);
+			}
 		} );
 	}
 

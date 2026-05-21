@@ -14,8 +14,14 @@ QUnit.module(
 			this.ceHookName =
 				( method ) => `confirmEdit.hCaptcha.${ method }`;
 
+			const RiskScoreCollector = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/RiskScoreCollector.js' );
+
 			this.logError = this.sandbox.stub( mw.errorLogger, 'logError' );
 			this.logWarn = this.sandbox.stub( mw.log, 'warn' );
+			this.collectRiskScore = this.sandbox.stub(
+				RiskScoreCollector,
+				'collectRiskScoreForBlockedUser'
+			);
 
 			// Provide a fake registry so that hooks set in one
 			// test run are not kept when the next one runs
@@ -762,6 +768,66 @@ QUnit.test(
 			editorEvent.setTemplate.firstCall.args[ 0 ],
 			'captcha-panel',
 			'Targets captcha panel template slot'
+		);
+	}
+);
+
+// Tests for mobileFrontend.blockMessageDrawer.onShow
+
+QUnit.test(
+	'blockMessageDrawer.onShow calls collectRiskScoreForBlockedUser when config is set',
+	function ( assert ) {
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
+		mw.config.set(
+			'wgHCaptchaBlockedIpEditingScoreCollectionConfig',
+			{ localBlockIds: [ 1, 2 ], globalBlockIds: [ 3 ], siteKey: 'test-site-key' }
+		);
+
+		initMobileFrontend(
+			'mobilefrontend-editor',
+			{
+				HCaptchaEnabledInMobileFrontend: true,
+				MobileHCaptchaAbuseFilterEnabled: true,
+				HCaptchaSiteKey: 'hCaptcha-site-key'
+			},
+			this.window
+		);
+
+		mw.hook( 'mobileFrontend.blockMessageDrawer.onShow' ).fire();
+
+		assert.true(
+			this.collectRiskScore.calledOnce,
+			'collectRiskScoreForBlockedUser should have been called'
+		);
+		assert.deepEqual(
+			this.collectRiskScore.firstCall.args[ 1 ],
+			{ localBlockIds: [ 1, 2 ], globalBlockIds: [ 3 ], siteKey: 'test-site-key' },
+			'collectRiskScoreForBlockedUser should receive the config directly'
+		);
+	}
+);
+
+QUnit.test(
+	'blockMessageDrawer.onShow does not call collectRiskScoreForBlockedUser when config is null',
+	function ( assert ) {
+		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
+		mw.config.set( 'wgHCaptchaBlockedIpEditingScoreCollectionConfig', null );
+
+		initMobileFrontend(
+			'mobilefrontend-editor',
+			{
+				HCaptchaEnabledInMobileFrontend: true,
+				MobileHCaptchaAbuseFilterEnabled: true,
+				HCaptchaSiteKey: 'hCaptcha-site-key'
+			},
+			this.window
+		);
+
+		mw.hook( 'mobileFrontend.blockMessageDrawer.onShow' ).fire();
+
+		assert.false(
+			this.collectRiskScore.called,
+			'collectRiskScoreForBlockedUser should not have been called'
 		);
 	}
 );

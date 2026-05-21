@@ -47,6 +47,7 @@ QUnit.module(
 			this.getPageviewToken.restore();
 
 			this.utils.reset();
+			RiskScoreCollector.reset();
 		}
 	} )
 );
@@ -54,11 +55,6 @@ QUnit.module(
 QUnit.test.each(
 	'collectRiskScoreForBlockedUser returns early when required params are missing',
 	{
-		'missing localBlockIds and globalBlockIds': {
-			localBlockIds: null,
-			globalBlockIds: null,
-			siteKey: 'test-site-key'
-		},
 		'empty localBlockIds and globalBlockIds': {
 			localBlockIds: [],
 			globalBlockIds: [],
@@ -282,6 +278,220 @@ QUnit.test(
 			channel,
 			'error.confirmedit',
 			'mw.errorLogger.logError should be called with the error channel'
+		);
+	}
+);
+
+QUnit.test(
+	'collectRiskScoreForBlockedUser skips blocks already sent in a previous call',
+	async function ( assert ) {
+		const config = {
+			localBlockIds: [ 123 ],
+			globalBlockIds: [ 789 ],
+			siteKey: 'test-site-key'
+		};
+
+		await RiskScoreCollector.collectRiskScoreForBlockedUser( this.window, config );
+		await RiskScoreCollector.collectRiskScoreForBlockedUser( this.window, config );
+
+		assert.true(
+			this.loadAndRenderHCaptcha.calledOnce,
+			'loadAndRenderHCaptcha should only be called once when the same blocks are sent twice'
+		);
+		assert.true(
+			this.restPost.calledOnce,
+			'api.post should only be called once when the same blocks are sent twice'
+		);
+	}
+);
+
+QUnit.test(
+	'collectRiskScoreForBlockedUser only posts block IDs not already submitted',
+	async function ( assert ) {
+		this.executeHCaptcha.returns( Promise.resolve( 'test-response-token' ) );
+
+		await RiskScoreCollector.collectRiskScoreForBlockedUser(
+			this.window,
+			{
+				localBlockIds: [ 123, 456 ],
+				globalBlockIds: [],
+				siteKey: 'test-site-key'
+			}
+		);
+
+		await RiskScoreCollector.collectRiskScoreForBlockedUser(
+			this.window,
+			{
+				localBlockIds: [ 456, 789 ],
+				globalBlockIds: [],
+				siteKey: 'test-site-key'
+			}
+		);
+
+		assert.deepEqual(
+			this.restPost.args[ 1 ],
+			[
+				'/confirmedit/v0/hcaptcha/blocktoken',
+				{
+					riskScoreToken: 'test-response-token',
+					localBlockIds: [ 789 ],
+					globalBlockIds: [],
+					pageViewId: 'test-pageview-token'
+				}
+			],
+			'The second POST should only include block IDs not already submitted'
+		);
+	}
+);
+
+QUnit.test(
+	'collectRiskScoreForBlockedUser does not skip blocks when the POST fails',
+	async function ( assert ) {
+		this.restPost.returns( Promise.reject( 'post-error' ) );
+
+		const config = {
+			localBlockIds: [ 123 ],
+			globalBlockIds: [],
+			siteKey: 'test-site-key'
+		};
+
+		await RiskScoreCollector.collectRiskScoreForBlockedUser( this.window, config );
+
+		this.restPost.returns( Promise.resolve() );
+		await RiskScoreCollector.collectRiskScoreForBlockedUser( this.window, config );
+
+		assert.true(
+			this.loadAndRenderHCaptcha.calledTwice,
+			'loadAndRenderHCaptcha should be called again when the POST failed the first time'
+		);
+		assert.true(
+			this.restPost.calledTwice,
+			'api.post should be called again when the POST failed the first time'
+		);
+	}
+);
+
+QUnit.test(
+	'collectRiskScoreForBlockedUser does not start a new request for IDs already in progress',
+	async function ( assert ) {
+		let resolveFirstRequest;
+		this.loadAndRenderHCaptcha.returns(
+			new Promise( ( resolve ) => {
+				resolveFirstRequest = resolve;
+			} )
+		);
+
+		const config = {
+			localBlockIds: [ 123 ],
+			globalBlockIds: [],
+			siteKey: 'test-site-key'
+		};
+
+		// Start the first call but do not await it — IDs are now in inProgressBlocks
+		const firstCall = RiskScoreCollector.collectRiskScoreForBlockedUser( this.window, config );
+
+		// Second call with the same IDs — already in inProgressBlocks, should not start a new batch
+		RiskScoreCollector.collectRiskScoreForBlockedUser( this.window, config );
+
+		assert.true(
+			this.loadAndRenderHCaptcha.calledOnce,
+			'loadAndRenderHCaptcha should only be called once for IDs already in progress'
+		);
+
+		resolveFirstRequest();
+		await firstCall;
+	}
+);
+
+QUnit.test(
+	'collectRiskScoreForBlockedUser enqueues new IDs from a concurrent call and processes them after the current batch',
+	async function ( assert ) {
+		let resolveFirstRender;
+		this.loadAndRenderHCaptcha
+			.onFirstCall().returns( new Promise( ( resolve ) => {
+				resolveFirstRender = resolve;
+			} ) )
+			.onSecondCall().returns( Promise.resolve( 'captcha-id-2' ) );
+		this.executeHCaptcha.returns( Promise.resolve( 'test-token' ) );
+
+		// Start first call but do not await: [123] is now in inProgressBlocks
+		const firstCall = RiskScoreCollector.collectRiskScoreForBlockedUser(
+			this.window,
+			{
+				localBlockIds: [ 123 ],
+				globalBlockIds: [],
+				siteKey: 'test-site-key'
+			}
+		);
+
+		// Second call with a new ID while first is still pending: [789] should be enqueued
+		RiskScoreCollector.collectRiskScoreForBlockedUser(
+			this.window,
+			{
+				localBlockIds: [ 789 ],
+				globalBlockIds: [],
+				siteKey: 'test-site-key'
+			}
+		);
+
+		assert.true(
+			this.loadAndRenderHCaptcha.calledOnce,
+			'loadAndRenderHCaptcha should not start a second batch while the first is pending'
+		);
+
+		// Let the first batch complete
+		resolveFirstRender( 'captcha-id-1' );
+		await firstCall;
+
+		assert.true(
+			this.loadAndRenderHCaptcha.calledTwice,
+			'loadAndRenderHCaptcha should be called a second time to process the enqueued IDs'
+		);
+		assert.deepEqual(
+			this.restPost.args[ 1 ][ 1 ].localBlockIds,
+			[ 789 ],
+			'The second POST should contain only the block ID that was enqueued during the first batch'
+		);
+	}
+);
+
+QUnit.test(
+	'collectRiskScoreForBlockedUser correctly deduplicates across a concurrent call with a mixed set of seen and new IDs',
+	async function ( assert ) {
+		let resolveFirstRender;
+		this.loadAndRenderHCaptcha
+			.onFirstCall().returns( new Promise( ( resolve ) => {
+				resolveFirstRender = resolve;
+			} ) )
+			.onSecondCall().returns( Promise.resolve( 'captcha-id-2' ) );
+		this.executeHCaptcha.returns( Promise.resolve( 'test-token' ) );
+
+		// First call: [123, 456] — both added to inProgressBlocks
+		const firstCall = RiskScoreCollector.collectRiskScoreForBlockedUser(
+			this.window,
+			{ localBlockIds: [ 123, 456 ], globalBlockIds: [], siteKey: 'test-site-key' }
+		);
+
+		// Second call while first is pending: 456 is already in inProgressBlocks,
+		// 789 and 321 are new and should be enqueued
+		RiskScoreCollector.collectRiskScoreForBlockedUser(
+			this.window,
+			{ localBlockIds: [ 456, 789, 321 ], globalBlockIds: [], siteKey: 'test-site-key' }
+		);
+
+		// Let the first batch complete
+		resolveFirstRender( 'captcha-id-1' );
+		await firstCall;
+
+		assert.deepEqual(
+			this.restPost.args[ 0 ][ 1 ].localBlockIds,
+			[ 123, 456 ],
+			'First POST should contain the IDs from the first call'
+		);
+		assert.deepEqual(
+			this.restPost.args[ 1 ][ 1 ].localBlockIds,
+			[ 789, 321 ],
+			'Second POST should contain only the IDs from the second call that were not already in progress'
 		);
 	}
 );

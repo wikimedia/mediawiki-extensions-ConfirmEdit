@@ -12,7 +12,14 @@
 			],
 			"rules": {
 				"es-x/no-object-entries": "off",
-				"es-x/no-array-prototype-includes": "off"
+				"es-x/no-array-prototype-includes": "off",
+				"no-restricted-syntax": [
+					"error",
+					{
+						"selector": "ForOfStatement > VariableDeclaration[kind='const']",
+						"message": "Some older browsers reject `for (const … of …)` with a SyntaxError; use an indexed `for` or `.forEach()`."
+					}
+				]
 			}
 		}
 	]

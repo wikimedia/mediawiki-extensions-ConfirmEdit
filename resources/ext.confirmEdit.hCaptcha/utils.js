@@ -107,9 +107,9 @@ function trackPerformanceTiming( win, startMark, outcome ) {
 const createHCaptchaScriptTag = ( doc, apiUrlQueryParameters ) => {
 	const hCaptchaApiUrl = new URL( config.HCaptchaApiUrl );
 
-	for ( const [ name, value ] of Object.entries( apiUrlQueryParameters ) ) {
-		hCaptchaApiUrl.searchParams.set( name, value );
-	}
+	Object.keys( apiUrlQueryParameters ).forEach( ( name ) => {
+		hCaptchaApiUrl.searchParams.set( name, apiUrlQueryParameters[ name ] );
+	} );
 
 	hCaptchaApiUrl.searchParams.set( 'onload', 'onHCaptchaSDKLoaded' );
 
@@ -148,8 +148,8 @@ const loadHCaptcha = (
 	// If any existing hCaptcha SDK script has already finished loading,
 	// then resolve the promise as we don't need to load hCaptcha again
 	const existingScriptElements = doc.querySelectorAll( '.mw-confirmedit-hcaptcha-script' );
-	for ( const scriptElement of existingScriptElements ) {
-		if ( scriptElement.classList.contains( 'mw-confirmedit-hcaptcha-script-loading-finished' ) ) {
+	for ( let i = 0; i < existingScriptElements.length; i++ ) {
+		if ( existingScriptElements[ i ].classList.contains( 'mw-confirmedit-hcaptcha-script-loading-finished' ) ) {
 			resolve();
 			return;
 		}

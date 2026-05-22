@@ -10,7 +10,7 @@ use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\HTMLForm\HTMLForm;
@@ -335,7 +335,9 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 	public function testHiddenForceShowCaptchaField(): void {
 		$this->setUserLang( 'qqx' );
 
-		$simpleCaptcha = Hooks::getInstance( CaptchaTriggers::CREATE );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE );
 		$simpleCaptcha->setForceShowCaptcha( true );
 		$outputPage = RequestContext::getMain()->getOutput();
 		$outputPage->setTitle( $this->getNonexistingTestPage()->getTitle() );
@@ -348,7 +350,9 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 
 	public function testModifiedSiteKeyForForceShowCaptcha(): void {
 		$requestContext = RequestContext::getMain();
-		$simpleCaptcha = Hooks::getInstance( CaptchaTriggers::CREATE );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE );
 		$simpleCaptcha->setForceShowCaptcha( true );
 		$simpleCaptcha->setConfig( [
 			'HCaptchaSiteKey' => 'foo-site-key',

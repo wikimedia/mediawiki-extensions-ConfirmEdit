@@ -7,8 +7,9 @@ namespace MediaWiki\Extension\ConfirmEdit\AbuseFilter;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\AbuseFilter\Consequences\Consequence\Consequence;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Show a CAPTCHA to the user before they can proceed with an action.
@@ -44,7 +45,9 @@ class CaptchaConsequence extends Consequence {
 
 		// This consequence was triggered, so we need to set a flag
 		// on the SimpleCaptcha instance to force showing the CAPTCHA.
-		$captcha = Hooks::getInstance( $action );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' );
+		$captcha = $captchaFactory->getGlobalInstance( $action );
 		$captcha->setAction( $action );
 		$captcha->setForceShowCaptcha( true );
 

@@ -36,7 +36,7 @@ require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
 
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Status\Status;
 
@@ -65,7 +65,9 @@ class DeleteOldFancyCaptchas extends Maintenance {
 	}
 
 	public function execute() {
-		$instance = Hooks::getInstance();
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$instance = $captchaFactory->getGlobalInstance();
 		if ( !( $instance instanceof FancyCaptcha ) ) {
 			$this->fatalError( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
 		}

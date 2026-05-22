@@ -81,7 +81,8 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$request->setCookie( 'UserName', $username );
 
 		$provider = new CaptchaPreAuthenticationProvider(
-			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' )
+			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
 		);
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 		$reqs = $provider->getAuthenticationRequests( $action, [ 'username' => $username ] );
@@ -115,7 +116,8 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$this->setTriggers( [ 'createaccount' ] );
 		$captcha = new SimpleCaptcha();
 		$provider = new CaptchaPreAuthenticationProvider(
-			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' )
+			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
 		);
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
@@ -186,7 +188,8 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		CaptchaStore::get()->store( '345', [ 'question' => '2+2', 'answer' => '4' ] );
 		$user = User::newFromName( 'Foo' );
 		$provider = new CaptchaPreAuthenticationProvider(
-			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' )
+			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
 		);
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 
@@ -266,7 +269,8 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			]
 		);
 		$provider = new CaptchaPreAuthenticationProvider(
-			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' )
+			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
 		);
 		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
 		/** @var CaptchaPreAuthenticationProvider $providerAccess */
@@ -347,7 +351,10 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$mockLoginAttemptCounterFactory->method( 'newLoginAttemptCounter' )
 			->willReturn( $loginAttemptCounter );
 
-		return new CaptchaPreAuthenticationProvider( $mockLoginAttemptCounterFactory );
+		return new CaptchaPreAuthenticationProvider(
+			$mockLoginAttemptCounterFactory,
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
+		);
 	}
 
 }

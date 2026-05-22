@@ -59,6 +59,7 @@ class Hooks implements
 	 * @deprecated Since 1.47 - Use {@link ConfirmEditCaptchaFactory::getGlobalInstance} instead.
 	 */
 	public static function getInstance( string $action = '' ): SimpleCaptcha {
+		wfDeprecated( __METHOD__, '1.47' );
 		return MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' )->getGlobalInstance( $action );
 	}
 
@@ -74,13 +75,15 @@ class Hooks implements
 		$instances = [];
 
 		// We can't rely on static::$instance being loaded with all Captcha Types, so make our own list.
-		$defaultCaptcha = self::getInstance();
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' );
+		$defaultCaptcha = $captchaFactory->getGlobalInstance();
 		$instances[ ( new ReflectionClass( $defaultCaptcha ) )->getShortName() ] = $defaultCaptcha;
 
 		$captchaTriggers = MediaWikiServices::getInstance()->getMainConfig()->get( 'CaptchaTriggers' );
 		foreach ( $captchaTriggers as $action => $trigger ) {
 			if ( isset( $trigger['class'] ) ) {
-				$class = self::getInstance( $action );
+				$class = $captchaFactory->getGlobalInstance( $action );
 				$instances[ $trigger['class'] ] = $class;
 			}
 		}
@@ -149,12 +152,13 @@ class Hooks implements
 
 	/** @inheritDoc */
 	public function onEmailUserForm( &$form ) {
-		return self::getInstance( CaptchaTriggers::SENDEMAIL )->injectEmailUser( $form );
+		return $this->captchaFactory->getGlobalInstance( CaptchaTriggers::SENDEMAIL )->injectEmailUser( $form );
 	}
 
 	/** @inheritDoc */
 	public function onEmailUser( &$to, &$from, &$subject, &$text, &$error ) {
-		return self::getInstance( CaptchaTriggers::SENDEMAIL )->confirmEmailUser( $from, $to, $subject, $text, $error );
+		return $this->captchaFactory->getGlobalInstance( CaptchaTriggers::SENDEMAIL )
+			->confirmEmailUser( $from, $to, $subject, $text, $error );
 	}
 
 	/** @inheritDoc */

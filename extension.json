@@ -44,7 +44,12 @@
 		"MediaWiki\\Extension\\ConfirmEdit\\Hooks::confirmEditSetup"
 	],
 	"SpecialPages": {
-		"Captcha": "MediaWiki\\Extension\\ConfirmEdit\\Specials\\SpecialCaptcha"
+		"Captcha": {
+			"class": "MediaWiki\\Extension\\ConfirmEdit\\Specials\\SpecialCaptcha",
+			"services": [
+				"ConfirmEditCaptchaFactory"
+			]
+		}
 	},
 	"MessagesDirs": {
 		"ConfirmEdit": [
@@ -161,7 +166,8 @@
 				"class": "MediaWiki\\Extension\\ConfirmEdit\\Auth\\CaptchaPreAuthenticationProvider",
 				"sort": 10,
 				"services": [
-					"ConfirmEditLoginAttemptCounterFactory"
+					"ConfirmEditLoginAttemptCounterFactory",
+					"ConfirmEditCaptchaFactory"
 				]
 			}
 		}

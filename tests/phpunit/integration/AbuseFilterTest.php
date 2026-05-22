@@ -11,7 +11,7 @@ use MediaWiki\Extension\AbuseFilter\Filter\ExistingFilter;
 use MediaWiki\Extension\ConfirmEdit\AbuseFilter\CaptchaConsequence;
 use MediaWiki\Extension\ConfirmEdit\AbuseFilterHooks;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Session\Session;
@@ -59,7 +59,9 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 		$parameters = $this->createMock( Parameters::class );
 		$parameters->method( 'getAction' )->willReturn( 'edit' );
 		$captchaConsequence = new CaptchaConsequence( $parameters );
-		$simpleCaptcha = Hooks::getInstance( 'edit' );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
 		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
 		$captchaConsequence->execute();
 		$this->assertTrue( $simpleCaptcha->shouldForceShowCaptcha() );
@@ -72,7 +74,9 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 		$parameters->method( 'getAction' )->willReturn( 'foo' );
 
 		$captchaConsequence = new CaptchaConsequence( $parameters );
-		$simpleCaptcha = Hooks::getInstance( 'bar' );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( 'bar' );
 		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
 
 		$captchaConsequence->execute();
@@ -111,7 +115,9 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $filter );
 
 		$captchaConsequence = new CaptchaConsequence( $parameters );
-		$simpleCaptcha = Hooks::getInstance( CaptchaTriggers::EDIT );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
 		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
 		$this->assertFalse(
 			$this->getSession()->exists(

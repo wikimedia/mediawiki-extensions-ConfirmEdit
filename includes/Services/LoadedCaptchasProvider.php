@@ -10,7 +10,7 @@ use MediaWiki\Config\ServiceOptions;
  * Provides a list of captchas that should be loaded for the request.
  *
  * If a captcha is loaded, then the ResourceLoader modules and other code should be
- * defined such that the captcha could be accessed by a {@link Hooks::getInstance}
+ * defined such that the captcha could be accessed by a {@link CaptchaFactory::getGlobalInstance()}
  * call and then rendered to the user.
  */
 class LoadedCaptchasProvider {

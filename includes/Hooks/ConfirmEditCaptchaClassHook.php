@@ -22,7 +22,7 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Hooks;
 
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 
 /**
  * This is a hook handler interface, see docs/Hooks.md in core.
@@ -51,7 +51,7 @@ interface ConfirmEditCaptchaClassHook {
 	 * @param string &$className Class name that will be used for instantiating a new
 	 *  SimpleCaptcha instance
 	 * @return bool|void True or no return value to continue or false to abort
-	 * @see Hooks::getInstance()
+	 * @see CaptchaFactory::getGlobalInstance()
 	 */
 	public function onConfirmEditCaptchaClass(
 		$action,

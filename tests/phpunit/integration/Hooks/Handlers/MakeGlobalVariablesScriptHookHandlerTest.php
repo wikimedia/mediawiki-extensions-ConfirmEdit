@@ -5,8 +5,9 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Hooks\Handlers;
 
 use MediaWiki\Context\RequestContext;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\MakeGlobalVariablesScriptHookHandler;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Title\Title;
@@ -87,8 +88,10 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 				return false;
 			} );
 
-		Hooks::getInstance( 'create' )
-			->setForceShowCaptcha( $testCase->shouldForceShowCaptcha );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE );
+		$simpleCaptcha->setForceShowCaptcha( $testCase->shouldForceShowCaptcha );
 
 		// Call the hook and expect that variable is added if $isAvailable is true
 		$vars = [];

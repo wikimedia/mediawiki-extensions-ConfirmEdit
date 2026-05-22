@@ -5,13 +5,16 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Specials;
 
 use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\Html\Html;
 use MediaWiki\SpecialPage\UnlistedSpecialPage;
 
 class SpecialCaptcha extends UnlistedSpecialPage {
-	public function __construct() {
+	public function __construct(
+		private readonly CaptchaFactory $captchaFactory,
+	) {
 		parent::__construct( 'Captcha' );
 	}
 
@@ -20,7 +23,7 @@ class SpecialCaptcha extends UnlistedSpecialPage {
 		$this->setHeaders();
 
 		// TODO: This should probably be passing an action otherwise it's going to just fallback to $wgCaptchaClass
-		$instance = Hooks::getInstance();
+		$instance = $this->captchaFactory->getGlobalInstance();
 
 		if ( $par === 'image' && method_exists( $instance, 'showImage' ) ) {
 			// @todo: Do this in a more OOP way

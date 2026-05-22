@@ -38,7 +38,7 @@ require_once "$IP/maintenance/Maintenance.php";
 
 use FilesystemIterator;
 use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\FancyCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Shell\Shell;
 use MediaWiki\Status\Status;
@@ -85,7 +85,9 @@ class GenerateFancyCaptchas extends Maintenance {
 
 		$totalTime = -microtime( true );
 
-		$instance = Hooks::getInstance();
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$instance = $captchaFactory->getGlobalInstance();
 		if ( !( $instance instanceof FancyCaptcha ) ) {
 			$this->fatalError( "\$wgCaptchaClass is not FancyCaptcha.\n", 1 );
 		}

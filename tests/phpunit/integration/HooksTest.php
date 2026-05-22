@@ -9,6 +9,7 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Page\Article;
 use MediaWiki\Status\Status;
 use MediaWikiIntegrationTestCase;
@@ -106,7 +107,9 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 		$context->setUser( $user );
 		$context->setTitle( $title );
 
-		$simpleCaptcha = Hooks::getInstance( 'create' );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE );
 		$this->assertFalse(
 			$simpleCaptcha->editFilterMergedContentHandlerAlreadyInvoked(),
 			'::editFilterMergedContentHandlerAlreadyInvoked should be false before hook is run'
@@ -117,7 +120,7 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 		) );
 		$this->assertStatusGood( $status );
 
-		$simpleCaptcha = Hooks::getInstance( 'create' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE );
 		$this->assertTrue(
 			$simpleCaptcha->editFilterMergedContentHandlerAlreadyInvoked(),
 			'::editFilterMergedContentHandlerAlreadyInvoked should be true after hook is run'
@@ -139,7 +142,9 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 		$context->setUser( $user );
 		$context->setTitle( $title );
 
-		$simpleCaptcha = Hooks::getInstance( 'create' );
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE );
 		$this->assertFalse( $simpleCaptcha->editFilterMergedContentHandlerAlreadyInvoked() );
 
 		$this->assertFalse( $this->getObjectUnderTest()->onEditFilterMergedContent(
@@ -147,7 +152,7 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 		) );
 		$this->assertStatusNotGood( $status );
 
-		$simpleCaptcha = Hooks::getInstance( 'create' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE );
 		$this->assertTrue(
 			$simpleCaptcha->editFilterMergedContentHandlerAlreadyInvoked(),
 			'::editFilterMergedContentHandlerAlreadyInvoked should be true after hook is run'

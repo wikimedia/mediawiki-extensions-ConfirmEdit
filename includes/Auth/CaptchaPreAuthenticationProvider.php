@@ -9,7 +9,7 @@ use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthenticationResponse;
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Status\Status;
@@ -19,6 +19,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 	public function __construct(
 		private readonly LoginAttemptCounterFactory $loginAttemptCounterFactory,
+		private readonly CaptchaFactory $captchaFactory,
 	) {
 	}
 
@@ -32,7 +33,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		switch ( $action ) {
 			case AuthManager::ACTION_CREATE:
 				$u = $user ?: new User();
-				$captcha = Hooks::getInstance( CaptchaTriggers::CREATE_ACCOUNT );
+				$captcha = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE_ACCOUNT );
 				$needed = $captcha->needCreateAccountCaptcha( $u );
 				if ( $needed ) {
 					$captcha->setAction( CaptchaTriggers::CREATE_ACCOUNT );
@@ -61,7 +62,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				// result in weird behavior (if the user leaves the captcha field empty, they get
 				// a required field error; if they fill it with an invalid answer, it will pass)
 				// - again, not a huge deal.
-				$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
+				$captcha = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::BAD_LOGIN );
 				$session = $this->manager->getRequest()->getSession();
 				$suggestedUsername = $session->suggestLoginUsername();
 				$loginCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter( $captcha );
@@ -84,7 +85,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 					break;
 				}
 
-				$captcha = Hooks::getInstance( CaptchaTriggers::LOGIN_ATTEMPT );
+				$captcha = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::LOGIN_ATTEMPT );
 				if ( $captcha->triggersCaptcha( CaptchaTriggers::LOGIN_ATTEMPT ) ) {
 					$captcha->setAction( CaptchaTriggers::LOGIN_ATTEMPT );
 					$logger->info( 'Captcha shown on login attempt by {clientip} for {suggestedUser}', [
@@ -110,7 +111,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 	/** @inheritDoc */
 	public function testForAuthentication( array $reqs ) {
-		$captcha = Hooks::getInstance( CaptchaTriggers::CREATE_ACCOUNT );
+		$captcha = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE_ACCOUNT );
 		$username = AuthenticationRequest::getUsernameFromRequests( $reqs );
 		$loginCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter( $captcha );
 		$success = true;
@@ -120,11 +121,11 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 		if ( $isBadLoginTriggered || $loginTriggersCaptcha ) {
 			if ( $isBadLoginTriggered ) {
-				$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
+				$captcha = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::BAD_LOGIN );
 				$captcha->setAction( CaptchaTriggers::BAD_LOGIN );
 				$captcha->setTrigger( "post-badlogin login '$username'" );
 			} else {
-				$captcha = Hooks::getInstance( CaptchaTriggers::LOGIN_ATTEMPT );
+				$captcha = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::LOGIN_ATTEMPT );
 				$captcha->setAction( CaptchaTriggers::LOGIN_ATTEMPT );
 				$captcha->setTrigger( "loginattempt login '$username'" );
 			}
@@ -153,7 +154,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 	/** @inheritDoc */
 	public function testForAccountCreation( $user, $creator, array $reqs ) {
-		$captcha = Hooks::getInstance( CaptchaTriggers::CREATE_ACCOUNT );
+		$captcha = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE_ACCOUNT );
 
 		if ( $captcha->needCreateAccountCaptcha( $creator ) ) {
 			$username = $user->getName();
@@ -180,7 +181,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 
 	/** @inheritDoc */
 	public function postAuthentication( $user, AuthenticationResponse $response ) {
-		$captcha = Hooks::getInstance( CaptchaTriggers::BAD_LOGIN );
+		$captcha = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::BAD_LOGIN );
 		$loginCounter = $this->loginAttemptCounterFactory->newLoginAttemptCounter( $captcha );
 		switch ( $response->status ) {
 			case AuthenticationResponse::PASS:

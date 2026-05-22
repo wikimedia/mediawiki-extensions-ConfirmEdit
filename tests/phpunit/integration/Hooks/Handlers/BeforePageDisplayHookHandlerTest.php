@@ -118,7 +118,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		$out->setTitle( $title );
 
 		$objectUnderTest = new BeforePageDisplayHookHandler(
-			$this->getServiceContainer()->getMainConfig()
+			$this->getServiceContainer()->getMainConfig(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 		);
 		$objectUnderTest->onBeforePageDisplay(
 			$out,

@@ -116,7 +116,8 @@
 			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks\\Handlers\\MakeGlobalVariablesScriptHookHandler",
 			"services": [
 				"ExtensionRegistry",
-				"MainConfig"
+				"MainConfig",
+				"ConfirmEditCaptchaFactory"
 			],
 			"optional_services": [
 				"VisualEditor.VisualEditorAvailabilityLookup",
@@ -126,7 +127,8 @@
 		"BeforePageDisplayHookHandler": {
 			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks\\Handlers\\BeforePageDisplayHookHandler",
 			"services": [
-				"MainConfig"
+				"MainConfig",
+				"ConfirmEditCaptchaFactory"
 			]
 		}
 	},

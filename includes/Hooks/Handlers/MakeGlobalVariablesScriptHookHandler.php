@@ -5,7 +5,7 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
 use MediaWiki\Config\Config;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
@@ -25,12 +25,14 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 	/**
 	 * @param ExtensionRegistry $extensionRegistry
 	 * @param Config $config
+	 * @param CaptchaFactory $captchaFactory
 	 * @param VisualEditorAvailabilityLookup|null $visualEditorAvailabilityLookup
 	 * @param MobileContext|null $mobileContext
 	 */
 	public function __construct(
 		private readonly ExtensionRegistry $extensionRegistry,
 		private readonly Config $config,
+		private readonly CaptchaFactory $captchaFactory,
 		private $visualEditorAvailabilityLookup = null,
 		private $mobileContext = null
 	) {
@@ -58,8 +60,7 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 
 		$captchaNeededForEdit = false;
 
-		$action = Hooks::getCaptchaTriggerActionFromTitle( $out->getTitle() );
-		$captchaInstance = Hooks::getInstance( $action );
+		$captchaInstance = $this->captchaFactory->getGlobalInstanceFromContext( $out );
 		if (
 			$captchaInstance->shouldCheck( $out->getWikiPage(), '', '', $out->getContext() )
 		) {

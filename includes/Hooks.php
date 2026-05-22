@@ -89,10 +89,15 @@ class Hooks implements
 	}
 
 	/** @inheritDoc */
-	public function onEditFilterMergedContent( IContextSource $context, Content $content, Status $status,
-		$summary, User $user, $minoredit
-	) {
-		$simpleCaptcha = self::getInstance( self::getCaptchaTriggerActionFromTitle( $context->getTitle() ) );
+	public function onEditFilterMergedContent(
+		IContextSource $context,
+		Content $content,
+		Status $status,
+		$summary,
+		User $user,
+		$minoredit
+	): bool {
+		$simpleCaptcha = $this->captchaFactory->getGlobalInstanceFromContext( $context );
 		// Set a flag indicating that ConfirmEdit's implementation of
 		// EditFilterMergedContent ran.
 		// This can be checked by other MediaWiki extensions, e.g. AbuseFilter.
@@ -128,21 +133,18 @@ class Hooks implements
 	 * @see CaptchaTriggers::CREATE
 	 */
 	public static function getCaptchaTriggerActionFromTitle( Title $title ): string {
+		wfDeprecated( __METHOD__, '1.47' );
 		return $title->exists() ? CaptchaTriggers::EDIT : CaptchaTriggers::CREATE;
 	}
 
 	/** @inheritDoc */
-	public function onEditPageBeforeEditButtons( $editpage, &$buttons, &$tabindex ) {
-		self::getInstance(
-			self::getCaptchaTriggerActionFromTitle( $editpage->getTitle() )
-		)->editShowCaptcha( $editpage );
+	public function onEditPageBeforeEditButtons( $editpage, &$buttons, &$tabindex ): void {
+		$this->captchaFactory->getGlobalInstanceFromContext( $editpage->getContext() )->editShowCaptcha( $editpage );
 	}
 
 	/** @inheritDoc */
-	public function onEditPage__showEditForm_fields( $editor, $out ) {
-		self::getInstance(
-			self::getCaptchaTriggerActionFromTitle( $out->getTitle() )
-		)->showEditFormFields( $editor, $out );
+	public function onEditPage__showEditForm_fields( $editor, $out ): void {
+		$this->captchaFactory->getGlobalInstanceFromContext( $out )->showEditFormFields( $editor, $out );
 	}
 
 	/** @inheritDoc */

@@ -11,7 +11,7 @@ use MediaWiki\Block\CompositeBlock;
 use MediaWiki\Block\SystemBlock;
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
-use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\GlobalBlocking\GlobalBlock;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Title\Title;
@@ -23,7 +23,8 @@ use MediaWiki\Title\Title;
 class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 
 	public function __construct(
-		private readonly Config $config
+		private readonly Config $config,
+		private readonly CaptchaFactory $captchaFactory,
 	) {
 	}
 
@@ -39,9 +40,7 @@ class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 			return;
 		}
 
-		$captchaInstance = Hooks::getInstance(
-			Hooks::getCaptchaTriggerActionFromTitle( $out->getTitle() )
-		);
+		$captchaInstance = $this->captchaFactory->getGlobalInstanceFromContext( $out );
 		if ( !$captchaInstance instanceof HCaptcha ) {
 			return;
 		}

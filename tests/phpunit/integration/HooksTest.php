@@ -36,6 +36,7 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider provideGetCaptchaTriggerActionFromPage
 	 */
 	public function testGetCaptchaTriggerActionFromPage( bool $pageExists, string $expectedAction ) {
+		$this->hideDeprecated( 'MediaWiki\Extension\ConfirmEdit\Hooks::getCaptchaTriggerActionFromTitle' );
 		$page = $pageExists ? $this->getExistingTestPage() : $this->getNonExistingTestPage();
 		$actualAction = Hooks::getCaptchaTriggerActionFromTitle( $page->getTitle() );
 		$this->assertEquals( $expectedAction, $actualAction );

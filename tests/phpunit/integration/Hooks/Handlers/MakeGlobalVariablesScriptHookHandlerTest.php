@@ -95,6 +95,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			$mockVisualEditorAvailabilityLookup,
 			$mockMobileContext
 		);
@@ -178,6 +179,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			null,
 			$mockMobileContext
 		);

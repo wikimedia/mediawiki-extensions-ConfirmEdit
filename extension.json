@@ -130,6 +130,12 @@
 				"MainConfig",
 				"ConfirmEditCaptchaFactory"
 			]
+		},
+		"UserGetRightsHookHandler": {
+			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks\\Handlers\\UserGetRightsHookHandler",
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"Hooks": {
@@ -137,6 +143,7 @@
 		"EmailUserForm": "ConfirmEditHooks",
 		"EmailUser": "ConfirmEditHooks",
 		"PageSaveComplete": "ConfirmEditHooks",
+		"UserGetRights": "UserGetRightsHookHandler",
 		"TitleReadWhitelist": "ConfirmEditHooks",
 		"AlternateEditPreview": "ConfirmEditHooks",
 		"ResourceLoaderRegisterModules": "RLRegisterModulesHandler",
@@ -316,6 +323,10 @@
 		"HCaptchaVisualEditorOnLoadIntegrationEnabled": {
 			"description": "Whether the VisualEditor 'onload' integration should be enabled. 'onload' means that hCaptcha is rendered as soon as the user opens the save dialog and not in response to an error indicating a missing captcha. This is a temporary configuration value for use while the integration is not fully ready to use.",
 			"value": false
+		},
+		"SkipCaptchaMinimumEditCount": {
+			"description": "Minimum number of edits before skipcaptcha rights take effect.",
+			"value": 0
 		}
 	},
 	"ServiceWiringFiles": [

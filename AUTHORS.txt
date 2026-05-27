@@ -15,7 +15,7 @@ Bartosz Dziewoński <matma.rex@gmail.com>
 Bertrand Grondin <grondin@users.mediawiki.org>
 Brad Jorsch <anomie.wikipedia@gmail.com>
 Brian Wolff <bawolff+wn@gmail.com>
-Brion Vibber <brion@pobox.com>
+Brooke Vibber <bvibber@pobox.com>
 Bryan Tong Minh <btongminh@users.mediawiki.org>
 Chad Horohoe <chadh@wikimedia.org>
 Charles Melbye <charlie@users.mediawiki.org>

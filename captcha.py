@@ -19,7 +19,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 # http://www.gnu.org/copyleft/gpl.html
 #
-# Further tweaks by Brion Vibber <brion@pobox.com>:
+# Further tweaks by Brooke Vibber <bvibber@pobox.com>:
 # 2006-01-26: Add command-line options for the various parameters
 # 2007-02-19: Add --dirs param for hash subdirectory splits
 # Tweaks by Greg Sabino Mullane <greg@turnstep.com>:

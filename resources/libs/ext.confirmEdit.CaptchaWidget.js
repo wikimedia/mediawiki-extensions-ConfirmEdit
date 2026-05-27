@@ -192,7 +192,7 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.getInputField = function () {
  */
 mw.libs.confirmEdit.CaptchaWidget.prototype.renderQuestionCaptcha = function ( $captchaContainer ) {
 	if ( !this.captchaId || !this.captchaQuestionMime || !this.captchaQuestion ) {
-		return Promise.reject( 'Please provide the captcha ID and question via updateForCaptchaFailure' );
+		return Promise.reject( 'Please provide the captcha ID and question via updateForFailure' );
 	}
 
 	const $captchaParagraph = $( '<div>' ).append(
@@ -258,7 +258,7 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.createInputField = function ( placeh
  */
 mw.libs.confirmEdit.CaptchaWidget.prototype.renderFancyCaptcha = function ( $captchaContainer ) {
 	if ( !this.captchaId || !this.captchaImageUrl ) {
-		return Promise.reject( 'Please provide the captcha ID and image URL via updateForCaptchaFailure' );
+		return Promise.reject( 'Please provide the captcha ID and image URL via updateForFailure' );
 	}
 
 	return mw.loader.using( 'ext.confirmEdit.fancyCaptcha' ).then( () => {
@@ -376,16 +376,49 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.executeHCaptcha = function () {
 };
 
 /**
- * Updates the CAPTCHA based on the provided captcha API error response.
+ * Resets the hCaptcha widget after a failed submission, so that
+ * the hCaptcha token can be regenerated for a new attempt (required
+ * as each attempt to submit an action needs a fresh token)
+ *
+ * @internal
+ * @return {Promise<void>}
+ */
+mw.libs.confirmEdit.CaptchaWidget.prototype.resetHCaptcha = function () {
+	this.captchaWord = '';
+
+	if ( !this.hCaptchaWidgetId ) {
+		return Promise.resolve();
+	}
+
+	return mw.loader.using( 'ext.confirmEdit.hCaptcha' )
+		.then( ( require ) => {
+			const hCaptchaUtils = require( 'ext.confirmEdit.hCaptcha' ).utils;
+			hCaptchaUtils.resetHCaptcha( window, this.hCaptchaWidgetId );
+		} );
+};
+
+/**
+ * Updates the CAPTCHA when the request this CAPTCHA was used for fails for any reason.
  *
  * You can call this method before or after calling {@link self.renderCaptcha}. If the CAPTCHA is
- * already rendered, doing this may re-render the CAPTCHA if the API response asks for
- * a different type of CAPTCHA or if other settings are different.
+ * already rendered, doing this may re-render the CAPTCHA.
  *
- * @param {Object} captchaData The object returned as the captcha error in an API response
+ * @param {Object} [captchaData] If the failure was a CAPTCHA failure, then this should be set
+ *   to the value of the `captcha` error in the API response. Otherwise, omit this parameter or
+ *   set it to `undefined`.
  * @return {Promise} A promise that resolves when the CAPTCHA widget has been updated
  */
-mw.libs.confirmEdit.CaptchaWidget.prototype.updateForCaptchaFailure = function ( captchaData ) {
+mw.libs.confirmEdit.CaptchaWidget.prototype.updateForFailure = function ( captchaData ) {
+	// Handle failures which were not caused by a CAPTCHA failure
+	if ( !captchaData ) {
+		if ( this.config.type === 'hcaptcha' ) {
+			return this.resetHCaptcha();
+		}
+
+		return Promise.resolve();
+	}
+
+	// Handle failures that were caused by a CAPTCHA failure
 	let needsRerender = false;
 
 	let captchaTypeFromData = captchaData.type;
@@ -431,4 +464,15 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.updateForCaptchaFailure = function (
 	}
 
 	return Promise.resolve();
+};
+
+/**
+ * Updates the CAPTCHA based on the provided captcha API error response.
+ *
+ * @deprecated Since 1.47. Use {@link self.updateForFailure} instead
+ * @param {Object} captchaData The object returned as the captcha error in an API response
+ * @return {Promise} A promise that resolves when the CAPTCHA widget has been updated
+ */
+mw.libs.confirmEdit.CaptchaWidget.prototype.updateForCaptchaFailure = function ( captchaData ) {
+	return this.updateForFailure( captchaData );
 };

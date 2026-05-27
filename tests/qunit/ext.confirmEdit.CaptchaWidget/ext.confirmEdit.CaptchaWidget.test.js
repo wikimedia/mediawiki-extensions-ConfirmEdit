@@ -107,7 +107,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 		);
 	} );
 
-	QUnit.test( 'updateForCaptchaFailure resolves if no re-rendering needed', function ( assert ) {
+	QUnit.test( 'updateForFailure resolves if no re-rendering needed', function ( assert ) {
 		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
 			type: 'test-captcha',
 			container: '#qunit-fixture'
@@ -115,7 +115,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 
 		captchaWidget.renderCaptcha = this.sandbox.stub();
 
-		return captchaWidget.updateForCaptchaFailure( { type: 'Test-captcha' } ).then( () => {
+		return captchaWidget.updateForFailure( { type: 'Test-captcha' } ).then( () => {
 			assert.true(
 				captchaWidget.renderCaptcha.notCalled,
 				'renderCaptcha should not be called if no re-rendering was needed'
@@ -128,7 +128,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 		} );
 	} );
 
-	QUnit.test( 'updateForCaptchaFailure re-renders the CAPTCHA if captcha changed', function ( assert ) {
+	QUnit.test( 'updateForFailure re-renders the CAPTCHA if captcha changed', function ( assert ) {
 		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
 			type: 'test-captcha',
 			container: '#qunit-fixture'
@@ -137,7 +137,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 		captchaWidget.captchaRendered = true;
 		captchaWidget.renderCaptcha = this.sandbox.stub().returns( Promise.resolve() );
 
-		return captchaWidget.updateForCaptchaFailure( { type: 'test-Captcha-2' } ).then( () => {
+		return captchaWidget.updateForFailure( { type: 'test-Captcha-2' } ).then( () => {
 			assert.strictEqual(
 				captchaWidget.renderCaptcha.callCount,
 				1,
@@ -269,14 +269,41 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 		} );
 	} );
 
-	QUnit.test.each( 'updateForCaptchaFailure re-renders hCaptcha', {
-		'Captcha data does not contain a sitekey': {
+	QUnit.test.each( 'updateForFailure when CAPTCHA is hCaptcha', {
+		'Captcha data does not contain a sitekey when hCaptcha already rendered': {
 			captchaData: { type: 'hcaptcha' },
+			hCaptchaAlreadyRendered: true,
+			shouldReRenderHCaptcha: true,
+			shouldResetHCaptcha: false,
 			expectedNewSiteKey: ''
 		},
-		'Captcha data contains a sitekey': {
+		'Captcha data does not contain a sitekey when hCaptcha not rendered': {
+			captchaData: { type: 'hcaptcha' },
+			hCaptchaAlreadyRendered: false,
+			shouldReRenderHCaptcha: false,
+			shouldResetHCaptcha: false,
+			expectedNewSiteKey: ''
+		},
+		'Captcha data contains a sitekey when hCaptcha already rendered': {
 			captchaData: { type: 'hcaptcha', key: 'api-provided-site-key' },
+			hCaptchaAlreadyRendered: true,
+			shouldReRenderHCaptcha: true,
+			shouldResetHCaptcha: false,
 			expectedNewSiteKey: 'api-provided-site-key'
+		},
+		'Failure not CAPTCHA related when hCaptcha already rendered': {
+			captchaData: undefined,
+			hCaptchaAlreadyRendered: true,
+			shouldReRenderHCaptcha: false,
+			shouldResetHCaptcha: true,
+			expectedNewSiteKey: ''
+		},
+		'Failure not CAPTCHA related when hCaptcha not rendered': {
+			captchaData: undefined,
+			hCaptchaAlreadyRendered: false,
+			shouldReRenderHCaptcha: false,
+			shouldResetHCaptcha: false,
+			expectedNewSiteKey: ''
 		}
 	}, function ( assert, options ) {
 		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
@@ -284,19 +311,58 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			container: '#qunit-fixture'
 		} );
 
-		captchaWidget.captchaRendered = true;
+		captchaWidget.captchaWord = 'value-to-assert-this-is-cleared';
+		captchaWidget.captchaRendered = options.hCaptchaAlreadyRendered;
+		if ( options.hCaptchaAlreadyRendered ) {
+			captchaWidget.hCaptchaWidgetId = 'widget-id';
+		}
 		captchaWidget.renderCaptcha = this.sandbox.stub().returns( Promise.resolve() );
 
-		return captchaWidget.updateForCaptchaFailure( options.captchaData ).then( () => {
+		const mockHCaptchaModule = {
+			utils: {
+				resetHCaptcha: this.sandbox.stub()
+			}
+		};
+
+		this.sandbox.stub( mw.loader, 'using' )
+			.withArgs( 'ext.confirmEdit.hCaptcha' )
+			.resolves( ( requiredModuleName ) => {
+				if ( requiredModuleName === 'ext.confirmEdit.hCaptcha' ) {
+					return mockHCaptchaModule;
+				} else {
+					assert.true( false, 'Unexpected module required using mw.loader.using' );
+				}
+			} );
+
+		return captchaWidget.updateForFailure( options.captchaData ).then( () => {
+			if ( options.shouldReRenderHCaptcha ) {
+				assert.strictEqual(
+					captchaWidget.renderCaptcha.callCount,
+					1,
+					'renderCaptcha should have been called'
+				);
+			} else {
+				assert.true(
+					captchaWidget.renderCaptcha.notCalled,
+					'renderCaptcha should have not been called'
+				);
+			}
 			assert.strictEqual(
-				captchaWidget.renderCaptcha.callCount,
-				1,
-				'renderCaptcha should always be called for a captcha failure when type is hCaptcha'
+				mockHCaptchaModule.utils.resetHCaptcha.callCount,
+				options.shouldResetHCaptcha ? 1 : 0,
+				'resetHCaptcha should only be called when hCaptcha is rendered but not being re-rendered'
 			);
+			if ( options.shouldResetHCaptcha ) {
+				assert.deepEqual(
+					mockHCaptchaModule.utils.resetHCaptcha.firstCall.args,
+					[ window, 'widget-id' ],
+					'resetHCaptcha arguments are as expected'
+				);
+			}
 			assert.strictEqual(
 				captchaWidget.captchaWord,
 				'',
-				'captchaWord should be cleared for hCaptcha failure'
+				'captchaWord should be cleared for failure when CAPTCHA is hCaptcha'
 			);
 			assert.strictEqual(
 				captchaWidget.hCaptchaSiteKey,
@@ -325,9 +391,9 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 
 		captchaWidget.captchaRendered = true;
 		assert.rejects(
-			captchaWidget.updateForCaptchaFailure( { type: 'hcaptcha' } ),
+			captchaWidget.updateForFailure( { type: 'hcaptcha' } ),
 			/Test rejection/,
-			'updateForCaptchaFailure should reject if ext.confirmEdit.hCaptcha fails to load'
+			'updateForFailure should reject if ext.confirmEdit.hCaptcha fails to load'
 		);
 
 		captchaWidget.captchaRendered = true;
@@ -350,7 +416,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			.html( $( '<p>' ).addClass( 'test-question-class' ).text( 'What is 2 + 2?' ) )
 			.html();
 
-		return captchaWidget.updateForCaptchaFailure( {
+		return captchaWidget.updateForFailure( {
 			type: 'question',
 			id: 'questy-captcha-id',
 			mime: 'text/html',
@@ -400,7 +466,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			container: $qunitFixture[ 0 ]
 		} );
 
-		return captchaWidget.updateForCaptchaFailure( {
+		return captchaWidget.updateForFailure( {
 			type: 'simple',
 			id: 'simple-captcha-id',
 			mime: 'text/plain',
@@ -446,7 +512,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			container: $qunitFixture[ 0 ]
 		} );
 
-		return captchaWidget.updateForCaptchaFailure( {
+		return captchaWidget.updateForFailure( {
 			type: 'fancycaptcha',
 			id: 'fancy-captcha-id',
 			url: 'https://example.org/fancy-captcha.png'
@@ -536,7 +602,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			container: $qunitFixture[ 0 ]
 		} );
 
-		return captchaWidget.updateForCaptchaFailure( {
+		return captchaWidget.updateForFailure( {
 			type: 'fancycaptcha',
 			id: 'fancy-captcha-id',
 			url: 'https://example.org/fancy-captcha.png'
@@ -564,7 +630,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			container: $qunitFixture[ 0 ]
 		} );
 
-		return captchaWidget.updateForCaptchaFailure( {
+		return captchaWidget.updateForFailure( {
 			type: 'question',
 			id: 'questy-captcha-id',
 			mime: 'text/abc',
@@ -588,7 +654,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 
 		assert.rejects(
 			captchaWidget.renderCaptcha(),
-			/Please provide the captcha ID and question via updateForCaptchaFailure/,
+			/Please provide the captcha ID and question via updateForFailure/,
 			'renderCaptcha should fail if captcha ID and question are not yet defined'
 		);
 	} );
@@ -603,7 +669,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 
 		assert.rejects(
 			captchaWidget.renderCaptcha(),
-			/Please provide the captcha ID and image URL via updateForCaptchaFailure/,
+			/Please provide the captcha ID and image URL via updateForFailure/,
 			'renderCaptcha should fail if captcha ID and image url are not yet defined'
 		);
 	} );

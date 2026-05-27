@@ -343,6 +343,18 @@ const executeHCaptcha = ( win, captchaId, interfaceName ) => new Promise( ( reso
 } );
 
 /**
+ * Resets a rendered hCaptcha widget, discarding its token and arming a fresh
+ * challenge, so a token is never reused (hCaptcha tokens are single-use).
+ *
+ * @param {Window} win The window object, which can be changed for testing purposes
+ * @param {string} captchaId The ID of the hCaptcha instance rendered by `hcaptcha.render`
+ * @return {void}
+ */
+const resetHCaptcha = ( win, captchaId ) => {
+	win.hcaptcha.reset( captchaId );
+};
+
+/**
  * Maps an error code returned by `loadHCaptcha` or `executeHCaptcha` to
  * a message key that should be used to tell the user about the error.
  *
@@ -729,6 +741,7 @@ function reset() {
 
 module.exports = {
 	executeHCaptcha: executeHCaptcha,
+	resetHCaptcha: resetHCaptcha,
 	getRecoverableErrors: getRecoverableErrors,
 	loadHCaptcha: loadHCaptcha,
 	mapErrorCodeToMessageKey: mapErrorCodeToMessageKey,

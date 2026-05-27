@@ -13,6 +13,7 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 
 		this.loadHCaptcha = sinon.stub( hCaptchaUtils, 'loadHCaptcha' );
 		this.executeHCaptcha = sinon.stub( hCaptchaUtils, 'executeHCaptcha' );
+		this.resetHCaptcha = sinon.stub( hCaptchaUtils, 'resetHCaptcha' );
 
 		this.window = {
 			hcaptcha: {

@@ -5,7 +5,7 @@
  */
 module.exports = () => {
 	// Load these here so that in QUnit tests we have a chance to mock utils.js
-	const { loadHCaptcha, executeHCaptcha, mapErrorCodeToMessageKey, renderHCaptcha } = require( './../utils.js' );
+	const { loadHCaptcha, executeHCaptcha, resetHCaptcha, mapErrorCodeToMessageKey, renderHCaptcha } = require( './../utils.js' );
 	const config = require( './../config.json' );
 
 	ve.init.mw.HCaptcha = function () {};
@@ -288,7 +288,26 @@ module.exports = () => {
 	};
 
 	/**
+	 * When a save attempt fails but the save dialog stays open, the hCaptcha token
+	 * submitted with it has been consumed. Tokens are single-use, so reset the widget
+	 * to force a fresh token for the next attempt rather than replaying the stale one.
+	 *
+	 * @return {void}
+	 */
+	ve.init.mw.HCaptcha.static.onSaveError = function () {
+		if ( this.widgetId === null || !this.hCaptchaResponseToken ) {
+			return;
+		}
+
+		this.hCaptchaResponseToken = null;
+		resetHCaptcha( window, this.widgetId );
+	};
+
+	/**
 	 * Initialises the hCaptcha VisualEditor handler for the current page.
+	 *
+	 * Subclass `init` methods call this with their own `this`, so each handler
+	 * registers its own listeners and resets only its own widget.
 	 */
 	ve.init.mw.HCaptcha.static.init = function () {
 		OO.ui.WindowManager.static.sizes.hCaptcha = {
@@ -302,6 +321,9 @@ module.exports = () => {
 			}
 			target.on( 'saveWorkflowEnd', () => {
 				this.onSaveWorkflowEnd( target );
+			} );
+			target.on( 'saveError', () => {
+				this.onSaveError();
 			} );
 			target.getSaveOptionsProcess().next( () => this.onSaveOptionsProcess( target ) );
 		} );

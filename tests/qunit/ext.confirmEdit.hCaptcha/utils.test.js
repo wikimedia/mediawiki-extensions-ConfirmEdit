@@ -25,7 +25,8 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 		this.window = {
 			hcaptcha: {
 				render: this.sandbox.stub(),
-				execute: this.sandbox.stub()
+				execute: this.sandbox.stub(),
+				reset: this.sandbox.stub()
 			},
 			document: {
 				createElement: this.sandbox.stub().returns( {
@@ -261,6 +262,17 @@ QUnit.test( 'loadHCaptcha should load hCaptcha SDK if previous attempt failed', 
 			// eslint-disable-next-line no-jquery/no-done-fail
 			assert.fail( 'Did not expect promise to reject' );
 		} );
+} );
+
+QUnit.test( 'resetHCaptcha should reset the given captcha', function ( assert ) {
+	this.utils.resetHCaptcha( this.window, 'some-captcha-id' );
+
+	assert.true( this.window.hcaptcha.reset.calledOnce, 'should reset hCaptcha once' );
+	assert.deepEqual(
+		this.window.hcaptcha.reset.getCall( 0 ).args,
+		[ 'some-captcha-id' ],
+		'should reset the provided captcha id'
+	);
 } );
 
 QUnit.test( 'renderHCaptcha should instrument events', async function ( assert ) {

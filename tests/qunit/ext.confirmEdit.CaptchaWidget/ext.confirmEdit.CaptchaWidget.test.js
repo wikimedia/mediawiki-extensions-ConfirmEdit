@@ -244,6 +244,11 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 				options.hCaptchaInvisibleMode ? 1 : 0,
 				'The hCaptcha privacy policy text should be set only if in invisible mode'
 			);
+			assert.strictEqual(
+				$( '.ext-confirmEdit-force-show-captcha-notice', $qunitFixture ).length,
+				0,
+				'The force show captcha notice should not be shown for first CAPTCHA use attempt'
+			);
 
 			return captchaWidget.getCaptchaDataForSubmission().then( ( captchaData ) => {
 				assert.true(
@@ -334,7 +339,11 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 				}
 			} );
 
-		return captchaWidget.updateForFailure( options.captchaData ).then( () => {
+		return captchaWidget.updateForFailure( options.captchaData ).then( ( actualRecommendResubmit ) => {
+			assert.false(
+				actualRecommendResubmit,
+				'updateForFailure should not recommend resubmit'
+			);
 			if ( options.shouldReRenderHCaptcha ) {
 				assert.strictEqual(
 					captchaWidget.renderCaptcha.callCount,
@@ -369,6 +378,75 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 				options.expectedNewSiteKey,
 				'hCaptcha sitekey should use sitekey in captcha API data unless not specified'
 			);
+		} );
+	} );
+
+	QUnit.test( 'hCaptcha widget for forceshowcaptcha CAPTCHA failure', function ( assert ) {
+		mw.config.set( 'wgConfirmEditForceShowCaptcha', false );
+
+		const mockHCaptchaModule = {
+			utils: {
+				loadHCaptcha: this.sandbox.stub().returns( Promise.resolve() ),
+				renderHCaptcha: this.sandbox.stub().returns( 'widget-id' ),
+				executeHCaptcha: this.sandbox.stub().returns( Promise.resolve( 'test-response' ) ),
+				getHCaptchaSiteKey: () => 'test-site-key',
+				isHCaptchaInInvisibleMode: () => true
+			}
+		};
+
+		this.sandbox.stub( mw.loader, 'using' )
+			.withArgs( 'ext.confirmEdit.hCaptcha' )
+			.resolves( ( requiredModuleName ) => {
+				if ( requiredModuleName === 'ext.confirmEdit.hCaptcha' ) {
+					// False positive
+					// eslint-disable-next-line qunit/no-early-return
+					return mockHCaptchaModule;
+				} else {
+					assert.true( false, 'Unexpected module required using mw.loader.using' );
+				}
+			} );
+
+		const $qunitFixture = $( '#qunit-fixture' );
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'hcaptcha',
+			container: $qunitFixture[ 0 ],
+			interfaceName: 'test-interface'
+		} );
+
+		return captchaWidget.renderCaptcha().then( () => {
+			// Expect hCaptcha is loaded and rendered
+			assert.true(
+				mockHCaptchaModule.utils.loadHCaptcha.calledOnce,
+				'loadHCaptcha should be called'
+			);
+			assert.true(
+				mockHCaptchaModule.utils.renderHCaptcha.calledOnce,
+				'renderHCaptcha should be called'
+			);
+			assert.strictEqual(
+				$( '.ext-confirmEdit-force-show-captcha-notice', $qunitFixture ).length,
+				0,
+				'The force show captcha notice should not be shown for first CAPTCHA use attempt'
+			);
+
+			const captchaData = { type: 'hcaptcha', error: 'forceshowcaptcha' };
+			return captchaWidget.updateForFailure( captchaData ).then( ( actualRecommendResubmit ) => {
+				assert.true(
+					actualRecommendResubmit,
+					'updateForFailure should recommend resubmission'
+				);
+				assert.strictEqual(
+					mockHCaptchaModule.utils.renderHCaptcha.callCount,
+					2,
+					'renderHCaptcha should be called again after forceshowcaptcha failure'
+				);
+				assert.strictEqual(
+					$( '.ext-confirmEdit-force-show-captcha-notice', $qunitFixture ).length,
+					1,
+					'The force show captcha notice should be shown after API responds with forceshowcaptcha'
+				);
+			} );
 		} );
 	} );
 

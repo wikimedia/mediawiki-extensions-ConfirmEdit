@@ -50,11 +50,13 @@ mw.libs.confirmEdit.CaptchaWidget = function MwCaptchaWidget( config ) {
 	this.captchaId = '';
 
 	this.captchaRendered = false;
+	this.alreadyRecommendedResubmit = false;
 
 	// hCaptcha config (unused if not using hCaptcha)
 	this.hCaptchaSiteKey = '';
 	this.hCaptchaWidgetId = '';
 	this.hCaptchaForceShowCaptcha = mw.config.get( 'wgConfirmEditForceShowCaptcha' ) || false;
+	this.hCaptchaShowResubmitMessage = false;
 
 	// Question based CAPTCHA config (unused if not question based)
 	this.captchaQuestion = '';
@@ -142,6 +144,13 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderHCaptcha = function ( $captcha
 			this.config.interfaceName,
 			{ render: 'explicit' }
 		).then( () => {
+			if ( this.hCaptchaShowResubmitMessage ) {
+				const $forceShowCaptchaNotice = $( '<div>' );
+				$forceShowCaptchaNotice.html( mw.message( 'hcaptcha-force-show-captcha-edit' ).parse() );
+				$forceShowCaptchaNotice.addClass( 'ext-confirmEdit-force-show-captcha-notice' );
+				$captchaContainer.append( $forceShowCaptchaNotice );
+			}
+
 			if ( hCaptchaUtils.isHCaptchaInInvisibleMode() ) {
 				$captchaContainer.attr( 'data-size', 'invisible' );
 
@@ -406,20 +415,24 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.resetHCaptcha = function () {
  * @param {Object} [captchaData] If the failure was a CAPTCHA failure, then this should be set
  *   to the value of the `captcha` error in the API response. Otherwise, omit this parameter or
  *   set it to `undefined`.
- * @return {Promise} A promise that resolves when the CAPTCHA widget has been updated
+ * @return {Promise<boolean>} A promise that resolves when the CAPTCHA widget has been updated.
+ *   If the value of the resolved promise is true, then the caller should resubmit the
+ *   API request unchanged after replacing the CAPTCHA data with fresh data from
+ *   {@link self.getCaptchaDataForSubmission}.
  */
 mw.libs.confirmEdit.CaptchaWidget.prototype.updateForFailure = function ( captchaData ) {
 	// Handle failures which were not caused by a CAPTCHA failure
 	if ( !captchaData ) {
 		if ( this.config.type === 'hcaptcha' ) {
-			return this.resetHCaptcha();
+			return this.resetHCaptcha().then( () => false );
 		}
 
-		return Promise.resolve();
+		return Promise.resolve( false );
 	}
 
 	// Handle failures that were caused by a CAPTCHA failure
 	let needsRerender = false;
+	let recommendResubmit = false;
 
 	let captchaTypeFromData = captchaData.type;
 	if ( captchaTypeFromData ) {
@@ -439,9 +452,17 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.updateForFailure = function ( captch
 		needsRerender = true;
 
 		this.hCaptchaForceShowCaptcha = captchaData.error === 'forceshowcaptcha';
+		this.hCaptchaShowResubmitMessage = this.hCaptchaForceShowCaptcha;
 		if ( captchaData.key && this.hCaptchaSiteKey !== captchaData.key ) {
 			this.hCaptchaSiteKey = captchaData.key;
 		}
+
+		// Recommend automatically resubmitting if hCaptcha was already shown
+		// and the CAPTCHA failure was the server just asking for a stricter
+		// challenge to be solved
+		recommendResubmit = this.config.type === captchaTypeFromData &&
+			this.captchaRendered &&
+			this.hCaptchaForceShowCaptcha;
 	}
 
 	if ( this.config.type === 'simple' || this.config.type === 'question' ) {
@@ -460,10 +481,17 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.updateForFailure = function ( captch
 	if ( needsRerender && this.captchaRendered ) {
 		this.captchaInputField = null;
 		this.captchaRendered = false;
-		return this.renderCaptcha();
+		return this.renderCaptcha().then( () => {
+			if ( this.alreadyRecommendedResubmit ) {
+				return false;
+			} else if ( recommendResubmit ) {
+				this.alreadyRecommendedResubmit = true;
+			}
+			return recommendResubmit;
+		} );
 	}
 
-	return Promise.resolve();
+	return Promise.resolve( false );
 };
 
 /**

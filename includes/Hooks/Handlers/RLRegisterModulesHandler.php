@@ -58,6 +58,10 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 			$captchaModuleMessages[] = 'fancycaptcha-imgcaptcha-ph';
 		}
 
+		if ( in_array( 'HCaptcha', $loadedCaptchas, true ) ) {
+			$captchaModuleMessages[] = 'hcaptcha-force-show-captcha-edit';
+		}
+
 		$modules['ext.confirmEdit.CaptchaWidget'] = [
 			'localBasePath' => $dir,
 			'remoteExtPath' => 'ConfirmEdit/resources',

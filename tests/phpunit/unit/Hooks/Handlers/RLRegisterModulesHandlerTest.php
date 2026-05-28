@@ -90,9 +90,9 @@ class RLRegisterModulesHandlerTest extends MediaWikiUnitTestCase {
 				'captchasEnabled' => [ 'QuestyCaptcha' ],
 				'expectedMessages' => [ 'questycaptcha-edit' ],
 			],
-			'FancyCaptcha is enabled' => [
+			'FancyCaptcha and HCaptcha is enabled' => [
 				'captchasEnabled' => [ 'FancyCaptcha', 'HCaptcha' ],
-				'expectedMessages' => [ 'fancycaptcha-edit' ],
+				'expectedMessages' => [ 'fancycaptcha-edit', 'hcaptcha-force-show-captcha-edit' ],
 			],
 		];
 	}

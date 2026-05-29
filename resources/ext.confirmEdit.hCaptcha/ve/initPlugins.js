@@ -17,7 +17,9 @@ module.exports = () => {
 	require( './ve.init.mw.HCaptcha.js' )();
 	require( './ve.init.mw.HCaptchaSaveErrorHandler.js' )();
 	require( './ve.init.mw.HCaptchaOnLoadHandler.js' )();
+	require( './ve.init.mw.HCaptchaCollectRiskScore.js' )();
 
 	ve.init.mw.HCaptchaOnLoadHandler.static.init();
 	ve.init.mw.HCaptchaSaveErrorHandler.static.init();
+	ve.init.mw.HCaptchaCollectRiskScore.static.init();
 };

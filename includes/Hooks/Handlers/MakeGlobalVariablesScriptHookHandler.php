@@ -9,6 +9,7 @@ use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Registration\ExtensionRegistry;
 use MobileContext;
 
@@ -79,13 +80,46 @@ class MakeGlobalVariablesScriptHookHandler extends AbstractCaptchaHandler implem
 		// SimpleCaptcha::shouldCheck because if AbuseFilter is installed then
 		// a CAPTCHA may be required based on the content of the edit. Users who
 		// can skip captchas are excluded, since they will never be shown one.
+		$usingHCaptcha = strtolower( $captchaInstance->getName() ) === 'hcaptcha' &&
+			!$captchaInstance->canSkipCaptcha( $out->getUser() );
+
 		if (
 			$mobileFrontendAvailable &&
 			$this->config->get( 'HCaptchaEnabledInMobileFrontend' ) &&
-			strtolower( $captchaInstance->getName() ) === 'hcaptcha' &&
-			!$captchaInstance->canSkipCaptcha( $out->getUser() )
+			$usingHCaptcha
 		) {
-			$requiredModule = 'ext.confirmEdit.hCaptcha';
+			if ( $this->extensionRegistry->isLoaded( 'Abuse Filter' ) ) {
+				$vars['wgConfirmEditMobileHCaptchaAbuseFilterEnabled'] = true;
+			}
+
+			$this->addHCaptchaModules( $out, $vars, true );
+			$this->addIPBlocksScoreCollectionVars( $out );
+		} elseif ( $visualEditorAvailable && $usingHCaptcha ) {
+			$this->addHCaptchaModules( $out, $vars, $mobileFrontendAvailable );
+			$this->addIPBlocksScoreCollectionVars( $out );
+		}
+	}
+
+	/**
+	 * Adds the HCaptcha modules to the current page.
+	 *
+	 * If the $initMobileFrontendModules flag is set, this additionally adds a
+	 * variable to the page that makes the MobileFrontend call additional
+	 * initialization code.
+	 *
+	 * @param OutputPage $out Current page
+	 * @param array &$vars Page variables
+	 * @param bool $initMobileFrontendModules Whether to call MF-specific init code
+	 * @return void
+	 */
+	private function addHCaptchaModules(
+		OutputPage $out,
+		array &$vars,
+		bool $initMobileFrontendModules
+	): void {
+		$requiredModule = 'ext.confirmEdit.hCaptcha';
+
+		if ( $initMobileFrontendModules ) {
 			$mfInitModulesKey = 'wgMobileFrontendSourceEditorInitializeModules';
 			$modulesToInit = $vars[$mfInitModulesKey] ?? [];
 
@@ -94,32 +128,31 @@ class MakeGlobalVariablesScriptHookHandler extends AbstractCaptchaHandler implem
 			}
 
 			$vars[$mfInitModulesKey] = $modulesToInit;
-			$out->addModules( $requiredModule );
+		}
 
-			if ( $this->extensionRegistry->isLoaded( 'Abuse Filter' ) ) {
-				$vars['wgConfirmEditMobileHCaptchaAbuseFilterEnabled'] = true;
-			}
+		$out->addModules( $requiredModule );
+	}
 
-			$siteKey = $this->config->get( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey' );
-			if ( $siteKey ) {
-				// For the MobileFrontend, we need to always provide the key
-				// used for blocked edit notices, since they may be shown
-				// without a new page load.
-				$blocks = $this->getBlocksRequiringHCaptcha(
-					$out->getTitle(),
-					$out->getUser()->getBlock()
-				);
-				$localBlockIds = $this->listBlockIds( $blocks['local'] );
-				$globalBlockIds = $this->listBlockIds( $blocks['global'] );
-				if ( $localBlockIds || $globalBlockIds ) {
-					$out->addJsConfigVars( [
-						'wgHCaptchaBlockedIpEditingScoreCollectionConfig' => [
-							'siteKey' => $siteKey,
-							'localBlockIds' => $localBlockIds,
-							'globalBlockIds' => $globalBlockIds,
-						]
-					] );
-				}
+	private function addIPBlocksScoreCollectionVars( OutputPage $out ): void {
+		$siteKey = $this->config->get( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey' );
+		if ( $siteKey ) {
+			// For MobileFrontend and VisualEditor, we need to always provide
+			// the key used for blocked edit notices, since they may be shown
+			// without a new page load.
+			$blocks = $this->getBlocksRequiringHCaptcha(
+				$out->getTitle(),
+				$out->getUser()->getBlock()
+			);
+			$localBlockIds = $this->listBlockIds( $blocks['local'] );
+			$globalBlockIds = $this->listBlockIds( $blocks['global'] );
+			if ( $localBlockIds || $globalBlockIds ) {
+				$out->addJsConfigVars( [
+					'wgHCaptchaBlockedIpEditingScoreCollectionConfig' => [
+						'siteKey' => $siteKey,
+						'localBlockIds' => $localBlockIds,
+						'globalBlockIds' => $globalBlockIds,
+					]
+				] );
 			}
 		}
 	}

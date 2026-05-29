@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"HakanIST",
 			"Joseph"
 		]
 	},
@@ -23,5 +24,6 @@
 	"hcaptcha-loading-indicator-label": "Lütfen formun yüklenmesi tamamlanırken bekleyin...",
 	"hcaptcha-missing-token": "Formun yüklenmesini henüz tamamlamadık. Lütfen birkaç saniye bekleyip yeniden deneyin.",
 	"hcaptcha-noscript": "Devam etmek için JavaScript gereklidir. Tarayıcı ayarlarınızdan JavaScript'i açın ve sayfayı yenileyin.",
-	"hcaptcha-force-show-captcha-edit": "Düzenlemenizi saklamak için lütfen formu tekrar gönderin ve görevi tamamlayın."
+	"hcaptcha-force-show-captcha-edit": "Düzenlemenizi saklamak için lütfen formu tekrar gönderin ve görevi tamamlayın.",
+	"hcaptcha-visual-editor-error-handler-warning": "Lütfen yaptığınız değişiklikleri kaydetmek için formu yeniden gönderin."
 }

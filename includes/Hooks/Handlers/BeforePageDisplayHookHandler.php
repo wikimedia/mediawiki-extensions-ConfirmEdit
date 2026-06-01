@@ -4,17 +4,45 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
+use MediaWiki\Block\Block;
+use MediaWiki\Block\BlockTargetWithIp;
+use MediaWiki\Block\CompositeBlock;
+use MediaWiki\Config\Config;
+use MediaWiki\Deferred\DeferredUpdates;
+use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
+use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
+use MediaWiki\Extension\GlobalBlocking\GlobalBlock;
+use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\OutputPage;
 
 /**
- * Adds hCaptcha modules and config variables to edit pages where the user is
- * IP/range blocked, so that a risk score can be collected.
+ * Collects an hCaptcha risk score when an IP/range block prevents the action.
+ *
+ * On edit pages, adds the hCaptcha modules and config variables so the widget
+ * can run client-side. On a blocked Special:CreateAccount submission, reuses
+ * the token already submitted with the form to obtain a score server-side.
  */
 class BeforePageDisplayHookHandler extends AbstractCaptchaHandler implements BeforePageDisplayHook {
 
+	public function __construct(
+		Config $config,
+		CaptchaFactory $captchaFactory,
+		private readonly HookContainer $hookContainer,
+	) {
+		parent::__construct( $config, $captchaFactory );
+	}
+
 	/** @inheritDoc */
 	public function onBeforePageDisplay( $out, $skin ): void {
+		$title = $out->getTitle();
+		if ( $title && $title->isSpecial( 'CreateAccount' ) ) {
+			$this->maybeCollectAccountCreationRiskScore( $out );
+			return;
+		}
+
 		$action = $out->getRequest()->getVal( 'action' ) ??
 			$out->getRequest()->getVal( 'veaction' );
 		if ( $action !== 'edit' && $action !== 'submit' ) {
@@ -50,5 +78,91 @@ class BeforePageDisplayHookHandler extends AbstractCaptchaHandler implements Bef
 				],
 			] );
 		}
+	}
+
+	/**
+	 * On a blocked Special:CreateAccount submission, reuse the hCaptcha token
+	 * from the form for a risk score. The block check short-circuits before the
+	 * captcha provider runs (AuthManager::beginAccountCreation), so the token is
+	 * still unused here.
+	 */
+	private function maybeCollectAccountCreationRiskScore( OutputPage $out ): void {
+		$request = $out->getRequest();
+		if ( !$request->wasPosted() || !$this->config->get( 'HCaptchaUseRiskScore' ) ) {
+			return;
+		}
+
+		$captchaInstance = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE_ACCOUNT );
+		if ( !$captchaInstance instanceof HCaptcha ) {
+			return;
+		}
+
+		// Nothing to score without a token (no-JS client, or a user who can skip
+		// the captcha and so was never shown the widget).
+		if ( !$request->getVal( 'h-captcha-response' ) ) {
+			return;
+		}
+
+		$user = $out->getUser();
+		$blocks = $this->getCreateAccountBlocksRequiringHCaptcha( $user->getBlock() );
+		if ( !count( $blocks['local'] ) && !count( $blocks['global'] ) ) {
+			return;
+		}
+
+		$localBlockIds = $this->listBlockIds( $blocks['local'] );
+		$globalBlockIds = $this->listBlockIds( $blocks['global'] );
+		$hookRunner = new HookRunner( $this->hookContainer );
+
+		// Defer the siteverify HTTP call until after the response is sent.
+		DeferredUpdates::addCallableUpdate(
+			static function () use (
+				$captchaInstance, $request, $user, $localBlockIds, $globalBlockIds, $hookRunner
+			) {
+				$captchaInstance->passCaptchaFromRequest( $request, $user );
+				$score = $captchaInstance->retrieveSessionScore( 'hCaptcha-score', $user->getName() );
+				$riskScore = is_numeric( $score ) ? (float)$score : -1.0;
+				$hookRunner->onConfirmEditHCaptchaRiskScoreRetrievedForBlocks(
+					$riskScore,
+					$localBlockIds,
+					$globalBlockIds,
+					$user,
+					'',
+					$request
+				);
+			}
+		);
+	}
+
+	/**
+	 * Returns the IP/range blocks that prevent account creation, split into
+	 * local and global. Mirrors getBlocksRequiringHCaptcha() but keys on the
+	 * 'createaccount' right rather than page applicability.
+	 *
+	 * @param ?Block $block Block currently applying to the user, if any
+	 * @return array{local: Block[], global: GlobalBlock[]}
+	 */
+	private function getCreateAccountBlocksRequiringHCaptcha( ?Block $block ): array {
+		$local = [];
+		$global = [];
+
+		if ( !$block ) {
+			return [ 'local' => $local, 'global' => $global ];
+		}
+
+		$candidates = $block instanceof CompositeBlock ? $block->getOriginalBlocks() : [ $block ];
+		foreach ( $candidates as $candidate ) {
+			if ( !$candidate->getTarget() instanceof BlockTargetWithIp ||
+				!$candidate->appliesToRight( 'createaccount' )
+			) {
+				continue;
+			}
+			if ( $candidate instanceof GlobalBlock ) {
+				$global[] = $candidate;
+			} else {
+				$local[] = $candidate;
+			}
+		}
+
+		return [ 'local' => $local, 'global' => $global ];
 	}
 }

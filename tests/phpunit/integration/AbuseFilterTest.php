@@ -15,6 +15,8 @@ use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Session\Session;
+use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserIdentityValue;
 use MediaWikiIntegrationTestCase;
 use TestLogger;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
@@ -49,7 +51,11 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 
 	public function testOnAbuseFilterCustomActions() {
 		$config = new HashConfig( [ 'ConfirmEditEnabledAbuseFilterCustomActions' => [ 'showcaptcha' ] ] );
-		$abuseFilterHooks = new AbuseFilterHooks( $config );
+		$abuseFilterHooks = new AbuseFilterHooks(
+			$config,
+			$this->getServiceContainer()->getHookContainer(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
+		);
 		$actions = [];
 		$abuseFilterHooks->onAbuseFilterCustomActions( $actions );
 		$this->assertArrayHasKey( 'showcaptcha', $actions );
@@ -58,7 +64,11 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 	public function testConsequence() {
 		$parameters = $this->createMock( Parameters::class );
 		$parameters->method( 'getAction' )->willReturn( 'edit' );
-		$captchaConsequence = new CaptchaConsequence( $parameters );
+		$captchaConsequence = new CaptchaConsequence(
+			$parameters,
+			$this->getServiceContainer()->getHookContainer(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
+		);
 		/** @var CaptchaFactory $captchaFactory */
 		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
 		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
@@ -73,7 +83,11 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 		$parameters = $this->createMock( Parameters::class );
 		$parameters->method( 'getAction' )->willReturn( 'foo' );
 
-		$captchaConsequence = new CaptchaConsequence( $parameters );
+		$captchaConsequence = new CaptchaConsequence(
+			$parameters,
+			$this->getServiceContainer()->getHookContainer(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
+		);
 		/** @var CaptchaFactory $captchaFactory */
 		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
 		$simpleCaptcha = $captchaFactory->getGlobalInstance( 'bar' );
@@ -86,6 +100,43 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 			$logger->getBuffer()[0][1]
 		);
 
+		$this->assertFalse(
+			$this->getSession()->exists(
+				SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
+			)
+		);
+	}
+
+	public function testConsequenceWhenHookAborts(): void {
+		$userIdentity = new UserIdentityValue( 123, 'TestUser' );
+
+		$parameters = $this->createMock( Parameters::class );
+		$parameters->method( 'getAction' )->willReturn( 'edit' );
+		$parameters->method( 'getUser' )->willReturn( $userIdentity );
+
+		$captchaConsequence = new CaptchaConsequence(
+			$parameters,
+			$this->getServiceContainer()->getHookContainer(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
+		);
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
+		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
+
+		$this->setTemporaryHook(
+			'ConfirmEditBeforeForceShowCaptcha',
+			function ( UserIdentity $actualUserIdentity, SimpleCaptcha $captcha ) use (
+				$userIdentity, $simpleCaptcha
+			) {
+				$this->assertSame( $userIdentity, $actualUserIdentity );
+				$this->assertSame( $simpleCaptcha, $captcha );
+				return false;
+			}
+		);
+
+		$captchaConsequence->execute();
+		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
 		$this->assertFalse(
 			$this->getSession()->exists(
 				SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
@@ -114,7 +165,11 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 			->method( 'getFilter' )
 			->willReturn( $filter );
 
-		$captchaConsequence = new CaptchaConsequence( $parameters );
+		$captchaConsequence = new CaptchaConsequence(
+			$parameters,
+			$this->getServiceContainer()->getHookContainer(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
+		);
 		/** @var CaptchaFactory $captchaFactory */
 		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
 		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );

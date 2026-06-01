@@ -107,7 +107,9 @@
 		"AbuseFilterHooks": {
 			"class": "MediaWiki\\Extension\\ConfirmEdit\\AbuseFilterHooks",
 			"services": [
-				"MainConfig"
+				"MainConfig",
+				"HookContainer",
+				"ConfirmEditCaptchaFactory"
 			]
 		},
 		"RLRegisterModulesHandler": {

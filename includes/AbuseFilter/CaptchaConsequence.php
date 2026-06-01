@@ -6,8 +6,11 @@ namespace MediaWiki\Extension\ConfirmEdit\AbuseFilter;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\AbuseFilter\Consequences\Consequence\Consequence;
+use MediaWiki\Extension\AbuseFilter\Consequences\Parameters;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
+use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
+use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 
@@ -25,6 +28,20 @@ class CaptchaConsequence extends Consequence {
 	 */
 	public const FILTER_ID_SESSION_KEY = 'captchaConsequence-filterId';
 
+	private readonly HookContainer $hookContainer;
+	private readonly CaptchaFactory $captchaFactory;
+
+	public function __construct(
+		Parameters $parameters,
+		?HookContainer $hookContainer = null,
+		?CaptchaFactory $captchaFactory = null,
+	) {
+		parent::__construct( $parameters );
+		$services = MediaWikiServices::getInstance();
+		$this->hookContainer = $hookContainer ?? $services->getHookContainer();
+		$this->captchaFactory = $captchaFactory ?? $services->get( 'ConfirmEditCaptchaFactory' );
+	}
+
 	public function execute(): bool {
 		$action = $this->parameters->getAction();
 		$filterId = $this->parameters->getFilter()->getID();
@@ -35,7 +52,7 @@ class CaptchaConsequence extends Consequence {
 				[ 'action' => $action, 'filter' => $filterId ]
 			);
 
-			return true;
+			return false;
 		}
 
 		RequestContext::getMain()->getRequest()->getSession()->set(
@@ -45,10 +62,16 @@ class CaptchaConsequence extends Consequence {
 
 		// This consequence was triggered, so we need to set a flag
 		// on the SimpleCaptcha instance to force showing the CAPTCHA.
-		/** @var CaptchaFactory $captchaFactory */
-		$captchaFactory = MediaWikiServices::getInstance()->get( 'ConfirmEditCaptchaFactory' );
-		$captcha = $captchaFactory->getGlobalInstance( $action );
+		$captcha = $this->captchaFactory->getGlobalInstance( $action );
 		$captcha->setAction( $action );
+
+		$hookRunner = new HookRunner( $this->hookContainer );
+		if ( !$hookRunner->onConfirmEditBeforeForceShowCaptcha(
+			$this->parameters->getUser(), $captcha
+		) ) {
+			return false;
+		}
+
 		$captcha->setForceShowCaptcha( true );
 
 		return true;

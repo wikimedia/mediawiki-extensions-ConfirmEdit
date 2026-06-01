@@ -135,7 +135,8 @@
 			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks\\Handlers\\BeforePageDisplayHookHandler",
 			"services": [
 				"MainConfig",
-				"ConfirmEditCaptchaFactory"
+				"ConfirmEditCaptchaFactory",
+				"HookContainer"
 			]
 		},
 		"UserGetRightsHookHandler": {

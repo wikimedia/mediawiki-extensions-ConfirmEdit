@@ -13,15 +13,22 @@ use MediaWiki\Block\CompositeBlock;
 use MediaWiki\Block\RangeBlockTarget;
 use MediaWiki\Block\SystemBlock;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\BeforePageDisplayHookHandler;
 use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\Extension\GlobalBlocking\GlobalBlock;
+use MediaWiki\Http\MWHttpRequest;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Skin\Skin;
+use MediaWiki\Status\Status;
+use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
+use MockHttpTrait;
 use PHPUnit\Framework\MockObject\MockObject;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\BeforePageDisplayHookHandler
@@ -29,6 +36,7 @@ use PHPUnit\Framework\MockObject\MockObject;
  */
 class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 	use CaptchaTestHelperTrait;
+	use MockHttpTrait;
 
 	protected function tearDown(): void {
 		self::clearCaptchaFactoryGlobalInstances();
@@ -120,6 +128,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		$objectUnderTest = new BeforePageDisplayHookHandler(
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->getHookContainer(),
 		);
 		$objectUnderTest->onBeforePageDisplay(
 			$out,
@@ -648,6 +657,11 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		$block
 			->method( 'appliesToTitle' )
 			->willReturn( $appliesToTitle );
+		// The same flag gates the createaccount-right check used by the
+		// account creation block tests.
+		$block
+			->method( 'appliesToRight' )
+			->willReturn( $appliesToTitle );
 		$block
 			->method( 'getTarget' )
 			->willReturn( $target );
@@ -672,5 +686,219 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $children );
 
 		return $composite;
+	}
+
+	/**
+	 * @dataProvider provideAccountCreationRiskScoreNoOp
+	 */
+	public function testMaybeCollectAccountCreationRiskScoreNoOp(
+		bool $useRiskScore,
+		bool $wasPosted,
+		string $createAccountCaptchaClass,
+		bool $hasToken,
+		bool $hasBlock
+	): void {
+		$this->configureAccountCreationCaptcha( $useRiskScore, $createAccountCaptchaClass );
+
+		$block = $hasBlock
+			? $this->createBlockMockWithTarget( true, $this->createMock( AnonIpBlockTarget::class ) )
+			: null;
+
+		$captured = $this->runAccountCreationHandlerCapturingHook(
+			new FauxRequest( $hasToken ? [ 'h-captcha-response' => 'abcdef' ] : [], $wasPosted ),
+			$block
+		);
+
+		$this->assertNull( $captured );
+	}
+
+	public static function provideAccountCreationRiskScoreNoOp(): iterable {
+		yield 'Request was not posted' => [ true, false, 'HCaptcha', true, true ];
+		yield 'Risk score collection disabled' => [ false, true, 'HCaptcha', true, true ];
+		yield 'Captcha class is not hCaptcha' => [ true, true, 'SimpleCaptcha', true, true ];
+		yield 'No token in the request' => [ true, true, 'HCaptcha', false, true ];
+		yield 'No applicable block' => [ true, true, 'HCaptcha', true, false ];
+	}
+
+	public function testMaybeCollectAccountCreationRiskScoreFiresHook(): void {
+		$this->configureAccountCreationCaptcha( true, 'HCaptcha' );
+		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secret-key' );
+
+		$httpRequest = $this->createMock( MWHttpRequest::class );
+		$httpRequest->method( 'execute' )->willReturn( Status::newGood() );
+		$httpRequest->method( 'getContent' )->willReturn( FormatJson::encode( [
+			'success' => true,
+			'sitekey' => 'create-account-site-key',
+			'score' => 0.5,
+		] ) );
+		$this->installMockHttp( $httpRequest );
+
+		$captured = $this->runAccountCreationHandlerCapturingHook(
+			new FauxRequest( [ 'h-captcha-response' => 'abcdef' ], true ),
+			$this->createBlockMockWithTarget( true, $this->createMock( AnonIpBlockTarget::class ) )
+		);
+
+		$this->assertNotNull( $captured );
+		$this->assertSame( 0.5, $captured['riskScore'] );
+		$this->assertSame( [ 123 ], $captured['localBlockIds'] );
+		$this->assertSame( [], $captured['globalBlockIds'] );
+	}
+
+	private function configureAccountCreationCaptcha(
+		bool $useRiskScore,
+		string $captchaClass
+	): void {
+		$this->overrideConfigValue( 'HCaptchaUseRiskScore', $useRiskScore );
+		$this->overrideConfigValue( 'CaptchaTriggers', [
+			CaptchaTriggers::CREATE_ACCOUNT => [
+				'trigger' => true,
+				'class' => $captchaClass,
+				'config' => [ 'HCaptchaSiteKey' => 'create-account-site-key' ],
+			],
+		] );
+		self::clearCaptchaFactoryGlobalInstances();
+	}
+
+	/**
+	 * Runs onBeforePageDisplay for a Special:CreateAccount request and returns the
+	 * arguments passed to the ConfirmEditHCaptchaRiskScoreRetrievedForBlocks hook,
+	 * or null if the hook was not fired.
+	 *
+	 * @return array{riskScore: float, localBlockIds: int[], globalBlockIds: int[]}|null
+	 */
+	private function runAccountCreationHandlerCapturingHook(
+		FauxRequest $request,
+		?Block $block
+	): ?array {
+		$captured = null;
+		$this->setTemporaryHook(
+			'ConfirmEditHCaptchaRiskScoreRetrievedForBlocks',
+			static function (
+				float $riskScore,
+				array $localBlockIds,
+				array $globalBlockIds
+			) use ( &$captured ) {
+				$captured = [
+					'riskScore' => $riskScore,
+					'localBlockIds' => $localBlockIds,
+					'globalBlockIds' => $globalBlockIds,
+				];
+			}
+		);
+
+		$context = RequestContext::getMain();
+		$context->setRequest( $request );
+
+		$mockUser = $this->createMock( User::class );
+		$mockUser->method( 'getName' )->willReturn( '1.2.3.4' );
+		$mockUser->method( 'getBlock' )->willReturn( $block );
+		$context->setUser( $mockUser );
+
+		$out = $context->getOutput();
+		$out->setTitle( Title::newFromText( 'Special:CreateAccount' ) );
+
+		$handler = new BeforePageDisplayHookHandler(
+			$this->getServiceContainer()->getMainConfig(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->getHookContainer(),
+		);
+		$handler->onBeforePageDisplay( $out, $this->createMock( Skin::class ) );
+		DeferredUpdates::doUpdates();
+
+		return $captured;
+	}
+
+	/**
+	 * @dataProvider provideCreateAccountBlocks
+	 */
+	public function testGetCreateAccountBlocksRequiringHCaptcha(
+		string $setup,
+		array $expectedLocalBlockIds,
+		array $expectedGlobalBlockIds
+	): void {
+		if ( in_array( $setup, [ 'global', 'composite_mixed' ], true ) ) {
+			$this->markTestSkippedIfExtensionNotLoaded( 'GlobalBlocking' );
+		}
+
+		$block = $this->makeCreateAccountBlock( $setup );
+
+		$handler = new BeforePageDisplayHookHandler(
+			$this->getServiceContainer()->getMainConfig(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->getHookContainer(),
+		);
+
+		$result = TestingAccessWrapper::newFromObject( $handler )
+			->getCreateAccountBlocksRequiringHCaptcha( $block );
+
+		$this->assertSame(
+			$expectedLocalBlockIds,
+			array_map( static fn ( Block $b ) => $b->getId(), $result['local'] )
+		);
+		$this->assertSame(
+			$expectedGlobalBlockIds,
+			array_map( static fn ( Block $b ) => $b->getId(), $result['global'] )
+		);
+	}
+
+	public static function provideCreateAccountBlocks(): iterable {
+		yield 'No block' => [ 'none', [], [] ];
+		yield 'Local IP block preventing account creation' => [ 'ip_local', [ 123 ], [] ];
+		yield 'Local range block preventing account creation' => [ 'range_local', [ 123 ], [] ];
+		yield 'IP block that does not prevent account creation' => [ 'ip_no_createaccount', [], [] ];
+		yield 'Block without an IP target' => [ 'user_no_ip', [], [] ];
+		yield 'Global IP block preventing account creation' => [ 'global', [], [ 124 ] ];
+		yield 'Composite with local and global IP children' => [ 'composite_mixed', [ 123 ], [ 124 ] ];
+		yield 'Composite whose only child has no IP target' => [ 'composite_no_ip', [], [] ];
+	}
+
+	private function makeCreateAccountBlock( string $setup ): ?Block {
+		return match ( $setup ) {
+			'none' => null,
+			'ip_local' => $this->createBlockMockWithTarget(
+				true,
+				$this->createMock( AnonIpBlockTarget::class )
+			),
+			'range_local' => $this->createBlockMockWithTarget(
+				true,
+				$this->createMock( RangeBlockTarget::class )
+			),
+			'ip_no_createaccount' => $this->createBlockMockWithTarget(
+				false,
+				$this->createMock( AnonIpBlockTarget::class )
+			),
+			'user_no_ip' => $this->createBlockMockWithTarget(
+				true,
+				null
+			),
+			'global' => $this->createBlockMockWithTarget(
+				true,
+				$this->createMock( AnonIpBlockTarget::class ),
+				GlobalBlock::class,
+				124
+			),
+			'composite_mixed' => $this->createCompositeBlockMockWithTarget(
+				true,
+				null,
+				[
+					$this->createBlockMockWithTarget(
+						true,
+						$this->createMock( AnonIpBlockTarget::class )
+					),
+					$this->createBlockMockWithTarget(
+						true,
+						$this->createMock( AnonIpBlockTarget::class ),
+						GlobalBlock::class,
+						124
+					),
+				]
+			),
+			'composite_no_ip' => $this->createCompositeBlockMockWithTarget(
+				true,
+				null,
+				[ $this->createBlockMockWithTarget( true, null ) ]
+			),
+			default => throw new InvalidArgumentException( "Unknown setup: $setup" ),
+		};
 	}
 }

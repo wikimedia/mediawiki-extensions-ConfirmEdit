@@ -10,6 +10,7 @@ use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterCustomActionsHook;
 use MediaWiki\Extension\ConfirmEdit\AbuseFilter\CaptchaConsequence;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\User\UserFactory;
 
 readonly class AbuseFilterHooks implements AbuseFilterCustomActionsHook {
 
@@ -17,6 +18,7 @@ readonly class AbuseFilterHooks implements AbuseFilterCustomActionsHook {
 		private Config $config,
 		private HookContainer $hookContainer,
 		private CaptchaFactory $captchaFactory,
+		private UserFactory $userFactory,
 	) {
 	}
 
@@ -26,7 +28,9 @@ readonly class AbuseFilterHooks implements AbuseFilterCustomActionsHook {
 		if ( in_array( 'showcaptcha', $enabledActions ) ) {
 			// Messages used: abusefilter-edit-action-showcaptcha, abusefilter-edit-action-showcaptcha-help
 			$actions['showcaptcha'] = function ( Parameters $params ): CaptchaConsequence {
-				return new CaptchaConsequence( $params, $this->hookContainer, $this->captchaFactory );
+				return new CaptchaConsequence(
+					$params, $this->hookContainer, $this->captchaFactory, $this->userFactory
+				);
 			};
 		}
 	}

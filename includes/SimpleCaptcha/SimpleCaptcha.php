@@ -553,15 +553,19 @@ class SimpleCaptcha {
 		$request = $context->getRequest();
 		$user = $context->getUser();
 
-		if ( $this->canSkipCaptcha( $user ) ) {
-			return false;
-		}
-
 		$title = $page->getTitle();
 		$this->trigger = '';
 
 		// If force show captcha is set (e.g., by AbuseFilter), bypass normal trigger checks
-		if ( $this->shouldForceShowCaptcha() && !$this->isCaptchaSolved() ) {
+		// including the 'skipcaptcha' right but excluding:
+		// - system users, as those are used for CI/CD pipelines and will otherwise cause test failures
+		// - bots, as there is no reasonable way to expect them to solve the captcha
+		if (
+			$this->shouldForceShowCaptcha() &&
+			!$user->isSystemUser() &&
+			!$user->isBot() &&
+			!$this->isCaptchaSolved()
+		) {
 			// Preserve existing action if set, otherwise default to 'edit'
 			if ( $this->action === null ) {
 				$this->action = CaptchaTriggers::EDIT;
@@ -572,6 +576,10 @@ class SimpleCaptcha {
 				$title->getPrefixedText(),
 				$this->action );
 			return true;
+		}
+
+		if ( $this->canSkipCaptcha( $user ) ) {
+			return false;
 		}
 
 		if ( $content instanceof Content ) {
@@ -730,8 +738,7 @@ class SimpleCaptcha {
 
 	/**
 	 * @return bool True if an override is set to force showing a CAPTCHA
-	 *  to the user. Note that users with "skipcaptcha" right may still
-	 *  bypass this override.
+	 *  to the user.
 	 */
 	public function shouldForceShowCaptcha(): bool {
 		if ( $this->forceShowCaptcha ) {

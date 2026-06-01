@@ -15,6 +15,8 @@ use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Session\Session;
+use MediaWiki\User\User;
+use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityValue;
 use MediaWikiIntegrationTestCase;
@@ -55,7 +57,8 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 		$abuseFilterHooks = new AbuseFilterHooks(
 			$config,
 			$this->getServiceContainer()->getHookContainer(),
-			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->getUserFactory(),
 		);
 		$actions = [];
 		$abuseFilterHooks->onAbuseFilterCustomActions( $actions );
@@ -213,10 +216,16 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 	}
 
 	private function getCaptchaConsequence( Parameters $parameters ): CaptchaConsequence {
+		$mockUserFactory = $this->createMock( UserFactory::class );
+		$mockUser = $this->createMock( User::class );
+		$mockUser->method( 'isSystemUser' )->willReturn( false );
+		$mockUser->method( 'isBot' )->willReturn( false );
+		$mockUserFactory->method( 'newFromUserIdentity' )->willReturn( $mockUser );
 		return new CaptchaConsequence(
 			$parameters,
 			$this->getServiceContainer()->getHookContainer(),
-			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$mockUserFactory,
 		);
 	}
 

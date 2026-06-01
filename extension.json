@@ -109,7 +109,8 @@
 			"services": [
 				"MainConfig",
 				"HookContainer",
-				"ConfirmEditCaptchaFactory"
+				"ConfirmEditCaptchaFactory",
+				"UserFactory"
 			]
 		},
 		"RLRegisterModulesHandler": {

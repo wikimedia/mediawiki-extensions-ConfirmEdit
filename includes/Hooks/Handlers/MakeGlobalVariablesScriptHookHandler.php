@@ -71,13 +71,10 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 			$vars['wgConfirmEditHCaptchaSiteKey'] = $captchaInstance->getSiteKeyForAction();
 		}
 
-		// We want to load the MobileFrontend hCaptcha module if the user may need
-		// to complete hCaptcha for their edit. This is intentionally not based on
-		// SimpleCaptcha::shouldCheck because if AbuseFilter is installed then
-		// a CAPTCHA may be required based on the content of the edit. Users who
-		// can skip captchas are excluded, since they will never be shown one.
-		$usingHCaptcha = strtolower( $captchaInstance->getName() ) === 'hcaptcha' &&
-			!$captchaInstance->canSkipCaptcha( $out->getUser() );
+		// Load hCaptcha unconditionally if in use as MobileFrontend doesn't reload
+		// and it's unknown on page load if something like AbuseFilter will require
+		// the module on server response.
+		$usingHCaptcha = strtolower( $captchaInstance->getName() ) === 'hcaptcha';
 
 		if (
 			$mobileFrontendAvailable &&

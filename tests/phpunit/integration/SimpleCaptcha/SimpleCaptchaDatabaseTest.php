@@ -134,10 +134,20 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( 'wpCaptchaWord', $context->getOutput()->getHTML() );
 	}
 
-	public function testConfirmEditMergedWhenShouldCheckReturnsFalse() {
-		$this->setTemporaryHook( 'ConfirmEditCanUserSkipCaptcha', static function ( $user, &$result ) {
-			$result = true;
-		} );
+	/**
+	 * @dataProvider provideTestConfirmEditMergedSkipCaptchaAndForceShowCaptchaInteraction
+	 */
+	public function testConfirmEditMergedSkipCaptchaAndForceShowCaptchaInteraction(
+		bool $forceShowCaptcha,
+		bool $canSkipCaptcha,
+		bool $isCaptchaShown
+	): void {
+		$this->setTemporaryHook(
+			'ConfirmEditCanUserSkipCaptcha',
+			static function ( $user, &$result ) use ( $canSkipCaptcha ) {
+				$result = $canSkipCaptcha;
+			}
+		);
 
 		$user = $this->getTestUser()->getUser();
 		$title = $this->getNonexistingTestPage()->getTitle();
@@ -147,10 +157,25 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		$context->setTitle( $title );
 
 		$simpleCaptcha = new SimpleCaptcha();
-		$this->assertTrue( $simpleCaptcha->confirmEditMerged(
+		$simpleCaptcha->setForceShowCaptcha( $forceShowCaptcha );
+
+		$editStatus = $simpleCaptcha->confirmEditMerged(
 			$context, ContentHandler::makeContent( '', $title ), $status, '', $user, false
-		) );
-		$this->assertStatusGood( $status );
+		);
+		if ( $isCaptchaShown ) {
+			$this->assertFalse( $editStatus );
+			$this->verifyConfirmEditMergedStatus( $simpleCaptcha, $status, 'captcha-edit' );
+		} else {
+			$this->assertTrue( $editStatus );
+			$this->assertStatusGood( $status );
+		}
+	}
+
+	public static function provideTestConfirmEditMergedSkipCaptchaAndForceShowCaptchaInteraction(): array {
+		return [
+			'forceShowCaptcha false, skipcaptcha true: skip captcha' => [ false, true, false ],
+			'forceShowCaptcha true, skipcaptcha true: show captcha' => [ true, true, true ],
+		];
 	}
 
 	private function verifyConfirmEditMergedStatus(

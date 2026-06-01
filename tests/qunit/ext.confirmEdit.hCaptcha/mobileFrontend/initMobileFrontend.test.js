@@ -440,6 +440,7 @@ QUnit.test(
 		const e = this.sandbox.stub();
 		e.stop = this.sandbox.stub();
 		e.resume = this.sandbox.stub();
+		e.abort = this.sandbox.stub();
 
 		// Under normal circumstances, saveBegin is triggered first in order to
 		// have the object passed as its argument bound to the hooks in
@@ -462,6 +463,10 @@ QUnit.test(
 		assert.false(
 			e.resume.called,
 			'resume() in the hook handler payload should not have been called'
+		);
+		assert.false(
+			e.abort.called,
+			'abort() in the hook handler payload should not have been called'
 		);
 	}
 );
@@ -561,6 +566,7 @@ QUnit.test.each(
 
 		const editorEvent = this.sandbox.stub();
 		editorEvent.stop = this.sandbox.stub();
+		editorEvent.abort = this.sandbox.stub();
 		editorEvent.setTemplate = this.sandbox.stub();
 
 		const captchaDetails = {
@@ -571,6 +577,7 @@ QUnit.test.each(
 
 		const $captchaForm = this.sandbox.stub();
 		$captchaForm.show = this.sandbox.stub();
+		$captchaForm.removeClass = this.sandbox.stub();
 
 		const $captchaContainer = this.sandbox.stub();
 		$captchaContainer.find = this.sandbox.stub().returns( $captchaForm );
@@ -612,9 +619,9 @@ QUnit.test.each(
 		);
 
 		setTemplateArgs[ 3 ]();
-		assert.true(
+		assert.false(
 			this.window.document.createElement.calledOnce,
-			'Loads hCaptcha SDK on panel callback'
+			'Won\'t load hCaptcha SDK on panel callback to await user interaction'
 		);
 	}
 );
@@ -633,6 +640,7 @@ QUnit.test(
 		const editorEvent = this.sandbox.stub();
 		editorEvent.stop = this.sandbox.stub();
 		editorEvent.resume = this.sandbox.stub();
+		editorEvent.abort = this.sandbox.stub();
 		editorEvent.setTemplate = this.sandbox.stub();
 		editorEvent.options = { source: 'mobile-abuse-filter' };
 
@@ -658,13 +666,6 @@ QUnit.test(
 		assert.true(
 			editorEvent.stop.calledOnce,
 			'Stops edit flow until a token is available'
-		);
-		assert.true(
-			editorEvent.resume.calledWith( {
-				source: 'mobile-abuse-filter',
-				captchaWord: 'hcaptcha-token'
-			} ),
-			'Resumes edit flow with the captcha token'
 		);
 	}
 );

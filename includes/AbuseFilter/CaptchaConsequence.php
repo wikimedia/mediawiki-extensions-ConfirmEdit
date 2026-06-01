@@ -12,6 +12,7 @@ use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\User\UserFactory;
 
 /**
  * Show a CAPTCHA to the user before they can proceed with an action.
@@ -31,6 +32,7 @@ class CaptchaConsequence extends Consequence {
 		Parameters $parameters,
 		private readonly HookContainer $hookContainer,
 		private readonly CaptchaFactory $captchaFactory,
+		private readonly UserFactory $userFactory,
 	) {
 		parent::__construct( $parameters );
 	}
@@ -38,6 +40,7 @@ class CaptchaConsequence extends Consequence {
 	public function execute(): bool {
 		$action = $this->parameters->getAction();
 		$filterId = $this->parameters->getFilter()->getID();
+		$userIdentity = $this->parameters->getUser();
 
 		if ( !in_array( $action, CaptchaTriggers::CAPTCHA_TRIGGERS ) ) {
 			LoggerFactory::getInstance( 'ConfirmEdit' )->error(
@@ -53,7 +56,7 @@ class CaptchaConsequence extends Consequence {
 
 		$hookRunner = new HookRunner( $this->hookContainer );
 		if ( !$hookRunner->onConfirmEditBeforeForceShowCaptcha(
-			$this->parameters->getUser(), $action
+			$userIdentity, $action
 		) ) {
 			return false;
 		}
@@ -64,9 +67,15 @@ class CaptchaConsequence extends Consequence {
 		);
 		$captcha->setForceShowCaptcha( true );
 
-		// If the CAPTCHA was already solved, then don't log a CAPTCHA was shown because
-		// the consequence would have had no effect
-		if ( $captcha->isCaptchaSolved() ) {
+		// If the CAPTCHA was already solved or the user is known to skip
+		// captchas (see SimpleCaptcha::shouldCheck), then don't log that a
+		// CAPTCHA was shown because the consequence would have had no effect
+		$user = $this->userFactory->newFromUserIdentity( $userIdentity );
+		if (
+			$captcha->isCaptchaSolved() ||
+			$user->isSystemUser() ||
+			$user->isBot()
+		) {
 			return false;
 		}
 

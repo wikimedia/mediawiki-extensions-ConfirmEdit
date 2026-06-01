@@ -110,6 +110,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 				'messages' => array_merge( HCaptchaOutput::RUNTIME_MESSAGE_KEYS, [
 					'hcaptcha-privacy-policy',
 					'hcaptcha-visual-editor-error-handler-warning',
+					'hcaptcha-force-show-captcha-edit',
 				] ),
 				'dependencies' => [
 					'mediawiki.api',

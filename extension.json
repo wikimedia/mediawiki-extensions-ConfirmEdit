@@ -370,18 +370,6 @@
 			]
 		}
 	},
-	"RestRoutes": [
-		{
-			"path": "/confirmedit/v0/hcaptcha/blocktoken",
-			"method": "POST",
-			"class": "MediaWiki\\Extension\\ConfirmEdit\\Api\\Rest\\Handler\\PostHCaptchaTokenForBlockHandler",
-			"services": [
-				"MainConfig",
-				"HookContainer",
-				"UserFactory"
-			]
-		}
-	],
 	"QUnitTestModule": {
 		"localBasePath": "tests/qunit/",
 		"remoteExtPath": "ConfirmEdit/tests/qunit/",

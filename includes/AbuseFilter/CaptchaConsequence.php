@@ -12,7 +12,6 @@ use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\MediaWikiServices;
 
 /**
  * Show a CAPTCHA to the user before they can proceed with an action.
@@ -28,18 +27,12 @@ class CaptchaConsequence extends Consequence {
 	 */
 	public const FILTER_ID_SESSION_KEY = 'captchaConsequence-filterId';
 
-	private readonly HookContainer $hookContainer;
-	private readonly CaptchaFactory $captchaFactory;
-
 	public function __construct(
 		Parameters $parameters,
-		?HookContainer $hookContainer = null,
-		?CaptchaFactory $captchaFactory = null,
+		private readonly HookContainer $hookContainer,
+		private readonly CaptchaFactory $captchaFactory,
 	) {
 		parent::__construct( $parameters );
-		$services = MediaWikiServices::getInstance();
-		$this->hookContainer = $hookContainer ?? $services->getHookContainer();
-		$this->captchaFactory = $captchaFactory ?? $services->get( 'ConfirmEditCaptchaFactory' );
 	}
 
 	public function execute(): bool {

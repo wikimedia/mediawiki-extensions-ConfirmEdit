@@ -126,11 +126,11 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 
 		$this->setTemporaryHook(
 			'ConfirmEditBeforeForceShowCaptcha',
-			function ( UserIdentity $actualUserIdentity, SimpleCaptcha $captcha ) use (
-				$userIdentity, $simpleCaptcha
+			function ( UserIdentity $actualUserIdentity, string $action ) use (
+				$userIdentity
 			) {
 				$this->assertSame( $userIdentity, $actualUserIdentity );
-				$this->assertSame( $simpleCaptcha, $captcha );
+				$this->assertSame( CaptchaTriggers::EDIT, $action );
 				return false;
 			}
 		);
@@ -142,6 +142,7 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 				SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
 			)
 		);
+		$this->assertFalse( $this->getSession()->exists( CaptchaConsequence::FILTER_ID_SESSION_KEY ) );
 	}
 
 	public function testConsequenceSetsSessionKeyOnMatch() {

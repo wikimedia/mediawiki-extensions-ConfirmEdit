@@ -22,7 +22,6 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Hooks;
 
-use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\User\User;
@@ -106,11 +105,11 @@ class HookRunner implements
 
 	/** @inheritDoc */
 	public function onConfirmEditBeforeForceShowCaptcha(
-		UserIdentity $userIdentity, SimpleCaptcha $captcha
+		UserIdentity $userIdentity, string $action
 	) {
 		return $this->hookContainer->run(
 			'ConfirmEditBeforeForceShowCaptcha',
-			[ $userIdentity, $captcha ]
+			[ $userIdentity, $action ]
 		);
 	}
 }

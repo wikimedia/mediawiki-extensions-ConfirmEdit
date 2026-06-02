@@ -176,6 +176,8 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.renderHCaptcha = function ( $captcha
 				}
 			);
 			this.captchaRendered = true;
+		} ).catch( ( error ) => {
+			throw new Error( mw.msg( hCaptchaUtils.mapErrorCodeToMessageKey( error ) ) );
 		} );
 	} );
 };
@@ -379,6 +381,8 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.executeHCaptcha = function () {
 					this.config.interfaceName
 				).then( ( response ) => {
 					this.captchaWord = response;
+				} ).catch( ( error ) => {
+					throw new Error( mw.msg( hCaptchaUtils.mapErrorCodeToMessageKey( error ) ) );
 				} );
 			} );
 	}

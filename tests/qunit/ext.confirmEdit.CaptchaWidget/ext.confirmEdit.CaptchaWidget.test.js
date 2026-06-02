@@ -151,6 +151,25 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 		} );
 	} );
 
+	/**
+	 * Mocks the {@link mw.loader.using} method to return a mocked ext.confirmEdit.hCaptcha module
+	 *
+	 * @param {*} self
+	 * @param {Object} mockHCaptchaModule
+	 * @param {*} assert
+	 */
+	const mockLoaderUsingForHCaptcha = ( self, mockHCaptchaModule, assert ) => {
+		self.sandbox.stub( mw.loader, 'using' )
+			.withArgs( 'ext.confirmEdit.hCaptcha' )
+			.resolves( ( requiredModuleName ) => {
+				if ( requiredModuleName === 'ext.confirmEdit.hCaptcha' ) {
+					return mockHCaptchaModule;
+				} else {
+					assert.true( false, 'Unexpected module required using mw.loader.using' );
+				}
+			} );
+	};
+
 	QUnit.test.each( 'CAPTCHA widget is hCaptcha', {
 		'hCaptcha is in invisible mode': {
 			hCaptchaInvisibleMode: true,
@@ -180,15 +199,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			}
 		};
 
-		this.sandbox.stub( mw.loader, 'using' )
-			.withArgs( 'ext.confirmEdit.hCaptcha' )
-			.resolves( ( requiredModuleName ) => {
-				if ( requiredModuleName === 'ext.confirmEdit.hCaptcha' ) {
-					return mockHCaptchaModule;
-				} else {
-					assert.true( false, 'Unexpected module required using mw.loader.using' );
-				}
-			} );
+		mockLoaderUsingForHCaptcha( this, mockHCaptchaModule, assert );
 
 		const $qunitFixture = $( '#qunit-fixture' );
 
@@ -329,15 +340,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			}
 		};
 
-		this.sandbox.stub( mw.loader, 'using' )
-			.withArgs( 'ext.confirmEdit.hCaptcha' )
-			.resolves( ( requiredModuleName ) => {
-				if ( requiredModuleName === 'ext.confirmEdit.hCaptcha' ) {
-					return mockHCaptchaModule;
-				} else {
-					assert.true( false, 'Unexpected module required using mw.loader.using' );
-				}
-			} );
+		mockLoaderUsingForHCaptcha( this, mockHCaptchaModule, assert );
 
 		return captchaWidget.updateForFailure( options.captchaData ).then( ( actualRecommendResubmit ) => {
 			assert.false(
@@ -394,17 +397,7 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			}
 		};
 
-		this.sandbox.stub( mw.loader, 'using' )
-			.withArgs( 'ext.confirmEdit.hCaptcha' )
-			.resolves( ( requiredModuleName ) => {
-				if ( requiredModuleName === 'ext.confirmEdit.hCaptcha' ) {
-					// False positive
-					// eslint-disable-next-line qunit/no-early-return
-					return mockHCaptchaModule;
-				} else {
-					assert.true( false, 'Unexpected module required using mw.loader.using' );
-				}
-			} );
+		mockLoaderUsingForHCaptcha( this, mockHCaptchaModule, assert );
 
 		const $qunitFixture = $( '#qunit-fixture' );
 
@@ -479,6 +472,84 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			captchaWidget.getCaptchaDataForSubmission(),
 			/Test rejection/,
 			'getCaptchaDataForSubmission should reject if ext.confirmEdit.hCaptcha fails to load'
+		);
+	} );
+
+	QUnit.test( 'renderHCaptcha rejects if hCaptcha fails to load', async function ( assert ) {
+		const mockHCaptchaModule = {
+			utils: {
+				loadHCaptcha: this.sandbox.stub().rejects( new Error( 'generic-error' ) ),
+				mapErrorCodeToMessageKey: this.sandbox.stub().returns( 'mapped-error-key' )
+			}
+		};
+
+		mockLoaderUsingForHCaptcha( this, mockHCaptchaModule, assert );
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'hcaptcha',
+			container: $( '#qunit-fixture' )[ 0 ],
+			interfaceName: 'test-interface'
+		} );
+
+		await assert.rejects(
+			captchaWidget.renderCaptcha(),
+			/mapped-error-key/,
+			'renderCaptcha should reject if hCaptcha execution failed'
+		);
+		assert.true(
+			mockHCaptchaModule.utils.loadHCaptcha.calledOnce,
+			'loadHCaptcha should have been called'
+		);
+		assert.true(
+			mockHCaptchaModule.utils.mapErrorCodeToMessageKey.calledOnce,
+			'mapErrorCodeToMessageKey should have been called'
+		);
+		assert.strictEqual(
+			mockHCaptchaModule.utils.mapErrorCodeToMessageKey.firstCall.args[ 0 ].message,
+			'generic-error',
+			'mapErrorCodeToMessageKey arguments are as expected'
+		);
+	} );
+
+	QUnit.test( 'getCaptchaDataForSubmission rejects if hCaptcha fails to execute', async function ( assert ) {
+		const mockHCaptchaModule = {
+			utils: {
+				loadHCaptcha: this.sandbox.stub().resolves(),
+				renderHCaptcha: this.sandbox.stub().returns( 'widget-id' ),
+				executeHCaptcha: this.sandbox.stub().rejects( new Error( 'challenge-closed' ) ),
+				getHCaptchaSiteKey: () => 'test-site-key',
+				isHCaptchaInInvisibleMode: () => true,
+				mapErrorCodeToMessageKey: this.sandbox.stub().returns( 'mapped-error-key' )
+			}
+		};
+
+		mockLoaderUsingForHCaptcha( this, mockHCaptchaModule, assert );
+
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'hcaptcha',
+			container: $( '#qunit-fixture' )[ 0 ],
+			interfaceName: 'test-interface'
+		} );
+
+		await captchaWidget.renderCaptcha();
+
+		await assert.rejects(
+			captchaWidget.getCaptchaDataForSubmission(),
+			/mapped-error-key/,
+			'getCaptchaDataForSubmission should reject if hCaptcha execution failed'
+		);
+		assert.true(
+			mockHCaptchaModule.utils.executeHCaptcha.calledOnce,
+			'executeHCaptcha should have been called'
+		);
+		assert.true(
+			mockHCaptchaModule.utils.mapErrorCodeToMessageKey.calledOnce,
+			'mapErrorCodeToMessageKey should have been called'
+		);
+		assert.strictEqual(
+			mockHCaptchaModule.utils.mapErrorCodeToMessageKey.firstCall.args[ 0 ].message,
+			'challenge-closed',
+			'mapErrorCodeToMessageKey arguments are as expected'
 		);
 	} );
 

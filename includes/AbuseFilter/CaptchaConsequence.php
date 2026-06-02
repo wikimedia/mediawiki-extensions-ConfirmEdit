@@ -48,23 +48,20 @@ class CaptchaConsequence extends Consequence {
 			return false;
 		}
 
-		RequestContext::getMain()->getRequest()->getSession()->set(
-			self::FILTER_ID_SESSION_KEY,
-			$filterId
-		);
-
-		// This consequence was triggered, so we need to set a flag
-		// on the SimpleCaptcha instance to force showing the CAPTCHA.
 		$captcha = $this->captchaFactory->getGlobalInstance( $action );
 		$captcha->setAction( $action );
 
 		$hookRunner = new HookRunner( $this->hookContainer );
 		if ( !$hookRunner->onConfirmEditBeforeForceShowCaptcha(
-			$this->parameters->getUser(), $captcha
+			$this->parameters->getUser(), $action
 		) ) {
 			return false;
 		}
 
+		RequestContext::getMain()->getRequest()->getSession()->set(
+			self::FILTER_ID_SESSION_KEY,
+			$filterId
+		);
 		$captcha->setForceShowCaptcha( true );
 
 		return true;

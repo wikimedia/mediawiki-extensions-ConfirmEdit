@@ -4,7 +4,6 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Hooks;
 
-use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\User\UserIdentity;
 
 /**
@@ -17,14 +16,15 @@ use MediaWiki\User\UserIdentity;
 interface ConfirmEditBeforeForceShowCaptchaHook {
 	/**
 	 * This hook is called before the ConfirmEdit extension sets the "force show captcha" flag
-	 * on the provided {@link SimpleCaptcha} instance.
+	 * for the provided action.
 	 *
 	 * @param UserIdentity $userIdentity The user who would see the CAPTCHA
-	 * @param SimpleCaptcha $captcha The CAPTCHA instance where the flag would be set
+	 * @param string $action Action user is performing, one of the constants in
+	 *   {@link CaptchaTriggers} or another action defined by another extension
 	 * @return bool|void Return false to prevent the flag from being set
 	 */
 	public function onConfirmEditBeforeForceShowCaptcha(
 		UserIdentity $userIdentity,
-		SimpleCaptcha $captcha
+		string $action
 	);
 }

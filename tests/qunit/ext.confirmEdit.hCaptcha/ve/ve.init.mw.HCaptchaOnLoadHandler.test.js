@@ -35,7 +35,6 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 
 	QUnit.test( 'transact event in VisualEditor surface causes hCaptcha load once', function ( assert ) {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
-		mw.config.set( 'wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled', true );
 
 		this.loadHCaptcha.returns( Promise.resolve() );
 
@@ -78,32 +77,22 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 	QUnit.test.each( 'shouldRun correctly matches', {
 		'wgConfirmEditCaptchaNeededForGenericEdit is undefined': {
 			neededForEditConfigVariableValue: undefined,
-			enabledConfigVariableValue: undefined,
 			expected: false
 		},
 		'wgConfirmEditCaptchaNeededForGenericEdit is false': {
 			neededForEditConfigVariableValue: false,
-			enabledConfigVariableValue: undefined,
 			expected: false
 		},
 		'wgConfirmEditCaptchaNeededForGenericEdit is fancycaptcha': {
 			neededForEditConfigVariableValue: 'fancycaptcha',
-			enabledConfigVariableValue: undefined,
 			expected: false
 		},
-		'wgConfirmEditCaptchaNeededForGenericEdit is hcaptcha and integration is disabled': {
+		'wgConfirmEditCaptchaNeededForGenericEdit is hcaptcha': {
 			neededForEditConfigVariableValue: 'hcaptcha',
-			enabledConfigVariableValue: false,
-			expected: false
-		},
-		'wgConfirmEditCaptchaNeededForGenericEdit is hcaptcha and integration is enabled': {
-			neededForEditConfigVariableValue: 'hcaptcha',
-			enabledConfigVariableValue: true,
 			expected: true
 		}
 	}, ( assert, options ) => {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', options.neededForEditConfigVariableValue );
-		mw.config.set( 'wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled', options.enabledConfigVariableValue );
 
 		hCaptchaOnLoadHandler();
 
@@ -247,7 +236,6 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 		}
 	}, async function ( assert, options ) {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
-		mw.config.set( 'wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled', true );
 		mw.config.set( 'wgConfirmEditForceShowCaptcha', options.forceShowCaptcha );
 
 		this.loadHCaptcha.returns( Promise.resolve() );
@@ -350,7 +338,6 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 		}
 	}, async function ( assert, options ) {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
-		mw.config.set( 'wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled', true );
 
 		this.loadHCaptcha.returns( Promise.reject( 'generic-error' ) );
 

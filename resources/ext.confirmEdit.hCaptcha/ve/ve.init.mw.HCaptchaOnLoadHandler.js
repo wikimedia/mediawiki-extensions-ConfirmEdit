@@ -155,8 +155,7 @@ module.exports = () => {
 	 * @return {boolean}
 	 */
 	ve.init.mw.HCaptchaOnLoadHandler.static.shouldRun = function () {
-		return mw.config.get( 'wgConfirmEditCaptchaNeededForGenericEdit' ) === 'hcaptcha' &&
-			mw.config.get( 'wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled' );
+		return mw.config.get( 'wgConfirmEditCaptchaNeededForGenericEdit' ) === 'hcaptcha';
 	};
 
 	/**

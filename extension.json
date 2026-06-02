@@ -317,10 +317,6 @@
 			"description": "Duration in seconds that hCaptcha is considered unavailable after a health check failure. During this period, the fallback captcha is used and no further health checks are performed.",
 			"value": 600
 		},
-		"HCaptchaVisualEditorOnLoadIntegrationEnabled": {
-			"description": "Whether the VisualEditor 'onload' integration should be enabled. 'onload' means that hCaptcha is rendered as soon as the user opens the save dialog and not in response to an error indicating a missing captcha. This is a temporary configuration value for use while the integration is not fully ready to use.",
-			"value": false
-		},
 		"SkipCaptchaMinimumEditCount": {
 			"description": "Minimum number of edits before skipcaptcha rights take effect.",
 			"value": 0

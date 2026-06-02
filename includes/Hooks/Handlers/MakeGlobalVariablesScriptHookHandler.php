@@ -71,9 +71,6 @@ class MakeGlobalVariablesScriptHookHandler extends AbstractCaptchaHandler implem
 		$vars['wgConfirmEditCaptchaNeededForGenericEdit'] = $captchaNeededForEdit;
 		$vars['wgConfirmEditForceShowCaptcha'] = $captchaInstance->shouldForceShowCaptcha();
 		if ( $captchaNeededForEdit === 'hcaptcha' ) {
-			$vars['wgConfirmEditHCaptchaVisualEditorOnLoadIntegrationEnabled'] = $visualEditorAvailable &&
-				$this->config->get( 'HCaptchaVisualEditorOnLoadIntegrationEnabled' );
-
 			$vars['wgConfirmEditHCaptchaSiteKey'] = $this->resolveHCaptchaSiteKey( $captchaInstance );
 		}
 

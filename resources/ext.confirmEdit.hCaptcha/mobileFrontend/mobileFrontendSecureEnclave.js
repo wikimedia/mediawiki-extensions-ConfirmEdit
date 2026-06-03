@@ -9,19 +9,6 @@ const utils = require( '../utils.js' );
 let captchaIdPromise = null;
 
 /**
- * The DOM element that captchaIdPromise was rendered into, or null if render()
- * has not been called yet.
- *
- * Stored alongside captchaIdPromise so that if the container is replaced (e.g.
- * by cleanupDuplicateHCaptchaContainers() in the AbuseFilter flow), render()
- * is called again into the new element rather than executing against a detached
- * widget.
- *
- * @type {?HTMLElement}
- */
-let captchaContainerElement = null;
-
-/**
  * Load hCaptcha in Secure Enclave mode.
  *
  * The Promise returned by this method resolves after the first time the user
@@ -60,15 +47,18 @@ async function setupHCaptcha( $hCaptchaField, win, interfaceName ) {
 	// Errors that can be recovered from by restarting the workflow.
 	const recoverableErrors = utils.getRecoverableErrors( interfaceName );
 
-	const hCaptchaDomElement = $hCaptchaField[ 0 ];
-	if ( captchaIdPromise === null || captchaContainerElement !== hCaptchaDomElement ) {
-		captchaIdPromise = utils.loadAndRenderHCaptcha(
-			win,
-			interfaceName,
-			hCaptchaDomElement
-		);
-		captchaContainerElement = hCaptchaDomElement;
+	// Render a fresh widget each time; reusing one via reset() + execute() after
+	// a closed/expired challenge can hang execute() with no challenge shown and
+	// never settle, leaving the buttons stuck disabled (T425929).
+	if ( captchaIdPromise !== null ) {
+		try {
+			win.hcaptcha.remove( await captchaIdPromise );
+		} catch ( e ) {
+			// Previous widget already gone; nothing to tear down.
+		}
 	}
+
+	captchaIdPromise = utils.loadAndRenderHCaptcha( win, interfaceName, $hCaptchaField[ 0 ] );
 
 	/**
 	 * Trigger a single hCaptcha workflow execution.
@@ -99,14 +89,9 @@ async function setupHCaptcha( $hCaptchaField, win, interfaceName ) {
 					utils.hideLoadingIndicator( $hCaptchaField );
 					setSubmitButtonDisabledProp( false );
 
-					// execute() on the cached widget hangs silently after an
-					// errored or dismissed challenge unless reset first.
-					win.hcaptcha.reset( captchaId );
-
-					// Initiate a new workflow for recoverable errors
-					// (e.g. an expired or closed challenge).
+					// Recoverable errors retry with a fresh widget via setupHCaptcha().
 					if ( recoverableErrors.includes( error ) ) {
-						return executeWorkflow();
+						return setupHCaptcha( $hCaptchaField, win, interfaceName );
 					}
 				} );
 		} )

@@ -129,7 +129,7 @@ QUnit.test(
 
 		// The promise from mobileFrontendSecureEnclave should resolve without
 		// waiting for a form submission - this will time out if it doesn't.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 
 		assert.true(
 			this.window.document.head.appendChild.calledOnce,
@@ -177,7 +177,7 @@ QUnit.test(
 
 		// The promise from mobileFrontendSecureEnclave should resolve without
 		// waiting for a form submission - this will time out if it doesn't.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 
 		assert.true(
 			this.window.hcaptcha.execute.calledOnce,
@@ -208,10 +208,10 @@ QUnit.test(
 		);
 
 		// First save: user sees the challenge and dismisses it.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 		// Second save: a fresh widget must be rendered. Reusing the dismissed
 		// widget can hang on the next execute() (T425929).
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 
 		assert.strictEqual(
 			this.window.hcaptcha.render.callCount,
@@ -267,7 +267,7 @@ QUnit.test.each(
 
 		// The promise from mobileFrontendSecureEnclave should resolve without
 		// waiting for a form submission - this will time out if it doesn't.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 
 		assert.strictEqual(
 			this.window.hcaptcha.execute.callCount,

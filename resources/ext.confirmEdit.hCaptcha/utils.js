@@ -508,7 +508,7 @@ function getRecoverableErrors( interfaceName ) {
 		'rate-limited'
 	];
 
-	if ( interfaceName !== 'mobilefrontend-editor' ) {
+	if ( interfaceName !== 'mobilefrontendeditor' ) {
 		recoverableErrors.push( 'challenge-closed' );
 	}
 

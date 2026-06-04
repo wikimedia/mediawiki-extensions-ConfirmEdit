@@ -53,11 +53,12 @@ function initEditorIntegrations() {
 			}
 
 			initMobileFrontend( 'mobilefrontendeditor', editConfig, window );
-		} else {
-			// Perform initialization for other scenarios, such as the Desktop
-			// editor or the account creation page.
-			useSecureEnclave( window );
 		}
+
+		// Perform initialization for all interfaces other than VisualEditor and MobileFrontend
+		// This is run even if the user is in mobile mode, because a user may be using the
+		// Vector skin in mobile mode.
+		useSecureEnclave( window );
 	}
 
 	// Register the hCaptcha VisualEditor plugins that handle showing hCaptcha

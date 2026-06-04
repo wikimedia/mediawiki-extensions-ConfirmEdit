@@ -535,7 +535,7 @@ QUnit.test.each(
 		{ interfaceName: 'createaccount', expected: defaultRecoverableErrors },
 		{ interfaceName: 'edit', expected: defaultRecoverableErrors },
 		{
-			interfaceName: 'mobilefrontend-editor',
+			interfaceName: 'mobilefrontendeditor',
 			expected: defaultRecoverableErrors.filter(
 				// The MobileFrontend should not handle closing the challenge as
 				// an error.

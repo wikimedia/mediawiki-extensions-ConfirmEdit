@@ -134,7 +134,7 @@ async function setupHCaptcha( $hCaptchaField, win, interfaceName ) {
  * Configure hCaptcha in Secure Enclave mode for the MobileFrontend.
  *
  * This method requires callers to provide an interface name (such as
- * "mobilefrontend-editor"), which is used for instrumentation purposes.
+ * "mobilefrontendeditor"), which is used for instrumentation purposes.
  *
  * @param {Window} win Reference to the browser window.
  * @param {string} interfaceName interface hCaptcha is being loaded on.

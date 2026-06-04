@@ -52,7 +52,7 @@ function initEditorIntegrations() {
 				editConfig.HCaptchaSiteKey = editSiteKey;
 			}
 
-			initMobileFrontend( 'mobilefrontend-editor', editConfig, window );
+			initMobileFrontend( 'mobilefrontendeditor', editConfig, window );
 		} else {
 			// Perform initialization for other scenarios, such as the Desktop
 			// editor or the account creation page.

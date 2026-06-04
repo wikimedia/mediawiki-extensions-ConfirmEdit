@@ -128,7 +128,7 @@ QUnit.test(
 
 		// The promise from mobileFrontendSecureEnclave should resolve without
 		// waiting for a form submission - this will time out if it doesn't.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 
 		assert.true(
 			this.window.document.head.appendChild.calledOnce,
@@ -176,7 +176,7 @@ QUnit.test(
 
 		// The promise from mobileFrontendSecureEnclave should resolve without
 		// waiting for a form submission - this will time out if it doesn't.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 
 		assert.true(
 			this.window.hcaptcha.execute.calledOnce,
@@ -207,9 +207,9 @@ QUnit.test(
 		);
 
 		// First save: user sees the challenge and dismisses it.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 		// Second save: same container, render() must not be called again.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 
 		assert.true(
 			this.window.hcaptcha.render.calledOnce,
@@ -242,7 +242,7 @@ QUnit.test(
 		);
 
 		// First save: user sees the challenge and dismisses it.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 
 		// Simulate cleanupDuplicateHCaptchaContainers() replacing the #h-captcha element,
 		// as happens in the AbuseFilter flow before a subsequent save attempt.
@@ -250,7 +250,7 @@ QUnit.test(
 		$( '#qunit-fixture' ).append( '<input type="hidden" id="h-captcha">' );
 
 		// Second save: new container element, render() must be called again.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 
 		assert.strictEqual(
 			this.window.hcaptcha.render.callCount,
@@ -297,7 +297,7 @@ QUnit.test.each(
 
 		// The promise from mobileFrontendSecureEnclave should resolve without
 		// waiting for a form submission - this will time out if it doesn't.
-		await mobileFrontendSecureEnclave( this.window, 'mobilefrontend-editor' );
+		await mobileFrontendSecureEnclave( this.window, 'mobilefrontendeditor' );
 
 		assert.strictEqual(
 			this.window.hcaptcha.execute.callCount,

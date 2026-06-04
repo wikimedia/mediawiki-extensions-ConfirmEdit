@@ -95,7 +95,7 @@ QUnit.test(
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
 
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
 				MobileHCaptchaAbuseFilterEnabled: true,
@@ -131,7 +131,7 @@ QUnit.test(
 	'getDefaultOptions when hCaptcha is not enabled for MobileFrontend',
 	function ( assert ) {
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: false,
 				MobileHCaptchaAbuseFilterEnabled: false,
@@ -162,7 +162,7 @@ QUnit.test(
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
 
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
 				MobileHCaptchaAbuseFilterEnabled: true,
@@ -192,7 +192,7 @@ QUnit.test(
 	'getSavePanelTemplateSource when hCaptcha is not enabled for MobileFrontend',
 	function ( assert ) {
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: false,
 				MobileHCaptchaAbuseFilterEnabled: true,
@@ -221,7 +221,7 @@ QUnit.test(
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
 
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
 				MobileHCaptchaAbuseFilterEnabled: true,
@@ -250,7 +250,7 @@ QUnit.test(
 	'getCaptchaPanelTemplateSource when hCaptcha is not enabled for MobileFrontend',
 	function ( assert ) {
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: false,
 				MobileHCaptchaAbuseFilterEnabled: true,
@@ -276,7 +276,7 @@ QUnit.test(
 	'preRenderFinished when hCaptcha is not enabled for MobileFrontend',
 	async function ( assert ) {
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: false,
 				MobileHCaptchaAbuseFilterEnabled: true,
@@ -301,7 +301,7 @@ QUnit.test(
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
 
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
 				MobileHCaptchaAbuseFilterEnabled: true,
@@ -326,7 +326,7 @@ QUnit.test(
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', false );
 
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
 				MobileHCaptchaAbuseFilterEnabled: true,
@@ -364,7 +364,7 @@ QUnit.test.each(
 		}
 	],
 	async function ( assert, { config, captchaNeededForGenericEdit } ) {
-		initMobileFrontend( 'mobilefrontend-editor', config, this.window );
+		initMobileFrontend( 'mobilefrontendeditor', config, this.window );
 
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', captchaNeededForGenericEdit );
 
@@ -389,7 +389,7 @@ QUnit.test(
 	'saveBegin when hCaptcha is enabled for MobileFrontend',
 	async function ( assert ) {
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
 				MobileHCaptchaAbuseFilterEnabled: true,
@@ -423,7 +423,7 @@ QUnit.test(
 	'executionSuccess when hCaptcha is not enabled for MobileFrontend',
 	async function ( assert ) {
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: false,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
@@ -464,7 +464,7 @@ QUnit.test(
 	'executionSuccess when hCaptcha is enabled for MobileFrontend',
 	async function ( assert ) {
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
@@ -512,7 +512,7 @@ QUnit.test(
 	'saveBegin does not stop save when wgConfirmEditForceShowCaptcha is set (page reload after AbuseFilter)',
 	async function ( assert ) {
 		initMobileFrontend(
-			'mobilefrontend-editor',
+			'mobilefrontendeditor',
 			{
 				HCaptchaEnabledInMobileFrontend: true,
 				HCaptchaSiteKey: 'hCaptcha-site-key'
@@ -551,7 +551,7 @@ QUnit.test.each(
 			HCaptchaSiteKey: 'hCaptcha-site-key'
 		};
 
-		initMobileFrontend( 'mobilefrontend-editor', mobileConfig, this.window );
+		initMobileFrontend( 'mobilefrontendeditor', mobileConfig, this.window );
 
 		const editorEvent = this.sandbox.stub();
 		editorEvent.stop = this.sandbox.stub();
@@ -622,7 +622,7 @@ QUnit.test(
 			HCaptchaSiteKey: 'hCaptcha-site-key'
 		};
 
-		initMobileFrontend( 'mobilefrontend-editor', mobileConfig, this.window );
+		initMobileFrontend( 'mobilefrontendeditor', mobileConfig, this.window );
 
 		const editorEvent = this.sandbox.stub();
 		editorEvent.stop = this.sandbox.stub();
@@ -675,7 +675,7 @@ QUnit.test.each(
 			HCaptchaSiteKey: 'hCaptcha-site-key'
 		};
 
-		initMobileFrontend( 'mobilefrontend-editor', mobileConfig, this.window );
+		initMobileFrontend( 'mobilefrontendeditor', mobileConfig, this.window );
 
 		const editorEvent = this.sandbox.stub();
 		editorEvent.stop = this.sandbox.stub();
@@ -728,7 +728,7 @@ QUnit.test(
 			HCaptchaSiteKey: 'hCaptcha-site-key'
 		};
 
-		initMobileFrontend( 'mobilefrontend-editor', mobileConfig, this.window );
+		initMobileFrontend( 'mobilefrontendeditor', mobileConfig, this.window );
 
 		const editorEvent = this.sandbox.stub();
 		editorEvent.stop = this.sandbox.stub();

@@ -4,11 +4,14 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\GradeCBundleModule;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Services\LoadedCaptchasProvider;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\CodexModule;
+use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 
@@ -97,15 +100,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 					'ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptcha.js',
 					[
 						'name' => 'ext.confirmEdit.hCaptcha/config.json',
-						'config' => [
-							'HCaptchaApiUrl',
-							'HCaptchaSiteKey',
-							'HCaptchaEnterprise',
-							'HCaptchaSecureEnclave',
-							'HCaptchaApiUrlIntegrityHash',
-							'HCaptchaEnabledInMobileFrontend',
-							'HCaptchaInvisibleMode',
-						]
+						'callback' => self::class . '::getHCaptchaConfig',
 					],
 				],
 				'styles' => [
@@ -137,4 +132,21 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 		$rl->register( $modules );
 	}
 
+	/**
+	 * Fetches the hCaptcha config for use in the ext.confirmEdit.hCaptcha module as the config.json file
+	 */
+	public static function getHCaptchaConfig( Context $context, Config $config ): array {
+		// We don't inject this in the constructor because it creates a circular dependency
+		/** @var HCaptchaOutput $hCaptchaOutput */
+		$hCaptchaOutput = MediaWikiServices::getInstance()->get( 'HCaptchaOutput' );
+		return [
+			'HCaptchaSiteKey' => $config->get( 'HCaptchaSiteKey' ),
+			'HCaptchaEnterprise' => $config->get( 'HCaptchaEnterprise' ),
+			'HCaptchaSecureEnclave' => $config->get( 'HCaptchaSecureEnclave' ),
+			'HCaptchaApiUrlIntegrityHash' => $config->get( 'HCaptchaApiUrlIntegrityHash' ),
+			'HCaptchaEnabledInMobileFrontend' => $config->get( 'HCaptchaEnabledInMobileFrontend' ),
+			'HCaptchaInvisibleMode' => $config->get( 'HCaptchaInvisibleMode' ),
+			'HCaptchaApiUrl' => $hCaptchaOutput->getHCaptchaApiUrl( $context->getLanguage() ),
+		];
+	}
 }

@@ -185,7 +185,7 @@ class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( self::TEST_SITE_KEY, $config['wgConfirmEditHCaptchaSiteKey'] );
 
 		$configModule = $payload['configModule'];
-		$this->assertSame( self::TEST_API_URL, $configModule['HCaptchaApiUrl'] );
+		$this->assertSame( self::TEST_API_URL . '?hl=en', $configModule['HCaptchaApiUrl'] );
 		$this->assertSame( self::TEST_INTEGRITY_HASH, $configModule['HCaptchaApiUrlIntegrityHash'] );
 	}
 

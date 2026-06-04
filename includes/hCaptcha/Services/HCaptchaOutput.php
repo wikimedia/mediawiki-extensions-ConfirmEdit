@@ -9,6 +9,8 @@ use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Html\Html;
 use MediaWiki\Json\FormatJson;
+use MediaWiki\Language\LanguageFallback;
+use MediaWiki\Language\LanguageFallbackMode;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\ResourceLoader\Context;
@@ -47,9 +49,28 @@ class HCaptchaOutput {
 		'hcaptcha-loading-indicator-label',
 	];
 
+	/**
+	 * Languages that hCaptcha and MediaWiki both support, used to show any hCaptcha UI
+	 * in the same language as the rest of the MediaWiki UI.
+	 *
+	 * Languages that hCaptcha support are listed at https://docs.hcaptcha.com/languages/
+	 */
+	public const LANGUAGES_SUPPORTED_BY_HCAPTCHA = [
+		'af', 'am', 'ar', 'az', 'be', 'bg', 'bn', 'bs', 'ca', 'ceb', 'co', 'cs', 'cy',
+		'da', 'de', 'el', 'en', 'eo', 'es', 'et', 'eu', 'fa', 'fi', 'fr', 'fy', 'ga',
+		'gd', 'gl', 'gu', 'ha', 'haw', 'he', 'hi', 'hmn', 'hr', 'ht', 'hu', 'hy',
+		'id', 'ig', 'is', 'it', 'ja', 'jw', 'ka', 'kk', 'km', 'kn', 'ko', 'ku', 'ky',
+		'la', 'lb', 'lo', 'lt', 'lv', 'me', 'mg', 'mi', 'mk', 'ml', 'mn', 'mr', 'ms',
+		'mt', 'my', 'ne', 'nl', 'no', 'ny', 'or', 'pa', 'pl', 'ps', 'pt', 'ro', 'ru',
+		'rw', 'sd', 'si', 'sk', 'sl', 'sm', 'sn', 'so', 'sq', 'sr', 'st', 'su', 'sv',
+		'sw', 'ta', 'te', 'tg', 'th', 'tk', 'tl', 'tr', 'tt', 'ug', 'uk', 'ur', 'uz',
+		'vi', 'xh', 'yi', 'yo', 'zh', 'zu',
+	];
+
 	public function __construct(
 		private readonly ServiceOptions $options,
 		private readonly ResourceLoader $resourceLoader,
+		private readonly LanguageFallback $languageFallback,
 		private readonly CaptchaFactory $captchaFactory,
 	) {
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
@@ -90,7 +111,7 @@ class HCaptchaOutput {
 		$useSecureEnclave = $this->options->get( 'HCaptchaEnterprise' ) &&
 			$this->options->get( 'HCaptchaSecureEnclave' );
 		if ( !$useSecureEnclave ) {
-			$hCaptchaApiUrl = $this->options->get( 'HCaptchaApiUrl' );
+			$hCaptchaApiUrl = $this->getHCaptchaApiUrl( $outputPage->getLanguage()->getCode() );
 			$outputPage->addHeadItem(
 				'h-captcha',
 				Html::element( 'script', [ 'src' => $hCaptchaApiUrl, 'async', 'defer' ] )
@@ -130,6 +151,36 @@ class HCaptchaOutput {
 			$output .= Html::hidden( 'wgConfirmEditForceShowCaptcha', true );
 		}
 		return $output;
+	}
+
+	/**
+	 * Gets the hCaptcha API url, preferrably setting the display language for hCaptcha to
+	 * match the language that the rest of the MediaWiki page is displayed in.
+	 */
+	public function getHCaptchaApiUrl( string $languageCode ): string {
+		$hCaptchaApiUrl = $this->options->get( 'HCaptchaApiUrl' );
+
+		$languageParam = null;
+		if ( in_array( $languageCode, self::LANGUAGES_SUPPORTED_BY_HCAPTCHA, true ) ) {
+			$languageParam = $languageCode;
+		} else {
+			$fallbackLanguages = $this->languageFallback->getAll(
+				$languageCode,
+				LanguageFallbackMode::STRICT
+			);
+			foreach ( $fallbackLanguages as $fallbackLanguage ) {
+				if ( in_array( $fallbackLanguage, self::LANGUAGES_SUPPORTED_BY_HCAPTCHA, true ) ) {
+					$languageParam = $fallbackLanguage;
+					break;
+				}
+			}
+		}
+
+		if ( $languageParam ) {
+			$hCaptchaApiUrl = wfAppendQuery( $hCaptchaApiUrl, [ 'hl' => $languageParam ] );
+		}
+
+		return $hCaptchaApiUrl;
 	}
 
 	/**
@@ -189,7 +240,7 @@ class HCaptchaOutput {
 			],
 			'messages' => $this->getGradeCMessages( $outputPage ),
 			'configModule' => [
-				'HCaptchaApiUrl' => $this->options->get( 'HCaptchaApiUrl' ),
+				'HCaptchaApiUrl' => $this->getHCaptchaApiUrl( $outputPage->getLanguage()->getCode() ),
 				'HCaptchaApiUrlIntegrityHash' => $this->options->get( 'HCaptchaApiUrlIntegrityHash' ),
 			],
 		];

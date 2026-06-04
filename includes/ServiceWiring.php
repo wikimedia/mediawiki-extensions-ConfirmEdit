@@ -28,6 +28,7 @@ return [
 				$services->getMainConfig()
 			),
 			$services->getResourceLoader(),
+			$services->getLanguageFallback(),
 			$services->get( 'ConfirmEditCaptchaFactory' )
 		);
 	},

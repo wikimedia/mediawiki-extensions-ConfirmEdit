@@ -1,6 +1,14 @@
 const utils = require( './utils.js' );
 
 /**
+ * Multi-content-revision editing actions whose form shows the captcha next to
+ * Preview/Show-changes buttons, so only a Save submit needs a captcha.
+ *
+ * @type {string[]}
+ */
+const MCR_EDIT_ACTIONS = [ 'mcrundo', 'mcrrestore' ];
+
+/**
  * If set, makes the next call to isSaveRequest() to return true unconditionally.
  *
  * This gets set when the Javascript configuration variable
@@ -88,7 +96,10 @@ function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 
 		let result = true;
 
-		if ( $form.attr( 'id' ) === 'editform' ) {
+		// The edit and mcrundo/mcrrestore forms also have Preview/Show-changes
+		// buttons, so only a Save submit counts as a save there; on any other
+		// form, every submit is a save.
+		if ( $form.attr( 'id' ) === 'editform' || MCR_EDIT_ACTIONS.includes( interfaceName ) ) {
 			result = false;
 
 			let originalEvent = event;
@@ -98,7 +109,9 @@ function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 			}
 
 			if ( originalEvent.submitter && typeof originalEvent.submitter === 'object' ) {
-				result = ( originalEvent.submitter.id === 'wpSave' );
+				// The edit form's Save uses id=wpSave; the mcrundo/mcrrestore form's uses name=wpSave.
+				result = ( originalEvent.submitter.id === 'wpSave' ||
+					originalEvent.submitter.name === 'wpSave' );
 			} else {
 				// Fix for browsers without SubmitEvent.submitter support (e.g. Chrome < 81).
 				result = $form.data( 'isSaveChangesClick' ) || false;
@@ -118,15 +131,27 @@ function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 		$form.off( 'submit.hCaptcha' );
 		$form.off( 'click.hCaptcha' );
 		$form.removeData( 'isSaveChangesClick' );
+		// Drop any submitter input left over from a previous interrupted
+		// workflow attempt so retries always start from a clean state.
+		$form.find( 'input.mw-confirmedit-hcaptcha-submitter' ).remove();
+
+		let originallyClickedSubmitButton = null;
 
 		const formSubmitted = new Promise( ( resolve ) => {
-			$form.on( 'click.hCaptcha', '#wpSave', () => {
+			$form.on( 'click.hCaptcha', 'input[type="submit"], button[type="submit"]', function () {
+				originallyClickedSubmitButton = this;
+			} );
+
+			$form.on( 'click.hCaptcha', '#wpSave, [name="wpSave"]', () => {
 				$form.data( 'isSaveChangesClick', true );
 			} );
 
 			$form.on( 'submit.hCaptcha', function ( event ) {
 				if ( isSaveRequest( event ) ) {
 					event.preventDefault();
+
+					const originalEvent = event.originalEvent || event;
+					originallyClickedSubmitButton = originalEvent.submitter || originallyClickedSubmitButton;
 
 					resolve( this );
 				}
@@ -148,6 +173,16 @@ function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 							.attr( 'name', 'h-captcha-response' )
 							.attr( 'id', 'h-captcha-response' )
 							.val( response ) );
+
+						// form.submit() omits submitter data, so re-inject the
+						// clicked button's name=value as a hidden input.
+						if ( originallyClickedSubmitButton && originallyClickedSubmitButton.name ) {
+							$form.append( $( '<input>' )
+								.attr( 'type', 'hidden' )
+								.attr( 'class', 'mw-confirmedit-hcaptcha-submitter' )
+								.attr( 'name', originallyClickedSubmitButton.name )
+								.val( originallyClickedSubmitButton.value ) );
+						}
 
 						// Clear out any errors from a previous workflow
 						utils.hideError( $hCaptchaField );
@@ -221,28 +256,30 @@ function useSecureEnclave( win ) {
 	if ( mw.config.get( 'wgAction' ) === 'edit' || mw.config.get( 'wgAction' ) === 'submit' ) {
 		interfaceName = 'edit';
 	}
+	if ( MCR_EDIT_ACTIONS.includes( mw.config.get( 'wgAction' ) ) ) {
+		interfaceName = mw.config.get( 'wgAction' );
+	}
 
 	// Load hCaptcha the first time the user interacts with the form, or load it
 	// immediately if wgHCaptchaTriggerFormSubmission is set.
 	return new Promise( ( resolve ) => {
-		const $inputs = $form.find( 'input, textarea' );
+		const $inputs = $form.find( 'input, textarea, button' );
+
+		const loadHCaptcha = () => {
+			$inputs.off( 'input.hCaptchaLoader focus.hCaptchaLoader' );
+			$form.off( 'submit.hCaptchaLoader' );
+
+			resolve( setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) );
+		};
 
 		// Catch and prevent form submissions that occur before hCaptcha was initialized.
 		$form.one( 'submit.hCaptchaLoader', ( event ) => {
 			event.preventDefault();
 
-			$inputs.off( 'input.hCaptchaLoader focus.hCaptchaLoader' );
-			$form.off( 'submit.hCaptchaLoader' );
-
-			resolve( setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) );
+			loadHCaptcha();
 		} );
 
-		$inputs.one( 'input.hCaptchaLoader focus.hCaptchaLoader', () => {
-			$inputs.off( 'input.hCaptchaLoader focus.hCaptchaLoader' );
-			$form.off( 'submit.hCaptchaLoader' );
-
-			resolve( setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) );
-		} );
+		$inputs.one( 'input.hCaptchaLoader focus.hCaptchaLoader', loadHCaptcha );
 
 		// If the backend requested to submit the form once the page is loaded,
 		// trigger the setup immediately, wait a bit so it has a chance to load

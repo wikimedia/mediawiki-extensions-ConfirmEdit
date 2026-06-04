@@ -144,6 +144,12 @@
 			"services": [
 				"MainConfig"
 			]
+		},
+		"ActionModifyFormFieldsHookHandler": {
+			"class": "MediaWiki\\Extension\\ConfirmEdit\\Hooks\\Handlers\\ActionModifyFormFieldsHookHandler",
+			"services": [
+				"ConfirmEditCaptchaFactory"
+			]
 		}
 	},
 	"Hooks": {
@@ -156,6 +162,7 @@
 		"AlternateEditPreview": "ConfirmEditHooks",
 		"ResourceLoaderRegisterModules": "RLRegisterModulesHandler",
 		"MakeGlobalVariablesScript": "MakeGlobalVariablesScriptHookHandler",
+		"ActionModifyFormFields": "ActionModifyFormFieldsHookHandler",
 		"EditPage::showEditForm:fields": "ConfirmEditHooks",
 		"EditFilterMergedContent": "ConfirmEditHooks",
 		"APIGetAllowedParams": "ConfirmEditHooks",

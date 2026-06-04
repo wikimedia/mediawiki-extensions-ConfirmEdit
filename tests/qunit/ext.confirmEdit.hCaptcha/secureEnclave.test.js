@@ -986,3 +986,122 @@ QUnit.test( 'should submit the form immediately when wgHCaptchaTriggerFormSubmis
 		'Setting the global variable should make useSecureEnclave to remain unresolved'
 	);
 } );
+
+QUnit.test.each(
+	'should re-inject the clicked submit button name=value as a hidden input',
+	{
+		'modern browser (SubmitEvent.submitter present)': { useSubmitterProp: true },
+		'older browser (no SubmitEvent.submitter, click captured first)': { useSubmitterProp: false }
+	},
+	async function ( assert, opts ) {
+		this.window.document.head.appendChild.callsFake( () => {
+			this.window.onHCaptchaSDKLoaded();
+		} );
+		this.window.hcaptcha.render.returns( 'some-captcha-id' );
+		this.window.hcaptcha.execute.callsFake( async () => ( { response: 'some-token' } ) );
+
+		// The default #wpSave button in the fixture has no name attribute,
+		// so add a named submit button to exercise the capture path.
+		const namedButton = $( '<input type="submit" name="wpSave" value="Save changes">' ).appendTo( this.$form )[ 0 ];
+
+		const enclavePromise = useSecureEnclave( this.window );
+
+		// Prime hCaptcha via an input event so submit.hCaptcha is registered
+		// before we trigger the submit that should run the workflow.
+		this.$form.find( '[name=some-input]' ).trigger( 'input' );
+		if ( opts.useSubmitterProp ) {
+			this.$form.trigger( $.Event( 'submit', { submitter: namedButton } ) );
+		} else {
+			$( namedButton ).trigger( 'click' );
+			this.$form.trigger( 'submit' );
+		}
+
+		await enclavePromise;
+		await delay();
+
+		const $hidden = this.$form.find( 'input.mw-confirmedit-hcaptcha-submitter' );
+		assert.strictEqual( $hidden.length, 1, 'should append exactly one hidden submitter input' );
+		assert.strictEqual( $hidden.attr( 'name' ), 'wpSave', 'hidden input should have submitter name' );
+		assert.strictEqual( $hidden.val(), 'Save changes', 'hidden input should have submitter value' );
+		assert.strictEqual( this.submit.callCount, 1, 'form.submit() should have been called once' );
+	}
+);
+
+QUnit.test( 'should load hCaptcha when the MCR form Save button is focused', async function ( assert ) {
+	this.window.document.head.appendChild.callsFake( () => {
+		this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'mcr-captcha-id' );
+
+	// The mcrundo/mcrrestore Save control is a <button>, unlike the edit form's
+	// <input type=submit>. The loader must watch buttons too, otherwise focusing
+	// (and so clicking) Save would not initialise hCaptcha until a second click.
+	const saveButton = $( '<button type="submit" name="wpSave">' ).appendTo( this.$form )[ 0 ];
+
+	useSecureEnclave( this.window );
+
+	$( saveButton ).trigger( 'focus' );
+	await delay();
+
+	assert.true(
+		this.window.document.head.appendChild.calledOnce,
+		'should load the hCaptcha SDK when a submit button is focused'
+	);
+	assert.true(
+		this.window.hcaptcha.render.calledOnce,
+		'should render the hCaptcha widget when a submit button is focused'
+	);
+} );
+
+QUnit.test.each(
+	'should only require a captcha for the Save button on MCR edit actions',
+	{ mcrundo: 'mcrundo', mcrrestore: 'mcrrestore' },
+	async function ( assert, action ) {
+		this.window.document.head.appendChild.callsFake( () => {
+			this.window.onHCaptchaSDKLoaded();
+		} );
+		this.window.hcaptcha.render.returns( 'mcr-captcha-id' );
+		this.window.hcaptcha.execute.callsFake( async () => ( { response: 'some-token' } ) );
+
+		mw.config.set( 'wgAction', action );
+
+		// The mcrundo/mcrrestore form identifies its buttons by name with no id,
+		// so drop the fixture's id-bearing #wpSave to genuinely exercise the
+		// name-based matching.
+		this.$form.find( '#wpSave' ).remove();
+
+		const previewButton = $( '<button type="submit" name="wpPreview">' ).appendTo( this.$form )[ 0 ];
+		const diffButton = $( '<button type="submit" name="wpDiff">' ).appendTo( this.$form )[ 0 ];
+		const saveButton = $( '<button type="submit" name="wpSave">' ).appendTo( this.$form )[ 0 ];
+
+		useSecureEnclave( this.window );
+
+		// Load hCaptcha via a first interaction before exercising submit handling.
+		this.$form.find( '[name=some-input]' ).trigger( 'input' );
+		await delay();
+
+		// Show preview should submit normally without engaging hCaptcha.
+		this.$form.trigger( $.Event( 'submit', { submitter: previewButton } ) );
+		await delay();
+		assert.true(
+			this.window.hcaptcha.execute.notCalled,
+			'a Preview submit should not trigger an hCaptcha challenge'
+		);
+
+		// Show changes should submit normally without engaging hCaptcha.
+		this.$form.trigger( $.Event( 'submit', { submitter: diffButton } ) );
+		await delay();
+		assert.true(
+			this.window.hcaptcha.execute.notCalled,
+			'a Show changes (diff) submit should not trigger an hCaptcha challenge'
+		);
+
+		// Save should engage hCaptcha.
+		this.$form.trigger( $.Event( 'submit', { submitter: saveButton } ) );
+		await delay();
+		assert.true(
+			this.window.hcaptcha.execute.called,
+			'a Save submit should trigger an hCaptcha challenge'
+		);
+	}
+);

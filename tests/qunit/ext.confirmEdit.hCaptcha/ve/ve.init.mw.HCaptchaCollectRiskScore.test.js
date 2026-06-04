@@ -1,3 +1,9 @@
+/**
+ * @typedef {Object} FakeHook
+ * @property {function(Function): void} add
+ * @property {function(...*): void} fire
+ */
+
 QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaCollectRiskScore', mw.loader.getState( 'ext.visualEditor.targetLoader' ), QUnit.newMwEnvironment(), ( hooks ) => {
 	const collectRiskScoreHandler = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaCollectRiskScore.js' );
 	const RiskScoreCollector = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/RiskScoreCollector.js' );
@@ -16,6 +22,9 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaCollectRiskScore', mw.load
 	 *
 	 * The sandbox stub is set up before init() is called so that init()'s
 	 * mw.hook('ve.newTarget').add(...) registers against the fake hook.
+	 *
+	 * @param {*} sandbox
+	 * @return {FakeHook}
 	 */
 	function stubVeNewTargetHook( sandbox ) {
 		const callbacks = [];

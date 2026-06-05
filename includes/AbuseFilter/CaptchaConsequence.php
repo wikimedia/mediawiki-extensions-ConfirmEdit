@@ -64,6 +64,12 @@ class CaptchaConsequence extends Consequence {
 		);
 		$captcha->setForceShowCaptcha( true );
 
+		// If the CAPTCHA was already solved, then don't log a CAPTCHA was shown because
+		// the consequence would have had no effect
+		if ( $captcha->isCaptchaSolved() ) {
+			return false;
+		}
+
 		return true;
 	}
 }

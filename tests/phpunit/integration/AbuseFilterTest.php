@@ -19,6 +19,7 @@ use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityValue;
 use MediaWikiIntegrationTestCase;
 use TestLogger;
+use Wikimedia\TestingAccessWrapper;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
@@ -88,6 +89,57 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 			'Filter {filter}: {action} is not defined in the list of triggers known to ConfirmEdit',
 			$logger->getBuffer()[0][1]
 		);
+	}
+
+	public function testConsequenceCaptchaAlreadySolved(): void {
+		$this->overrideConfigValue(
+			'CaptchaTriggers',
+			[ CaptchaTriggers::EDIT => [ 'trigger' => true, 'class' => 'SimpleCaptcha' ] ]
+		);
+		self::clearCaptchaFactoryGlobalInstances();
+		$userIdentity = new UserIdentityValue( 123, 'TestUser' );
+
+		$parameters = $this->createMock( Parameters::class );
+		$parameters->method( 'getAction' )->willReturn( 'edit' );
+		$parameters->method( 'getUser' )->willReturn( $userIdentity );
+
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
+		$simpleCaptcha = TestingAccessWrapper::newFromObject( $simpleCaptcha );
+		$simpleCaptcha->setCaptchaSolved( true );
+
+		$this->assertFalse( $this->getCaptchaConsequence( $parameters )->execute() );
+	}
+
+	public function testConsequenceWhenHCaptchaSolvedButAlwaysChallengeSiteKeyDefined(): void {
+		$this->overrideConfigValue(
+			'CaptchaTriggers',
+			[
+				CaptchaTriggers::EDIT => [
+					'trigger' => true,
+					'class' => 'HCaptcha',
+					'config' => [
+						'HCaptchaAlwaysChallengeSiteKey' => 'always-challenge-sitekey',
+					],
+				],
+			]
+		);
+
+		$userIdentity = new UserIdentityValue( 123, 'TestUser' );
+
+		$parameters = $this->createMock( Parameters::class );
+		$parameters->method( 'getAction' )->willReturn( 'edit' );
+		$parameters->method( 'getUser' )->willReturn( $userIdentity );
+
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
+		$simpleCaptcha = TestingAccessWrapper::newFromObject( $simpleCaptcha );
+		$simpleCaptcha->setCaptchaSolved( true );
+
+		$this->assertTrue( $this->getCaptchaConsequence( $parameters )->execute() );
+		$this->assertTrue( $simpleCaptcha->shouldForceShowCaptcha() );
 	}
 
 	public function testConsequenceWhenHookAborts(): void {

@@ -178,9 +178,10 @@ class HCaptcha extends SimpleCaptcha {
 		$userAlreadySolvedACaptcha = $this->solvedCaptchaSiteKey !== null;
 
 		// can be set by any extension, e.g. AbuseFilter's "showcaptcha" consequence.
-		$alwaysChallengeRequired = $this->shouldForceShowCaptcha();
+		$alwaysChallengeRequired = $this->shouldForceShowCaptcha() && $this->getAlwaysChallengeSiteKey();
 
-		$isForceChallengeResubmission = $webRequest->getVal( 'wgConfirmEditForceShowCaptcha' ) !== null;
+		$isForceChallengeResubmission = $webRequest->getVal( 'wgConfirmEditForceShowCaptcha' ) !== null &&
+			$this->getAlwaysChallengeSiteKey() === $this->solvedCaptchaSiteKey;
 
 		return $userAlreadySolvedACaptcha && $alwaysChallengeRequired && !$isForceChallengeResubmission;
 	}
@@ -500,10 +501,8 @@ class HCaptcha extends SimpleCaptcha {
 	public function isCaptchaSolved(): ?bool {
 		$solved = parent::isCaptchaSolved();
 		if ( $solved && $this->shouldForceShowCaptcha() ) {
-			$alwaysChallengeSiteKey = $this->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ?? null;
-			if ( $alwaysChallengeSiteKey !== null
-				&& $this->solvedCaptchaSiteKey !== $alwaysChallengeSiteKey
-			) {
+			$alwaysChallengeSiteKey = $this->getAlwaysChallengeSiteKey();
+			if ( $alwaysChallengeSiteKey !== null && $this->solvedCaptchaSiteKey !== $alwaysChallengeSiteKey ) {
 				return false;
 			}
 		}
@@ -703,7 +702,7 @@ class HCaptcha extends SimpleCaptcha {
 	 *
 	 * This returns a value from the following sources, in order of priority:
 	 * - the HCaptchaAlwaysChallengeSiteKey from $wgCaptchaTriggers for the current action,
-	 *   if ::shouldForceShowCaptcha mode is enabled
+	 *   if ::shouldForceShowCaptcha mode is enabled and an "always challenge" sitekey has been set
 	 * - the HCaptchaSiteKey config property from $wgCaptchaTriggers for the current action
 	 * - the global $wgHCaptchaSiteKey
 	 *
@@ -712,7 +711,7 @@ class HCaptcha extends SimpleCaptcha {
 	public function getSiteKeyForAction(): string {
 		$siteKey = $this->getPrimarySiteKey();
 		if ( $this->shouldForceShowCaptcha() ) {
-			$siteKey = $this->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ?? $siteKey;
+			$siteKey = $this->getAlwaysChallengeSiteKey() ?? $siteKey;
 		}
 
 		return $siteKey;
@@ -768,8 +767,9 @@ class HCaptcha extends SimpleCaptcha {
 		// In Always Challenge Mode, return only the Always Challenge SiteKey if set.
 		// If not set, fallback to normal mode behavior to avoid unexpected edge cases.
 		if ( $this->shouldForceShowCaptcha() ) {
-			if ( isset( $triggerConfig['HCaptchaAlwaysChallengeSiteKey'] ) ) {
-				return [ $triggerConfig['HCaptchaAlwaysChallengeSiteKey'] ];
+			$alwaysChallengeSiteKey = $this->getAlwaysChallengeSiteKey();
+			if ( $alwaysChallengeSiteKey ) {
+				return [ $alwaysChallengeSiteKey ];
 			}
 			// Fall through to normal mode behavior
 		}
@@ -790,7 +790,7 @@ class HCaptcha extends SimpleCaptcha {
 	private function getAllSiteKeysForCurrentAction(): array {
 		$allowedKeys = array_merge(
 			[ $this->getPrimarySiteKey() ],
-			[ $this->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ?? '' ],
+			[ $this->getAlwaysChallengeSiteKey() ],
 			$this->getConfig()['HCaptchaAdditionalValidSiteKeys'] ?? []
 		);
 
@@ -815,5 +815,21 @@ class HCaptcha extends SimpleCaptcha {
 		}
 
 		return $key;
+	}
+
+	/**
+	 * Returns the hCaptcha "always challenge" sitekey used by this instance, or `null` if no sitekey is configured.
+	 *
+	 * This will always return `null` if the action is {@link CaptchaTriggers::CREATE_ACCOUNT}, as that
+	 * interface does not support these challenges.
+	 */
+	private function getAlwaysChallengeSiteKey(): ?string {
+		if (
+			( $this->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ?? null ) &&
+			$this->action !== CaptchaTriggers::CREATE_ACCOUNT
+		) {
+			return $this->getConfig()['HCaptchaAlwaysChallengeSiteKey'];
+		}
+		return null;
 	}
 }

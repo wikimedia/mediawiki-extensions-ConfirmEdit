@@ -5,8 +5,8 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
 use MediaWiki\Config\Config;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
-use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\Output\OutputPage;
@@ -71,8 +71,10 @@ class MakeGlobalVariablesScriptHookHandler extends AbstractCaptchaHandler implem
 
 		$vars['wgConfirmEditCaptchaNeededForGenericEdit'] = $captchaNeededForEdit;
 		$vars['wgConfirmEditForceShowCaptcha'] = $captchaInstance->shouldForceShowCaptcha();
-		if ( $captchaNeededForEdit === 'hcaptcha' ) {
-			$vars['wgConfirmEditHCaptchaSiteKey'] = $this->resolveHCaptchaSiteKey( $captchaInstance );
+
+		// instanceof check necessary for Phan to be happy
+		if ( $captchaNeededForEdit === 'hcaptcha' && $captchaInstance instanceof HCaptcha ) {
+			$vars['wgConfirmEditHCaptchaSiteKey'] = $captchaInstance->getSiteKeyForAction();
 		}
 
 		// We want to load the MobileFrontend hCaptcha module if the user may need
@@ -156,14 +158,4 @@ class MakeGlobalVariablesScriptHookHandler extends AbstractCaptchaHandler implem
 			}
 		}
 	}
-
-	private function resolveHCaptchaSiteKey( SimpleCaptcha $captchaInstance ): string {
-		$config = $captchaInstance->getConfig();
-		$defaultSiteKey = (string)( $config['HCaptchaSiteKey'] ?? $this->config->get( 'HCaptchaSiteKey' ) );
-		if ( $captchaInstance->shouldForceShowCaptcha() ) {
-			return (string)( $config['HCaptchaAlwaysChallengeSiteKey'] ?? $defaultSiteKey );
-		}
-		return $defaultSiteKey;
-	}
-
 }

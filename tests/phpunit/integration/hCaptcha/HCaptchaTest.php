@@ -866,6 +866,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	/** @dataProvider providePassCaptchaForceShowChallengeGate */
 	public function testPassCaptchaForceShowChallengeGate(
 		?string $solvedCaptchaSiteKey,
+		bool $alwaysChallengeSiteKeySet,
 		bool $forceShow,
 		bool $tokenPresent,
 		bool $forceShowParamPresent,
@@ -892,10 +893,11 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		}
 
 		$hCaptcha = new HCaptcha();
-		$hCaptcha->setConfig( [
-			'HCaptchaSiteKey' => 'some-sitekey',
-			'HCaptchaAlwaysChallengeSiteKey' => 'always-challenge',
-		] );
+		$config = [ 'HCaptchaSiteKey' => 'some-sitekey' ];
+		if ( $alwaysChallengeSiteKeySet ) {
+			$config['HCaptchaAlwaysChallengeSiteKey'] = 'always-challenge-sitekey';
+		}
+		$hCaptcha->setConfig( $config );
 		$wrapper = TestingAccessWrapper::newFromObject( $hCaptcha );
 		if ( $solvedCaptchaSiteKey ) {
 			$wrapper->setCaptchaSolved( true );
@@ -914,16 +916,36 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 
 	public static function providePassCaptchaForceShowChallengeGate(): array {
 		return [
-			'siteKey=set, forceShow=true, param=absent' => [
+			'siteKey=set, alwaysChallengeSiteKey=set, forceShow=true, param=absent' => [
 				'solvedCaptchaSiteKey' => 'some-sitekey',
+				'alwaysChallengeSiteKeySet' => true,
 				'forceShow' => true,
 				'tokenPresent' => true,
 				'forceShowParamPresent' => false,
 				'expectedResult' => false,
 				'expectedError' => 'forceshowcaptcha',
 			],
-			'siteKey=set, forceShow=true, param=present' => [
-				'solvedCaptchaSiteKey' => 'always-challenge',
+			'siteKey=set, alwaysChallengeSiteKey=not set, forceShow=true, param=absent' => [
+				'solvedCaptchaSiteKey' => 'some-sitekey',
+				'alwaysChallengeSiteKeySet' => false,
+				'forceShow' => true,
+				'tokenPresent' => true,
+				'forceShowParamPresent' => false,
+				'expectedResult' => true,
+				'expectedError' => null,
+			],
+			'siteKey=normal sitekey, forceShow=true, param=present' => [
+				'solvedCaptchaSiteKey' => 'some-sitekey',
+				'alwaysChallengeSiteKeySet' => true,
+				'forceShow' => true,
+				'tokenPresent' => true,
+				'forceShowParamPresent' => true,
+				'expectedResult' => false,
+				'expectedError' => 'forceshowcaptcha',
+			],
+			'siteKey=force captcha sitekey, forceShow=true, param=present' => [
+				'solvedCaptchaSiteKey' => 'always-challenge-sitekey',
+				'alwaysChallengeSiteKeySet' => true,
 				'forceShow' => true,
 				'tokenPresent' => true,
 				'forceShowParamPresent' => true,
@@ -932,6 +954,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			],
 			'siteKey=set, forceShow=false, param=absent' => [
 				'solvedCaptchaSiteKey' => 'some-sitekey',
+				'alwaysChallengeSiteKeySet' => true,
 				'forceShow' => false,
 				'tokenPresent' => true,
 				'forceShowParamPresent' => false,
@@ -940,6 +963,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			],
 			'siteKey=set, forceShow=false, param=present' => [
 				'solvedCaptchaSiteKey' => 'some-sitekey',
+				'alwaysChallengeSiteKeySet' => true,
 				'forceShow' => false,
 				'tokenPresent' => true,
 				'forceShowParamPresent' => true,
@@ -948,6 +972,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			],
 			'siteKey=null, forceShow=true, param=absent' => [
 				'solvedCaptchaSiteKey' => null,
+				'alwaysChallengeSiteKeySet' => true,
 				'forceShow' => true,
 				'tokenPresent' => false,
 				'forceShowParamPresent' => false,
@@ -956,6 +981,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			],
 			'siteKey=null, forceShow=true, param=present' => [
 				'solvedCaptchaSiteKey' => null,
+				'alwaysChallengeSiteKeySet' => true,
 				'forceShow' => true,
 				'tokenPresent' => false,
 				'forceShowParamPresent' => true,
@@ -964,6 +990,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			],
 			'siteKey=null, forceShow=false, param=absent' => [
 				'solvedCaptchaSiteKey' => null,
+				'alwaysChallengeSiteKeySet' => true,
 				'forceShow' => false,
 				'tokenPresent' => false,
 				'forceShowParamPresent' => false,
@@ -972,6 +999,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			],
 			'siteKey=null, forceShow=false, param=present' => [
 				'solvedCaptchaSiteKey' => null,
+				'alwaysChallengeSiteKeySet' => true,
 				'forceShow' => false,
 				'tokenPresent' => false,
 				'forceShowParamPresent' => true,
@@ -980,6 +1008,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			],
 			'siteKey=null, forceShow=true, param=missing, token=set' => [
 				'solvedCaptchaSiteKey' => null,
+				'alwaysChallengeSiteKeySet' => true,
 				'forceShow' => true,
 				'tokenPresent' => true,
 				'forceShowParamPresent' => false,
@@ -1292,6 +1321,30 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'additional-key',
 				true,
 				null
+			],
+			'Force show on account creation - challenge key is rejected' => [
+				'createaccount',
+				[
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
+				],
+				null,
+				true,
+				'challenge-key',
+				false,
+				'sitekey-mismatch',
+			],
+			'Force show on account creation - normal key is accepted' => [
+				'createaccount',
+				[
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
+				],
+				null,
+				true,
+				'normal-key',
+				true,
+				null,
 			],
 		];
 	}

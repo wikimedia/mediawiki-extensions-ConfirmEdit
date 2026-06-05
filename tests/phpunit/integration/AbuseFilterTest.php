@@ -64,16 +64,11 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 	public function testConsequence() {
 		$parameters = $this->createMock( Parameters::class );
 		$parameters->method( 'getAction' )->willReturn( 'edit' );
-		$captchaConsequence = new CaptchaConsequence(
-			$parameters,
-			$this->getServiceContainer()->getHookContainer(),
-			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
-		);
 		/** @var CaptchaFactory $captchaFactory */
 		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
 		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
-		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
-		$captchaConsequence->execute();
+		$this->assertForceCaptchaNotSet( $simpleCaptcha );
+		$this->getCaptchaConsequence( $parameters )->execute();
 		$this->assertTrue( $simpleCaptcha->shouldForceShowCaptcha() );
 	}
 
@@ -83,27 +78,15 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 		$parameters = $this->createMock( Parameters::class );
 		$parameters->method( 'getAction' )->willReturn( 'foo' );
 
-		$captchaConsequence = new CaptchaConsequence(
-			$parameters,
-			$this->getServiceContainer()->getHookContainer(),
-			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
-		);
 		/** @var CaptchaFactory $captchaFactory */
 		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
 		$simpleCaptcha = $captchaFactory->getGlobalInstance( 'bar' );
-		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
 
-		$captchaConsequence->execute();
-		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
+		$this->getCaptchaConsequence( $parameters )->execute();
+		$this->assertForceCaptchaNotSet( $simpleCaptcha );
 		$this->assertEquals(
 			'Filter {filter}: {action} is not defined in the list of triggers known to ConfirmEdit',
 			$logger->getBuffer()[0][1]
-		);
-
-		$this->assertFalse(
-			$this->getSession()->exists(
-				SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-			)
 		);
 	}
 
@@ -114,15 +97,9 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 		$parameters->method( 'getAction' )->willReturn( 'edit' );
 		$parameters->method( 'getUser' )->willReturn( $userIdentity );
 
-		$captchaConsequence = new CaptchaConsequence(
-			$parameters,
-			$this->getServiceContainer()->getHookContainer(),
-			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
-		);
 		/** @var CaptchaFactory $captchaFactory */
 		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
 		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
-		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
 
 		$this->setTemporaryHook(
 			'ConfirmEditBeforeForceShowCaptcha',
@@ -135,14 +112,8 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 			}
 		);
 
-		$captchaConsequence->execute();
-		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
-		$this->assertFalse(
-			$this->getSession()->exists(
-				SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-			)
-		);
-		$this->assertFalse( $this->getSession()->exists( CaptchaConsequence::FILTER_ID_SESSION_KEY ) );
+		$this->getCaptchaConsequence( $parameters )->execute();
+		$this->assertForceCaptchaNotSet( $simpleCaptcha );
 	}
 
 	public function testConsequenceSetsSessionKeyOnMatch() {
@@ -166,22 +137,12 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 			->method( 'getFilter' )
 			->willReturn( $filter );
 
-		$captchaConsequence = new CaptchaConsequence(
-			$parameters,
-			$this->getServiceContainer()->getHookContainer(),
-			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
-		);
 		/** @var CaptchaFactory $captchaFactory */
 		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
 		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
-		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
-		$this->assertFalse(
-			$this->getSession()->exists(
-				SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-			)
-		);
+		$this->assertForceCaptchaNotSet( $simpleCaptcha );
 
-		$captchaConsequence->execute();
+		$this->getCaptchaConsequence( $parameters )->execute();
 
 		$this->assertTrue( $simpleCaptcha->shouldForceShowCaptcha() );
 		$this->assertEquals(
@@ -197,6 +158,24 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 				CaptchaConsequence::FILTER_ID_SESSION_KEY
 			)
 		);
+	}
+
+	private function getCaptchaConsequence( Parameters $parameters ): CaptchaConsequence {
+		return new CaptchaConsequence(
+			$parameters,
+			$this->getServiceContainer()->getHookContainer(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
+		);
+	}
+
+	private function assertForceCaptchaNotSet( SimpleCaptcha $simpleCaptcha ): void {
+		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
+		$this->assertFalse(
+			$this->getSession()->exists(
+				SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
+			)
+		);
+		$this->assertFalse( $this->getSession()->exists( CaptchaConsequence::FILTER_ID_SESSION_KEY ) );
 	}
 
 	private function getSession(): Session {

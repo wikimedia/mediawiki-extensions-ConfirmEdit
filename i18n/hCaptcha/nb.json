@@ -24,5 +24,6 @@
 	"hcaptcha-loading-indicator-label": "Vent mens vi laster inn skjemaet …",
 	"hcaptcha-missing-token": "Vi er ikke ferdige med å laste inn skjemaet. Vent noen sekunder og prøv igjen.",
 	"hcaptcha-noscript": "JavaScript er påkrevd for å fortsette. Skru på JavaScript i nettleserinnstillingene og last siden på nytt.",
-	"hcaptcha-force-show-captcha-edit": "Send inn skjemaet på nytt og fullfør utfordringen for å lagre redigeringen din."
+	"hcaptcha-force-show-captcha-edit": "Send inn skjemaet på nytt og fullfør utfordringen for å lagre redigeringen din.",
+	"hcaptcha-visual-editor-error-handler-warning": "Send inn skjemaet på nytt for å lagre endringen din."
 }

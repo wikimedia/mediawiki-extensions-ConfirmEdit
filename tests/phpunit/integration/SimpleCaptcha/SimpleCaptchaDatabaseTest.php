@@ -117,6 +117,23 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		$testObject->editShowCaptcha( new EditPage( $article ) );
 	}
 
+	public function testEditShowCaptchaReRendersAfterSolvedCaptchaConsumed() {
+		// T428437: form re-rendered after a solved captcha was consumed (e.g. an
+		// AbuseFilter "warn") must still show a captcha for the next submission.
+		$this->overrideConfigValue( 'CaptchaTriggers', [ 'edit' => true ] );
+		\OOUI\Theme::setSingleton( new \OOUI\BlankTheme() );
+
+		$context = new DerivativeContext( RequestContext::getMain() );
+		$context->setOutput( new OutputPage( $context ) );
+		$article = Article::newFromTitle( $this->getExistingTestPage()->getTitle(), $context );
+
+		$captcha = new SimpleCaptcha();
+		TestingAccessWrapper::newFromObject( $captcha )->captchaSolved = true;
+		$captcha->editShowCaptcha( new EditPage( $article ) );
+
+		$this->assertStringContainsString( 'wpCaptchaWord', $context->getOutput()->getHTML() );
+	}
+
 	public function testConfirmEditMergedWhenShouldCheckReturnsFalse() {
 		$this->setTemporaryHook( 'ConfirmEditCanUserSkipCaptcha', static function ( $user, &$result ) {
 			$result = true;

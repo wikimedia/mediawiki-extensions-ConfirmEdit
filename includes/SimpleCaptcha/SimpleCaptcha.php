@@ -326,6 +326,10 @@ class SimpleCaptcha {
 		$page = $editPage->getArticle()->getPage();
 		$out = $context->getOutput();
 		$key = CacheKeyHelper::getKeyForPage( $page );
+		// Re-rendering the form means the save was aborted (e.g. AbuseFilter "warn",
+		// T428437) and the solved captcha's answer was used; clear the solved
+		// state so triggersCaptcha() returns true for the next submission
+		$this->setCaptchaSolved( null );
 		if ( isset( $this->activatedCaptchas[$key] ) ||
 			$this->shouldCheck( $page, '', '', $context )
 		) {

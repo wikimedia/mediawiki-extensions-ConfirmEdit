@@ -867,18 +867,37 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	public function testPassCaptchaForceShowChallengeGate(
 		?string $solvedCaptchaSiteKey,
 		bool $forceShow,
-		bool $paramPresent,
+		bool $tokenPresent,
+		bool $forceShowParamPresent,
 		bool $expectedResult,
 		?string $expectedError
 	): void {
-		$request = $paramPresent
+		$request = $forceShowParamPresent
 			? new FauxRequest( [ 'wgConfirmEditForceShowCaptcha' => '1' ] )
 			: new FauxRequest( [] );
 		RequestContext::getMain()->setRequest( $request );
 
+		if ( $solvedCaptchaSiteKey === null ) {
+			$mwHttpRequest = $this->createMock( MWHttpRequest::class );
+			$mwHttpRequest->method( 'execute' )
+				->willReturn( Status::newGood() );
+			$mwHttpRequest->method( 'getStatus' )
+				->willReturn( 200 );
+			$mwHttpRequest->method( 'getContent' )
+				->willReturn( FormatJson::encode( [
+					'success' => true,
+					'sitekey' => 'some-sitekey'
+				] ) );
+			$this->installMockHttp( $mwHttpRequest );
+		}
+
 		$hCaptcha = new HCaptcha();
+		$hCaptcha->setConfig( [
+			'HCaptchaSiteKey' => 'some-sitekey',
+			'HCaptchaAlwaysChallengeSiteKey' => 'always-challenge',
+		] );
 		$wrapper = TestingAccessWrapper::newFromObject( $hCaptcha );
-		if ( $solvedCaptchaSiteKey !== null ) {
+		if ( $solvedCaptchaSiteKey ) {
 			$wrapper->setCaptchaSolved( true );
 			$wrapper->solvedCaptchaSiteKey = $solvedCaptchaSiteKey;
 		}
@@ -887,7 +906,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		}
 
 		$user = $this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' );
-		$result = $wrapper->passCaptcha( '', '', $user );
+		$result = $wrapper->passCaptcha( '', $tokenPresent ? 'token' : '', $user );
 
 		$this->assertSame( $expectedResult, $result );
 		$this->assertSame( $expectedError, $hCaptcha->getError() );
@@ -898,58 +917,74 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			'siteKey=set, forceShow=true, param=absent' => [
 				'solvedCaptchaSiteKey' => 'some-sitekey',
 				'forceShow' => true,
-				'paramPresent' => false,
+				'tokenPresent' => true,
+				'forceShowParamPresent' => false,
 				'expectedResult' => false,
 				'expectedError' => 'forceshowcaptcha',
 			],
 			'siteKey=set, forceShow=true, param=present' => [
-				'solvedCaptchaSiteKey' => 'some-sitekey',
+				'solvedCaptchaSiteKey' => 'always-challenge',
 				'forceShow' => true,
-				'paramPresent' => true,
+				'tokenPresent' => true,
+				'forceShowParamPresent' => true,
 				'expectedResult' => true,
 				'expectedError' => null,
 			],
 			'siteKey=set, forceShow=false, param=absent' => [
 				'solvedCaptchaSiteKey' => 'some-sitekey',
 				'forceShow' => false,
-				'paramPresent' => false,
+				'tokenPresent' => true,
+				'forceShowParamPresent' => false,
 				'expectedResult' => true,
 				'expectedError' => null,
 			],
 			'siteKey=set, forceShow=false, param=present' => [
 				'solvedCaptchaSiteKey' => 'some-sitekey',
 				'forceShow' => false,
-				'paramPresent' => true,
+				'tokenPresent' => true,
+				'forceShowParamPresent' => true,
 				'expectedResult' => true,
 				'expectedError' => null,
 			],
 			'siteKey=null, forceShow=true, param=absent' => [
 				'solvedCaptchaSiteKey' => null,
 				'forceShow' => true,
-				'paramPresent' => false,
+				'tokenPresent' => false,
+				'forceShowParamPresent' => false,
 				'expectedResult' => false,
 				'expectedError' => 'missing-token',
 			],
 			'siteKey=null, forceShow=true, param=present' => [
 				'solvedCaptchaSiteKey' => null,
 				'forceShow' => true,
-				'paramPresent' => true,
+				'tokenPresent' => false,
+				'forceShowParamPresent' => true,
 				'expectedResult' => false,
 				'expectedError' => 'missing-token',
 			],
 			'siteKey=null, forceShow=false, param=absent' => [
 				'solvedCaptchaSiteKey' => null,
 				'forceShow' => false,
-				'paramPresent' => false,
+				'tokenPresent' => false,
+				'forceShowParamPresent' => false,
 				'expectedResult' => false,
 				'expectedError' => 'missing-token',
 			],
 			'siteKey=null, forceShow=false, param=present' => [
 				'solvedCaptchaSiteKey' => null,
 				'forceShow' => false,
-				'paramPresent' => true,
+				'tokenPresent' => false,
+				'forceShowParamPresent' => true,
 				'expectedResult' => false,
 				'expectedError' => 'missing-token',
+			],
+			'siteKey=null, forceShow=true, param=missing, token=set' => [
+				'solvedCaptchaSiteKey' => null,
+				'forceShow' => true,
+				'tokenPresent' => true,
+				'forceShowParamPresent' => false,
+				'expectedResult' => false,
+				'expectedError' => 'forceshowcaptcha',
 			],
 		];
 	}
@@ -1235,7 +1270,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				true,
 				'normal-key',
 				false,
-				'sitekey-mismatch'
+				'forceshowcaptcha'
 			],
 			'Force show - validates against global when challenge key not set' => [
 				'edit',

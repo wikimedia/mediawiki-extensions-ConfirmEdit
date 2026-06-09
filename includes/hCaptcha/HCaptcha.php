@@ -239,8 +239,24 @@ class HCaptcha extends SimpleCaptcha {
 
 		$json = $this->callSiteVerify( $token, $user, $webRequest );
 
-		if ( $json === false ||
-			!$this->hasValidKey( $webRequest, $token, $json, $user ) ) {
+		if ( $json === false ) {
+			return false;
+		}
+
+		// If force showing a CAPTCHA and the always challenge sitekey was not used, return the 'forceshowcaptcha'
+		// error without calling ::hasValidKey to avoid logging a sitekey-mismatch error
+		if (
+			$this->shouldForceShowCaptcha() &&
+			!in_array( $json['sitekey'] ?? null, $this->getAllowedSiteKeysForCurrentAction(), true ) &&
+			in_array( $json['sitekey'] ?? null, $this->getAllSiteKeysForCurrentAction(), true )
+		) {
+			$this->error = 'forceshowcaptcha';
+			$this->setCaptchaSolved( false );
+			return false;
+		}
+
+		if ( !$this->hasValidKey( $webRequest, $token, $json, $user ) ) {
+			$this->setCaptchaSolved( false );
 			return false;
 		}
 
@@ -758,20 +774,26 @@ class HCaptcha extends SimpleCaptcha {
 			// Fall through to normal mode behavior
 		}
 
-		// For normal mode, return the primary SiteKey for the current action
-		// as well as any additional keys listed as valid for it.
+		// For normal mode, return all sitekeys that are allowed for the action (including
+		// the always challenge key)
+		return $this->getAllSiteKeysForCurrentAction();
+	}
+
+	/**
+	 * Returns the list of all possible sitekeys that are configured for the current action.
+	 *
+	 * To get a list of sitekeys that are considered valid for this request, then use
+	 * {@link self::getAllowedSiteKeysForCurrentAction()} for that.
+	 *
+	 * @return string[]
+	 */
+	private function getAllSiteKeysForCurrentAction(): array {
 		$allowedKeys = array_merge(
-			// Use getPrimarySiteKey() which handles fallback to global config
 			[ $this->getPrimarySiteKey() ],
-			// Include HCaptchaAlwaysChallengeSiteKey, because the second POST
-			// after an AbuseFilter challenge will be using this SiteKey
-			[ $triggerConfig['HCaptchaAlwaysChallengeSiteKey'] ?? '' ],
-			// Retrieve any additional key listed as allowed for the requested action
-			// (i.e. those at self::getConfig()['HCaptchaAdditionalValidSiteKeys']).
-			$triggerConfig['HCaptchaAdditionalValidSiteKeys'] ?? []
+			[ $this->getConfig()['HCaptchaAlwaysChallengeSiteKey'] ?? '' ],
+			$this->getConfig()['HCaptchaAdditionalValidSiteKeys'] ?? []
 		);
 
-		// Remove duplicates and empty values, if any
 		return array_values( array_filter( array_unique( $allowedKeys ) ) );
 	}
 

@@ -9,4 +9,3 @@ composer.lock
 .eslintcache
 
 /.stylelintcache
-/tests/selenium/log

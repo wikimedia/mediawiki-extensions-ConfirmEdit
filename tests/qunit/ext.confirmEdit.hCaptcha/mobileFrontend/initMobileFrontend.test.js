@@ -726,6 +726,62 @@ QUnit.test.each(
 );
 
 QUnit.test(
+	'handleCaptcha shows a generic error notification for repeated known errors',
+	async function ( assert ) {
+		const mobileConfig = {
+			HCaptchaEnabledInMobileFrontend: false,
+			MobileHCaptchaAbuseFilterEnabled: true,
+			HCaptchaSiteKey: 'hCaptcha-site-key'
+		};
+
+		initMobileFrontend( 'mobilefrontendeditor', mobileConfig, this.window );
+
+		const editorEvent = this.sandbox.stub();
+		editorEvent.abort = this.sandbox.stub();
+		editorEvent.stop = this.sandbox.stub();
+		editorEvent.setTemplate = this.sandbox.stub();
+
+		const captchaDetails = {
+			type: 'hcaptcha',
+			error: 'sitekey-mismatch',
+			key: 'details-site-key'
+		};
+
+		const $captchaContainer = this.sandbox.stub();
+		$captchaContainer.find = this.sandbox.stub();
+
+		mw.hook( this.mfHookName( 'handleCaptcha' ) ).fire(
+			editorEvent,
+			captchaDetails,
+			$captchaContainer
+		);
+		await this.waitOneTick();
+
+		assert.true(
+			editorEvent.stop.calledOnce,
+			'Stops the the first save attempt'
+		);
+
+		mw.hook( this.mfHookName( 'handleCaptcha' ) ).fire(
+			editorEvent,
+			captchaDetails,
+			$captchaContainer
+		);
+		await this.waitOneTick();
+
+		assert.true(
+			editorEvent.abort.calledOnce,
+			'Aborts the second save attempt'
+		);
+		assert.strictEqual(
+			editorEvent.abort.firstCall.args[ 0 ],
+			'(hcaptcha-generic-error)',
+			'Provides the relevant error message for the abort'
+		);
+	}
+);
+
+QUnit.test(
 	'handleCaptcha shows a generic error notification for unhandled errors',
 	async function ( assert ) {
 		const mobileConfig = {
@@ -737,7 +793,7 @@ QUnit.test(
 		initMobileFrontend( 'mobilefrontendeditor', mobileConfig, this.window );
 
 		const editorEvent = this.sandbox.stub();
-		editorEvent.stop = this.sandbox.stub();
+		editorEvent.abort = this.sandbox.stub();
 		editorEvent.setTemplate = this.sandbox.stub();
 
 		const captchaDetails = {
@@ -757,17 +813,13 @@ QUnit.test(
 		await this.waitOneTick();
 
 		assert.true(
-			editorEvent.stop.calledOnce,
-			'Stops the current save attempt'
-		);
-		assert.true(
-			editorEvent.setTemplate.calledOnce,
-			'Injects captcha panel template'
+			editorEvent.abort.calledOnce,
+			'Aborts the current save attempt'
 		);
 		assert.strictEqual(
-			editorEvent.setTemplate.firstCall.args[ 0 ],
-			'captcha-panel',
-			'Targets captcha panel template slot'
+			editorEvent.abort.firstCall.args[ 0 ],
+			'(hcaptcha-generic-error)',
+			'Provides the relevant error message for the abort'
 		);
 	}
 );

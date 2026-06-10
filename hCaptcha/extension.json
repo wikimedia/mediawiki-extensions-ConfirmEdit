@@ -23,7 +23,9 @@
 			"services": [
 				"MainConfig",
 				"HookContainer",
-				"UserFactory"
+				"UserFactory",
+				"ConfirmEditHCaptchaBlocksLookup",
+				"TitleFactory"
 			]
 		}
 	],

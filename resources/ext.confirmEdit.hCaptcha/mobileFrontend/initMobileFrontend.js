@@ -100,14 +100,14 @@ module.exports = function (
 			// page is shown after navigating directly with action=submit (which
 			// shows an error page instead of the drawer) is handled the same
 			// way as in the Desktop editor.
-			const blockedIpEditingScoreCollectionConfig = mw.config.get(
-				'wgHCaptchaBlockedIpEditingScoreCollectionConfig'
+			const blockedIpEditingScoreCollectionSiteKey = mw.config.get(
+				'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey'
 			);
 
-			if ( blockedIpEditingScoreCollectionConfig ) {
+			if ( blockedIpEditingScoreCollectionSiteKey ) {
 				RiskScoreCollector.collectRiskScoreForBlockedUser(
 					windowObject,
-					blockedIpEditingScoreCollectionConfig
+					blockedIpEditingScoreCollectionSiteKey
 				);
 			}
 		} );

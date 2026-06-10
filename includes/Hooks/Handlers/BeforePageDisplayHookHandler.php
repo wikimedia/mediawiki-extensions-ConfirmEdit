@@ -11,6 +11,7 @@ use MediaWiki\Config\Config;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
 use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\GlobalBlocking\GlobalBlock;
@@ -25,14 +26,14 @@ use MediaWiki\Output\OutputPage;
  * can run client-side. On a blocked Special:CreateAccount submission, reuses
  * the token already submitted with the form to obtain a score server-side.
  */
-class BeforePageDisplayHookHandler extends AbstractCaptchaHandler implements BeforePageDisplayHook {
+class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 
 	public function __construct(
-		Config $config,
-		CaptchaFactory $captchaFactory,
+		private readonly Config $config,
+		private readonly CaptchaFactory $captchaFactory,
+		private readonly HCaptchaBlocksLookup $blocksLookup,
 		private readonly HookContainer $hookContainer,
 	) {
-		parent::__construct( $config, $captchaFactory );
 	}
 
 	/** @inheritDoc */
@@ -63,19 +64,16 @@ class BeforePageDisplayHookHandler extends AbstractCaptchaHandler implements Bef
 			return;
 		}
 
-		$blocks = $this->getBlocksRequiringHCaptcha(
+		// Only IP/range blocks trigger risk-score collection; other block types must be ignored.
+		$hasBlocks = $this->blocksLookup->hasBlocksRequiringHCaptcha(
 			$out->getTitle(),
 			$out->getUser()->getBlock()
 		);
 
-		if ( count( $blocks['local'] ) || count( $blocks['global'] ) ) {
+		if ( $hasBlocks ) {
 			$out->addModules( 'ext.confirmEdit.hCaptcha' );
 			$out->addJsConfigVars( [
-				'wgHCaptchaBlockedIpEditingScoreCollectionConfig' => [
-					'siteKey' => $siteKey,
-					'localBlockIds' => $this->listBlockIds( $blocks['local'] ),
-					'globalBlockIds' => $this->listBlockIds( $blocks['global'] ),
-				],
+				'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey' => $siteKey,
 			] );
 		}
 	}
@@ -109,8 +107,8 @@ class BeforePageDisplayHookHandler extends AbstractCaptchaHandler implements Bef
 			return;
 		}
 
-		$localBlockIds = $this->listBlockIds( $blocks['local'] );
-		$globalBlockIds = $this->listBlockIds( $blocks['global'] );
+		$localBlockIds = $this->blocksLookup->listBlockIds( $blocks['local'] );
+		$globalBlockIds = $this->blocksLookup->listBlockIds( $blocks['global'] );
 		$hookRunner = new HookRunner( $this->hookContainer );
 
 		// Defer the siteverify HTTP call until after the response is sent.

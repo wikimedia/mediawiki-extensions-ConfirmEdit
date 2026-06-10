@@ -20,11 +20,11 @@ module.exports = () => {
 	 * @return {void}
 	 */
 	ve.init.mw.HCaptchaCollectRiskScore.static.onActivationComplete = function ( target ) {
-		const config = mw.config.get( 'wgHCaptchaBlockedIpEditingScoreCollectionConfig' );
-		if ( !target.canEdit && config ) {
+		const siteKey = mw.config.get( 'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey' );
+		if ( !target.canEdit && siteKey ) {
 			RiskScoreCollector.collectRiskScoreForBlockedUser(
 				window,
-				config
+				siteKey
 			);
 		}
 	};

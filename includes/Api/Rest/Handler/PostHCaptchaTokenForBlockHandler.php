@@ -8,6 +8,7 @@ use BadMethodCallException;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
 use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Logger\LoggerFactory;
@@ -15,7 +16,9 @@ use MediaWiki\Permissions\Authority;
 use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
+use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\UserFactory;
+use MediaWiki\User\UserIdentity;
 use Psr\Log\LoggerInterface;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -28,6 +31,8 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 		private readonly Config $config,
 		private readonly HookContainer $hookContainer,
 		private readonly UserFactory $userFactory,
+		private readonly HCaptchaBlocksLookup $blocksLookup,
+		private readonly TitleFactory $titleFactory,
 	) {
 		$this->logger = LoggerFactory::getInstance( 'captcha' );
 	}
@@ -40,40 +45,58 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 		$this->assertHasAccess( $authority );
 
 		$body = $this->getValidatedBody() ?? [];
-		$localBlockIds = $body['localBlockIds'] ?? [];
-		$globalBlockIds = $body['globalBlockIds'] ?? [];
 		$riskScoreToken = $body['riskScoreToken'] ?? '';
-		if ( !$riskScoreToken || ( !$localBlockIds && !$globalBlockIds ) ) {
+		if ( !$riskScoreToken ) {
 			$this->logger->warning(
 				'hCaptcha block token request received with missing required params.',
-				[
-					'hasRiskScoreToken' => ( $riskScoreToken !== '' ),
-					'hasLocalBlockIds' => ( count( $localBlockIds ) > 0 ),
-					'hasGlobalBlockIds' => ( count( $globalBlockIds ) > 0 ),
-				]
+				[ 'hasRiskScoreToken' => false ]
 			);
-			$response = $this->getResponseFactory()->create();
-			$response->setStatus( 204 );
-			return $response;
+
+			return $this->newNoContentResponse();
 		}
 
 		$siteKey = $this->config->get( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey' );
 		if ( !$siteKey ) {
 			$this->logger->info(
 				'hCaptcha block token request received but no sitekey is configured.',
-				[
-					'hasRiskScoreToken' => true,
-					'hasLocalBlockIds' => count( $localBlockIds ) > 0,
-					'hasGlobalBlockIds' => count( $globalBlockIds ) > 0,
-				]
+				[ 'hasRiskScoreToken' => true ]
 			);
-			$response = $this->getResponseFactory()->create();
-			$response->setStatus( 204 );
-			return $response;
+
+			return $this->newNoContentResponse();
 		}
 
+		$blockIds = $this->resolveBlockIds( $authority, (string)( $body['page'] ?? '' ) );
+		if ( $blockIds === null ) {
+			return $this->newNoContentResponse();
+		}
+
+		return $this->dispatchRiskScore(
+			$riskScoreToken,
+			$siteKey,
+			$authority->getUser(),
+			$blockIds['local'],
+			$blockIds['global'],
+			trim( $body['pageViewId'] ?? '' )
+		);
+	}
+
+	/**
+	 * @param string $riskScoreToken
+	 * @param string $siteKey
+	 * @param UserIdentity $user
+	 * @param int[] $localBlockIds
+	 * @param int[] $globalBlockIds
+	 * @param string $pageViewId
+	 */
+	private function dispatchRiskScore(
+		string $riskScoreToken,
+		string $siteKey,
+		UserIdentity $user,
+		array $localBlockIds,
+		array $globalBlockIds,
+		string $pageViewId
+	): Response {
 		$request = RequestContext::getMain()->getRequest();
-		$user = $authority->getUser();
 		$riskScore = $this->getHCaptcha()->retrieveRiskScore(
 			$request,
 			$riskScoreToken,
@@ -86,9 +109,8 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 				'hCaptcha siteverify failed when collecting risk score for blocked user.',
 				[ 'user' => $user->getName() ]
 			);
-			$response = $this->getResponseFactory()->create();
-			$response->setStatus( 204 );
-			return $response;
+
+			return $this->newNoContentResponse();
 		}
 
 		$hookRunner = new HookRunner( $this->hookContainer );
@@ -97,14 +119,37 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 			$localBlockIds,
 			$globalBlockIds,
 			$user,
-			trim( $body['pageViewId'] ?? '' ),
+			$pageViewId,
 			$request
 		);
 
+		return $this->newNoContentResponse();
+	}
+
+	private function newNoContentResponse(): Response {
 		$response = $this->getResponseFactory()->create();
 		$response->setStatus( 204 );
 
 		return $response;
+	}
+
+	/**
+	 * @return array{local: int[], global: int[]}|null
+	 */
+	private function resolveBlockIds( Authority $authority, string $page ): ?array {
+		$title = $this->titleFactory->newFromText( $page );
+		if ( !$title ) {
+			return null;
+		}
+
+		$blocks = $this->blocksLookup->getBlocksRequiringHCaptcha( $title, $authority->getBlock() );
+		$localBlockIds = $this->blocksLookup->listBlockIds( $blocks['local'] );
+		$globalBlockIds = $this->blocksLookup->listBlockIds( $blocks['global'] );
+		if ( !$localBlockIds && !$globalBlockIds ) {
+			return null;
+		}
+
+		return [ 'local' => $localBlockIds, 'global' => $globalBlockIds ];
 	}
 
 	/** @inheritDoc */
@@ -120,16 +165,9 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 			],
-			'localBlockIds' => [
+			'page' => [
 				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'integer',
-				ParamValidator::PARAM_ISMULTI => true,
-				ParamValidator::PARAM_REQUIRED => false,
-			],
-			'globalBlockIds' => [
-				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'integer',
-				ParamValidator::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 			],
 		];

@@ -124,7 +124,8 @@
 			"services": [
 				"ExtensionRegistry",
 				"MainConfig",
-				"ConfirmEditCaptchaFactory"
+				"ConfirmEditCaptchaFactory",
+				"ConfirmEditHCaptchaBlocksLookup"
 			],
 			"optional_services": [
 				"VisualEditor.VisualEditorAvailabilityLookup",
@@ -136,6 +137,7 @@
 			"services": [
 				"MainConfig",
 				"ConfirmEditCaptchaFactory",
+				"ConfirmEditHCaptchaBlocksLookup",
 				"HookContainer"
 			]
 		},
@@ -388,7 +390,8 @@
 		]
 	},
 	"TestAutoloadClasses": {
-		"MediaWiki\\Extension\\ConfirmEdit\\Tests\\Integration\\CaptchaTestHelperTrait": "tests/phpunit/integration/CaptchaTestHelperTrait.php"
+		"MediaWiki\\Extension\\ConfirmEdit\\Tests\\Integration\\CaptchaTestHelperTrait": "tests/phpunit/integration/CaptchaTestHelperTrait.php",
+		"MediaWiki\\Extension\\ConfirmEdit\\Tests\\Integration\\HCaptchaBlockMockTrait": "tests/phpunit/integration/HCaptchaBlockMockTrait.php"
 	},
 	"manifest_version": 2
 }

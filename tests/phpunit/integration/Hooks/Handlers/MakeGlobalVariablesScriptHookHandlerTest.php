@@ -98,6 +98,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			$mockVisualEditorAvailabilityLookup,
 			$mockMobileContext
 		);
@@ -186,6 +187,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			null,
 			$mockMobileContext
 		);
@@ -244,17 +246,17 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			null,
 			$mockMobileContext
 		);
 		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
 
 		$jsConfigVars = $out->getJsConfigVars();
-		$this->assertArrayHasKey( 'wgHCaptchaBlockedIpEditingScoreCollectionConfig', $jsConfigVars );
-		$config = $jsConfigVars['wgHCaptchaBlockedIpEditingScoreCollectionConfig'];
-		$this->assertSame( 'passive-site-key', $config['siteKey'] );
-		$this->assertSame( [ 42 ], $config['localBlockIds'] );
-		$this->assertSame( [], $config['globalBlockIds'] );
+		$this->assertSame(
+			'passive-site-key',
+			$jsConfigVars['wgHCaptchaBlockedIpEditingScoreCollectionSiteKey']
+		);
 	}
 
 	public function testMakeGlobalVariablesScriptBlockedIpEditingConfigIncludesBlockIdsForVE(): void {
@@ -304,17 +306,17 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			$mockVisualEditorAvailabilityLookup,
 			null
 		);
 		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
 
 		$jsConfigVars = $out->getJsConfigVars();
-		$this->assertArrayHasKey( 'wgHCaptchaBlockedIpEditingScoreCollectionConfig', $jsConfigVars );
-		$config = $jsConfigVars['wgHCaptchaBlockedIpEditingScoreCollectionConfig'];
-		$this->assertSame( 'passive-site-key', $config['siteKey'] );
-		$this->assertSame( [ 42 ], $config['localBlockIds'] );
-		$this->assertSame( [], $config['globalBlockIds'] );
+		$this->assertSame(
+			'passive-site-key',
+			$jsConfigVars['wgHCaptchaBlockedIpEditingScoreCollectionSiteKey']
+		);
 		$this->assertContains( 'ext.confirmEdit.hCaptcha', $out->getModules() );
 	}
 
@@ -358,13 +360,14 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			$mockVisualEditorAvailabilityLookup,
 			null
 		);
 		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
 
 		$this->assertArrayNotHasKey(
-			'wgHCaptchaBlockedIpEditingScoreCollectionConfig',
+			'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey',
 			$out->getJsConfigVars()
 		);
 	}
@@ -411,13 +414,14 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			null,
 			$mockMobileContext
 		);
 		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
 
 		$this->assertArrayNotHasKey(
-			'wgHCaptchaBlockedIpEditingScoreCollectionConfig',
+			'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey',
 			$out->getJsConfigVars()
 		);
 	}

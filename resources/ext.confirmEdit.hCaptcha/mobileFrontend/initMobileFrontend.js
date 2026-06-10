@@ -39,6 +39,8 @@ module.exports = function (
 	const RiskScoreCollector = require( '../RiskScoreCollector.js' );
 	const { loadHCaptcha } = require( '../utils.js' );
 
+	let alreadyAutoSubmittedForKnownError = false;
+
 	const hCaptchaPanelTemplate =
 		`<div id="h-captcha-container">
 			<div id="h-captcha" class="h-captcha" data-size="invisible"
@@ -117,6 +119,7 @@ module.exports = function (
 
 		mw.hook( 'mobileFrontend.sourceEditor.saveBegin' ).add( ( e ) => {
 			hookPayload = e;
+			alreadyAutoSubmittedForKnownError = false;
 
 			// Skip early captcha when wgConfirmEditForceShowCaptcha is set: the save
 			// will fail with a forceshowcaptcha error and handleCaptcha will show
@@ -168,25 +171,21 @@ module.exports = function (
 			}
 
 			const knownErrors = [ 'missing-token', 'sitekey-mismatch', 'forceshowcaptcha' ];
-			if ( details.error !== null && !knownErrors.includes( details.error ) ) {
-				const normalizedError = typeof details.error === 'string' ? details.error : 'unknown';
-				mw.log.warn( 'ConfirmEdit: unhandled hCaptcha error in handleCaptcha:', normalizedError );
-				mw.errorLogger.logError(
-					new Error( `Unhandled hCaptcha error in handleCaptcha: ${ normalizedError }` ),
-					'error.confirmEdit.hcaptcha'
-				);
-				// Show the error in the captcha panel by stopping the save flow and
-				// rendering an error message there, since both mw.notify
-				// and #error-notice-container are not visible
-				payload.stop();
-				payload.setTemplate(
-					'captcha-panel',
-					'<div class="mw-message-box mw-message-box-error">' +
-						mw.html.escape( mw.message( 'hcaptcha-generic-error' ).text() ) +
-					'</div>',
-					{}
-				);
-				return;
+			if ( details.error !== null ) {
+				const errorKnown = knownErrors.includes( details.error );
+				if ( !errorKnown || alreadyAutoSubmittedForKnownError ) {
+					payload.abort( mw.html.escape( mw.message( 'hcaptcha-generic-error' ).text() ) );
+					if ( !errorKnown ) {
+						const normalizedError = typeof details.error === 'string' ? details.error : 'unknown';
+						mw.log.warn( 'ConfirmEdit: unhandled hCaptcha error in handleCaptcha:', normalizedError );
+						mw.errorLogger.logError(
+							new Error( `Unhandled hCaptcha error in handleCaptcha: ${ normalizedError }` ),
+							'error.confirmEdit.hcaptcha'
+						);
+					}
+					return;
+				}
+				alreadyAutoSubmittedForKnownError = true;
 			}
 
 			hookPayload = payload;

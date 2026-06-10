@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
@@ -21,23 +22,16 @@ use MobileContext;
  * Used by the VisualEditor and MobileFrontend integrations to determine if they need to display hCaptcha to the
  * user.
  */
-class MakeGlobalVariablesScriptHookHandler extends AbstractCaptchaHandler implements MakeGlobalVariablesScriptHook {
+class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptHook {
 
-	/**
-	 * @param ExtensionRegistry $extensionRegistry
-	 * @param Config $config
-	 * @param CaptchaFactory $captchaFactory
-	 * @param VisualEditorAvailabilityLookup|null $visualEditorAvailabilityLookup
-	 * @param MobileContext|null $mobileContext
-	 */
 	public function __construct(
 		private readonly ExtensionRegistry $extensionRegistry,
-		Config $config,
-		CaptchaFactory $captchaFactory,
-		private $visualEditorAvailabilityLookup = null,
-		private $mobileContext = null
+		private readonly Config $config,
+		private readonly CaptchaFactory $captchaFactory,
+		private readonly HCaptchaBlocksLookup $blocksLookup,
+		private readonly ?VisualEditorAvailabilityLookup $visualEditorAvailabilityLookup = null,
+		private readonly ?MobileContext $mobileContext = null
 	) {
-		parent::__construct( $config, $captchaFactory );
 	}
 
 	/** @inheritDoc */
@@ -141,19 +135,14 @@ class MakeGlobalVariablesScriptHookHandler extends AbstractCaptchaHandler implem
 			// For MobileFrontend and VisualEditor, we need to always provide
 			// the key used for blocked edit notices, since they may be shown
 			// without a new page load.
-			$blocks = $this->getBlocksRequiringHCaptcha(
+			// Only IP/range blocks trigger risk-score collection; other block types must be ignored.
+			$hasBlocks = $this->blocksLookup->hasBlocksRequiringHCaptcha(
 				$out->getTitle(),
 				$out->getUser()->getBlock()
 			);
-			$localBlockIds = $this->listBlockIds( $blocks['local'] );
-			$globalBlockIds = $this->listBlockIds( $blocks['global'] );
-			if ( $localBlockIds || $globalBlockIds ) {
+			if ( $hasBlocks ) {
 				$out->addJsConfigVars( [
-					'wgHCaptchaBlockedIpEditingScoreCollectionConfig' => [
-						'siteKey' => $siteKey,
-						'localBlockIds' => $localBlockIds,
-						'globalBlockIds' => $globalBlockIds,
-					]
+					'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey' => $siteKey
 				] );
 			}
 		}

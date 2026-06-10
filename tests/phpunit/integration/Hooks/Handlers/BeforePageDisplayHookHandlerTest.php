@@ -5,18 +5,15 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Hooks\Handlers;
 
 use InvalidArgumentException;
-use MediaWiki\Block\AbstractBlock;
 use MediaWiki\Block\AnonIpBlockTarget;
 use MediaWiki\Block\Block;
-use MediaWiki\Block\BlockTarget;
-use MediaWiki\Block\CompositeBlock;
 use MediaWiki\Block\RangeBlockTarget;
-use MediaWiki\Block\SystemBlock;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\BeforePageDisplayHookHandler;
 use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\HCaptchaBlockMockTrait;
 use MediaWiki\Extension\GlobalBlocking\GlobalBlock;
 use MediaWiki\Http\MWHttpRequest;
 use MediaWiki\Json\FormatJson;
@@ -27,7 +24,6 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
 use MockHttpTrait;
-use PHPUnit\Framework\MockObject\MockObject;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -36,6 +32,7 @@ use Wikimedia\TestingAccessWrapper;
  */
 class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 	use CaptchaTestHelperTrait;
+	use HCaptchaBlockMockTrait;
 	use MockHttpTrait;
 
 	protected function tearDown(): void {
@@ -48,8 +45,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 	public function testOnBeforePageDisplay(
 		bool $expectedModulesAdded,
 		?string $expectedSiteKey,
-		array $expectedLocalBlockIds,
-		array $expectedGlobalBlockIds,
 		string $action,
 		bool $pageExists,
 		string $editCaptchaClass,
@@ -128,6 +123,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		$objectUnderTest = new BeforePageDisplayHookHandler(
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			$this->getServiceContainer()->getHookContainer(),
 		);
 		$objectUnderTest->onBeforePageDisplay(
@@ -138,26 +134,21 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		if ( $expectedModulesAdded ) {
 			$vars = $out->getJsConfigVars();
 
-			$this->assertArrayHasKey(
-				'wgHCaptchaBlockedIpEditingScoreCollectionConfig',
-				$vars
-			);
 			$this->assertContains(
 				'ext.confirmEdit.hCaptcha',
 				$out->getModules()
 			);
-
-			$config = $vars['wgHCaptchaBlockedIpEditingScoreCollectionConfig'];
-			$this->assertSame( $expectedSiteKey, $config['siteKey'] );
-			$this->assertSame( $expectedLocalBlockIds, $config['localBlockIds'] );
-			$this->assertSame( $expectedGlobalBlockIds, $config['globalBlockIds'] );
+			$this->assertSame(
+				$expectedSiteKey,
+				$vars['wgHCaptchaBlockedIpEditingScoreCollectionSiteKey']
+			);
 		} else {
 			$this->assertNotContains(
 				'ext.confirmEdit.hCaptcha',
 				$out->getModules()
 			);
 			$this->assertArrayNotHasKey(
-				'wgHCaptchaBlockedIpEditingScoreCollectionConfig',
+				'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey',
 				$out->getJsConfigVars()
 			);
 		}
@@ -167,8 +158,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The action is not an edit' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'view',
 			'pageExists' => true,
 			'editCaptchaClass' => 'HCaptcha',
@@ -181,8 +170,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The captcha class is not hCaptcha' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'SimpleCaptcha',
@@ -195,8 +182,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The user can skip captchas' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -209,8 +194,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The user is not blocked' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -223,8 +206,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The block does not apply to the current title' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -237,8 +218,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'The block type is neither an IP or IP range block' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -251,8 +230,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'A composite block with no IP block child' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -265,8 +242,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'There is an IP block but no passive site key is configured' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -279,8 +254,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'IP block, a global passive mode key is set' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123 ],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -290,25 +263,9 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			'blockType' => 'ip',
 		];
 
-		yield 'Range block, a global passive mode key is set' => [
+		yield 'A composite block with an IP block child emits config' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123 ],
-			'expectedGlobalBlockIds' => [],
-			'action' => 'edit',
-			'pageExists' => false,
-			'editCaptchaClass' => 'HCaptcha',
-			'createCaptchaClass' => 'HCaptcha',
-			'passiveModeSiteKey' => 'passive-mode-global-key',
-			'userCanSkipCaptcha' => false,
-			'blockType' => 'range',
-		];
-
-		yield 'A composite block with an IP block child' => [
-			'expectedModulesAdded' => true,
-			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123 ],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -318,81 +275,9 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			'blockType' => 'composite_ip',
 		];
 
-		yield 'Composite block with a SystemBlock IP child' => [
-			'expectedModulesAdded' => true,
-			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123 ],
-			'expectedGlobalBlockIds' => [],
-			'action' => 'edit',
-			'pageExists' => false,
-			'editCaptchaClass' => 'HCaptcha',
-			'createCaptchaClass' => 'HCaptcha',
-			'passiveModeSiteKey' => 'passive-mode-global-key',
-			'userCanSkipCaptcha' => false,
-			'blockType' => 'composite_system_block',
-		];
-
-		yield 'Composite block with a GlobalBlock IP child' => [
-			'expectedModulesAdded' => true,
-			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [ 123 ],
-			'action' => 'edit',
-			'pageExists' => false,
-			'editCaptchaClass' => 'HCaptcha',
-			'createCaptchaClass' => 'HCaptcha',
-			'passiveModeSiteKey' => 'passive-mode-global-key',
-			'userCanSkipCaptcha' => false,
-			'blockType' => 'composite_global_block',
-		];
-
-		yield 'SystemBlock with an IP target' => [
-			'expectedModulesAdded' => true,
-			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123 ],
-			'expectedGlobalBlockIds' => [],
-			'action' => 'edit',
-			'pageExists' => false,
-			'editCaptchaClass' => 'HCaptcha',
-			'createCaptchaClass' => 'HCaptcha',
-			'passiveModeSiteKey' => 'passive-mode-global-key',
-			'userCanSkipCaptcha' => false,
-			'blockType' => 'system_block',
-		];
-
-		yield 'GlobalBlock with an IP target' => [
-			'expectedModulesAdded' => true,
-			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [ 123 ],
-			'action' => 'edit',
-			'pageExists' => false,
-			'editCaptchaClass' => 'HCaptcha',
-			'createCaptchaClass' => 'HCaptcha',
-			'passiveModeSiteKey' => 'passive-mode-global-key',
-			'userCanSkipCaptcha' => false,
-			'blockType' => 'global_block',
-		];
-
-		yield 'Partial GlobalBlock that does not apply to the current page' => [
-			'expectedModulesAdded' => false,
-			'expectedSiteKey' => null,
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [],
-			'action' => 'edit',
-			'pageExists' => false,
-			'editCaptchaClass' => 'HCaptcha',
-			'createCaptchaClass' => 'HCaptcha',
-			'passiveModeSiteKey' => 'passive-mode-global-key',
-			'userCanSkipCaptcha' => false,
-			'blockType' => 'global_block_partial',
-		];
-
 		yield '"create" captcha instance is used for non-existing pages' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123 ],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'SimpleCaptcha',
@@ -405,8 +290,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield '"create" captcha instance is not used for existing pages' => [
 			'expectedModulesAdded' => false,
 			'expectedSiteKey' => null,
-			'expectedLocalBlockIds' => [],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => true,
 			'editCaptchaClass' => 'SimpleCaptcha',
@@ -419,8 +302,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield 'IP block with action=submit loads modules' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123 ],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'submit',
 			'pageExists' => false,
 			'editCaptchaClass' => 'HCaptcha',
@@ -433,8 +314,6 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		yield '"edit" captcha instance is used for existing pages' => [
 			'expectedModulesAdded' => true,
 			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123 ],
-			'expectedGlobalBlockIds' => [],
 			'action' => 'edit',
 			'pageExists' => true,
 			'editCaptchaClass' => 'HCaptcha',
@@ -443,82 +322,23 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			'userCanSkipCaptcha' => false,
 			'blockType' => 'ip',
 		];
-
-		yield 'A composite block whose own target is an IP (inherited from first child) only returns child IDs' => [
-			'expectedModulesAdded' => true,
-			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123 ],
-			'expectedGlobalBlockIds' => [],
-			'action' => 'edit',
-			'pageExists' => false,
-			'editCaptchaClass' => 'HCaptcha',
-			'createCaptchaClass' => 'HCaptcha',
-			'passiveModeSiteKey' => 'passive-mode-global-key',
-			'userCanSkipCaptcha' => false,
-			'blockType' => 'composite_ip_with_ip_target',
-		];
-
-		yield 'A composite block with multiple IP block children' => [
-			'expectedModulesAdded' => true,
-			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123, 124 ],
-			'expectedGlobalBlockIds' => [],
-			'action' => 'edit',
-			'pageExists' => false,
-			'editCaptchaClass' => 'HCaptcha',
-			'createCaptchaClass' => 'HCaptcha',
-			'passiveModeSiteKey' => 'passive-mode-global-key',
-			'userCanSkipCaptcha' => false,
-			'blockType' => 'composite_multi_ip',
-		];
-
-		yield 'A composite block with both a local and a global IP block child' => [
-			'expectedModulesAdded' => true,
-			'expectedSiteKey' => 'passive-mode-global-key',
-			'expectedLocalBlockIds' => [ 123 ],
-			'expectedGlobalBlockIds' => [ 124 ],
-			'action' => 'edit',
-			'pageExists' => false,
-			'editCaptchaClass' => 'HCaptcha',
-			'createCaptchaClass' => 'HCaptcha',
-			'passiveModeSiteKey' => 'passive-mode-global-key',
-			'userCanSkipCaptcha' => false,
-			'blockType' => 'composite_mixed',
-		];
 	}
 
-	 /**
-	  * Creates a mock block for use in testOnBeforePageDisplay.
-	  *
-	  * Accepted $setup values:
-	  * - 'ip'             Site-wide IP block (AnonIpBlockTarget)
-	  * - 'range'          Site-wide range block (RangeBlockTarget)
-	  * - 'user'           User block (no IP target)
-	  * - 'ip_partial'     IP block that does not apply to the current title
-	  * - 'composite_ip'   CompositeBlock whose child is a site-wide IP block
-	  * - 'composite_user' CompositeBlock whose child is a user block (no IP)
-	  * - 'system_block'          SystemBlock with an IP target
-	  * - 'global_block'          GlobalBlock with an IP target (sitewide)
-	  * - 'global_block_partial'  GlobalBlock with an IP target that does not apply to the current page
-	  * - 'composite_system_block' CompositeBlock whose child is a SystemBlock
-	  *                            with an IP target
-	  * - 'composite_global_block' CompositeBlock whose child is a GlobalBlock
-	  *                            with an IP target
-	  * - 'composite_multi_ip'    CompositeBlock with two local IP blocks
-	  * - 'composite_mixed'       CompositeBlock with local and Global IP blocks
-	  * - 'composite_ip_with_ip_target' CompositeBlock whose own target is an IP
-	  *                            (as in production, inherited from first child),
-	  *                            to verify the composite's own ID is not returned
-	  */
+	/**
+	 * Creates a mock block for use in testOnBeforePageDisplay.
+	 *
+	 * Accepted $setup values:
+	 * - 'ip'             Site-wide IP block (AnonIpBlockTarget)
+	 * - 'user'           User block (no IP target)
+	 * - 'ip_partial'     IP block that does not apply to the current title
+	 * - 'composite_ip'   CompositeBlock whose child is a site-wide IP block
+	 * - 'composite_user' CompositeBlock whose child is a user block (no IP)
+	 */
 	private function createBlockMock( string $setup ): Block {
-		$mock = match ( $setup ) {
+		return match ( $setup ) {
 			'ip' => $this->createBlockMockWithTarget(
 				true,
 				$this->createMock( AnonIpBlockTarget::class )
-			),
-			'range' => $this->createBlockMockWithTarget(
-				true,
-				$this->createMock( RangeBlockTarget::class )
 			),
 			'user' => $this->createBlockMockWithTarget(
 				true,
@@ -543,149 +363,8 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 				null,
 				[ $this->createBlockMockWithTarget( true, null ) ]
 			),
-			'system_block' => $this->createBlockMockWithTarget(
-				false,
-				$this->createMock( AnonIpBlockTarget::class ),
-				SystemBlock::class
-			),
-			// The child's appliesToTitle returns false to prove it is never
-			// consulted for SystemBlock children.
-			'composite_system_block' => $this->createCompositeBlockMockWithTarget(
-				true,
-				null,
-				[
-					$this->createBlockMockWithTarget(
-						false,
-						$this->createMock( AnonIpBlockTarget::class ),
-						SystemBlock::class
-					)
-				]
-			),
-			'composite_ip_with_ip_target' => $this->createCompositeBlockMockWithTarget(
-				true,
-				$this->createMock( AnonIpBlockTarget::class ),
-				[
-					$this->createBlockMockWithTarget(
-						true,
-						$this->createMock( AnonIpBlockTarget::class )
-					)
-				]
-			),
-			'composite_multi_ip' => $this->createCompositeBlockMockWithTarget(
-				true,
-				null,
-				[
-					$this->createBlockMockWithTarget(
-						true,
-						$this->createMock( AnonIpBlockTarget::class )
-					),
-					$this->createBlockMockWithTarget(
-						true,
-						$this->createMock( RangeBlockTarget::class ),
-						AbstractBlock::class,
-						124
-					),
-				]
-			),
-			default => null,
+			default => throw new InvalidArgumentException( "Unknown setup: $setup" ),
 		};
-
-		if ( $mock ) {
-			return $mock;
-		}
-
-		// Next block types require GlobalBlocking to be installed
-		$this->markTestSkippedIfExtensionNotLoaded( 'GlobalBlocking' );
-
-		return match ( $setup ) {
-				'global_block' => $this->createBlockMockWithTarget(
-				true,
-				$this->createMock( AnonIpBlockTarget::class ),
-				GlobalBlock::class
-			),
-			'global_block_partial' => $this->createBlockMockWithTarget(
-				false,
-				$this->createMock( AnonIpBlockTarget::class ),
-				GlobalBlock::class
-			),
-			'composite_global_block' => $this->createCompositeBlockMockWithTarget(
-				true,
-				null,
-				[
-					$this->createBlockMockWithTarget(
-						true,
-						$this->createMock( AnonIpBlockTarget::class ),
-						GlobalBlock::class
-					)
-				]
-			),
-			'composite_mixed' => $this->createCompositeBlockMockWithTarget(
-				true,
-				null,
-				[
-					$this->createBlockMockWithTarget(
-						true,
-						$this->createMock( AnonIpBlockTarget::class )
-					),
-					$this->createBlockMockWithTarget(
-						true,
-						$this->createMock( AnonIpBlockTarget::class ),
-						GlobalBlock::class,
-						124
-					),
-				]
-			),
-			default => throw new InvalidArgumentException(
-				"Unknown setup: $setup"
-			)
-		};
-	}
-
-	/**
-	 * @return (MockObject&AbstractBlock)
-	 */
-	private function createBlockMockWithTarget(
-		bool $appliesToTitle,
-		?BlockTarget $target,
-		string $originalClassName = AbstractBlock::class,
-		int $id = 123
-	): object {
-		$block = $this->createMock( $originalClassName );
-		$block
-			->method( 'getId' )
-			->willReturn( $id );
-		$block
-			->method( 'appliesToTitle' )
-			->willReturn( $appliesToTitle );
-		// The same flag gates the createaccount-right check used by the
-		// account creation block tests.
-		$block
-			->method( 'appliesToRight' )
-			->willReturn( $appliesToTitle );
-		$block
-			->method( 'getTarget' )
-			->willReturn( $target );
-
-		return $block;
-	}
-
-	private function createCompositeBlockMockWithTarget(
-		bool $appliesToTitle,
-		?BlockTarget $target,
-		array $children
-	): object {
-		$composite = $this->createBlockMockWithTarget(
-			$appliesToTitle,
-			$target,
-			CompositeBlock::class,
-			456
-		);
-
-		$composite
-			->method( 'getOriginalBlocks' )
-			->willReturn( $children );
-
-		return $composite;
 	}
 
 	/**
@@ -800,6 +479,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		$handler = new BeforePageDisplayHookHandler(
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			$this->getServiceContainer()->getHookContainer(),
 		);
 		$handler->onBeforePageDisplay( $out, $this->createMock( Skin::class ) );
@@ -825,6 +505,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		$handler = new BeforePageDisplayHookHandler(
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			$this->getServiceContainer()->getHookContainer(),
 		);
 

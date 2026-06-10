@@ -19,13 +19,13 @@ function initEditorIntegrations() {
 	// calls the method for doing so without calling the methods to initialize
 	// support for the editing interfaces.
 	if ( config.HCaptchaEnterprise && config.HCaptchaSecureEnclave ) {
-		const blockedIpEditingScoreCollectionConfig = mw.config.get(
-			'wgHCaptchaBlockedIpEditingScoreCollectionConfig'
+		const blockedIpEditingScoreCollectionSiteKey = mw.config.get(
+			'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey'
 		);
-		if ( blockedIpEditingScoreCollectionConfig ) {
+		if ( blockedIpEditingScoreCollectionSiteKey ) {
 			RiskScoreCollector.collectRiskScoreForBlockedUser(
 				window,
-				blockedIpEditingScoreCollectionConfig
+				blockedIpEditingScoreCollectionSiteKey
 			);
 		}
 

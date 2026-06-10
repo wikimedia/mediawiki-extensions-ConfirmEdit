@@ -831,8 +831,8 @@ QUnit.test(
 	function ( assert ) {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
 		mw.config.set(
-			'wgHCaptchaBlockedIpEditingScoreCollectionConfig',
-			{ localBlockIds: [ 1, 2 ], globalBlockIds: [ 3 ], siteKey: 'test-site-key' }
+			'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey',
+			'test-site-key'
 		);
 
 		initMobileFrontend(
@@ -853,7 +853,7 @@ QUnit.test(
 		);
 		assert.deepEqual(
 			this.collectRiskScore.firstCall.args[ 1 ],
-			{ localBlockIds: [ 1, 2 ], globalBlockIds: [ 3 ], siteKey: 'test-site-key' },
+			'test-site-key',
 			'collectRiskScoreForBlockedUser should receive the config directly'
 		);
 	}
@@ -863,7 +863,7 @@ QUnit.test(
 	'blockMessageDrawer.onShow does not call collectRiskScoreForBlockedUser when config is null',
 	function ( assert ) {
 		mw.config.set( 'wgConfirmEditCaptchaNeededForGenericEdit', 'hcaptcha' );
-		mw.config.set( 'wgHCaptchaBlockedIpEditingScoreCollectionConfig', null );
+		mw.config.set( 'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey', null );
 
 		initMobileFrontend(
 			'mobilefrontendeditor',

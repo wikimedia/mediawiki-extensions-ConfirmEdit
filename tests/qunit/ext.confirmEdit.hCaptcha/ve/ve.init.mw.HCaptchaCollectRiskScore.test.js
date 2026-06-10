@@ -43,35 +43,27 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaCollectRiskScore', mw.load
 	}
 
 	QUnit.test.each( 'onActivationComplete calls collectRiskScoreForBlockedUser based on canEdit and block config', {
-		'target can edit, config present': {
+		'target can edit, sitekey present': {
 			canEdit: true,
-			config: {
-				siteKey: 'test-key',
-				localBlockIds: [ 1 ],
-				globalBlockIds: []
-			},
+			siteKey: 'test-key',
 			shouldCollect: false
 		},
-		'target cannot edit, no block config': {
+		'target cannot edit, no block sitekey': {
 			canEdit: false,
-			config: null,
+			siteKey: null,
 			shouldCollect: false
 		},
-		'target cannot edit, block config present': {
+		'target cannot edit, sitekey present': {
 			canEdit: false,
-			config: {
-				siteKey: 'test-key',
-				localBlockIds: [ 1 ],
-				globalBlockIds: []
-			},
+			siteKey: 'test-key',
 			shouldCollect: true
 		}
 	}, function ( assert, options ) {
 		collectRiskScoreHandler();
 
 		this.sandbox.stub( mw.config, 'get' )
-			.withArgs( 'wgHCaptchaBlockedIpEditingScoreCollectionConfig' )
-			.returns( options.config );
+			.withArgs( 'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey' )
+			.returns( options.siteKey );
 
 		ve.init.mw.HCaptchaCollectRiskScore.static.onActivationComplete(
 			{ canEdit: options.canEdit }
@@ -84,7 +76,7 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaCollectRiskScore', mw.load
 			);
 			assert.deepEqual(
 				this.collectRiskScoreForBlockedUser.firstCall.args,
-				[ window, options.config ],
+				[ window, options.siteKey ],
 				'collectRiskScoreForBlockedUser is called with the expected args'
 			);
 		} else {

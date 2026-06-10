@@ -7,6 +7,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Api\Rest\Handler;
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\ConfirmEdit\Api\Rest\Handler\PostHCaptchaTokenForBlockHandler;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\RequestData;
@@ -24,15 +25,30 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 	use HandlerTestTrait;
 
 	private function newHandler(
-		?string $siteKey = 'test-site-key'
+		?string $siteKey = 'test-site-key',
+		?HCaptchaBlocksLookup $blocksLookup = null
 	): PostHCaptchaTokenForBlockHandler {
 		return new PostHCaptchaTokenForBlockHandler(
 			new HashConfig( [
 				'HCaptchaBlockedIpEditingScoreCollectionSiteKey' => $siteKey
 			] ),
 			$this->getServiceContainer()->getHookContainer(),
-			$this->getServiceContainer()->getUserFactory()
+			$this->getServiceContainer()->getUserFactory(),
+			$blocksLookup ?? $this->newBlocksLookupMock( [ 'local' => [ 1, 2 ], 'global' => [ 3 ] ] ),
+			$this->getServiceContainer()->getTitleFactory()
 		);
+	}
+
+	private function newBlocksLookupMock( array $blocks ): HCaptchaBlocksLookup {
+		$mock = $this->createMock( HCaptchaBlocksLookup::class );
+		$mock
+			->method( 'getBlocksRequiringHCaptcha' )
+			->willReturn( $blocks );
+		$mock
+			->method( 'listBlockIds' )
+			->willReturnArgument( 0 );
+
+		return $mock;
 	}
 
 	public function testRunReturns204OnSuccess(): void {
@@ -52,15 +68,14 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			[],
 			[
 				'riskScoreToken' => 'test-token',
-				'localBlockIds' => [ 1, 2 ],
-				'globalBlockIds' => [],
+				'page' => 'Test',
 			]
 		);
 
 		$this->assertSame( 204, $response->getStatusCode() );
 	}
 
-	public function testRunFiresHookWithCorrectParams(): void {
+	public function testRunFiresHookWithServerDerivedBlockIds(): void {
 		$mockHCaptcha = $this->createMock( HCaptcha::class );
 		$mockHCaptcha
 			->method( 'retrieveRiskScore' )
@@ -95,8 +110,7 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			[],
 			[
 				'riskScoreToken' => 'test-token',
-				'localBlockIds' => [ 1, 2 ],
-				'globalBlockIds' => [ 3 ],
+				'page' => 'Test',
 			]
 		);
 
@@ -135,8 +149,7 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			[],
 			[
 				'riskScoreToken' => 'test-token',
-				'localBlockIds' => [ 1 ],
-				'globalBlockIds' => [],
+				'page' => 'Test',
 				'pageViewId' => '  abc123  ',
 			]
 		);
@@ -156,7 +169,7 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 				[ 'test-site-key' ]
 			)->willReturn( 0.3 );
 
-		$handler = $this->newHandler( 'test-site-key' );
+		$handler = $this->newHandler();
 		$handler->setHCaptcha( $mockHCaptcha );
 		$this->executeHandler(
 			$handler,
@@ -166,8 +179,7 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			[],
 			[
 				'riskScoreToken' => 'test-token',
-				'localBlockIds' => [ 1 ],
-				'globalBlockIds' => [],
+				'page' => 'Test',
 			]
 		);
 	}
@@ -191,8 +203,7 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			[],
 			[
 				'riskScoreToken' => 'test-token',
-				'localBlockIds' => [ 1 ],
-				'globalBlockIds' => [],
+				'page' => 'Test',
 			]
 		);
 
@@ -225,32 +236,21 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			[],
 			[
 				'riskScoreToken' => 'test-token',
-				'localBlockIds' => [ 1 ],
-				'globalBlockIds' => [],
+				'page' => 'Test',
 			]
 		);
 
 		$this->assertSame( 204, $response->getStatusCode() );
 	}
 
-	/** @dataProvider provideMissingParams */
-	public function testRunReturns204AndLogsWarningWhenParamsMissing(
-		array $body,
-		bool $hasRiskScoreToken,
-		bool $hasLocalBlockIds,
-		bool $hasGlobalBlockIds
-	): void {
+	public function testRunReturns204AndLogsWarningWhenRiskScoreTokenMissing(): void {
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger
 			->expects( $this->once() )
 			->method( 'warning' )
 			->with(
 				'hCaptcha block token request received with missing required params.',
-				$this->callback(
-					static fn ( array $context ) => $context['hasRiskScoreToken'] === $hasRiskScoreToken
-						&& $context['hasLocalBlockIds'] === $hasLocalBlockIds
-						&& $context['hasGlobalBlockIds'] === $hasGlobalBlockIds
-				)
+				[ 'hasRiskScoreToken' => false ]
 			);
 		$this->setLogger( 'captcha', $mockLogger );
 
@@ -260,35 +260,65 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			[],
 			[],
 			[],
-			$body
+			[
+				'riskScoreToken' => '',
+				'page' => 'Test',
+			]
 		);
 
 		$this->assertSame( 204, $response->getStatusCode() );
 	}
 
-	public static function provideMissingParams(): array {
-		return [
-			'empty riskScoreToken' => [
-				'body' => [
-					'riskScoreToken' => '',
-					'localBlockIds' => [ 1 ],
-					'globalBlockIds' => [],
-				],
-				'hasRiskScoreToken' => false,
-				'hasLocalBlockIds' => true,
-				'hasGlobalBlockIds' => false,
-			],
-			'empty localBlockIds and globalBlockIds' => [
-				'body' => [
-					'riskScoreToken' => 'test-token',
-					'localBlockIds' => [],
-					'globalBlockIds' => [],
-				],
-				'hasRiskScoreToken' => true,
-				'hasLocalBlockIds' => false,
-				'hasGlobalBlockIds' => false,
-			],
-		];
+	public function testRunReturns204WhenPageMissing(): void {
+		$mockHCaptcha = $this->createMock( HCaptcha::class );
+		$mockHCaptcha
+			->expects( $this->never() )
+			->method( 'retrieveRiskScore' );
+
+		$blocksLookup = $this->createMock( HCaptchaBlocksLookup::class );
+		$blocksLookup
+			->expects( $this->never() )
+			->method( 'getBlocksRequiringHCaptcha' );
+
+		$handler = $this->newHandler( blocksLookup: $blocksLookup );
+		$handler->setHCaptcha( $mockHCaptcha );
+		$response = $this->executeHandler(
+			$handler,
+			new RequestData( [ 'method' => 'POST' ] ),
+			[],
+			[],
+			[],
+			[
+				'riskScoreToken' => 'test-token',
+			]
+		);
+
+		$this->assertSame( 204, $response->getStatusCode() );
+	}
+
+	public function testRunReturns204WhenNoQualifyingBlocks(): void {
+		$mockHCaptcha = $this->createMock( HCaptcha::class );
+		$mockHCaptcha
+			->expects( $this->never() )
+			->method( 'retrieveRiskScore' );
+
+		$handler = $this->newHandler(
+			blocksLookup: $this->newBlocksLookupMock( [ 'local' => [], 'global' => [] ] )
+		);
+		$handler->setHCaptcha( $mockHCaptcha );
+		$response = $this->executeHandler(
+			$handler,
+			new RequestData( [ 'method' => 'POST' ] ),
+			[],
+			[],
+			[],
+			[
+				'riskScoreToken' => 'test-token',
+				'page' => 'Test',
+			]
+		);
+
+		$this->assertSame( 204, $response->getStatusCode() );
 	}
 
 	public function testRunReturns429WhenRateLimitExceeded(): void {
@@ -306,8 +336,7 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 		$requestData = new RequestData( [ 'method' => 'POST' ] );
 		$body = [
 			'riskScoreToken' => 'test-token',
-			'localBlockIds' => [ 1 ],
-			'globalBlockIds' => [],
+			'page' => 'Test',
 		];
 
 		$firstHandler = $this->newHandler();

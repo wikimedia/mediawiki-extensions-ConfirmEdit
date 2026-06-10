@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaEnterpriseHealthChecker;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
@@ -63,5 +64,6 @@ return [
 		$services->get( 'ConfirmEditLoginAttemptCounterFactory' )
 	),
 	'ConfirmEditLoginAttemptCounterFactory' => static fn () => new LoginAttemptCounterFactory(),
+	'ConfirmEditHCaptchaBlocksLookup' => static fn () => new HCaptchaBlocksLookup(),
 ];
 // @codeCoverageIgnoreEnd

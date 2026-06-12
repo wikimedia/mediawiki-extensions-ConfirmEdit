@@ -987,6 +987,34 @@ QUnit.test( 'should submit the form immediately when wgHCaptchaTriggerFormSubmis
 	);
 } );
 
+QUnit.test( 'should auto-resubmit via the Save button when wgHCaptchaTriggerFormSubmission is set', async function ( assert ) {
+	this.window.document.head.appendChild.callsFake( () => {
+		this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+	this.window.hcaptcha.execute.callsFake( async () => ( { response: 'some-token' } ) );
+
+	mw.config.set( 'wgHCaptchaTriggerFormSubmission', true );
+
+	// The mcrundo/mcrrestore Save button is identified by name and has no id.
+	this.$form.find( '#wpSave' ).remove();
+	$( '<button type="submit" name="wpSave">' ).appendTo( this.$form );
+
+	const submitted = new Promise( ( resolve ) => {
+		this.submit.callsFake( resolve );
+	} );
+
+	useSecureEnclave( this.window );
+	await submitted;
+
+	assert.strictEqual(
+		this.$form.find( 'input.mw-confirmedit-hcaptcha-submitter' ).attr( 'name' ),
+		'wpSave',
+		'should resubmit via the Save button so wpSave is re-injected'
+	);
+	assert.true( this.submit.calledOnce, 'should submit the form' );
+} );
+
 QUnit.test.each(
 	'should re-inject the clicked submit button name=value as a hidden input',
 	{

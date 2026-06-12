@@ -4,6 +4,7 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Hooks\Handlers;
 
+use Closure;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\ActionModifyFormFieldsHookHandler;
@@ -67,9 +68,15 @@ class ActionModifyFormFieldsHookHandlerTest extends MediaWikiIntegrationTestCase
 			$this->assertSame( 'info', $fields['captcha']['type'] );
 			$this->assertTrue( $fields['captcha']['raw'] );
 			$this->assertSame( '', $fields['captcha']['label'], 'empty label suppresses FieldLayout header text' );
-			$this->assertNotEmpty( $fields['captcha']['default'] );
+			$this->assertInstanceOf(
+				Closure::class,
+				$fields['captcha']['default'],
+				'widget HTML is rendered lazily at form display time'
+			);
+			$html = $fields['captcha']['default']();
+			$this->assertNotEmpty( $html );
 			$elements = DOMCompat::querySelectorAll(
-				DOMUtils::parseHTML( $fields['captcha']['default'] ),
+				DOMUtils::parseHTML( $html ),
 				'.captcha'
 			);
 			$this->assertCount( 1, $elements, 'Should add a .captcha widget as a form field' );

@@ -9,6 +9,14 @@ const utils = require( './utils.js' );
 const MCR_EDIT_ACTIONS = [ 'mcrundo', 'mcrrestore' ];
 
 /**
+ * Selector for the Save button: the edit form identifies it by id, the
+ * mcrundo/mcrrestore form by name.
+ *
+ * @type {string}
+ */
+const MCR_SAVE_BUTTON_SELECTOR = '#wpSave, [name="wpSave"]';
+
+/**
  * If set, makes the next call to isSaveRequest() to return true unconditionally.
  *
  * This gets set when the Javascript configuration variable
@@ -142,7 +150,7 @@ function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 				originallyClickedSubmitButton = this;
 			} );
 
-			$form.on( 'click.hCaptcha', '#wpSave, [name="wpSave"]', () => {
+			$form.on( 'click.hCaptcha', MCR_SAVE_BUTTON_SELECTOR, () => {
 				$form.data( 'isSaveChangesClick', true );
 			} );
 
@@ -296,7 +304,16 @@ function useSecureEnclave( win ) {
 			// function setupHCaptcha, that function does not await any promise
 			// before it does so and, therefore, it is guaranteed that a Promise
 			// is assigned to captchaIdPromise before we call .then() here.
-			captchaIdPromise.then( () => $form.trigger( 'submit' ) );
+			captchaIdPromise.then( () => {
+				// Resubmit via the Save button so wpSave is re-injected into the
+				// POST; McrUndoAction treats a POST without it as a preview.
+				const saveButton = $form.find( MCR_SAVE_BUTTON_SELECTOR )[ 0 ];
+				if ( saveButton && $form[ 0 ].requestSubmit ) {
+					$form[ 0 ].requestSubmit( saveButton );
+				} else {
+					$form.trigger( 'submit' );
+				}
+			} );
 		}
 	} );
 }

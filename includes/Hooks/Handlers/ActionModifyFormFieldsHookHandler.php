@@ -7,6 +7,8 @@ namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 use MediaWiki\Actions\Hook\ActionModifyFormFieldsHook;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
+use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
+use MediaWiki\Output\OutputPage;
 
 /**
  * Adds the CAPTCHA widget as a form field for action=mcrundo and action=mcrrestore.
@@ -39,19 +41,30 @@ class ActionModifyFormFieldsHookHandler implements ActionModifyFormFieldsHook {
 		$captcha->setAction( CaptchaTriggers::EDIT );
 
 		$out = $context->getOutput();
-		$formInformation = $captcha->getFormInformation( 1, $out );
-		$formMetainfo = $formInformation;
-		unset( $formMetainfo['html'] );
-		$captcha->addFormInformationToOutput( $out, $formMetainfo );
 
 		$fields['captcha'] = [
 			'type' => 'info',
 			'raw' => true,
 			'label' => '',
-			'default' => '<div class="captcha">' .
-				$captcha->getMessage( CaptchaTriggers::EDIT )->parseAsBlock() .
-				$formInformation['html'] .
-				"</div>\n",
+			'default' => fn (): string => $this->renderCaptchaField( $captcha, $out ),
 		];
+	}
+
+	/**
+	 * Renders the CAPTCHA widget. Called via a Closure default, which
+	 * HTMLInfoField evaluates at form display time, after the submit is
+	 * processed, so the widget reflects state set during the submit (e.g.
+	 * an AbuseFilter "showcaptcha" consequence forcing the sitekey).
+	 */
+	private function renderCaptchaField( SimpleCaptcha $captcha, OutputPage $out ): string {
+		$formInformation = $captcha->getFormInformation( 1, $out );
+		$formMetainfo = $formInformation;
+		unset( $formMetainfo['html'] );
+		$captcha->addFormInformationToOutput( $out, $formMetainfo );
+
+		return '<div class="captcha">' .
+			$captcha->getMessage( CaptchaTriggers::EDIT )->parseAsBlock() .
+			$formInformation['html'] .
+			"</div>\n";
 	}
 }

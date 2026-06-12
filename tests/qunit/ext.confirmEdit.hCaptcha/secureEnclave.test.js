@@ -41,7 +41,8 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 		this.window = {
 			hcaptcha: {
 				render: this.sandbox.stub(),
-				execute: this.sandbox.stub()
+				execute: this.sandbox.stub(),
+				getResponse: this.sandbox.stub()
 			},
 			document: {
 				createElement: this.sandbox.stub().returns( {
@@ -192,7 +193,7 @@ function assertHCaptchaWasExecuted( assert, testcase ) {
 	const actualScriptElement = win.document.head.appendChild.firstCall.args[ 0 ];
 	assert.deepEqual(
 		actualScriptElement.src,
-		'https://example.com/hcaptcha.js?onload=onHCaptchaSDKLoaded',
+		'https://example.com/hcaptcha.js?render=explicit&onload=onHCaptchaSDKLoaded',
 		'should load hCaptcha SDK from given URL'
 	);
 	assert.deepEqual(
@@ -607,7 +608,7 @@ QUnit.test( 'should surface load errors as soon as possible', async function ( a
 			hostname: 'test.example',
 			effectiveType: '4g',
 			timeSinceNavigationMs: '1234',
-			scriptSrc: 'https://example.com/hcaptcha.js?onload=onHCaptchaSDKLoaded'
+			scriptSrc: 'https://example.com/hcaptcha.js?render=explicit&onload=onHCaptchaSDKLoaded'
 		},
 		'first attempt should attach diagnostic details via error_context'
 	);

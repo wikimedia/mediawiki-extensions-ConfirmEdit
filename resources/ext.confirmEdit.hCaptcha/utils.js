@@ -315,6 +315,16 @@ const executeHCaptcha = ( win, captchaId, interfaceName ) => new Promise( ( reso
 	);
 
 	try {
+		// If the user already solved the checkbox before submitting (the auto-mounted
+		// widget is interactive on page load), reuse that token instead of opening a
+		// fresh challenge.
+		const existingResponse = win.hcaptcha.getResponse( captchaId );
+		if ( existingResponse ) {
+			trackExecutionFinished( 'success' );
+			resolve( existingResponse );
+			return;
+		}
+
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, {
 			wiki: wiki, interfaceName: interfaceName
 		} );
@@ -538,7 +548,7 @@ function getRecoverableErrors( interfaceName ) {
  * @return {Promise<string>} An ID to be used to call {@link executeHCaptcha}.
  */
 function loadAndRenderHCaptcha( win, interfaceName, container ) {
-	return loadHCaptcha( win, interfaceName ).then(
+	return loadHCaptcha( win, interfaceName, { render: 'explicit' } ).then(
 		() => renderHCaptcha( win, interfaceName, container )
 	);
 }

@@ -25,7 +25,8 @@ QUnit.module(
 					render: this.sandbox.stub(),
 					execute: this.sandbox.stub(),
 					reset: this.sandbox.stub(),
-					remove: this.sandbox.stub()
+					remove: this.sandbox.stub(),
+					getResponse: this.sandbox.stub()
 				},
 				document: document,
 				performance: {

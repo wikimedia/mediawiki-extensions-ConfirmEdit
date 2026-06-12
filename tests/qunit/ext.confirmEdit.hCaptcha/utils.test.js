@@ -26,7 +26,8 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 			hcaptcha: {
 				render: this.sandbox.stub(),
 				execute: this.sandbox.stub(),
-				reset: this.sandbox.stub()
+				reset: this.sandbox.stub(),
+				getResponse: this.sandbox.stub()
 			},
 			document: {
 				createElement: this.sandbox.stub().returns( {
@@ -640,4 +641,14 @@ QUnit.test.each( 'isHCaptchaInInvisibleMode returns the value of HCaptchaInvisib
 		options.hCaptchaInvisibleMode,
 		'The config HCaptchaInvisibleMode should be returned by isHCaptchaInInvisibleMode'
 	);
+} );
+
+QUnit.test( 'should reuse a pre-existing hCaptcha response token and skip execute', async function ( assert ) {
+	this.window.hcaptcha.getResponse.returns( 'pre-solved-token' );
+
+	const response = await this.utils.executeHCaptcha( this.window, 'captcha-id', 'testinterface' );
+
+	assert.strictEqual( response, 'pre-solved-token', 'should resolve with the pre-existing token' );
+	assert.true( this.window.hcaptcha.execute.notCalled, 'should not call hcaptcha.execute() when a token already exists' );
+	assert.true( this.window.hcaptcha.getResponse.calledOnceWith( 'captcha-id' ), 'should query getResponse for the given captcha id' );
 } );

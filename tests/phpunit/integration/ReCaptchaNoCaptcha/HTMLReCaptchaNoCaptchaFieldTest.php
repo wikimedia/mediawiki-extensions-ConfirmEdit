@@ -37,7 +37,7 @@ class HTMLReCaptchaNoCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$mockClosure->expects( $this->once() )->method( '__invoke' )
 			->with( [ 'foo' => 'def' ] )->willReturn( true );
 
-		$form->setTitle( Title::newFromText( 'Title' ) );
+		$form->setTitle( Title::makeTitle( NS_MAIN, 'Title' ) );
 		$form->setSubmitCallback( $mockClosure );
 		$form->prepareForm();
 		$form->trySubmit();

@@ -139,7 +139,7 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 				],
 			],
 		] );
-		$title = Title::newFromText( 'Main' );
+		$title = Title::makeTitle( NS_MAIN, 'Main' );
 		$this->assertEquals( $expected, $captcha->triggersCaptcha( $trigger, $title ) );
 	}
 

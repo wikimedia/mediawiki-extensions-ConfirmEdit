@@ -53,7 +53,7 @@ class HTMLFancyCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		}
 		$params['class'] = HTMLFancyCaptchaField::class;
 		$form = new HTMLForm( [ 'captchaWord' => $params ], $context );
-		$form->setTitle( Title::newFromText( 'Foo' ) );
+		$form->setTitle( Title::makeTitle( NS_MAIN, 'Foo' ) );
 		$form->prepareForm();
 		return $form;
 	}

@@ -43,7 +43,7 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		// Define override for the bypass i18n message
 		$this->overrideConfigValue( MainConfigNames::UseDatabaseMessages, true );
 		$this->editPage(
-			Title::newFromText( 'captcha-ip-whitelist', NS_MEDIAWIKI ), $ipWhitelistText
+			Title::makeTitle( NS_MEDIAWIKI, 'Captcha-ip-whitelist' ), $ipWhitelistText
 		);
 
 		$testObject = new SimpleCaptcha();
@@ -74,7 +74,7 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 			$this->fail( 'No captcha should have been attempted to be added, as user can skip captchas.' );
 		} );
 
-		$article = Article::newFromTitle( Title::newFromText( 'Testing' ), RequestContext::getMain() );
+		$article = Article::newFromTitle( Title::makeTitle( NS_MAIN, 'Testing' ), RequestContext::getMain() );
 
 		$testObject = new SimpleCaptcha();
 		$testObject->editShowCaptcha( new EditPage( $article ) );
@@ -97,7 +97,7 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		$context->setOutput( $this->createNoOpMock( OutputPage::class ) );
 		$context->setRequest( new FauxRequest( [], false ) );
 
-		$article = Article::newFromTitle( Title::newFromText( 'Testing' ), $context );
+		$article = Article::newFromTitle( Title::makeTitle( NS_MAIN, 'Testing' ), $context );
 
 		$testObject = new SimpleCaptcha();
 		$testObject->editShowCaptcha( new EditPage( $article ) );

@@ -795,7 +795,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		$context->setUser( $mockUser );
 
 		$out = $context->getOutput();
-		$out->setTitle( Title::newFromText( 'Special:CreateAccount' ) );
+		$out->setTitle( Title::makeTitle( NS_SPECIAL, 'CreateAccount' ) );
 
 		$handler = new BeforePageDisplayHookHandler(
 			$this->getServiceContainer()->getMainConfig(),

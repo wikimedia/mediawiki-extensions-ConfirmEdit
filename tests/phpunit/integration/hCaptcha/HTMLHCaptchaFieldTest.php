@@ -426,11 +426,11 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 	public static function provideSiteKeyOverriddenForAction(): array {
 		return [
 			'Title is Special:CreateAccount' => [
-				'title' => Title::newFromText( 'Special:CreateAccount' ),
+				'title' => Title::makeTitle( NS_SPECIAL, 'CreateAccount' ),
 				'expectedSiteKey' => 'create-account-sitekey',
 			],
 			'Title is Special:UserLogin for standard login' => [
-				'title' => Title::newFromText( 'Special:UserLogin' ),
+				'title' => Title::makeTitle( NS_SPECIAL, 'UserLogin' ),
 				'expectedSiteKey' => 'login-attempt-sitekey',
 			],
 		];
@@ -462,7 +462,7 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		$this->setService( 'ConfirmEditLoginAttemptCounterFactory', $mockLoginAttemptCounterFactory );
 
 		$this->testSiteKeyOverriddenForAction(
-			Title::newFromText( 'Special:UserLogin' ),
+			Title::makeTitle( NS_SPECIAL, 'UserLogin' ),
 			'bad-login-sitekey'
 		);
 	}

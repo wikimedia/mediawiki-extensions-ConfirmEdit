@@ -44,7 +44,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 		$this->clearHook( 'ConfirmEditCaptchaClass' );
 
 		$out = RequestContext::getMain()->getOutput();
-		$out->setTitle( Title::newFromText( __METHOD__ ) );
+		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
 
 		if ( $testCase->isVisualEditorAvailable !== null ) {
 			$mockVisualEditorAvailabilityLookup = $this->createMock( VisualEditorAvailabilityLookup::class );
@@ -165,7 +165,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 		RequestContext::getMain()->setUser( $user );
 
 		$out = RequestContext::getMain()->getOutput();
-		$out->setTitle( Title::newFromText( __METHOD__ ) );
+		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
 
 		$mockMobileContext = $this->createMock( MobileContext::class );
 		$mockMobileContext->expects( $this->once() )
@@ -228,7 +228,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 
 		RequestContext::getMain()->setUser( $mockUser );
 		$out = RequestContext::getMain()->getOutput();
-		$out->setTitle( Title::newFromText( __METHOD__ ) );
+		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
 
 		$mockMobileContext = $this->createMock( MobileContext::class );
 		$mockMobileContext->method( 'shouldDisplayMobileView' )->willReturn( true );
@@ -288,7 +288,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 
 		RequestContext::getMain()->setUser( $mockUser );
 		$out = RequestContext::getMain()->getOutput();
-		$out->setTitle( Title::newFromText( __METHOD__ ) );
+		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
 
 		$mockVisualEditorAvailabilityLookup = $this->createMock( VisualEditorAvailabilityLookup::class );
 		$mockVisualEditorAvailabilityLookup->method( 'isAvailable' )
@@ -343,7 +343,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 
 		RequestContext::getMain()->setUser( $mockUser );
 		$out = RequestContext::getMain()->getOutput();
-		$out->setTitle( Title::newFromText( __METHOD__ ) );
+		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
 
 		$mockVisualEditorAvailabilityLookup = $this->createMock( VisualEditorAvailabilityLookup::class );
 		$mockVisualEditorAvailabilityLookup->method( 'isAvailable' )
@@ -395,7 +395,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 
 		RequestContext::getMain()->setUser( $mockUser );
 		$out = RequestContext::getMain()->getOutput();
-		$out->setTitle( Title::newFromText( __METHOD__ ) );
+		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
 
 		$mockMobileContext = $this->createMock( MobileContext::class );
 		$mockMobileContext->method( 'shouldDisplayMobileView' )->willReturn( true );

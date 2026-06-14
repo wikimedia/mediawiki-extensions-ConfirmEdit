@@ -66,37 +66,37 @@ class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
 	public static function provideGetGlobalInstanceFromContext(): array {
 		return [
 			'Title is Special:CreateAccount' => [
-				'title' => Title::newFromText( 'Special:CreateAccount' ),
+				'title' => Title::makeTitle( NS_SPECIAL, 'CreateAccount' ),
 				'requestActionName' => '',
 				'expectedAction' => CaptchaTriggers::CREATE_ACCOUNT,
 			],
 			'Request is for the accountcreation API' => [
-				'title' => Title::newFromText( 'Ignored' ),
+				'title' => Title::makeTitle( NS_MAIN, 'Ignored' ),
 				'requestActionName' => 'createaccount',
 				'expectedAction' => CaptchaTriggers::CREATE_ACCOUNT,
 			],
 			'Title is Special:UserLogin without badlogin triggered' => [
-				'title' => Title::newFromText( 'Special:UserLogin' ),
+				'title' => Title::makeTitle( NS_SPECIAL, 'UserLogin' ),
 				'requestActionName' => '',
 				'expectedAction' => CaptchaTriggers::LOGIN_ATTEMPT
 			],
 			'Request is for the login API without badlogin triggered' => [
-				'title' => Title::newFromText( 'Ignored' ),
+				'title' => Title::makeTitle( NS_MAIN, 'Ignored' ),
 				'requestActionName' => 'login',
 				'expectedAction' => CaptchaTriggers::LOGIN_ATTEMPT
 			],
 			'Request is for the clientlogin API without badlogin triggered' => [
-				'title' => Title::newFromText( 'Ignored' ),
+				'title' => Title::makeTitle( NS_MAIN, 'Ignored' ),
 				'requestActionName' => 'clientlogin',
 				'expectedAction' => CaptchaTriggers::LOGIN_ATTEMPT
 			],
 			'Title is Special:EmailUser' => [
-				'title' => Title::newFromText( 'Special:EmailUser' ),
+				'title' => Title::makeTitle( NS_SPECIAL, 'EmailUser' ),
 				'requestActionName' => '',
 				'expectedAction' => CaptchaTriggers::SENDEMAIL,
 			],
 			'Request is for the emailuser API' => [
-				'title' => Title::newFromText( 'Ignored' ),
+				'title' => Title::makeTitle( NS_MAIN, 'Ignored' ),
 				'requestActionName' => 'emailuser',
 				'expectedAction' => CaptchaTriggers::SENDEMAIL,
 			],
@@ -108,7 +108,7 @@ class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
 		$context->getRequest()->getSession()->set( 'ConfirmEdit:loginCaptchaPerUserTriggered', true );
 
 		$this->testGetGlobalInstanceFromContext(
-			Title::newFromText( 'Special:UserLogin' ),
+			Title::makeTitle( NS_SPECIAL, 'UserLogin' ),
 			'',
 			CaptchaTriggers::BAD_LOGIN_PER_USER,
 			$context
@@ -126,7 +126,7 @@ class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
 		$this->setService( 'ConfirmEditLoginAttemptCounterFactory', $mockLoginAttemptCounterFactory );
 
 		$this->testGetGlobalInstanceFromContext(
-			Title::newFromText( 'Special:UserLogin' ),
+			Title::makeTitle( NS_SPECIAL, 'UserLogin' ),
 			'',
 			CaptchaTriggers::BAD_LOGIN
 		);
@@ -147,7 +147,7 @@ class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
 		$this->setService( 'ConfirmEditLoginAttemptCounterFactory', $mockLoginAttemptCounterFactory );
 
 		$this->testGetGlobalInstanceFromContext(
-			Title::newFromText( 'Special:UserLogin' ),
+			Title::makeTitle( NS_SPECIAL, 'UserLogin' ),
 			'',
 			CaptchaTriggers::BAD_LOGIN_PER_USER,
 			$context

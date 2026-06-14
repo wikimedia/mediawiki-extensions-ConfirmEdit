@@ -100,7 +100,7 @@ class HCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		// causes hCaptcha to be considered not passed and so causes a CAPTCHA edit failure
 		$context = new RequestContext();
 		$context->setUser( $user );
-		$title = Title::newFromText( 'ForceShowCaptchaTestPage' );
+		$title = Title::makeTitle( NS_MAIN, 'ForceShowCaptchaTestPage' );
 		$context->setTitle( $title );
 		$context->setRequest( new FauxRequest( [ 'captchaword' => 'abcdef' ], true ) );
 

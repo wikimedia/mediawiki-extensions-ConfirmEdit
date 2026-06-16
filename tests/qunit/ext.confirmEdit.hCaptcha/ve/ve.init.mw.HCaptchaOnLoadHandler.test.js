@@ -1,6 +1,7 @@
 const hCaptchaUtils = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/utils.js' );
 const hCaptchaOnLoadHandler = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaOnLoadHandler.js' );
 const hCaptchaConfig = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/config.json' );
+const hCaptchaTheme = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/theme.js' );
 
 QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.getState( 'ext.visualEditor.targetLoader' ), QUnit.newMwEnvironment(), ( hooks ) => {
 
@@ -14,6 +15,7 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaOnLoadHandler', mw.loader.
 		this.loadHCaptcha = sinon.stub( hCaptchaUtils, 'loadHCaptcha' );
 		this.executeHCaptcha = sinon.stub( hCaptchaUtils, 'executeHCaptcha' );
 		this.resetHCaptcha = sinon.stub( hCaptchaUtils, 'resetHCaptcha' );
+		sinon.stub( hCaptchaTheme, 'isDarkMode' ).returns( false );
 
 		this.window = {
 			hcaptcha: {

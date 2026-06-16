@@ -24,6 +24,7 @@ class RLRegisterModulesHandlerTest extends MediaWikiIntegrationTestCase {
 		$config = [
 			'HCaptchaSiteKey' => 'abc',
 			'HCaptchaEnterprise' => true,
+			'HCaptchaCustomThemeSupported' => false,
 			'HCaptchaSecureEnclave' => true,
 			'HCaptchaApiUrlIntegrityHash' => 'abcdef',
 			'HCaptchaEnabledInMobileFrontend' => false,

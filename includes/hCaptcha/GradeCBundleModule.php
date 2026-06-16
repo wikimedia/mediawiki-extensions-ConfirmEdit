@@ -24,6 +24,7 @@ class GradeCBundleModule extends Module {
 	private const HCAPTCHA_MODULES = [
 		'./ErrorWidget.js',
 		'./ProgressIndicatorWidget.js',
+		'./theme.js',
 		'./utils.js',
 		'./secureEnclave.js',
 	];

@@ -1,5 +1,6 @@
 const useSecureEnclave = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/secureEnclave.js' );
 const config = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/config.json' );
+const theme = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/theme.js' );
 
 /**
  * Introduces a delay which allows pending actions to be processed.
@@ -35,6 +36,8 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.secureEnclave', QUnit.newMwEnvironment( 
 		this.measure.returns( { duration: 0 } );
 
 		this.getEntriesByName = this.sandbox.stub( performance, 'getEntriesByName' );
+
+		this.sandbox.stub( theme, 'isDarkMode' ).returns( false );
 
 		// We do not want to add real script elements to the page or interact with the real
 		// hcaptcha, so stub the code that does this for this test

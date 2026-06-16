@@ -1,5 +1,14 @@
 @import 'mediawiki.skin.variables.less';
 
+// hCaptcha's custom theme object paints its own UI, but some native, UA-styled surfaces
+// it can't reach (such as the "⋮" accessibility menu) follow the iframe's color-scheme
+// inverted, so forcing color-scheme: light keeps them dark. Scoped to the class
+// renderHCaptcha() adds only when the custom object is used: on the built-in 'dark'
+// theme this override would instead invert it to light. Matches any hCaptcha asset host.
+.ext-confirmEdit-hCaptcha-customDarkTheme iframe[ src*='hcaptcha' ] {
+	color-scheme: light;
+}
+
 .ext-confirmEdit-hCaptchaLoadingIndicator {
 	display: flex;
 	justify-content: center;

@@ -30,6 +30,11 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 				getResponse: this.sandbox.stub()
 			},
 			document: {
+				documentElement: {
+					classList: {
+						add: this.sandbox.stub()
+					}
+				},
 				createElement: this.sandbox.stub().returns( {
 					classList: {
 						contains: this.sandbox.stub().returns( false )
@@ -50,6 +55,9 @@ QUnit.module( 'ext.confirmEdit.hCaptcha.utils', QUnit.newMwEnvironment( {
 		};
 
 		this.config = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/config.json' );
+
+		this.theme = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/theme.js' );
+		this.sandbox.stub( this.theme, 'isDarkMode' ).returns( false );
 
 		// Subject under test
 		this.utils = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/utils.js' );
@@ -393,6 +401,38 @@ QUnit.test( 'renderHCaptcha should use provided renderOptions', async function (
 		renderOptions[ 'error-callback' ].calledOnce,
 		'error-callback should be called'
 	);
+} );
+
+QUnit.test.each( 'renderHCaptcha selects the dark theme based on custom-theme support', {
+	'built-in dark string when custom themes are not supported': {
+		enterprise: false,
+		customThemeSupported: false,
+		expectCustomObject: false
+	},
+	'custom theme object for Enterprise sitekeys': {
+		enterprise: true,
+		customThemeSupported: false,
+		expectCustomObject: true
+	},
+	'custom theme object when HCaptchaCustomThemeSupported is set': {
+		enterprise: false,
+		customThemeSupported: true,
+		expectCustomObject: true
+	}
+}, function ( assert, options ) {
+	this.theme.isDarkMode.returns( true );
+	this.sandbox.replace( this.config, 'HCaptchaEnterprise', options.enterprise );
+	this.sandbox.replace( this.config, 'HCaptchaCustomThemeSupported', options.customThemeSupported );
+
+	this.utils.renderHCaptcha( this.window, 'testinterface', 'container-id', {} );
+
+	const renderTheme = this.window.hcaptcha.render.getCall( 0 ).args[ 1 ].theme;
+	if ( options.expectCustomObject ) {
+		assert.strictEqual( typeof renderTheme, 'object', 'should pass the custom dark theme object' );
+		assert.strictEqual( renderTheme.palette.mode, 'dark', 'the custom theme should use the dark palette' );
+	} else {
+		assert.strictEqual( renderTheme, 'dark', 'should pass the built-in dark theme string' );
+	}
 } );
 
 QUnit.test( 'renderHCaptcha should fire challenge opened and closed hooks', async function ( assert ) {

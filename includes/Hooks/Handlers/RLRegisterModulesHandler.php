@@ -88,6 +88,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 					'ext.confirmEdit.hCaptcha/init.js',
 					'ext.confirmEdit.hCaptcha/secureEnclave.js',
 					'ext.confirmEdit.hCaptcha/utils.js',
+					'ext.confirmEdit.hCaptcha/theme.js',
 					'ext.confirmEdit.hCaptcha/ProgressIndicatorWidget.js',
 					'ext.confirmEdit.hCaptcha/RiskScoreCollector.js',
 					'ext.confirmEdit.hCaptcha/ErrorWidget.js',
@@ -142,6 +143,7 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 		return [
 			'HCaptchaSiteKey' => $config->get( 'HCaptchaSiteKey' ),
 			'HCaptchaEnterprise' => $config->get( 'HCaptchaEnterprise' ),
+			'HCaptchaCustomThemeSupported' => $config->get( 'HCaptchaCustomThemeSupported' ),
 			'HCaptchaSecureEnclave' => $config->get( 'HCaptchaSecureEnclave' ),
 			'HCaptchaApiUrlIntegrityHash' => $config->get( 'HCaptchaApiUrlIntegrityHash' ),
 			'HCaptchaEnabledInMobileFrontend' => $config->get( 'HCaptchaEnabledInMobileFrontend' ),

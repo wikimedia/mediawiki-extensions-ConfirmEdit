@@ -287,6 +287,10 @@
 			"description": "Whether the provided sitekey is for hCaptcha Enterprise features. See https://www.hcaptcha.com/#enterprise-features",
 			"value": false
 		},
+		"HCaptchaCustomThemeSupported": {
+			"description": "Whether all the configured sitekeys support hCaptcha custom themes (a Pro/Enterprise feature). When enabled, or when $wgHCaptchaEnterprise is true, ConfirmEdit's custom dark theme is used in dark mode; otherwise it falls back to hCaptcha's built-in 'dark' theme. See https://docs.hcaptcha.com/custom_themes",
+			"value": false
+		},
 		"HCaptchaEnabledInMobileFrontend": {
 			"description": "Whether to enable HCaptcha for the MobileFrontend",
 			"value": false
@@ -375,6 +379,7 @@
 			"ext.confirmEdit.hCaptcha/mobileFrontend/initMobileFrontend.test.js",
 			"ext.confirmEdit.hCaptcha/mobileFrontend/mobileFrontendSecureEnclave.test.js",
 			"ext.confirmEdit.hCaptcha/ProgressIndicatorWidget.test.js",
+			"ext.confirmEdit.hCaptcha/theme.test.js",
 			"ext.confirmEdit.hCaptcha/utils.test.js",
 			"ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaSaveErrorHandler.test.js",
 			"ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaOnLoadHandler.test.js",

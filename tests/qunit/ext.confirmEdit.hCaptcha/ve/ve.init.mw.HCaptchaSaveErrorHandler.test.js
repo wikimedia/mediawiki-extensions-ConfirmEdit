@@ -5,9 +5,11 @@ QUnit.module.if( 'ext.confirmEdit.hCaptcha.ve.HCaptchaSaveErrorHandler', mw.load
 
 	const hCaptchaConfig = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/config.json' );
 	const hCaptchaOnLoadHandler = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/ve/ve.init.mw.HCaptchaOnLoadHandler.js' );
+	const hCaptchaTheme = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/theme.js' );
 
 	hooks.beforeEach( function () {
 		this.loadHCaptcha = this.sandbox.stub( utils, 'loadHCaptcha' );
+		this.sandbox.stub( hCaptchaTheme, 'isDarkMode' ).returns( false );
 
 		// In a real environment, initPlugins.js does this for us. However, to avoid
 		// side effects, we don't use that method of loading the code we are testing.

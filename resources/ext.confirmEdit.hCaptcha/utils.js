@@ -11,6 +11,9 @@
  * @property {string} [sitekey] The sitekey to use for the hCaptcha widget
  * @property {string} [challenge-container] The ID of a container to be used as the location
  *   of the visual challenge. Only works if using enterprise mode
+ * @property {string|Object} [theme] The theme to render the widget with (a built-in name like
+ *   'dark', or a custom theme object). Defaults to a dark theme when the page is displayed in a
+ *   dark color scheme.
  */
 
 /**
@@ -20,6 +23,7 @@
 
 const ErrorWidget = require( './ErrorWidget.js' );
 const ProgressIndicatorWidget = require( './ProgressIndicatorWidget.js' );
+const theme = require( './theme.js' );
 const config = require( './config.json' );
 
 /**
@@ -642,6 +646,20 @@ function renderHCaptcha( win, interfaceName, container, renderOptions ) {
 
 	if ( renderOptions[ 'challenge-container' ] ) {
 		options[ 'challenge-container' ] = renderOptions[ 'challenge-container' ];
+	}
+
+	if ( renderOptions.theme ) {
+		options.theme = renderOptions.theme;
+	} else if ( theme.isDarkMode( win ) ) {
+		const customThemeSupported = config.HCaptchaEnterprise || config.HCaptchaCustomThemeSupported;
+		if ( customThemeSupported ) {
+			options.theme = theme.getDarkThemeValue();
+			// Enables the iframe color-scheme override (see the .less) for the custom-object
+			// path only; on the built-in 'dark' theme that override would invert it to light.
+			win.document.documentElement.classList.add( 'ext-confirmEdit-hCaptcha-customDarkTheme' );
+		} else {
+			options.theme = 'dark';
+		}
 	}
 
 	return win.hcaptcha.render( container, options );

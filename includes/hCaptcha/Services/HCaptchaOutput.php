@@ -13,6 +13,7 @@ use MediaWiki\Language\LanguageFallback;
 use MediaWiki\Language\LanguageFallbackMode;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\ResourceLoader\ClientHtml;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use Wikimedia\Assert\Assert;
@@ -22,6 +23,9 @@ use Wikimedia\Assert\Assert;
  * {@link HCaptcha} and {@link HTMLHCaptchaField}.
  */
 class HCaptchaOutput {
+
+	/** The `mwclientpreferences` cookie token set when the night-mode client preference is "night". */
+	private const NIGHT_MODE_CLIENT_PREF = 'skin-theme-clientpref-night';
 
 	/** @internal Only public for service wiring use. */
 	public const CONSTRUCTOR_OPTIONS = [
@@ -103,6 +107,14 @@ class HCaptchaOutput {
 			],
 			'data-sitekey' => $siteKey,
 		];
+		// `data-theme="dark"` selects hCaptcha's built-in dark theme for the auto-render
+		// path (non-secure-enclave), where the SDK renders the widget from these data
+		// attributes. On the secure-enclave path the SDK is loaded with render=explicit and
+		// never auto-renders, so the client passes the dark theme object to hcaptcha.render()
+		// instead (see resources/.../theme.js) and this attribute is ignored there.
+		if ( $this->isDarkMode( $outputPage ) ) {
+			$hCaptchaElementAttribs['data-theme'] = 'dark';
+		}
 		if ( $useInvisibleMode ) {
 			$hCaptchaElementAttribs['data-size'] = 'invisible';
 		}
@@ -151,6 +163,18 @@ class HCaptchaOutput {
 			$output .= Html::hidden( 'wgConfirmEditForceShowCaptcha', true );
 		}
 		return $output;
+	}
+
+	/**
+	 * Night-mode detection from the `mwclientpreferences` cookie for the data-theme attribute.
+	 * "os" can't be resolved server-side (treated as not-dark); the client render path covers it on Grade A.
+	 */
+	private function isDarkMode( OutputPage $outputPage ): bool {
+		$clientPrefs = $outputPage->getRequest()->getCookie( ClientHtml::CLIENT_PREFS_COOKIE_NAME );
+		if ( $clientPrefs === null ) {
+			return false;
+		}
+		return in_array( self::NIGHT_MODE_CLIENT_PREF, explode( ',', $clientPrefs ), true );
 	}
 
 	/**

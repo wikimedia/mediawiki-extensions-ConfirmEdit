@@ -5,6 +5,7 @@
 				"ErrorWidget.js",
 				"ProgressIndicatorWidget.js",
 				"secureEnclave.js",
+				"theme.js",
 				"utils.js"
 			],
 			"extends": [

@@ -11,6 +11,8 @@ use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaPreAuthenticationProvider;
 use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounter;
 use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
+use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaHashStore;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
@@ -174,6 +176,47 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			'wrong captcha' => [ self::getCaptchaRequest( '345', '6' ), true, true, false ],
 			'correct captcha' => [ self::getCaptchaRequest( '345', '4' ), true, true, true ],
 		];
+	}
+
+	public function testForAccountCreationWhenTurnstileHasError(): void {
+		$this->overrideConfigValue(
+			'CaptchaTriggers',
+			[ CaptchaTriggers::CREATE_ACCOUNT => [ 'trigger' => true, 'class' => 'Turnstile' ] ]
+		);
+
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$captcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE_ACCOUNT );
+		TestingAccessWrapper::newFromObject( $captcha )->error = 'test-error';
+
+		$provider = $this->getProvider( new LoginAttemptCounter( $captcha ) );
+		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
+
+		$user = $this->getTestUser()->getUser();
+		$status = $provider->testForAccountCreation( $user, $user, [] );
+
+		$this->assertStatusError( 'captcha-error', $status );
+		$this->assertSame( [ 'test-error' ], $status->getMessages()[0]->getParams() );
+	}
+
+	public function testForAccountCreationWhenHCaptchaHasInternalError(): void {
+		$this->overrideConfigValue(
+			'CaptchaTriggers',
+			[ CaptchaTriggers::CREATE_ACCOUNT => [ 'trigger' => true, 'class' => 'HCaptcha' ] ]
+		);
+
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$captcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE_ACCOUNT );
+		TestingAccessWrapper::newFromObject( $captcha )->error = 'sitekey-mismatch';
+
+		$provider = $this->getProvider( new LoginAttemptCounter( $captcha ) );
+		$this->initProvider( $provider, null, null, $this->getServiceContainer()->getAuthManager() );
+
+		$user = $this->getTestUser()->getUser();
+		$status = $provider->testForAccountCreation( $user, $user, [] );
+
+		$this->assertStatusError( 'hcaptcha-internal-error', $status );
 	}
 
 	/**

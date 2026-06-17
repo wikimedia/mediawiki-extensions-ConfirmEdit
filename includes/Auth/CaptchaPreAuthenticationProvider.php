@@ -9,6 +9,7 @@ use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthenticationResponse;
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Logger\LoggerFactory;
@@ -224,6 +225,10 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 	protected function makeError( $message, SimpleCaptcha $captcha ) {
 		$error = $captcha->getError();
 		if ( $error ) {
+			if ( $captcha instanceof HCaptcha ) {
+				return Status::newFatal( wfMessage( 'hcaptcha-internal-error' ) );
+			}
+
 			return Status::newFatal( wfMessage( 'captcha-error', $error ) );
 		}
 		return Status::newFatal( $message );

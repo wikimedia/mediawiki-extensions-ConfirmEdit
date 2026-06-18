@@ -5,6 +5,7 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Api\Rest\Handler;
 
 use BadMethodCallException;
+use MediaWiki\Block\Block;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
@@ -65,8 +66,8 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 			return $this->newNoContentResponse();
 		}
 
-		$blockIds = $this->resolveBlockIds( $authority, (string)( $body['page'] ?? '' ) );
-		if ( $blockIds === null ) {
+		$blocks = $this->resolveBlocks( $authority, (string)( $body['page'] ?? '' ) );
+		if ( !count( $blocks ) ) {
 			return $this->newNoContentResponse();
 		}
 
@@ -74,8 +75,7 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 			$riskScoreToken,
 			$siteKey,
 			$authority->getUser(),
-			$blockIds['local'],
-			$blockIds['global'],
+			$blocks,
 			trim( $body['pageViewId'] ?? '' )
 		);
 	}
@@ -84,16 +84,14 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 	 * @param string $riskScoreToken
 	 * @param string $siteKey
 	 * @param UserIdentity $user
-	 * @param int[] $localBlockIds
-	 * @param int[] $globalBlockIds
+	 * @param Block[] $blocks
 	 * @param string $pageViewId
 	 */
 	private function dispatchRiskScore(
 		string $riskScoreToken,
 		string $siteKey,
 		UserIdentity $user,
-		array $localBlockIds,
-		array $globalBlockIds,
+		array $blocks,
 		string $pageViewId
 	): Response {
 		$request = RequestContext::getMain()->getRequest();
@@ -116,8 +114,7 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 		$hookRunner = new HookRunner( $this->hookContainer );
 		$hookRunner->onConfirmEditHCaptchaRiskScoreRetrievedForBlocks(
 			$riskScore,
-			$localBlockIds,
-			$globalBlockIds,
+			$blocks,
 			$user,
 			$pageViewId,
 			$request
@@ -133,23 +130,13 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 		return $response;
 	}
 
-	/**
-	 * @return array{local: int[], global: int[]}|null
-	 */
-	private function resolveBlockIds( Authority $authority, string $page ): ?array {
+	private function resolveBlocks( Authority $authority, string $page ): array {
 		$title = $this->titleFactory->newFromText( $page );
 		if ( !$title ) {
-			return null;
+			return [];
 		}
 
-		$blocks = $this->blocksLookup->getBlocksRequiringHCaptcha( $title, $authority->getBlock() );
-		$localBlockIds = $this->blocksLookup->listBlockIds( $blocks['local'] );
-		$globalBlockIds = $this->blocksLookup->listBlockIds( $blocks['global'] );
-		if ( !$localBlockIds && !$globalBlockIds ) {
-			return null;
-		}
-
-		return [ 'local' => $localBlockIds, 'global' => $globalBlockIds ];
+		return $this->blocksLookup->getBlocksRequiringHCaptcha( $title, $authority->getBlock() );
 	}
 
 	/** @inheritDoc */

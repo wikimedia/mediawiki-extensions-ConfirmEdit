@@ -9,7 +9,6 @@ use MediaWiki\Block\Block;
 use MediaWiki\Block\BlockTargetWithIp;
 use MediaWiki\Block\CompositeBlock;
 use MediaWiki\Block\SystemBlock;
-use MediaWiki\Extension\GlobalBlocking\GlobalBlock;
 use MediaWiki\Title\Title;
 
 /**
@@ -34,47 +33,32 @@ class HCaptchaBlocksLookup {
 	 *
 	 * @param ?Title $title Current page, or null when the output has no title
 	 * @param ?Block $block Block currently applying to this page, if any
-	 * @return array{local: Block[], global: GlobalBlock[]}
+	 * @return Block[]
 	 */
 	public function getBlocksRequiringHCaptcha(
 		?Title $title,
 		?Block $block
 	): array {
 		if ( !$title || !$block || !$this->appliesToCurrentPage( $block, $title ) ) {
-			return [
-				'local' => [],
-				'global' => []
-			];
+			return [];
 		}
 
-		$local = [];
-		$global = [];
+		$blocks = [];
 
 		if ( !( $block instanceof CompositeBlock ) ) {
 			if ( $block->getTarget() instanceof BlockTargetWithIp ) {
-				if ( $block instanceof GlobalBlock ) {
-					$global[] = $block;
-				} else {
-					$local[] = $block;
-				}
+				$blocks[] = $block;
 			}
 		} else {
 			foreach ( $block->getOriginalBlocks() as $childBlock ) {
 				if ( $childBlock->getTarget() instanceof BlockTargetWithIp &&
 					$this->appliesToCurrentPage( $childBlock, $title ) ) {
-					if ( $childBlock instanceof GlobalBlock ) {
-						$global[] = $childBlock;
-					} else {
-						$local[] = $childBlock;
-					}
+					$blocks[] = $childBlock;
 				}
 			}
 		}
 
-		return [
-			'local' => $local,
-			'global' => $global
-		];
+		return $blocks;
 	}
 
 	/**
@@ -102,23 +86,6 @@ class HCaptchaBlocksLookup {
 		}
 
 		return false;
-	}
-
-	/**
-	 * Returns a list with the block IDs from a list of block instances.
-	 *
-	 * @param Block[] $blocks
-	 * @return int[]
-	 */
-	public function listBlockIds( array $blocks ): array {
-		return array_values(
-			array_filter(
-				array_map(
-					static fn ( Block $block ) => $block->getId(),
-					$blocks
-				)
-			)
-		);
 	}
 
 	/**

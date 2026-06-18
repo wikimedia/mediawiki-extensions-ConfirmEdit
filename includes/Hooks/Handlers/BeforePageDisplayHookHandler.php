@@ -14,7 +14,6 @@ use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
 use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
-use MediaWiki\Extension\GlobalBlocking\GlobalBlock;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
@@ -128,26 +127,23 @@ class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 
 		$user = $out->getUser();
 		$blocks = $this->getCreateAccountBlocksRequiringHCaptcha( $user->getBlock() );
-		if ( !count( $blocks['local'] ) && !count( $blocks['global'] ) ) {
+		if ( !count( $blocks ) ) {
 			return;
 		}
 
-		$localBlockIds = $this->blocksLookup->listBlockIds( $blocks['local'] );
-		$globalBlockIds = $this->blocksLookup->listBlockIds( $blocks['global'] );
 		$hookRunner = new HookRunner( $this->hookContainer );
 
 		// Defer the siteverify HTTP call until after the response is sent.
 		DeferredUpdates::addCallableUpdate(
 			static function () use (
-				$captchaInstance, $request, $user, $localBlockIds, $globalBlockIds, $hookRunner
+				$captchaInstance, $request, $user, $blocks, $hookRunner
 			) {
 				$captchaInstance->passCaptchaFromRequest( $request, $user );
 				$score = $captchaInstance->retrieveSessionScore( 'hCaptcha-score', $user->getName() );
 				$riskScore = is_numeric( $score ) ? (float)$score : -1.0;
 				$hookRunner->onConfirmEditHCaptchaRiskScoreRetrievedForBlocks(
 					$riskScore,
-					$localBlockIds,
-					$globalBlockIds,
+					$blocks,
 					$user,
 					'',
 					$request
@@ -162,16 +158,14 @@ class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 	 * 'createaccount' right rather than page applicability.
 	 *
 	 * @param ?Block $block Block currently applying to the user, if any
-	 * @return array{local: Block[], global: GlobalBlock[]}
+	 * @return Block[]
 	 */
 	private function getCreateAccountBlocksRequiringHCaptcha( ?Block $block ): array {
-		$local = [];
-		$global = [];
-
 		if ( !$block ) {
-			return [ 'local' => $local, 'global' => $global ];
+			return [];
 		}
 
+		$blocks = [];
 		$candidates = $block instanceof CompositeBlock ? $block->getOriginalBlocks() : [ $block ];
 		foreach ( $candidates as $candidate ) {
 			if ( !$candidate->getTarget() instanceof BlockTargetWithIp ||
@@ -179,13 +173,9 @@ class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 			) {
 				continue;
 			}
-			if ( $candidate instanceof GlobalBlock ) {
-				$global[] = $candidate;
-			} else {
-				$local[] = $candidate;
-			}
+			$blocks[] = $candidate;
 		}
 
-		return [ 'local' => $local, 'global' => $global ];
+		return $blocks;
 	}
 }

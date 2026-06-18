@@ -35,9 +35,13 @@ function collectRiskScoreForBlockedUser( win, siteKey ) {
 			const loggedError = new Error(
 				'Error with type {type} posting block token'
 			);
+			let httpStatusCode = '';
+			if ( details.xhr && details.xhr.status ) {
+				httpStatusCode = details.xhr.status.toString();
+			}
 			/* eslint-disable camelcase */
 			loggedError.error_context = {
-				details: details,
+				status_code: httpStatusCode,
 				type: type
 			};
 			/* eslint-enable camelcase */

@@ -129,7 +129,7 @@ QUnit.test(
 QUnit.test(
 	'collectRiskScoreForBlockedUser logs an error and allows a retry when the POST fails',
 	async function ( assert ) {
-		const details = { exception: 'Not Found', textStatus: 'error' };
+		const details = { exception: 'Not Found', textStatus: 'error', xhr: { status: 404 } };
 		const deferred = $.Deferred();
 		deferred.reject( 'http', details );
 		this.restPost.returns( deferred.promise() );
@@ -142,7 +142,8 @@ QUnit.test(
 		const [ loggedError, channel ] = this.logError.args[ 0 ];
 		assert.true( loggedError instanceof Error, 'logError should receive an Error instance' );
 		assert.strictEqual( loggedError.message, 'Error with type {type} posting block token', 'The error message should be the expected literal string' );
-		assert.deepEqual( loggedError.error_context, { details: details, type: 'http' }, 'The error should carry details and type as error_context' );
+		// eslint-disable-next-line camelcase
+		assert.deepEqual( loggedError.error_context, { status_code: '404', type: 'http' }, 'The error should carry details and type as error_context' );
 		assert.strictEqual( channel, 'error.confirmedit', 'logError should be called with the error channel' );
 
 		this.restPost.returns( Promise.resolve() );

@@ -83,22 +83,14 @@ class HookRunner implements
 	/** @inheritDoc */
 	public function onConfirmEditHCaptchaRiskScoreRetrievedForBlocks(
 		float $riskScore,
-		array $localBlockIds,
-		array $globalBlockIds,
+		array $relevantBlocks,
 		UserIdentity $user,
 		string $pageViewId,
 		$request
 	): void {
 		$this->hookContainer->run(
 			'ConfirmEditHCaptchaRiskScoreRetrievedForBlocks',
-			[
-				$riskScore,
-				$localBlockIds,
-				$globalBlockIds,
-				$user,
-				$pageViewId,
-				$request
-			],
+			[ $riskScore, $relevantBlocks, $user, $pageViewId, $request ],
 			[ 'abortable' => false ]
 		);
 	}

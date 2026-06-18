@@ -4,6 +4,7 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Hooks;
 
+use MediaWiki\Block\Block;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\User\UserIdentity;
 
@@ -22,16 +23,14 @@ interface ConfirmEditHCaptchaRiskScoreRetrievedForBlocksHook {
 	 * for a set of blocks via the dedicated risk score REST endpoint.
 	 *
 	 * @param float $riskScore The risk score returned by hCaptcha (0.0–1.0, or -1.0 if unavailable)
-	 * @param int[] $localBlockIds The local block IDs associated with this risk score assessment
-	 * @param int[] $globalBlockIds The global block IDs associated with this risk score assessment
+	 * @param Block[] $relevantBlocks The local block IDs associated with this risk score assessment
 	 * @param UserIdentity $user The user who submitted the hCaptcha token
 	 * @param string $pageViewId The page view ID associated with this risk score assessment
 	 * @param WebRequest $request The current web request
 	 */
 	public function onConfirmEditHCaptchaRiskScoreRetrievedForBlocks(
 		float $riskScore,
-		array $localBlockIds,
-		array $globalBlockIds,
+		array $relevantBlocks,
 		UserIdentity $user,
 		string $pageViewId,
 		$request

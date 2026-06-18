@@ -470,8 +470,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertNotNull( $captured );
 		$this->assertSame( 0.5, $captured['riskScore'] );
-		$this->assertSame( [ 123 ], $captured['localBlockIds'] );
-		$this->assertSame( [], $captured['globalBlockIds'] );
+		$this->assertSame( [ 123 ], array_map( static fn ( $block ) => $block->getId(), $captured['blocks'] ) );
 	}
 
 	private function configureAccountCreationCaptcha(
@@ -494,7 +493,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 	 * arguments passed to the ConfirmEditHCaptchaRiskScoreRetrievedForBlocks hook,
 	 * or null if the hook was not fired.
 	 *
-	 * @return array{riskScore: float, localBlockIds: int[], globalBlockIds: int[]}|null
+	 * @return array{riskScore: float, blocks: Block[]}|null
 	 */
 	private function runAccountCreationHandlerCapturingHook(
 		FauxRequest $request,
@@ -505,13 +504,11 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			'ConfirmEditHCaptchaRiskScoreRetrievedForBlocks',
 			static function (
 				float $riskScore,
-				array $localBlockIds,
-				array $globalBlockIds
+				array $blocks
 			) use ( &$captured ) {
 				$captured = [
 					'riskScore' => $riskScore,
-					'localBlockIds' => $localBlockIds,
-					'globalBlockIds' => $globalBlockIds,
+					'blocks' => $blocks,
 				];
 			}
 		);
@@ -544,8 +541,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testGetCreateAccountBlocksRequiringHCaptcha(
 		string $setup,
-		array $expectedLocalBlockIds,
-		array $expectedGlobalBlockIds
+		array $expectedBlockIds
 	): void {
 		if ( in_array( $setup, [ 'global', 'composite_mixed' ], true ) ) {
 			$this->markTestSkippedIfExtensionNotLoaded( 'GlobalBlocking' );
@@ -564,24 +560,20 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			->getCreateAccountBlocksRequiringHCaptcha( $block );
 
 		$this->assertSame(
-			$expectedLocalBlockIds,
-			array_map( static fn ( Block $b ) => $b->getId(), $result['local'] )
-		);
-		$this->assertSame(
-			$expectedGlobalBlockIds,
-			array_map( static fn ( Block $b ) => $b->getId(), $result['global'] )
+			$expectedBlockIds,
+			array_map( static fn ( Block $b ) => $b->getId(), $result )
 		);
 	}
 
 	public static function provideCreateAccountBlocks(): iterable {
 		yield 'No block' => [ 'none', [], [] ];
-		yield 'Local IP block preventing account creation' => [ 'ip_local', [ 123 ], [] ];
-		yield 'Local range block preventing account creation' => [ 'range_local', [ 123 ], [] ];
-		yield 'IP block that does not prevent account creation' => [ 'ip_no_createaccount', [], [] ];
-		yield 'Block without an IP target' => [ 'user_no_ip', [], [] ];
-		yield 'Global IP block preventing account creation' => [ 'global', [], [ 124 ] ];
-		yield 'Composite with local and global IP children' => [ 'composite_mixed', [ 123 ], [ 124 ] ];
-		yield 'Composite whose only child has no IP target' => [ 'composite_no_ip', [], [] ];
+		yield 'Local IP block preventing account creation' => [ 'ip_local', [ 123 ] ];
+		yield 'Local range block preventing account creation' => [ 'range_local', [ 123 ] ];
+		yield 'IP block that does not prevent account creation' => [ 'ip_no_createaccount', [] ];
+		yield 'Block without an IP target' => [ 'user_no_ip', [] ];
+		yield 'Global IP block preventing account creation' => [ 'global', [ 124 ] ];
+		yield 'Composite with local and global IP children' => [ 'composite_mixed', [ 123, 124 ] ];
+		yield 'Composite whose only child has no IP target' => [ 'composite_no_ip', [] ];
 	}
 
 	private function makeCreateAccountBlock( string $setup ): ?Block {

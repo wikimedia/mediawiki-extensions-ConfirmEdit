@@ -4,6 +4,7 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Api\Rest\Handler;
 
+use MediaWiki\Block\Block;
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\ConfirmEdit\Api\Rest\Handler\PostHCaptchaTokenForBlockHandler;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
@@ -34,19 +35,21 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			] ),
 			$this->getServiceContainer()->getHookContainer(),
 			$this->getServiceContainer()->getUserFactory(),
-			$blocksLookup ?? $this->newBlocksLookupMock( [ 'local' => [ 1, 2 ], 'global' => [ 3 ] ] ),
+			$blocksLookup ?? $this->newBlocksLookupMock( [ 1, 2, 3 ] ),
 			$this->getServiceContainer()->getTitleFactory()
 		);
 	}
 
-	private function newBlocksLookupMock( array $blocks ): HCaptchaBlocksLookup {
+	private function newBlocksLookupMock( array $blockIds ): HCaptchaBlocksLookup {
 		$mock = $this->createMock( HCaptchaBlocksLookup::class );
 		$mock
 			->method( 'getBlocksRequiringHCaptcha' )
-			->willReturn( $blocks );
-		$mock
-			->method( 'listBlockIds' )
-			->willReturnArgument( 0 );
+			->willReturn( array_map( function ( $blockId ) {
+				$block = $this->createMock( Block::class );
+				$block->method( 'getId' )
+					->willReturn( $blockId );
+				return $block;
+			}, $blockIds ) );
 
 		return $mock;
 	}
@@ -86,16 +89,14 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			'ConfirmEditHCaptchaRiskScoreRetrievedForBlocks',
 			function (
 				float $riskScore,
-				array $localBlockIds,
-				array $globalBlockIds,
+				array $blocks,
 				UserIdentity $user,
 				string $pageViewId,
 				WebRequest $request
 			) use ( &$hookFired ): void {
 				$hookFired = true;
 				$this->assertSame( 0.5, $riskScore );
-				$this->assertSame( [ 1, 2 ], $localBlockIds );
-				$this->assertSame( [ 3 ], $globalBlockIds );
+				$this->assertSame( [ 1, 2, 3 ], array_map( static fn ( $block ) => $block->getId(), $blocks ) );
 				$this->assertSame( '', $pageViewId );
 			}
 		);
@@ -128,8 +129,7 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			'ConfirmEditHCaptchaRiskScoreRetrievedForBlocks',
 			function (
 				float $riskScore,
-				array $localBlockIds,
-				array $globalBlockIds,
+				array $blocks,
 				UserIdentity $user,
 				string $pageViewId,
 				WebRequest $request
@@ -303,7 +303,7 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			->method( 'retrieveRiskScore' );
 
 		$handler = $this->newHandler(
-			blocksLookup: $this->newBlocksLookupMock( [ 'local' => [], 'global' => [] ] )
+			blocksLookup: $this->newBlocksLookupMock( [] )
 		);
 		$handler->setHCaptcha( $mockHCaptcha );
 		$response = $this->executeHandler(

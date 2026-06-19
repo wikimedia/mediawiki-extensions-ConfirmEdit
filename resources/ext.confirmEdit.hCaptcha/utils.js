@@ -574,9 +574,26 @@ function renderHCaptcha( win, interfaceName, container, renderOptions ) {
 	renderOptions = renderOptions || {};
 
 	/**
+	 * Focuses the challenge iframe when it's opened, as this does not get automatically
+	 * focused by hCaptcha on Firefox
+	 */
+	const focusChallengeIFrame = function () {
+		let challengeContainer = renderOptions[ 'challenge-container' ] || container;
+
+		if ( typeof challengeContainer === 'string' ) {
+			challengeContainer = document.getElementById( challengeContainer );
+		}
+
+		$( challengeContainer ).find( 'iframe' ).filter( function () {
+			return $( this ).css( 'visibility' ) === 'visible';
+		} ).focus();
+	};
+
+	/**
 	 * Fires when a visible challenge is displayed.
 	 */
 	const onOpen = function () {
+		focusChallengeIFrame();
 		mw.track( 'stats.mediawiki_confirmedit_hcaptcha_open_callback_total', 1, {
 			wiki: mw.config.get( 'wgDBname' ),
 			interfaceName: interfaceName

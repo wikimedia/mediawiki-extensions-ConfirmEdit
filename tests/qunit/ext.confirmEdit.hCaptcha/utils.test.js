@@ -342,6 +342,45 @@ QUnit.test( 'renderHCaptcha should instrument events', async function ( assert )
 	);
 } );
 
+QUnit.test.each( 'renderHCaptcha should focus challenge iframe when challenge opened', {
+	'Challenge container specified': {
+		challengeContainerSpecified: true
+	},
+	'Challenge container not specified': {
+		challengeContainerSpecified: false
+	}
+}, async function ( assert, options ) {
+	const $testFixture = $( '#qunit-fixture' );
+
+	const $challengeIFrame = $( '<iframe>' ).css( 'visibility', 'visible' );
+	const $challengeContainer = $( '<div>' );
+	$challengeContainer.append( $challengeIFrame );
+	$testFixture.append( $challengeContainer );
+
+	if ( options.challengeContainerSpecified ) {
+		this.utils.renderHCaptcha(
+			this.window,
+			'testinterface',
+			'container-id',
+			{ 'challenge-container': $challengeContainer[ 0 ] }
+		);
+	} else {
+		this.utils.renderHCaptcha( this.window, 'testinterface', $challengeContainer[ 0 ], {} );
+	}
+
+	assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha' );
+
+	const actualRenderOptions = this.window.hcaptcha.render.getCall( 0 ).args[ 1 ];
+
+	actualRenderOptions[ 'open-callback' ]();
+
+	assert.strictEqual(
+		document.activeElement,
+		$challengeIFrame[ 0 ],
+		'Challenge iframe should be focused when it is opened'
+	);
+} );
+
 QUnit.test( 'renderHCaptcha should use provided renderOptions', async function ( assert ) {
 	const renderOptions = {
 		'open-callback': this.sandbox.stub(),

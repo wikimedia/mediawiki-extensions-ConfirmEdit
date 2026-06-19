@@ -10,3 +10,18 @@
 	display: block;
 	margin: @spacing-50 0;
 }
+
+// On the account creation form, the disclaimer is moved below the "Create your account"
+// button (see HCaptcha::onAuthChangeFormFields) and rendered as a small, subtle caption.
+.mw-special-CreateAccount .h-captcha-privacy-policy {
+	font-size: @font-size-small;
+	color: @color-subtle;
+
+	a.external {
+		color: @color-subtle;
+		text-decoration: @text-decoration-underline;
+		// Remove the external-link icon (cdxIconLinkExternal) from the inline links.
+		background: none;
+		padding-right: 0;
+	}
+}

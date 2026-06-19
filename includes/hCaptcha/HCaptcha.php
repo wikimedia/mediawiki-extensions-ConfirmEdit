@@ -7,6 +7,7 @@ namespace MediaWiki\Extension\ConfirmEdit\hCaptcha;
 use LogicException;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Auth\AuthenticationRequest;
+use MediaWiki\Auth\AuthManager;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
@@ -38,6 +39,12 @@ class HCaptcha extends SimpleCaptcha {
 	 * hcaptcha-create, hcaptcha-sendemail via getMessage()
 	 */
 	protected static $messagePrefix = 'hcaptcha';
+
+	/**
+	 * HTMLForm weight for the captcha field on the account creation form, placing the hCaptcha
+	 * disclaimer below the "Create your account" submit button (which has a weight of 100).
+	 */
+	private const CREATE_ACCOUNT_DISCLAIMER_WEIGHT = 200;
 
 	/** @var string|null */
 	private $error = null;
@@ -675,6 +682,20 @@ class HCaptcha extends SimpleCaptcha {
 			'class' => HTMLHCaptchaField::class,
 			'error' => $captcha->getError(),
 		] + $formDescriptor['captchaWord'];
+
+		// On the account creation form, move the hCaptcha disclaimer below the "Create your
+		// account" button (which has a weight of 100). This is only done in invisible mode,
+		// where the disclaimer is rendered inside this field (see HCaptchaOutput); in visible
+		// mode this field holds a user-facing widget and the disclaimer comes from showHelp(),
+		// so reordering it would move the widget rather than the disclaimer. See T428135.
+		$isAccountCreation = in_array(
+			$action,
+			[ AuthManager::ACTION_CREATE, AuthManager::ACTION_CREATE_CONTINUE ],
+			true
+		);
+		if ( $isAccountCreation && $this->hCaptchaConfig->get( 'HCaptchaInvisibleMode' ) ) {
+			$formDescriptor['captchaWord']['weight'] = self::CREATE_ACCOUNT_DISCLAIMER_WEIGHT;
+		}
 	}
 
 	/** @inheritDoc */

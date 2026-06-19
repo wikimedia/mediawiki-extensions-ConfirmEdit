@@ -8,6 +8,7 @@ use LogicException;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiEditPage;
 use MediaWiki\Api\ApiRawMessage;
+use MediaWiki\Auth\AuthManager;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
@@ -757,6 +758,59 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			$formDescriptor,
 			false, true
 		);
+	}
+
+	/**
+	 * @dataProvider provideAccountCreationActions
+	 */
+	public function testDisclaimerMovedOnAccountCreation(
+		string $action
+	) {
+		$this->overrideConfigValue( 'HCaptchaInvisibleMode', true );
+		$hCaptcha = new HCaptcha();
+
+		$formDescriptor = [ 'captchaWord' => [ 'id' => 'test' ] ];
+		$hCaptcha->onAuthChangeFormFields(
+			[ $hCaptcha->createAuthenticationRequest() ], [], $formDescriptor, $action
+		);
+
+		// In invisible mode the disclaimer is rendered inside the captcha field, so the field
+		// is weighted below the "Create your account" submit button (which has a weight of 100).
+		$this->assertSame( 200, $formDescriptor['captchaWord']['weight'] );
+	}
+
+	public static function provideAccountCreationActions() {
+		return [
+			'create' => [ AuthManager::ACTION_CREATE ],
+			'create-continue' => [ AuthManager::ACTION_CREATE_CONTINUE ],
+		];
+	}
+
+	public function testCaptchaFieldNotMovedInVisibleMode() {
+		$this->overrideConfigValue( 'HCaptchaInvisibleMode', false );
+		$hCaptcha = new HCaptcha();
+
+		// In visible mode the captcha field holds a user-facing widget (and the disclaimer
+		// comes from showHelp()), so the field must not be reordered below the submit button.
+		$formDescriptor = [ 'captchaWord' => [ 'id' => 'test' ] ];
+		$hCaptcha->onAuthChangeFormFields(
+			[ $hCaptcha->createAuthenticationRequest() ], [], $formDescriptor, AuthManager::ACTION_CREATE
+		);
+
+		$this->assertArrayNotHasKey( 'weight', $formDescriptor['captchaWord'] );
+	}
+
+	public function testDisclaimerNotMovedForNonCreateAction() {
+		$this->overrideConfigValue( 'HCaptchaInvisibleMode', true );
+		$hCaptcha = new HCaptcha();
+
+		// Outside account creation (e.g. login) the disclaimer is not relocated.
+		$formDescriptor = [ 'captchaWord' => [ 'id' => 'test' ] ];
+		$hCaptcha->onAuthChangeFormFields(
+			[ $hCaptcha->createAuthenticationRequest() ], [], $formDescriptor, AuthManager::ACTION_LOGIN
+		);
+
+		$this->assertArrayNotHasKey( 'weight', $formDescriptor['captchaWord'] );
 	}
 
 	public function testScoreIsCached() {

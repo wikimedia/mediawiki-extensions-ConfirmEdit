@@ -65,10 +65,18 @@ class HCaptchaOutput {
 		'gd', 'gl', 'gu', 'ha', 'haw', 'he', 'hi', 'hmn', 'hr', 'ht', 'hu', 'hy',
 		'id', 'ig', 'is', 'it', 'ja', 'jw', 'ka', 'kk', 'km', 'kn', 'ko', 'ku', 'ky',
 		'la', 'lb', 'lo', 'lt', 'lv', 'me', 'mg', 'mi', 'mk', 'ml', 'mn', 'mr', 'ms',
-		'mt', 'my', 'ne', 'nl', 'no', 'ny', 'or', 'pa', 'pl', 'ps', 'pt', 'ro', 'ru',
-		'rw', 'sd', 'si', 'sk', 'sl', 'sm', 'sn', 'so', 'sq', 'sr', 'st', 'su', 'sv',
-		'sw', 'ta', 'te', 'tg', 'th', 'tk', 'tl', 'tr', 'tt', 'ug', 'uk', 'ur', 'uz',
-		'vi', 'xh', 'yi', 'yo', 'zh', 'zu',
+		'mt', 'my', 'ne', 'nl', 'no', 'ny', 'or', 'pa', 'pl', 'ps', 'pt', 'pt-br',
+		'ro', 'ru', 'rw', 'sd', 'si', 'sk', 'sl', 'sm', 'sn', 'so', 'sq', 'sr', 'st',
+		'su', 'sv', 'sw', 'ta', 'te', 'tg', 'th', 'tk', 'tl', 'tr', 'tt', 'ug', 'uk',
+		'ur', 'uz', 'vi', 'xh', 'yi', 'yo', 'zh', 'zh-hans', 'zh-hant', 'zu',
+	];
+
+	/**
+	 * Maps MediaWiki language codes to the corresponding hCaptcha language code
+	 * that can be passed in the `hl` parameter to the API URL.
+	 */
+	private const MEDIAWIKI_LANGUAGE_CODE_TO_HCAPTCHA_LANGUAGE_CODE = [
+		'pt-br' => 'pt-BR', 'zh-hans' => 'zh-CN', 'zh-hant' => 'zh-TW',
 	];
 
 	public function __construct(
@@ -201,7 +209,9 @@ class HCaptchaOutput {
 		}
 
 		if ( $languageParam ) {
-			$hCaptchaApiUrl = wfAppendQuery( $hCaptchaApiUrl, [ 'hl' => $languageParam ] );
+			$hCaptchaLanguageParam = self::MEDIAWIKI_LANGUAGE_CODE_TO_HCAPTCHA_LANGUAGE_CODE[$languageParam]
+				?? $languageParam;
+			$hCaptchaApiUrl = wfAppendQuery( $hCaptchaApiUrl, [ 'hl' => $hCaptchaLanguageParam ] );
 		}
 
 		return $hCaptchaApiUrl;

@@ -111,6 +111,10 @@ class HCaptchaOutputTest extends MediaWikiIntegrationTestCase {
 				'languageCode' => 'en-gb',
 				'expectedUrl' => 'https://hcaptcha.example.com/api.js?hl=en',
 			],
+			'Language code is represented differently by hCaptcha' => [
+				'languageCode' => 'pt-br',
+				'expectedUrl' => 'https://hcaptcha.example.com/api.js?hl=pt-BR',
+			],
 		];
 	}
 

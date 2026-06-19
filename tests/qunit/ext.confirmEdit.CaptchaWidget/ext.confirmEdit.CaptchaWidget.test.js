@@ -195,7 +195,9 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 				renderHCaptcha: this.sandbox.stub().returns( 'widget-id' ),
 				executeHCaptcha: this.sandbox.stub().returns( Promise.resolve( 'test-response' ) ),
 				getHCaptchaSiteKey: () => 'test-site-key',
-				isHCaptchaInInvisibleMode: () => options.hCaptchaInvisibleMode
+				isHCaptchaInInvisibleMode: () => options.hCaptchaInvisibleMode,
+				showLoadingIndicator: this.sandbox.stub(),
+				hideLoadingIndicator: this.sandbox.stub()
 			}
 		};
 
@@ -206,7 +208,8 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
 			type: 'hcaptcha',
 			container: $qunitFixture[ 0 ],
-			interfaceName: 'test-interface'
+			interfaceName: 'test-interface',
+			showLoadingIndicator: true
 		} );
 
 		return captchaWidget.renderCaptcha().then( () => {
@@ -272,6 +275,26 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 					'executeHCaptcha arguments are as expected'
 				);
 
+				assert.true(
+					mockHCaptchaModule.utils.showLoadingIndicator.calledOnce,
+					'showLoadingIndicator should be shown while hCaptcha is executing'
+				);
+				assert.true(
+					mockHCaptchaModule.utils.hideLoadingIndicator.calledOnce,
+					'hideLoadingIndicator should be called once hCaptcha resolves'
+				);
+				assert.true(
+					mockHCaptchaModule.utils.showLoadingIndicator.calledBefore(
+						mockHCaptchaModule.utils.hideLoadingIndicator
+					),
+					'the loading indicator should be shown before it is hidden'
+				);
+				assert.strictEqual(
+					mockHCaptchaModule.utils.showLoadingIndicator.firstCall.args[ 0 ][ 0 ],
+					$qunitFixture[ 0 ],
+					'the loading indicator is anchored to the outer CAPTCHA container, not the hCaptcha field'
+				);
+
 				const expectedCaptchaData = { captchaid: '', captchaword: 'test-response' };
 				if ( options.wgConfirmEditForceShowCaptchaConfigValue ) {
 					expectedCaptchaData.wgConfirmEditForceShowCaptcha = true;
@@ -283,6 +306,46 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 				);
 			} );
 		} );
+	} );
+
+	QUnit.test( 'hCaptcha loading indicator is not shown unless opted in', function ( assert ) {
+		const mockHCaptchaModule = {
+			utils: {
+				loadHCaptcha: this.sandbox.stub().returns( Promise.resolve() ),
+				renderHCaptcha: this.sandbox.stub().returns( 'widget-id' ),
+				executeHCaptcha: this.sandbox.stub().returns( Promise.resolve( 'test-response' ) ),
+				getHCaptchaSiteKey: () => 'test-site-key',
+				isHCaptchaInInvisibleMode: () => true,
+				showLoadingIndicator: this.sandbox.stub(),
+				hideLoadingIndicator: this.sandbox.stub()
+			}
+		};
+
+		mockLoaderUsingForHCaptcha( this, mockHCaptchaModule, assert );
+
+		// No showLoadingIndicator in the config, so it defaults to off.
+		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+			type: 'hcaptcha',
+			container: $( '#qunit-fixture' )[ 0 ],
+			interfaceName: 'test-interface'
+		} );
+
+		return captchaWidget.renderCaptcha()
+			.then( () => captchaWidget.getCaptchaDataForSubmission() )
+			.then( () => {
+				assert.true(
+					mockHCaptchaModule.utils.executeHCaptcha.calledOnce,
+					'executeHCaptcha should still run'
+				);
+				assert.true(
+					mockHCaptchaModule.utils.showLoadingIndicator.notCalled,
+					'showLoadingIndicator should not be called unless opted in'
+				);
+				assert.true(
+					mockHCaptchaModule.utils.hideLoadingIndicator.notCalled,
+					'hideLoadingIndicator should not be called unless opted in'
+				);
+			} );
 	} );
 
 	QUnit.test.each( 'updateForFailure when CAPTCHA is hCaptcha', {
@@ -519,7 +582,9 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 				executeHCaptcha: this.sandbox.stub().rejects( new Error( 'challenge-closed' ) ),
 				getHCaptchaSiteKey: () => 'test-site-key',
 				isHCaptchaInInvisibleMode: () => true,
-				mapErrorCodeToMessageKey: this.sandbox.stub().returns( 'mapped-error-key' )
+				mapErrorCodeToMessageKey: this.sandbox.stub().returns( 'mapped-error-key' ),
+				showLoadingIndicator: this.sandbox.stub(),
+				hideLoadingIndicator: this.sandbox.stub()
 			}
 		};
 
@@ -528,7 +593,8 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 		const captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
 			type: 'hcaptcha',
 			container: $( '#qunit-fixture' )[ 0 ],
-			interfaceName: 'test-interface'
+			interfaceName: 'test-interface',
+			showLoadingIndicator: true
 		} );
 
 		await captchaWidget.renderCaptcha();
@@ -550,6 +616,10 @@ QUnit.module( 'ext.confirmEdit.CaptchaWidget', QUnit.newMwEnvironment(), () => {
 			mockHCaptchaModule.utils.mapErrorCodeToMessageKey.firstCall.args[ 0 ].message,
 			'challenge-closed',
 			'mapErrorCodeToMessageKey arguments are as expected'
+		);
+		assert.true(
+			mockHCaptchaModule.utils.hideLoadingIndicator.calledOnce,
+			'hideLoadingIndicator should be called even when hCaptcha execution fails'
 		);
 	} );
 

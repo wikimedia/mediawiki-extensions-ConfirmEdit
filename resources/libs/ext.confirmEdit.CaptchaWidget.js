@@ -9,6 +9,9 @@ mw.libs.confirmEdit = mw.libs.confirmEdit || {};
  *   {@link self.updateForCaptchaFailure} if not known at the time of construction.
  * @property {string} [interfaceName] The name of the interface where the action is being performed,
  *   used for stats.
+ * @property {boolean} [showLoadingIndicator] Whether to show a loading indicator while hCaptcha
+ *   runs its check. Off by default; enable for interfaces that have no loading affordance of their
+ *   own (e.g. UploadWizard) so they do not appear frozen during the wait.
  */
 
 /**
@@ -368,23 +371,31 @@ mw.libs.confirmEdit.CaptchaWidget.prototype.getCaptchaDataForSubmission = functi
  * @internal
  * @return {Promise<void>}
  */
-mw.libs.confirmEdit.CaptchaWidget.prototype.executeHCaptcha = function () {
+mw.libs.confirmEdit.CaptchaWidget.prototype.executeHCaptcha = async function () {
 	if ( this.captchaWord ) {
-		return Promise.resolve();
-	} else {
-		return mw.loader.using( 'ext.confirmEdit.hCaptcha' )
-			.then( ( require ) => {
-				const hCaptchaUtils = require( 'ext.confirmEdit.hCaptcha' ).utils;
-				return hCaptchaUtils.executeHCaptcha(
-					window,
-					this.hCaptchaWidgetId,
-					this.config.interfaceName
-				).then( ( response ) => {
-					this.captchaWord = response;
-				} ).catch( ( error ) => {
-					throw new Error( mw.msg( hCaptchaUtils.mapErrorCodeToMessageKey( error ) ) );
-				} );
-			} );
+		return;
+	}
+
+	const require = await mw.loader.using( 'ext.confirmEdit.hCaptcha' );
+	const hCaptchaUtils = require( 'ext.confirmEdit.hCaptcha' ).utils;
+
+	const showIndicator = this.config.showLoadingIndicator;
+	const $container = showIndicator ? $( this.config.container ) : null;
+	if ( showIndicator ) {
+		hCaptchaUtils.showLoadingIndicator( $container );
+	}
+	try {
+		this.captchaWord = await hCaptchaUtils.executeHCaptcha(
+			window,
+			this.hCaptchaWidgetId,
+			this.config.interfaceName
+		);
+	} catch ( error ) {
+		throw new Error( mw.msg( hCaptchaUtils.mapErrorCodeToMessageKey( error ) ) );
+	} finally {
+		if ( showIndicator ) {
+			hCaptchaUtils.hideLoadingIndicator( $container );
+		}
 	}
 };
 

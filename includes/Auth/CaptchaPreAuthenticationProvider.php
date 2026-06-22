@@ -190,9 +190,26 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				$loginCounter->resetBadLoginCounter( $user ? $user->getName() : null );
 				break;
 			case AuthenticationResponse::FAIL:
+				// If authentication failed, the user will see the login form again and so we want a CAPTCHA to show
+				// on this form if it's still required.
+				$captcha->clearCaptchaSolved();
+				$this->captchaFactory->getGlobalInstance( CaptchaTriggers::BAD_LOGIN_PER_USER )->clearCaptchaSolved();
+				$this->captchaFactory->getGlobalInstance( CaptchaTriggers::LOGIN_ATTEMPT )->clearCaptchaSolved();
+
 				$loginCounter->increaseBadLoginCounter( $user ? $user->getName() : null );
 				break;
 		}
+	}
+
+	/** @inheritDoc */
+	public function postAccountCreation( $user, $creator, AuthenticationResponse $response ) {
+		if ( $response->status !== AuthenticationResponse::FAIL ) {
+			return;
+		}
+
+		// If account creation failed, the user will see the form again and so we want a CAPTCHA to show
+		// on this form if it's still required.
+		$this->captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE_ACCOUNT )->clearCaptchaSolved();
 	}
 
 	/**

@@ -51,7 +51,9 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		string $createCaptchaClass,
 		?string $passiveModeSiteKey,
 		bool $userCanSkipCaptcha,
-		?string $blockType
+		?string $blockType,
+		array $skipUserAgents = [],
+		?string $userAgent = null
 	): void {
 		if ( $pageExists ) {
 			$title = $this->getExistingTestPage()->getTitle();
@@ -66,6 +68,10 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 		$this->overrideConfigValue(
 			'HCaptchaBlockedIpEditingScoreCollectionSiteKey',
 			$passiveModeSiteKey
+		);
+		$this->overrideConfigValue(
+			'HCaptchaBlockedIpEditingScoreSkipUserAgents',
+			$skipUserAgents
 		);
 		$this->overrideConfigValue(
 			'CaptchaTriggers',
@@ -91,10 +97,13 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			]
 		);
 
+		$request = new FauxRequest( [ 'action' => $action ] );
+		if ( $userAgent !== null ) {
+			$request->setHeader( 'User-Agent', $userAgent );
+		}
+
 		$context = RequestContext::getMain();
-		$context->setRequest(
-			new FauxRequest( [ 'action' => $action ] )
-		);
+		$context->setRequest( $request );
 
 		$mockBlock = null;
 		if ( $blockType !== null ) {
@@ -321,6 +330,48 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			'passiveModeSiteKey' => 'passive-mode-global-key',
 			'userCanSkipCaptcha' => false,
 			'blockType' => 'ip',
+		];
+
+		yield 'IP block, but the User-Agent matches a crawler skip pattern' => [
+			'expectedModulesAdded' => false,
+			'expectedSiteKey' => null,
+			'action' => 'edit',
+			'pageExists' => false,
+			'editCaptchaClass' => 'HCaptcha',
+			'createCaptchaClass' => 'HCaptcha',
+			'passiveModeSiteKey' => 'passive-mode-global-key',
+			'userCanSkipCaptcha' => false,
+			'blockType' => 'ip',
+			'skipUserAgents' => [ '/ExampleBot/i', '#other-crawler#' ],
+			'userAgent' => 'ExampleBot/1.0 (+https://example.com/bot)',
+		];
+
+		yield 'IP block with a User-Agent that matches no skip pattern' => [
+			'expectedModulesAdded' => true,
+			'expectedSiteKey' => 'passive-mode-global-key',
+			'action' => 'edit',
+			'pageExists' => false,
+			'editCaptchaClass' => 'HCaptcha',
+			'createCaptchaClass' => 'HCaptcha',
+			'passiveModeSiteKey' => 'passive-mode-global-key',
+			'userCanSkipCaptcha' => false,
+			'blockType' => 'ip',
+			'skipUserAgents' => [ '/ExampleBot/i' ],
+			'userAgent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+		];
+
+		yield 'IP block with skip patterns configured but no User-Agent header' => [
+			'expectedModulesAdded' => true,
+			'expectedSiteKey' => 'passive-mode-global-key',
+			'action' => 'edit',
+			'pageExists' => false,
+			'editCaptchaClass' => 'HCaptcha',
+			'createCaptchaClass' => 'HCaptcha',
+			'passiveModeSiteKey' => 'passive-mode-global-key',
+			'userCanSkipCaptcha' => false,
+			'blockType' => 'ip',
+			'skipUserAgents' => [ '/ExampleBot/i' ],
+			'userAgent' => null,
 		];
 	}
 

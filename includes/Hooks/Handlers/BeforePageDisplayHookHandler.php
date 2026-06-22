@@ -18,6 +18,7 @@ use MediaWiki\Extension\GlobalBlocking\GlobalBlock;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Request\WebRequest;
 
 /**
  * Collects an hCaptcha risk score when an IP/range block prevents the action.
@@ -55,6 +56,10 @@ class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 			return;
 		}
 
+		if ( $this->isExcludedCrawler( $out->getRequest() ) ) {
+			return;
+		}
+
 		$captchaInstance = $this->captchaFactory->getGlobalInstanceFromContext( $out );
 		if ( !$captchaInstance instanceof HCaptcha ) {
 			return;
@@ -76,6 +81,26 @@ class BeforePageDisplayHookHandler implements BeforePageDisplayHook {
 				'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey' => $siteKey,
 			] );
 		}
+	}
+
+	/**
+	 * Whether the request's User-Agent matches a configured crawler pattern.
+	 *
+	 * Patterns are PCRE strings (with delimiters) supplied via
+	 * $wgHCaptchaBlockedIpEditingScoreSkipUserAgents. The list defaults to
+	 * empty, in which case no request is excluded.
+	 */
+	private function isExcludedCrawler( WebRequest $request ): bool {
+		$patterns = $this->config->get( 'HCaptchaBlockedIpEditingScoreSkipUserAgents' );
+		if ( !$patterns ) {
+			return false;
+		}
+
+		$userAgent = $request->getHeader( 'User-Agent' );
+		if ( $userAgent === false ) {
+			return false;
+		}
+		return array_any( $patterns, static fn ( $pattern ) => preg_match( $pattern, $userAgent ) );
 	}
 
 	/**

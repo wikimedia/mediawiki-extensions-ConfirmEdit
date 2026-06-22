@@ -267,6 +267,10 @@
 			"description": "Passive mode sitekey from hCaptcha, used to collect a risk score for IP/range-blocked users on edit pages without showing a captcha challenge. This setting has no effect unless both HCaptchaEnterprise and HCaptchaSecureEnclave are enabled. Leave it as null to disable this feature.",
 			"value": null
 		},
+		"HCaptchaBlockedIpEditingScoreSkipUserAgents": {
+			"description": "List of PCRE patterns (each including delimiters, e.g. \"/ExampleBot/i\") matched against the request's User-Agent header. When a blocked user's request matches any pattern, the hCaptcha risk-score widget is not loaded and no score is collected. Intended to exclude self-identifying crawlers that follow action=edit links without intending to edit. The patterns are typically supplied via private configuration; defaults to an empty list (no exclusions).",
+			"value": []
+		},
 		"HCaptchaSecretKey": {
 			"description": "Secret key from hCaptcha (requires creating an account)",
 			"value": ""

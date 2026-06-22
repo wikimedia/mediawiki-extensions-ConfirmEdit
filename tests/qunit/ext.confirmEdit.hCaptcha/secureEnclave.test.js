@@ -205,13 +205,13 @@ function assertHCaptchaWasExecuted( assert, testcase ) {
 		'should load hCaptcha SDK from given URL'
 	);
 
-	assert.false(
+	assert.true(
 		testcase.isLoadingIndicatorVisible(),
-		'should hide loading indicator'
+		'loading indicator should remain visible while the form submits'
 	);
-	assert.false(
+	assert.true(
 		testcase.areSubmitButtonsDisabled(),
-		'submit buttons should be re-enabled after success'
+		'submit buttons should remain disabled while the form submits'
 	);
 
 	assert.true( win.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
@@ -789,8 +789,8 @@ QUnit.test( 'should allow recovering from a recoverable error by starting a new 
 
 	const result = useSecureEnclave( this.window )
 		.then( () => {
-			assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
-			assert.false( this.areSubmitButtonsDisabled(), 'submit buttons should be re-enabled after success' );
+			assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should remain visible while the form submits' );
+			assert.true( this.areSubmitButtonsDisabled(), 'submit buttons should remain disabled while the form submits' );
 
 			assert.true( this.window.hcaptcha.render.calledOnce, 'should render hCaptcha widget once' );
 			assert.deepEqual(
@@ -838,8 +838,8 @@ QUnit.test( 'should disable submit buttons during hCaptcha execution on edit pag
 
 	const result = useSecureEnclave( this.window )
 		.then( () => {
-			assert.false( this.isLoadingIndicatorVisible(), 'should hide loading indicator' );
-			assert.false( this.areSubmitButtonsDisabled(), 'submit button should be re-enabled after success' );
+			assert.true( this.isLoadingIndicatorVisible(), 'loading indicator should remain visible while the form submits' );
+			assert.true( this.areSubmitButtonsDisabled(), 'submit button should remain disabled while the form submits' );
 
 			const infuseCall = window.OO.ui.infuse.firstCall;
 			assert.strictEqual(
@@ -920,7 +920,7 @@ QUnit.test( 'edit form: falls back to native button selector when OO is absent',
 		.then( () => {
 			window.OO = savedOO;
 			assert.true( window.OO.ui.infuse.notCalled, 'OO.ui.infuse should not have been called' );
-			assert.false( $saveButton.prop( 'disabled' ), '#wpSaveWidget button should be re-enabled after success' );
+			assert.true( $saveButton.prop( 'disabled' ), '#wpSaveWidget button should remain disabled while the form submits' );
 		} );
 
 	this.$form.find( '[name=some-input]' ).trigger( 'input' );

@@ -194,11 +194,11 @@ function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 
 						// Clear out any errors from a previous workflow
 						utils.hideError( $hCaptchaField );
-						utils.hideLoadingIndicator( $hCaptchaField );
-						setSubmitButtonDisabledProp( false );
 
 						mw.hook( 'confirmEdit.hCaptcha.executionSuccess' ).fire( response );
 
+						// The form submission navigates away, so the loading indicator and
+						// disabled button are intentionally left as-is (T429611).
 						form.submit();
 					} )
 					.catch( ( error ) => {

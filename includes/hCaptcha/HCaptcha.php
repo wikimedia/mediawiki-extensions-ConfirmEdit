@@ -139,31 +139,6 @@ class HCaptcha extends SimpleCaptcha {
 	}
 
 	/**
-	 * Sets the value returned by {@link self::shouldForceShowCaptcha}.
-	 *
-	 * Additionally, for edits with the flag set to true, the JS configuration
-	 * variable wgHCaptchaTriggerFormSubmission is set cause the frontend
-	 * to immediately submit the form. That is done to avoid the user needing to
-	 * resubmit the form when an AbuseFilter requires a different site key to be
-	 * used for the edit.
-	 *
-	 * @inheritDoc
-	 */
-	public function setForceShowCaptcha( bool $forceShowCaptcha ): void {
-		parent::setForceShowCaptcha( $forceShowCaptcha );
-
-		$isPageSubmission = in_array( $this->action, [ 'edit', 'create' ] );
-
-		if ( $isPageSubmission && $forceShowCaptcha ) {
-			$output = RequestContext::getMain()->getOutput();
-			$output->addJsConfigVars(
-				'wgHCaptchaTriggerFormSubmission',
-				true
-			);
-		}
-	}
-
-	/**
 	 * Returns true if passCaptcha() should reject the current submission with
 	 * error='forceshowcaptcha', signaling to the JS interface that it needs to
 	 * present the always-challenge widget before the edit can proceed.
@@ -231,6 +206,11 @@ class HCaptcha extends SimpleCaptcha {
 		$webRequest = RequestContext::getMain()->getRequest();
 		if ( $this->shouldForceShowCaptchaChallenge( $webRequest ) ) {
 			$this->error = 'forceshowcaptcha';
+			$output = RequestContext::getMain()->getOutput();
+			$output->addJsConfigVars(
+				'wgHCaptchaTriggerFormSubmission',
+				true
+			);
 			return false;
 		}
 
@@ -252,6 +232,11 @@ class HCaptcha extends SimpleCaptcha {
 			in_array( $json['sitekey'] ?? null, $this->getAllSiteKeysForCurrentAction(), true )
 		) {
 			$this->error = 'forceshowcaptcha';
+			$output = RequestContext::getMain()->getOutput();
+			$output->addJsConfigVars(
+				'wgHCaptchaTriggerFormSubmission',
+				true
+			);
 			$this->setCaptchaSolved( false );
 			return false;
 		}

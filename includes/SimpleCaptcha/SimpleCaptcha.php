@@ -329,7 +329,7 @@ class SimpleCaptcha {
 		// Re-rendering the form means the save was aborted (e.g. AbuseFilter "warn",
 		// T428437) and the solved captcha's answer was used; clear the solved
 		// state so triggersCaptcha() returns true for the next submission
-		$this->setCaptchaSolved( null );
+		$this->clearCaptchaSolved();
 		if ( isset( $this->activatedCaptchas[$key] ) ||
 			$this->shouldCheck( $page, '', '', $context )
 		) {
@@ -714,6 +714,18 @@ class SimpleCaptcha {
 
 	protected function setCaptchaSolved( ?bool $captchaSolved ): void {
 		$this->captchaSolved = $captchaSolved;
+	}
+
+	/**
+	 * Clears the solved state of the CAPTCHA. Allows future calls to
+	 * {@link self::triggersCaptcha} to return as if the CAPTCHA was not solved,
+	 * so that for a non-CAPTCHA failure the CAPTCHA is still rendered in the
+	 * returned page content.
+	 *
+	 * @internal Only public for use by {@link CaptchaPreAuthenticationProvider}
+	 */
+	public function clearCaptchaSolved(): void {
+		$this->setCaptchaSolved( null );
 	}
 
 	/**

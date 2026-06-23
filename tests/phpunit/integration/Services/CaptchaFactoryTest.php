@@ -209,14 +209,19 @@ class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
 	public function testGetGlobalInstanceForBadLoginPerUserFallsBackToBadLoginClass(): void {
 		$this->overrideConfigValues( [
 			'CaptchaClass' => 'SimpleCaptcha',
-			'CaptchaTriggers' => [ CaptchaTriggers::BAD_LOGIN => [ 'class' => 'HCaptcha' ] ],
+			'CaptchaTriggers' => [ CaptchaTriggers::BAD_LOGIN => [
+				'class' => 'HCaptcha',
+				'config' => [ 'HCaptchaSiteKey' => 'test' ],
+			] ],
 		] );
 
+		$actualCaptchaInstance = $this->getCaptchaFactory()->getGlobalInstance( CaptchaTriggers::BAD_LOGIN_PER_USER );
 		$this->assertInstanceOf(
 			HCaptcha::class,
-			$this->getCaptchaFactory()->getGlobalInstance( CaptchaTriggers::BAD_LOGIN_PER_USER ),
+			$actualCaptchaInstance,
 			'::getGlobalInstance should have defaulted to bad-login class over default class'
 		);
+		$this->assertSame( [ 'HCaptchaSiteKey' => 'test' ], $actualCaptchaInstance->getConfig() );
 	}
 
 	public function testGetGlobalInstanceForCaptchaTriggers(): void {

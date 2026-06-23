@@ -86,7 +86,11 @@ class CaptchaFactory {
 				self::CAPTCHA_NAME_TO_CLASS[$defaultCaptchaClass] ??
 				$defaultCaptchaClass;
 			$classInstance = new $captchaClassName;
-			$classInstance->setConfig( $captchaTriggers[$action]['config'] ?? [] );
+			$captchaConfig = $captchaTriggers[$action]['config'] ?? [];
+			if ( $action === CaptchaTriggers::BAD_LOGIN_PER_USER && !$captchaConfig ) {
+				$captchaConfig = $captchaTriggers[CaptchaTriggers::BAD_LOGIN]['config'] ?? [];
+			}
+			$classInstance->setConfig( $captchaConfig );
 			static::$globalInstances[$action][$class] = $classInstance;
 		}
 

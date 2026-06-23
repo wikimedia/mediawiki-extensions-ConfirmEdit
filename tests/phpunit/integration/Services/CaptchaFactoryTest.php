@@ -5,6 +5,7 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Services;
 
 use MediaWiki\Auth\AuthManager;
+use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
@@ -16,6 +17,7 @@ use MediaWiki\Extension\ConfirmEdit\QuestyCaptcha\QuestyCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 
@@ -167,6 +169,35 @@ class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
 			$this->getNonexistingTestPage()->getTitle(),
 			'edit',
 			CaptchaTriggers::CREATE
+		);
+	}
+
+	public function testGetGlobalInstanceFromContextForHookProvidedAction(): void {
+		$context = new DerivativeContext( RequestContext::getMain() );
+
+		$contextProvidedToHook = null;
+		$this->setTemporaryHook(
+			'ConfirmEditGetGlobalInstanceFromContext',
+			static function ( IContextSource $context, &$action ) use ( &$contextProvidedToHook ) {
+				$contextProvidedToHook = $context;
+				$action = 'custom_action';
+			}
+		);
+		$this->testGetGlobalInstanceFromContext(
+			SpecialPage::getTitleFor( 'Specialpages' ),
+			'view',
+			'custom_action',
+			$context
+		);
+		$this->assertSame( $context, $contextProvidedToHook );
+
+		// The hook value must also override a context that built-in detection
+		// would otherwise map to a specific named trigger.
+		$this->testGetGlobalInstanceFromContext(
+			SpecialPage::getTitleFor( 'CreateAccount' ),
+			'view',
+			'custom_action',
+			$context
 		);
 	}
 

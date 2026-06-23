@@ -99,7 +99,13 @@ class HCaptcha extends SimpleCaptcha {
 		}
 	}
 
-	protected function logCheckError( Status|array|string $info, UserIdentity $userIdentity, string $token ): void {
+	protected function logCheckError(
+		Status|array|string $info,
+		UserIdentity $userIdentity,
+		string $token,
+		?string $responseSiteKey = null,
+		?array $validSiteKeys = null
+	): void {
 		if ( $info instanceof Status ) {
 			$errors = $info->getErrorsArray();
 			$error = $errors[0][0];
@@ -116,6 +122,8 @@ class HCaptcha extends SimpleCaptcha {
 			'captcha_action' => $this->action ?? '-',
 			'captcha_trigger' => $this->trigger ?? '-',
 			'hcaptcha_token' => $token,
+			'hcaptcha_response_sitekey' => $responseSiteKey ?? '-',
+			'hcaptcha_valid_sitekeys' => $validSiteKeys ? implode( ',', $validSiteKeys ) : '-',
 		] + RequestContext::getMain()->getRequest()->getSecurityLogContext( $userIdentity ) );
 	}
 
@@ -447,7 +455,7 @@ class HCaptcha extends SimpleCaptcha {
 		$siteKeyUsed = $json['sitekey'] ?? null;
 		if ( !in_array( $siteKeyUsed, $validKeys ) ) {
 			$this->error = 'sitekey-mismatch';
-			$this->logCheckError( $this->error, $user, $token );
+			$this->logCheckError( $this->error, $user, $token, $siteKeyUsed, $validKeys );
 			return false;
 		}
 

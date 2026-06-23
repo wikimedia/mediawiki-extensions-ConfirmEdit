@@ -1,6 +1,8 @@
 /**
- * A custom hCaptcha dark palette, copied verbatim from the "Load Dark Theme" button
+ * A custom hCaptcha dark palette, adapted from the "Load Dark Theme" button
  * in hCaptcha's Custom Theme Configurator (https://docs.hcaptcha.com/custom_themes/).
+ * Two values differ from that preset, to drop hCaptcha's teal accent: the prompt
+ * border (teal to black) and the icon-button focus outline (teal to white).
  *
  * We need this because hCaptcha's built-in `theme: 'dark'` string leaves the challenge
  * card light/white on a night-mode page (it is ignored on the custom=true build,
@@ -28,7 +30,7 @@ const wikimediaDarkTheme = {
 		button: {
 			main: { fill: '#333333', icon: '#e0e0e0', text: '#e0e0e0' },
 			hover: { fill: '#4f4f4f' },
-			focus: { icon: '#80deea', text: '#80deea', outline: '#80deea' },
+			focus: { icon: '#80deea', text: '#80deea', outline: '#ffffff' },
 			active: { fill: '#4f4f4f', icon: '#e0e0e0', text: '#e0e0e0' }
 		},
 		link: { focus: { outline: '#80deea' } },
@@ -55,7 +57,7 @@ const wikimediaDarkTheme = {
 			focus: { badge: '#26c6da', outline: '#26c6da' }
 		},
 		prompt: {
-			main: { fill: '#2f3232', border: '#00838f', text: '#ffffff' },
+			main: { fill: '#2f3232', border: '#000000', text: '#ffffff' },
 			report: { fill: '#eb5757', border: '#eb5757', text: '#ffffff' }
 		},
 		skipButton: {
@@ -75,6 +77,15 @@ const wikimediaDarkTheme = {
 			disabled: { fill: '#828282' }
 		}
 	}
+};
+
+// Workaround for an hCaptcha bug: the free-text (accessibility) challenge bundle
+// calls use( 'custom' ) on a theme it only registers when theme.config.freetext
+// is set, so a custom theme without that key errors with "Cannot find theme with
+// name: custom"
+wikimediaDarkTheme.freetext = {
+	component: wikimediaDarkTheme.component,
+	input: { focus: { outline: '#000000' } }
 };
 
 /**

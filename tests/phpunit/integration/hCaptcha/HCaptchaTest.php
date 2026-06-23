@@ -1196,7 +1196,8 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		bool $forceShow,
 		string $responseSiteKey,
 		bool $shouldPass,
-		?string $expectedError
+		?string $expectedError,
+		?string $expectedLoggedValidSiteKeys = null
 	): void {
 		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
 		if ( $globalSiteKey !== null ) {
@@ -1208,7 +1209,17 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		if ( !$shouldPass && $expectedError === 'sitekey-mismatch' ) {
 			$mockLogger->expects( $this->once() )
 				->method( 'error' )
-				->with( 'Unable to validate response. Error: {error}', $this->anything() );
+				->with(
+					'Unable to validate response. Error: {error}',
+					$this->callback( function ( $actualData ) use ( $responseSiteKey, $expectedLoggedValidSiteKeys ) {
+						// The response sitekey and the accepted sitekeys must be logged (T429891).
+						$this->assertArrayContains( [
+							'hcaptcha_response_sitekey' => $responseSiteKey,
+							'hcaptcha_valid_sitekeys' => $expectedLoggedValidSiteKeys,
+						], $actualData );
+						return true;
+					} )
+				);
 		}
 		$this->setLogger( 'captcha', $mockLogger );
 
@@ -1275,7 +1286,8 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				false,
 				'wrong-key',
 				false,
-				'sitekey-mismatch'
+				'sitekey-mismatch',
+				'correct-key'
 			],
 			'Force show - validates against challenge key' => [
 				'edit',
@@ -1333,6 +1345,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'challenge-key',
 				false,
 				'sitekey-mismatch',
+				'normal-key'
 			],
 			'Force show on account creation - normal key is accepted' => [
 				'createaccount',

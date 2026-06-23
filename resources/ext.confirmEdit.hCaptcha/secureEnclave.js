@@ -264,6 +264,9 @@ function useSecureEnclave( win ) {
 	if ( mw.config.get( 'wgAction' ) === 'edit' || mw.config.get( 'wgAction' ) === 'submit' ) {
 		interfaceName = 'edit';
 	}
+	if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'Userlogin' ) {
+		interfaceName = 'login';
+	}
 	if ( MCR_EDIT_ACTIONS.includes( mw.config.get( 'wgAction' ) ) ) {
 		interfaceName = mw.config.get( 'wgAction' );
 	}

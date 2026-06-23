@@ -434,8 +434,19 @@ QUnit.test( 'should not intercept edit form submissions in older browsers when #
 	);
 } );
 
-QUnit.test( 'should measure hCaptcha load and execute timing for successful submission', function ( assert ) {
-	mw.config.set( 'wgCanonicalSpecialPageName', 'CreateAccount' );
+QUnit.test.each( 'should measure hCaptcha load and execute timing for successful submission', {
+	'Special page is CreateAccount': {
+		specialPageName: 'CreateAccount',
+		expectedInterfaceName: 'createaccount',
+		expectedTrackCallCount: 9
+	},
+	'Special page is Userlogin': {
+		specialPageName: 'Userlogin',
+		expectedInterfaceName: 'login',
+		expectedTrackCallCount: 5
+	}
+}, function ( assert, data ) {
+	mw.config.set( 'wgCanonicalSpecialPageName', data.specialPageName );
 
 	this.measure
 		.onFirstCall().returns( { duration: 1718 } )
@@ -449,50 +460,55 @@ QUnit.test( 'should measure hCaptcha load and execute timing for successful subm
 
 	const result = useSecureEnclave( this.window )
 		.then( () => {
-			assert.strictEqual( this.track.callCount, 9, 'should invoke mw.track() nine times' );
+			assert.strictEqual( this.track.callCount, data.expectedTrackCallCount, 'should invoke mw.track() the expected number of times' );
+			let callIndex = 0;
+			if ( data.expectedInterfaceName === 'createaccount' ) {
+				assert.deepEqual(
+					this.track.getCall( callIndex++ ).args,
+					[ 'specialCreateAccount.performanceTiming', 'hcaptcha-load', 1.718 ],
+					'should emit event for load time'
+				);
+				assert.deepEqual(
+					this.track.getCall( callIndex++ ).args,
+					[ 'stats.mediawiki_special_createaccount_hcaptcha_load_duration_seconds', 1718, { wiki: 'testwiki', outcome: 'success' } ],
+					'should record account creation specific metric for load time'
+				);
+			}
 			assert.deepEqual(
-				this.track.getCall( 0 ).args,
-				[ 'specialCreateAccount.performanceTiming', 'hcaptcha-load', 1.718 ],
-				'should emit event for load time'
-			);
-			assert.deepEqual(
-				this.track.getCall( 1 ).args,
-				[ 'stats.mediawiki_special_createaccount_hcaptcha_load_duration_seconds', 1718, { wiki: 'testwiki', outcome: 'success' } ],
-				'should record account creation specific metric for load time'
-			);
-			assert.deepEqual(
-				this.track.getCall( 2 ).args,
-				[ 'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds', 1718, { wiki: 'testwiki', interfaceName: 'createaccount', outcome: 'success' } ],
+				this.track.getCall( callIndex++ ).args,
+				[ 'stats.mediawiki_confirmedit_hcaptcha_load_duration_seconds', 1718, { wiki: 'testwiki', interfaceName: data.expectedInterfaceName, outcome: 'success' } ],
 				'should record metric for load time'
 			);
 			assert.deepEqual(
-				this.track.getCall( 3 ).args,
-				[ 'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total', 1, { wiki: 'testwiki', interfaceName: 'createaccount', outcome: 'success' } ],
+				this.track.getCall( callIndex++ ).args,
+				[ 'stats.mediawiki_confirmedit_hcaptcha_load_attempts_total', 1, { wiki: 'testwiki', interfaceName: data.expectedInterfaceName, outcome: 'success' } ],
 				'should record metric for load attempts'
 			);
 			assert.deepEqual(
-				this.track.getCall( 4 ).args,
-				[ 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, { wiki: 'testwiki', interfaceName: 'createaccount' } ],
+				this.track.getCall( callIndex++ ).args,
+				[ 'stats.mediawiki_confirmedit_hcaptcha_execute_total', 1, { wiki: 'testwiki', interfaceName: data.expectedInterfaceName } ],
 				'should record event for execute'
 			);
 			assert.deepEqual(
-				this.track.getCall( 5 ).args,
-				[ 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, { wiki: 'testwiki', interfaceName: 'createaccount' } ],
+				this.track.getCall( callIndex++ ).args,
+				[ 'stats.mediawiki_confirmedit_hcaptcha_form_submit_total', 1, { wiki: 'testwiki', interfaceName: data.expectedInterfaceName } ],
 				'should record event for form submission'
 			);
+			if ( data.expectedInterfaceName === 'createaccount' ) {
+				assert.deepEqual(
+					this.track.getCall( callIndex++ ).args,
+					[ 'specialCreateAccount.performanceTiming', 'hcaptcha-execute', 2.314 ],
+					'should emit event for execution time'
+				);
+				assert.deepEqual(
+					this.track.getCall( callIndex++ ).args,
+					[ 'stats.mediawiki_special_createaccount_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki', outcome: 'success' } ],
+					'should record account creation specific metric for execution time'
+				);
+			}
 			assert.deepEqual(
-				this.track.getCall( 6 ).args,
-				[ 'specialCreateAccount.performanceTiming', 'hcaptcha-execute', 2.314 ],
-				'should emit event for execution time'
-			);
-			assert.deepEqual(
-				this.track.getCall( 7 ).args,
-				[ 'stats.mediawiki_special_createaccount_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki', outcome: 'success' } ],
-				'should record account creation specific metric for execution time'
-			);
-			assert.deepEqual(
-				this.track.getCall( 8 ).args,
-				[ 'stats.mediawiki_confirmedit_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki', interfaceName: 'createaccount', outcome: 'success' } ],
+				this.track.getCall( callIndex++ ).args,
+				[ 'stats.mediawiki_confirmedit_hcaptcha_execute_duration_seconds', 2314, { wiki: 'testwiki', interfaceName: data.expectedInterfaceName, outcome: 'success' } ],
 				'should record metric for execution time'
 			);
 		} );

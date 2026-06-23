@@ -99,11 +99,13 @@ class HookRunner implements
 
 	/** @inheritDoc */
 	public function onConfirmEditBeforeForceShowCaptcha(
-		UserIdentity $userIdentity, string $action
+		UserIdentity $userIdentity,
+		string $action,
+		bool &$actionSupportedForForceShowCaptcha
 	) {
 		return $this->hookContainer->run(
 			'ConfirmEditBeforeForceShowCaptcha',
-			[ $userIdentity, $action ]
+			[ $userIdentity, $action, &$actionSupportedForForceShowCaptcha ]
 		);
 	}
 

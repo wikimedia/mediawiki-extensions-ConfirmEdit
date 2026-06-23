@@ -219,6 +219,49 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	public function testConsequenceUnknownActionClaimedByHook(): void {
+		$userIdentity = new UserIdentityValue( 123, 'TestUser' );
+
+		$parameters = $this->createMock( Parameters::class );
+		$parameters->method( 'getAction' )->willReturn( 'uploadwizard-publish' );
+		$parameters->method( 'getUser' )->willReturn( $userIdentity );
+
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( 'uploadwizard-publish' );
+		$this->assertForceCaptchaNotSet( $simpleCaptcha );
+
+		$this->setTemporaryHook(
+			'ConfirmEditBeforeForceShowCaptcha',
+			function (
+				UserIdentity $actualUserIdentity, string $action, bool &$actionSupportedForForceShowCaptcha
+			) use ( $userIdentity ) {
+				$this->assertSame( $userIdentity, $actualUserIdentity );
+				$this->assertSame( 'uploadwizard-publish', $action );
+				$actionSupportedForForceShowCaptcha = true;
+			}
+		);
+
+		$this->assertTrue( $this->getCaptchaConsequence( $parameters )->execute() );
+		$this->assertTrue( $simpleCaptcha->shouldForceShowCaptcha() );
+	}
+
+	public function testConsequenceUnknownActionNotClaimedByHook(): void {
+		$userIdentity = new UserIdentityValue( 123, 'TestUser' );
+		$parameters = $this->createMock( Parameters::class );
+		$parameters->method( 'getAction' )->willReturn( 'uploadwizard-publish' );
+		$parameters->method( 'getUser' )->willReturn( $userIdentity );
+
+		/** @var CaptchaFactory $captchaFactory */
+		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$simpleCaptcha = $captchaFactory->getGlobalInstance( 'uploadwizard-publish' );
+
+		$this->clearHook( 'ConfirmEditBeforeForceShowCaptcha' );
+
+		$this->assertFalse( $this->getCaptchaConsequence( $parameters )->execute() );
+		$this->assertForceCaptchaNotSet( $simpleCaptcha );
+	}
+
 	private function getCaptchaConsequence( Parameters $parameters ): CaptchaConsequence {
 		$mockUserFactory = $this->createMock( UserFactory::class );
 		$mockUser = $this->createMock( User::class );

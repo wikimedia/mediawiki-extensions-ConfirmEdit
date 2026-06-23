@@ -28,13 +28,16 @@ class CaptchaConsequence extends Consequence {
 	 */
 	public const FILTER_ID_SESSION_KEY = 'captchaConsequence-filterId';
 
+	private readonly HookRunner $hookRunner;
+
 	public function __construct(
 		Parameters $parameters,
-		private readonly HookContainer $hookContainer,
+		HookContainer $hookContainer,
 		private readonly CaptchaFactory $captchaFactory,
 		private readonly UserFactory $userFactory,
 	) {
 		parent::__construct( $parameters );
+		$this->hookRunner = new HookRunner( $hookContainer );
 	}
 
 	public function execute(): bool {
@@ -42,22 +45,22 @@ class CaptchaConsequence extends Consequence {
 		$filterId = $this->parameters->getFilter()->getID();
 		$userIdentity = $this->parameters->getUser();
 
-		if ( !in_array( $action, CaptchaTriggers::CAPTCHA_TRIGGERS ) ) {
+		$captcha = $this->captchaFactory->getGlobalInstance( $action );
+		$captcha->setAction( $action );
+
+		$actionSupported = in_array( $action, CaptchaTriggers::CAPTCHA_TRIGGERS, true );
+		if ( !$this->hookRunner->onConfirmEditBeforeForceShowCaptcha(
+			$userIdentity, $action, $actionSupported
+		) ) {
+			return false;
+		}
+
+		if ( !$actionSupported ) {
 			LoggerFactory::getInstance( 'ConfirmEdit' )->error(
 				'Filter {filter}: {action} is not defined in the list of triggers known to ConfirmEdit',
 				[ 'action' => $action, 'filter' => $filterId ]
 			);
 
-			return false;
-		}
-
-		$captcha = $this->captchaFactory->getGlobalInstance( $action );
-		$captcha->setAction( $action );
-
-		$hookRunner = new HookRunner( $this->hookContainer );
-		if ( !$hookRunner->onConfirmEditBeforeForceShowCaptcha(
-			$userIdentity, $action
-		) ) {
 			return false;
 		}
 

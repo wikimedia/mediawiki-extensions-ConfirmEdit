@@ -104,26 +104,32 @@ class CaptchaFactory {
 	 * @since 1.47
 	 */
 	public function getGlobalInstanceFromContext( IContextSource $context ): SimpleCaptcha {
-		if (
-			$context->getTitle()->isSpecial( 'CreateAccount' ) ||
-			$context->getActionName() === 'createaccount'
-		) {
-			$action = CaptchaTriggers::CREATE_ACCOUNT;
-		} elseif (
-			$context->getTitle()->isSpecial( 'Userlogin' ) ||
-			in_array( $context->getActionName(), [ 'login', 'clientlogin' ] )
-		) {
-			$session = $context->getRequest()->getSession();
-			$action = $this->getActionForLogin( $session->suggestLoginUsername(), $session );
-		} elseif (
-			$context->getTitle()->isSpecial( 'Emailuser' ) ||
-			$context->getActionName() === 'emailuser'
-		) {
-			$action = CaptchaTriggers::SENDEMAIL;
-		} elseif ( $context->getTitle()->exists() ) {
-			$action = CaptchaTriggers::EDIT;
-		} else {
-			$action = CaptchaTriggers::CREATE;
+		$action = '';
+		$hookRunner = new HookRunner( $this->hookContainer );
+		$hookRunner->onConfirmEditGetGlobalInstanceFromContext( $context, $action );
+
+		if ( !$action ) {
+			if (
+				$context->getTitle()->isSpecial( 'CreateAccount' ) ||
+				$context->getActionName() === 'createaccount'
+			) {
+				$action = CaptchaTriggers::CREATE_ACCOUNT;
+			} elseif (
+				$context->getTitle()->isSpecial( 'Userlogin' ) ||
+				in_array( $context->getActionName(), [ 'login', 'clientlogin' ] )
+			) {
+				$session = $context->getRequest()->getSession();
+				$action = $this->getActionForLogin( $session->suggestLoginUsername(), $session );
+			} elseif (
+				$context->getTitle()->isSpecial( 'Emailuser' ) ||
+				$context->getActionName() === 'emailuser'
+			) {
+				$action = CaptchaTriggers::SENDEMAIL;
+			} elseif ( $context->getTitle()->exists() ) {
+				$action = CaptchaTriggers::EDIT;
+			} else {
+				$action = CaptchaTriggers::CREATE;
+			}
 		}
 
 		return $this->getGlobalInstance( $action );

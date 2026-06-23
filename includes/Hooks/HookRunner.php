@@ -22,6 +22,7 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Hooks;
 
+use MediaWiki\Context\IContextSource;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\User\User;
@@ -37,7 +38,8 @@ class HookRunner implements
 	ConfirmEditCanUserSkipCaptchaHook,
 	ConfirmEditCaptchaClassHook,
 	ConfirmEditHCaptchaRiskScoreRetrievedForBlocksHook,
-	ConfirmEditBeforeForceShowCaptchaHook
+	ConfirmEditBeforeForceShowCaptchaHook,
+	ConfirmEditGetGlobalInstanceFromContextHook
 {
 	public function __construct( private readonly HookContainer $hookContainer ) {
 	}
@@ -103,5 +105,10 @@ class HookRunner implements
 			'ConfirmEditBeforeForceShowCaptcha',
 			[ $userIdentity, $action ]
 		);
+	}
+
+	/** @inheritDoc */
+	public function onConfirmEditGetGlobalInstanceFromContext( IContextSource $context, string &$action ) {
+		return $this->hookContainer->run( 'ConfirmEditGetGlobalInstanceFromContext', [ $context, &$action ] );
 	}
 }

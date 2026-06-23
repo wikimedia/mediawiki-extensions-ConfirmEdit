@@ -63,6 +63,10 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 		$actions = [];
 		$abuseFilterHooks->onAbuseFilterCustomActions( $actions );
 		$this->assertArrayHasKey( 'showcaptcha', $actions );
+
+		$mockParameters = $this->createMock( Parameters::class );
+		$actualConsequence = $actions['showcaptcha']( $mockParameters );
+		$this->assertInstanceOf( CaptchaConsequence::class, $actualConsequence );
 	}
 
 	public function testConsequence() {

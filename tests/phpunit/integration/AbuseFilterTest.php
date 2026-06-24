@@ -22,7 +22,6 @@ use MediaWiki\User\UserIdentityValue;
 use MediaWikiIntegrationTestCase;
 use TestLogger;
 use Wikimedia\TestingAccessWrapper;
-use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
  * @covers \MediaWiki\Extension\ConfirmEdit\AbuseFilter\CaptchaConsequence
@@ -44,9 +43,6 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 
 		self::clearCaptchaFactoryGlobalInstances();
 
-		$this->getSession()->remove(
-			SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-		);
 		$this->getSession()->remove(
 			CaptchaConsequence::FILTER_ID_SESSION_KEY
 		);
@@ -176,12 +172,6 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testConsequenceSetsSessionKeyOnMatch() {
-		ConvertibleTimestamp::setFakeTime( 1750000000 );
-		$this->overrideConfigValue(
-			'CaptchaAbuseFilterCaptchaConsequenceTTL',
-			600
-		);
-
 		$filter = $this->createMock( ExistingFilter::class );
 		$filter
 			->expects( $this->once() )
@@ -204,13 +194,6 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 		$this->getCaptchaConsequence( $parameters )->execute();
 
 		$this->assertTrue( $simpleCaptcha->shouldForceShowCaptcha() );
-		$this->assertEquals(
-			// current timestamp + 10 minutes
-			1750000600,
-			$this->getSession()->get(
-				SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-			)
-		);
 		$this->assertEquals(
 			123,
 			$this->getSession()->get(
@@ -278,11 +261,6 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 
 	private function assertForceCaptchaNotSet( SimpleCaptcha $simpleCaptcha ): void {
 		$this->assertFalse( $simpleCaptcha->shouldForceShowCaptcha() );
-		$this->assertFalse(
-			$this->getSession()->exists(
-				SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-			)
-		);
 		$this->assertFalse( $this->getSession()->exists( CaptchaConsequence::FILTER_ID_SESSION_KEY ) );
 	}
 

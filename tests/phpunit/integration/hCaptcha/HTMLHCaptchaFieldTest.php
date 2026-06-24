@@ -11,7 +11,6 @@ use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HTMLHCaptchaField;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
-use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\ConfirmEdit\Tests\Integration\CaptchaTestHelperTrait;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Language\Language;
@@ -366,13 +365,6 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 
 		$result = $hCaptchaOutput->addHCaptchaToForm( $outputPage, false );
 		$this->assertStringContainsString( 'bar-site-key', $result );
-
-		// Once the session storage is cleared and forceShowCaptcha is unset,
-		// the input will go back to using the standard site key.
-		$session = $requestContext->getRequest()->getSession();
-		$session->remove(
-			SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-		);
 
 		$simpleCaptcha->setForceShowCaptcha( false );
 		$result = $hCaptchaOutput->addHCaptchaToForm( $outputPage, false );

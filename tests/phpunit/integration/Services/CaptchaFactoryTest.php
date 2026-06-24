@@ -293,11 +293,6 @@ class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testOnConfirmEditHooksGetInstance(): void {
-		$session = RequestContext::getMain()->getRequest()->getSession();
-		$session->remove(
-			SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-		);
-
 		$this->overrideConfigValues( [
 			'CaptchaClass' => 'SimpleCaptcha',
 			'CaptchaTriggers' => [ 'createaccount' => [
@@ -325,22 +320,6 @@ class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
 			'Calling ::getInstance() again returns the cached instance'
 		);
 
-		// forceShowCaptcha is "sticky": Once set for an action (i.e. the above
-		// call to setForceShowCaptcha), it will remain set for any action in
-		// the current user session. That means checking it for this instance
-		// ('badlogin') will still return true even if it was set for a different
-		// instance ('createaccount').
-		$instance = $captchaFactory->getGlobalInstance( 'badlogin' );
-		$this->assertInstanceOf( HCaptcha::class, $instance );
-		$this->assertTrue( $instance->shouldForceShowCaptcha() );
-
-		// Once the static cache is removed and the session storage cleared,
-		// a check on an instance for 'badlogin' will fall back to not forcing
-		// showing the captcha.
-		$session->remove(
-			SimpleCaptcha::ABUSEFILTER_CAPTCHA_CONSEQUENCE_SESSION_KEY
-		);
-		$captchaFactory->unsetGlobalInstancesForTests();
 		$instance = $captchaFactory->getGlobalInstance( 'badlogin' );
 		$this->assertInstanceOf( HCaptcha::class, $instance );
 		$this->assertFalse( $instance->shouldForceShowCaptcha() );

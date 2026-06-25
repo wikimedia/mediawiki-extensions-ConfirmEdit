@@ -134,6 +134,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			$this->getServiceContainer()->getHookContainer(),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 		);
 		$objectUnderTest->onBeforePageDisplay(
 			$out,
@@ -529,6 +530,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			$this->getServiceContainer()->getHookContainer(),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 		);
 		$handler->onBeforePageDisplay( $out, $this->createMock( Skin::class ) );
 		DeferredUpdates::doUpdates();
@@ -554,6 +556,7 @@ class BeforePageDisplayHookHandlerTest extends MediaWikiIntegrationTestCase {
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
 			$this->getServiceContainer()->getHookContainer(),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 		);
 
 		$result = TestingAccessWrapper::newFromObject( $handler )

@@ -25,7 +25,8 @@
 				"HookContainer",
 				"UserFactory",
 				"ConfirmEditHCaptchaBlocksLookup",
-				"TitleFactory"
+				"TitleFactory",
+				"ConfirmEditHCaptchaRiskScoreCrawlerFilter"
 			]
 		}
 	],

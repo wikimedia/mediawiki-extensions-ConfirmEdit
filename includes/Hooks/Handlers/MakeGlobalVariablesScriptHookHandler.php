@@ -7,6 +7,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\RiskScoreCrawlerFilter;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
@@ -29,6 +30,7 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 		private readonly Config $config,
 		private readonly CaptchaFactory $captchaFactory,
 		private readonly HCaptchaBlocksLookup $blocksLookup,
+		private readonly RiskScoreCrawlerFilter $crawlerFilter,
 		private readonly ?VisualEditorAvailabilityLookup $visualEditorAvailabilityLookup = null,
 		private readonly ?MobileContext $mobileContext = null
 	) {
@@ -130,6 +132,10 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 	}
 
 	private function addIPBlocksScoreCollectionVars( OutputPage $out ): void {
+		if ( $this->crawlerFilter->isExcludedCrawler( $out->getRequest() ) ) {
+			return;
+		}
+
 		$siteKey = $this->config->get( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey' );
 		if ( $siteKey ) {
 			// For MobileFrontend and VisualEditor, we need to always provide

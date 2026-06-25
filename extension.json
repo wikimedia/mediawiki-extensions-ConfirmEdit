@@ -126,7 +126,8 @@
 				"ExtensionRegistry",
 				"MainConfig",
 				"ConfirmEditCaptchaFactory",
-				"ConfirmEditHCaptchaBlocksLookup"
+				"ConfirmEditHCaptchaBlocksLookup",
+				"ConfirmEditHCaptchaRiskScoreCrawlerFilter"
 			],
 			"optional_services": [
 				"VisualEditor.VisualEditorAvailabilityLookup",
@@ -139,7 +140,8 @@
 				"MainConfig",
 				"ConfirmEditCaptchaFactory",
 				"ConfirmEditHCaptchaBlocksLookup",
-				"HookContainer"
+				"HookContainer",
+				"ConfirmEditHCaptchaRiskScoreCrawlerFilter"
 			]
 		},
 		"UserGetRightsHookHandler": {
@@ -269,7 +271,7 @@
 			"value": null
 		},
 		"HCaptchaBlockedIpEditingScoreSkipUserAgents": {
-			"description": "List of PCRE patterns (each including delimiters, e.g. \"/ExampleBot/i\") matched against the request's User-Agent header. When a blocked user's request matches any pattern, the hCaptcha risk-score widget is not loaded and no score is collected. Intended to exclude self-identifying crawlers that follow action=edit links without intending to edit. The patterns are typically supplied via private configuration; defaults to an empty list (no exclusions).",
+			"description": "List of PCRE patterns (each including delimiters, e.g. \"/ExampleBot/i\") matched against the request's User-Agent header. When a blocked user's request matches any pattern, hCaptcha risk-score collection is skipped (no passive widget session and no score event) across the desktop, VisualEditor and MobileFrontend edit surfaces. Intended to exclude self-identifying crawlers that view or follow edit links without intending to edit. The patterns are typically supplied via private configuration; defaults to an empty list (no exclusions).",
 			"value": []
 		},
 		"HCaptchaSecretKey": {

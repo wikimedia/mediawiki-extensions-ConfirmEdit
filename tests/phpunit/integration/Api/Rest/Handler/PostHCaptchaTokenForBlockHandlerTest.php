@@ -6,9 +6,12 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Api\Rest\Handler;
 
 use MediaWiki\Block\Block;
 use MediaWiki\Config\HashConfig;
+use MediaWiki\Config\ServiceOptions;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Api\Rest\Handler\PostHCaptchaTokenForBlockHandler;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\RiskScoreCrawlerFilter;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\RequestData;
@@ -27,7 +30,8 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 
 	private function newHandler(
 		?string $siteKey = 'test-site-key',
-		?HCaptchaBlocksLookup $blocksLookup = null
+		?HCaptchaBlocksLookup $blocksLookup = null,
+		array $skipUserAgents = []
 	): PostHCaptchaTokenForBlockHandler {
 		return new PostHCaptchaTokenForBlockHandler(
 			new HashConfig( [
@@ -36,7 +40,13 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			$this->getServiceContainer()->getHookContainer(),
 			$this->getServiceContainer()->getUserFactory(),
 			$blocksLookup ?? $this->newBlocksLookupMock( [ 1, 2, 3 ] ),
-			$this->getServiceContainer()->getTitleFactory()
+			$this->getServiceContainer()->getTitleFactory(),
+			new RiskScoreCrawlerFilter(
+				new ServiceOptions(
+					RiskScoreCrawlerFilter::CONSTRUCTOR_OPTIONS,
+					[ 'HCaptchaBlockedIpEditingScoreSkipUserAgents' => $skipUserAgents ]
+				)
+			)
 		);
 	}
 
@@ -309,6 +319,32 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 			blocksLookup: $this->newBlocksLookupMock( [] )
 		);
 		$handler->setHCaptcha( $mockHCaptcha );
+		$response = $this->executeHandler(
+			$handler,
+			new RequestData( [ 'method' => 'POST' ] ),
+			[],
+			[],
+			[],
+			[
+				'riskScoreToken' => 'test-token',
+				'page' => 'Test',
+			]
+		);
+
+		$this->assertSame( 204, $response->getStatusCode() );
+	}
+
+	public function testRunReturns204AndSkipsScoringForCrawlerUserAgent(): void {
+		$mockHCaptcha = $this->createMock( HCaptcha::class );
+		$mockHCaptcha
+			->expects( $this->never() )
+			->method( 'retrieveRiskScore' );
+
+		RequestContext::getMain()->getRequest()->setHeader( 'User-Agent', 'ExampleBot/1.0' );
+
+		$handler = $this->newHandler( skipUserAgents: [ '#ExampleBot#i' ] );
+		$handler->setHCaptcha( $mockHCaptcha );
+
 		$response = $this->executeHandler(
 			$handler,
 			new RequestData( [ 'method' => 'POST' ] ),

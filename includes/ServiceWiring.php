@@ -9,6 +9,7 @@ use MediaWiki\Extension\ConfirmEdit\Auth\LoginAttemptCounterFactory;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaEnterpriseHealthChecker;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaOutput;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\RiskScoreCrawlerFilter;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\Services\LoadedCaptchasProvider;
 use MediaWiki\Logger\LoggerFactory;
@@ -65,5 +66,12 @@ return [
 	),
 	'ConfirmEditLoginAttemptCounterFactory' => static fn () => new LoginAttemptCounterFactory(),
 	'ConfirmEditHCaptchaBlocksLookup' => static fn () => new HCaptchaBlocksLookup(),
+	'ConfirmEditHCaptchaRiskScoreCrawlerFilter' => static fn ( MediaWikiServices $services ) =>
+		new RiskScoreCrawlerFilter(
+			new ServiceOptions(
+				RiskScoreCrawlerFilter::CONSTRUCTOR_OPTIONS,
+				$services->getMainConfig()
+			)
+		),
 ];
 // @codeCoverageIgnoreEnd

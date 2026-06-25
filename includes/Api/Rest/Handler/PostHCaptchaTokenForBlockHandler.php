@@ -10,6 +10,7 @@ use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\RiskScoreCrawlerFilter;
 use MediaWiki\Extension\ConfirmEdit\Hooks\HookRunner;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Logger\LoggerFactory;
@@ -34,6 +35,7 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 		private readonly UserFactory $userFactory,
 		private readonly HCaptchaBlocksLookup $blocksLookup,
 		private readonly TitleFactory $titleFactory,
+		private readonly RiskScoreCrawlerFilter $crawlerFilter,
 	) {
 		$this->logger = LoggerFactory::getInstance( 'captcha' );
 	}
@@ -42,6 +44,11 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 	 * @throws HttpException
 	 */
 	public function run(): Response {
+		// Backstop in case a crawler reaches the endpoint despite the page-display skip.
+		if ( $this->crawlerFilter->isExcludedCrawler( RequestContext::getMain()->getRequest() ) ) {
+			return $this->newNoContentResponse();
+		}
+
 		$authority = $this->getAuthority();
 		$this->assertHasAccess( $authority );
 

@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Tests\Unit\Hooks\Handlers;
 
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
+use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\RiskScoreCrawlerFilter;
 use MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\MakeGlobalVariablesScriptHookHandler;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Output\OutputPage;
@@ -26,7 +27,8 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiUnitTestCase {
 			$this->createNoOpMock( ExtensionRegistry::class ),
 			new HashConfig( [] ),
 			$this->createNoOpMock( CaptchaFactory::class ),
-			$this->createNoOpMock( HCaptchaBlocksLookup::class )
+			$this->createNoOpMock( HCaptchaBlocksLookup::class ),
+			$this->createNoOpMock( RiskScoreCrawlerFilter::class )
 		);
 		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
 

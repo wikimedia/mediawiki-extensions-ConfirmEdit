@@ -12,6 +12,7 @@ use MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\MakeGlobalVariablesScriptHook
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Registration\ExtensionRegistry;
+use MediaWiki\Request\FauxRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
@@ -99,6 +100,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 			$mockVisualEditorAvailabilityLookup,
 			$mockMobileContext
 		);
@@ -188,6 +190,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 			null,
 			$mockMobileContext
 		);
@@ -247,6 +250,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 			null,
 			$mockMobileContext
 		);
@@ -307,6 +311,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 			$mockVisualEditorAvailabilityLookup,
 			null
 		);
@@ -317,6 +322,75 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			'passive-site-key',
 			$jsConfigVars['wgHCaptchaBlockedIpEditingScoreCollectionSiteKey']
 		);
+		$this->assertContains( 'ext.confirmEdit.hCaptcha', $out->getModules() );
+	}
+
+	public function testMakeGlobalVariablesScriptBlockedIpEditingConfigAbsentForCrawlerUserAgent(): void {
+		$this->markTestSkippedIfExtensionNotLoaded( 'VisualEditor' );
+
+		$this->overrideConfigValue( 'CaptchaTriggers', [
+			'create' => [
+				'trigger' => true,
+				'class' => 'HCaptcha',
+				'config' => [ 'HCaptchaSiteKey' => 'bar' ],
+			],
+			'edit' => [
+				'trigger' => true,
+				'class' => 'HCaptcha',
+				'config' => [ 'HCaptchaSiteKey' => 'bar' ],
+			],
+		] );
+		$this->overrideConfigValue( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey', 'passive-site-key' );
+		$this->overrideConfigValue(
+			'HCaptchaBlockedIpEditingScoreSkipUserAgents',
+			[ '#ExampleBot#i' ]
+		);
+		$this->clearHook( 'ConfirmEditCaptchaClass' );
+
+		$request = new FauxRequest();
+		$request->setHeader( 'User-Agent', 'ExampleBot/1.0 (+https://example.com/bot)' );
+		RequestContext::getMain()->setRequest( $request );
+
+		$mockBlockTarget = $this->createMock( AnonIpBlockTarget::class );
+		$mockBlock = $this->createMock( AbstractBlock::class );
+		$mockBlock->method( 'getTarget' )->willReturn( $mockBlockTarget );
+		$mockBlock->method( 'appliesToTitle' )->willReturn( true );
+		$mockBlock->method( 'getId' )->willReturn( 42 );
+
+		$mockUser = $this->createMock( User::class );
+		$mockUser->method( 'isSystemUser' )->willReturn( false );
+		$mockUser->method( 'getBlock' )->willReturn( $mockBlock );
+		$mockUser->method( 'isAllowed' )->willReturn( false );
+
+		RequestContext::getMain()->setUser( $mockUser );
+		$out = RequestContext::getMain()->getOutput();
+		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
+
+		$mockVisualEditorAvailabilityLookup = $this->createMock( VisualEditorAvailabilityLookup::class );
+		$mockVisualEditorAvailabilityLookup->method( 'isAvailable' )
+			->willReturn( true );
+
+		$mockExtensionRegistry = $this->createMock( ExtensionRegistry::class );
+		$mockExtensionRegistry->method( 'isLoaded' )
+			->willReturnCallback( static fn ( $name ) => $name === 'VisualEditor' );
+
+		$vars = [];
+		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
+			$mockExtensionRegistry,
+			$this->getServiceContainer()->getMainConfig(),
+			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
+			$mockVisualEditorAvailabilityLookup,
+			null
+		);
+		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
+
+		$this->assertArrayNotHasKey(
+			'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey',
+			$out->getJsConfigVars()
+		);
+		// The functional captcha module still loads; only collection is skipped.
 		$this->assertContains( 'ext.confirmEdit.hCaptcha', $out->getModules() );
 	}
 
@@ -361,6 +435,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 			$mockVisualEditorAvailabilityLookup,
 			null
 		);
@@ -415,6 +490,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
 			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
+			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 			null,
 			$mockMobileContext
 		);

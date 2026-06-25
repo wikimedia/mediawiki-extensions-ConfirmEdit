@@ -103,9 +103,12 @@ class PostHCaptchaTokenForBlockHandler extends SimpleHandler {
 		);
 
 		if ( $riskScore === false ) {
-			$this->logger->error(
+			$this->logger->info(
 				'hCaptcha siteverify failed when collecting risk score for blocked user.',
-				[ 'user' => $user->getName() ]
+				[
+					'user' => $user->getName(),
+					'error' => $this->getHCaptcha()->getError(),
+				]
 			);
 
 			return $this->newNoContentResponse();

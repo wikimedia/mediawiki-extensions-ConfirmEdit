@@ -210,19 +210,22 @@ class PostHCaptchaTokenForBlockHandlerTest extends MediaWikiIntegrationTestCase 
 		$this->assertSame( 204, $response->getStatusCode() );
 	}
 
-	public function testRunReturns204AndLogsErrorWhenRiskScoreRetrievalFails(): void {
+	public function testRunReturns204AndLogsInfoWhenRiskScoreRetrievalFails(): void {
 		$mockHCaptcha = $this->createMock( HCaptcha::class );
 		$mockHCaptcha
 			->method( 'retrieveRiskScore' )
 			->willReturn( false );
+		$mockHCaptcha
+			->method( 'getError' )
+			->willReturn( 'http' );
 
 		$mockLogger = $this->createMock( LoggerInterface::class );
 		$mockLogger
 			->expects( $this->once() )
-			->method( 'error' )
+			->method( 'info' )
 			->with(
 				'hCaptcha siteverify failed when collecting risk score for blocked user.',
-				$this->anything()
+				$this->callback( static fn ( array $context ): bool => $context['error'] === 'http' )
 			);
 		$this->setLogger( 'captcha', $mockLogger );
 

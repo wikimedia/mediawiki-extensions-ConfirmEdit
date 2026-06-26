@@ -70,6 +70,12 @@ class CaptchaConsequence extends Consequence {
 		);
 		$captcha->setForceShowCaptcha( true );
 
+		// 'edit' action in AbuseFilter means 'edit' and 'create' for ConfirmEdit
+		if ( $action === CaptchaTriggers::EDIT ) {
+			$createCaptcha = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE );
+			$createCaptcha->setForceShowCaptcha( true );
+		}
+
 		// If the CAPTCHA was already solved or the user is known to skip
 		// captchas (see SimpleCaptcha::shouldCheck), then don't log that a
 		// CAPTCHA was shown because the consequence would have had no effect

@@ -188,12 +188,15 @@ class AbuseFilterTest extends MediaWikiIntegrationTestCase {
 
 		/** @var CaptchaFactory $captchaFactory */
 		$captchaFactory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
-		$simpleCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
-		$this->assertForceCaptchaNotSet( $simpleCaptcha );
+		$editCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::EDIT );
+		$this->assertForceCaptchaNotSet( $editCaptcha );
+		$createCaptcha = $captchaFactory->getGlobalInstance( CaptchaTriggers::CREATE );
+		$this->assertForceCaptchaNotSet( $createCaptcha );
 
 		$this->getCaptchaConsequence( $parameters )->execute();
 
-		$this->assertTrue( $simpleCaptcha->shouldForceShowCaptcha() );
+		$this->assertTrue( $editCaptcha->shouldForceShowCaptcha() );
+		$this->assertTrue( $createCaptcha->shouldForceShowCaptcha() );
 		$this->assertEquals(
 			123,
 			$this->getSession()->get(

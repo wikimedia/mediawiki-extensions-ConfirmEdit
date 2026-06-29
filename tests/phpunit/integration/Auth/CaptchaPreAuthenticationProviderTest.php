@@ -141,7 +141,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 	 * @dataProvider provideTestForAuthentication
 	 */
 	public function testTestForAuthentication( $req, $isBadLoginTriggered,
-		$isBadLoginPerUserTriggered, $result
+		$isBadLoginPerUserTriggered, $result, $expectedMessageKey = null
 	) {
 		$this->setTemporaryHook( 'PingLimiter', static function ( $user, $action, &$result ) {
 			$result = false;
@@ -162,19 +162,24 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$status = $provider->testForAuthentication( $req ? [ $req ] : [] );
 
 		$this->assertEquals( $result, $status->isGood() );
+		if ( $expectedMessageKey !== null ) {
+			$this->assertStatusError( $expectedMessageKey, $status );
+		}
 	}
 
 	public static function provideTestForAuthentication() {
 		$fallback = new UsernameAuthenticationRequest();
 		$fallback->username = 'Foo';
 		return [
-			// [ auth request, bad login?, bad login per user?, result ]
+			// [ auth request, bad login?, bad login per user?, result, expected error message key ]
 			'no need to check' => [ $fallback, false, false, true ],
-			'badlogin' => [ $fallback, true, false, false ],
+			'badlogin, no captcha submitted' => [ $fallback, true, false, false, 'captcha-login-required' ],
 			'badloginperuser, no username' => [ null, false, true, true ],
-			'badloginperuser' => [ $fallback, false, true, false ],
-			'non-existent captcha' => [ self::getCaptchaRequest( '123', '4' ), true, true, false ],
-			'wrong captcha' => [ self::getCaptchaRequest( '345', '6' ), true, true, false ],
+			'badloginperuser, no captcha submitted' => [ $fallback, false, true, false, 'captcha-login-required' ],
+			'captcha field present but empty' =>
+				[ self::getCaptchaRequest( '345', '' ), true, true, false, 'captcha-login-required' ],
+			'non-existent captcha' => [ self::getCaptchaRequest( '123', '4' ), true, true, false, 'wrongpassword' ],
+			'wrong captcha' => [ self::getCaptchaRequest( '345', '6' ), true, true, false, 'wrongpassword' ],
 			'correct captcha' => [ self::getCaptchaRequest( '345', '4' ), true, true, true ],
 		];
 	}

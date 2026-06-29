@@ -119,8 +119,15 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 		$isBadLoginPerUserTriggered = $username && $loginCounter->isBadLoginPerUserTriggered( $username );
 		$isBadLoginTriggered = $isBadLoginPerUserTriggered || $loginCounter->isBadLoginTriggered();
 		$loginTriggersCaptcha = $captcha->triggersCaptcha( CaptchaTriggers::LOGIN_ATTEMPT );
+		$captchaRequired = $isBadLoginTriggered || $loginTriggersCaptcha;
 
-		if ( $isBadLoginTriggered || $loginTriggersCaptcha ) {
+		$captchaRequest = AuthenticationRequest::getRequestByClass(
+			$reqs, CaptchaAuthenticationRequest::class, true
+		);
+		$captchaSubmitted = $captchaRequest !== null
+			&& (string)( $captchaRequest->captchaWord ?? '' ) !== '';
+
+		if ( $captchaRequired ) {
 			if ( $isBadLoginTriggered ) {
 				$captcha = $this->captchaFactory->getGlobalInstance( CaptchaTriggers::BAD_LOGIN );
 				$captcha->setAction( CaptchaTriggers::BAD_LOGIN );
@@ -130,7 +137,7 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 				$captcha->setAction( CaptchaTriggers::LOGIN_ATTEMPT );
 				$captcha->setTrigger( "loginattempt login '$username'" );
 			}
-			$success = $this->verifyCaptcha( $captcha, $reqs, new User() );
+			$success = $captchaSubmitted && $this->verifyCaptcha( $captcha, $reqs, new User() );
 			$action = $isBadLoginTriggered ? 'bad login' : 'login page';
 			LoggerFactory::getInstance( 'captcha' )->info( "Captcha shown on $action for {user}", [
 				'event' => 'captcha.submit',
@@ -148,9 +155,17 @@ class CaptchaPreAuthenticationProvider extends AbstractPreAuthenticationProvider
 			$session->set( 'ConfirmEdit:loginCaptchaPerUserTriggered', true );
 		}
 
+		if ( $success ) {
+			return Status::newGood();
+		}
+
+		if ( $captchaRequired && !$captchaSubmitted ) {
+			return $this->makeError( 'captcha-login-required', $captcha );
+		}
+
 		// Make brute force attacks harder by not telling whether the password or the
 		// captcha failed.
-		return $success ? Status::newGood() : $this->makeError( 'wrongpassword', $captcha );
+		return $this->makeError( 'wrongpassword', $captcha );
 	}
 
 	/** @inheritDoc */

@@ -32,6 +32,7 @@
 	"captcha-badlogin": "The explanation of CAPTCHA shown to users failed three times to type in correct password.\n{{Related|ConfirmEdit-badlogin}}",
 	"captcha-createaccount": "The explanation of CAPTCHA shown to users trying to create a new account.\n{{Related|ConfirmEdit-createaccount}}",
 	"captcha-createaccount-fail": "Used as failure message.\n{{Related|ConfirmEdit-createaccount-fail}}",
+	"captcha-login-required": "Error message shown on the login form when an additional verification (CAPTCHA) is required but was not completed on the submitted attempt — e.g. the requirement was only determined after the form was rendered, or (in invisible mode) the verification runs on the next submit. Asks the user to try logging in again. Deliberately avoids referring to a visible widget, since the CAPTCHA may be invisible.",
 	"captcha-create": "This message will be shown when creating a page if the wiki requires solving a captcha for that.\n{{Related|ConfirmEdit-create}}",
 	"captcha-sendemail": "Used as footer text.\n{{Related|ConfirmEdit-sendemail}}",
 	"captcha-sendemail-fail": "Used as failure message.\n\nSee also:\n* {{msg-mw|Captcha-createaccount-fail}}",

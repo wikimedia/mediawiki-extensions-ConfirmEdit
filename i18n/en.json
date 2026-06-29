@@ -16,6 +16,7 @@
 	"captcha-badlogin": "To protect the wiki against automated password cracking, we kindly ask you to solve the following task below and enter the answer in the box ([[Special:Captcha/help|more info]]):",
 	"captcha-createaccount": "To protect the wiki against automated account creation, we kindly ask you to solve the following task below and enter the answer in the box ([[Special:Captcha/help|more info]]):",
 	"captcha-createaccount-fail": "Incorrect or missing CAPTCHA.",
+	"captcha-login-required": "An additional verification step is required. Please submit the form again.",
 	"captcha-create": "To create the page, please solve the following task below and enter the answer in the box ([[Special:Captcha/help|more info]]):",
 	"captcha-sendemail": "To protect the wiki against automated spamming, we kindly ask you to solve the following task below and enter the answer in the box ([[Special:Captcha/help|more info]]):",
 	"captcha-sendemail-fail": "Incorrect or missing CAPTCHA.",

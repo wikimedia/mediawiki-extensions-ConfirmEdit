@@ -689,6 +689,12 @@ class HCaptcha extends SimpleCaptcha {
 		$formDescriptor['captchaWord'] = [
 			'class' => HTMLHCaptchaField::class,
 			'error' => $captcha->getError(),
+			// On login, a missing token defers to AuthManager for a clearer message (T428892).
+			'deferMissingTokenToAuth' => in_array(
+				$action,
+				[ AuthManager::ACTION_LOGIN, AuthManager::ACTION_LOGIN_CONTINUE ],
+				true
+			),
 		] + $formDescriptor['captchaWord'];
 
 		// On the account creation form, move the hCaptcha disclaimer below the "Create your

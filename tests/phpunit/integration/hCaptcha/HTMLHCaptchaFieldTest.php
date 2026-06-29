@@ -293,12 +293,14 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider provideValidate
 	 */
-	public function testValidate( mixed $input, string|bool $expected ): void {
+	public function testValidate( mixed $input, string|bool $expected, bool $deferMissingTokenToAuth = false ): void {
 		$context = RequestContext::getMain();
 		$context->setLanguage( 'qqx' );
 
 		$form = HTMLForm::factory( 'ooui', [], $context );
-		$field = new HTMLHCaptchaField( [ 'parent' => $form, 'name' => 'test' ] );
+		$field = new HTMLHCaptchaField(
+			[ 'parent' => $form, 'name' => 'test', 'deferMissingTokenToAuth' => $deferMissingTokenToAuth ]
+		);
 
 		$result = $field->validate( $input, [] );
 
@@ -314,6 +316,9 @@ class HTMLHCaptchaFieldTest extends MediaWikiIntegrationTestCase {
 		yield 'null input' => [ null, 'hcaptcha-missing-token' ];
 		yield 'empty input' => [ '', 'hcaptcha-missing-token' ];
 		yield 'non-empty input' => [ 'foo123', true ];
+		// On login (deferMissingTokenToAuth), a missing token defers to AuthManager rather than failing here.
+		yield 'null input, login defers' => [ null, true, true ];
+		yield 'empty input, login defers' => [ '', true, true ];
 	}
 
 	/**

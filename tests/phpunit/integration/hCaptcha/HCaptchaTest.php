@@ -754,10 +754,26 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			[ $hCaptcha->createAuthenticationRequest() ], [], $formDescriptor, ''
 		);
 		$this->assertArrayEquals(
-			[ 'captchaWord' => [ 'id' => 'test', 'class' => HTMLHCaptchaField::class, 'error' => null ] ],
+			[ 'captchaWord' => [
+				'id' => 'test',
+				'class' => HTMLHCaptchaField::class,
+				'error' => null,
+				'deferMissingTokenToAuth' => false,
+			] ],
 			$formDescriptor,
 			false, true
 		);
+	}
+
+	public function testOnAuthChangeFormFieldsDefersMissingTokenOnLogin() {
+		$hCaptcha = new HCaptcha();
+
+		// On login a missing token defers to AuthManager (T428892); elsewhere it stays a field error.
+		$formDescriptor = [ 'captchaWord' => [ 'id' => 'test' ] ];
+		$hCaptcha->onAuthChangeFormFields(
+			[ $hCaptcha->createAuthenticationRequest() ], [], $formDescriptor, AuthManager::ACTION_LOGIN
+		);
+		$this->assertTrue( $formDescriptor['captchaWord']['deferMissingTokenToAuth'] );
 	}
 
 	/**

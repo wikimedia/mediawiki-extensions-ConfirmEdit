@@ -178,6 +178,38 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
+	/** @dataProvider provideForceShowCaptchaTriggerLabel */
+	public function testForceShowCaptchaTriggerLabel(
+		bool $hasSkipCaptchaRight, string $expectedLabel
+	): void {
+		$this->setGroupPermissions( 'user', 'skipcaptcha', $hasSkipCaptchaRight );
+
+		$user = $this->getTestUser()->getUser();
+		$page = $this->getNonexistingTestPage();
+		$title = $page->getTitle();
+
+		$context = new DerivativeContext( RequestContext::getMain() );
+		$context->setUser( $user );
+
+		$simpleCaptcha = new SimpleCaptcha();
+		$simpleCaptcha->setForceShowCaptcha( true );
+
+		$this->assertTrue(
+			$simpleCaptcha->shouldCheck( $page, ContentHandler::makeContent( '', $title ), '', $context )
+		);
+
+		$expected = "force show trigger by '{$user->getName()}' {$expectedLabel} "
+			. "at [[{$title->getPrefixedText()}]] for edit";
+		$this->assertSame( $expected, TestingAccessWrapper::newFromObject( $simpleCaptcha )->trigger );
+	}
+
+	public static function provideForceShowCaptchaTriggerLabel(): array {
+		return [
+			'user with skipcaptcha right' => [ true, 'with skipcaptcha' ],
+			'user without skipcaptcha right' => [ false, 'without skipcaptcha' ],
+		];
+	}
+
 	private function verifyConfirmEditMergedStatus(
 		SimpleCaptcha $simpleCaptcha, Status $status, string $expectedStatusErrorMessageKey
 	): void {

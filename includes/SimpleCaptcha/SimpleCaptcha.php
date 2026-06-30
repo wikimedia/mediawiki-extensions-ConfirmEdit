@@ -561,8 +561,9 @@ class SimpleCaptcha {
 				$this->action = CaptchaTriggers::EDIT;
 			}
 			wfDebug( "ConfirmEdit: force showing captcha for {$this->action}...\n" );
-			$this->trigger = sprintf( "force show trigger by '%s' at [[%s]] for %s",
+			$this->trigger = sprintf( "force show trigger by '%s' %s at [[%s]] for %s",
 				$user->getName(),
+				$user->isAllowed( 'skipcaptcha' ) ? 'with skipcaptcha' : 'without skipcaptcha',
 				$title->getPrefixedText(),
 				$this->action );
 			return true;

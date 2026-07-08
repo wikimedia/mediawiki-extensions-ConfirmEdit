@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Nirajan pant",
+			"Pratik11",
 			"बडा काजी",
 			"बिप्लब आनन्द"
 		]
@@ -21,5 +22,6 @@
 	"confirmedit-preview-content": "सामाग्री",
 	"confirmedit-preview-validity": "म्याद",
 	"confirmedit-preview-valid": "मान्य",
-	"confirmedit-preview-invalid": "अमान्य"
+	"confirmedit-preview-invalid": "अमान्य",
+	"abusefilter-edit-action-showcaptcha-help": "यो चयन गर्दा क्याप्चाबाट अन्यथा छुट पाउने प्रयोगकर्ताहरूलाई असर गर्नेछ।"
 }

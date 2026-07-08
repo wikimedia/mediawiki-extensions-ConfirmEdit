@@ -19,6 +19,7 @@
 	"captcha-badlogin": "Para protexer o wiki contra o roubo de contrasinais, resolva a operación que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):",
 	"captcha-createaccount": "Para protexer o wiki contra a creación automática de contas, resolva a operación que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):",
 	"captcha-createaccount-fail": "Falta o código de confirmación (CAPTCHA) ou é incorrecto.",
+	"captcha-login-required": "Cómpre un paso de verificación adicional. Reenvía o formulario.",
 	"captcha-create": "Para crear a páxina, resolva a operación que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):",
 	"captcha-sendemail": "Para protexer o wiki contra o spam automático, resolva a operación que aparece a continuación e introduza a resposta na caixa ([[Special:Captcha/help|máis información]]):",
 	"captcha-sendemail-fail": "Falta o código de confirmación (CAPTCHA) ou é incorrecto.",
@@ -37,5 +38,5 @@
 	"confirmedit-preview-invalid": "non válida",
 	"confirmedit-preview-description": "A táboa seguinte amosa a lista de liñas nesta páxina e se é un enderezo IP válido ou un rango de enderezos IP. Se a liña é un enderezo IP válido ou rango de enderezos IP, quedará excluída das comprobacións do CAPTCHA, pero as liñas non válidas serán ignoradas. Un exemplo dun rango de enderezos IP válido sería: 69.208.0.0/16 que vai desde 69.208.0.0 ata 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Máis información] sobre como calcular un rango de enderezos IP.",
 	"abusefilter-edit-action-showcaptcha": "Obrigar a completar un CAPTCHA para realizar a acción",
-	"abusefilter-edit-action-showcaptcha-help": "Os usuarios con permiso para omitir o CAPTCHA quedan exentos."
+	"abusefilter-edit-action-showcaptcha-help": "Seleccionar isto afectará aos usuarios que están exentos do CAPTCHA."
 }

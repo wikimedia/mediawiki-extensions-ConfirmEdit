@@ -8,6 +8,7 @@
 			"Kwj2772",
 			"Priviet",
 			"Revi",
+			"Suleiman the Magnificent Television",
 			"Tensama0415",
 			"ToePeu",
 			"Ykhwong",
@@ -26,6 +27,7 @@
 	"captcha-badlogin": "자동화된 비밀번호 깨기로부터 위키를 보호하기 위해, 아래의 문제를 해결한 다음 상자에 정답을 입력해 주세요 ([[Special:Captcha/help|자세한 정보]]):",
 	"captcha-createaccount": "자동화된 계정 만들기로부터 위키를 보호하기 위해, 아래의 문제를 해결한 다음 상자에 정답을 입력해 주세요 ([[Special:Captcha/help|자세한 정보]]):",
 	"captcha-createaccount-fail": "CAPTCHA가 올바르지 않거나 입력되지 않았습니다.",
+	"captcha-login-required": "추가적인 인증 단계가 필요합니다. 양식을 다시 제출해 주세요.",
 	"captcha-create": "문서를 만드려면 아래의 문제를 해결한 다음 상자에 정답을 입력해 주세요 ([[Special:Captcha/help|자세한 정보]]):",
 	"captcha-sendemail": "자동화된 스팸으로부터 위키를 보호하기 위해, 아래의 문제를 해결한 다음 상자에 정답을 입력해 주세요 ([[Special:Captcha/help|자세한 정보]]):",
 	"captcha-sendemail-fail": "CAPTCHA가 올바르지 않거나 입력되지 않았습니다.",
@@ -44,5 +46,5 @@
 	"confirmedit-preview-invalid": "유효하지 않음",
 	"confirmedit-preview-description": "다음 표는 이 페이지의 각 줄과 해당 줄이 유효한 IP 주소 또는 IP 주소 범위인지 여부를 보여줍니다. 해당 줄이 유효한 IP 주소 또는 IP 주소 범위인 경우 CAPTCHA 검사에서 제외되지만, 유효하지 않은 줄은 무시됩니다. 유효한 IP 주소 범위의 예는: 69.208.0.0/16이며, 이는 69.208.0.0부터 69.208.255.255까지의 범위를 나타냅니다. IP 주소 범위 계산에 대한 [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix 더 많은 정보]를 확인하세요.",
 	"abusefilter-edit-action-showcaptcha": "작업을 진행을 위해 CAPTCHA 확인을 요구합니다",
-	"abusefilter-edit-action-showcaptcha-help": "CAPTCHA를 건너뛸 수 있는 권한이 있는 사용자는 예외입니다."
+	"abusefilter-edit-action-showcaptcha-help": "이 항목을 선택하면 원래 CAPTCHA가 면제되는 사용자에게도 영향을 미칩니다."
 }

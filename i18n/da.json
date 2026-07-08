@@ -23,6 +23,7 @@
 	"captcha-badlogin": "For at beskytte wikien mod automatiseret adgangskodegætning, beder vi dig venligst om at løse følgende opgave og indtaste svaret i feltet ([[Special:Captcha/help|flere oplysninger]]):",
 	"captcha-createaccount": "For at beskytte wikien mod automatisk oprettelse af konti, beder vi dig venligst om at løse følgende opgave og indtaste svaret i feltet ([[Special:Captcha/help|mere info]]):",
 	"captcha-createaccount-fail": "Forkert eller manglende CAPTCHA.",
+	"captcha-login-required": "Et yderligere bekræftelsestrin er påkrævet. Indsend venligst formularen igen.",
 	"captcha-create": "For at oprette siden skal du løse følgende opgave og indtaste svaret i feltet ([[Special:Captcha/help|mere info]]):",
 	"captcha-sendemail": "For at beskytte wikien mod automatisk spamming, beder vi dig venligst om at løse følgende opgave og indtaste svaret i feltet ([[Special:Captcha/help|mere info]]):",
 	"captcha-sendemail-fail": "Forkert eller manglende CAPTCHA.",

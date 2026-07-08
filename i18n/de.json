@@ -22,6 +22,7 @@
 	"captcha-badlogin": "Um das Wiki vor der automatisierten Kompromittierung der Benutzerkonten zu schützen, bitten wir {{#FORMAL:dich,|Sie}} die folgende Aufgabe zu lösen und {{#FORMAL:deine|Ihre}} Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):",
 	"captcha-createaccount": "Um das Wiki vor der automatisierten Erstellung von Benutzerkonten zu schützen, bitten wir {{#FORMAL:dich,|Sie}} die untenstehende Aufgabe zu lösen und {{#FORMAL:deine|Ihre}} Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):",
 	"captcha-createaccount-fail": "Falsches oder fehlendes CAPTCHA.",
+	"captcha-login-required": "Ein zusätzlicher Verifizierungsschritt ist erforderlich. Bitte sende das Formular erneut ab.",
 	"captcha-create": "Zur Erstellung der Seite {{#FORMAL:löse|lösen Sie}} die nachfolgende Aufgabe und {{#FORMAL:trage|tragen Sie}} die Antwort in das Feld unten ein [[Special:Captcha/help|(Fragen oder Probleme?)]].",
 	"captcha-sendemail": "Um das Wiki vor automatisiertem Spam zu schützen, bitten wir {{#FORMAL:dich,|Sie}} die untenstehende Aufgabe zu lösen und deine Antwort in das Feld einzugeben ([[Special:Captcha/help|mehr Informationen …]]):",
 	"captcha-sendemail-fail": "Falsches oder fehlendes CAPTCHA.",

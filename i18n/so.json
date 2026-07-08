@@ -15,6 +15,7 @@
 	"captcha-badlogin": "Si loo ilaaliyo wiki-ga ka hortagga jabinta sirta tooska ah, waxaan si naxariis leh kaaga codsanaynaa inaad xalliso hawsha hoose oo aad geli jawaabta sanduuqa ([[Special:Captcha/help|faahfaahin dheeraad ah]]):",
 	"captcha-createaccount": "Si loo ilaaliyo wiki-ga ka hortagga abuurista akoonnada tooska ah, waxaan si naxariis leh kaaga codsanaynaa inaad xalliso hawsha hoose oo aad geli jawaabta sanduuqa ([[Special:Captcha/help|faahfaahin dheeraad ah]]):",
 	"captcha-createaccount-fail": "CAPTCHA khaldan ama maqan.",
+	"captcha-login-required": "Tallaabo xaqiijin dheeraad ah ayaa loo baahan yahay. Fadlan mar kale soo gudbi foomka.",
 	"captcha-create": "Si aad u abuurto bogga, fadlan xalliso hawsha hoose oo geli jawaabta sanduuqa ([[Special:Captcha/help|faahfaahin dheeraad ah]]):",
 	"captcha-sendemail": "Si loo ilaaliyo wiki-ga ka hortagga spam-ka tooska ah, waxaan si naxariis leh kaaga codsanaynaa inaad xalliso hawsha hoose oo aad geli jawaabta sanduuqa ([[Special:Captcha/help|faahfaahin dheeraad ah]]):",
 	"captcha-sendemail-fail": "CAPTCHA khaldan ama maqan.",
@@ -33,5 +34,5 @@
 	"confirmedit-preview-invalid": "aan ansax ahayn",
 	"confirmedit-preview-description": "Jadwalku soo socda wuxuu muujinayaa liiska khadadka ku jira boggan iyo in mid kasta uu yahay cinwaan IP sax ah ama xadka cinwaannada IP. Haddii khadku yahay cinwaan IP sax ah ama xad IP sax ah, waxaa laga saari doonaa hubinta CAPTCHA, halka khadadka aan sax ahayn la iska indho tiri doono. Tusaale xad IP sax ah waa: 69.208.0.0/16 oo ka bilaabma 69.208.0.0 ilaa 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Macluumaad dheeraad ah] oo ku saabsan xisaabinta xadka cinwaanka IP.",
 	"abusefilter-edit-action-showcaptcha": "U baahan xaqiijin CAPTCHA si loo fuliyo ficilka",
-	"abusefilter-edit-action-showcaptcha-help": "Isticmaalayaasha leh oggolaansho ay ku dhaafaan CAPTCHA waa laga reebay."
+	"abusefilter-edit-action-showcaptcha-help": "Doorashadan waxay saameyn doontaa isticmaalayaal sida caadiga ah laga reebo CAPTCHA."
 }

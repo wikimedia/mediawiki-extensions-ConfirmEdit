@@ -6,5 +6,7 @@
 	},
 	"hcaptcha-desc": "ConfirmEditi [https://www.hcaptcha.com/ hCaptcha] moodul",
 	"hcaptcha-privacy-policy": "Seda saiti kaitseb hCaptcha ning kohalduvad selle [https://www.hcaptcha.com/privacy andmekaitsepõhimõtted] ja [https://www.hcaptcha.com/terms teenustingimused].",
+	"hcaptcha-challenge-closed": "Et jätkata, pead läbima robotilõksu.",
+	"hcaptcha-challenge-expired": "Robotilõksu läbimisele kulus liiga kaua aega. Palun proovi uuesti.",
 	"hcaptcha-noscript": "JavaScript on jätkamiseks nõutav. Lülita brauseri sätetes JavaScript sisse ja laadi lehekülg uuesti."
 }

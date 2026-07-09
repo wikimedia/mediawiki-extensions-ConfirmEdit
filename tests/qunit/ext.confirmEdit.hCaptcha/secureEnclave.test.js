@@ -276,6 +276,45 @@ QUnit.test( 'should intercept form submissions by default', async function ( ass
 	);
 } );
 
+QUnit.test( 'should show feedback on submit while the SDK is still loading', async function ( assert ) {
+	// Defer the SDK load: capture the load callback but do not fire it yet, so
+	// the captcha stays "loading" after the form is submitted.
+	let finishLoad = null;
+	this.window.document.head.appendChild.callsFake( () => {
+		finishLoad = () => this.window.onHCaptchaSDKLoaded();
+	} );
+	this.window.hcaptcha.render.returns( 'some-captcha-id' );
+	this.window.hcaptcha.execute.callsFake( async () => ( { response: 'some-token' } ) );
+
+	const result = useSecureEnclave( this.window );
+
+	// Start loading via a field interaction, then submit before it finishes.
+	this.$form.find( '[name=some-input]' ).trigger( 'input' );
+	this.$form.trigger( 'submit' );
+
+	await delay();
+
+	assert.true(
+		this.isLoadingIndicatorVisible(),
+		'loading indicator is shown on submit even though the SDK is still loading'
+	);
+	assert.true(
+		this.areSubmitButtonsDisabled(),
+		'submit button is disabled on submit even though the SDK is still loading'
+	);
+	assert.true(
+		this.window.hcaptcha.execute.notCalled,
+		'hCaptcha is not executed until the SDK finishes loading'
+	);
+
+	// Let the SDK finish loading and confirm the workflow completes.
+	finishLoad();
+	await result;
+
+	assert.true( this.window.hcaptcha.execute.calledOnce, 'hCaptcha executes once the SDK loads' );
+	assert.strictEqual( this.submit.callCount, 1, 'form is submitted once the token is available' );
+} );
+
 QUnit.test( 'should intercept edit form submissions if they come from wpSave', function ( assert ) {
 	this.window.document.head.appendChild.callsFake( () => {
 		assert.false( this.isLoadingIndicatorVisible(), 'should not show loading indicator prior to execute' );

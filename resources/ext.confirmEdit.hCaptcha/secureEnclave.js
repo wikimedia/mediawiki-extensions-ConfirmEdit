@@ -161,6 +161,12 @@ function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 					const originalEvent = event.originalEvent || event;
 					originallyClickedSubmitButton = originalEvent.submitter || originallyClickedSubmitButton;
 
+					// Show the pending state as soon as the user clicks, not once
+					// the SDK finishes loading — on a slow connection that load can
+					// take several seconds, and the form looks frozen without it.
+					utils.showLoadingIndicator( $hCaptchaField );
+					setSubmitButtonDisabledProp( true );
+
 					resolve( this );
 				}
 				$form.removeData( 'isSaveChangesClick' );
@@ -170,8 +176,6 @@ function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 		return Promise.all( [ captchaIdPromise, formSubmitted ] )
 			.then( ( [ captchaId, form ] ) => {
 				utils.hideError( $hCaptchaField );
-				utils.showLoadingIndicator( $hCaptchaField );
-				setSubmitButtonDisabledProp( true );
 
 				return utils.executeHCaptcha( win, captchaId, interfaceName )
 					.then( ( response ) => {
@@ -211,6 +215,9 @@ function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 						if ( recoverableErrors.includes( error ) ) {
 							return executeWorkflow();
 						}
+
+						$form.off( 'submit.hCaptcha' );
+						$form.off( 'click.hCaptcha' );
 					} );
 			} )
 			.catch( ( error ) => {
@@ -223,6 +230,8 @@ function setupHCaptcha( $form, $hCaptchaField, win, interfaceName ) {
 					// https://docs.hcaptcha.com/configuration/#error-codes
 					error
 				);
+				$form.off( 'submit.hCaptcha' );
+				$form.off( 'click.hCaptcha' );
 
 				// Note: If we end up reaching this point (caused by an error
 				// obtaining captchaId), the user won't be able to submit the

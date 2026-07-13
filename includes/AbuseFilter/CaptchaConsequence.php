@@ -77,14 +77,10 @@ class CaptchaConsequence extends Consequence {
 		}
 
 		// If the CAPTCHA was already solved or the user is known to skip
-		// captchas (see SimpleCaptcha::shouldCheck), then don't log that a
+		// captchas (see SimpleCaptcha::shouldSkipCaptcha), then don't log that a
 		// CAPTCHA was shown because the consequence would have had no effect
 		$user = $this->userFactory->newFromUserIdentity( $userIdentity );
-		if (
-			$captcha->isCaptchaSolved() ||
-			$user->isSystemUser() ||
-			$user->isBot()
-		) {
+		if ( $captcha->isCaptchaSolved() || $captcha->shouldSkipCaptcha( $user ) ) {
 			return false;
 		}
 

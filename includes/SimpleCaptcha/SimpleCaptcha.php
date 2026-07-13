@@ -547,13 +547,10 @@ class SimpleCaptcha {
 		$this->trigger = '';
 
 		// If force show captcha is set (e.g., by AbuseFilter), bypass normal trigger checks
-		// including the 'skipcaptcha' right but excluding:
-		// - system users, as those are used for CI/CD pipelines and will otherwise cause test failures
-		// - bots, as there is no reasonable way to expect them to solve the captcha
+		// including the 'skipcaptcha' right; see shouldSkipCaptcha() for the remaining exemptions
 		if (
 			$this->shouldForceShowCaptcha() &&
-			!$user->isSystemUser() &&
-			!$user->isBot() &&
+			!$this->shouldSkipCaptcha( $user ) &&
 			!$this->isCaptchaSolved()
 		) {
 			// Preserve existing action if set, otherwise default to 'edit'
@@ -1337,7 +1334,9 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Check whether the user provided / IP making the request is allowed to skip captchas
+	 * Check whether the given user or the IP making the request is exempt
+	 * from captchas in a generic sense. When checking whether the user should
+	 * see a specific captcha, use {@link SimpleCaptcha::shouldSkipCaptcha()} instead.
 	 */
 	public function canSkipCaptcha( User $user ): bool {
 		$result = false;
@@ -1360,6 +1359,26 @@ class SimpleCaptcha {
 		$hookRunner->onConfirmEditCanUserSkipCaptcha( $user, $result );
 
 		return $result;
+	}
+
+	/**
+	 * Check whether the user may skip the captcha, taking a force-shown
+	 * captcha into account.
+	 *
+	 * A force-shown captcha (e.g. an AbuseFilter "showcaptcha" consequence)
+	 * overrides the exemptions of {@link SimpleCaptcha::canSkipCaptcha()}, except for:
+	 * - system users, as those are used for CI/CD pipelines and will otherwise cause test failures
+	 * - bots, as there is no reasonable way to expect them to solve the captcha
+	 *
+	 * Callers are expected to check {@link SimpleCaptcha::isCaptchaSolved()} separately where relevant.
+	 * @since 1.47
+	 */
+	public function shouldSkipCaptcha( User $user ): bool {
+		if ( $this->shouldForceShowCaptcha() ) {
+			return $user->isSystemUser() || $user->isBot();
+		}
+
+		return $this->canSkipCaptcha( $user );
 	}
 
 	/**

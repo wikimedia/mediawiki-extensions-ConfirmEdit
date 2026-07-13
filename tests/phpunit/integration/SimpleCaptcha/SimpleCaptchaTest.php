@@ -4,6 +4,7 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\SimpleCaptcha;
 
+use Generator;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
@@ -221,6 +222,65 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 		$actual = $testObject->canSkipCaptcha( $user );
 
 		$this->assertTrue( $actual );
+	}
+
+	/**
+	 * @dataProvider provideShouldSkipCaptcha
+	 */
+	public function testShouldSkipCaptcha(
+		bool $forceShow,
+		bool $isSystemUser,
+		bool $isBot,
+		bool $hasSkipcaptchaRight,
+		bool $expected
+	): void {
+		$testObject = new SimpleCaptcha();
+		$testObject->setForceShowCaptcha( $forceShow );
+
+		$user = $this->createMock( User::class );
+		$user->method( 'isSystemUser' )->willReturn( $isSystemUser );
+		$user->method( 'isBot' )->willReturn( $isBot );
+		$user->method( 'isAllowed' )->willReturn( $hasSkipcaptchaRight );
+
+		$this->assertSame( $expected, $testObject->shouldSkipCaptcha( $user ) );
+	}
+
+	public static function provideShouldSkipCaptcha(): Generator {
+		yield 'no force-show honors the skipcaptcha right' => [
+			'forceShow' => false,
+			'isSystemUser' => false,
+			'isBot' => false,
+			'hasSkipcaptchaRight' => true,
+			'expected' => true,
+		];
+		yield 'no force-show without exemption' => [
+			'forceShow' => false,
+			'isSystemUser' => false,
+			'isBot' => false,
+			'hasSkipcaptchaRight' => false,
+			'expected' => false,
+		];
+		yield 'force-show overrides the skipcaptcha right' => [
+			'forceShow' => true,
+			'isSystemUser' => false,
+			'isBot' => false,
+			'hasSkipcaptchaRight' => true,
+			'expected' => false,
+		];
+		yield 'force-show exempts a system user' => [
+			'forceShow' => true,
+			'isSystemUser' => true,
+			'isBot' => false,
+			'hasSkipcaptchaRight' => false,
+			'expected' => true,
+		];
+		yield 'force-show exempts a bot' => [
+			'forceShow' => true,
+			'isSystemUser' => false,
+			'isBot' => true,
+			'hasSkipcaptchaRight' => false,
+			'expected' => true,
+		];
 	}
 
 	public function testTriggersCaptchaReturnsEarlyIfCaptchaSolved() {

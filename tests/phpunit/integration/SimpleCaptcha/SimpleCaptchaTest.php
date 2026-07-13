@@ -45,6 +45,15 @@ class SimpleCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( 'SimpleCaptcha', ( new SimpleCaptcha )->getName() );
 	}
 
+	public function testGetCaptchaApiData(): void {
+		$testObject = new SimpleCaptcha();
+		$captchaData = $testObject->getCaptchaApiData();
+
+		$this->assertSame( 'simple', $captchaData['type'] );
+		$this->assertArrayHasKey( 'id', $captchaData );
+		$this->assertArrayHasKey( 'question', $captchaData );
+	}
+
 	/**
 	 * @dataProvider providePassCaptchaLimitedFromRequest
 	 *

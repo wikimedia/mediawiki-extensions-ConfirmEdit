@@ -737,6 +737,18 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	public function testGetCaptchaApiData(): void {
+		$this->overrideConfigValue( 'HCaptchaSiteKey', 'abcdef' );
+
+		$hCaptcha = new HCaptcha();
+
+		$this->assertArrayEquals(
+			[ 'type' => 'hcaptcha', 'mime' => 'application/javascript', 'key' => 'abcdef', 'error' => null ],
+			$hCaptcha->getCaptchaApiData(),
+			false, true
+		);
+	}
+
 	public function testOnAuthChangeFormFieldsWhenCaptchaNotRequested() {
 		$hCaptcha = new HCaptcha();
 

@@ -321,6 +321,21 @@ class FancyCaptchaTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	public function testGetCaptchaApiDataIncludesIdAndUrl(): void {
+		$this->overrideConfigValue( 'CaptchaClass', FancyCaptcha::class );
+		$this->setUpTestFancyCaptchaImage();
+
+		$fancyCaptcha = new FancyCaptcha();
+		$captchaData = $fancyCaptcha->getCaptchaApiData();
+
+		$this->assertSame( 'image', $captchaData['type'] );
+		$this->assertArrayHasKey( 'id', $captchaData );
+		$this->assertSame(
+			"/index.php?title=Special:Captcha/image&wpCaptchaId={$captchaData['id']}",
+			$captchaData['url']
+		);
+	}
+
 	public function testOnAuthChangeFormFieldsWhenCaptchaNotRequested() {
 		$hCaptcha = new FancyCaptcha();
 

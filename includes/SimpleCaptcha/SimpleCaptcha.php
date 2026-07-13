@@ -143,7 +143,25 @@ class SimpleCaptcha {
 	}
 
 	/**
-	 * Describes the captcha type for API clients.
+	 * Return the CAPTCHA challenge payload for API clients.
+	 *
+	 * This creates a new CAPTCHA for each call and returns the data that
+	 * a client needs for the browser to render the CAPTCHA and the user to
+	 * solve the CAPTCHA.
+	 *
+	 * @since 1.47
+	 */
+	public function getCaptchaApiData(): array {
+		$resultArr = [];
+		$this->addCaptchaAPI( $resultArr );
+
+		return $resultArr['captcha'] ?? [];
+	}
+
+	/**
+	 * Describes the captcha type for API clients. If you need to get a
+	 * CAPTCHA for the user to solve, then call {@link self::getCaptchaApiData()} instead.
+	 *
 	 * @param string|null $action The captcha trigger action
 	 * @return array An array with keys 'type' and 'mime', and possibly other
 	 *   implementation-specific

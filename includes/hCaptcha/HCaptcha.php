@@ -177,6 +177,19 @@ class HCaptcha extends SimpleCaptcha {
 	}
 
 	/**
+	 * Sets the 'forceshowcaptcha' error, signaling to the JS interface that it
+	 * needs to present the always-challenge widget before the action can proceed.
+	 */
+	private function setForceShowCaptchaError(): void {
+		$this->error = 'forceshowcaptcha';
+		$output = RequestContext::getMain()->getOutput();
+		$output->addJsConfigVars(
+			'wgHCaptchaTriggerFormSubmission',
+			true
+		);
+	}
+
+	/**
 	 * Retrieves the risk score associated with the provided token.
 	 *
 	 * @param WebRequest $request
@@ -220,17 +233,21 @@ class HCaptcha extends SimpleCaptcha {
 		$this->error = null;
 		$webRequest = RequestContext::getMain()->getRequest();
 		if ( $this->shouldForceShowCaptchaChallenge( $webRequest ) ) {
-			$this->error = 'forceshowcaptcha';
-			$output = RequestContext::getMain()->getOutput();
-			$output->addJsConfigVars(
-				'wgHCaptchaTriggerFormSubmission',
-				true
-			);
+			$this->setForceShowCaptchaError();
 			return false;
 		}
 
 		if ( $this->isCaptchaSolved() !== null ) {
 			return (bool)$this->isCaptchaSolved();
+		}
+
+		// A submission without a token cannot satisfy an always-challenge, so ask the
+		// user to resubmit with the challenge completed instead of failing with
+		// 'missing-token' (e.g. users with the 'skipcaptcha' right are not shown a
+		// captcha widget until an AbuseFilter "showcaptcha" consequence forces one).
+		if ( !$token && $this->shouldForceShowCaptcha() && $this->getAlwaysChallengeSiteKey() ) {
+			$this->setForceShowCaptchaError();
+			return false;
 		}
 
 		$json = $this->callSiteVerify( $token, $user, $webRequest );
@@ -246,12 +263,7 @@ class HCaptcha extends SimpleCaptcha {
 			!in_array( $json['sitekey'] ?? null, $this->getAllowedSiteKeysForCurrentAction(), true ) &&
 			in_array( $json['sitekey'] ?? null, $this->getAllSiteKeysForCurrentAction(), true )
 		) {
-			$this->error = 'forceshowcaptcha';
-			$output = RequestContext::getMain()->getOutput();
-			$output->addJsConfigVars(
-				'wgHCaptchaTriggerFormSubmission',
-				true
-			);
+			$this->setForceShowCaptchaError();
 			$this->setCaptchaSolved( false );
 			return false;
 		}

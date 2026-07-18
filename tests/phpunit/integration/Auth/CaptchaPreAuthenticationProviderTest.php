@@ -354,7 +354,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		$this->assertSame( $isCaptchaSolvedExpectedValue, $captcha->isCaptchaSolved() );
 	}
 
-	public function providePostAccountCreation(): array {
+	public static function providePostAccountCreation(): array {
 		return [
 			'Failed account creation' => [
 				'authenticationResponseCallback' => static fn () => AuthenticationResponse::newFail(

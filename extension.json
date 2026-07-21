@@ -125,9 +125,7 @@
 			"services": [
 				"ExtensionRegistry",
 				"MainConfig",
-				"ConfirmEditCaptchaFactory",
-				"ConfirmEditHCaptchaBlocksLookup",
-				"ConfirmEditHCaptchaRiskScoreCrawlerFilter"
+				"ConfirmEditCaptchaFactory"
 			],
 			"optional_services": [
 				"VisualEditor.VisualEditorAvailabilityLookup",

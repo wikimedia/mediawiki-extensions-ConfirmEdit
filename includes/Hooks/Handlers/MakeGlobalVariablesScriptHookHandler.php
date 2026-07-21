@@ -6,8 +6,6 @@ namespace MediaWiki\Extension\ConfirmEdit\Hooks\Handlers;
 
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\ConfirmEdit\hCaptcha\HCaptcha;
-use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\HCaptchaBlocksLookup;
-use MediaWiki\Extension\ConfirmEdit\hCaptcha\Services\RiskScoreCrawlerFilter;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
@@ -29,8 +27,6 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 		private readonly ExtensionRegistry $extensionRegistry,
 		private readonly Config $config,
 		private readonly CaptchaFactory $captchaFactory,
-		private readonly HCaptchaBlocksLookup $blocksLookup,
-		private readonly RiskScoreCrawlerFilter $crawlerFilter,
 		private readonly ?VisualEditorAvailabilityLookup $visualEditorAvailabilityLookup = null,
 		private readonly ?MobileContext $mobileContext = null
 	) {
@@ -88,10 +84,8 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 			}
 
 			$this->addHCaptchaModules( $out, $vars, true );
-			$this->addIPBlocksScoreCollectionVars( $out );
 		} elseif ( $visualEditorAvailable && $usingHCaptcha ) {
 			$this->addHCaptchaModules( $out, $vars, $mobileFrontendAvailable );
-			$this->addIPBlocksScoreCollectionVars( $out );
 		}
 	}
 
@@ -126,28 +120,5 @@ class MakeGlobalVariablesScriptHookHandler implements MakeGlobalVariablesScriptH
 		}
 
 		$out->addModules( $requiredModule );
-	}
-
-	private function addIPBlocksScoreCollectionVars( OutputPage $out ): void {
-		if ( $this->crawlerFilter->isExcludedCrawler( $out->getRequest() ) ) {
-			return;
-		}
-
-		$siteKey = $this->config->get( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey' );
-		if ( $siteKey ) {
-			// For MobileFrontend and VisualEditor, we need to always provide
-			// the key used for blocked edit notices, since they may be shown
-			// without a new page load.
-			// Only IP/range blocks trigger risk-score collection; other block types must be ignored.
-			$hasBlocks = $this->blocksLookup->hasBlocksRequiringHCaptcha(
-				$out->getTitle(),
-				$out->getUser()->getBlock()
-			);
-			if ( $hasBlocks ) {
-				$out->addJsConfigVars( [
-					'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey' => $siteKey
-				] );
-			}
-		}
 	}
 }

@@ -4,15 +4,14 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\ConfirmEdit\Tests\Integration\Hooks\Handlers;
 
-use MediaWiki\Block\AbstractBlock;
 use MediaWiki\Block\AnonIpBlockTarget;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\CaptchaTriggers;
 use MediaWiki\Extension\ConfirmEdit\Hooks\Handlers\MakeGlobalVariablesScriptHookHandler;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
+use MediaWiki\Extension\ConfirmEdit\Tests\Integration\HCaptchaBlockMockTrait;
 use MediaWiki\Extension\VisualEditor\Services\VisualEditorAvailabilityLookup;
 use MediaWiki\Registration\ExtensionRegistry;
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
@@ -24,6 +23,8 @@ use Wikimedia\ArrayUtils\ArrayUtils;
  * @group Database
  */
 class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestCase {
+	use HCaptchaBlockMockTrait;
+
 	/** @dataProvider provideMakeGlobalVariablesScript */
 	public function testMakeGlobalVariablesScript( object $testCase ): void {
 		$this->markTestSkippedIfExtensionNotLoaded( 'VisualEditor' );
@@ -99,8 +100,6 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 			$mockVisualEditorAvailabilityLookup,
 			$mockMobileContext
 		);
@@ -189,8 +188,6 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 			null,
 			$mockMobileContext
 		);
@@ -201,69 +198,7 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 		$this->assertArrayNotHasKey( 'wgConfirmEditMobileHCaptchaAbuseFilterEnabled', $vars );
 	}
 
-	public function testMakeGlobalVariablesScriptBlockedIpEditingConfigIncludesBlockIds(): void {
-		$this->markTestSkippedIfExtensionNotLoaded( 'MobileFrontend' );
-
-		$this->overrideConfigValue( 'CaptchaTriggers', [
-			'create' => [
-				'trigger' => true,
-				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'bar' ]
-			],
-			'edit' => [
-				'trigger' => true,
-				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'bar' ]
-			],
-		] );
-		$this->overrideConfigValue( 'HCaptchaEnabledInMobileFrontend', true );
-		$this->overrideConfigValue( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey', 'passive-site-key' );
-		$this->clearHook( 'ConfirmEditCaptchaClass' );
-
-		$mockBlockTarget = $this->createMock( AnonIpBlockTarget::class );
-		$mockBlock = $this->createMock( AbstractBlock::class );
-		$mockBlock->method( 'getTarget' )->willReturn( $mockBlockTarget );
-		$mockBlock->method( 'appliesToTitle' )->willReturn( true );
-		$mockBlock->method( 'getId' )->willReturn( 42 );
-
-		$mockUser = $this->createMock( User::class );
-		$mockUser->method( 'isSystemUser' )->willReturn( false );
-		$mockUser->method( 'getBlock' )->willReturn( $mockBlock );
-		$mockUser->method( 'isAllowed' )->willReturn( false );
-
-		RequestContext::getMain()->setUser( $mockUser );
-		$out = RequestContext::getMain()->getOutput();
-		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
-
-		$mockMobileContext = $this->createMock( MobileContext::class );
-		$mockMobileContext->method( 'shouldDisplayMobileView' )->willReturn( true );
-
-		$mockExtensionRegistry = $this->createMock( ExtensionRegistry::class );
-		$mockExtensionRegistry->method( 'isLoaded' )
-			->willReturnCallback( static fn ( $name ) =>
-				$name === 'MobileFrontend'
-			);
-
-		$vars = [];
-		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
-			$mockExtensionRegistry,
-			$this->getServiceContainer()->getMainConfig(),
-			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
-			null,
-			$mockMobileContext
-		);
-		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
-
-		$jsConfigVars = $out->getJsConfigVars();
-		$this->assertSame(
-			'passive-site-key',
-			$jsConfigVars['wgHCaptchaBlockedIpEditingScoreCollectionSiteKey']
-		);
-	}
-
-	public function testMakeGlobalVariablesScriptBlockedIpEditingConfigIncludesBlockIdsForVE(): void {
+	public function testMakeGlobalVariablesScriptNeverEmitsBlockedIpEditingSiteKey(): void {
 		$this->markTestSkippedIfExtensionNotLoaded( 'VisualEditor' );
 
 		$this->overrideConfigValue( 'CaptchaTriggers', [
@@ -281,16 +216,15 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 		$this->overrideConfigValue( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey', 'passive-site-key' );
 		$this->clearHook( 'ConfirmEditCaptchaClass' );
 
-		$mockBlockTarget = $this->createMock( AnonIpBlockTarget::class );
-		$mockBlock = $this->createMock( AbstractBlock::class );
-		$mockBlock->method( 'getTarget' )->willReturn( $mockBlockTarget );
-		$mockBlock->method( 'appliesToTitle' )->willReturn( true );
-		$mockBlock->method( 'getId' )->willReturn( 42 );
+		// A blocked IP is the case that used to emit the site key on a page
+		// view; set it up so the assertion below catches a re-introduction.
+		$mockBlock = $this->createBlockMockWithTarget(
+			true,
+			$this->createMock( AnonIpBlockTarget::class )
+		);
 
 		$mockUser = $this->createMock( User::class );
-		$mockUser->method( 'isSystemUser' )->willReturn( false );
 		$mockUser->method( 'getBlock' )->willReturn( $mockBlock );
-		$mockUser->method( 'isAllowed' )->willReturn( false );
 
 		RequestContext::getMain()->setUser( $mockUser );
 		$out = RequestContext::getMain()->getOutput();
@@ -298,7 +232,6 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 
 		$mockVisualEditorAvailabilityLookup = $this->createMock( VisualEditorAvailabilityLookup::class );
 		$mockVisualEditorAvailabilityLookup->method( 'isAvailable' )
-			->with( $out->getTitle(), $out->getRequest(), $out->getUser() )
 			->willReturn( true );
 
 		$mockExtensionRegistry = $this->createMock( ExtensionRegistry::class );
@@ -310,196 +243,17 @@ class MakeGlobalVariablesScriptHookHandlerTest extends MediaWikiIntegrationTestC
 			$mockExtensionRegistry,
 			$this->getServiceContainer()->getMainConfig(),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
 			$mockVisualEditorAvailabilityLookup,
 			null
 		);
 		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
 
-		$jsConfigVars = $out->getJsConfigVars();
-		$this->assertSame(
-			'passive-site-key',
-			$jsConfigVars['wgHCaptchaBlockedIpEditingScoreCollectionSiteKey']
+		$this->assertArrayNotHasKey(
+			'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey',
+			$out->getJsConfigVars()
 		);
+		// The captcha module still loads; only the score-collection variable is gone.
 		$this->assertContains( 'ext.confirmEdit.hCaptcha', $out->getModules() );
-	}
-
-	public function testMakeGlobalVariablesScriptBlockedIpEditingConfigAbsentForCrawlerUserAgent(): void {
-		$this->markTestSkippedIfExtensionNotLoaded( 'VisualEditor' );
-
-		$this->overrideConfigValue( 'CaptchaTriggers', [
-			'create' => [
-				'trigger' => true,
-				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'bar' ],
-			],
-			'edit' => [
-				'trigger' => true,
-				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'bar' ],
-			],
-		] );
-		$this->overrideConfigValue( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey', 'passive-site-key' );
-		$this->overrideConfigValue(
-			'HCaptchaBlockedIpEditingScoreSkipUserAgents',
-			[ '#ExampleBot#i' ]
-		);
-		$this->clearHook( 'ConfirmEditCaptchaClass' );
-
-		$request = new FauxRequest();
-		$request->setHeader( 'User-Agent', 'ExampleBot/1.0 (+https://example.com/bot)' );
-		RequestContext::getMain()->setRequest( $request );
-
-		$mockBlockTarget = $this->createMock( AnonIpBlockTarget::class );
-		$mockBlock = $this->createMock( AbstractBlock::class );
-		$mockBlock->method( 'getTarget' )->willReturn( $mockBlockTarget );
-		$mockBlock->method( 'appliesToTitle' )->willReturn( true );
-		$mockBlock->method( 'getId' )->willReturn( 42 );
-
-		$mockUser = $this->createMock( User::class );
-		$mockUser->method( 'isSystemUser' )->willReturn( false );
-		$mockUser->method( 'getBlock' )->willReturn( $mockBlock );
-		$mockUser->method( 'isAllowed' )->willReturn( false );
-
-		RequestContext::getMain()->setUser( $mockUser );
-		$out = RequestContext::getMain()->getOutput();
-		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
-
-		$mockVisualEditorAvailabilityLookup = $this->createMock( VisualEditorAvailabilityLookup::class );
-		$mockVisualEditorAvailabilityLookup->method( 'isAvailable' )
-			->willReturn( true );
-
-		$mockExtensionRegistry = $this->createMock( ExtensionRegistry::class );
-		$mockExtensionRegistry->method( 'isLoaded' )
-			->willReturnCallback( static fn ( $name ) => $name === 'VisualEditor' );
-
-		$vars = [];
-		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
-			$mockExtensionRegistry,
-			$this->getServiceContainer()->getMainConfig(),
-			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
-			$mockVisualEditorAvailabilityLookup,
-			null
-		);
-		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
-
-		$this->assertArrayNotHasKey(
-			'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey',
-			$out->getJsConfigVars()
-		);
-		// The functional captcha module still loads; only collection is skipped.
-		$this->assertContains( 'ext.confirmEdit.hCaptcha', $out->getModules() );
-	}
-
-	public function testMakeGlobalVariablesScriptBlockedIpEditingConfigAbsentWhenNoBlocksForVE(): void {
-		$this->markTestSkippedIfExtensionNotLoaded( 'VisualEditor' );
-
-		$this->overrideConfigValue( 'CaptchaTriggers', [
-			'create' => [
-				'trigger' => true,
-				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'bar' ],
-			],
-			'edit' => [
-				'trigger' => true,
-				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'bar' ],
-			],
-		] );
-		$this->overrideConfigValue( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey', 'passive-site-key' );
-		$this->clearHook( 'ConfirmEditCaptchaClass' );
-
-		$mockUser = $this->createMock( User::class );
-		$mockUser->method( 'isSystemUser' )->willReturn( false );
-		$mockUser->method( 'getBlock' )->willReturn( null );
-		$mockUser->method( 'isAllowed' )->willReturn( false );
-
-		RequestContext::getMain()->setUser( $mockUser );
-		$out = RequestContext::getMain()->getOutput();
-		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
-
-		$mockVisualEditorAvailabilityLookup = $this->createMock( VisualEditorAvailabilityLookup::class );
-		$mockVisualEditorAvailabilityLookup->method( 'isAvailable' )
-			->willReturn( true );
-
-		$mockExtensionRegistry = $this->createMock( ExtensionRegistry::class );
-		$mockExtensionRegistry->method( 'isLoaded' )
-			->willReturnCallback( static fn ( $name ) => $name === 'VisualEditor' );
-
-		$vars = [];
-		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
-			$mockExtensionRegistry,
-			$this->getServiceContainer()->getMainConfig(),
-			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
-			$mockVisualEditorAvailabilityLookup,
-			null
-		);
-		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
-
-		$this->assertArrayNotHasKey(
-			'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey',
-			$out->getJsConfigVars()
-		);
-	}
-
-	public function testMakeGlobalVariablesScriptBlockedIpEditingConfigAbsentWhenNoBlocks(): void {
-		$this->markTestSkippedIfExtensionNotLoaded( 'MobileFrontend' );
-
-		$this->overrideConfigValue( 'CaptchaTriggers', [
-			'create' => [
-				'trigger' => true,
-				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'bar' ],
-			],
-			'edit' => [
-				'trigger' => true,
-				'class' => 'HCaptcha',
-				'config' => [ 'HCaptchaSiteKey' => 'bar' ],
-			],
-		] );
-		$this->overrideConfigValue( 'HCaptchaEnabledInMobileFrontend', true );
-		$this->overrideConfigValue( 'HCaptchaBlockedIpEditingScoreCollectionSiteKey', 'passive-site-key' );
-		$this->clearHook( 'ConfirmEditCaptchaClass' );
-
-		$mockUser = $this->createMock( User::class );
-		$mockUser->method( 'isSystemUser' )->willReturn( false );
-		$mockUser->method( 'getBlock' )->willReturn( null );
-		$mockUser->method( 'isAllowed' )->willReturn( false );
-
-		RequestContext::getMain()->setUser( $mockUser );
-		$out = RequestContext::getMain()->getOutput();
-		$out->setTitle( Title::makeTitle( NS_MAIN, 'MakeGlobalVariablesScript' ) );
-
-		$mockMobileContext = $this->createMock( MobileContext::class );
-		$mockMobileContext->method( 'shouldDisplayMobileView' )->willReturn( true );
-
-		$mockExtensionRegistry = $this->createMock( ExtensionRegistry::class );
-		$mockExtensionRegistry->method( 'isLoaded' )
-			->willReturnCallback( static fn ( $name ) =>
-				$name === 'MobileFrontend'
-			);
-
-		$vars = [];
-		$objectUnderTest = new MakeGlobalVariablesScriptHookHandler(
-			$mockExtensionRegistry,
-			$this->getServiceContainer()->getMainConfig(),
-			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaBlocksLookup' ),
-			$this->getServiceContainer()->get( 'ConfirmEditHCaptchaRiskScoreCrawlerFilter' ),
-			null,
-			$mockMobileContext
-		);
-		$objectUnderTest->onMakeGlobalVariablesScript( $vars, $out );
-
-		$this->assertArrayNotHasKey(
-			'wgHCaptchaBlockedIpEditingScoreCollectionSiteKey',
-			$out->getJsConfigVars()
-		);
 	}
 
 	public static function provideMakeGlobalVariablesScript(): iterable {

@@ -14,6 +14,17 @@ QUnit.module(
 			this.ceHookName =
 				( method ) => `confirmEdit.hCaptcha.${ method }`;
 
+			// jQuery-style stateful .data() fake; fresh store per stub.
+			this.makeStatefulData = () => {
+				const store = {};
+				return ( key, value ) => {
+					if ( value === undefined ) {
+						return store[ key ];
+					}
+					store[ key ] = value;
+				};
+			};
+
 			const RiskScoreCollector = require( 'ext.confirmEdit.hCaptcha/ext.confirmEdit.hCaptcha/RiskScoreCollector.js' );
 
 			this.logError = this.sandbox.stub( mw.errorLogger, 'logError' );
@@ -582,6 +593,8 @@ QUnit.test.each(
 		const $captchaContainer = this.sandbox.stub();
 		$captchaContainer.find = this.sandbox.stub().returns( $captchaForm );
 
+		$captchaContainer.data = this.makeStatefulData();
+
 		mw.hook( this.mfHookName( 'handleCaptcha' ) ).fire(
 			editorEvent,
 			captchaDetails,
@@ -622,6 +635,126 @@ QUnit.test.each(
 		assert.false(
 			this.window.document.createElement.calledOnce,
 			'Won\'t load hCaptcha SDK on panel callback to await user interaction'
+		);
+	}
+);
+
+QUnit.test(
+	'handleCaptcha shows the privacy policy first again in a new editor overlay',
+	async function ( assert ) {
+		const mobileConfig = {
+			HCaptchaEnabledInMobileFrontend: false,
+			MobileHCaptchaAbuseFilterEnabled: true,
+			HCaptchaSiteKey: 'hCaptcha-site-key'
+		};
+
+		initMobileFrontend( 'mobilefrontendeditor', mobileConfig, this.window );
+
+		const captchaDetails = {
+			type: 'hcaptcha',
+			error: 'forceshowcaptcha',
+			key: 'details-site-key'
+		};
+
+		const makeContainer = () => {
+			const $el = this.sandbox.stub();
+			$el.find = this.sandbox.stub().returns( {
+				show: this.sandbox.stub(),
+				removeClass: this.sandbox.stub()
+			} );
+
+			$el.data = this.makeStatefulData();
+
+			return $el;
+		};
+
+		const makePayload = () => {
+			const payload = this.sandbox.stub();
+			payload.stop = this.sandbox.stub();
+			payload.abort = this.sandbox.stub();
+			payload.setTemplate = this.sandbox.stub();
+			return payload;
+		};
+
+		// alreadyAutoSubmittedForKnownError is reset by saveBegin, so fire it
+		// before each attempt to keep the repeated known error from aborting.
+		const fireSaveBegin = () => {
+			const saveEvent = this.sandbox.stub();
+			saveEvent.stop = this.sandbox.stub();
+			saveEvent.resume = this.sandbox.stub();
+			saveEvent.options = {};
+			mw.hook( this.mfHookName( 'saveBegin' ) ).fire( saveEvent );
+		};
+
+		const $el1 = makeContainer();
+
+		// First challenge on the overlay shows the privacy policy without
+		// loading the SDK.
+		const payload1 = makePayload();
+		fireSaveBegin();
+		mw.hook( this.mfHookName( 'handleCaptcha' ) ).fire(
+			payload1,
+			captchaDetails,
+			$el1
+		);
+		await this.waitOneTick();
+		// args[ 3 ] is the post-render callback MobileFrontend runs once the panel is in the DOM
+		payload1.setTemplate.firstCall.args[ 3 ]();
+
+		assert.true(
+			payload1.abort.calledOnce,
+			'Shows the privacy policy on the first challenge'
+		);
+		assert.strictEqual(
+			payload1.abort.firstCall.args[ 0 ],
+			'(hcaptcha-force-show-captcha-edit)',
+			'Aborts with the force-show-captcha message'
+		);
+		assert.false(
+			this.window.document.createElement.called,
+			'Does not load the hCaptcha SDK before the policy is acknowledged'
+		);
+
+		// Second challenge on the same overlay loads the SDK.
+		const payload2 = makePayload();
+		fireSaveBegin();
+		mw.hook( this.mfHookName( 'handleCaptcha' ) ).fire(
+			payload2,
+			captchaDetails,
+			$el1
+		);
+		await this.waitOneTick();
+		payload2.setTemplate.firstCall.args[ 3 ]();
+
+		assert.false(
+			payload2.abort.called,
+			'Does not show the privacy policy again on the same overlay'
+		);
+		assert.true(
+			this.window.document.createElement.called,
+			'Loads the hCaptcha SDK once the policy is acknowledged'
+		);
+
+		// A new overlay shows the privacy policy again.
+		const $el2 = makeContainer();
+		const payload3 = makePayload();
+		fireSaveBegin();
+		mw.hook( this.mfHookName( 'handleCaptcha' ) ).fire(
+			payload3,
+			captchaDetails,
+			$el2
+		);
+		await this.waitOneTick();
+		payload3.setTemplate.firstCall.args[ 3 ]();
+
+		assert.true(
+			payload3.abort.calledOnce,
+			'Shows the privacy policy again in a new editor overlay'
+		);
+		assert.strictEqual(
+			payload3.abort.firstCall.args[ 0 ],
+			'(hcaptcha-force-show-captcha-edit)',
+			'Aborts with the force-show-captcha message for the new overlay'
 		);
 	}
 );

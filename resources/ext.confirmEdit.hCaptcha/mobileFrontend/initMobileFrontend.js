@@ -159,9 +159,6 @@ module.exports = function (
 		} );
 	}
 
-	// If the hCaptcha form is being loaded forcibly via AbuseFilter and requires a
-	// resubmit from the user, we need to keep track that the user is interacting with it.
-	let userManualSubmit = false;
 	mw.hook( 'mobileFrontend.sourceEditor.handleCaptcha' ).add(
 		/**
 		 * @param {Object} payload
@@ -213,9 +210,11 @@ module.exports = function (
 					// This allows the privacy policy to load for dynamically triggered
 					// hCaptcha instances (eg. AbuseFilter) without actually running hCaptcha
 					// before the user can acknowledge the policy with further interaction.
+					// The acknowledgement lives on the overlay element, so a new
+					// editor session shows the policy again before hCaptcha may load.
 					if (
 						mw.config.get( 'wgConfirmEditCaptchaNeededForGenericEdit' ) === 'hcaptcha' ||
-						userManualSubmit
+						$el.data( 'hCaptchaPolicyShown' ) === true
 					) {
 						loadHCaptcha( windowObject, interfaceName ).then(
 							() => mobileFrontendSecureEnclave(
@@ -224,7 +223,7 @@ module.exports = function (
 							)
 						);
 					} else {
-						userManualSubmit = true;
+						$el.data( 'hCaptchaPolicyShown', true );
 
 						// Forcibly show the privacy policy, which has been rendered by now
 						payload.abort( mw.message( 'hcaptcha-force-show-captcha-edit' ).parse() );

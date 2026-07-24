@@ -10,6 +10,7 @@ use MediaWiki\Extension\ConfirmEdit\FancyCaptcha\HTMLFancyCaptchaField;
 use MediaWiki\Extension\ConfirmEdit\Store\CaptchaStore;
 use MediaWiki\Message\Message;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\Tests\Unit\HtmlAssertionHelperTrait;
 use MediaWikiIntegrationTestCase;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
@@ -23,6 +24,7 @@ use Wikimedia\TestingAccessWrapper;
  * @group Database
  */
 class FancyCaptchaTest extends MediaWikiIntegrationTestCase {
+	use HtmlAssertionHelperTrait;
 
 	public function testGetName() {
 		$this->markTestSkippedIfExtensionNotLoaded( 'FancyCaptcha' );
@@ -163,21 +165,6 @@ class FancyCaptchaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * Calls DOMCompat::querySelectorAll, expects that it returns one valid Element object and then returns
-	 * the HTML inside that Element.
-	 *
-	 * @param string $html The HTML to search through
-	 * @param string $class The CSS class to search for, excluding the "." character
-	 * @return string The HTML inside the given class
-	 */
-	private function assertAndGetByElementClass( string $html, string $class ): string {
-		$specialPageDocument = DOMUtils::parseHTML( $html );
-		$element = DOMCompat::querySelectorAll( $specialPageDocument, '.' . $class );
-		$this->assertCount( 1, $element, "Could not find only one element with CSS class $class in $html" );
-		return DOMCompat::getInnerHTML( $element[0] );
-	}
-
-	/**
 	 * Sets up the FancyCaptcha image storage with a valid image that can be picked to use as a captcha by
 	 * {@link FancyCaptcha::pickImage}.
 	 *
@@ -223,11 +210,11 @@ class FancyCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->assertNotNull( $captchaIdElement );
 		$actualIndex = $captchaIdElement->getAttribute( 'value' );
 
-		$reloadField = $this->assertAndGetByElementClass( $html, 'fancycaptcha-reload' );
+		$reloadField = $this->assertSelectorMatchesOneElement( $html, '.fancycaptcha-reload' );
 		$this->assertStringContainsString( '(fancycaptcha-reload-text)', $reloadField );
 
-		$captchaContainer = $this->assertAndGetByElementClass( $html, 'fancycaptcha-captcha-container' );
-		$imageContainer = $this->assertAndGetByElementClass( $captchaContainer, 'fancycaptcha-image-container' );
+		$captchaContainer = $this->assertSelectorMatchesOneElement( $html, '.fancycaptcha-captcha-container' );
+		$imageContainer = $this->assertSelectorMatchesOneElement( $captchaContainer, '.fancycaptcha-image-container' );
 		$this->assertStringContainsString( 'fancycaptcha-image', $imageContainer );
 		$this->assertStringContainsString( 'wpCaptchaId=' . urlencode( $actualIndex ), $imageContainer );
 		$this->assertStringContainsString( 'wpCaptchaWord', $captchaContainer );

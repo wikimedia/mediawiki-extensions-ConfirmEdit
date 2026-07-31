@@ -30,6 +30,7 @@
 	"captcha-badlogin": "为保护本wiki免受自动密码破解的破坏，我们恳请您完成下面的任务并在框中输入答案（[[Special:Captcha/help|更多信息]]）：",
 	"captcha-createaccount": "为保护本wiki免受自动账户创建的破坏，我们恳请您完成下面的任务并在框中输入答案（[[Special:Captcha/help|更多信息]]）：",
 	"captcha-createaccount-fail": "验证码错误或丢失。",
+	"captcha-login-required": "还需要进行额外的验证步骤。请再次提交表单。",
 	"captcha-create": "要创建页面，请完成下面的任务并在框中输入答案（[[Special:Captcha/help|更多信息]]）：",
 	"captcha-sendemail": "为保护本wiki免受自动垃圾程序的破坏，我们恳请您完成下面的任务并在框中输入答案（[[Special:Captcha/help|更多信息]]）：",
 	"captcha-sendemail-fail": "验证码错误或丢失。",

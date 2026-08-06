@@ -586,7 +586,7 @@ function renderHCaptcha( win, interfaceName, container, renderOptions ) {
 
 		$( challengeContainer ).find( 'iframe' ).filter( function () {
 			return $( this ).css( 'visibility' ) === 'visible';
-		} ).focus();
+		} ).trigger( 'focus' );
 	};
 
 	/**

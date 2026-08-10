@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bencemac",
 			"Dj"
 		]
 	},
@@ -12,7 +13,7 @@
 	"hcaptcha-createaccount-fail": "Úgy tűnik, nem oldottad meg a hCaptcha-feladatot.",
 	"hcaptcha-create": "A wiki automatizált laplétrehozással szembeni védelme érdekében kérjük, oldd meg a következő hCaptcha-feladatot:",
 	"hcaptcha-help": "Oldj meg egy hCaptcha-feladatot, és a válasz értékét add vissza captchaWord néven.",
-	"hcaptcha-privacy-policy": "Ezt a webhelyet a hCaptcha védi, és a [https://www.hcaptcha.com/privacy adatvédelmi irányelvei], valamint a [https://www.hcaptcha.com/terms szolgáltatási feltételei] érvényesek.",
+	"hcaptcha-privacy-policy": "Ezt a webhelyet a hCaptcha védi. A szolgáltatás [https://www.hcaptcha.com/privacy adatvédelmi irányelvei] és [https://www.hcaptcha.com/terms szolgáltatási feltételei] érvényesek.",
 	"hcaptcha-challenge-closed": "A folytatáshoz meg kell oldanod a CAPTCHA-feladatot.",
 	"hcaptcha-challenge-expired": "Lejárt a CAPTCHA-feladat megoldására rendelkezésre álló idő. Próbáld újra.",
 	"hcaptcha-generic-error": "Hiba történt az űrlap betöltése közben. A folytatáshoz újra kell töltened a lapot.",

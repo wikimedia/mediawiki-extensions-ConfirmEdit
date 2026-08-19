@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Crochet.david",
+			"Escargot bleu",
 			"Gomoko",
 			"Grondin",
 			"IAlex",
@@ -33,6 +34,7 @@
 	"captcha-badlogin": "Pour protéger le wiki contre la découverte automatique des mots de passe, nous vous demandons de bien vouloir résoudre la tâche ci-dessous et inscrire la réponse dans le champ de saisie ([[Special:Captcha/help|plus d’informations]]) :",
 	"captcha-createaccount": "Afin de protéger le wiki contre la créations automatique de comptes, nous vous demandons de bien vouloir résoudre la tâche ci-dessous et inscrire le résultat dans le champ de saisie ([[Special:Captcha/help|plus d’informations]]) :",
 	"captcha-createaccount-fail": "CAPTCHA erroné ou manquant.",
+	"captcha-login-required": "Une étape de vérification supplémentaire est requise. Veuillez soumettre le formulaire à nouveau.",
 	"captcha-create": "Pour créer la page, veuillez résoudre la tâche ci-dessous et inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :",
 	"captcha-sendemail": "Afin de nous aider à prévenir le pollupostage automatisé, veuillez résoudre la tâche et inscrire le résultat dans le champ ([[Special:Captcha/help|plus d’informations]]) :",
 	"captcha-sendemail-fail": "CAPTCHA incorrect ou manquant.",
@@ -50,5 +52,6 @@
 	"confirmedit-preview-valid": "valide",
 	"confirmedit-preview-invalid": "non valide",
 	"confirmedit-preview-description": "Le tableau suivant montre la liste des lignes de cette page et si c’est une adresse ou une plage d’adresses IP valide. Si la ligne est une adresse ou une plage d’adresses IP valide, elle sera exclue des vérifications de CAPTCHA, mais les lignes non valides seront ignorées. Un exemple de plage d’adresse IP valide est : 69.208.0.0/16 qui va de 69.208.0.0 à 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Plus d’informations] sur le calcul d’une plage d’adresse IP.",
-	"abusefilter-edit-action-showcaptcha": "Nécessite que l'utilisateur doive résoudre un CAPTCHA afin de poursuivre l'action. Les utilisateurs autorisés à ignorer le CAPTCHA en sont exemptés."
+	"abusefilter-edit-action-showcaptcha": "Nécessite une vérification par CAPTCHA pour effectuer l'action.",
+	"abusefilter-edit-action-showcaptcha-help": "Sélectionner cette option affectera les utilisateurs qui sont normalement exemptés de CAPTCHA."
 }

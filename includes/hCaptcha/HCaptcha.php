@@ -204,7 +204,7 @@ class HCaptcha extends SimpleCaptcha {
 		UserIdentity $user,
 		?array $validKeys = null
 	): float|false {
-		$json = $this->callSiteVerify( $token, $user, $request );
+		$json = $this->callSiteVerify( $token, $user, $request, $validKeys );
 
 		if ( $json === false ||
 			!$this->hasValidKey( $request, $token, $json, $user, $validKeys ) ) {
@@ -257,9 +257,11 @@ class HCaptcha extends SimpleCaptcha {
 		}
 
 		// If force showing a CAPTCHA and the always challenge sitekey was not used, return the 'forceshowcaptcha'
-		// error without calling ::hasValidKey to avoid logging a sitekey-mismatch error
+		// error without calling ::hasValidKey to avoid logging a sitekey-mismatch error (only works for enterprise
+		// mode as we need to check the actual sitekey)
 		if (
 			$this->shouldForceShowCaptcha() &&
+			$this->hCaptchaConfig->get( 'HCaptchaEnterprise' ) &&
 			!in_array( $json['sitekey'] ?? null, $this->getAllowedSiteKeysForCurrentAction(), true ) &&
 			in_array( $json['sitekey'] ?? null, $this->getAllSiteKeysForCurrentAction(), true )
 		) {
@@ -274,7 +276,22 @@ class HCaptcha extends SimpleCaptcha {
 		}
 
 		$this->addHCaptchaScore( $user, $json );
-		$this->solvedCaptchaSiteKey = $json['success'] ? ( $json['sitekey'] ?? null ) : null;
+		if ( $this->hCaptchaConfig->get( 'HCaptchaEnterprise' ) ) {
+			$this->solvedCaptchaSiteKey = $json['success'] ? ( $json['sitekey'] ?? null ) : null;
+		} else {
+			// The siteverify response does not name the sitekey, so record the one the token
+			// was verified against. On the always-challenge resubmission that is the
+			// always-challenge sitekey, which ::buildSiteVerifyRequestData sent for hCaptcha
+			// to check, so a token from the passive widget cannot reach here.
+			$verifiedSiteKey = $this->getSiteKeyForAction();
+			if (
+				$this->getAlwaysChallengeSiteKey() !== null &&
+				$webRequest->getVal( 'wgConfirmEditForceShowCaptcha' ) !== null
+			) {
+				$verifiedSiteKey = $this->getAlwaysChallengeSiteKey();
+			}
+			$this->solvedCaptchaSiteKey = $json['success'] ? $verifiedSiteKey : null;
+		}
 		$this->setCaptchaSolved( $json['success'] );
 
 		return $json['success'];
@@ -289,12 +306,14 @@ class HCaptcha extends SimpleCaptcha {
 	 * @param ?string $token The hCaptcha response token to verify
 	 * @param UserIdentity $user The user performing the action (used for logging)
 	 * @param WebRequest $webRequest Current request
+	 * @param ?array $validKeys The list of valid keys, null to use those for the current action.
 	 * @return array|false Decoded siteverify JSON response on success, false on failure
 	 */
 	private function callSiteVerify(
 		?string $token,
 		UserIdentity $user,
-		WebRequest $webRequest
+		WebRequest $webRequest,
+		?array $validKeys = null
 	): array|false {
 		$this->error = null;
 
@@ -312,7 +331,7 @@ class HCaptcha extends SimpleCaptcha {
 			);
 			return false;
 		}
-		$requestData = $this->buildSiteVerifyRequestData( $webRequest, $token );
+		$requestData = $this->buildSiteVerifyRequestData( $webRequest, $token, $validKeys );
 		$options = $requestData[ 'options' ];
 		$verifyUrl = $requestData[ 'verifyUrl' ];
 
@@ -327,9 +346,14 @@ class HCaptcha extends SimpleCaptcha {
 	/**
 	 * @param WebRequest $webRequest
 	 * @param string $token
+	 * @param ?array $validKeys The list of valid keys, null to use those for the current action.
 	 * @return array{options:array,verifyUrl:string}
 	 */
-	private function buildSiteVerifyRequestData( WebRequest $webRequest, string $token ): array {
+	private function buildSiteVerifyRequestData(
+		WebRequest $webRequest,
+		string $token,
+		?array $validKeys = null
+	): array {
 		$data = [
 			'secret' => $this->hCaptchaConfig->get( 'HCaptchaSecretKey' ),
 			'response' => $token,
@@ -337,6 +361,27 @@ class HCaptcha extends SimpleCaptcha {
 		$data['remoteip'] = '127.0.0.1';
 		if ( $this->hCaptchaConfig->get( 'HCaptchaSendRemoteIP' ) ) {
 			$data['remoteip'] = $webRequest->getIP();
+		}
+
+		// Non-enterprise hCaptcha users do not get the sitekey back in the siteverify response. A compromise
+		// solution is to send the sitekey for verification if one sitekey is valid, but this will not work
+		// when there is more than one sitekey defined.
+		if ( !$this->hCaptchaConfig->get( 'HCaptchaEnterprise' ) ) {
+			if ( $validKeys === null ) {
+				$validKeys = $this->getAllowedSiteKeysForCurrentAction();
+				// On the always-challenge resubmission the client states which widget it rendered,
+				// but ::shouldForceShowCaptcha is not set yet on this pass, so narrow to the
+				// always-challenge sitekey here and let hCaptcha confirm the claim.
+				if (
+					$this->getAlwaysChallengeSiteKey() !== null &&
+					$webRequest->getVal( 'wgConfirmEditForceShowCaptcha' ) !== null
+				) {
+					$validKeys = [ $this->getAlwaysChallengeSiteKey() ];
+				}
+			}
+			if ( count( $validKeys ) === 1 ) {
+				$data['sitekey'] = $validKeys[0];
+			}
 		}
 
 		$options = [
@@ -433,20 +478,18 @@ class HCaptcha extends SimpleCaptcha {
 	}
 
 	/**
-	 * Checks whether a given key is among the provided list of valid keys,
-	 * logging an error if it isn't.
+	 * Checks whether a given hCaptcha siteverify response passes the security check,
+	 * and in enterprise mode whether the sitekey used is valid for the current action.
 	 *
 	 * This check is necessary to prevent client-side tampering (T410024,
 	 * T410657).
 	 *
-	 * If no list of valid keys is provided, the key is compared against the
-	 * list of keys allowed for the current action.
-	 *
-	 * @param WebRequest $webRequest
+	 * @param WebRequest $webRequest The web request for MediaWiki, used for logging context
 	 * @param null|string $token token from the POST data
 	 * @param array $json POST data returned from the siteverify API
 	 * @param UserIdentity $user User performing the verification
-	 * @param string[]|null $validKeys List of valid keys, null to use those for the current action.
+	 * @param string[]|null $validKeys List of valid keys, null to use those for the current action. This is
+	 *   only checked if in enterprise mode.
 	 * @return bool
 	 */
 	private function hasValidKey(
@@ -460,15 +503,19 @@ class HCaptcha extends SimpleCaptcha {
 			return false;
 		}
 
-		if ( $validKeys === null ) {
-			$validKeys = $this->getAllowedSiteKeysForCurrentAction();
-		}
+		// sitekey is only returned in the API response for enterprise users. Non-enterprise users have no way
+		// to verify this check, so we skip it.
+		if ( $this->hCaptchaConfig->get( 'HCaptchaEnterprise' ) ) {
+			if ( $validKeys === null ) {
+				$validKeys = $this->getAllowedSiteKeysForCurrentAction();
+			}
 
-		$siteKeyUsed = $json['sitekey'] ?? null;
-		if ( !in_array( $siteKeyUsed, $validKeys ) ) {
-			$this->error = 'sitekey-mismatch';
-			$this->logCheckError( $this->error, $user, $token, $siteKeyUsed, $validKeys );
-			return false;
+			$siteKeyUsed = $json['sitekey'] ?? null;
+			if ( !in_array( $siteKeyUsed, $validKeys ) ) {
+				$this->error = 'sitekey-mismatch';
+				$this->logCheckError( $this->error, $user, $token, $siteKeyUsed, $validKeys );
+				return false;
+			}
 		}
 
 		$debugLogContext = [

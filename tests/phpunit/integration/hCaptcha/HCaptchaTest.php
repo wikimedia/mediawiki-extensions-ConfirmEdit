@@ -175,6 +175,8 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->setUserLang( 'qqx' );
 		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
 		$this->overrideConfigValue( 'HCaptchaProxy', 'proxy.test.com' );
+		$this->overrideConfigValue( 'HCaptchaSiteKey', 'test-sitekey' );
+		$this->overrideConfigValue( 'HCaptchaEnterprise', true );
 
 		// Mock that the site-verify URL call will fail with a HTTP 500 error
 		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
@@ -548,6 +550,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	public function testPassCaptcha(
 		bool $captchaPassedSuccessfully,
 		bool $developerMode,
+		bool $enterpriseMode,
 		bool $useRiskScore,
 		bool $sendRemoteIP,
 		array $mockApiResponse
@@ -558,6 +561,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			'HCaptchaDeveloperMode' => $developerMode,
 			'HCaptchaUseRiskScore' => $useRiskScore,
 			'HCaptchaSendRemoteIP' => $sendRemoteIP,
+			'HCaptchaEnterprise' => $enterpriseMode,
 		] );
 		// Set a default IP for the web request, in order to be able to test
 		// $sendRemoteIP later on
@@ -579,6 +583,9 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		// Mock HttpRequestFactory directly so that we can check the URL and options are as expected.
 		$expectedPostData = [ 'response' => 'abcdef', 'secret' => 'secretkey' ];
 		$expectedPostData['remoteip'] = $sendRemoteIP ? $testIP : '127.0.0.1';
+		if ( !$enterpriseMode ) {
+			$expectedPostData['sitekey'] = 'test-sitekey';
+		}
 
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
 		$mockHttpRequestFactory->method( 'create' )
@@ -607,7 +614,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			'captcha_action' => 'edit',
 			'captcha_trigger' => "edit trigger by '~2025-198' at [[Test]]",
 			'hcaptcha_token' => 'abcdef',
-			'hcaptcha_response_sitekey' => 'test-sitekey',
+			'hcaptcha_response_sitekey' => $enterpriseMode ? 'test-sitekey' : '-',
 			'clientIp' => '1.2.3.4',
 			'ua' => false,
 			'user_exists_locally' => false,
@@ -664,31 +671,81 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 
 	public static function providePassCaptcha(): array {
 		return [
-			'Passes hCaptcha check, in developer mode' => [
-				true, true, false, false,
-				[ 'success' => true, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
+			'Passes hCaptcha check, in developer and enterprise mode' => [
+				'captchaPassedSuccessfully' => true,
+				'developerMode' => true,
+				'enterpriseMode' => true,
+				'useRiskScore' => false,
+				'sendRemoteIP' => false,
+				'mockApiResponse' => [
+					'success' => true,
+					'score' => 123,
+					'score_reason' => 'test',
+					'sitekey' => 'test-sitekey',
+				],
 			],
-			'Passes hCaptcha check, not in developer mode, sending remote IP' => [
-				true, false, false, true,
-				[ 'success' => true, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
+			'Passes hCaptcha check, not in developer mode, sending remote IP and enterprise mode' => [
+				'captchaPassedSuccessfully' => true,
+				'developerMode' => false,
+				'enterpriseMode' => true,
+				'useRiskScore' => false,
+				'sendRemoteIP' => true,
+				'mockApiResponse' => [
+					'success' => true,
+					'score' => 123,
+					'score_reason' => 'test',
+					'sitekey' => 'test-sitekey',
+				],
 			],
-			'Passes hCaptcha check, not in developer mode, using risk score' => [
-				true, false, true, false,
-				[ 'success' => true, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
+			'Passes hCaptcha check, not in developer or enterprise mode, using risk score' => [
+				'captchaPassedSuccessfully' => true,
+				'developerMode' => false,
+				'enterpriseMode' => false,
+				'useRiskScore' => true,
+				'sendRemoteIP' => false,
+				'mockApiResponse' => [ 'success' => true, 'score' => 123, 'score_reason' => 'test' ],
 			],
 			'Fails hCaptcha check, in developer mode' => [
-				false, true, false, false,
-				[ 'success' => false, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
+				'captchaPassedSuccessfully' => false,
+				'developerMode' => true,
+				'enterpriseMode' => true,
+				'useRiskScore' => false,
+				'sendRemoteIP' => false,
+				'mockApiResponse' => [
+					'success' => false,
+					'score' => 123,
+					'score_reason' => 'test',
+					'sitekey' => 'test-sitekey',
+				],
 			],
 			'Fails hCaptcha check, not in developer mode' => [
-				false, false, false, false,
-				[ 'success' => false, 'score' => 123, 'score_reason' => 'test', 'sitekey' => 'test-sitekey' ],
+				'captchaPassedSuccessfully' => false,
+				'developerMode' => false,
+				'enterpriseMode' => true,
+				'useRiskScore' => false,
+				'sendRemoteIP' => false,
+				'mockApiResponse' => [
+					'success' => false,
+					'score' => 123,
+					'score_reason' => 'test',
+					'sitekey' => 'test-sitekey',
+				],
 			],
 			'Fails hCaptcha check, in developer mode, no score included in response' => [
-				false, true, false, false, [ 'success' => false, 'sitekey' => 'test-sitekey' ],
+				'captchaPassedSuccessfully' => false,
+				'developerMode' => true,
+				'enterpriseMode' => true,
+				'useRiskScore' => false,
+				'sendRemoteIP' => false,
+				'mockApiResponse' => [ 'success' => false, 'sitekey' => 'test-sitekey' ],
 			],
 			'Fails hCaptcha check, not in developer mode, no score included in response' => [
-				false, false, false, false, [ 'success' => false, 'sitekey' => 'test-sitekey' ],
+				'captchaPassedSuccessfully' => false,
+				'developerMode' => false,
+				'enterpriseMode' => false,
+				'useRiskScore' => false,
+				'sendRemoteIP' => false,
+				'mockApiResponse' => [ 'success' => false ],
 			],
 		];
 	}
@@ -904,10 +961,21 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	public function testSolvedCaptchaSiteKeyAfterSiteVerify(
 		array $apiResponse,
 		bool $expectedResult,
-		?string $expectedSolvedSiteKey
+		?string $expectedSolvedSiteKey,
+		bool $enterprise = true,
+		array $actionConfig = [],
+		bool $forceShowParam = false
 	): void {
 		$this->overrideConfigValue( 'HCaptchaSiteKey', 'test-sitekey' );
 		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
+		$this->overrideConfigValue( 'HCaptchaEnterprise', $enterprise );
+
+		$params = [ 'h-captcha-response' => 'test-token' ];
+		if ( $forceShowParam ) {
+			$params['wgConfirmEditForceShowCaptcha'] = '1';
+		}
+		$request = new FauxRequest( $params );
+		RequestContext::getMain()->setRequest( $request );
 
 		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
 		$mwHttpRequest->method( 'execute' )
@@ -919,12 +987,12 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->installMockHttp( $mwHttpRequest );
 
 		$hCaptcha = new HCaptcha();
+		if ( $actionConfig ) {
+			$hCaptcha->setConfig( $actionConfig );
+		}
 		$wrapper = TestingAccessWrapper::newFromObject( $hCaptcha );
 		$user = $this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' );
-		$result = $hCaptcha->passCaptchaFromRequest(
-			new FauxRequest( [ 'h-captcha-response' => 'test-token' ] ),
-			$user
-		);
+		$result = $hCaptcha->passCaptchaFromRequest( $request, $user );
 
 		$this->assertSame( $expectedResult, $result );
 		$this->assertSame( $expectedSolvedSiteKey, $wrapper->solvedCaptchaSiteKey );
@@ -942,6 +1010,17 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'expectedResult' => false,
 				'expectedSolvedSiteKey' => null,
 			],
+			'non-enterprise always-challenge resubmission stores the challenge sitekey' => [
+				'apiResponse' => [ 'success' => true ],
+				'expectedResult' => true,
+				'expectedSolvedSiteKey' => 'challenge-key',
+				'enterprise' => false,
+				'actionConfig' => [
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key',
+				],
+				'forceShowParam' => true,
+			],
 		];
 	}
 
@@ -953,8 +1032,11 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		bool $tokenPresent,
 		bool $forceShowParamPresent,
 		bool $expectedResult,
-		?string $expectedError
+		?string $expectedError,
+		array $configOverrides = []
 	): void {
+		$this->overrideConfigValues( $configOverrides );
+
 		$request = $forceShowParamPresent
 			? new FauxRequest( [ 'wgConfirmEditForceShowCaptcha' => '1' ] )
 			: new FauxRequest( [] );
@@ -1105,7 +1187,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'expectedResult' => false,
 				'expectedError' => 'missing-token',
 			],
-			'siteKey=null, forceShow=true, param=missing, token=set' => [
+			'siteKey=null, forceShow=true, param=missing, token=set, enterprise=yes' => [
 				'solvedCaptchaSiteKey' => null,
 				'alwaysChallengeSiteKeySet' => true,
 				'forceShow' => true,
@@ -1113,6 +1195,17 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 				'forceShowParamPresent' => false,
 				'expectedResult' => false,
 				'expectedError' => 'forceshowcaptcha',
+				'configOverrides' => [ 'HCaptchaEnterprise' => true ],
+			],
+			'siteKey=null, forceShow=true, param=missing, token=set, enterprise=no' => [
+				'solvedCaptchaSiteKey' => null,
+				'alwaysChallengeSiteKeySet' => true,
+				'forceShow' => true,
+				'tokenPresent' => true,
+				'forceShowParamPresent' => false,
+				'expectedResult' => true,
+				'expectedError' => null,
+				'configOverrides' => [ 'HCaptchaEnterprise' => false ],
 			],
 		];
 	}
@@ -1120,6 +1213,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	public function testPassCaptchaSecondCallBlocksWhenSitekeyMismatch(): void {
 		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
 		$this->overrideConfigValue( 'HCaptchaSiteKey', 'normal-key' );
+		$this->overrideConfigValue( 'HCaptchaEnterprise', true );
 
 		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
 		$mwHttpRequest->expects( $this->once() )
@@ -1291,7 +1385,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 	public function testPassCaptchaSiteKeyValidation(
 		string $action,
 		array $actionConfig,
-		?string $globalSiteKey,
+		array $globalConfig,
 		bool $forceShow,
 		string $responseSiteKey,
 		bool $shouldPass,
@@ -1299,9 +1393,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		?string $expectedLoggedValidSiteKeys = null
 	): void {
 		$this->overrideConfigValue( 'HCaptchaSecretKey', 'secretkey' );
-		if ( $globalSiteKey !== null ) {
-			$this->overrideConfigValue( 'HCaptchaSiteKey', $globalSiteKey );
-		}
+		$this->overrideConfigValues( $globalConfig );
 
 		// Mock logger to capture error logs if validation fails - must be set before creating HCaptcha instance
 		$mockLogger = $this->createMock( LoggerInterface::class );
@@ -1322,11 +1414,11 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		}
 		$this->setLogger( 'captcha', $mockLogger );
 
-		// Mock the API response with the sitekey
-		$mockApiResponse = [
-			'success' => true,
-			'sitekey' => $responseSiteKey
-		];
+		// Mock the API response with the sitekey set if in enterprise mode
+		$mockApiResponse = [ 'success' => true ];
+		if ( $this->getServiceContainer()->getMainConfig()->get( 'HCaptchaEnterprise' ) ) {
+			$mockApiResponse['sitekey'] = $responseSiteKey;
+		}
 
 		$mwHttpRequest = $this->createMock( MWHttpRequest::class );
 		$mwHttpRequest->method( 'execute' )
@@ -1360,103 +1452,134 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 
 	public static function providePassCaptchaSiteKeyValidation(): array {
 		return [
-			'Site key matches - from action config' => [
-				'edit',
-				[ 'HCaptchaSiteKey' => 'test-key' ],
-				null,
-				false,
-				'test-key',
-				true,
-				null
+			'Site key matches in enterprise mode - from action config' => [
+				'action' => 'edit',
+				'actionConfig' => [ 'HCaptchaSiteKey' => 'test-key' ],
+				'globalConfig' => [ 'HCaptchaEnterprise' => true ],
+				'forceShow' => false,
+				'responseSiteKey' => 'test-key',
+				'shouldPass' => true,
+				'expectedError' => null,
+			],
+			'Site key matches not in enterprise mode - from action config' => [
+				'action' => 'edit',
+				'actionConfig' => [ 'HCaptchaSiteKey' => 'test-key' ],
+				'globalConfig' => [ 'HCaptchaEnterprise' => false ],
+				'forceShow' => false,
+				'responseSiteKey' => 'test-key',
+				'shouldPass' => true,
+				'expectedError' => null,
 			],
 			'Site key matches - from global fallback' => [
-				'edit',
-				[],
-				'global-key',
-				false,
-				'global-key',
-				true,
-				null
+				'action' => 'edit',
+				'actionConfig' => [],
+				'globalConfig' => [ 'HCaptchaSiteKey' => 'global-key' ],
+				'forceShow' => false,
+				'responseSiteKey' => 'global-key',
+				'shouldPass' => true,
+				'expectedError' => null,
 			],
-			'Site key mismatch - should fail' => [
-				'edit',
-				[ 'HCaptchaSiteKey' => 'correct-key' ],
-				null,
-				false,
-				'wrong-key',
-				false,
-				'sitekey-mismatch',
-				'correct-key'
+			'Site key mismatch in enterprise mode - should fail' => [
+				'action' => 'edit',
+				'actionConfig' => [ 'HCaptchaSiteKey' => 'correct-key' ],
+				'globalConfig' => [ 'HCaptchaEnterprise' => true ],
+				'forceShow' => false,
+				'responseSiteKey' => 'wrong-key',
+				'shouldPass' => false,
+				'expectedError' => 'sitekey-mismatch',
+				'expectedLoggedValidSiteKeys' => 'correct-key',
 			],
-			'Force show - validates against challenge key' => [
-				'edit',
-				[
+			'Site key mismatch for non-enterprise mode - check skipped' => [
+				'action' => 'edit',
+				'actionConfig' => [ 'HCaptchaSiteKey' => 'correct-key' ],
+				'globalConfig' => [ 'HCaptchaEnterprise' => false ],
+				'forceShow' => false,
+				'responseSiteKey' => 'wrong-key',
+				'shouldPass' => true,
+				'expectedError' => null,
+				'expectedLoggedValidSiteKeys' => null,
+			],
+			'Force show - validates against challenge key in enterprise mode' => [
+				'action' => 'edit',
+				'actionConfig' => [
 					'HCaptchaSiteKey' => 'normal-key',
 					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
 				],
-				null,
-				true,
-				'challenge-key',
-				true,
-				null
+				'globalConfig' => [ 'HCaptchaEnterprise' => true ],
+				'forceShow' => true,
+				'responseSiteKey' => 'challenge-key',
+				'shouldPass' => true,
+				'expectedError' => null
+			],
+			'Force show - validates against challenge key not in enterprise mode' => [
+				'action' => 'edit',
+				'actionConfig' => [
+					'HCaptchaSiteKey' => 'normal-key',
+					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
+				],
+				'globalConfig' => [ 'HCaptchaEnterprise' => false ],
+				'forceShow' => true,
+				'responseSiteKey' => '',
+				'shouldPass' => true,
+				'expectedError' => null
 			],
 			'Force show - wrong key (normal instead of challenge)' => [
-				'edit',
-				[
+				'action' => 'edit',
+				'actionConfig' => [
 					'HCaptchaSiteKey' => 'normal-key',
 					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
 				],
-				null,
-				true,
-				'normal-key',
-				false,
-				'forceshowcaptcha'
+				'globalConfig' => [ 'HCaptchaEnterprise' => true ],
+				'forceShow' => true,
+				'responseSiteKey' => 'normal-key',
+				'shouldPass' => false,
+				'expectedError' => 'forceshowcaptcha'
 			],
 			'Force show - validates against global when challenge key not set' => [
-				'edit',
-				[],
-				'global-key',
-				true,
-				'global-key',
-				true,
-				null
+				'action' => 'edit',
+				'actionConfig' => [],
+				'globalConfig' => [ 'HCaptchaSiteKey' => 'global-key' ],
+				'forceShow' => true,
+				'responseSiteKey' => 'global-key',
+				'shouldPass' => true,
+				'expectedError' => null
 			],
 			'Force show - allows additional keys when challenge key not set' => [
-				'edit',
-				[
+				'action' => 'edit',
+				'actionConfig' => [
 					'HCaptchaSiteKey' => 'normal-key',
 					'HCaptchaAdditionalValidSiteKeys' => [ 'additional-key' ]
 				],
-				null,
-				true,
-				'additional-key',
-				true,
-				null
+				'globalConfig' => [],
+				'forceShow' => true,
+				'responseSiteKey' => 'additional-key',
+				'shouldPass' => true,
+				'expectedError' => null
 			],
 			'Force show on account creation - challenge key is rejected' => [
-				'createaccount',
-				[
+				'action' => 'createaccount',
+				'actionConfig' => [
 					'HCaptchaSiteKey' => 'normal-key',
 					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
 				],
-				null,
-				true,
-				'challenge-key',
-				false,
-				'sitekey-mismatch',
-				'normal-key'
+				'globalConfig' => [ 'HCaptchaEnterprise' => true ],
+				'forceShow' => true,
+				'responseSiteKey' => 'challenge-key',
+				'shouldPass' => false,
+				'expectedError' => 'sitekey-mismatch',
+				'expectedLoggedValidSiteKeys' => 'normal-key'
 			],
 			'Force show on account creation - normal key is accepted' => [
-				'createaccount',
-				[
+				'action' => 'createaccount',
+				'actionConfig' => [
 					'HCaptchaSiteKey' => 'normal-key',
 					'HCaptchaAlwaysChallengeSiteKey' => 'challenge-key'
 				],
-				null,
-				true,
-				'normal-key',
-				true,
-				null,
+				'globalConfig' => [],
+				'forceShow' => true,
+				'responseSiteKey' => 'normal-key',
+				'shouldPass' => true,
+				'expectedError' => null,
 			],
 		];
 	}
@@ -1685,6 +1808,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		$this->overrideConfigValues( [
 			'HCaptchaSecretKey' => 'secretkey',
 			'HCaptchaSiteKey' => 'test-sitekey',
+			'HCaptchaEnterprise' => true,
 		] );
 
 		$mwHttpRequest = $this->createMock( MWHttpRequest::class );

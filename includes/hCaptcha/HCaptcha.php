@@ -794,8 +794,6 @@ class HCaptcha extends SimpleCaptcha {
 	 * @return string[] A list of allowed hCaptcha SiteKeys allowed for this instance
 	 */
 	private function getAllowedSiteKeysForCurrentAction(): array {
-		$triggerConfig = $this->getConfig();
-
 		// In Always Challenge Mode, return only the Always Challenge SiteKey if set.
 		// If not set, fallback to normal mode behavior to avoid unexpected edge cases.
 		if ( $this->shouldForceShowCaptcha() ) {

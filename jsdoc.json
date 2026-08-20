@@ -1,0 +1,32 @@
+{
+	"opts": {
+		"destination": "docs/js",
+		"package": "package.json",
+		"pedantic": true,
+		"readme": "JSDOC-README.md",
+		"recurse": true,
+		"template": "node_modules/jsdoc-wmf-theme"
+	},
+	"plugins": [
+		"node_modules/jsdoc-wmf-theme/plugins/default"
+	],
+	"source": {
+		"include": [ "resources/libs" ]
+	},
+	"tags": {
+		"allowUnknownTags": [ "internal" ]
+	},
+	"templates": {
+		"cleverLinks": true,
+		"default": {
+			"useLongnameInNav": true
+		},
+		"wmf": {
+			"maintitle": "ConfirmEdit Frontend JavaScript Library",
+			"repository": "https://gerrit.wikimedia.org/g/mediawiki/extensions/ConfirmEdit/",
+			"prefixMap": {
+				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html"
+			}
+		}
+	}
+}

@@ -7,5 +7,5 @@ node_modules/
 vendor/
 composer.lock
 .eslintcache
-
+/docs/js
 /.stylelintcache

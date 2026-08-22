@@ -2,7 +2,8 @@
 	"name": "ConfirmEdit",
 	"private": true,
 	"scripts": {
-		"test": "grunt test"
+		"test": "grunt test",
+		"doc": ""
 	},
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.32.5",

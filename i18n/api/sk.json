@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"captcha-apihelp-param-captchaword": "Odpoveď na CAPTCHA",
+	"captcha-apihelp-param-captchaid": "ID CAPTCHA z predchádzajúcej požiadavky"
+}

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mormegil"
+		]
+	},
+	"hcaptcha-edit": "V zájmu ochrany této wiki před automatickým spamováním vás prosíme o vyřešení následujícího testu hCaptcha:",
+	"hcaptcha-addurl": "Vaše editace obsahuje nové externí odkazy. V zájmu ochrany této wiki před automatickým spamováním vás prosíme o vyřešení následujícího testu hCaptcha:",
+	"hcaptcha-badlogin": "V zájmu ochrany této wiki proti automatickým pokusům uhodnout heslo vás prosíme o vyřešení následujícího testu hCaptcha:",
+	"hcaptcha-createaccount": "V zájmu ochrany této wiki před automatickým vytvářením účtů vás prosíme o vyřešení následujícího testu hCaptcha:",
+	"hcaptcha-createaccount-fail": "Zdá se, že jste nedokončili test hCaptcha.",
+	"hcaptcha-create": "V zájmu ochrany této wiki před automatickým zakládáním stránek vás prosíme o vyřešení následujícího testu hCaptcha:",
+	"hcaptcha-privacy-policy": "Ochranu tomuto serveru poskytuje hCaptcha a platí její [https://www.hcaptcha.com/privacy Pravidla ochrany osobních údajů] a [https://www.hcaptcha.com/terms Podmínky užití].",
+	"hcaptcha-challenge-closed": "Pro pokračování musíte dokončit test captcha."
+}

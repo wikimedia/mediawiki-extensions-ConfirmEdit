@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hide on Rosé",
 			"Ioe2015",
 			"Minh Nguyen",
 			"NguyenHung",
@@ -34,5 +35,6 @@
 	"confirmedit-preview-validity": "Tính hợp lệ",
 	"confirmedit-preview-valid": "hợp lệ",
 	"confirmedit-preview-invalid": "không hợp lệ",
-	"abusefilter-edit-action-showcaptcha": "Yêu cầu người dùng xác minh CAPTCHA để tiếp tục hành động (thành viên tự xác nhận sẽ không cần phải xác minh)"
+	"abusefilter-edit-action-showcaptcha": "Yêu cầu người dùng xác minh CAPTCHA để tiếp tục hành động (thành viên tự xác nhận sẽ không cần phải xác minh)",
+	"abusefilter-edit-action-showcaptcha-help": "Chọn mục này sẽ ảnh hưởng đến cả những người vốn được miễn điền CAPTCHA."
 }

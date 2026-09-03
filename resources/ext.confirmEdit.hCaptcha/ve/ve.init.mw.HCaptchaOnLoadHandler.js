@@ -118,7 +118,6 @@ module.exports = () => {
 			( error ) => {
 				// Possible message keys used here:
 				// * hcaptcha-generic-error
-				// eslint-disable-next-line mediawiki/msg-doc
 				errorWidget.show( mw.msg( mapErrorCodeToMessageKey( error ) ) );
 				saveDialog.updateSize();
 

@@ -83,7 +83,6 @@ mw.libs.confirmEdit.CaptchaInputWidget.prototype.makeCaptchaInterface = function
 					break;
 			}
 			// Messages documented above
-			// eslint-disable-next-line mediawiki/msg-doc
 			$captchaParagraph.append( mw.message( msg ).parseDom(), '<br>', question );
 		}
 	}

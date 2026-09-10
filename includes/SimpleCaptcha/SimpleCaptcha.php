@@ -507,11 +507,9 @@ class SimpleCaptcha {
 
 		$result = false;
 		$triggers = $wgCaptchaTriggers;
-		$attributeCaptchaTriggers = ExtensionRegistry::getInstance()
-			->getAttribute( CaptchaTriggers::EXT_REG_ATTRIBUTE_NAME );
-		if ( is_array( $attributeCaptchaTriggers ) ) {
-			$triggers += $attributeCaptchaTriggers;
-		}
+		$triggers += ExtensionRegistry::getInstance()->getAttribute(
+			CaptchaTriggers::EXT_REG_ATTRIBUTE_NAME
+		);
 
 		if ( isset( $triggers[$action] ) ) {
 			$res = $triggers[$action];

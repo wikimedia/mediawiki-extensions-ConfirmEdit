@@ -301,11 +301,12 @@
 			"value": false
 		},
 		"HCaptchaCSPRules": {
-			"description": "Urls to add to the Content Security Policies (CSP) for hcaptcha.com and *.hcaptcha.com to a page when loading a hCaptcha",
+			"description": "Urls to add to the Content Security Policies (CSP) of a page when loading a hCaptcha. Defaults to the public hCaptcha hosts; set this explicitly when hCaptcha is served from somewhere else, such as through a proxy.",
 			"value": [
 				"https://hcaptcha.com",
 				"https://*.hcaptcha.com"
-			]
+			],
+			"merge_strategy": "provide_default"
 		},
 		"HCaptchaSecureEnclave": {
 			"description": "Whether to use hCaptcha's Secure Enclave mode. If enabled, then $wgHCaptchaEnterprise must be true (because it is an Enterprise feature). You will need to modify $wgHCaptchaApiUrl as appropriate, such as to use https://js.hcaptcha.com/1/secure-api.js and make rendering explicit - See https://docs.hcaptcha.com/enterprise/secure_enclave",

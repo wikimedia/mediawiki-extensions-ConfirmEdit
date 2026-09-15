@@ -29,6 +29,7 @@
 	"captcha-badlogin": "自動でのパスワードクラック攻撃からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|詳細]]):",
 	"captcha-createaccount": "アカウントの自動登録からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):",
 	"captcha-createaccount-fail": "CAPTCHA が正しくない、または入力されていません。",
+	"captcha-login-required": "追加の確認手続きが必要です。フォームを再度送信してください。",
 	"captcha-create": "ページを新規作成するには、下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|ヘルプ]]):",
 	"captcha-sendemail": "自動でのスパム攻撃からウィキを保護するため、お手数ですが下記の簡単な数式を計算してその答えを欄に入力してください ([[Special:Captcha/help|詳細]]):",
 	"captcha-sendemail-fail": "CAPTCHA が正しくない、または入力されていません。",

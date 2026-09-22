@@ -19,6 +19,7 @@
 	"captcha-badlogin": "כהגנה מפני פריצת סיסמאות אוטומטית, נא לפתור את המשימה הבאה ולהקליד את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):",
 	"captcha-createaccount": "כהגנה מפני יצירת חשבונות אוטומטית, נא לפתור את המשימה הבאה ולהקליד את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):",
 	"captcha-createaccount-fail": "קוד אישור שגוי או חסר.",
+	"captcha-login-required": "נדרש צעד אימות נוסף. נא לשלוח את הטופס שוב.",
 	"captcha-create": "כדי ליצור את הדף, נא לפתור את המשימה הבאה ולהקליד את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):",
 	"captcha-sendemail": "כהגנה מפני ספאם אוטומטי, נא לפתור את המשימה הבאה ולהקליד את התשובה בתיבה ([[Special:Captcha/help|מידע נוסף]]):",
 	"captcha-sendemail-fail": "קוד האישור שגוי או חסר.",

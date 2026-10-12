@@ -30,7 +30,7 @@ class HTMLFancyCaptchaField extends HTMLFormField {
 	public function __construct( array $params ) {
 		parent::__construct( $params );
 		$this->imageUrl = $params['imageUrl'];
-		$this->showCreateHelp = !empty( $params['showCreateHelp'] );
+		$this->showCreateHelp = $params['showCreateHelp'] ?? false;
 	}
 
 	/** @inheritDoc */

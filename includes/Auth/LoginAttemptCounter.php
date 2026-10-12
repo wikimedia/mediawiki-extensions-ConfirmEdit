@@ -17,10 +17,10 @@ use Wikimedia\ObjectCache\BagOStuff;
  * @internal Use {@link LoginAttemptCounterFactory::newLoginAttemptCounter()} to get an instance
  */
 class LoginAttemptCounter {
-	private SimpleCaptcha $captcha;
 
-	public function __construct( SimpleCaptcha $captcha ) {
-		$this->captcha = $captcha;
+	public function __construct(
+		private readonly SimpleCaptcha $captcha,
+	) {
 	}
 
 	/**

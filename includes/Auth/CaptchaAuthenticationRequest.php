@@ -18,24 +18,18 @@ use MediaWiki\MediaWikiServices;
  * (e.g. a question and its answer), an ID that references the data, and a solution.
  */
 class CaptchaAuthenticationRequest extends AuthenticationRequest {
-	/** @var string Identifier of the captcha. Used internally to remember which captcha was used. */
-	public $captchaId;
-
-	/** @var array Information about the captcha (e.g. question text; solution). Exact semantics
-	 *    differ between types.
-	 */
-	public $captchaData;
 
 	/** @var string Captcha solution submitted by the user. */
 	public $captchaWord;
 
 	/**
-	 * @param string $id
-	 * @param array $data
+	 * @param string $captchaId
+	 * @param array $captchaData
 	 */
-	public function __construct( $id, $data ) {
-		$this->captchaId = $id;
-		$this->captchaData = $data;
+	public function __construct(
+		public $captchaId,
+		public $captchaData,
+	) {
 	}
 
 	/** @inheritDoc */

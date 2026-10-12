@@ -24,13 +24,10 @@ class HTMLHCaptchaField extends HTMLFormField {
 	 * @param array $params
 	 */
 	public function __construct( array $params ) {
-		$params += [ 'error' => null, 'deferMissingTokenToAuth' => false ];
-		parent::__construct( $params );
+		parent::__construct( [ ...$params, 'name' => 'h-captcha-response' ] );
 
-		$this->error = $params['error'];
-		$this->deferMissingTokenToAuth = $params['deferMissingTokenToAuth'];
-
-		$this->mName = 'h-captcha-response';
+		$this->error = $params['error'] ?? null;
+		$this->deferMissingTokenToAuth = $params['deferMissingTokenToAuth'] ?? false;
 	}
 
 	/**

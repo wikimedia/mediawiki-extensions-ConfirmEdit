@@ -15,7 +15,7 @@ class HTMLReCaptchaNoCaptchaField extends HTMLFormField {
 	/** @var string Public key parameter to be passed to ReCaptcha. */
 	protected $key;
 
-	/** @var string Error returned by ReCaptcha in the previous round. */
+	/** @var string|null Error returned by ReCaptcha in the previous round. */
 	protected $error;
 
 	/**
@@ -25,13 +25,10 @@ class HTMLReCaptchaNoCaptchaField extends HTMLFormField {
 	 * @param array $params
 	 */
 	public function __construct( array $params ) {
-		$params += [ 'error' => null ];
-		parent::__construct( $params );
+		parent::__construct( [ ...$params, 'name' => 'g-recaptcha-response' ] );
 
 		$this->key = $params['key'];
-		$this->error = $params['error'];
-
-		$this->mName = 'g-recaptcha-response';
+		$this->error = $params['error'] ?? null;
 	}
 
 	/** @inheritDoc */

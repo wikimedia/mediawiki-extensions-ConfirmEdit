@@ -15,7 +15,7 @@ class HTMLTurnstileField extends HTMLFormField {
 	/** @var string Public key parameter to be passed to Turnstile. */
 	protected $key;
 
-	/** @var string Error returned by Turnstile in the previous round. */
+	/** @var string|null Error returned by Turnstile in the previous round. */
 	protected $error;
 
 	/**
@@ -25,13 +25,10 @@ class HTMLTurnstileField extends HTMLFormField {
 	 * @param array $params
 	 */
 	public function __construct( array $params ) {
-		$params += [ 'error' => null ];
-		parent::__construct( $params );
+		parent::__construct( [ ...$params, 'name' => 'cf-turnstile-response' ] );
 
 		$this->key = $params['key'];
-		$this->error = $params['error'];
-
-		$this->mName = 'cf-turnstile-response';
+		$this->error = $params['error'] ?? null;
 	}
 
 	/** @inheritDoc */

@@ -40,6 +40,9 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 		// checks may cause the tests to fail (such as those from IPReputation).
 		$this->clearHook( 'ConfirmEditTriggersCaptcha' );
 
+		$this->mergeMwGlobalArrayValue( 'wgRateLimits',
+			[ 'badcaptcha' => [ 'user' => [ 1, 1 ] ] ]
+		);
 		$this->overrideConfigValues( [
 			'CaptchaClass' => SimpleCaptcha::class,
 			'CaptchaBadLoginAttempts' => 1,
@@ -372,15 +375,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 	/**
 	 * @dataProvider providePingLimiter
 	 */
-	public function testPingLimiter( array $attempts ) {
-		$this->mergeMwGlobalArrayValue(
-			'wgRateLimits',
-			[
-				'badcaptcha' => [
-					'user' => [ 1, 1 ],
-				],
-			]
-		);
+	public function testPingLimiter( array ...$attempts ) {
 		$provider = new CaptchaPreAuthenticationProvider(
 			$this->getServiceContainer()->get( 'ConfirmEditLoginAttemptCounterFactory' ),
 			$this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' )
@@ -391,7 +386,7 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 
 		$disablePingLimiter = false;
 		$this->setTemporaryHook( 'PingLimiter',
-			static function ( &$user, $action, &$result ) use ( &$disablePingLimiter ) {
+			static function ( $user, $action, &$result ) use ( &$disablePingLimiter ) {
 				if ( $disablePingLimiter ) {
 					$result = false;
 					return false;
@@ -400,33 +395,35 @@ class CaptchaPreAuthenticationProviderTest extends MediaWikiIntegrationTestCase 
 			}
 		);
 		foreach ( $attempts as $attempt ) {
-			$disablePingLimiter = !empty( $attempts[3] );
+			[ $authenticationRequest, $userGroup, $expected ] = $attempt;
+			$disablePingLimiter = isset( $attempt[3] );
+			$user = $this->getTestUser( $userGroup )->getUser();
+
 			$captcha = new SimpleCaptcha();
 			CaptchaStore::get()->store( '345', [ 'question' => '7+7', 'answer' => '14' ] );
-			$success = $providerAccess->verifyCaptcha( $captcha, [ $attempts[0] ], $attempts[1] );
-			$this->assertEquals( $attempts[2], $success );
+			$success = $providerAccess->verifyCaptcha( $captcha, [ $authenticationRequest ], $user );
+			$this->assertSame( $expected, $success );
 		}
 	}
 
 	public static function providePingLimiter() {
-		$sysop = User::newFromName( 'UTSysop' );
 		return [
-			// sequence of [ auth request, user, result, disable ping limiter? ]
+			// sequence of [ auth request, user group, result, disable ping limiter? ]
 			'no failure' => [
-				[ self::getCaptchaRequest( '345', '14' ), new User(), true ],
-				[ self::getCaptchaRequest( '345', '14' ), new User(), true ],
+				[ self::getCaptchaRequest( '345', '14' ), 'user', true ],
+				[ self::getCaptchaRequest( '345', '14' ), 'user', true ],
 			],
 			'limited' => [
-				[ self::getCaptchaRequest( '345', '33' ), new User(), false ],
-				[ self::getCaptchaRequest( '345', '14' ), new User(), false ],
+				[ self::getCaptchaRequest( '345', '33' ), 'user', false ],
+				[ self::getCaptchaRequest( '345', '14' ), 'user', false ],
 			],
 			'exempt user' => [
-				[ self::getCaptchaRequest( '345', '33' ), $sysop, false ],
-				[ self::getCaptchaRequest( '345', '14' ), $sysop, true ],
+				[ self::getCaptchaRequest( '345', '33' ), 'sysop', false ],
+				[ self::getCaptchaRequest( '345', '14' ), 'sysop', true ],
 			],
 			'pinglimiter disabled' => [
-				[ self::getCaptchaRequest( '345', '33' ), new User(), false, 'disable' ],
-				[ self::getCaptchaRequest( '345', '14' ), new User(), true, 'disable' ],
+				[ self::getCaptchaRequest( '345', '33' ), 'user', false, 'disable' ],
+				[ self::getCaptchaRequest( '345', '14' ), 'user', true, 'disable' ],
 			],
 		];
 	}

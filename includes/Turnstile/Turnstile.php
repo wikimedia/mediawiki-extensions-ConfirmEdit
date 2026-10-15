@@ -6,7 +6,7 @@ namespace MediaWiki\Extension\ConfirmEdit\Turnstile;
 
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Auth\AuthenticationRequest;
-use Mediawiki\Context\RequestContext;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;

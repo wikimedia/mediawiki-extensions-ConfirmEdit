@@ -33,17 +33,17 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider provideCanSkipCaptchaForMessageWhitelist
+	 * @dataProvider provideCanSkipCaptchaForIpBypassList
 	 * @covers \MediaWiki\Extension\ConfirmEdit\Hooks::onPageSaveComplete
 	 */
-	public function testCanSkipCaptchaForMessageWhitelist( $ipWhitelistText, $requestIP, $expected ) {
+	public function testCanSkipCaptchaForIpBypassList( $content, $requestIP, $expected ) {
 		// We are testing the i18n message definition method, so clear the globals to avoid matching against them.
 		$this->overrideConfigValue( 'CaptchaBypassIPs', [] );
 
 		// Define override for the bypass i18n message
 		$this->overrideConfigValue( MainConfigNames::UseDatabaseMessages, true );
 		$this->editPage(
-			Title::makeTitle( NS_MEDIAWIKI, 'Captcha-ip-whitelist' ), $ipWhitelistText
+			Title::makeTitle( NS_MEDIAWIKI, SimpleCaptcha::IP_BYPASS_LIST ), $content
 		);
 
 		$testObject = new SimpleCaptcha();
@@ -57,12 +57,12 @@ class SimpleCaptchaDatabaseTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public static function provideCanSkipCaptchaForMessageWhitelist() {
+	public static function provideCanSkipCaptchaForIpBypassList() {
 		return [
-			'captcha-ip-whitelist is disabled' => [ '-', '1.2.3.4', false ],
-			'captcha-ip-whitelist contains invalid IPs' => [ "abc\nabcdef\n300.300.300.300", '1.2.3.4', false ],
-			'captcha-ip-whitelist contains IPs that don\'t match' => [ "1.2.3.5\n2.3.4.5", '1.2.3.4', false ],
-			'captcha-ip-whitelist contains an IP that matches' => [ "1.2.3.4\n2.3.4.5", '1.2.3.4', true ],
+			'IP bypass list is disabled' => [ '-', '1.2.3.4', false ],
+			'IP bypass list contains invalid IPs' => [ "abc\nabcdef\n300.300.300.300", '1.2.3.4', false ],
+			'IP bypass list contains IPs that don\'t match' => [ "1.2.3.5\n2.3.4.5", '1.2.3.4', false ],
+			'IP bypass list contains an IP that matches' => [ "1.2.3.4\n2.3.4.5", '1.2.3.4', true ],
 		];
 	}
 

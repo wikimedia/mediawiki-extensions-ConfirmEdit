@@ -46,6 +46,10 @@ use Wikimedia\Rdbms\IDBAccessObject;
  * Demo CAPTCHA (not for production usage) and base class for real CAPTCHAs
  */
 class SimpleCaptcha {
+
+	public const IP_BYPASS_LIST = 'Captcha-ip-whitelist';
+	private const ADDURL_BYPASS_LIST = 'Captcha-addurl-whitelist';
+
 	/** @var string */
 	protected static $messagePrefix = 'captcha';
 
@@ -406,7 +410,7 @@ class SimpleCaptcha {
 			return true;
 		}
 
-		$msg = wfMessage( 'captcha-ip-whitelist' )->inContentLanguage();
+		$msg = wfMessage( self::IP_BYPASS_LIST )->inContentLanguage();
 		if ( !$msg->isDisabled() ) {
 			$allowedIPs = $this->getWikiIPBypassList( $msg );
 			if ( IPUtils::isInRanges( $ip, $allowedIPs ) ) {
@@ -421,7 +425,7 @@ class SimpleCaptcha {
 	 * Get the on-wiki IP bypass list stored on a MediaWiki page from cache if possible.
 	 *
 	 * @param Message $msg Message on wiki with IP lists
-	 * @return array Allowed IP addresses or IP ranges, empty array if none
+	 * @return string[] Allowed IP addresses or IP ranges, empty array if none
 	 */
 	private function getWikiIPBypassList( Message $msg ) {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
@@ -799,7 +803,7 @@ class SimpleCaptcha {
 		static $regexes = null;
 
 		if ( $regexes === null ) {
-			$source = wfMessage( 'captcha-addurl-whitelist' )->inContentLanguage();
+			$source = wfMessage( self::ADDURL_BYPASS_LIST )->inContentLanguage();
 
 			$regexes = $source->isDisabled()
 				? []

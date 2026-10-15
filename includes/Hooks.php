@@ -118,12 +118,10 @@ class Hooks implements
 		$revisionRecord,
 		$editResult
 	) {
-		$title = $wikiPage->getTitle();
-		if ( $title->getText() === 'Captcha-ip-whitelist' && $title->getNamespace() === NS_MEDIAWIKI ) {
+		$ipBypassList = Title::makeTitle( NS_MEDIAWIKI, SimpleCaptcha::IP_BYPASS_LIST );
+		if ( $wikiPage->getTitle()->equals( $ipBypassList ) ) {
 			$this->cache->delete( $this->cache->makeKey( 'confirmedit', 'ipbypasslist' ) );
 		}
-
-		return true;
 	}
 
 	/**
@@ -207,11 +205,11 @@ class Hooks implements
 	}
 
 	/** @inheritDoc */
-	public function onTitleReadWhitelist( $title, $user, &$whitelisted ) {
+	public function onTitleReadWhitelist( $title, $user, &$allowed ) {
 		$image = SpecialPage::getTitleFor( 'Captcha', 'image' );
 		$help = SpecialPage::getTitleFor( 'Captcha', 'help' );
 		if ( $title->equals( $image ) || $title->equals( $help ) ) {
-			$whitelisted = true;
+			$allowed = true;
 		}
 	}
 
@@ -232,10 +230,8 @@ class Hooks implements
 	public function onAlternateEditPreview( $editPage, &$content, &$previewHTML,
 		&$parserOutput
 	) {
-		$title = $editPage->getTitle();
-		$exceptionTitle = Title::makeTitle( NS_MEDIAWIKI, 'Captcha-ip-whitelist' );
-
-		if ( !$title->equals( $exceptionTitle ) ) {
+		$ipBypassList = Title::makeTitle( NS_MEDIAWIKI, SimpleCaptcha::IP_BYPASS_LIST );
+		if ( !$editPage->getTitle()->equals( $ipBypassList ) ) {
 			return true;
 		}
 

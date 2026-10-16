@@ -15,7 +15,6 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\ResourceLoader\ClientHtml;
 use MediaWiki\ResourceLoader\Context;
-use MediaWiki\ResourceLoader\ResourceLoader;
 use Wikimedia\Assert\Assert;
 
 /**
@@ -81,7 +80,6 @@ class HCaptchaOutput {
 
 	public function __construct(
 		private readonly ServiceOptions $options,
-		private readonly ResourceLoader $resourceLoader,
 		private readonly LanguageFallback $languageFallback,
 		private readonly CaptchaFactory $captchaFactory,
 	) {
@@ -239,8 +237,9 @@ class HCaptchaOutput {
 		OutputPage $outputPage,
 		string $siteKey
 	): void {
-		$module = $this->resourceLoader->getModule( 'ext.confirmEdit.hCaptcha.gradeC' );
-		$context = new Context( $this->resourceLoader, $outputPage->getRequest() );
+		$resourceLoader = $outputPage->getResourceLoader();
+		$module = $resourceLoader->getModule( 'ext.confirmEdit.hCaptcha.gradeC' );
+		$context = new Context( $resourceLoader, $outputPage->getRequest() );
 		$version = $module->getVersionHash( $context );
 		$bundleUrl = wfAppendQuery(
 			$this->options->get( MainConfigNames::LoadScript ),

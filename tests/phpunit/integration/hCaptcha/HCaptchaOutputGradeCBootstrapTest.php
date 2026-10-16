@@ -67,6 +67,8 @@ class HCaptchaOutputGradeCBootstrapTest extends MediaWikiIntegrationTestCase {
 		$outputPage->method( 'getActionName' )->willReturn( $action );
 		$outputPage->method( 'getLanguage' )->willReturn( $mockLanguage );
 		$outputPage->method( 'getJsConfigVars' )->willReturn( $jsConfigVars );
+		$outputPage->method( 'getResourceLoader' )
+			->willReturn( $this->getServiceContainer()->getResourceLoader() );
 		$outputPage->method( 'msg' )
 			->willReturnCallback( static fn ( $key ) => wfMessage( $key ) );
 		$outputPage->method( 'addHeadItem' )

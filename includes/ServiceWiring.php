@@ -29,7 +29,6 @@ return [
 				HCaptchaOutput::CONSTRUCTOR_OPTIONS,
 				$services->getMainConfig()
 			),
-			$services->getResourceLoader(),
 			$services->getLanguageFallback(),
 			$services->get( 'ConfirmEditCaptchaFactory' )
 		);

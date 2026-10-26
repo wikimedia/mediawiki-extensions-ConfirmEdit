@@ -11,9 +11,6 @@ use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
  * Authentication request for Turnstile. Functions almost identically to ReCaptchaNoCaptchaAuthenticationRequest.
  */
 class TurnstileAuthenticationRequest extends CaptchaAuthenticationRequest {
-	public function __construct() {
-		parent::__construct( '', [] );
-	}
 
 	/** @inheritDoc */
 	public function loadFromSubmission( array $data ) {

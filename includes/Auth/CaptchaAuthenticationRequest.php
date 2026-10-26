@@ -23,12 +23,14 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 	public $captchaWord;
 
 	/**
-	 * @param string $captchaId
-	 * @param array $captchaData
+	 * @param string|null $captchaId Identifier of the captcha. Used internally to remember which
+	 *  captcha was used.
+	 * @param array $captchaData Information about the captcha (e.g. question text; solution).
+	 *  Exact semantics differ between types.
 	 */
 	public function __construct(
-		public $captchaId,
-		public $captchaData,
+		public ?string $captchaId = null,
+		public array $captchaData = [],
 	) {
 	}
 
@@ -48,10 +50,9 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 				$this,
 				RequestContext::getMain()->getRequest()->getSession()
 			);
-			$this->captchaData = $captcha->retrieveCaptcha( $this->captchaId );
-			if ( !$this->captchaData ) {
-				return false;
-			}
+			$data = $captcha->retrieveCaptcha( $this->captchaId );
+			$success = $data !== false;
+			$this->captchaData = $data ?: [];
 		}
 		return $success;
 	}
@@ -109,17 +110,5 @@ class CaptchaAuthenticationRequest extends AuthenticationRequest {
 			RequestContext::getMain()->getRequest()->getSession()
 		);
 		return $captcha->describeCaptchaType();
-	}
-
-	/**
-	 * @param array $data
-	 * @return CaptchaAuthenticationRequest
-	 */
-	public static function __set_state( $data ) {
-		$ret = new static( '', [] );
-		foreach ( $data as $k => $v ) {
-			$ret->$k = $v;
-		}
-		return $ret;
 	}
 }

@@ -12,9 +12,6 @@ use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
  * and there is no ID; Google provides a single proof string after successfully solving a captcha.
  */
 class ReCaptchaNoCaptchaAuthenticationRequest extends CaptchaAuthenticationRequest {
-	public function __construct() {
-		parent::__construct( '', [] );
-	}
 
 	/** @inheritDoc */
 	public function loadFromSubmission( array $data ) {

@@ -206,7 +206,7 @@ class CaptchaFactoryTest extends MediaWikiIntegrationTestCase {
 		string $authenticationRequestAction,
 		string $expectedAction
 	): void {
-		$captchaAuthenticationRequest = new CaptchaAuthenticationRequest( '', [] );
+		$captchaAuthenticationRequest = new CaptchaAuthenticationRequest();
 		$captchaAuthenticationRequest->action = $authenticationRequestAction;
 
 		// We cannot access the action inside the returned SimpleCaptcha instance, so read it by storing the action

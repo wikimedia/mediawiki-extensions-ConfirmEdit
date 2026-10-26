@@ -9,9 +9,6 @@ use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
 use MediaWiki\MediaWikiServices;
 
 class HCaptchaAuthenticationRequest extends CaptchaAuthenticationRequest {
-	public function __construct() {
-		parent::__construct( '', [] );
-	}
 
 	/** @inheritDoc */
 	public function loadFromSubmission( array $data ) {

@@ -138,7 +138,6 @@
 				"MainConfig",
 				"ConfirmEditCaptchaFactory",
 				"ConfirmEditHCaptchaBlocksLookup",
-				"HookContainer",
 				"ConfirmEditHCaptchaRiskScoreCrawlerFilter"
 			]
 		},

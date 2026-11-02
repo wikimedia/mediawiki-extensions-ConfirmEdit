@@ -188,6 +188,8 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		// Mock HttpRequestFactory directly so that we can check the URL and options are as expected.
 		// Initial attempt plus two retries should all use the same URL and options.
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
+		$mockHttpRequestFactory->method( 'getUserAgent' )
+			->willReturn( 'MediaWiki/1.48' );
 		$mockHttpRequestFactory->expects( $this->exactly( 3 ) )
 			->method( 'create' )
 			->willReturnCallback( function ( $url, $options ) use ( $mwHttpRequest ) {
@@ -202,6 +204,7 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 						],
 						'proxy' => 'proxy.test.com',
 						'timeout' => 1,
+						'userAgent' => 'MediaWiki/1.48 ConfirmEdit-hCaptcha',
 					],
 					$options,
 					false,
@@ -588,11 +591,18 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 		}
 
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
+		$mockHttpRequestFactory->method( 'getUserAgent' )
+			->willReturn( 'MediaWiki/1.48' );
 		$mockHttpRequestFactory->method( 'create' )
 			->willReturnCallback( function ( $url, $options ) use ( $mwHttpRequest, $expectedPostData ) {
 				$this->assertSame( 'https://api.hcaptcha.com/siteverify', $url );
 				$this->assertArrayEquals(
-					[ 'method' => 'POST', 'postData' => $expectedPostData, 'timeout' => 1 ],
+					[
+						'method' => 'POST',
+						'postData' => $expectedPostData,
+						'timeout' => 1,
+						'userAgent' => 'MediaWiki/1.48 ConfirmEdit-hCaptcha',
+					],
 					$options,
 					false,
 					true

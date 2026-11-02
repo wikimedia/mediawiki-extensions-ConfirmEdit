@@ -388,6 +388,7 @@ class HCaptcha extends SimpleCaptcha {
 			'method' => 'POST',
 			'postData' => $data,
 			'timeout' => 1,
+			'userAgent' => $this->httpRequestFactory->getUserAgent() . ' ConfirmEdit-hCaptcha',
 		];
 
 		$proxy = $this->hCaptchaConfig->get( 'HCaptchaProxy' );

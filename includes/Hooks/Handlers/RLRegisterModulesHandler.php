@@ -115,7 +115,6 @@ class RLRegisterModulesHandler implements ResourceLoaderRegisterModulesHook {
 				'dependencies' => [
 					'mediawiki.api',
 					'oojs-ui',
-					'web2017-polyfills',
 					'codex-styles',
 				],
 			];

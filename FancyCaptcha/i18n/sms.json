@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Miilehti",
 			"Yupik"
 		]
 	},
+	"fancycaptcha-captcha": "Staanvuõđ taʹrǩǩeem",
 	"fancycaptcha-imgcaptcha-ph": "Ǩeeʹrjet teeʹkst, mâiʹd vuäinak kaartâst",
 	"fancycaptcha-reload-text": "Uuʹd ođđ kaart"
 }

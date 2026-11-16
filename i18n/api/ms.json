@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakimi97"
+		]
+	},
+	"captcha-apihelp-param-captchaword": "Jawapan kepada CAPTCHA",
+	"captcha-apihelp-param-captchaid": "ID CAPTCHA daripada permintaan sebelumnya",
+	"confirmedit-hcaptcha-apihelp-param-forceshowcaptcha": "Sama ada CAPTCHA hCaptcha yang ditunjukkan adalah terpaksa ditunjukkan, seperti akibat sambungan AbuseFilter (dan dengan itu menggunakan sitekey yang lebih ketat). Tetapkannya sebegini jika pembolehubah konfigurasi JS dengan nama yang sama adalah benar atau jika percubaan pertama untuk menggunakan API ini mengembalikan kesilapan 'forcecaptcha' dengan sitekey yang ditentukan."
+}

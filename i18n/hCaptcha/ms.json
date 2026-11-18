@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakimi97"
+		]
+	},
+	"hcaptcha-desc": "Modul [https://www.hcaptcha.com/ hCaptcha] untuk Sah Sunting",
+	"hcaptcha-edit": "Untuk melindungi wiki daripada spam penyuntingan automatik, kami meminta kerjasama anda untuk melengkapkan hCaptcha berikut:",
+	"hcaptcha-addurl": "Suntingan anda mengandungi pautan luar baharu. Untuk melindungi wiki daripada spam automatik, kami meminta kerjasama anda untuk melengkapkan hCaptcha berikut:",
+	"hcaptcha-badlogin": "Untuk melindungi wiki daripada perengkahan kata laluan automatik, kami meminta kerjasama anda untuk melengkapkan hCaptcha berikut:",
+	"hcaptcha-createaccount": "Untuk melindungi wiki daripada penciptaan akaun automatik, kami meminta kerjasama anda untuk melengkapkan hCaptcha berikut:",
+	"hcaptcha-createaccount-fail": "Nampak gaya anda tidak siapkan hCaptcha.",
+	"hcaptcha-create": "Untuk melindungi wiki daripada penciptaan laman automatik, kami meminta kerjasama anda untuk melengkapkan hCaptcha berikut:",
+	"hcaptcha-help": "Sila selesaikan cabaran hCaptcha dan kembali nilai balas sebagai captchaWord.",
+	"hcaptcha-privacy-policy": "Laman web ini dilindungi oleh hCaptcha dan tertakluk kepada [https://www.hcaptcha.com/privacy Dasar Privasi] dan [httPS://www. hcaptcha.com/terms Syarat Perkhidmatan].",
+	"hcaptcha-challenge-closed": "Untuk meneruskan, anda mesti menyelesaikan captcha.",
+	"hcaptcha-challenge-expired": "Tempoh untuk menyelesaikan captcha telah tamat. Sila cuba lagi.",
+	"hcaptcha-generic-error": "Terdapat satu kesilapan semasa memuat borang tersebut. Untuk meneruskan, anda perlu memuat semula laman ini.",
+	"hcaptcha-internal-error": "Terdapat satu kesilapan dalaman semasa menghantar borang. Sila cuba lagi.",
+	"hcaptcha-network-error": "Terdapat satu kesilapan rangkaian semasa menghantar borang. Sila pastikan anda mempunyai sambungan yang berfungsi dan cuba lagi.",
+	"hcaptcha-rate-limited": "Ada terlalu banyak percubaan untuk menyelesaikan captcha. Sila tunggu sebentar sebelum cuba lagi.",
+	"hcaptcha-loading-indicator-label": "Sila tunggu sehingga kami selesai memuat naik borang...",
+	"hcaptcha-missing-token": "Kami belum selesai memuat naik borang. Sila tunggu beberapa saat, kemudian cuba lagi.",
+	"hcaptcha-noscript": "JavaScript diperlukan untuk meneruskan. Hidupkan JavaScript di tetapan pelayar anda dan kemas kini laman tersebut.",
+	"hcaptcha-force-show-captcha-edit": "Sila hantar semula borang dan selesaikan cabaran tersebut untuk menyimpan suntingan anda.",
+	"hcaptcha-visual-editor-error-handler-warning": "Sila hantar semula borang untuk menyimpan suntingan anda."
+}

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakimi97"
+		]
+	},
+	"hcaptcha-desc": "Modul [https://www.hcaptcha.com/ hCaptcha] untuk Sah Sunting",
+	"hcaptcha-privacy-policy": "Laman web ini dilindungi oleh hCaptcha dan tertakluk kepada [https://www.hcaptcha.com/privacy Dasar Privasi] dan [httPS://www. hcaptcha.com/terms Syarat Perkhidmatan].",
+	"hcaptcha-challenge-closed": "Untuk meneruskan, anda mesti menyelesaikan captcha.",
+	"hcaptcha-challenge-expired": "Tempoh untuk menyelesaikan captcha telah tamat. Sila cuba lagi.",
+	"hcaptcha-generic-error": "Terdapat satu kesilapan semasa memuat borang tersebut. Untuk meneruskan, anda perlu memuat semula laman ini.",
+	"hcaptcha-loading-indicator-label": "Sila tunggu sehingga kami selesai memuat naik borang...",
+	"hcaptcha-missing-token": "Kami belum selesai memuat naik borang. Sila tunggu beberapa saat, kemudian cuba lagi.",
+	"hcaptcha-noscript": "JavaScript diperlukan untuk meneruskan. Hidupkan JavaScript di tetapan pelayar anda dan kemas kini laman tersebut."
+}

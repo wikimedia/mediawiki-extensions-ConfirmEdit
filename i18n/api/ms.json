@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakimi97"
+		]
+	},
+	"captcha-apihelp-param-captchaword": "Jawapan kepada CAPTCHA",
+	"captcha-apihelp-param-captchaid": "ID CAPTCHA daripada permintaan sebelumnya"
+}

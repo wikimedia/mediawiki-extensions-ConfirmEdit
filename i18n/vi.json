@@ -41,6 +41,7 @@
 	"confirmedit-preview-valid": "hợp lệ",
 	"confirmedit-preview-invalid": "không hợp lệ",
 	"confirmedit-preview-description": "Bảng dưới đây liệt kê các dòng trên trang này và cho biết đó có phải là địa chỉ IP hoặc dải địa chỉ IP hợp lệ hay không. Nếu là địa chỉ hoặc dải địa chỉ IP hợp lệ, dòng đó sẽ được miễn kiểm tra CAPTCHA, còn các dòng không hợp lệ sẽ bị bỏ qua. Ví dụ về một dải địa chỉ IP hợp lệ: 69.208.0.0/16, bao gồm từ 69.208.0.0 đến 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Thông tin thêm] về cách tính dải địa chỉ IP.",
+	"abusefilter-action-showcaptcha": "Hiện CAPTCHA",
 	"abusefilter-edit-action-showcaptcha": "Yêu cầu người dùng xác minh CAPTCHA để thực hiện tác vụ",
 	"abusefilter-edit-action-showcaptcha-help": "Chọn mục này sẽ ảnh hưởng đến cả những người vốn được miễn điền CAPTCHA."
 }

@@ -39,6 +39,7 @@
 	"confirmedit-preview-valid": "sah",
 	"confirmedit-preview-invalid": "tidak sah",
 	"confirmedit-preview-description": "Jadual berikut menunjukkan senarai baris di laman ini dan sama ada ia alamat IP atau julat alamat IP yang sah. Jika baris tersebut merupakan alamat IP atau julat alamat IP yang sah, ia akan dikecualikan daripada semakan CAPTCHA tetapi baris yang tidak sah akan diabaikan. Contoh julat alamat IP yang sah ialah: 69.208.0.0/16 yang bermula dari 69.208.0.0 hingga 69.208.255.255. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Range_blocks#Calculating_the_CIDR_suffix Maklumat lanjut] tentang pengiraan julat alamat IP.",
+	"abusefilter-action-showcaptcha": "Tunjukkan CAPTCHA",
 	"abusefilter-edit-action-showcaptcha": "Memerlukan pengesahan CAPTCHA untuk melaksanakan tindakan tersebut",
 	"abusefilter-edit-action-showcaptcha-help": "Dengan membuat pilihan ini akan menjejaskan pengguna yang dikecualikan daripada CAPTCHA."
 }

@@ -24,6 +24,7 @@ use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
+use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
 use MockHttpTrait;
 use Psr\Log\LoggerInterface;
@@ -454,6 +455,24 @@ class HCaptchaTest extends MediaWikiIntegrationTestCase {
 			new FauxRequest(),
 			$this->getServiceContainer()->getUserFactory()->newAnonymous( '1.2.3.4' )
 		) );
+		$this->assertSame( 'missing-token', $hCaptcha->getError() );
+	}
+
+	public function testPassCaptchaLimitedFromRequestDoesNotCountMissingToken() {
+		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
+		$mockHttpRequestFactory->expects( $this->never() )
+			->method( 'create' );
+		$this->setService( 'HttpRequestFactory', $mockHttpRequestFactory );
+
+		$user = $this->createMock( User::class );
+		$user->method( 'getName' )->willReturn( '1.2.3.4' );
+		$user->expects( $this->never() )
+			->method( 'pingLimiter' );
+
+		$hCaptcha = new HCaptcha();
+		$hCaptcha->setAction( 'edit' );
+
+		$this->assertFalse( $hCaptcha->passCaptchaLimitedFromRequest( new FauxRequest(), $user ) );
 		$this->assertSame( 'missing-token', $hCaptcha->getError() );
 	}
 

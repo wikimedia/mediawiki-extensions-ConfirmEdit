@@ -27,6 +27,7 @@ use MediaWiki\Request\ContentSecurityPolicy;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use Psr\Log\LoggerInterface;
 use Wikimedia\ObjectCache\BagOStuff;
@@ -139,6 +140,20 @@ class HCaptcha extends SimpleCaptcha {
 			)
 		);
 		return [ '', $response ];
+	}
+
+	/** @inheritDoc */
+	public function passCaptchaLimitedFromRequest( WebRequest $request, User $user ) {
+		[ $index, $token ] = $this->getCaptchaParamsFromRequest( $request );
+
+		// passCaptchaLimited() counts each failure for the badcaptcha rate limit.
+		// A request without a token is not a wrong guess, and gives away no
+		// challenge, so check it with passCaptcha() instead, which does not count it.
+		if ( $token === null || $token === '' ) {
+			return $this->passCaptcha( $index, $token, $user );
+		}
+
+		return parent::passCaptchaLimitedFromRequest( $request, $user );
 	}
 
 	/**

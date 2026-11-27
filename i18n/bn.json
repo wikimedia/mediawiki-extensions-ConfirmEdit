@@ -37,5 +37,6 @@
 	"confirmedit-preview-content": "বিষয়বস্তু",
 	"confirmedit-preview-validity": "বৈধতা",
 	"confirmedit-preview-valid": "বৈধ",
-	"confirmedit-preview-invalid": "অবৈধ"
+	"confirmedit-preview-invalid": "অবৈধ",
+	"abusefilter-action-showcaptcha": "ক্যাপচা দেখান"
 }
